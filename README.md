@@ -1,0 +1,2 @@
+# Wolvercoin
+Wolvercoin code creation
