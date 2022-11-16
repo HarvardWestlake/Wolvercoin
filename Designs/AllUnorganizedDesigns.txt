@@ -1,0 +1,100 @@
+Wolvercoin Designs
+Mint 1 wolvercoin to Mr Theiss every transaction
+If block.number % 69 == 0, mint 420 wolversoni to sender / receiver
+Use wolvercoin to buy tampons in the bathroom
+Lotter where a student receives 10% of wolvercoin exchanged that day
+0.05% of wolvercoin is converted back into USD and donated to charity of the classes choice
+If > 69% of people vote to destroy Wolvercoin then it will be destroyed
+   - Create a second token that gives governing power (like Bone in ShibaCoin to allow people to vote)
+Use Wolvercoin to help wolverines in real life
+If you burn to 0x000 50% chance of burning, 50% chance of returning it double
+Lottery system with a wheel (text based- GUI)
+Mint NFTs (Wolverines which can breed)
+    Have traits
+Staking for x amount of time and earn interest
+Don't allow people who havent completed honors topics to not withdraw $$$
+Have a DAO to vote on proposals
+if someone controls 20%, inflate the supply of wolvercoin to dillute them to %15
+after 100 transactions you no longer have to pay gas fees
+wolvercoin can never be deployed to a blockchain with miners
+most transactions in a day will be rewarded with a 10% bonus
+-be able to create NFTs and upload to the wolvercoin network (have a variable for NFT contract address and later 
+upload NFTs and pay for them with wolvercoin**
+create prize pools for initial activity on the wolvercoin platform
+tax creators to prevent nft actions (creation, but, sell, trade)
+host NFT competition periodically
+   - secret theme chosen and matching nft 
+0.6% of all transactions go into a pot
+every other week with at least X wolvercoin can
+ - donate 5% of the pot to a charity or 
+ - get 1% of the communcal pot transferred into an account of their choosing
+Risky 
+anytime you can 'donate' to the pot, 40% chance of doubling, 60% chance of halving it
+if you enter above x%, you have 50% chance of doubling and 70% chance of halving
+If you stake the coin, you get free tokens
+Predict rise and fall you get free tokens
+GPA matters, how many tickets in lottery
+   - 1% transaction goes to winner
+students with higher gpa get more drawings in the lottery 
+If your grade drop
+Cryptodays in the cafeteria, get free swipes
+
+1% goe sto a community pot and we can vote on how its spent
+votes are proportional to coin SPENT not coin HELD*** -> encourage spending 
+First 10 transactions from each address to pay an extra flat tax to the community pot
+5% of transactions go to a lottery pool, each change of winning porportional to the WVC they hold in relation to the total supply (so ppl are patient)
+Could also create an algorithmic treasury 
+Each day ppl get 3% interest
+Can spend wolvercoin for direct grade 
+
+Every 10 coins minted, the 11th person gets 2x as much currency
+If you mine at a time with angel numbers you get 4x as much money
+In order to get a coin you have to type a haiku to Mr. Theiss
+
+Proof of meme for one wolverconi (have ownership via private key)
+Lottery
+  if x coins are sent to the lottery
+   has a 25% chance of transferring 3x conis back to you, (win double amount)
+  or has 75% chance of only 0.25x coins transferred back
+  Circulating supply will be stable due to burning
+Welfare service, once a week, lottery account gives whatever amount of money it has to people with less than 10 wolvercoins who sign up for the service
+
+Virtual slot machine and modded by a number. 85% actual return, with tiers
+coinflip
+
+everytime you make a transaction over $1, 1% of the highest wolvercoin account would give you 5% of their total balance
+1% of transaction goes to a pot, it goes to whoever spent the most wolvercoin in that month
+if someone doesn't use the coin for over a year, 10% of it goes to 200 different users
+
+Wolvercoin could be used in the bookstore
+if you have 30 wolvercoin you can place an image on the wolverscrenes
+10% randomly gets transferred to a random user once a week
+
+
+in you have at least XXX wolvercoin, you can claim the pot
+usable in the caf through purchasable NFTs
+5% chance of claiming the entire pot, 95% chance to claim pot, 20% chance to drain pot
+
+all value should remain on chain
+create guaranteed value in coin (crwodfunding ads...)
+use a proxy so code can always be updated
+
+non honrs topics get 50% decreased rewards
+sender taxed 2-4 am 50%
+lottery goes to pot
+
+
+
+Mechanics
+- They all have similar mechanismss 
+- Upgradable?
+- Crypto investors are dumb (hype cycle)
+  Adrianne 
+- AWS bucket stores the NFTs but IPFS gets the SHA of them
+- Naming convention with similar things (SPANK / Booty,  SHIB / BONE, PANCAKE / SYRUP, 
+
+
+
+- Upgradable?
+- Admin?
+- How can we prevent a winner from outbidding every NFT?
