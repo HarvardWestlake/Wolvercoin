@@ -1,0 +1,17 @@
+# UNFILTERED FROM LIST: 
+- If > 69% of people vote to destroy Wolvercoin then it will be destroyed
+   - Create a second token that gives governing power (like Bone in ShibeCoin to allow people to vote)
+- Have a DAO to vote on proposals
+- if someone controls 20%, inflate the supply of wolvercoin to dilute them to %15
+- 1% goes to a community pot and we can vote on how it's spent
+- ((((votes are proportional to coin SPENT not coin HELD*** -> encourage spending 
+# DESIGN: 
+- DAO - all the people/ group that can vote (people that hold wolvercoin)  
+  - 2 types of voting (each with own requirements to be able to vote) for different scenarios
+  - Restricted voting: 2nd type of token, allows people to use this second token to vote on decisions
+  - Only people with possession of this 2nd token can vote in these types of decisions
+  - Open voting: DAO made up of current Honors Topics students with any amount of Wolvercoin over 0 wolvercoin
+  - Weighted voting: people who are eligible to vote have more weight on the vote depending on how much they’ve spent (maxed at a certain spent amount) 
+- 2nd coin
+  - For each transaction, the user gets a certain amount of a VOTE coin which increases based on how much the user spent in their transaction.
+  - These SPENT coins determine the amount of votes a user receives when determining how the community pot is spent.
