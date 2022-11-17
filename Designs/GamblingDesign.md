@@ -28,4 +28,4 @@
 - Bet on one HW sport game a week voted by all wolvercoin holders
 - Same concept as predicting rise and fall
 ## BlackJack
-- play blackjack against a contract(the house)
+- play blackjack against a contract(the house) (if win mint coin if lose, burn)
