@@ -23,3 +23,7 @@
 
 ## Crash gambling
 - Cash out before rocket crashes, get however much it reaches when you cash out
+
+## Sports betting
+- Bet on one HW sport game a week voted by all wolvercoin holders
+- Same concept as predicting rise and fall
