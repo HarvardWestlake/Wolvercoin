@@ -4,7 +4,7 @@
 > - If you beat Mr. Theiss’s Get Ricky C high score, your WolverCoin Wallet is multiplied by 3.14x
 - Need to send in screenshot with proof of the date it was taken
 - Need to be able to prove it was not photoshopped
-> #### Send Mr. Theiss a Haiku
+> #### **Send Mr. Theiss a Haiku**
 > - If you email Mr. Theiss a unique haiku (he’ll use a plagiarism checker), then you get 5 Wolver Coin. Can only be done once
 - The haiku has to rhyme for all three lines **or** end with a couplet
 - If you want 10 Wolvercoin you must write 3 haikus about these 3 topics (Mr. Theiss' Favorite Things)
@@ -13,7 +13,7 @@
     - Hanging the phone on your parents
 - 3 extra wolvercoin if it's written in a Romance Language and still rhymes
 - 15 extra wolvercoin if you film yourself recording the 3 haikus and send it to all Honors Topics Students
-> #### Dance for Mr. Theiss
+> #### **Dance for Mr. Theiss**
 > - If you impress Mr. Theiss with a little dance, you get 5 WolverCoin. Can only be used once
 - 3 extra Wolvercoin if it's to a Taylor Swift song
 - 3 extra Wolvercoin per person if you get over 3 people in your dance
