@@ -1,4 +1,5 @@
-## Flip a coin: 50% chance of burning, 50% chance of returning it double
+## Flip a coin: 
+- 50% chance of burning, 50% chance of returning it double
 
 ## Gambling system with a wheel (text based- GUI)
 - Roulette
