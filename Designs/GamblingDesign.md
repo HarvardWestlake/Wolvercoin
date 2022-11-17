@@ -1,4 +1,5 @@
-## Flip a coin: 50% chance of burning, 50% chance of returning it double
+## Flip a coin:
+- 50% chance of burning, 50% chance of returning it double
 
 ## Gambling system with a wheel (text based- GUI)
 - Roulette
@@ -27,5 +28,6 @@
 ## Sports betting
 - Bet on one HW sport game a week voted by all wolvercoin holders
 - Same concept as predicting rise and fall
-## BlackJack
+- 
+## Blackjack
 - play blackjack against a contract(the house) (if win mint coin if lose, burn)
