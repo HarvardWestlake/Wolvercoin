@@ -1,16 +1,12 @@
 > ## Social and Donation Designs
+
 > #### Charity
-> - 1% of the community pot is dedicated to charity
-> - Users can use the voting system to decide which charity is chosen
-> - Donations will be made every week
-> - It will be converted back to USD before donating
-
-> #### All idea from unedited list: 
-> - 1% goes to a community pot and we can vote on how its spent
-> - 5% of transactions go to a lottery pool, each change of winning proportional to the WVC they hold in relation to the total supply (so ppl are patient)
-> - 10% randomly gets transferred to a random user once a week
-> - Welfare service, once a week, lottery account gives whatever amount of money it has to people with less than 10 wolvercoins who sign up for the service
-> - 0.05% of wolvercoin is converted back into USD and donated to charity of the classes choice
-> - Use Wolvercoin to help Wolverines IRL
-> - 5% of the pot from the lottery goes to charity- can vote how it’s spent
-
+> - There is an additional 1% tax on all transactions that goes to a community pot
+> - The community pot is a multisig wallet (wallet with multiple private keys) managed by a board of elected officials
+> - Users can vote on both the elected officials and where the money will go
+> - Votes are weighted based on amount of tax paid to the community pot
+> - For every wolvercoin paid to the community pot, you get a voting token
+> - Donations made on a monthly basis, elections for board members held for each honors topics year
+> - Board members control mode of payment (NFTs or USD)
+> - Ballot of potential charities is set by board members in the form of wallets for each charity
+> - To vote, holders of voting tokens send their tokens to a charity wallet of their choosing
