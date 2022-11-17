@@ -5,4 +5,4 @@
 ## All Investing items:
 - Staking for x amount of time and earn interest
 - Each day ppl get 3% interest
-- If you stake the coin, you get free tokens
+- If you stake the coin, you get free tokens 
