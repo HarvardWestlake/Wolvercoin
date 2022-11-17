@@ -31,3 +31,14 @@
 - 
 ## Blackjack
 - play blackjack against a contract(the house) (if win mint coin if lose, burn)
+
+## OG DESIGNS
+If you burn to 0x000 50% chance of burning, 50% chance of returning it double
+
+Lottery system with a wheel (text based- GUI)
+
+Risky 
+anytime you can 'donate' to the pot, 40% chance of doubling, 60% chance of halving it
+if you enter above x%, you have 30% chance of doubling and 70% chance of halving
+
+Predict rise and fall you get free tokens
