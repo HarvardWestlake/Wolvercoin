@@ -1,9 +1,8 @@
 ## Side Quests
 #### **Current Edits of Side Quests** Written by Your Favorite Crypto Experts (Ava and Eliza)
-#### Beat Mr. Theiss at Get Ricky C
-> - If you beat Mr. Theiss’s Get Ricky C high score, your WolverCoin Wallet is multiplied by 3.14x
-- Need to send in screenshot with proof of the date it was taken
-- Need to be able to prove it was not photoshopped
+#### Beat Mr. Theiss at Super Hexagon
+> - If you beat Mr. Theiss’s Super Hexagon high score, your WolverCoin Wallet is multiplied by 3.14x
+- Need to have some sort of undoctored verification that Mr. Theiss's agrees proves his defeat
 > #### **Send Mr. Theiss a Haiku**
 > - If you email Mr. Theiss a unique haiku (he’ll use a plagiarism checker), then you get 5 Wolver Coin. Can only be done once
 - The haiku has to rhyme for all three lines **or** end with a couplet
@@ -20,7 +19,11 @@
 - 1 extra Wolvercoin if you can remain stonefaced
 - 5 extra Wolvercoin if you are in costume
 #### **Old Side Quest Edits**
-#### Beat Mr. Theiss at Super Hexagon
+#### Beat Mr. Theiss at GetRickyC
+> - If you beat Mr. Theiss’s Get Ricky C high score, your WolverCoin Wallet is multiplied by 3.14x
+- Need to send in screenshot with proof of the date it was taken
+- Need to be able to prove it was not photoshopped
+#### Beat Mr. Theiss at Super Hexagon (Old)
 > - If you beat Mr. Theiss’s Super Hexagon high score, your WolverCoin Wallet is multiplied by 1.1x
 > #### Send Mr. Theiss a Haiku
 > - If you email Mr. Theiss a unique haiku (he’ll use a plagiarism checker), then you get 1 Wolver Coin. Can only be done once
