@@ -1,21 +1,26 @@
-# DESIGN: 
-- DAO - people that hold voterCoin  
-  - People are given voterCoin for the amount of gas they spending
-  - voterCoin can be staked to gain voting power (in a non-FTP voting system)
-    - If you voted for the winning proposition then your staked voterCoins is burned
-    - If you voted for the losing proposition then your staked voterCoins is return
-    - This should hopefully mean many different ideas can be pass 
-  - Removed: 2 types of voting (each with own requirements to be able to vote) for different scenarios
-  - Removed: Restricted voting: 2nd type of token, allows people to use this second token to vote on decisions
-  - Removed: Only people with possession of this 2nd token can vote in these types of decisions
-  - Removed: Open voting: DAO made up of current Honors Topics students with any amount of Wolvercoin over 0 wolvercoin
-  - Removed: Weighted voting: people who are eligible to vote have more weight on the vote depending on how much they’ve spent (maxed at a certain spent amount) 
-- voterCoin
-  - For each transaction, the user gets a certain amount of a VOTE coin which increases based on how much the user spent in their transaction.
-  - These SPENT coins determine the amount of votes a user receives when determining how the community pot is spent.
-- Failsafes
-  - At the start of the year their is some function that can determin who is in the honors topics class
-  - On August 30th (or any similar date) all of them are given an initial amount of coin
-  - On June 30th (or any similar date) the amount of coin they origonally got is removed 
-  - If one person every has too much control, there is a system to be able to end the coin
-    - if 80% of people (excluding the top 5 holders) vote to end the coin then the proxy that the code uses is pointed to nothing (deleteiung the coin)
+## Voting and Representation
+
+### DAO
+> Each person who holds any amount of VoterCoin has representation in a DAO.
+> - DAO is a contract that has authority to change important variable within the contract
+> - For example: changing the address of proxy (updates), changing the list of minters (elections), or changing variables (donations)
+> 
+> VoterCoin - *a voting system for diverse ideas*
+>  -  For money burnt as part of WC transaction, mints part of that back to user in VoterCoin
+>  - VoterCoin is staked when voting (using a non-FPTP system)
+>  - If you voted for the winning proposition then your staked VoterCoins is burnt
+>  - If you voted for one of the losing proposition then some percentage of the staked VoterCoins is returned
+>  - If no consensus is reached then (most of) the staked VoterCoin is sent to some communal fund
+
+### Multi-Year Fail-safes
+> Over time the people who are on the network the longest (Mr. Theiss) will gain more power than new users (students). As such it seems logical to put system into place that allows some people catch up 
+> - If this is designed to only have the HW name on it and by used by many people then ignore  the following ideas 
+> - However, on the other hand if this is meant to be used primarily withing the hTopics class then consider the following 
+> 
+> The hardest part of this is deciphering who is in the class and who is some random person on the network 
+> - Solution: All wallet address must be registered to some system that passes the vote to the DAO (likely consisting of last year's students)
+> - On August 30th all of registered users are given an initial amount of coin 
+> - On August 29th any users that were registered as students last year are removed by the contract 
+> 
+> If one person ever has too much control, there is a system to be able to end the coin 
+> - if 80% of people on the DAO, excluding the top 3 holders of coin, vote to end the network then it is deleted. (likely by causing the proxy to point to an empty account)
