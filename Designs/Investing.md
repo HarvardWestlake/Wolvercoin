@@ -7,7 +7,7 @@
 >   - staked WC gains/loses the % change of transactions from the previous day
 >     - ex 1: if Tuesday's transactions were 1% greater than Monday's transactions, WC stake increases by 1%
 >     - ex 2: if Tuesday's transactions were 5% less than Monday's transactions, WC stake decreses by 5%
-> - if money is withdrawn within 2 weeks of initaly staking it, then 1/3 of the money is burned
+> - if money is withdrawn within 2 weeks of initially staking it, then 1/3 of the money is burned
 
 > 
 > Provide 10% staked value as liquidity (percentage is flexible)
