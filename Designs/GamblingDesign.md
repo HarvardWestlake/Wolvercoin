@@ -3,7 +3,7 @@
 ### Lottery
 > "The Pot"
 > - X% of each transaction is sent to "The Pot"
-> - House gains of the casino is also placed in "The Pot"
+> - House gains of the casino are also placed in "The Pot"
 > - Lottery tickets are also placed in "The Pot"
 > - End of every week ⅓ of the pot is given away to a holder of WC
 > 
@@ -14,7 +14,7 @@
 
 
 ### CASINO!
-> Any value that is one by users is first subtracted from "The Pot" (to a maximum of 20% the current value) then minting the rest
+> Any value that is won by users is first subtracted from "The Pot" (to a maximum of 20% the current value) then minting the rest
 >
 > Coin Flip
 > - When contract receives money it does one of the following at """"""""random""""""":
@@ -23,11 +23,16 @@
 >
 > Roulette
 > - A classic the world around
-> - text based just like the good old days
+> - Text based just like the good old days
+> - Put an amount you bet, and on what you bet
+> - If you win, win however much you would, otherwise lose all money
 >
 > 
 > Crash gambling 
 > - Cash out before rocket crashes, get however much it reaches when you cash out 
+> - Modelled after rocket game, real game is just a text going up like so:
+> - 0.5x --> 0.6x --> 0.8x --> 1x --> 1.2x --> 1.3x --> CRASH!
+> - Where you need to input text to cash out
 > 
 > Sports betting 
 > - Betting on a HW sport game
