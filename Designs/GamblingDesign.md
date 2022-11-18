@@ -8,7 +8,7 @@
 > - End of every week ⅓ of the pot is given away to a holder of WC
 > 
 > Odds
-> - Each WC you hold gives you 1 entry
+> - Each WC you hold gives you 1 entry (owning 2.643 WC gives you 2.643 entries)
 > - Each lottery tickets you own  gives you 2.5 entries
 
 
