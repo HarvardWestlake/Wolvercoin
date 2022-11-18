@@ -1,10 +1,11 @@
 ## Side Quests
-#### **Current Edits of Side Quests** Most Recently Written by Erik and Henry
-#### **Beat Mr. Theiss at Super Hexagon**
+#### **Current Edits of Side Quests** Most Recently Written by Your Favorite Crypto Girlies Eliza + Ava 
+#### **Beat Mr. Theiss at Super Hexagon** 
 > - If you beat Mr. Theiss’s Super Hexagon high score, your WolverCoin Wallet is multiplied by 3.14x
-- New coin will be minted for the winning account, this should be an exceptionally rare occurrence cause Mr. Theiss is pretty cracked at Super Hexagon
-- Need to have some sort of undoctored verification that Mr. Theiss's agrees proves his defeat
-- The coin will request verification from Mr. Theiss's address to certify his fat L, and then the successful Super Hexagon player will receive their reward
+- New coin will be minted for the winning account, this should be an exceptionally rare occurrence cause Mr. Theiss is pretty cracked at Super Hexagon (VETOED)
+- Need to have some sort of undoctored verification that proves Mr. Theiss's defeat 
+- The coin will request verification from Mr. Theiss's address to certify his fat L, and then the successful Super Hexagon player will receive their reward (VETOED IN CONJUNCTION WITH ABOVE VETO)
+- If you beat his high score, in addition to you wallet balance increasing, Mr. Theiss will generate an NFT of your favorite photo of him and will give it to you (we suggest taking from Mr. Theiss's tagged photos on Instagram)
 > #### **Send Mr. Theiss a Haiku**
 > - If you email Mr. Theiss a unique haiku (he’ll use a plagiarism checker), then you get 5 Wolver Coin. Can only be done once
 - The haiku has to rhyme for all three lines **or** end with a couplet
