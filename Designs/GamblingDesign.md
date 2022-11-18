@@ -10,6 +10,7 @@
 > Odds
 > - Each WC you hold gives you 1 entry (owning 2.643 WC gives you 2.643 entries)
 > - Each lottery tickets you own  gives you 2.5 entries
+> - Lottery tickets can be bought with WC, with an exchange rate > 1:1
 
 
 
