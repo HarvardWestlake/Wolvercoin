@@ -2,3 +2,4 @@
 # This was added to ignore my IntelliJ files 
 .git
 .idea
+.DS_Store
