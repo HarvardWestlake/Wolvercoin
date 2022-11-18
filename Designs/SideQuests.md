@@ -1,7 +1,8 @@
 ## Side Quests
-#### **Current Edits of Side Quests** Written by Your Favorite Crypto Experts (Ava and Eliza)
+#### **Current Edits of Side Quests** Most Recently Written by Erik and Henry
 #### **Beat Mr. Theiss at Super Hexagon**
 > - If you beat Mr. Theiss’s Super Hexagon high score, your WolverCoin Wallet is multiplied by 3.14x
+- New coin will be minted for the winning account, this should be an exceptionally rare occurrence cause Mr. Theiss is pretty cracked at Super Hexagon
 - Need to have some sort of undoctored verification that Mr. Theiss's agrees proves his defeat
 - The coin will request verification from Mr. Theiss's address to certify his fat L, and then the successful Super Hexagon player will receive their reward
 > #### **Send Mr. Theiss a Haiku**
