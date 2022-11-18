@@ -1,14 +1,16 @@
 ## Social and Donation Designs
 
 ### Charity
-> X% of all transactions are placed in a communal pot
-> - The pot is a multisig wallet (wallet with multiple private keys) that is controlled by a board of elected officials (see voting and representation)
-> - Officials are ellected yearly
+> 5% of all transactions are placed in a communal pot
+> - The pot is a multisig wallet different from a user's personal wallet that has 3 private keys. The multisig wallet is controlled by a board of 3 elected officials (see voting and representation)
+> - Officials are elected on August 30th by a public poll where students actively taking Honors Topics can choose three of their peers to elect to the board.
 > 
-> Users can vote on both the elected officials and where the money will go
 
 
 ### Donations
-> Donations made on a monthly basis in either NFTs or USD
-> 
-> Ballot of potential charities is set by board members in the form of wallets for each charity but voting is done by users
+> Donations from the pot are made on a monthly basis in either NFTs or USD 
+> !!how would they donate an NFT and what would the purpose be
+> Ballot of potential charities is set by board members
+> Active students and alumni who still have coins can vote on this ballot to determine where the money will go
+> The Board will create a public wallet designated to whichever charity wins
+> Board members have access to the wallet so they can convert to USD to donate it

@@ -16,7 +16,7 @@
 <h3> 2. Amount of wolvercoin you can spend depends on the difficulty of the assignment <h3>
 <h3> 3. Can only go up by a half grade at most given the bounty $$ <h3>
 <br>
-<h2> If you have at least XXX wolvercoin, you can claim the pot <h2>
+<h2> If you have at least XXX wolvercoin, you can claim the pot !! <h2>
 <h3> 1. The pot goes to the highest bidder, open to all HW students <h3>
 <h3> 2. The pot is based on all of the entry fees for students who want to participate in this gamble <h3>
 <br>
