@@ -6,12 +6,12 @@
 > - For example: changing the address of proxy (updates), changing the list of minters (elections), or changing variables (donations)
 > 
 > VoterCoin - *a voting system for diverse ideas*
->  - Users may propose propositions to spend the money held in the treasury (or do some other thing)
->  - For money burnt as part of WC transaction, mints part of that back to user in VoterCoin
->  - VoterCoin is staked when voting (using a non-FPTP system)
->  - 100 blocks (or some amoutn of time roughly a week) after a given proposition was proposed, it will be voted on, and if a majority of all VoterCoin currently staked is staked (and at least 20% of all existing VoterCoin) in that proposition, it will be passed
->  - If you voted for the winning proposition then 50% of your staked VoterCoins is burnt
->  - If a proposition is not passed then the VoterCoin staked for it is returned to the previous owners
+>  - Users may propose propositions to spend the money held in the treasury (or do some other thing as described by the DAO structure above)
+>  - Users will receive the amount of money they spend in tax and gas as VoterCoin (a second coin)
+>  - VoterCoin is staked into a proposition when voting (using a non-FPTP system)
+>  - 100 blocks (or some amount of time roughly a week) after a given proposition was proposed, it will be voted on, and if a majority of all VoterCoin currently staked is staked in that proposition, and 20% of all VC in existence is staked in that proposition, it will be passed
+>  - If you voted for the winning proposition then 50% of your staked VoterCoins is burnt, and the other 50% is returned to you
+>  - If a proposition is not passed then the VoterCoin staked for it is returned in full to the previous owners
 >  - You cannot transact VoterCoin
 
 ### Multi-Year Fail-safes
