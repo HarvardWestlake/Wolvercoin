@@ -36,6 +36,7 @@
 > 
 > Sports betting 
 > - Betting on a HW sport game
+> - One game is chosen by vote by the wolverines each week 
 > - reward are based on the amount of money that bet on the alternative option
 > - Ex: if in total 5 WC are bet in a given window and 4 are bet on Loyola and 1 are bet on HW, when HW inevitably wins, the one person would win their initial bet * 1.8 and everyone else would lose their initial bet 
 > 
