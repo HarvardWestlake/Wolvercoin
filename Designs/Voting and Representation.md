@@ -6,15 +6,17 @@
 > - For example: changing the address of proxy (updates), changing the list of minters (elections), or changing variables (donations)
 > 
 > VoterCoin - *a voting system for diverse ideas*
->  -  For money burnt as part of WC transaction, mints part of that back to user in VoterCoin
+>  - Users may propose propositions to spend the money held in the treasury (or do some other thing)
+>  - For money burnt as part of WC transaction, mints part of that back to user in VoterCoin
 >  - VoterCoin is staked when voting (using a non-FPTP system)
->  - If you voted for the winning proposition then your staked VoterCoins is burnt
->  - If you voted for one of the losing proposition then some percentage of the staked VoterCoins is returned
->  - If no consensus is reached then (most of) the staked VoterCoin is sent to some communal fund
+>  - 100 blocks (or some amoutn of time roughly a week) after a given proposition was proposed, it will be voted on, and if a majority of all VoterCoin currently staked is staked (and at least 20% of all existing VoterCoin) in that proposition, it will be passed
+>  - If you voted for the winning proposition then 50% of your staked VoterCoins is burnt
+>  - If a proposition is not passed then the VoterCoin staked for it is returned to the previous owners
+>  - You cannot transact VoterCoin
 
 ### Multi-Year Fail-safes
 > Over time the people who are on the network the longest (Mr. Theiss) will gain more power than new users (students). As such it seems logical to put system into place that allows some people catch up 
-> - If this is designed to only have the HW name on it and by used by many people then ignore  the following ideas 
+> - If this is designed to only have the HW name on it and by used by many people then ignore the following ideas 
 > - However, on the other hand if this is meant to be used primarily withing the hTopics class then consider the following 
 > 
 > The hardest part of this is deciphering who is in the class and who is some random person on the network 
