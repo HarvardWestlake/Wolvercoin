@@ -5,6 +5,16 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import { Drizzle, generateStore } from "@drizzle/store";
+import { DrizzleContext } from "@drizzle/react-plugin";
+// import SimpleStorage from "./contracts/SimpleStorage.json";
+
+
+// 2. Setup the drizzle instance.
+//const options = { contracts: [SimpleStorage] };
+const options = { contracts: [] };
+const drizzleStore = generateStore(options);
+const drizzle = new Drizzle(options, drizzleStore);
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -24,7 +34,9 @@ const analytics = getAnalytics(app);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <DrizzleContext.Provider drizzle={drizzle}>
+      <App />
+    </DrizzleContext.Provider>
   </React.StrictMode>
 );
 
