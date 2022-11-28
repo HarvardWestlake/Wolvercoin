@@ -14,7 +14,8 @@ class Home extends React.Component {
   };
   componentDidMount() {
     const { drizzle } = this.props;
-    const contract = drizzle.contracts.Reimbursement;
+    console.log(this.props.w3context);
+    //const contract = drizzle.contracts.Reimbursement;
 const dataKey = null;
     // get and save the key for the variable we are interested in
     //const dataKey = contract.methods["storedData"].cacheCall();

@@ -4,7 +4,7 @@ import React, { Suspense, lazy } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { UserAuthContextProvider } from "./components/Firebase/UserAuthContext.js";
 import Firestore from "./components/Firebase/Firestore.js";
-import { DrizzleContext } from "@drizzle/react-plugin";
+import { Web3ContextProvider } from "./components/Web3/Web3Context.js";
 
 
 const Home = lazy(() => import("./routes/Home.js"));
@@ -13,28 +13,14 @@ const MemberRoute = lazy(() => import("./routes/Member.js"));
 const NFTRoute = lazy(() => import("./routes/NFT.js"));
 
 export default () => (
-  <DrizzleContext.Consumer>
-      {drizzleContext => {
-        const { drizzle, drizzleState, initialized } = drizzleContext;
-
-        if (!initialized) {
-          return "Loading...";
-        }
-
-        return (
-      <UserAuthContextProvider>
-        <Router>
-          <Suspense fallback={<Home  drizzle={drizzle} drizzleState={drizzleState} />}>
-            <Routes>
-              <Route exact path="/" element={<Home />} />
-              <Route exact path="/nft/:nftCollectionId/:nftId" element={<NFTRoute firestore={Firestore} />} />
-              <Route exact path="/membership" element={<MemberRoute firestore={Firestore} />} />
-              <Route exact path="/member/:memberId" element={<MemberRoute firestore={Firestore} />} />
-            </Routes>
-          </Suspense>
-        </Router>
-      </UserAuthContextProvider>
+    <Router>
+      <Suspense fallback={<Home w3context={Web3ContextProvider}/>}>
+        <Routes>
+          <Route exact path="/" element={<Home w3context={Web3ContextProvider}/>} />
+          <Route exact path="/nft/:nftCollectionId/:nftId" element={<NFTRoute firestore={Firestore} />} />
+          <Route exact path="/membership" element={<MemberRoute firestore={Firestore} />} />
+          <Route exact path="/member/:memberId" element={<MemberRoute firestore={Firestore} />} />
+        </Routes>
+      </Suspense>
+    </Router>
   );
-  }}
-</DrizzleContext.Consumer>
-)

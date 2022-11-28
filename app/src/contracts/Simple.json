@@ -1,4 +1,4 @@
-[{
+{"abi": [{
 	"stateMutability": "nonpayable",
 	"type": "constructor",
 	"inputs": [{
@@ -25,3 +25,4 @@
 		"type": "int128"
 	}]
 }]
+	}
