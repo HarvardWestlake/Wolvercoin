@@ -1,7 +1,8 @@
 import React, { createContext, useContext, useEffect, useState } from "react"
-import Network from "../Web3/Network.js"
+import Network from "./Network.js"
 import Config from "./config.json"
 import Reimbursement from "../../contracts/Reimbursement.json"
+import Web3Context from "./context";
 
 const contracts = { options: [Reimbursement]};
 const config = {Config};
@@ -24,17 +25,33 @@ const web3Context = createContext();
  *      - NFT Update
  */
 
- export function Web3ContextProvider({ children }) {
-    async function isCorrectNetwork() {
+ const withWeb3 = Component => {
+  class WithWeb3 extends React.Component {
+    constructor(props) {
+      super(props);
 
+      this.state = {
+          user : {
+            admin: false,
+            connected : false
+        }
+      };
     }
-    return (
-        <web3Context.Provider value={{ contracts, Network, config }}> 
-            {children}
-        </web3Context.Provider>
-    );
-}
 
-export default function useWeb3Context() {
-  return useContext(web3Context);
-}
+    componentWillMount() {
+    }
+
+    render() {
+      return (
+          <Web3Context.Provider value={this.state.user}>
+            <Component {...this.props} />
+          </Web3Context.Provider>
+        );
+      }
+    }
+
+    //return withFirebase(WithWeb3);
+    return WithWeb3;
+};
+  
+export default withWeb3;

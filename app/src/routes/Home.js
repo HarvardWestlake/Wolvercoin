@@ -1,11 +1,6 @@
 import React from "react";
 import Header from "../components/Common/Header.js";
 import Footer from "../components/Common/Footer.js";
-/*
-import Options from "../components/Home/Options.js";
-import Numbers from "../components/Home/Numbers.js";
-import Roadmap from "../components/Home/Roadmap.js";
-*/
 import "../components/Common/main.css";
 
 class Home extends React.Component {
@@ -13,10 +8,8 @@ class Home extends React.Component {
     count: this.props.count || 0,
   };
   componentDidMount() {
-    const { drizzle } = this.props;
-    console.log(this.props.w3context);
     //const contract = drizzle.contracts.Reimbursement;
-const dataKey = null;
+    const dataKey = null;
     // get and save the key for the variable we are interested in
     //const dataKey = contract.methods["storedData"].cacheCall();
     this.setState({ dataKey });
@@ -30,9 +23,7 @@ const dataKey = null;
     //return <DisplayValue value={storedData && storedData.value} />;
     return (
       <div>
-        <Header />
-        
-        <Footer />
+       Main content
       </div>
     );
   }
