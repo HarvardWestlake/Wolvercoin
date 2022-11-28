@@ -1,4 +1,4 @@
-{ "abi": [{
+[{
 	"name": "GasReimburse",
 	"inputs": [{
 		"name": "recipient",
@@ -216,5 +216,3 @@
 		"type": "bool"
 	}]
 }]
-  
-}

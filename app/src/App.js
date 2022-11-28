@@ -17,11 +17,10 @@ const NFTRoute = lazy(() => import("./routes/NFT.js"));
 
 const App = () => (
     <Router>
+    <Web3Context.Consumer>
+      {web3ContextState =>  
       <Suspense fallback={<Home />}>
-      <Web3Context.Consumer>
-        {user => user['auth'] ? <Header val={1}/> : <Header val={0} />
-        }
-      </Web3Context.Consumer>
+        <Header val={web3ContextState.user}/> 
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/nft/:nftCollectionId/:nftId" element={<NFTRoute firestore={Firestore} />} />
@@ -29,7 +28,8 @@ const App = () => (
           <Route exact path="/member/:memberId" element={<MemberRoute firestore={Firestore} />} />
         </Routes>
         <Footer />
-      </Suspense>
+      </Suspense> } 
+      </Web3Context.Consumer>
     </Router>
   );
 
