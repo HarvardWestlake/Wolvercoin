@@ -7,12 +7,12 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { Drizzle, generateStore } from "@drizzle/store";
 import { DrizzleContext } from "@drizzle/react-plugin";
-// import SimpleStorage from "./contracts/SimpleStorage.json";
 
+import Reimbursement from "./contracts/Reimbursement.json";
+import Simple from "./contracts/Simple.json";
 
-// 2. Setup the drizzle instance.
-//const options = { contracts: [SimpleStorage] };
-const options = { contracts: [] };
+// Setup the drizzle instance.
+const options = { contracts: [Reimbursement] };
 const drizzleStore = generateStore(options);
 const drizzle = new Drizzle(options, drizzleStore);
 

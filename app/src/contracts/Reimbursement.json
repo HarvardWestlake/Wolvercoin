@@ -1,0 +1,220 @@
+{ "abi": [{
+	"name": "GasReimburse",
+	"inputs": [{
+		"name": "recipient",
+		"type": "address",
+		"indexed": false
+	}, {
+		"name": "amount",
+		"type": "uint256",
+		"indexed": false
+	}, {
+		"name": "maxAllowed",
+		"type": "uint256",
+		"indexed": false
+	}, {
+		"name": "totalReimbursed",
+		"type": "uint256",
+		"indexed": false
+	}],
+	"anonymous": false,
+	"type": "event"
+}, {
+	"name": "ContractOutOfGas",
+	"inputs": [{
+		"name": "recipient",
+		"type": "address",
+		"indexed": false
+	}, {
+		"name": "amountNotReimbursed",
+		"type": "uint256",
+		"indexed": false
+	}],
+	"anonymous": false,
+	"type": "event"
+}, {
+	"name": "AdminAdded",
+	"inputs": [{
+		"name": "admin",
+		"type": "address",
+		"indexed": false
+	}, {
+		"name": "label",
+		"type": "string",
+		"indexed": false
+	}],
+	"anonymous": false,
+	"type": "event"
+}, {
+	"name": "Payment",
+	"inputs": [{
+		"name": "sender",
+		"type": "address",
+		"indexed": true
+	}, {
+		"name": "amount",
+		"type": "uint256",
+		"indexed": false
+	}, {
+		"name": "bal",
+		"type": "uint256",
+		"indexed": false
+	}],
+	"anonymous": false,
+	"type": "event"
+}, {
+	"name": "SetGradYear",
+	"inputs": [{
+		"name": "user",
+		"type": "address",
+		"indexed": false
+	}, {
+		"name": "year",
+		"type": "uint256",
+		"indexed": false
+	}],
+	"anonymous": false,
+	"type": "event"
+}, {
+	"stateMutability": "nonpayable",
+	"type": "constructor",
+	"inputs": [{
+		"name": "initialAdmin",
+		"type": "address"
+	}],
+	"outputs": []
+}, {
+	"stateMutability": "payable",
+	"type": "fallback"
+}, {
+	"stateMutability": "nonpayable",
+	"type": "function",
+	"name": "addAdmin",
+	"inputs": [{
+		"name": "adminToAdd",
+		"type": "address"
+	}],
+	"outputs": []
+}, {
+	"stateMutability": "nonpayable",
+	"type": "function",
+	"name": "addUser",
+	"inputs": [{
+		"name": "userToAdd",
+		"type": "address"
+	}],
+	"outputs": []
+}, {
+	"stateMutability": "nonpayable",
+	"type": "function",
+	"name": "reimburseGas",
+	"inputs": [{
+		"name": "recipient",
+		"type": "address"
+	}],
+	"outputs": []
+}, {
+	"stateMutability": "nonpayable",
+	"type": "function",
+	"name": "setDisableContract",
+	"inputs": [{
+		"name": "disabled",
+		"type": "bool"
+	}],
+	"outputs": []
+}, {
+	"stateMutability": "view",
+	"type": "function",
+	"name": "getAdmin",
+	"inputs": [{
+		"name": "userToCheck",
+		"type": "address"
+	}],
+	"outputs": [{
+		"name": "",
+		"type": "bool"
+	}]
+}, {
+	"stateMutability": "nonpayable",
+	"type": "function",
+	"name": "setCurrentGradYear",
+	"inputs": [{
+		"name": "year",
+		"type": "uint256"
+	}],
+	"outputs": []
+}, {
+	"stateMutability": "view",
+	"type": "function",
+	"name": "getUserGradYear",
+	"inputs": [{
+		"name": "student",
+		"type": "address"
+	}],
+	"outputs": [{
+		"name": "",
+		"type": "uint256"
+	}]
+}, {
+	"stateMutability": "nonpayable",
+	"type": "function",
+	"name": "setUserIndividualWeiReimbursementCap",
+	"inputs": [{
+		"name": "cap",
+		"type": "uint256"
+	}],
+	"outputs": []
+}, {
+	"stateMutability": "view",
+	"type": "function",
+	"name": "getWeiReimbursed",
+	"inputs": [{
+		"name": "dummy",
+		"type": "bool"
+	}],
+	"outputs": [{
+		"name": "",
+		"type": "uint256"
+	}]
+}, {
+	"stateMutability": "view",
+	"type": "function",
+	"name": "getUserInidividualWeiReimbursementCap",
+	"inputs": [],
+	"outputs": [{
+		"name": "",
+		"type": "uint256"
+	}]
+}, {
+	"stateMutability": "view",
+	"type": "function",
+	"name": "currentGradYear",
+	"inputs": [],
+	"outputs": [{
+		"name": "",
+		"type": "uint256"
+	}]
+}, {
+	"stateMutability": "view",
+	"type": "function",
+	"name": "userIndividualWeiReimbursementCap",
+	"inputs": [],
+	"outputs": [{
+		"name": "",
+		"type": "uint256"
+	}]
+}, {
+	"stateMutability": "view",
+	"type": "function",
+	"name": "admins",
+	"inputs": [{
+		"name": "arg0",
+		"type": "address"
+	}],
+	"outputs": [{
+		"name": "",
+		"type": "bool"
+	}]
+}]
+  
+}
