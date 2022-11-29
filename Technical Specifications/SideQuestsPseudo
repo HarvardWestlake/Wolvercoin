@@ -1,11 +1,20 @@
 IN PROGRESS
 Side Quests Pseudo
 Workers: Simon W + Matthew Ko
-#### **Beat Mr. Theiss at Super Hexagon**
 
-> - If you beat Mr. Theiss’s Super Hexagon high score, your WolverCoin Wallet is multiplied by 3.14x
-- Need to have some sort of undoctored verification that proves Mr. Theiss's defeat 
-- If you beat his high score, in addition to you wallet balance increasing, Mr. Theiss will generate an NFT of your favorite photo of him and will give it to you (we suggest taking from Mr. Theiss's tagged photos on Instagram)
+
+**Beat Mr. Theiss at Super Hexagon**
+
+Variables: 
+- TheissHighScore: Mr Theiss' High Score as an int
+- NewScore: Your High Score as an int
+- UserAddress: YourAddress as an adress
+
+Methods:
+CompareHighScores
+- If TheissHighScore<NewScore, send user 2.14x their current WC balance
+- Else, nothing
+In real life, you must show Mr. Theiss your score, and he will have to print an NFT of his most recent instagram post
 
 
 **Dance for Mr. Theiss** 
