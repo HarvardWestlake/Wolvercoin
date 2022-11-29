@@ -1,30 +1,21 @@
-// THIS HAS BEEN COPY PASTED FOR FORMATTING
-
-#Technical Specification for Exclusivity 
-> **Function 1 (INCOMPLETE): 
-> - each person is allowed to deposit one coin into a designated address as a vote (people can use the deposit method?)
-> - count number of coins
-> - allow Mr. Theiss to deposit up to 15% of that number of coins -- use an if statement to prevent him from depositing more (? -- this should probably be changed)
-> - if percentage of number of coins deposited / number of people in class > 50% -> allow the initiative to pass
-> - Variables:
-> - sum: counts number of coins in the designated address
-> - percentage: percentage of number of coins deposited / number of people in class
-> return a boolean of true or false depending on if the initiative passes
-> clear the designated address
-> should we create a separate coin for voting? or just use Wolvercoin?
-# Techinical Specifications for Exclusivity
-> **Function 2: Only Honors topics students can have WolverCoin at full functionality**
-> Honors Topics students refers to both current and past students
+#Technical Specification for Coin Flip 
+> Goal: People can bet an amount of money, and there is a 50% chance they will lose it to the gambling pot and a 50% chance the gambling pot will double their money
 > Variables:
-- activeStudents: Hashmap(studentWallet -> gradYear)
-- activeYear: uint256 Store a list of honors topics wallet addresses
-- rickyCWallet: address Stores Ricky C's wallet address
-- creator: address
-- lotteryPot: uint256 Stores wolvercoin lottery pot amount
+>   address gamblingPot -> wallet for gambling money, must be known already
+>   address gambler -> wallet that does the coin flip
+>   unit256 amount -> amount of money bet
+>   uint256 time -> time (for randomness)
 > Functions:
-- withdraw(amount: uint256 -> message: String)
-  - First checks if the wallet address is Ricky C's wallet if his address exists
-    - If it is his wallet, only allow 5% of the amount into his wallet and put rest into lottery pot, return "enjoy your joyful pursuit of excellence!"
-  - Then, checks if wallet is Honors Topic Student
-    - If student, allow full withdraw amount
-    - If not, half withdraw amount and put the half into lottery pot
+> flipCoin (address gambler, uint256 amount)
+>   Check that gambler has at least needed amount of wolvercoin
+>   If they do not have enought wolvercoin, stop here
+>   Otherwise, send amount of wolvercoin to gambling pot
+>   Set time variable equal to the time
+>   Run flipResult (gambler, time)
+>   If flipResult is true, run flipPayment (gambler, amount)
+> flipResult (address gambler, unit256 time) -> bool
+>   Use the address of the gambler, the time, and a modulo two opperation to get a one or a zero with 50/50 odds
+>   If the number is zero, return false
+>   If the number is one, return true
+> flipPayment (address gambler, uint256 amount)
+>   Send 2*amount of wolvercoin from the pot wallet to the gambler wallet
