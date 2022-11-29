@@ -9,13 +9,15 @@
         - email content: `imageURL` parameter
         - note that Mr. Church will need to approve image to make sure it's appropriate before adding it
 
-### Wolvercoin could be used in the bookstore, hoco/prom tickets, and HW events, caf
-- Create a Harvard Westlake Administration Wallet
-    - This wallet would be owned by the school
-    - In order for students to spend wolvercoin at cafeteria:
-        - Students would sent wolvercoin to the HW wallet address
-        - HW Staff would check to see if transaction went through to the HW address for confirmation of purchase
-- Refer to Gas-Free Distribution file for gas fees
+#### Wolvercoin in the bookstore
+> Anyone can create an NFTs that represents a physical products they own
+> - Problem: Validating that the person who created the NFT has the product
+>
+> The NFT is sold through and action (see DutchActions.md)
+>
+> The NFT can be burnt by its owner to get the person who created it to send you the item
+> - Problem: There is no way to garentee that upon burning it the person will send it to you.
+> - Solution: Seller clout. If you trust the person who is sending it to you (based on previous good transactions) then you can likely trust them.
 
 ### Can spend wolvercoin for direct grade
 - Spend Wolvercoin for Direct Grade   
