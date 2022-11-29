@@ -2,7 +2,7 @@
 > A2: In function 'addStudentAllowance', need to plan and describe mechanism to verify signed and dated student transaction for each allowance added.  Did research for thsi 
 
 
-
+ 
 # Technical Specification for Gas-Free Distribution
 > **A1: Active Honors Topcis students only**
 > Active students refers to Aug-June of the given graduation year
