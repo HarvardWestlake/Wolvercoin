@@ -1,4 +1,21 @@
+<<<<<<< HEAD
 Beat Mr. Theiss at Super Hexagon: 
+=======
+Variables: 
+    impressedTheiss: boolean
+    swifty: boolean
+    stoneface: boolean
+    costume: boolean
+    creator: address
+    otherUser: uint256 number of other people in the dance
+
+Dance for Mr. Theiss Method
+    if impressedTheiss is true then user gets 5 WolverCoin
+    if swifty is true user gets 3 more WolverCoin
+    if stoneface is true user gets 1 more WolverCoin
+    if costume is true then user gets 5 more WolverCoin
+    if otherUser is greater than 3 then user gets 3 more WolverCoin
+>>>>>>> SideQuestsPseudo
 
 variables:
 uint256 theisshighscore --> stores Mr.Theiss's highest score on Super Hexagon
