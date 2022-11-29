@@ -1,0 +1,9 @@
+
+
+## Function: You can either stake your Wolvercoin or not.
+- Create a HashSet (stakedAlumni) to store the public keys of every Honors Topics Alumni who has decided to stake their Wolvercoin.
+- Create a HashSet (unstakedAlumni) to store the public keys of every Alumni who has decided to leave their Wolvercoin untouched
+
+## Function: If you leave your Wolvercoin untouches, it depreciates
+- Create a void method depreciateAlumni that takes in no parameters
+- depreciateAlumni should run the depreciateValue method on every public key in the unstakedAlumni set
