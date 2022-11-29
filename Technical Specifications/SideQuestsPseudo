@@ -1,1 +1,13 @@
+Beat Mr. Theiss at Super Hexagon: 
 
+variables:
+uint256 theisshighscore --> stores Mr.Theiss's highest score on Super Hexagon
+address creator 
+
+fuctions:
+superhexagon(your_score: uint256):
+  if your score is greater than Mr.Theiss's score, multiply your wallet balance by 3.14 and 
+
+not programmable: 
+NFT of Theiss photo 
+undoctored verification that Mr.Theiss is defeated
