@@ -3,7 +3,7 @@
 - Private goods: [Dutch Auction](https://www.investopedia.com/terms/d/dutchauction.asp)
   - Items go up for sale on Wolvercoin website
   - Immediately after they go up for sale, a "money clock" counts down from the max price to the min price, going down by X $WVC per minute
-  - People can press "buy" at any time and immediately get the item at the price displayeed on the clock
+  - People can press "buy" at any time and immediately get the item at the price displayed on the clock
   - > possible unique design: one time opportunity for price to go up and for someone else to click and claim the prize/ item
   - Incentivizes people to buy early because they are scared that other people will buy before them if the price goes too low
   - Requested by Andrew Theiss: If price goes below a minimum price set by the publisher, the auction ends and nobody wins. The item can then go back into sale starting at the max price again at a later date
