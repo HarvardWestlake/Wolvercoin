@@ -3,3 +3,5 @@
 .git
 .idea
 .DS_Store
+
+.vscode/settings.json

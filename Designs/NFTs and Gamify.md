@@ -1,9 +1,9 @@
 # Unorganized NFTs/Gamify (General)
-1. Mint NFTs (Wolverines which can breed)
-  - Have traits
+1. Anyone can mint NFTs (Wolverines which can breed)
+  - They can have traits
   - see below for more specific design
 2. be able to create NFTs and upload to the wolvercoin network
-  - upload NFTs and pay for them with Wolvercoin**
+  - upload NFTs and pay for them with Wolvercoin*
   - tax creators to prevent too much nft actions (creation, but, sell, trade)
     - aka any transaction with the NFT costs some amount of gas fees
 3. Weekly NFT competitions (see below for details)
