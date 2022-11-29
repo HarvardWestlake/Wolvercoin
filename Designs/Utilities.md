@@ -3,7 +3,7 @@
 <h3> 1. Available to all HW students <h3>
 <h3> 3. No approval needed except for included parties <h3>
 <h3> 4. No gas fees for bookstore transactions <h3>
-<h3> 5. Discount if using wolvercoin to buy Harvard Westlake stuff <h3>
+<h3> 5. 10% discount if using wolvercoin to buy Harvard Westlake stuff <h3>
 <br>
 <h2> If you have 30 wolvercoin you can display one of your nfts on the wolverscreens <h2>
 <h3> 1. You can do this once a week
