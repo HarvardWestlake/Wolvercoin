@@ -18,12 +18,8 @@
 - Refer to Gas-Free Distribution file for gas fees
 
 ### Can spend wolvercoin for direct grade
-- Spend Wolvercoin for Direct Grade
-    - Problem
-        - Difficulty integrating with the hub
-    - Solution
-        - Create as an Auction Item for different assignments
-        - *Refer to Auction Psuedo Code for creating auction items*
-
-
-*Refer to design specs for more information on each feature*
+- Spend Wolvercoin for Direct Grade   
+    - Create as an Auction Item for different assignments - just like any other NFT
+        - Copy other NFT class 
+        - Each Grade NFT can be initialized with number of points bought and the assignment it goes to
+        - Actual NFT's created and moderated by Mr. Theiss so no further automation is needed.
