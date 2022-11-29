@@ -1,10 +1,9 @@
 <h1> Utilities <h1>
-<h2> Wolvercoin could be used in the bookstore, hoco/prom tickets, and HW events, caf <h2>
-<h3> 1. Available to all HW students <h3>
-<h3> 2. Students can buy things using Wolvercoin <h3>
+<h2> Wolvercoin could be used in the bookstore, hoco/prom tickets, caf, and HW events<h2>
+<h3> 1. Available to all HW students and faculty<h3>
+<h3> 2. HW people can buy things using Wolvercoin <h3>
 <h3> 3. No approval needed except for included parties <h3>
-<h3> 4. No gas fees for bookstore transactions <h3>
-<h3> 5. Discount if using wolvercoin to buy Harvard Westlake stuff <h3>
+<h3> 4. Discount if using Wolvercoin to buy Harvard Westlake stuff <h3>
 <br>
 <h2> If you have 30 wolvercoin you can place an image on the wolverscreens <h2>
 <h3> 1. Only available to Honors Topics students <h3>
