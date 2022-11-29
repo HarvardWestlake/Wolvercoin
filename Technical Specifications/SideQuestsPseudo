@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Variables:
     haiku: boolean (three lines, 5/7/5 syllables, rhyme for all three lines or end with a couplet)
     3haiku3topic: boolean (checks if there are 3 haikus and they are based on; The feeling of leaving campus at school at the end of the day, Making more money than your brother, Hanging the phone on your parents)
@@ -15,3 +16,20 @@ Method:
         if romanceLanguage=true
             +3 wolvercoin to user's wallet
         
+=======
+Variables: 
+    impressedTheiss: boolean
+    swifty: boolean
+    stoneface: boolean
+    costume: boolean
+    creator: address
+    otherUser: uint256 number of other people in the dance
+
+Dance for Mr. Theiss Method
+    if impressedTheiss is true then user gets 5 WolverCoin
+    if swifty is true user gets 3 more WolverCoin
+    if stoneface is true user gets 1 more WolverCoin
+    if costume is true then user gets 5 more WolverCoin
+    if otherUser is greater than 3 then user gets 3 more WolverCoin
+
+>>>>>>> SideQuestsPseudo
