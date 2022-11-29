@@ -1,13 +1,15 @@
-
+IN PROGRESS
 Side Quests Pseudo
 Workers: Simon W + Matthew Ko
 
+
 **Beat Mr. Theiss at Super Hexagon**
-Mint an NFT with a picture of your new high score
+
 Variables: 
 - TheissHighScore: Mr Theiss' High Score as an int
 - NewScore: Your High Score as an int
 - UserAddress: YourAddress as an adress
+
 Methods:
 CompareHighScores
 - If TheissHighScore<NewScore, send user 2.14x their current WC balance
