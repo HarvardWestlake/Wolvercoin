@@ -1,0 +1,16 @@
+Incomplete
+
+People will vote on the proposals, and the one with the most votes gets the charity coin as directed by the official who proposed it
+Variables:
+	Struct Voter:
+Weight: int128
+Voted: bool
+delegate : address
+Vote: int128
+Functions:
+vote(proposal: int128)
+Cant vote twice
+Can only vote on legitimate proposals
+Transfer msg.sender’s 
+The pot and the way proposals work is detailed in the voting section
+The official who wrote the winning proposal will receive a small wolvercoin payment when it wins
