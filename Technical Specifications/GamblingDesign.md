@@ -19,6 +19,18 @@
 >   If the number is one, return true
 > flipPayment (address gambler, uint256 amount)
 >   Send 2*amount of wolvercoin from the pot wallet to the gambler wallet
+##Technical Specification for Roulette 
+> Variables
+> - roulette: Hashmap with an integer representing the roulette slot and Boolean representing the color (true=red, false=black, or vice versa), each entry representing a slot on roulette wheel
+> - betCoins: a decimal variable containing amount of WC bet
+> - bet: a String input from the player saying what they're bettting (ex. even, 14, odd, high, etc)
+> - win: a boolean variable, true if won, false if lost
+
+> Functions
+> >playRoulette
+> - get input string from player, store into bet
+> - generate random number from 1 to 36 , get 
+> - if bet says even or odd, check if 
 
 #Technical Specification for the pot
 > - One account which is all zeros followed by a one will handle all gambling money and will be called the pot
