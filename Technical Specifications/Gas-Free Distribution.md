@@ -75,6 +75,7 @@ Log:
  - Log: When a student hits their max reimbursed
  - Log: When a grad year changes and who changes it
  
+
   **PART B**
  
  **B1: Distribute allowance automatically daily**
