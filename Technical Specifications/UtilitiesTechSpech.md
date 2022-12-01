@@ -1,4 +1,4 @@
-*Created by Aariz, Wyatt, and Zach*
+## Utilities 
 
 ### Spend 30 wolvercoin you can place an image on the wolverscreens
 - `buyWolverscreen` function
