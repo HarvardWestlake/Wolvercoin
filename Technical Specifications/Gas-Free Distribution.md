@@ -75,6 +75,7 @@ Log:
  - Log: When a student hits their max reimbursed
  - Log: When a grad year changes and who changes it
  
+<<<<<<< HEAD
   **PART B**
  
  **B1: Distribute allowance automatically daily**
@@ -111,3 +112,5 @@ Functions:
 > Events:
 - Wolvercoin minted
     - Log: When the clock hits triggeredTime
+=======
+>>>>>>> main

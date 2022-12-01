@@ -8,6 +8,7 @@
 <h2> Spend 30 wolvercoin you can place an image on the wolverscreens <h2>
 <h3> 1. Only available to Honors Topics students <h3>
 <h3> 2. Every 10 extra wolvercoin added to the pot, the photo stays on the screen for one minute more <h3>
+<h3> 3. There is a discount if you get multiple images to display <h3>
 <br>
 <h2> Can spend wolvercoin for direct grade <h2>
 <h3> 1. Only available to Honors Topics students <h3>
