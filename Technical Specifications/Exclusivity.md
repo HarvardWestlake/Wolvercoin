@@ -12,7 +12,9 @@
 > should we create a separate coin for voting? or just use Wolvercoin?
 # Techinical Specifications for Exclusivity
 > **Function 2: Only Honors topics students can have WolverCoin at full functionality**
+> 
 > Honors Topics students refers to both current and past students
+> 
 > Variables:
 - activeStudents: Hashmap(studentWallet -> gradYear)
 - activeYear: uint256 Store a list of honors topics wallet addresses
