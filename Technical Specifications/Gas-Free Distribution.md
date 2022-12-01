@@ -112,3 +112,4 @@ Functions:
 > Events:
 - Wolvercoin minted
     - Log: When the clock hits triggeredTime
+>>>>>>>>> Temporary merge branch 2
