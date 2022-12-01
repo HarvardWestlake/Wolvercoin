@@ -9,7 +9,7 @@
 - votingAddress: address
 > - Methods:
 - vote ()
-  - if called by a student address -> deposits one coin to the votingAddress each time it is called -- remove their address from students Hashmap after they vote and sum = sum+1
+  - if called by a student address -> deposits one coin to the votingAddress each time it is called -- remove their address from hashmap after they vote and sum = sum+1
   - if called by Mr. Theiss's address -> allow him to deposit up to 15% of classSize (use an if statement to check) and sum = sum + amount deposited by Mr. Theiss
 - tallyVotes (sum -> results: boolean)
   - calculate percentage
