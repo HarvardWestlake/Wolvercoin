@@ -38,15 +38,32 @@
 > -   If the number is one, return true
 > - flipPayment (address gambler, uint256 amount)
 > -   Send 2*amount of wolvercoin from the pot wallet to the gambler wallet
-##Technical Specification for Roulette 
+
+#Technical Specification for Roulette 
 > Variables:
-> - roulette: Hashmap with an integer representing the roulette slot and Boolean representing the color (true=red, false=black, or vice versa), each entry representing a slot on roulette wheel
-> - betCoins: a decimal variable containing amount of WC bet
-> - bet: a String input from the player saying what they're bettting (ex. even, 14, odd, high, etc)
-> - win: a boolean variable, true if won, false if lost
+> - roulette- Hashmap with an integer representing the roulette slot and Boolean representing the color (true=red, false=black, or vice versa), each entry representing a slot on roulette wheel
+> - betCoins- decimal containing amount of WC bet
+> - win- boolean (true if won, false if lost)
+> - slotNum- integer
+> - slotEven- boolean
+> - slotRed- boolean
+> - win- boolean
+
 
 > Functions:
-> - playRoulette
-> - get input string from player, store into bet
-> - generate random number from 1 to 36 , get 
-> - if bet says even or odd, check if 
+> - playRoulette(String bet,integer coinBet, address player)
+>   - generate random number from 1 to 36, store into slotNum
+>   - if bet equals "even" or "odd"  
+>       - if (bet equals "even" and slotNum is even) or (bet equals "odd" and slotNum is odd), set win to true
+>       - else set win to false
+>   - else if bet equals "high" or "low"
+>       - if (bet equals "high" and slotNum is greater than 18) or (bet equals "low" and slotNum is less than 19), set win to true
+>       - else set win to false
+>   - else if bet equals "red" or "black"
+>       - if (bet equals "red" and roulette's value stored with key slotNum is true) or (bet equals "black" and roulette's value stored with key slotNum is false), set win to true
+>       - else set win to false
+>   - else if bet is a number
+>       - if bet number is equal to slotNum, set win to true
+>       - else set win to false
+>   - if win, transfer coinBet from player to community pot
+>   - else transfer coinBet from community pot
