@@ -1,8 +1,17 @@
 *Created by Aariz, Wyatt, and Zach*
 
 ### Spend 30 wolvercoin you can place an image on the wolverscreens
+
+##### Variables
+- `String[100] imageURL` - url to image that should be added to wolverscreen
+- `address user` - address of user who wants to buy wolverscreen 
+
+##### Constructors
+- sets `imageURL` and `user` variables
+
+##### Methods
 - `buyWolverscreen` function
-    - parameters: `imageURL`, ensure that image is 1280x720 pixels
+    - ensure that image is 1280x720 pixels
     - verify that user has over 30 wolvercoin, and subtract that from their wallet
     - send a POST request to Node server (or other web server) that sends email to `jchurch@hw.com` from `cstopics@hw.com`
         - email subject: "New Wolverscreen image"
