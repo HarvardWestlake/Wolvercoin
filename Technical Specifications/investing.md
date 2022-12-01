@@ -1,3 +1,0 @@
-totalOfTransactions: unit256 - variable that keeps track of the total Wolvercoin being transcated through the class
-need a function that takes 10% off of totalOfTransactions variable - should return an unit256 value that is that 10%, diminishes totalOfTransactions by 10% because that 10% will be put into liquidity provider 
-deposits that 10% into a liquidity provider (uniswap, sushiswap, other internet liquitiy provider)
