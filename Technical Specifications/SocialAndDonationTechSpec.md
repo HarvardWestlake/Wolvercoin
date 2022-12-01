@@ -1,0 +1,70 @@
+> // Incomplete
+
+## A1: 5% tax on all transactions which is placed in the communal pot
+
+### Variables
+communalPot: address 
+
+### Functions
+- calculateTax(value: uint256)
+> - Takes the current value sent with the transaction and multiplies it by 1.05
+> - Returns the calculated value 
+- addMoneyToCommunalPot(address)
+> Calls calculateTax 
+> - Sends the calculated number to the wolver coin address (communalPot)
+## A2: 3 officials are elected after the cryptocurrency has been coded and annually on the same date thereafter by a public poll where students actively taking Honors Topics can choose three of their peers to elect to the board.
+### Variables
+- activeStudents: Hashmap(studentWallet -> gradYear)
+- activeYear: uint256 Store a list of honors topics wallet addresses
+- teachers: DynArray[address, 10]
+- creator: address
+- struct: Voters
+- voters: public(HashMap[address, Voter])
+- proposals: public(HashMap[int128, Proposal])
+- voterCount: public(int128)
+- chairperson: Mr.Theiss public wallet address
+- int128Proposals: public(int128)
+### Functions 
+- addStudent(address, uint256 gradYear)
+> - adds student address to 'activeStudents' if they don't exist
+> - only can be done by teacher
+- addTeacher(address)
+> - adds a teacher
+> - caller must be teacher or contract creator/admin
+- checkIfActive(address) returns:(bool)
+> - checks if student is active
+- setVoterCount
+> - Set variable voter count to the length of the active student hashmap 
+
+
+
+## People will vote on the proposals, and the one with the most votes gets the charity coin as directed by the official who proposed it
+### Variables
+- Struct Voter:
+- Weight: int128
+- Voted: bool
+- delegate : address
+- Vote: int128
+### Functions
+- vote(proposal: int128)
+> - Cant vote twice
+> - Can only vote on legitimate proposals
+> - Transfer msg.sender’s 
+> - The pot and the way proposals work is detailed in the voting section
+> - The official who wrote the winning proposal will receive a small wolvercoin payment when it wins
+
+## Donations
+Donations from the pot are made on a monthly basis in either useful NFTs (ie gift cards or something else useful) or USD
+
+## A2: A ballot of 5 potential charities is set by board members
+### Variables
+- boardMembers: address[3]
+- charitiesBallot: address[5]
+### Functions
+- addCharity(charity: address)
+> - Adds charity address to charitiesBallot address list  if msg.sender is in boardmembers address array and there are less than 5 addresses in charitiesBallot currently
+> - Holders of wolvercoin can vote on this ballot to determine where the money will go as detailed in the voting section
+> - The Board will create public wallets designated to the charities to control the coin
+
+
+
