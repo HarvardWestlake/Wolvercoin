@@ -1,14 +1,14 @@
-- studentMap - HashMap
+- **studentMap** - HashMap
 	- key: address of every holder of WolverCoin
-	- value: isAlumn - boolean
+	- value: **isAlumn** - boolean
 		- behavior
 			- returns true if graduationDate < currentDate
 			- NOTE: only updates isAlumn value the day after school ends
-- alumniSet - ArrayList
+- **alumniSet** - ArrayList
 	- Stores addresses of those who have an isAlumn value = "true"
 		- NOTE: only adds to alumniSet day 1 hour after isAlumn is updated
 		- NOTE: does not check address if it is already in alumniSet
-- addAlumni (address holder)
+- **addAlumni** (address holder)
 	- Adds "holder" to alumniSet and mint them an NFT by calling NFT method
 - Add a parameter to the stake method that takes in a String userKey (public key)
 	- Add an assertion statement to the stake method
