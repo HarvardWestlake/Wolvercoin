@@ -26,11 +26,3 @@ methods:
 _buy --> transacts the NFT from msg.sender to buyer
 _getPrice --> returns current price
 _countdown --> returns current time in place of the duration 
-
-_quit ()
-*ends the auction
-    * update starting date to the future
-    * update ending date 
-    
-
-
