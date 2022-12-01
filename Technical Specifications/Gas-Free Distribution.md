@@ -75,3 +75,39 @@ Log:
  - Log: When a student hits their max reimbursed
  - Log: When a grad year changes and who changes it
  
+  **PART B**
+ 
+ **B1: Distribute allowance automatically daily**
+ > Only distributes to opted-in users.
+
+> Variables
+- allowanceAmount: uint256
+- optedList: DynArray(address)
+
+Functions: 
+- addDailyAllowances(String[100] signedDatedAllowanceMsg)
+    - goes through optedList
+    - passes parameters to addStudentAllowances
+
+ **B2: Should incur a gas fee done from a foreign account**
+ 
+ > Variables
+- chargedAccount: address
+
+
+> Functions:
+- chargeAccount(address)
+    - deducts the gas fee amount from the allowance transaction from the account
+
+**B3: Should only happen at Midnight PST**
+
+> Variables:
+- triggeredTime: timestamp
+
+> Functions:
+- distributeAllowances()
+   - calls addDailyAllowances at the specified time
+
+> Events:
+- Wolvercoin minted
+    - Log: When the clock hits triggeredTime
