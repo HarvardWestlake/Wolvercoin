@@ -1,5 +1,6 @@
 # Techinical Specifications for Exclusivity
 > **Function 2: Only Honors topics students can have WolverCoin at full functionality**
+> 
 > Honors Topics students refers to both current and past students
 > 
 > Variables:
