@@ -1,0 +1,12 @@
+private instance variable
+    uint256 GAMEcoin -> amount of GAMEcoin
+
+constructor
+    initialize amount of GAMEcoin to 0
+
+methods:
+    void updateGAMEcoin(unint256 changeInValue)
+        updates coinn by changeInValue GAMEcoin
+
+
+    
