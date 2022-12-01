@@ -1,13 +1,17 @@
-- Create a HashMap (studentMap)
-	- stores the addresses (public key) of every holder of WolverCoin as the "key"
-	- stores a boolean value isAlumn as the "value" (returns true if graduationDate < currentDate)
-		- NOTE: only updates isAlumn value the day after school ends
-	- Create ArrayList (alumniSet) with addresses of those who have an isAlumn value = "true"
+- studentMap - HashMap
+	- key: address of every holder of WolverCoin
+	- value: isAlumn - boolean
+		- behavior
+			- returns true if graduationDate < currentDate
+			- NOTE: only updates isAlumn value the day after school ends
+- alumniSet - ArrayList
+	- Stores addresses of those who have an isAlumn value = "true"
 		- NOTE: only adds to alumniSet day 1 hour after isAlumn is updated
 		- NOTE: does not check address if it is already in alumniSet
-- Create an addAlumni method with one parameter: the address
-	- Add to alumniSet and mint them an NFT by calling NFT method
+- addAlumni (address holder)
+	- Adds "holder" to alumniSet and mint them an NFT by calling NFT method
 - Add a parameter to the stake method that takes in a String userKey (public key)
 	- Add an assertion statement to the stake method
 		- assert that alumniSet contains userName, allowing them to proceed and stake their Wolvercoin
 		- If HashSet does not contain userName, subsequent code will not run
+MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR MERGE ERROR 
