@@ -38,6 +38,7 @@
 > -   If the number is one, return true
 > - flipPayment (address gambler, uint256 amount)
 > -   Send 2*amount of wolvercoin from the pot wallet to the gambler wallet
+
 ##Technical Specification for Roulette 
 > Variables:
 > - roulette: Hashmap with an integer representing the roulette slot and Boolean representing the color (true=red, false=black, or vice versa), each entry representing a slot on roulette wheel
@@ -50,3 +51,13 @@
 > - get input string from player, store into bet
 > - generate random number from 1 to 36 , get 
 > - if bet says even or odd, check if 
+
+##Rejected Features
+> Sports Betting:
+> - Impossible to implement because it would require interaction with HW website and manual input of game scores
+> Blackjack:
+> - Difficult to implement because the user would have to interact with the blockchain over the course of many blocks as the game progresses
+> - For this to be implemented, there would have to be a loop of contract -> player choice -> contract interactions
+> Numerous Betting Strategies:
+> - Design says to implement a list of 18 complex betting strategies for roulette
+> - Difficult to implement and not necessary, so simpler version should be programmed
