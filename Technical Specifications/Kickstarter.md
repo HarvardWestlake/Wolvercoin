@@ -10,6 +10,6 @@ donations: HashMap (address -> amount donated)
 >Functions:
 getPrice -> returns current price
 checkGoal -> checks if goal is reached, then public good is achieved
-donate -> contribute to public good address until price is met
+donate -> contribute to public good address until price is met, tracks amount donated
 withdraw -> returns amount donated to public good back into caller's address
 endAuction -> reset variables and update Wolvercoin website for public goods displayed
