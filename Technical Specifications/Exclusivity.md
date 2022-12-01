@@ -1,15 +1,3 @@
-	1.	Variables:  
-      ->topicsAddress : Array of honors topics students’ wallet addresses 
-	2.	Methods: 
-      ->addNonTopics (parameter: address of contender to be added as topics student) 
-            ->Look at voting method from function 1 (audrey’s function about voting) 
-                  ->Use address from voting method and see current balance  
-	          ->If current balance divided by number of addresses in topicsAddress = 1, then student can be added into topicsAddress array 
-	    ->removeTopics (parameter: address of contender to be removed as topics student) 
-	    	    ->Look at voting method from function 1 (audrey’s function about voting) 
-		    	       ->Use address from voting method and see current balance  
-		    	  ->If current balance divided by number of addresses in topicsAddress = 1, then student is removed from topicsAddress array 
-
 # Technical Specification for Exclusivity 
 > **Function 1: students can use Wolvercoin to vote for initiatives; Mr. Theiss's vote can be weighted up to 15% of the total vote**: 
 > - Variables:
@@ -29,7 +17,6 @@
   - clear votingAddress
   - reset HashMap of students
 
-# Techinical Specifications for Exclusivity
 > **Function 2: Only Honors topics students can have WolverCoin at full functionality**
 > 
 > Honors Topics students refers to both current and past students
@@ -47,3 +34,15 @@
   - Then, checks if wallet is Honors Topic Student
     - If student, allow full withdraw amount
     - If not, half withdraw amount and put the half into lottery pot
+
+1.	Variables:  
+      ->topicsAddress : Array of honors topics students’ wallet addresses 
+	2.	Methods: 
+      ->addNonTopics (parameter: address of contender to be added as topics student) 
+            ->Look at voting method from function 1 (audrey’s function about voting) 
+                  ->Use address from voting method and see current balance  
+	          ->If current balance divided by number of addresses in topicsAddress = 1, then student can be added into topicsAddress array 
+	    ->removeTopics (parameter: address of contender to be removed as topics student) 
+	    	    ->Look at voting method from function 1 (audrey’s function about voting) 
+		    	       ->Use address from voting method and see current balance  
+		    	  ->If current balance divided by number of addresses in topicsAddress = 1, then student is removed from topicsAddress array 
