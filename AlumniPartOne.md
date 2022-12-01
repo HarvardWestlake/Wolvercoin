@@ -1,0 +1,7 @@
+- Create a HashSet (alumniSet) that stores the names (public key) of every Honors Topic graduate/alum
+- Create an addAlumni method with no parameters
+	- If a Wolvercoin user is an alum, add to alumniSet and mint them an NFT by calling NFT method
+- Add a parameter to the stake method that takes in a String userKey (public key)
+	- Add an assertion statement to the stake method
+		- assert that alumniSet contains userName, allowing them to proceed and stake their Wolvercoin
+		- If HashSet does not contain userName, subsequent code will not run
