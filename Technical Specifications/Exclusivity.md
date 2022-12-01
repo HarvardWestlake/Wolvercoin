@@ -1,7 +1,7 @@
 # Technical Specification for Exclusivity 
 > **Function 1: students can use Wolvercoin to vote for initiatives; Mr. Theiss's vote can be weighted up to 15% of the total vote**: 
 > - Variables:
-- sum: uint256 (balance of votingAdress)
+- sum: uint256 (balance of votingAddress)
 - classSize: uint256 (number of people in class)
 - percentage: uint256 (sum / classSize * 100)
 - students: HashMap (addresses of students in this class)
@@ -9,7 +9,7 @@
 - votingAddress: address
 > - Methods:
 - vote ()
-  - if called by a student address -> deposits one coin to the given address each time it is called -- remove their address from hashmap after they vote and sum = sum+1
+  - if called by a student address -> deposits one coin to the votingAddress each time it is called -- remove their address from students Hashmap after they vote and sum = sum+1
   - if called by Mr. Theiss's address -> allow him to deposit up to 15% of classSize (use an if statement to check) and sum = sum + amount deposited by Mr. Theiss
 - tallyVotes (sum -> results: boolean)
   - calculate percentage
