@@ -1,4 +1,4 @@
-*Created by Aariz, Wyatt, and Zach*
+## Utilities 
 
 ### Spend 30 wolvercoin you can place an image on the wolverscreens
 - `buyWolverscreen` function
@@ -10,14 +10,23 @@
         - note that Mr. Church will need to approve image to make sure it's appropriate before adding it
 
 #### Wolvercoin in the bookstore
-> Anyone can create an NFTs that represents a physical products they own
-> - Problem: Validating that the person who created the NFT has the product
+> USES SAME FUNCTIONALITY AS ACTIONS BUT MORE
 >
-> The NFT is sold through and action (see DutchActions.md)
+> Variables
+> - boundNFTs - `hashMap(productSha uint256, productOwner address)`
+>   - uint256 is the address of the NFT
+>   - address is the person who created it
 >
-> The NFT can be burnt by its owner to get the person who created it to send you the item
-> - Problem: There is no way to garentee that upon burning it the person will send it to you.
-> - Solution: Seller clout. If you trust the person who is sending it to you (based on previous good transactions) then you can likely trust them.
+> Methods
+> - `createBoundNFT(uint256 productSha)` - product sha is sha of photo containing item. Creates an NFTs that represents a physical products (see problem 1)
+> - `redeemProduct(uint256 productSha)` - finds the owner and informs them to send the item to the person who called method (see problem 2)
+> 
+> Problems
+> 1) There is no way to garrentee that upon burning it the person will send it to you.
+> 2) Validating that the person who created the NFT has the product
+> 
+> Solutions
+> 2) Seller clout. If you trust the person who is sending it to you (based on previous good transactions) then you can likely trust them.
 
 ### Can spend wolvercoin for direct grade
 - Spend Wolvercoin for Direct Grade   
