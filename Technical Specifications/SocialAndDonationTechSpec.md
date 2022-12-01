@@ -3,37 +3,38 @@
 ## A1: 5% tax on all transactions which is placed in the communal pot
 
 ### Variables
-communalPot: address 
+- **communalPot** - address 
 
-### Functions
-- calculateTax(value: uint256)
+### Methods 
+- **calculateTax**(value: uint256)
 > - Takes the current value sent with the transaction and multiplies it by 1.05
 > - Returns the calculated value 
-- addMoneyToCommunalPot(address)
-> Calls calculateTax 
+- **addMoneyToCommunalPot**(address)
+> - Calls calculateTax 
 > - Sends the calculated number to the wolver coin address (communalPot)
+
 ## A2: 3 officials are elected after the cryptocurrency has been coded and annually on the same date thereafter by a public poll where students actively taking Honors Topics can choose three of their peers to elect to the board.
 ### Variables
-- activeStudents: Hashmap(studentWallet -> gradYear)
-- activeYear: uint256 Store a list of honors topics wallet addresses
-- teachers: DynArray[address, 10]
-- creator: address
-- struct: Voters
-- voters: public(HashMap[address, Voter])
-- proposals: public(HashMap[int128, Proposal])
-- voterCount: public(int128)
-- chairperson: Mr.Theiss public wallet address
-- int128Proposals: public(int128)
-### Functions 
-- addStudent(address, uint256 gradYear)
+- **activeStudents**: Hashmap(studentWallet -> gradYear)
+- **activeYear**: uint256 Store a list of honors topics wallet addresses
+- **teachers**: DynArray[address, 10]
+- **creator**: address
+- **struct**: Voters
+- **voters**: public(HashMap[address, Voter])
+- **proposals**: public(HashMap[int128, Proposal])
+- **voterCount**: public(int128)
+- **chairperson**: Mr.Theiss public wallet address
+- **int128Proposals**: public(int128)
+### Methods  
+- **addStudent**(address, uint256 gradYear)
 > - adds student address to 'activeStudents' if they don't exist
 > - only can be done by teacher
-- addTeacher(address)
+- **addTeacher**(address)
 > - adds a teacher
 > - caller must be teacher or contract creator/admin
-- checkIfActive(address) returns:(bool)
+- **checkIfActive**(address) returns:(bool)
 > - checks if student is active
-- setVoterCount
+- **setVoterCount**
 > - Set variable voter count to the length of the active student hashmap 
 
 
