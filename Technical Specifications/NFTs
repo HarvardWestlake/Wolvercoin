@@ -2,5 +2,12 @@
 <h5>Variables</h5>
 > - activeStudents: Hashmap(studentWallet -> gradYear)
 > - activeYear: uint256 Store a list of honors topics wallet addresses
-> - listOfNFTTraits: DynArray [String nameOfTrait, 10000]
+> - listOfNFTEyeTraits: DynArray [String nameOfTrait, 10000]
+> - listOfNFTMouthTraits: DynArray [String nameOfTrait, 10000]
+> - listOfNFTEarTraits: DynArray [String nameOfTrait, 10000]
 > - listOfExisting: Hashmap (uint256 ownerAdress, String traitList)
+
+<h5>Methods</h5>
+> - send (address owner, address, receiver)
+>> - sends NFT to other address
+
