@@ -8,7 +8,13 @@
 > - listOfExisting: Hashmap (uint256 ownerAdress, String traitList)
 
 <h5>Methods</h5>
-> - send (address owner, address, receiver)
+> - send (address owner, address receiver)
 >> - sends NFT to other address
 
- 
+> - breed (address owner, String eyeTrait, String mouthTrait, String earTrait)
+>> - creates a NFT Wolverine with specific traits using randomization
+>> - puts NFT on the listOfExisting
+
+> - rarity (address owner, String eyeTrait, String mouthTrait, String earTrait)
+>> - checks if the NFT exists
+>> - returns how rare it is based on how many of that specific trait exists
