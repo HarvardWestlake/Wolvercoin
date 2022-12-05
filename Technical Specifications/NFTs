@@ -18,3 +18,7 @@
 > - rarity (address owner, String eyeTrait, String mouthTrait, String earTrait)
 >> - checks if the NFT exists
 >> - returns how rare it is based on how many of that specific trait exists
+
+> - hasNFT (address owner)
+>> - Loops through listOfExisting, seeing if any of the keys is the owner parameter 
+>> - returns true if there is a match, false if there is no match
