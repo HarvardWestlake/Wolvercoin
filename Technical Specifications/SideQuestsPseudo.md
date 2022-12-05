@@ -34,7 +34,7 @@ RULES FOR THE DANCE:
 - 1 extra Wolvercoin if you can remain stonefaced
 - 5 extra Wolvercoin if you are in costume
 
-#Technical Specifications for Haiku SideQuest
+**Technical Specifications for Haiku SideQuest**
 > If you send Mr. Theiss a unique haiku, get 5 WolverCoin (one time use)
 
 > Variables: 
@@ -56,3 +56,21 @@ RULES FOR THE DANCE:
 - Successful Haikus
   - Log: Whenever someone submits 3 haikus
   - Log: When someone succeeds (is checked) and completes side quest
+
+Alternative Method by Jake
+Variables:
+- haiku: boolean (three lines, 5/7/5 syllables, rhyme for all three lines or end with a couplet)
+- 3haiku3topic: boolean (checks if there are 3 haikus and they are based on; The feeling of leaving campus at school at the end of the day, Making more money than your brother, Hanging the phone on your parents)
+- plCheck: boolean (checks if Haiku is plaigarized)
+- romanceLanguage: boolean (if written in a romance language)
+- recorded: boolean (if they recorded and sent themselves doing it to whole class)
+- firstTime: boolean (checks if the user has done this before)
+Method:
+    if haiku=true and plCheck=true and firstTime=true
+        +5 wolvercoin to user's wallet 
+        if 3haiku3topic=true 
+            +5 more Wolvercoin to user's wallet 
+            if recorded=true
+                +15 wolercoin to user's wallet 
+        if romanceLanguage=true
+            +3 wolvercoin to user's wallet
