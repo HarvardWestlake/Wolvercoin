@@ -4,6 +4,8 @@ int current -> current amount of WVC put into the good
 - puts it on whatever website Mr.Theiss makes so people can buy
 
 Methods:
+
+
 contribue(int amount, String nameOfGood)
 - people can contribute to a public good until the price is met
 
