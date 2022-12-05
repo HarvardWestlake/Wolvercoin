@@ -1,13 +1,15 @@
 # DAO
 ##### Variables
-- float VoterCoinBalance: Money spent on tax and gas will be converted in VoterCoin (VC).
-- DAO idea functions off of user submitted contracts that will either be passed or rejected.
-- boolean affectsDAO
+- `HashMap(address, uint256) VoterCoinBalance` WVC spent on tax will be converted to VoterCoin (VC)
+- objectWrapper(uint256, boolean) first value is the amount invested in the proposition, second is weather it affects to DAO itself (super-majority)
+- `HashMap(uint256, objectWrapper) activePropositions` contains sha of proposition the wrapped object
+- `HashMap(address, HashMap(uint256, uint256)) amountInvested` for each user, has a hash map that has how much they have invested
+
 ##### Methods
-- boolean hasCoin: 
-    - returns true if user has VoterCoin in wallet.
-- boolean isStaked: 
-    - returns true if user is already staked in a vote with VoterCoin
+- `uint256 hasCoin(addres user, uint256 proposal)`
+    - returns the amount of VC in the proposition for that person.
+- `uint256 amountAvaliable(address user)` 
+    - returns the amount of money the address has that is not currently staked
 - void proposeVote: 
    - takes in an entire contract, and a String description for the contract so that users can decide whether or not to stake VoterCoin in this idea. Starts counter for 100 blocks. On 100th block after initial proposal, finishVote is called. If proposed contract directly edits the DAO contract in any way, set affectsDAO to true.
 - void finishVote: 
