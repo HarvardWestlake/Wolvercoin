@@ -55,17 +55,24 @@
 > - The official who wrote the winning proposal will receive a small wolvercoin payment when it wins
 
 ## Donations
-Donations from the pot are made on a monthly basis in either useful NFTs (ie gift cards or something else useful) or USD
+>**A1: Donations from the pot are made on a monthly basis in either useful NFTs (ie gift cards or something else useful) or USD**
 
-## A2: A ballot of 5 potential charities is set by board members
-### Variables
-- boardMembers: address[3]
-- charitiesBallot: address[5]
-### Functions
-- addCharity(charity: address)
-> - Adds charity address to charitiesBallot address list  if msg.sender is in boardmembers address array and there are less than 5 addresses in charitiesBallot currently
-> - Holders of wolvercoin can vote on this ballot to determine where the money will go as detailed in the voting section
-> - The Board will create public wallets designated to the charities to control the coin
+>**A2: A ballot of 5 potential charities is set by board members**
+
+>### Variables:
+- boardMembers: address array 
+    - size 3
+- charitiesBallot: address array
+    - size 5
+>### Functions:
+- addCharity(toAdd: address) 
+    - Adds charity address to charitiesBallot address list  if msg.sender is in boardmembers address array and there are less than 5 addresses in charitiesBallot currently
+- removeCharity(toRemove: address)
+    - Removes charity address from charitiesBallot address list if msg.sender is in boardmembers address array
+
+>**A3: Holders of wolvercoin can vote on this ballot to determine where the money will go as detailed in the voting section**
+
+>**A4: The Board will create public wallets designated to the charities to control the coin**
 
 
 
