@@ -1,6 +1,6 @@
 IN PROGRESS
 Side Quests Pseudo
-Workers: Simon W + Matthew Ko
+Workers: Simon W + Matthew Ko + Catherine Cho + Benji Ham + Jake W.
 
 
 **Beat Mr. Theiss at Super Hexagon**
@@ -12,9 +12,14 @@ Variables:
 
 Methods:
 CompareHighScores
-- If TheissHighScore<NewScore, send user 2.14x their current WC balance
+- If TheissHighScore < NewScore, send user 2.14x their current WC balance
 - Else, nothing
-In real life, you must show Mr. Theiss your score, and he will have to print an NFT of his most recent instagram post
+
+Not Programmable: 
+Undoctored verification that Mr.Theiss is defeated
+- In real life, you must show Mr. Theiss your score 
+NFT of Theiss photo
+- Mr. Theiss will have to print an NFT of his most recent instagram post
 
 
 **Dance for Mr. Theiss** 
