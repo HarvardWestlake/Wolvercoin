@@ -1,6 +1,12 @@
 import React from "react";
 
 class Header extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      label : 'test label'
+    }
+  }
   componentDidMount() {
     console.log(this.props);
   }
@@ -16,9 +22,6 @@ class Header extends React.Component {
     return (
       <div>
 
-Label: <input name="label" value={this.state.label} onChange={this.onUpdateDetails}  type="text"></input><br />
-        Creation: <input name="creation" onChange={this.onUpdateDetails} value={this.state.creation} type="date"></input><br />
-      
         <div className="container">
         <div className="content">
         <div className="menu-container">
@@ -26,7 +29,7 @@ Label: <input name="label" value={this.state.label} onChange={this.onUpdateDetai
           <div className="menu-items">
             <a id="menu_home" className="menu-item" href="/">Balances</a>
             <a id="menu_nfts" className="menu-item active" href="/#nfts">NFTs</a>
-            <a id="menu_announcements" className="menu-item " href="/#announcements">Announcements</a>
+            <a id="menu_contribute" className="menu-item " href="/contribute">Contribute</a>
             <a id="menu_docs" className="menu-item " href="/#docs">Docs</a>
           </div>
           <div className="wallet-info">

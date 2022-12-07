@@ -1,11 +1,19 @@
 import React from "react";
-import Header from "../components/Common/Header/main.js";
-import Footer from "../components/Common/Footer.js";
 import "../components/Common/main.css";
+import "../components/Contribute/main.css"
+import NFTAddition from "../components/Contribute/NFTAddition";
 
-class Home extends React.Component {
+
+const POSSIBLE_NFT_UPLOAD_STATES = {
+    SPLASH : "SPLASH",
+    UPLOADING_TO_IPFS : "UPLOADING_TO_IPFS",
+    UPLOADED_TO_IPFS : "UPLOADED_TO_IPFS"
+};
+
+class Contribute extends React.Component {
   state = {
     count: this.props.count || 0,
+    nftProgress : POSSIBLE_NFT_UPLOAD_STATES.SPLASH
   };
   componentDidMount() {
     //const contract = drizzle.contracts.Reimbursement;
@@ -15,18 +23,24 @@ class Home extends React.Component {
     this.setState({ dataKey });
   }
 
+  uploadToIPFS() {
+     alert('button clicked');
+  }
+
   render() {
     const { count } = this.state;
+
 
     //const { SimpleStorage } = this.props.drizzleState.contracts;
     //const storedData = SimpleStorage.storedData[this.state.dataKey];
     //return <DisplayValue value={storedData && storedData.value} />;
     return (
       <div>
-       Main content
+        <NFTAddition />
+       Contribute Content
       </div>
     );
   }
 }
 
-export default Home;
+export default Contribute;
