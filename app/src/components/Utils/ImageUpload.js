@@ -25,6 +25,7 @@ import React from 'react';
 class ImageUpload extends React.Component {
   constructor(props) {
     super(props);
+    this.handleFileRead = this.handleFileRead.bind(this);
     this.state = {
       imageBase64 : '',
       error : ''
@@ -79,14 +80,14 @@ class ImageUpload extends React.Component {
   }
 
   render() {
-    let msg = this.state.image ? "Image Selected:" : "Choose an Image:";
+    let msg = this.state.imageBase64 ? "Image Selected:" : "Choose an Image:";
     let errorHidden = this.renderError(this.state.error);
     return (
       <div key="imageUpload">
         <div>{msg}   {errorHidden}</div>
         <input id="inp" type="file"  onChange={e => this.handleFileRead(e)} ></input>
         <p id="b64"></p>
-        <img id="img" height="150" alt="" src={this.props.imageBase64}/>
+        <img id="img" height="150" alt="" src={this.state.imageBase64}/>
       </div>
     );
   }

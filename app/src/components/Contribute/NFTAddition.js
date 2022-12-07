@@ -1,5 +1,7 @@
 import React from "react";
+// https://dev.to/edge-and-node/uploading-files-to-ipfs-from-a-web-application-50a
 import { create } from 'ipfs-http-client'
+import { Buffer } from 'buffer'
 import "./main.css";
 import ImageUpload from "../Utils/ImageUpload.js"
 
@@ -17,17 +19,18 @@ const NFT_IMAGE_PREVIEW = {
 }
 
 class NFTAddition extends React.Component {
-  state = {
-    nftProgress : POSSIBLE_NFT_UPLOAD_STATES.SPLASH,
-    imagePreview : null,
-    imageBase64 : null,
-    ipfsImageUrl : null
-  };
-
   constructor(props) {
     super(props);
+    this.state = {
+        nftProgress : POSSIBLE_NFT_UPLOAD_STATES.SPLASH,
+        password: "",
+        imagePreview : null,
+        imageBase64 : null,
+        ipfsImageUrl : null
+      };
     this.updateImage = this.updateImage.bind(this);
-    this.onUpdateDetails = this.onUpdateDetails.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.uploadToIPFS = this.uploadToIPFS.bind(this);
   }
 
   componentDidMount() {
@@ -38,41 +41,41 @@ class NFTAddition extends React.Component {
     this.setState({ dataKey });
   }
 
-  uploadToIPFS() {
-    const requestOptions = {
-        method: 'POST',
-        headers: { 
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer my-token',
-            'My-Custom-Header': this.state.password
-        },
-        body: JSON.stringify({ title: 'React POST Request Example' })
-    };
-    fetch('http://ipfs.wolvercoin.com/ipfs', requestOptions)
-        .then(response => response.json())
-        .then(data => this.setState({ postId: data.id }));
+  async uploadToIPFS() {
+
+    /* configure Infura auth settings */
+    const projectId = "2IaWJsOC0dbYxtM2VeX8c1XF3tA"
+    const projectSecret = "806e26c84978a921972a9789d344f0d9"
+    const auth = 'Basic ' + Buffer.from(projectId + ':' + projectSecret).toString('base64')
+
+    /* Create an instance of the client */
+    const client = create({
+            //host: 'ipfs.infura.io',
+            host: 'ipfs.wolvercoin.com',
+            port: 80,
+            protocol: 'http',
+            headers: {
+                authorization: auth,
+            }
+        });
+
+    /* upload the file */
+    const added = await client.add(this.state.file)
   }
 
-  generateImagePreview() {
-    const imagePreivew = this.state.imagePreview ? "" : this.state.imagePreview;
-    const height = NFT_IMAGE_PREVIEW.height;
-    const width = NFT_IMAGE_PREVIEW.width;
-    return (<img src="{imagePreview}" alt="" width="{width}" height="{height}" />)
+  handleChange(event) {
+    this.setState({[event.target.name]: event.target.value});
   }
 
-  async onUpdateDetails(event) {
-    var state = this.state;
-    state[event.target.name] = event.target.value;
-    await this.setState(state);
-  }
-
-  updateImage(imageBase64, file) {
-    this.setState({imageBase64});
+  async updateImage(imageBase64, file) {
+    await this.setState({
+        imageBase64 : imageBase64,
+        file: file
+    });
   }
 
   render() {
     const { count } = this.state;
-    const imagePreview = this.generateImagePreview();
     const uploadToIPFSDisabled = (this.state.imageBase64 && this.state.password) ? null : "disabled";
     //const { SimpleStorage } = this.props.drizzleState.contracts;
     //const storedData = SimpleStorage.storedData[this.state.dataKey];
@@ -82,17 +85,14 @@ class NFTAddition extends React.Component {
         <div className="nftAddition">
             <h1>Add an NFT for the class to auction!</h1>
             <h3>This is a two step process</h3>
-            <h4>1. Upload the NFT image to IPFS</h4>
-            <h4>2. Mint an NFT for auction using <br />the image you uploaded to IPFS</h4>
+            <h4>1. Upload the image to IPFS</h4>
+            <h4>2. Mint an NFT for auction using <br />the image uploaded to IPFS</h4>
         </div>
-            <div className="imagePreview">
-                {imagePreview}
-            </div>
             <label htmlFor="password">IPFS Password:</label>
-            <input name="password" value={this.state.password} onChange={this.onUpdateDetails}  type="text"></input>
+
+            <input type="password" name="password" value={this.state.password} onChange={this.handleChange} />
             <br />
             <ImageUpload onUpdate={this.updateImage} image={this.state.imageBase64} />
-            <br />
             <button disabled={uploadToIPFSDisabled} onClick={this.uploadToIPFS}>Upload To IPFS</button>
             <br />
             <br />
