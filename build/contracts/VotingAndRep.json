@@ -59,29 +59,12 @@
     {
       "inputs": [
         {
-          "name": "checkedAddress",
+          "name": "newMaintainer",
           "type": "address"
         }
       ],
-      "name": "getEndDate",
-      "outputs": [
-        {
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "getContractMaintainer",
-      "outputs": [
-        {
-          "name": "",
-          "type": "address"
-        }
-      ],
+      "name": "setContractMaintainer",
+      "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
     },
@@ -1424,7 +1407,7 @@
                 "end_col_offset": 28,
                 "end_lineno": 61,
                 "lineno": 61,
-                "node_id": 335,
+                "node_id": 218,
                 "src": "2087:17:0"
               },
               "operand": {
@@ -1491,7 +1474,7 @@
                 "end_col_offset": 37,
                 "end_lineno": 62,
                 "lineno": 62,
-                "node_id": 228,
+                "node_id": 349,
                 "src": "2153:26:0"
               },
               "right": {
@@ -1609,7 +1592,7 @@
                 "end_col_offset": 39,
                 "end_lineno": 64,
                 "lineno": 64,
-                "node_id": 313,
+                "node_id": 339,
                 "src": "2343:28:0"
               },
               "right": {
@@ -1629,55 +1612,55 @@
             "ast_type": "Assign",
             "col_offset": 4,
             "end_col_offset": 62,
-            "end_lineno": 73,
-            "lineno": 73,
+            "end_lineno": 71,
+            "lineno": 71,
             "node_id": 249,
-            "src": "2604:58:0",
+            "src": "2579:58:0",
             "target": {
               "ast_type": "Subscript",
               "col_offset": 4,
               "end_col_offset": 27,
-              "end_lineno": 73,
-              "lineno": 73,
+              "end_lineno": 71,
+              "lineno": 71,
               "node_id": 250,
               "slice": {
                 "ast_type": "Index",
                 "col_offset": 4,
                 "end_col_offset": 27,
-                "end_lineno": 73,
-                "lineno": 73,
+                "end_lineno": 71,
+                "lineno": 71,
                 "node_id": 258,
-                "src": "2604:23:0",
+                "src": "2579:23:0",
                 "value": {
                   "ast_type": "Name",
                   "col_offset": 18,
                   "end_col_offset": 26,
-                  "end_lineno": 73,
+                  "end_lineno": 71,
                   "id": "contract",
-                  "lineno": 73,
+                  "lineno": 71,
                   "node_id": 255,
-                  "src": "2618:8:0"
+                  "src": "2593:8:0"
                 }
               },
-              "src": "2604:23:0",
+              "src": "2579:23:0",
               "value": {
                 "ast_type": "Attribute",
                 "attr": "endBlock",
                 "col_offset": 4,
                 "end_col_offset": 17,
-                "end_lineno": 73,
-                "lineno": 73,
+                "end_lineno": 71,
+                "lineno": 71,
                 "node_id": 251,
-                "src": "2604:13:0",
+                "src": "2579:13:0",
                 "value": {
                   "ast_type": "Name",
                   "col_offset": 4,
                   "end_col_offset": 8,
-                  "end_lineno": 73,
+                  "end_lineno": 71,
                   "id": "self",
-                  "lineno": 73,
+                  "lineno": 71,
                   "node_id": 252,
-                  "src": "2604:4:0"
+                  "src": "2579:4:0"
                 }
               }
             },
@@ -1685,114 +1668,114 @@
               "ast_type": "BinOp",
               "col_offset": 30,
               "end_col_offset": 62,
-              "end_lineno": 73,
+              "end_lineno": 71,
               "left": {
                 "ast_type": "Attribute",
                 "attr": "number",
                 "col_offset": 30,
                 "end_col_offset": 42,
-                "end_lineno": 73,
-                "lineno": 73,
+                "end_lineno": 71,
+                "lineno": 71,
                 "node_id": 260,
-                "src": "2630:12:0",
+                "src": "2605:12:0",
                 "value": {
                   "ast_type": "Name",
                   "col_offset": 30,
                   "end_col_offset": 35,
-                  "end_lineno": 73,
+                  "end_lineno": 71,
                   "id": "block",
-                  "lineno": 73,
+                  "lineno": 71,
                   "node_id": 261,
-                  "src": "2630:5:0"
+                  "src": "2605:5:0"
                 }
               },
-              "lineno": 73,
+              "lineno": 71,
               "node_id": 259,
               "op": {
                 "ast_type": "Add",
                 "col_offset": 30,
                 "end_col_offset": 62,
-                "end_lineno": 73,
-                "lineno": 73,
+                "end_lineno": 71,
+                "lineno": 71,
                 "node_id": 264,
-                "src": "2630:32:0"
+                "src": "2605:32:0"
               },
               "right": {
                 "ast_type": "Attribute",
                 "attr": "voteDuration",
                 "col_offset": 45,
                 "end_col_offset": 62,
-                "end_lineno": 73,
-                "lineno": 73,
+                "end_lineno": 71,
+                "lineno": 71,
                 "node_id": 265,
-                "src": "2645:17:0",
+                "src": "2620:17:0",
                 "value": {
                   "ast_type": "Name",
                   "col_offset": 45,
                   "end_col_offset": 49,
-                  "end_lineno": 73,
+                  "end_lineno": 71,
                   "id": "self",
-                  "lineno": 73,
+                  "lineno": 71,
                   "node_id": 266,
-                  "src": "2645:4:0"
+                  "src": "2620:4:0"
                 }
               },
-              "src": "2630:32:0"
+              "src": "2605:32:0"
             }
           },
           {
             "ast_type": "Assign",
             "col_offset": 4,
             "end_col_offset": 45,
-            "end_lineno": 74,
-            "lineno": 74,
+            "end_lineno": 72,
+            "lineno": 72,
             "node_id": 269,
-            "src": "2667:41:0",
+            "src": "2642:41:0",
             "target": {
               "ast_type": "Subscript",
               "col_offset": 4,
               "end_col_offset": 33,
-              "end_lineno": 74,
-              "lineno": 74,
+              "end_lineno": 72,
+              "lineno": 72,
               "node_id": 270,
               "slice": {
                 "ast_type": "Index",
                 "col_offset": 4,
                 "end_col_offset": 33,
-                "end_lineno": 74,
-                "lineno": 74,
+                "end_lineno": 72,
+                "lineno": 72,
                 "node_id": 278,
-                "src": "2667:29:0",
+                "src": "2642:29:0",
                 "value": {
                   "ast_type": "Name",
                   "col_offset": 24,
                   "end_col_offset": 32,
-                  "end_lineno": 74,
+                  "end_lineno": 72,
                   "id": "contract",
-                  "lineno": 74,
+                  "lineno": 72,
                   "node_id": 275,
-                  "src": "2687:8:0"
+                  "src": "2662:8:0"
                 }
               },
-              "src": "2667:29:0",
+              "src": "2642:29:0",
               "value": {
                 "ast_type": "Attribute",
                 "attr": "storedDonation",
                 "col_offset": 4,
                 "end_col_offset": 23,
-                "end_lineno": 74,
-                "lineno": 74,
+                "end_lineno": 72,
+                "lineno": 72,
                 "node_id": 271,
-                "src": "2667:19:0",
+                "src": "2642:19:0",
                 "value": {
                   "ast_type": "Name",
                   "col_offset": 4,
                   "end_col_offset": 8,
-                  "end_lineno": 74,
+                  "end_lineno": 72,
                   "id": "self",
-                  "lineno": 74,
+                  "lineno": 72,
                   "node_id": 272,
-                  "src": "2667:4:0"
+                  "src": "2642:4:0"
                 }
               }
             },
@@ -1801,19 +1784,19 @@
               "attr": "value",
               "col_offset": 36,
               "end_col_offset": 45,
-              "end_lineno": 74,
-              "lineno": 74,
+              "end_lineno": 72,
+              "lineno": 72,
               "node_id": 279,
-              "src": "2699:9:0",
+              "src": "2674:9:0",
               "value": {
                 "ast_type": "Name",
                 "col_offset": 36,
                 "end_col_offset": 39,
-                "end_lineno": 74,
+                "end_lineno": 72,
                 "id": "msg",
-                "lineno": 74,
+                "lineno": 72,
                 "node_id": 280,
-                "src": "2699:3:0"
+                "src": "2674:3:0"
               }
             }
           },
@@ -1821,40 +1804,40 @@
             "ast_type": "Log",
             "col_offset": 4,
             "end_col_offset": 52,
-            "end_lineno": 76,
-            "lineno": 76,
+            "end_lineno": 74,
+            "lineno": 74,
             "node_id": 284,
-            "src": "2714:48:0",
+            "src": "2689:48:0",
             "value": {
               "args": [
                 {
                   "ast_type": "Name",
                   "col_offset": 20,
                   "end_col_offset": 28,
-                  "end_lineno": 76,
+                  "end_lineno": 74,
                   "id": "contract",
-                  "lineno": 76,
+                  "lineno": 74,
                   "node_id": 288,
-                  "src": "2730:8:0"
+                  "src": "2705:8:0"
                 },
                 {
                   "ast_type": "Attribute",
                   "attr": "sender",
                   "col_offset": 30,
                   "end_col_offset": 40,
-                  "end_lineno": 76,
-                  "lineno": 76,
+                  "end_lineno": 74,
+                  "lineno": 74,
                   "node_id": 290,
-                  "src": "2740:10:0",
+                  "src": "2715:10:0",
                   "value": {
                     "ast_type": "Name",
                     "col_offset": 30,
                     "end_col_offset": 33,
-                    "end_lineno": 76,
+                    "end_lineno": 74,
                     "id": "msg",
-                    "lineno": 76,
+                    "lineno": 74,
                     "node_id": 291,
-                    "src": "2740:3:0"
+                    "src": "2715:3:0"
                   }
                 },
                 {
@@ -1862,41 +1845,41 @@
                   "attr": "value",
                   "col_offset": 42,
                   "end_col_offset": 51,
-                  "end_lineno": 76,
-                  "lineno": 76,
+                  "end_lineno": 74,
+                  "lineno": 74,
                   "node_id": 294,
-                  "src": "2752:9:0",
+                  "src": "2727:9:0",
                   "value": {
                     "ast_type": "Name",
                     "col_offset": 42,
                     "end_col_offset": 45,
-                    "end_lineno": 76,
+                    "end_lineno": 74,
                     "id": "msg",
-                    "lineno": 76,
+                    "lineno": 74,
                     "node_id": 295,
-                    "src": "2752:3:0"
+                    "src": "2727:3:0"
                   }
                 }
               ],
               "ast_type": "Call",
               "col_offset": 8,
               "end_col_offset": 52,
-              "end_lineno": 76,
+              "end_lineno": 74,
               "func": {
                 "ast_type": "Name",
                 "col_offset": 8,
                 "end_col_offset": 19,
-                "end_lineno": 76,
+                "end_lineno": 74,
                 "id": "VoteStarted",
-                "lineno": 76,
+                "lineno": 74,
                 "node_id": 286,
-                "src": "2718:11:0"
+                "src": "2693:11:0"
               },
               "keyword": null,
               "keywords": [],
-              "lineno": 76,
+              "lineno": 74,
               "node_id": 285,
-              "src": "2718:44:0"
+              "src": "2693:44:0"
             }
           }
         ],
@@ -1925,13 +1908,13 @@
         ],
         "doc_string": null,
         "end_col_offset": 52,
-        "end_lineno": 76,
+        "end_lineno": 74,
         "lineno": 55,
         "name": "proposeVote",
         "node_id": 204,
         "pos": null,
         "returns": null,
-        "src": "1763:999:0"
+        "src": "1763:974:0"
       },
       {
         "args": {
@@ -1941,20 +1924,20 @@
                 "ast_type": "Name",
                 "col_offset": 26,
                 "end_col_offset": 30,
-                "end_lineno": 80,
+                "end_lineno": 78,
                 "id": "bool",
-                "lineno": 80,
+                "lineno": 78,
                 "node_id": 305,
-                "src": "2801:4:0"
+                "src": "2776:4:0"
               },
               "arg": "newState",
               "ast_type": "arg",
               "col_offset": 16,
               "end_col_offset": 30,
-              "end_lineno": 80,
-              "lineno": 80,
+              "end_lineno": 78,
+              "lineno": 78,
               "node_id": 304,
-              "src": "2791:14:0"
+              "src": "2766:14:0"
             }
           ],
           "ast_type": "arguments",
@@ -1962,10 +1945,10 @@
           "default": null,
           "defaults": [],
           "end_col_offset": 30,
-          "end_lineno": 80,
-          "lineno": 80,
+          "end_lineno": 78,
+          "lineno": 78,
           "node_id": 303,
-          "src": "2791:14:0"
+          "src": "2766:14:0"
         },
         "ast_type": "FunctionDef",
         "body": [
@@ -1973,116 +1956,116 @@
             "ast_type": "Assert",
             "col_offset": 4,
             "end_col_offset": 101,
-            "end_lineno": 81,
-            "lineno": 81,
+            "end_lineno": 79,
+            "lineno": 79,
             "msg": {
               "ast_type": "Str",
               "col_offset": 50,
               "end_col_offset": 101,
-              "end_lineno": 81,
-              "lineno": 81,
+              "end_lineno": 79,
+              "lineno": 79,
               "node_id": 318,
-              "src": "2858:51:0",
+              "src": "2833:51:0",
               "value": "Only the maintainer can change the contract state"
             },
             "node_id": 307,
-            "src": "2812:97:0",
+            "src": "2787:97:0",
             "test": {
               "ast_type": "Compare",
               "col_offset": 11,
               "end_col_offset": 48,
-              "end_lineno": 81,
+              "end_lineno": 79,
               "left": {
                 "ast_type": "Attribute",
                 "attr": "sender",
                 "col_offset": 11,
                 "end_col_offset": 21,
-                "end_lineno": 81,
-                "lineno": 81,
+                "end_lineno": 79,
+                "lineno": 79,
                 "node_id": 309,
-                "src": "2819:10:0",
+                "src": "2794:10:0",
                 "value": {
                   "ast_type": "Name",
                   "col_offset": 11,
                   "end_col_offset": 14,
-                  "end_lineno": 81,
+                  "end_lineno": 79,
                   "id": "msg",
-                  "lineno": 81,
+                  "lineno": 79,
                   "node_id": 310,
-                  "src": "2819:3:0"
+                  "src": "2794:3:0"
                 }
               },
-              "lineno": 81,
+              "lineno": 79,
               "node_id": 308,
               "op": {
                 "ast_type": "Eq",
                 "col_offset": 11,
                 "end_col_offset": 48,
-                "end_lineno": 81,
-                "lineno": 81,
-                "node_id": 313,
-                "src": "2819:37:0"
+                "end_lineno": 79,
+                "lineno": 79,
+                "node_id": 339,
+                "src": "2794:37:0"
               },
               "right": {
                 "ast_type": "Attribute",
                 "attr": "contractMaintainer",
                 "col_offset": 25,
                 "end_col_offset": 48,
-                "end_lineno": 81,
-                "lineno": 81,
+                "end_lineno": 79,
+                "lineno": 79,
                 "node_id": 314,
-                "src": "2833:23:0",
+                "src": "2808:23:0",
                 "value": {
                   "ast_type": "Name",
                   "col_offset": 25,
                   "end_col_offset": 29,
-                  "end_lineno": 81,
+                  "end_lineno": 79,
                   "id": "self",
-                  "lineno": 81,
+                  "lineno": 79,
                   "node_id": 315,
-                  "src": "2833:4:0"
+                  "src": "2808:4:0"
                 }
               },
-              "src": "2819:37:0"
+              "src": "2794:37:0"
             }
           },
           {
             "ast_type": "Assign",
             "col_offset": 4,
             "end_col_offset": 28,
-            "end_lineno": 83,
-            "lineno": 83,
+            "end_lineno": 81,
+            "lineno": 81,
             "node_id": 319,
-            "src": "2915:24:0",
+            "src": "2890:24:0",
             "target": {
               "ast_type": "Attribute",
               "attr": "disabled",
               "col_offset": 4,
               "end_col_offset": 17,
-              "end_lineno": 83,
-              "lineno": 83,
+              "end_lineno": 81,
+              "lineno": 81,
               "node_id": 320,
-              "src": "2915:13:0",
+              "src": "2890:13:0",
               "value": {
                 "ast_type": "Name",
                 "col_offset": 4,
                 "end_col_offset": 8,
-                "end_lineno": 83,
+                "end_lineno": 81,
                 "id": "self",
-                "lineno": 83,
+                "lineno": 81,
                 "node_id": 321,
-                "src": "2915:4:0"
+                "src": "2890:4:0"
               }
             },
             "value": {
               "ast_type": "Name",
               "col_offset": 20,
               "end_col_offset": 28,
-              "end_lineno": 83,
+              "end_lineno": 81,
               "id": "newState",
-              "lineno": 83,
+              "lineno": 81,
               "node_id": 324,
-              "src": "2931:8:0"
+              "src": "2906:8:0"
             }
           }
         ],
@@ -2092,22 +2075,22 @@
             "ast_type": "Name",
             "col_offset": 1,
             "end_col_offset": 9,
-            "end_lineno": 79,
+            "end_lineno": 77,
             "id": "external",
-            "lineno": 79,
+            "lineno": 77,
             "node_id": 326,
-            "src": "2766:8:0"
+            "src": "2741:8:0"
           }
         ],
         "doc_string": null,
         "end_col_offset": 28,
-        "end_lineno": 83,
-        "lineno": 80,
+        "end_lineno": 81,
+        "lineno": 78,
         "name": "setDisabled",
         "node_id": 302,
         "pos": null,
         "returns": null,
-        "src": "2775:164:0"
+        "src": "2750:164:0"
       },
       {
         "args": {
@@ -2115,225 +2098,230 @@
             {
               "annotation": {
                 "ast_type": "Name",
-                "col_offset": 31,
-                "end_col_offset": 38,
-                "end_lineno": 87,
+                "col_offset": 41,
+                "end_col_offset": 48,
+                "end_lineno": 84,
                 "id": "address",
-                "lineno": 87,
+                "lineno": 84,
                 "node_id": 331,
-                "src": "2983:7:0"
+                "src": "2968:7:0"
               },
-              "arg": "checkedAddress",
+              "arg": "newMaintainer",
               "ast_type": "arg",
-              "col_offset": 15,
-              "end_col_offset": 38,
-              "end_lineno": 87,
-              "lineno": 87,
+              "col_offset": 26,
+              "end_col_offset": 48,
+              "end_lineno": 84,
+              "lineno": 84,
               "node_id": 330,
-              "src": "2967:23:0"
+              "src": "2953:22:0"
             }
           ],
           "ast_type": "arguments",
-          "col_offset": 15,
+          "col_offset": 26,
           "default": null,
           "defaults": [],
-          "end_col_offset": 38,
-          "end_lineno": 87,
-          "lineno": 87,
+          "end_col_offset": 48,
+          "end_lineno": 84,
+          "lineno": 84,
           "node_id": 329,
-          "src": "2967:23:0"
+          "src": "2953:22:0"
         },
         "ast_type": "FunctionDef",
         "body": [
           {
             "ast_type": "Assert",
             "col_offset": 4,
-            "end_col_offset": 79,
-            "end_lineno": 88,
-            "lineno": 88,
+            "end_col_offset": 104,
+            "end_lineno": 85,
+            "lineno": 85,
             "msg": {
               "ast_type": "Str",
-              "col_offset": 30,
-              "end_col_offset": 79,
-              "end_lineno": 88,
-              "lineno": 88,
-              "node_id": 340,
-              "src": "3034:49:0",
-              "value": "Voting is suspended during contract disablement"
+              "col_offset": 50,
+              "end_col_offset": 104,
+              "end_lineno": 85,
+              "lineno": 85,
+              "node_id": 344,
+              "src": "3028:54:0",
+              "value": "Only the maintainer or DAO can change the maintainer"
             },
             "node_id": 333,
-            "src": "3008:75:0",
+            "src": "2982:100:0",
             "test": {
-              "ast_type": "UnaryOp",
+              "ast_type": "Compare",
               "col_offset": 11,
-              "end_col_offset": 28,
-              "end_lineno": 88,
-              "lineno": 88,
-              "node_id": 334,
-              "op": {
-                "ast_type": "Not",
+              "end_col_offset": 48,
+              "end_lineno": 85,
+              "left": {
+                "ast_type": "Attribute",
+                "attr": "sender",
                 "col_offset": 11,
-                "end_col_offset": 28,
-                "end_lineno": 88,
-                "lineno": 88,
+                "end_col_offset": 21,
+                "end_lineno": 85,
+                "lineno": 85,
                 "node_id": 335,
-                "src": "3015:17:0"
-              },
-              "operand": {
-                "ast_type": "Attribute",
-                "attr": "disabled",
-                "col_offset": 15,
-                "end_col_offset": 28,
-                "end_lineno": 88,
-                "lineno": 88,
-                "node_id": 336,
-                "src": "3019:13:0",
-                "value": {
-                  "ast_type": "Name",
-                  "col_offset": 15,
-                  "end_col_offset": 19,
-                  "end_lineno": 88,
-                  "id": "self",
-                  "lineno": 88,
-                  "node_id": 337,
-                  "src": "3019:4:0"
-                }
-              },
-              "src": "3015:17:0"
-            }
-          },
-          {
-            "ast_type": "Return",
-            "col_offset": 4,
-            "end_col_offset": 40,
-            "end_lineno": 89,
-            "lineno": 89,
-            "node_id": 341,
-            "src": "3088:36:0",
-            "value": {
-              "ast_type": "Subscript",
-              "col_offset": 11,
-              "end_col_offset": 40,
-              "end_lineno": 89,
-              "lineno": 89,
-              "node_id": 342,
-              "slice": {
-                "ast_type": "Index",
-                "col_offset": 11,
-                "end_col_offset": 40,
-                "end_lineno": 89,
-                "lineno": 89,
-                "node_id": 350,
-                "src": "3095:29:0",
-                "value": {
-                  "ast_type": "Name",
-                  "col_offset": 25,
-                  "end_col_offset": 39,
-                  "end_lineno": 89,
-                  "id": "checkedAddress",
-                  "lineno": 89,
-                  "node_id": 347,
-                  "src": "3109:14:0"
-                }
-              },
-              "src": "3095:29:0",
-              "value": {
-                "ast_type": "Attribute",
-                "attr": "endBlock",
-                "col_offset": 11,
-                "end_col_offset": 24,
-                "end_lineno": 89,
-                "lineno": 89,
-                "node_id": 343,
-                "src": "3095:13:0",
+                "src": "2989:10:0",
                 "value": {
                   "ast_type": "Name",
                   "col_offset": 11,
-                  "end_col_offset": 15,
-                  "end_lineno": 89,
-                  "id": "self",
-                  "lineno": 89,
-                  "node_id": 344,
-                  "src": "3095:4:0"
+                  "end_col_offset": 14,
+                  "end_lineno": 85,
+                  "id": "msg",
+                  "lineno": 85,
+                  "node_id": 336,
+                  "src": "2989:3:0"
                 }
-              }
+              },
+              "lineno": 85,
+              "node_id": 334,
+              "op": {
+                "ast_type": "Eq",
+                "col_offset": 11,
+                "end_col_offset": 48,
+                "end_lineno": 85,
+                "lineno": 85,
+                "node_id": 339,
+                "src": "2989:37:0"
+              },
+              "right": {
+                "ast_type": "Attribute",
+                "attr": "contractMaintainer",
+                "col_offset": 25,
+                "end_col_offset": 48,
+                "end_lineno": 85,
+                "lineno": 85,
+                "node_id": 340,
+                "src": "3003:23:0",
+                "value": {
+                  "ast_type": "Name",
+                  "col_offset": 25,
+                  "end_col_offset": 29,
+                  "end_lineno": 85,
+                  "id": "self",
+                  "lineno": 85,
+                  "node_id": 341,
+                  "src": "3003:4:0"
+                }
+              },
+              "src": "2989:37:0"
             }
-          }
-        ],
-        "col_offset": 0,
-        "decorator_list": [
+          },
           {
-            "ast_type": "Name",
-            "col_offset": 1,
-            "end_col_offset": 9,
-            "end_lineno": 86,
-            "id": "external",
-            "lineno": 86,
-            "node_id": 351,
-            "src": "2943:8:0"
-          }
-        ],
-        "doc_string": null,
-        "end_col_offset": 40,
-        "end_lineno": 89,
-        "lineno": 87,
-        "name": "getEndDate",
-        "node_id": 328,
-        "pos": null,
-        "returns": {
-          "ast_type": "Name",
-          "col_offset": 43,
-          "end_col_offset": 50,
-          "end_lineno": 87,
-          "id": "uint256",
-          "lineno": 87,
-          "node_id": 353,
-          "src": "2995:7:0"
-        },
-        "src": "2952:172:0"
-      },
-      {
-        "args": {
-          "args": [],
-          "ast_type": "arguments",
-          "col_offset": 0,
-          "default": null,
-          "defaults": [],
-          "end_col_offset": 3,
-          "end_lineno": 92,
-          "lineno": 92,
-          "node_id": 356,
-          "src": "3136:3:0"
-        },
-        "ast_type": "FunctionDef",
-        "body": [
-          {
-            "ast_type": "Return",
+            "ast_type": "Assert",
             "col_offset": 4,
-            "end_col_offset": 34,
-            "end_lineno": 93,
-            "lineno": 93,
-            "node_id": 357,
-            "src": "3180:30:0",
-            "value": {
-              "ast_type": "Attribute",
-              "attr": "contractMaintainer",
+            "end_col_offset": 77,
+            "end_lineno": 86,
+            "lineno": 86,
+            "msg": {
+              "ast_type": "Str",
+              "col_offset": 44,
+              "end_col_offset": 77,
+              "end_lineno": 86,
+              "lineno": 86,
+              "node_id": 355,
+              "src": "3127:33:0",
+              "value": "You can't remove the maintainer"
+            },
+            "node_id": 345,
+            "src": "3087:73:0",
+            "test": {
+              "ast_type": "Compare",
               "col_offset": 11,
-              "end_col_offset": 34,
-              "end_lineno": 93,
-              "lineno": 93,
-              "node_id": 358,
-              "src": "3187:23:0",
-              "value": {
+              "end_col_offset": 42,
+              "end_lineno": 86,
+              "left": {
                 "ast_type": "Name",
                 "col_offset": 11,
-                "end_col_offset": 15,
-                "end_lineno": 93,
+                "end_col_offset": 24,
+                "end_lineno": 86,
+                "id": "newMaintainer",
+                "lineno": 86,
+                "node_id": 347,
+                "src": "3094:13:0"
+              },
+              "lineno": 86,
+              "node_id": 346,
+              "op": {
+                "ast_type": "NotEq",
+                "col_offset": 11,
+                "end_col_offset": 42,
+                "end_lineno": 86,
+                "lineno": 86,
+                "node_id": 349,
+                "src": "3094:31:0"
+              },
+              "right": {
+                "args": [
+                  {
+                    "ast_type": "Name",
+                    "col_offset": 34,
+                    "end_col_offset": 41,
+                    "end_lineno": 86,
+                    "id": "address",
+                    "lineno": 86,
+                    "node_id": 353,
+                    "src": "3117:7:0"
+                  }
+                ],
+                "ast_type": "Call",
+                "col_offset": 28,
+                "end_col_offset": 42,
+                "end_lineno": 86,
+                "func": {
+                  "ast_type": "Name",
+                  "col_offset": 28,
+                  "end_col_offset": 33,
+                  "end_lineno": 86,
+                  "id": "empty",
+                  "lineno": 86,
+                  "node_id": 351,
+                  "src": "3111:5:0"
+                },
+                "keyword": null,
+                "keywords": [],
+                "lineno": 86,
+                "node_id": 350,
+                "src": "3111:14:0"
+              },
+              "src": "3094:31:0"
+            }
+          },
+          {
+            "ast_type": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 43,
+            "end_lineno": 88,
+            "lineno": 88,
+            "node_id": 356,
+            "src": "3166:39:0",
+            "target": {
+              "ast_type": "Attribute",
+              "attr": "contractMaintainer",
+              "col_offset": 4,
+              "end_col_offset": 27,
+              "end_lineno": 88,
+              "lineno": 88,
+              "node_id": 357,
+              "src": "3166:23:0",
+              "value": {
+                "ast_type": "Name",
+                "col_offset": 4,
+                "end_col_offset": 8,
+                "end_lineno": 88,
                 "id": "self",
-                "lineno": 93,
-                "node_id": 359,
-                "src": "3187:4:0"
+                "lineno": 88,
+                "node_id": 358,
+                "src": "3166:4:0"
               }
+            },
+            "value": {
+              "ast_type": "Name",
+              "col_offset": 30,
+              "end_col_offset": 43,
+              "end_lineno": 88,
+              "id": "newMaintainer",
+              "lineno": 88,
+              "node_id": 361,
+              "src": "3192:13:0"
             }
           }
         ],
@@ -2343,44 +2331,35 @@
             "ast_type": "Name",
             "col_offset": 1,
             "end_col_offset": 9,
-            "end_lineno": 91,
+            "end_lineno": 83,
             "id": "external",
-            "lineno": 91,
-            "node_id": 362,
-            "src": "3127:8:0"
+            "lineno": 83,
+            "node_id": 363,
+            "src": "2917:8:0"
           }
         ],
         "doc_string": null,
-        "end_col_offset": 34,
-        "end_lineno": 93,
-        "lineno": 92,
-        "name": "getContractMaintainer",
-        "node_id": 355,
+        "end_col_offset": 43,
+        "end_lineno": 88,
+        "lineno": 84,
+        "name": "setContractMaintainer",
+        "node_id": 328,
         "pos": null,
-        "returns": {
-          "ast_type": "Name",
-          "col_offset": 31,
-          "end_col_offset": 38,
-          "end_lineno": 92,
-          "id": "address",
-          "lineno": 92,
-          "node_id": 364,
-          "src": "3167:7:0"
-        },
-        "src": "3136:74:0"
+        "returns": null,
+        "src": "2927:278:0"
       }
     ],
     "col_offset": 0,
     "doc_string": null,
-    "end_col_offset": 34,
-    "end_lineno": 93,
+    "end_col_offset": 43,
+    "end_lineno": 88,
     "lineno": 1,
     "name": "contracts/VotingAndRep.vy",
     "node_id": 0,
-    "src": "0:3210:0"
+    "src": "0:3205:0"
   },
-  "bytecode": "0x34610642576064600855336009556000600a5561061d6100246100003961061d610000f36003361161000c57610605565b60003560e01c63ff3ee9258118610289576064361061060b576004358060a01c61060b5760405260243560040160ff81351161060b57803580606052602082018181608037505050600a54156100e7576021610180527f5468697320636f6e7472616374206973206e6f206c6f6e6765722061637469766101a0527f65000000000000000000000000000000000000000000000000000000000000006101c0526101805061018051806101a001601f826000031636823750506308c379a061014052602061016052601f19601f61018051011660440161015cfd5b604051610179576028610180527f43616e6e6f7420616464207468652030206164647265737320617320766f74656101a0527f207375626a6563740000000000000000000000000000000000000000000000006101c0526101805061018051806101a001601f826000031636823750506308c379a061014052602061016052601f19601f61018051011660440161015cfd5b60066040516020526000526040600020541561021a576030610180527f4120766f74652068617320616c7265616479206265656e2063726561746564206101a0527f666f7220746861742061646472657373000000000000000000000000000000006101c0526101805061018051806101a001601f826000031636823750506308c379a061014052602061016052601f19601f61018051011660440161015cfd5b4360085480820182811061060b579050905060066040516020526000526040600020553460076040516020526000526040600020557f3904ef0a01e9fe8b4d21825482a939b4201266405a71d87561cd41c7ee8868d760405161018052336101a052346101c0526060610180a1005b3461060b57636c5a7d1e8118610342576024361061060b576004358060011c61060b5760405260095433181561033a5760316060527f4f6e6c7920746865206d61696e7461696e65722063616e206368616e676520746080527f686520636f6e747261637420737461746500000000000000000000000000000060a05260605060605180608001601f826000031636823750506308c379a06020526020604052601f19601f6060510116604401603cfd5b604051600a55005b63240035e28118610406576024361061060b576004358060a01c61060b57604052600a54156103ec57602f6060527f566f74696e672069732073757370656e64656420647572696e6720636f6e74726080527f6163742064697361626c656d656e74000000000000000000000000000000000060a05260605060605180608001601f826000031636823750506308c379a06020526020604052601f19601f6060510116604401603cfd5b600660405160205260005260406000205460605260206060f35b63475b58228118610425576004361061060b5760095460405260206040f35b63ccd794108118610460576024361061060b576004358060a01c61060b57604052600060405160205260005260406000205460605260206060f35b63be9395f1811861047f576004361061060b5760015460405260206040f35b6354b6c47e81186104ba576024361061060b576004358060a01c61060b57604052600260405160205260005260406000205460605260206060f35b6343da504e81186104f5576024361061060b576004358060a01c61060b57604052600360405160205260005260406000205460605260206060f35b63a3c771fc811861054f576044361061060b576004358060a01c61060b576040526024358060a01c61060b576060526004604051602052600052604060002080606051602052600052604060002090505460805260206080f35b6384618ddc811861058a576024361061060b576004358060a01c61060b57604052600660405160205260005260406000205460605260206060f35b637abc40e781186105c5576024361061060b576004358060a01c61060b57604052600760405160205260005260406000205460605260206060f35b635636449981186105e4576004361061060b5760085460405260206040f35b633f9a8c4a8118610603576004361061060b5760095460405260206040f35b505b60006000fd5b600080fda165767970657283000307000b005b600080fd",
-  "bytecodeSha1": "8f1cc80023530e321e265b13c4efe093ceb164af",
+  "bytecode": "0x34610677576064600855336009556000600a5561065261002461000039610652610000f36003361161000c5761063a565b60003560e01c63ff3ee92581186102895760643610610640576004358060a01c6106405760405260243560040160ff81351161064057803580606052602082018181608037505050600a54156100e7576021610180527f5468697320636f6e7472616374206973206e6f206c6f6e6765722061637469766101a0527f65000000000000000000000000000000000000000000000000000000000000006101c0526101805061018051806101a001601f826000031636823750506308c379a061014052602061016052601f19601f61018051011660440161015cfd5b604051610179576028610180527f43616e6e6f7420616464207468652030206164647265737320617320766f74656101a0527f207375626a6563740000000000000000000000000000000000000000000000006101c0526101805061018051806101a001601f826000031636823750506308c379a061014052602061016052601f19601f61018051011660440161015cfd5b60066040516020526000526040600020541561021a576030610180527f4120766f74652068617320616c7265616479206265656e2063726561746564206101a0527f666f7220746861742061646472657373000000000000000000000000000000006101c0526101805061018051806101a001601f826000031636823750506308c379a061014052602061016052601f19601f61018051011660440161015cfd5b43600854808201828110610640579050905060066040516020526000526040600020553460076040516020526000526040600020557f3904ef0a01e9fe8b4d21825482a939b4201266405a71d87561cd41c7ee8868d760405161018052336101a052346101c0526060610180a1005b3461064057636c5a7d1e81186103425760243610610640576004358060011c6106405760405260095433181561033a5760316060527f4f6e6c7920746865206d61696e7461696e65722063616e206368616e676520746080527f686520636f6e747261637420737461746500000000000000000000000000000060a05260605060605180608001601f826000031636823750506308c379a06020526020604052601f19601f6060510116604401603cfd5b604051600a55005b63fc3d6058811861045a5760243610610640576004358060a01c610640576040526009543318156103ee5760346060527f4f6e6c7920746865206d61696e7461696e6572206f722044414f2063616e20636080527f68616e676520746865206d61696e7461696e657200000000000000000000000060a05260605060605180608001601f826000031636823750506308c379a06020526020604052601f19601f6060510116604401603cfd5b60405161045257601f6060527f596f752063616e27742072656d6f766520746865206d61696e7461696e65720060805260605060605180608001601f826000031636823750506308c379a06020526020604052601f19601f6060510116604401603cfd5b604051600955005b63ccd7941081186104955760243610610640576004358060a01c61064057604052600060405160205260005260406000205460605260206060f35b63be9395f181186104b457600436106106405760015460405260206040f35b6354b6c47e81186104ef5760243610610640576004358060a01c61064057604052600260405160205260005260406000205460605260206060f35b6343da504e811861052a5760243610610640576004358060a01c61064057604052600360405160205260005260406000205460605260206060f35b63a3c771fc81186105845760443610610640576004358060a01c610640576040526024358060a01c610640576060526004604051602052600052604060002080606051602052600052604060002090505460805260206080f35b6384618ddc81186105bf5760243610610640576004358060a01c61064057604052600660405160205260005260406000205460605260206060f35b637abc40e781186105fa5760243610610640576004358060a01c61064057604052600760405160205260005260406000205460605260206060f35b6356364499811861061957600436106106405760085460405260206040f35b633f9a8c4a811861063857600436106106405760095460405260206040f35b505b60006000fd5b600080fda165767970657283000307000b005b600080fd",
+  "bytecodeSha1": "2b6d9c2ba5b719a2c43ba0e10beb0e921147fa8f",
   "compiler": {
     "evm_version": "istanbul",
     "version": "0.3.7"
@@ -2389,13 +2368,6 @@
   "coverageMap": {
     "branches": {
       "0": {
-        "VotingAndRep.getEndDate": {
-          "13": [
-            3008,
-            3083,
-            true
-          ]
-        },
         "VotingAndRep.proposeVote": {
           "1": [
             2080,
@@ -2413,10 +2385,22 @@
             true
           ]
         },
+        "VotingAndRep.setContractMaintainer": {
+          "13": [
+            2982,
+            3082,
+            true
+          ],
+          "15": [
+            3087,
+            3160,
+            true
+          ]
+        },
         "VotingAndRep.setDisabled": {
           "10": [
-            2812,
-            2909,
+            2787,
+            2884,
             true
           ]
         }
@@ -2424,22 +2408,6 @@
     },
     "statements": {
       "0": {
-        "VotingAndRep.getContractMaintainer": {
-          "15": [
-            3180,
-            3210
-          ]
-        },
-        "VotingAndRep.getEndDate": {
-          "12": [
-            3008,
-            3083
-          ],
-          "14": [
-            3088,
-            3124
-          ]
-        },
         "VotingAndRep.proposeVote": {
           "0": [
             2080,
@@ -2454,48 +2422,62 @@
             2423
           ],
           "6": [
-            2604,
-            2662
+            2579,
+            2637
           ],
           "7": [
-            2667,
-            2708
+            2642,
+            2683
           ],
           "8": [
-            2714,
-            2762
+            2689,
+            2737
+          ]
+        },
+        "VotingAndRep.setContractMaintainer": {
+          "12": [
+            2982,
+            3082
+          ],
+          "14": [
+            3087,
+            3160
+          ],
+          "16": [
+            3166,
+            3205
           ]
         },
         "VotingAndRep.setDisabled": {
           "9": [
-            2812,
-            2909
+            2787,
+            2884
           ],
           "11": [
-            2915,
-            2939
+            2890,
+            2914
           ]
         }
       }
     }
   },
   "dependencies": [],
-  "deployedBytecode": "0x6003361161000c57610605565b60003560e01c63ff3ee9258118610289576064361061060b576004358060a01c61060b5760405260243560040160ff81351161060b57803580606052602082018181608037505050600a54156100e7576021610180527f5468697320636f6e7472616374206973206e6f206c6f6e6765722061637469766101a0527f65000000000000000000000000000000000000000000000000000000000000006101c0526101805061018051806101a001601f826000031636823750506308c379a061014052602061016052601f19601f61018051011660440161015cfd5b604051610179576028610180527f43616e6e6f7420616464207468652030206164647265737320617320766f74656101a0527f207375626a6563740000000000000000000000000000000000000000000000006101c0526101805061018051806101a001601f826000031636823750506308c379a061014052602061016052601f19601f61018051011660440161015cfd5b60066040516020526000526040600020541561021a576030610180527f4120766f74652068617320616c7265616479206265656e2063726561746564206101a0527f666f7220746861742061646472657373000000000000000000000000000000006101c0526101805061018051806101a001601f826000031636823750506308c379a061014052602061016052601f19601f61018051011660440161015cfd5b4360085480820182811061060b579050905060066040516020526000526040600020553460076040516020526000526040600020557f3904ef0a01e9fe8b4d21825482a939b4201266405a71d87561cd41c7ee8868d760405161018052336101a052346101c0526060610180a1005b3461060b57636c5a7d1e8118610342576024361061060b576004358060011c61060b5760405260095433181561033a5760316060527f4f6e6c7920746865206d61696e7461696e65722063616e206368616e676520746080527f686520636f6e747261637420737461746500000000000000000000000000000060a05260605060605180608001601f826000031636823750506308c379a06020526020604052601f19601f6060510116604401603cfd5b604051600a55005b63240035e28118610406576024361061060b576004358060a01c61060b57604052600a54156103ec57602f6060527f566f74696e672069732073757370656e64656420647572696e6720636f6e74726080527f6163742064697361626c656d656e74000000000000000000000000000000000060a05260605060605180608001601f826000031636823750506308c379a06020526020604052601f19601f6060510116604401603cfd5b600660405160205260005260406000205460605260206060f35b63475b58228118610425576004361061060b5760095460405260206040f35b63ccd794108118610460576024361061060b576004358060a01c61060b57604052600060405160205260005260406000205460605260206060f35b63be9395f1811861047f576004361061060b5760015460405260206040f35b6354b6c47e81186104ba576024361061060b576004358060a01c61060b57604052600260405160205260005260406000205460605260206060f35b6343da504e81186104f5576024361061060b576004358060a01c61060b57604052600360405160205260005260406000205460605260206060f35b63a3c771fc811861054f576044361061060b576004358060a01c61060b576040526024358060a01c61060b576060526004604051602052600052604060002080606051602052600052604060002090505460805260206080f35b6384618ddc811861058a576024361061060b576004358060a01c61060b57604052600660405160205260005260406000205460605260206060f35b637abc40e781186105c5576024361061060b576004358060a01c61060b57604052600760405160205260005260406000205460605260206060f35b635636449981186105e4576004361061060b5760085460405260206040f35b633f9a8c4a8118610603576004361061060b5760095460405260206040f35b505b60006000fd5b600080fda165767970657283000307000b",
-  "deployedSourceMap": "-1:-1:0:-;;;;:::-;;:::-;:::-;;;;;;;;;:::-;;;;;:::-;;;;;;;:::-;1780:17;;-1:-1;;;1799:25;-1:-1;1799:25;-1:-1;;;:::-;1799:25;-1:-1;;;;;1799:25;-1:-1;;;;;;;1799:25;2091:13;-1:-1;2087:17;2080:61;:::-;-1:-1;;2106:35;-1:-1;;2106:35;-1:-1;;2106:35;;2080:61;-1:-1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2080:61::-;2153:8;:26;2146:77;:::-;-1:-1;;2181:42;-1:-1;;2181:42;-1:-1;;2181:42;;2146:77;-1:-1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2146:77::-;2343:13;2357:8;-1:-1;2343:23;;;;;;;:28;;2336:87;:::-;-1:-1;;2373:50;-1:-1;;2373:50;-1:-1;;2373:50;;2336:87;-1:-1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2336:87::-;2630:12;2645:17;-1:-1;;;;;;;;:::-;;;2630:32;;2604:13;2618:8;-1:-1;2604:23;;;;;;;-1:-1;2699:9;2667:19;2687:8;-1:-1;2667:29;;;;;;;-1:-1;2714:48;2730:8;-1:-1;;;2740:10;-1:-1;;2752:9;-1:-1;;;2714:48;;-1:-1;:::-;;;:::-;;;;;:::-;;;;;:::-;;;;;;;:::-;2791:14;;2833:23;2819:37;:10;:37;;2812:97;:::-;-1:-1;;2858:51;-1:-1;;2858:51;-1:-1;;2858:51;;2812:97;-1:-1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2812:97::-;2931:8;-1:-1;2915:13;-1:-1;;:::-;;;;;:::-;;;;;:::-;;;;;;;:::-;2967:23;;3019:13;-1:-1;3015:17;3008:75;:::-;-1:-1;;3034:49;-1:-1;;3034:49;-1:-1;;3034:49;;3008:75;-1:-1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;3008:75::-;3095:13;3109:14;-1:-1;3095:29;;;;;;;-1:-1;;;;;;:::-;;;;;:::-;;;;;:::-;3187:23;-1:-1;;;;;;:::-;;;;;:::-;;;;;:::-;;;;;;;:::-;;;;;;;;;;;;;;;;;;;:::-;;;;;:::-;;;;;:::-;;;;;;;;:::-;;;;;:::-;;;;;:::-;;;;;;;:::-;;;;;;;;;;;;;;;;;;;:::-;;;;;:::-;;;;;:::-;;;;;;;:::-;;;;;;;;;;;;;;;;;;;:::-;;;;;:::-;;;;;:::-;;;;;;;:::-;;;;;;;;;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::-;;;;;:::-;;;;;:::-;;;;;;;:::-;;;;;;;;;;;;;;;;;;;:::-;;;;;:::-;;;;;:::-;;;;;;;:::-;;;;;;;;;;;;;;;;;;;:::-;;;;;:::-;;;;;:::-;;;;;;;;:::-;;;;;:::-;;;;;:::-;;;;;;;;:::-;;:::-;;;;:::-;;;",
+  "deployedBytecode": "0x6003361161000c5761063a565b60003560e01c63ff3ee92581186102895760643610610640576004358060a01c6106405760405260243560040160ff81351161064057803580606052602082018181608037505050600a54156100e7576021610180527f5468697320636f6e7472616374206973206e6f206c6f6e6765722061637469766101a0527f65000000000000000000000000000000000000000000000000000000000000006101c0526101805061018051806101a001601f826000031636823750506308c379a061014052602061016052601f19601f61018051011660440161015cfd5b604051610179576028610180527f43616e6e6f7420616464207468652030206164647265737320617320766f74656101a0527f207375626a6563740000000000000000000000000000000000000000000000006101c0526101805061018051806101a001601f826000031636823750506308c379a061014052602061016052601f19601f61018051011660440161015cfd5b60066040516020526000526040600020541561021a576030610180527f4120766f74652068617320616c7265616479206265656e2063726561746564206101a0527f666f7220746861742061646472657373000000000000000000000000000000006101c0526101805061018051806101a001601f826000031636823750506308c379a061014052602061016052601f19601f61018051011660440161015cfd5b43600854808201828110610640579050905060066040516020526000526040600020553460076040516020526000526040600020557f3904ef0a01e9fe8b4d21825482a939b4201266405a71d87561cd41c7ee8868d760405161018052336101a052346101c0526060610180a1005b3461064057636c5a7d1e81186103425760243610610640576004358060011c6106405760405260095433181561033a5760316060527f4f6e6c7920746865206d61696e7461696e65722063616e206368616e676520746080527f686520636f6e747261637420737461746500000000000000000000000000000060a05260605060605180608001601f826000031636823750506308c379a06020526020604052601f19601f6060510116604401603cfd5b604051600a55005b63fc3d6058811861045a5760243610610640576004358060a01c610640576040526009543318156103ee5760346060527f4f6e6c7920746865206d61696e7461696e6572206f722044414f2063616e20636080527f68616e676520746865206d61696e7461696e657200000000000000000000000060a05260605060605180608001601f826000031636823750506308c379a06020526020604052601f19601f6060510116604401603cfd5b60405161045257601f6060527f596f752063616e27742072656d6f766520746865206d61696e7461696e65720060805260605060605180608001601f826000031636823750506308c379a06020526020604052601f19601f6060510116604401603cfd5b604051600955005b63ccd7941081186104955760243610610640576004358060a01c61064057604052600060405160205260005260406000205460605260206060f35b63be9395f181186104b457600436106106405760015460405260206040f35b6354b6c47e81186104ef5760243610610640576004358060a01c61064057604052600260405160205260005260406000205460605260206060f35b6343da504e811861052a5760243610610640576004358060a01c61064057604052600360405160205260005260406000205460605260206060f35b63a3c771fc81186105845760443610610640576004358060a01c610640576040526024358060a01c610640576060526004604051602052600052604060002080606051602052600052604060002090505460805260206080f35b6384618ddc81186105bf5760243610610640576004358060a01c61064057604052600660405160205260005260406000205460605260206060f35b637abc40e781186105fa5760243610610640576004358060a01c61064057604052600760405160205260005260406000205460605260206060f35b6356364499811861061957600436106106405760085460405260206040f35b633f9a8c4a811861063857600436106106405760095460405260206040f35b505b60006000fd5b600080fda165767970657283000307000b",
+  "deployedSourceMap": "-1:-1:0:-;;;;:::-;;:::-;:::-;;;;;;;;;:::-;;;;;:::-;;;;;;;:::-;1780:17;;-1:-1;;;1799:25;-1:-1;1799:25;-1:-1;;;:::-;1799:25;-1:-1;;;;;1799:25;-1:-1;;;;;;;1799:25;2091:13;-1:-1;2087:17;2080:61;:::-;-1:-1;;2106:35;-1:-1;;2106:35;-1:-1;;2106:35;;2080:61;-1:-1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2080:61::-;2153:8;:26;2146:77;:::-;-1:-1;;2181:42;-1:-1;;2181:42;-1:-1;;2181:42;;2146:77;-1:-1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2146:77::-;2343:13;2357:8;-1:-1;2343:23;;;;;;;:28;;2336:87;:::-;-1:-1;;2373:50;-1:-1;;2373:50;-1:-1;;2373:50;;2336:87;-1:-1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2336:87::-;2605:12;2620:17;-1:-1;;;;;;;;:::-;;;2605:32;;2579:13;2593:8;-1:-1;2579:23;;;;;;;-1:-1;2674:9;2642:19;2662:8;-1:-1;2642:29;;;;;;;-1:-1;2689:48;2705:8;-1:-1;;;2715:10;-1:-1;;2727:9;-1:-1;;;2689:48;;-1:-1;:::-;;;:::-;;;;;:::-;;;;;:::-;;;;;;;:::-;2766:14;;2808:23;2794:37;:10;:37;;2787:97;:::-;-1:-1;;2833:51;-1:-1;;2833:51;-1:-1;;2833:51;;2787:97;-1:-1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2787:97::-;2906:8;-1:-1;2890:13;-1:-1;;:::-;;;;;:::-;;;;;:::-;;;;;;;:::-;2953:22;;3003:23;2989:37;:10;:37;;2982:100;:::-;-1:-1;;3028:54;-1:-1;;3028:54;-1:-1;;3028:54;;2982:100;-1:-1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2982:100::-;3094:13;:31;3087:73;:::-;-1:-1;;3127:33;-1:-1;;3127:33;;3087:73;-1:-1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;3087:73::-;3192:13;-1:-1;3166:23;-1:-1;;:::-;;;;;:::-;;;;;:::-;;;;;;;:::-;;;;;;;;;;;;;;;;;;;:::-;;;;;:::-;;;;;:::-;;;;;;;;:::-;;;;;:::-;;;;;:::-;;;;;;;:::-;;;;;;;;;;;;;;;;;;;:::-;;;;;:::-;;;;;:::-;;;;;;;:::-;;;;;;;;;;;;;;;;;;;:::-;;;;;:::-;;;;;:::-;;;;;;;:::-;;;;;;;;;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::-;;;;;:::-;;;;;:::-;;;;;;;:::-;;;;;;;;;;;;;;;;;;;:::-;;;;;:::-;;;;;:::-;;;;;;;:::-;;;;;;;;;;;;;;;;;;;:::-;;;;;:::-;;;;;:::-;;;;;;;;:::-;;;;;:::-;;;;;:::-;;;;;;;;:::-;;:::-;;;;:::-;;;",
   "language": "Vyper",
   "natspec": {
     "methods": {}
   },
   "offset": [
     0,
-    3211
+    3205
   ],
-  "opcodes": "PUSH1 0x3 CALLDATASIZE GT PUSH2 0x0C JUMPI PUSH2 0x65 JUMP JUMPDEST PUSH1 0x0 CALLDATALOAD PUSH1 0xE0 SHR PUSH4 0xFF3EE925 DUP2 XOR PUSH2 0x289 JUMPI PUSH1 0x64 CALLDATASIZE LT PUSH2 0x6B JUMPI PUSH1 0x4 CALLDATALOAD DUP1 PUSH1 0xA0 SHR PUSH2 0x6B JUMPI PUSH1 0x40 MSTORE PUSH1 0x24 CALLDATALOAD PUSH1 0x4 ADD PUSH1 0xFF DUP2 CALLDATALOAD GT PUSH2 0x6B JUMPI DUP1 CALLDATALOAD DUP1 PUSH1 0x60 MSTORE PUSH1 0x20 DUP3 ADD DUP2 DUP2 PUSH1 0x80 CALLDATACOPY POP POP POP PUSH1 0xA SLOAD ISZERO PUSH2 0x0E7 JUMPI PUSH1 0x21 PUSH2 0x180 MSTORE PUSH32 0x5468697320636F6E7472616374206973206E6F206C6F6E676572206163746976 PUSH2 0x1A0 MSTORE PUSH32 0x650000000000000000000000000000000 PUSH2 0x1C0 MSTORE PUSH2 0x180 POP PUSH2 0x180 MLOAD DUP1 PUSH2 0x1A0 ADD PUSH1 0x1F DUP3 PUSH1 0x0 SUB AND CALLDATASIZE DUP3 CALLDATACOPY POP POP PUSH4 0x8C379A0 PUSH2 0x140 MSTORE PUSH1 0x20 PUSH2 0x160 MSTORE PUSH1 0x1F NOT PUSH1 0x1F PUSH2 0x180 MLOAD ADD AND PUSH1 0x44 ADD PUSH2 0x15C REVERT JUMPDEST PUSH1 0x40 MLOAD PUSH2 0x179 JUMPI PUSH1 0x28 PUSH2 0x180 MSTORE PUSH32 0x43616E6E6F7420616464207468652030206164647265737320617320766F7465 PUSH2 0x1A0 MSTORE PUSH32 0x207375626A656374000000000000000000000000 PUSH2 0x1C0 MSTORE PUSH2 0x180 POP PUSH2 0x180 MLOAD DUP1 PUSH2 0x1A0 ADD PUSH1 0x1F DUP3 PUSH1 0x0 SUB AND CALLDATASIZE DUP3 CALLDATACOPY POP POP PUSH4 0x8C379A0 PUSH2 0x140 MSTORE PUSH1 0x20 PUSH2 0x160 MSTORE PUSH1 0x1F NOT PUSH1 0x1F PUSH2 0x180 MLOAD ADD AND PUSH1 0x44 ADD PUSH2 0x15C REVERT JUMPDEST PUSH1 0x6 PUSH1 0x40 MLOAD PUSH1 0x20 MSTORE PUSH1 0x0 MSTORE PUSH1 0x40 PUSH1 0x0 SHA3 SLOAD ISZERO PUSH2 0x21A JUMPI PUSH1 0x30 PUSH2 0x180 MSTORE PUSH32 0x4120766F74652068617320616C7265616479206265656E206372656174656420 PUSH2 0x1A0 MSTORE PUSH32 0x666F72207468617420616464726573730000000000000000 PUSH2 0x1C0 MSTORE PUSH2 0x180 POP PUSH2 0x180 MLOAD DUP1 PUSH2 0x1A0 ADD PUSH1 0x1F DUP3 PUSH1 0x0 SUB AND CALLDATASIZE DUP3 CALLDATACOPY POP POP PUSH4 0x8C379A0 PUSH2 0x140 MSTORE PUSH1 0x20 PUSH2 0x160 MSTORE PUSH1 0x1F NOT PUSH1 0x1F PUSH2 0x180 MLOAD ADD AND PUSH1 0x44 ADD PUSH2 0x15C REVERT JUMPDEST NUMBER PUSH1 0x8 SLOAD DUP1 DUP3 ADD DUP3 DUP2 LT PUSH2 0x6B JUMPI SWAP1 POP SWAP1 POP PUSH1 0x6 PUSH1 0x40 MLOAD PUSH1 0x20 MSTORE PUSH1 0x0 MSTORE PUSH1 0x40 PUSH1 0x0 SHA3 SSTORE CALLVALUE PUSH1 0x7 PUSH1 0x40 MLOAD PUSH1 0x20 MSTORE PUSH1 0x0 MSTORE PUSH1 0x40 PUSH1 0x0 SHA3 SSTORE PUSH32 0x394EFA1E9FE8B4D21825482A939B4201266405A71D87561CD41C7EE8868D7 PUSH1 0x40 MLOAD PUSH2 0x180 MSTORE CALLER PUSH2 0x1A0 MSTORE CALLVALUE PUSH2 0x1C0 MSTORE PUSH1 0x60 PUSH2 0x180 LOG1 STOP JUMPDEST CALLVALUE PUSH2 0x6B JUMPI PUSH4 0x6C5A7D1E DUP2 XOR PUSH2 0x342 JUMPI PUSH1 0x24 CALLDATASIZE LT PUSH2 0x6B JUMPI PUSH1 0x4 CALLDATALOAD DUP1 PUSH1 0x1 SHR PUSH2 0x6B JUMPI PUSH1 0x40 MSTORE PUSH1 0x9 SLOAD CALLER XOR ISZERO PUSH2 0x33A JUMPI PUSH1 0x31 PUSH1 0x60 MSTORE PUSH32 0x4F6E6C7920746865206D61696E7461696E65722063616E206368616E67652074 PUSH1 0x80 MSTORE PUSH32 0x686520636F6E7472616374207374617465000000000000000 PUSH1 0xA0 MSTORE PUSH1 0x60 POP PUSH1 0x60 MLOAD DUP1 PUSH1 0x80 ADD PUSH1 0x1F DUP3 PUSH1 0x0 SUB AND CALLDATASIZE DUP3 CALLDATACOPY POP POP PUSH4 0x8C379A0 PUSH1 0x20 MSTORE PUSH1 0x20 PUSH1 0x40 MSTORE PUSH1 0x1F NOT PUSH1 0x1F PUSH1 0x60 MLOAD ADD AND PUSH1 0x44 ADD PUSH1 0x3C REVERT JUMPDEST PUSH1 0x40 MLOAD PUSH1 0xA SSTORE STOP JUMPDEST PUSH4 0x24035E2 DUP2 XOR PUSH2 0x46 JUMPI PUSH1 0x24 CALLDATASIZE LT PUSH2 0x6B JUMPI PUSH1 0x4 CALLDATALOAD DUP1 PUSH1 0xA0 SHR PUSH2 0x6B JUMPI PUSH1 0x40 MSTORE PUSH1 0xA SLOAD ISZERO PUSH2 0x3EC JUMPI PUSH1 0x2F PUSH1 0x60 MSTORE PUSH32 0x566F74696E672069732073757370656E64656420647572696E6720636F6E7472 PUSH1 0x80 MSTORE PUSH32 0x6163742064697361626C656D656E7400000000000000000 PUSH1 0xA0 MSTORE PUSH1 0x60 POP PUSH1 0x60 MLOAD DUP1 PUSH1 0x80 ADD PUSH1 0x1F DUP3 PUSH1 0x0 SUB AND CALLDATASIZE DUP3 CALLDATACOPY POP POP PUSH4 0x8C379A0 PUSH1 0x20 MSTORE PUSH1 0x20 PUSH1 0x40 MSTORE PUSH1 0x1F NOT PUSH1 0x1F PUSH1 0x60 MLOAD ADD AND PUSH1 0x44 ADD PUSH1 0x3C REVERT JUMPDEST PUSH1 0x6 PUSH1 0x40 MLOAD PUSH1 0x20 MSTORE PUSH1 0x0 MSTORE PUSH1 0x40 PUSH1 0x0 SHA3 SLOAD PUSH1 0x60 MSTORE PUSH1 0x20 PUSH1 0x60 RETURN JUMPDEST PUSH4 0x475B5822 DUP2 XOR PUSH2 0x425 JUMPI PUSH1 0x4 CALLDATASIZE LT PUSH2 0x6B JUMPI PUSH1 0x9 SLOAD PUSH1 0x40 MSTORE PUSH1 0x20 PUSH1 0x40 RETURN JUMPDEST PUSH4 0xCCD79410 DUP2 XOR PUSH2 0x460 JUMPI PUSH1 0x24 CALLDATASIZE LT PUSH2 0x6B JUMPI PUSH1 0x4 CALLDATALOAD DUP1 PUSH1 0xA0 SHR PUSH2 0x6B JUMPI PUSH1 0x40 MSTORE PUSH1 0x0 PUSH1 0x40 MLOAD PUSH1 0x20 MSTORE PUSH1 0x0 MSTORE PUSH1 0x40 PUSH1 0x0 SHA3 SLOAD PUSH1 0x60 MSTORE PUSH1 0x20 PUSH1 0x60 RETURN JUMPDEST PUSH4 0xBE9395F1 DUP2 XOR PUSH2 0x47F JUMPI PUSH1 0x4 CALLDATASIZE LT PUSH2 0x6B JUMPI PUSH1 0x1 SLOAD PUSH1 0x40 MSTORE PUSH1 0x20 PUSH1 0x40 RETURN JUMPDEST PUSH4 0x54B6C47E DUP2 XOR PUSH2 0x4BA JUMPI PUSH1 0x24 CALLDATASIZE LT PUSH2 0x6B JUMPI PUSH1 0x4 CALLDATALOAD DUP1 PUSH1 0xA0 SHR PUSH2 0x6B JUMPI PUSH1 0x40 MSTORE PUSH1 0x2 PUSH1 0x40 MLOAD PUSH1 0x20 MSTORE PUSH1 0x0 MSTORE PUSH1 0x40 PUSH1 0x0 SHA3 SLOAD PUSH1 0x60 MSTORE PUSH1 0x20 PUSH1 0x60 RETURN JUMPDEST PUSH4 0x43DA504E DUP2 XOR PUSH2 0x4F5 JUMPI PUSH1 0x24 CALLDATASIZE LT PUSH2 0x6B JUMPI PUSH1 0x4 CALLDATALOAD DUP1 PUSH1 0xA0 SHR PUSH2 0x6B JUMPI PUSH1 0x40 MSTORE PUSH1 0x3 PUSH1 0x40 MLOAD PUSH1 0x20 MSTORE PUSH1 0x0 MSTORE PUSH1 0x40 PUSH1 0x0 SHA3 SLOAD PUSH1 0x60 MSTORE PUSH1 0x20 PUSH1 0x60 RETURN JUMPDEST PUSH4 0xA3C771FC DUP2 XOR PUSH2 0x54F JUMPI PUSH1 0x44 CALLDATASIZE LT PUSH2 0x6B JUMPI PUSH1 0x4 CALLDATALOAD DUP1 PUSH1 0xA0 SHR PUSH2 0x6B JUMPI PUSH1 0x40 MSTORE PUSH1 0x24 CALLDATALOAD DUP1 PUSH1 0xA0 SHR PUSH2 0x6B JUMPI PUSH1 0x60 MSTORE PUSH1 0x4 PUSH1 0x40 MLOAD PUSH1 0x20 MSTORE PUSH1 0x0 MSTORE PUSH1 0x40 PUSH1 0x0 SHA3 DUP1 PUSH1 0x60 MLOAD PUSH1 0x20 MSTORE PUSH1 0x0 MSTORE PUSH1 0x40 PUSH1 0x0 SHA3 SWAP1 POP SLOAD PUSH1 0x80 MSTORE PUSH1 0x20 PUSH1 0x80 RETURN JUMPDEST PUSH4 0x84618DDC DUP2 XOR PUSH2 0x58A JUMPI PUSH1 0x24 CALLDATASIZE LT PUSH2 0x6B JUMPI PUSH1 0x4 CALLDATALOAD DUP1 PUSH1 0xA0 SHR PUSH2 0x6B JUMPI PUSH1 0x40 MSTORE PUSH1 0x6 PUSH1 0x40 MLOAD PUSH1 0x20 MSTORE PUSH1 0x0 MSTORE PUSH1 0x40 PUSH1 0x0 SHA3 SLOAD PUSH1 0x60 MSTORE PUSH1 0x20 PUSH1 0x60 RETURN JUMPDEST PUSH4 0x7ABC40E7 DUP2 XOR PUSH2 0x5C5 JUMPI PUSH1 0x24 CALLDATASIZE LT PUSH2 0x6B JUMPI PUSH1 0x4 CALLDATALOAD DUP1 PUSH1 0xA0 SHR PUSH2 0x6B JUMPI PUSH1 0x40 MSTORE PUSH1 0x7 PUSH1 0x40 MLOAD PUSH1 0x20 MSTORE PUSH1 0x0 MSTORE PUSH1 0x40 PUSH1 0x0 SHA3 SLOAD PUSH1 0x60 MSTORE PUSH1 0x20 PUSH1 0x60 RETURN JUMPDEST PUSH4 0x56364499 DUP2 XOR PUSH2 0x5E4 JUMPI PUSH1 0x4 CALLDATASIZE LT PUSH2 0x6B JUMPI PUSH1 0x8 SLOAD PUSH1 0x40 MSTORE PUSH1 0x20 PUSH1 0x40 RETURN JUMPDEST PUSH4 0x3F9A8C4A DUP2 XOR PUSH2 0x63 JUMPI PUSH1 0x4 CALLDATASIZE LT PUSH2 0x6B JUMPI PUSH1 0x9 SLOAD PUSH1 0x40 MSTORE PUSH1 0x20 PUSH1 0x40 RETURN JUMPDEST POP JUMPDEST PUSH1 0x0 PUSH1 0x0 REVERT JUMPDEST PUSH1 0x0 DUP1 REVERT LOG1 PUSH6 0x767970657283 STOP SUB SMOD STOP SIGNEXTEND",
+  "opcodes": "PUSH1 0x3 CALLDATASIZE GT PUSH2 0x0C JUMPI PUSH2 0x63A JUMP JUMPDEST PUSH1 0x0 CALLDATALOAD PUSH1 0xE0 SHR PUSH4 0xFF3EE925 DUP2 XOR PUSH2 0x289 JUMPI PUSH1 0x64 CALLDATASIZE LT PUSH2 0x640 JUMPI PUSH1 0x4 CALLDATALOAD DUP1 PUSH1 0xA0 SHR PUSH2 0x640 JUMPI PUSH1 0x40 MSTORE PUSH1 0x24 CALLDATALOAD PUSH1 0x4 ADD PUSH1 0xFF DUP2 CALLDATALOAD GT PUSH2 0x640 JUMPI DUP1 CALLDATALOAD DUP1 PUSH1 0x60 MSTORE PUSH1 0x20 DUP3 ADD DUP2 DUP2 PUSH1 0x80 CALLDATACOPY POP POP POP PUSH1 0xA SLOAD ISZERO PUSH2 0x0E7 JUMPI PUSH1 0x21 PUSH2 0x180 MSTORE PUSH32 0x5468697320636F6E7472616374206973206E6F206C6F6E676572206163746976 PUSH2 0x1A0 MSTORE PUSH32 0x650000000000000000000000000000000 PUSH2 0x1C0 MSTORE PUSH2 0x180 POP PUSH2 0x180 MLOAD DUP1 PUSH2 0x1A0 ADD PUSH1 0x1F DUP3 PUSH1 0x0 SUB AND CALLDATASIZE DUP3 CALLDATACOPY POP POP PUSH4 0x8C379A0 PUSH2 0x140 MSTORE PUSH1 0x20 PUSH2 0x160 MSTORE PUSH1 0x1F NOT PUSH1 0x1F PUSH2 0x180 MLOAD ADD AND PUSH1 0x44 ADD PUSH2 0x15C REVERT JUMPDEST PUSH1 0x40 MLOAD PUSH2 0x179 JUMPI PUSH1 0x28 PUSH2 0x180 MSTORE PUSH32 0x43616E6E6F7420616464207468652030206164647265737320617320766F7465 PUSH2 0x1A0 MSTORE PUSH32 0x207375626A656374000000000000000000000000 PUSH2 0x1C0 MSTORE PUSH2 0x180 POP PUSH2 0x180 MLOAD DUP1 PUSH2 0x1A0 ADD PUSH1 0x1F DUP3 PUSH1 0x0 SUB AND CALLDATASIZE DUP3 CALLDATACOPY POP POP PUSH4 0x8C379A0 PUSH2 0x140 MSTORE PUSH1 0x20 PUSH2 0x160 MSTORE PUSH1 0x1F NOT PUSH1 0x1F PUSH2 0x180 MLOAD ADD AND PUSH1 0x44 ADD PUSH2 0x15C REVERT JUMPDEST PUSH1 0x6 PUSH1 0x40 MLOAD PUSH1 0x20 MSTORE PUSH1 0x0 MSTORE PUSH1 0x40 PUSH1 0x0 SHA3 SLOAD ISZERO PUSH2 0x21A JUMPI PUSH1 0x30 PUSH2 0x180 MSTORE PUSH32 0x4120766F74652068617320616C7265616479206265656E206372656174656420 PUSH2 0x1A0 MSTORE PUSH32 0x666F72207468617420616464726573730000000000000000 PUSH2 0x1C0 MSTORE PUSH2 0x180 POP PUSH2 0x180 MLOAD DUP1 PUSH2 0x1A0 ADD PUSH1 0x1F DUP3 PUSH1 0x0 SUB AND CALLDATASIZE DUP3 CALLDATACOPY POP POP PUSH4 0x8C379A0 PUSH2 0x140 MSTORE PUSH1 0x20 PUSH2 0x160 MSTORE PUSH1 0x1F NOT PUSH1 0x1F PUSH2 0x180 MLOAD ADD AND PUSH1 0x44 ADD PUSH2 0x15C REVERT JUMPDEST NUMBER PUSH1 0x8 SLOAD DUP1 DUP3 ADD DUP3 DUP2 LT PUSH2 0x640 JUMPI SWAP1 POP SWAP1 POP PUSH1 0x6 PUSH1 0x40 MLOAD PUSH1 0x20 MSTORE PUSH1 0x0 MSTORE PUSH1 0x40 PUSH1 0x0 SHA3 SSTORE CALLVALUE PUSH1 0x7 PUSH1 0x40 MLOAD PUSH1 0x20 MSTORE PUSH1 0x0 MSTORE PUSH1 0x40 PUSH1 0x0 SHA3 SSTORE PUSH32 0x394EFA1E9FE8B4D21825482A939B4201266405A71D87561CD41C7EE8868D7 PUSH1 0x40 MLOAD PUSH2 0x180 MSTORE CALLER PUSH2 0x1A0 MSTORE CALLVALUE PUSH2 0x1C0 MSTORE PUSH1 0x60 PUSH2 0x180 LOG1 STOP JUMPDEST CALLVALUE PUSH2 0x640 JUMPI PUSH4 0x6C5A7D1E DUP2 XOR PUSH2 0x342 JUMPI PUSH1 0x24 CALLDATASIZE LT PUSH2 0x640 JUMPI PUSH1 0x4 CALLDATALOAD DUP1 PUSH1 0x1 SHR PUSH2 0x640 JUMPI PUSH1 0x40 MSTORE PUSH1 0x9 SLOAD CALLER XOR ISZERO PUSH2 0x33A JUMPI PUSH1 0x31 PUSH1 0x60 MSTORE PUSH32 0x4F6E6C7920746865206D61696E7461696E65722063616E206368616E67652074 PUSH1 0x80 MSTORE PUSH32 0x686520636F6E7472616374207374617465000000000000000 PUSH1 0xA0 MSTORE PUSH1 0x60 POP PUSH1 0x60 MLOAD DUP1 PUSH1 0x80 ADD PUSH1 0x1F DUP3 PUSH1 0x0 SUB AND CALLDATASIZE DUP3 CALLDATACOPY POP POP PUSH4 0x8C379A0 PUSH1 0x20 MSTORE PUSH1 0x20 PUSH1 0x40 MSTORE PUSH1 0x1F NOT PUSH1 0x1F PUSH1 0x60 MLOAD ADD AND PUSH1 0x44 ADD PUSH1 0x3C REVERT JUMPDEST PUSH1 0x40 MLOAD PUSH1 0xA SSTORE STOP JUMPDEST PUSH4 0xFC3D6058 DUP2 XOR PUSH2 0x45A JUMPI PUSH1 0x24 CALLDATASIZE LT PUSH2 0x640 JUMPI PUSH1 0x4 CALLDATALOAD DUP1 PUSH1 0xA0 SHR PUSH2 0x640 JUMPI PUSH1 0x40 MSTORE PUSH1 0x9 SLOAD CALLER XOR ISZERO PUSH2 0x3EE JUMPI PUSH1 0x34 PUSH1 0x60 MSTORE PUSH32 0x4F6E6C7920746865206D61696E7461696E6572206F722044414F2063616E2063 PUSH1 0x80 MSTORE PUSH32 0x68616E676520746865206D61696E7461696E6572000000000000 PUSH1 0xA0 MSTORE PUSH1 0x60 POP PUSH1 0x60 MLOAD DUP1 PUSH1 0x80 ADD PUSH1 0x1F DUP3 PUSH1 0x0 SUB AND CALLDATASIZE DUP3 CALLDATACOPY POP POP PUSH4 0x8C379A0 PUSH1 0x20 MSTORE PUSH1 0x20 PUSH1 0x40 MSTORE PUSH1 0x1F NOT PUSH1 0x1F PUSH1 0x60 MLOAD ADD AND PUSH1 0x44 ADD PUSH1 0x3C REVERT JUMPDEST PUSH1 0x40 MLOAD PUSH2 0x452 JUMPI PUSH1 0x1F PUSH1 0x60 MSTORE PUSH32 0x596F752063616E27742072656D6F766520746865206D61696E7461696E65720 PUSH1 0x80 MSTORE PUSH1 0x60 POP PUSH1 0x60 MLOAD DUP1 PUSH1 0x80 ADD PUSH1 0x1F DUP3 PUSH1 0x0 SUB AND CALLDATASIZE DUP3 CALLDATACOPY POP POP PUSH4 0x8C379A0 PUSH1 0x20 MSTORE PUSH1 0x20 PUSH1 0x40 MSTORE PUSH1 0x1F NOT PUSH1 0x1F PUSH1 0x60 MLOAD ADD AND PUSH1 0x44 ADD PUSH1 0x3C REVERT JUMPDEST PUSH1 0x40 MLOAD PUSH1 0x9 SSTORE STOP JUMPDEST PUSH4 0xCCD79410 DUP2 XOR PUSH2 0x495 JUMPI PUSH1 0x24 CALLDATASIZE LT PUSH2 0x640 JUMPI PUSH1 0x4 CALLDATALOAD DUP1 PUSH1 0xA0 SHR PUSH2 0x640 JUMPI PUSH1 0x40 MSTORE PUSH1 0x0 PUSH1 0x40 MLOAD PUSH1 0x20 MSTORE PUSH1 0x0 MSTORE PUSH1 0x40 PUSH1 0x0 SHA3 SLOAD PUSH1 0x60 MSTORE PUSH1 0x20 PUSH1 0x60 RETURN JUMPDEST PUSH4 0xBE9395F1 DUP2 XOR PUSH2 0x4B4 JUMPI PUSH1 0x4 CALLDATASIZE LT PUSH2 0x640 JUMPI PUSH1 0x1 SLOAD PUSH1 0x40 MSTORE PUSH1 0x20 PUSH1 0x40 RETURN JUMPDEST PUSH4 0x54B6C47E DUP2 XOR PUSH2 0x4EF JUMPI PUSH1 0x24 CALLDATASIZE LT PUSH2 0x640 JUMPI PUSH1 0x4 CALLDATALOAD DUP1 PUSH1 0xA0 SHR PUSH2 0x640 JUMPI PUSH1 0x40 MSTORE PUSH1 0x2 PUSH1 0x40 MLOAD PUSH1 0x20 MSTORE PUSH1 0x0 MSTORE PUSH1 0x40 PUSH1 0x0 SHA3 SLOAD PUSH1 0x60 MSTORE PUSH1 0x20 PUSH1 0x60 RETURN JUMPDEST PUSH4 0x43DA504E DUP2 XOR PUSH2 0x52A JUMPI PUSH1 0x24 CALLDATASIZE LT PUSH2 0x640 JUMPI PUSH1 0x4 CALLDATALOAD DUP1 PUSH1 0xA0 SHR PUSH2 0x640 JUMPI PUSH1 0x40 MSTORE PUSH1 0x3 PUSH1 0x40 MLOAD PUSH1 0x20 MSTORE PUSH1 0x0 MSTORE PUSH1 0x40 PUSH1 0x0 SHA3 SLOAD PUSH1 0x60 MSTORE PUSH1 0x20 PUSH1 0x60 RETURN JUMPDEST PUSH4 0xA3C771FC DUP2 XOR PUSH2 0x584 JUMPI PUSH1 0x44 CALLDATASIZE LT PUSH2 0x640 JUMPI PUSH1 0x4 CALLDATALOAD DUP1 PUSH1 0xA0 SHR PUSH2 0x640 JUMPI PUSH1 0x40 MSTORE PUSH1 0x24 CALLDATALOAD DUP1 PUSH1 0xA0 SHR PUSH2 0x640 JUMPI PUSH1 0x60 MSTORE PUSH1 0x4 PUSH1 0x40 MLOAD PUSH1 0x20 MSTORE PUSH1 0x0 MSTORE PUSH1 0x40 PUSH1 0x0 SHA3 DUP1 PUSH1 0x60 MLOAD PUSH1 0x20 MSTORE PUSH1 0x0 MSTORE PUSH1 0x40 PUSH1 0x0 SHA3 SWAP1 POP SLOAD PUSH1 0x80 MSTORE PUSH1 0x20 PUSH1 0x80 RETURN JUMPDEST PUSH4 0x84618DDC DUP2 XOR PUSH2 0x5BF JUMPI PUSH1 0x24 CALLDATASIZE LT PUSH2 0x640 JUMPI PUSH1 0x4 CALLDATALOAD DUP1 PUSH1 0xA0 SHR PUSH2 0x640 JUMPI PUSH1 0x40 MSTORE PUSH1 0x6 PUSH1 0x40 MLOAD PUSH1 0x20 MSTORE PUSH1 0x0 MSTORE PUSH1 0x40 PUSH1 0x0 SHA3 SLOAD PUSH1 0x60 MSTORE PUSH1 0x20 PUSH1 0x60 RETURN JUMPDEST PUSH4 0x7ABC40E7 DUP2 XOR PUSH2 0x5FA JUMPI PUSH1 0x24 CALLDATASIZE LT PUSH2 0x640 JUMPI PUSH1 0x4 CALLDATALOAD DUP1 PUSH1 0xA0 SHR PUSH2 0x640 JUMPI PUSH1 0x40 MSTORE PUSH1 0x7 PUSH1 0x40 MLOAD PUSH1 0x20 MSTORE PUSH1 0x0 MSTORE PUSH1 0x40 PUSH1 0x0 SHA3 SLOAD PUSH1 0x60 MSTORE PUSH1 0x20 PUSH1 0x60 RETURN JUMPDEST PUSH4 0x56364499 DUP2 XOR PUSH2 0x619 JUMPI PUSH1 0x4 CALLDATASIZE LT PUSH2 0x640 JUMPI PUSH1 0x8 SLOAD PUSH1 0x40 MSTORE PUSH1 0x20 PUSH1 0x40 RETURN JUMPDEST PUSH4 0x3F9A8C4A DUP2 XOR PUSH2 0x638 JUMPI PUSH1 0x4 CALLDATASIZE LT PUSH2 0x640 JUMPI PUSH1 0x9 SLOAD PUSH1 0x40 MSTORE PUSH1 0x20 PUSH1 0x40 RETURN JUMPDEST POP JUMPDEST PUSH1 0x0 PUSH1 0x0 REVERT JUMPDEST PUSH1 0x0 DUP1 REVERT LOG1 PUSH6 0x767970657283 STOP SUB SMOD STOP SIGNEXTEND",
   "pcMap": {
     "0": {
       "offset": [
         0,
-        3210
+        3205
       ],
       "op": "PUSH1",
       "path": "0",
@@ -2516,7 +2498,7 @@
     },
     "8": {
       "op": "PUSH2",
-      "value": "0x65"
+      "value": "0x63A"
     },
     "11": {
       "op": "JUMP"
@@ -2567,7 +2549,7 @@
     },
     "34": {
       "op": "PUSH2",
-      "value": "0x6B"
+      "value": "0x640"
     },
     "37": {
       "op": "JUMPI"
@@ -2591,7 +2573,7 @@
     },
     "45": {
       "op": "PUSH2",
-      "value": "0x6B"
+      "value": "0x640"
     },
     "48": {
       "op": "JUMPI"
@@ -2656,7 +2638,7 @@
     },
     "63": {
       "op": "PUSH2",
-      "value": "0x6B"
+      "value": "0x640"
     },
     "66": {
       "op": "JUMPI"
@@ -3506,8 +3488,8 @@
     "539": {
       "fn": "VotingAndRep.proposeVote",
       "offset": [
-        2630,
-        2642
+        2605,
+        2617
       ],
       "op": "NUMBER",
       "path": "0",
@@ -3516,8 +3498,8 @@
     "540": {
       "fn": "VotingAndRep.proposeVote",
       "offset": [
-        2645,
-        2662
+        2620,
+        2637
       ],
       "op": "PUSH1",
       "path": "0",
@@ -3546,7 +3528,7 @@
     },
     "549": {
       "op": "PUSH2",
-      "value": "0x6B"
+      "value": "0x640"
     },
     "552": {
       "op": "JUMPI"
@@ -3560,8 +3542,8 @@
     "555": {
       "fn": "VotingAndRep.proposeVote",
       "offset": [
-        2630,
-        2662
+        2605,
+        2637
       ],
       "op": "SWAP1",
       "path": "0"
@@ -3569,8 +3551,8 @@
     "556": {
       "fn": "VotingAndRep.proposeVote",
       "offset": [
-        2630,
-        2662
+        2605,
+        2637
       ],
       "op": "POP",
       "path": "0"
@@ -3578,8 +3560,8 @@
     "557": {
       "fn": "VotingAndRep.proposeVote",
       "offset": [
-        2604,
-        2617
+        2579,
+        2592
       ],
       "op": "PUSH1",
       "path": "0",
@@ -3588,8 +3570,8 @@
     "559": {
       "fn": "VotingAndRep.proposeVote",
       "offset": [
-        2618,
-        2626
+        2593,
+        2601
       ],
       "op": "PUSH1",
       "path": "0",
@@ -3601,8 +3583,8 @@
     "562": {
       "fn": "VotingAndRep.proposeVote",
       "offset": [
-        2604,
-        2627
+        2579,
+        2602
       ],
       "op": "PUSH1",
       "path": "0",
@@ -3611,8 +3593,8 @@
     "564": {
       "fn": "VotingAndRep.proposeVote",
       "offset": [
-        2604,
-        2627
+        2579,
+        2602
       ],
       "op": "MSTORE",
       "path": "0"
@@ -3620,8 +3602,8 @@
     "565": {
       "fn": "VotingAndRep.proposeVote",
       "offset": [
-        2604,
-        2627
+        2579,
+        2602
       ],
       "op": "PUSH1",
       "path": "0",
@@ -3630,8 +3612,8 @@
     "567": {
       "fn": "VotingAndRep.proposeVote",
       "offset": [
-        2604,
-        2627
+        2579,
+        2602
       ],
       "op": "MSTORE",
       "path": "0"
@@ -3639,8 +3621,8 @@
     "568": {
       "fn": "VotingAndRep.proposeVote",
       "offset": [
-        2604,
-        2627
+        2579,
+        2602
       ],
       "op": "PUSH1",
       "path": "0",
@@ -3649,8 +3631,8 @@
     "570": {
       "fn": "VotingAndRep.proposeVote",
       "offset": [
-        2604,
-        2627
+        2579,
+        2602
       ],
       "op": "PUSH1",
       "path": "0",
@@ -3659,8 +3641,8 @@
     "572": {
       "fn": "VotingAndRep.proposeVote",
       "offset": [
-        2604,
-        2627
+        2579,
+        2602
       ],
       "op": "SHA3",
       "path": "0"
@@ -3671,8 +3653,8 @@
     "574": {
       "fn": "VotingAndRep.proposeVote",
       "offset": [
-        2699,
-        2708
+        2674,
+        2683
       ],
       "op": "CALLVALUE",
       "path": "0",
@@ -3681,8 +3663,8 @@
     "575": {
       "fn": "VotingAndRep.proposeVote",
       "offset": [
-        2667,
-        2686
+        2642,
+        2661
       ],
       "op": "PUSH1",
       "path": "0",
@@ -3691,8 +3673,8 @@
     "577": {
       "fn": "VotingAndRep.proposeVote",
       "offset": [
-        2687,
-        2695
+        2662,
+        2670
       ],
       "op": "PUSH1",
       "path": "0",
@@ -3704,8 +3686,8 @@
     "580": {
       "fn": "VotingAndRep.proposeVote",
       "offset": [
-        2667,
-        2696
+        2642,
+        2671
       ],
       "op": "PUSH1",
       "path": "0",
@@ -3714,8 +3696,8 @@
     "582": {
       "fn": "VotingAndRep.proposeVote",
       "offset": [
-        2667,
-        2696
+        2642,
+        2671
       ],
       "op": "MSTORE",
       "path": "0"
@@ -3723,8 +3705,8 @@
     "583": {
       "fn": "VotingAndRep.proposeVote",
       "offset": [
-        2667,
-        2696
+        2642,
+        2671
       ],
       "op": "PUSH1",
       "path": "0",
@@ -3733,8 +3715,8 @@
     "585": {
       "fn": "VotingAndRep.proposeVote",
       "offset": [
-        2667,
-        2696
+        2642,
+        2671
       ],
       "op": "MSTORE",
       "path": "0"
@@ -3742,8 +3724,8 @@
     "586": {
       "fn": "VotingAndRep.proposeVote",
       "offset": [
-        2667,
-        2696
+        2642,
+        2671
       ],
       "op": "PUSH1",
       "path": "0",
@@ -3752,8 +3734,8 @@
     "588": {
       "fn": "VotingAndRep.proposeVote",
       "offset": [
-        2667,
-        2696
+        2642,
+        2671
       ],
       "op": "PUSH1",
       "path": "0",
@@ -3762,8 +3744,8 @@
     "590": {
       "fn": "VotingAndRep.proposeVote",
       "offset": [
-        2667,
-        2696
+        2642,
+        2671
       ],
       "op": "SHA3",
       "path": "0"
@@ -3774,8 +3756,8 @@
     "592": {
       "fn": "VotingAndRep.proposeVote",
       "offset": [
-        2714,
-        2762
+        2689,
+        2737
       ],
       "op": "PUSH32",
       "path": "0",
@@ -3785,8 +3767,8 @@
     "625": {
       "fn": "VotingAndRep.proposeVote",
       "offset": [
-        2730,
-        2738
+        2705,
+        2713
       ],
       "op": "PUSH1",
       "path": "0",
@@ -3805,8 +3787,8 @@
     "632": {
       "fn": "VotingAndRep.proposeVote",
       "offset": [
-        2740,
-        2750
+        2715,
+        2725
       ],
       "op": "CALLER",
       "path": "0"
@@ -3821,8 +3803,8 @@
     "637": {
       "fn": "VotingAndRep.proposeVote",
       "offset": [
-        2752,
-        2761
+        2727,
+        2736
       ],
       "op": "CALLVALUE",
       "path": "0"
@@ -3841,8 +3823,8 @@
     "644": {
       "fn": "VotingAndRep.proposeVote",
       "offset": [
-        2714,
-        2762
+        2689,
+        2737
       ],
       "op": "PUSH2",
       "path": "0",
@@ -3851,8 +3833,8 @@
     "647": {
       "fn": "VotingAndRep.proposeVote",
       "offset": [
-        2714,
-        2762
+        2689,
+        2737
       ],
       "op": "LOG1",
       "path": "0"
@@ -3868,7 +3850,7 @@
     },
     "651": {
       "op": "PUSH2",
-      "value": "0x6B"
+      "value": "0x640"
     },
     "654": {
       "op": "JUMPI"
@@ -3902,7 +3884,7 @@
     },
     "670": {
       "op": "PUSH2",
-      "value": "0x6B"
+      "value": "0x640"
     },
     "673": {
       "op": "JUMPI"
@@ -3926,7 +3908,7 @@
     },
     "681": {
       "op": "PUSH2",
-      "value": "0x6B"
+      "value": "0x640"
     },
     "684": {
       "op": "JUMPI"
@@ -3934,8 +3916,8 @@
     "685": {
       "fn": "VotingAndRep.setDisabled",
       "offset": [
-        2791,
-        2805
+        2766,
+        2780
       ],
       "op": "PUSH1",
       "path": "0",
@@ -3944,8 +3926,8 @@
     "687": {
       "fn": "VotingAndRep.setDisabled",
       "offset": [
-        2791,
-        2805
+        2766,
+        2780
       ],
       "op": "MSTORE",
       "path": "0"
@@ -3953,8 +3935,8 @@
     "688": {
       "fn": "VotingAndRep.setDisabled",
       "offset": [
-        2833,
-        2856
+        2808,
+        2831
       ],
       "op": "PUSH1",
       "path": "0",
@@ -3964,8 +3946,8 @@
     "690": {
       "fn": "VotingAndRep.setDisabled",
       "offset": [
-        2819,
-        2856
+        2794,
+        2831
       ],
       "op": "SLOAD",
       "path": "0"
@@ -3973,8 +3955,8 @@
     "691": {
       "fn": "VotingAndRep.setDisabled",
       "offset": [
-        2819,
-        2829
+        2794,
+        2804
       ],
       "op": "CALLER",
       "path": "0"
@@ -3982,8 +3964,8 @@
     "692": {
       "fn": "VotingAndRep.setDisabled",
       "offset": [
-        2819,
-        2856
+        2794,
+        2831
       ],
       "op": "XOR",
       "path": "0"
@@ -3991,8 +3973,8 @@
     "693": {
       "fn": "VotingAndRep.setDisabled",
       "offset": [
-        2819,
-        2856
+        2794,
+        2831
       ],
       "op": "ISZERO",
       "path": "0"
@@ -4000,8 +3982,8 @@
     "694": {
       "fn": "VotingAndRep.setDisabled",
       "offset": [
-        2812,
-        2909
+        2787,
+        2884
       ],
       "op": "PUSH2",
       "path": "0",
@@ -4011,8 +3993,8 @@
       "branch": 10,
       "fn": "VotingAndRep.setDisabled",
       "offset": [
-        2812,
-        2909
+        2787,
+        2884
       ],
       "op": "JUMPI",
       "path": "0"
@@ -4028,8 +4010,8 @@
     "702": {
       "fn": "VotingAndRep.setDisabled",
       "offset": [
-        2858,
-        2909
+        2833,
+        2884
       ],
       "op": "MSTORE",
       "path": "0"
@@ -4045,8 +4027,8 @@
     "738": {
       "fn": "VotingAndRep.setDisabled",
       "offset": [
-        2858,
-        2909
+        2833,
+        2884
       ],
       "op": "MSTORE",
       "path": "0"
@@ -4062,8 +4044,8 @@
     "774": {
       "fn": "VotingAndRep.setDisabled",
       "offset": [
-        2858,
-        2909
+        2833,
+        2884
       ],
       "op": "MSTORE",
       "path": "0"
@@ -4071,8 +4053,8 @@
     "775": {
       "fn": "VotingAndRep.setDisabled",
       "offset": [
-        2858,
-        2909
+        2833,
+        2884
       ],
       "op": "PUSH1",
       "path": "0",
@@ -4081,8 +4063,8 @@
     "777": {
       "fn": "VotingAndRep.setDisabled",
       "offset": [
-        2812,
-        2909
+        2787,
+        2884
       ],
       "op": "POP",
       "path": "0"
@@ -4199,8 +4181,8 @@
     "826": {
       "fn": "VotingAndRep.setDisabled",
       "offset": [
-        2812,
-        2909
+        2787,
+        2884
       ],
       "op": "JUMPDEST",
       "path": "0"
@@ -4208,8 +4190,8 @@
     "827": {
       "fn": "VotingAndRep.setDisabled",
       "offset": [
-        2931,
-        2939
+        2906,
+        2914
       ],
       "op": "PUSH1",
       "path": "0",
@@ -4222,8 +4204,8 @@
     "830": {
       "fn": "VotingAndRep.setDisabled",
       "offset": [
-        2915,
-        2928
+        2890,
+        2903
       ],
       "op": "PUSH1",
       "path": "0",
@@ -4240,7 +4222,7 @@
     },
     "835": {
       "op": "PUSH4",
-      "value": "0x24035E2"
+      "value": "0xFC3D6058"
     },
     "840": {
       "op": "DUP2"
@@ -4250,7 +4232,7 @@
     },
     "842": {
       "op": "PUSH2",
-      "value": "0x46"
+      "value": "0x45A"
     },
     "845": {
       "op": "JUMPI"
@@ -4267,7 +4249,7 @@
     },
     "850": {
       "op": "PUSH2",
-      "value": "0x6B"
+      "value": "0x640"
     },
     "853": {
       "op": "JUMPI"
@@ -4291,970 +4273,944 @@
     },
     "861": {
       "op": "PUSH2",
-      "value": "0x6B"
+      "value": "0x640"
     },
     "864": {
       "op": "JUMPI"
     },
     "865": {
-      "fn": "VotingAndRep.getEndDate",
+      "fn": "VotingAndRep.setContractMaintainer",
       "offset": [
-        2967,
-        2990
+        2953,
+        2975
       ],
       "op": "PUSH1",
       "path": "0",
       "value": "0x40"
     },
     "867": {
-      "fn": "VotingAndRep.getEndDate",
+      "fn": "VotingAndRep.setContractMaintainer",
       "offset": [
-        2967,
-        2990
+        2953,
+        2975
       ],
       "op": "MSTORE",
       "path": "0"
     },
     "868": {
-      "fn": "VotingAndRep.getEndDate",
+      "fn": "VotingAndRep.setContractMaintainer",
       "offset": [
-        3019,
-        3032
+        3003,
+        3026
       ],
       "op": "PUSH1",
       "path": "0",
       "statement": 12,
-      "value": "0xA"
+      "value": "0x9"
     },
     "870": {
-      "op": "SLOAD"
+      "fn": "VotingAndRep.setContractMaintainer",
+      "offset": [
+        2989,
+        3026
+      ],
+      "op": "SLOAD",
+      "path": "0"
     },
     "871": {
-      "fn": "VotingAndRep.getEndDate",
+      "fn": "VotingAndRep.setContractMaintainer",
       "offset": [
-        3015,
-        3032
+        2989,
+        2999
+      ],
+      "op": "CALLER",
+      "path": "0"
+    },
+    "872": {
+      "fn": "VotingAndRep.setContractMaintainer",
+      "offset": [
+        2989,
+        3026
+      ],
+      "op": "XOR",
+      "path": "0"
+    },
+    "873": {
+      "fn": "VotingAndRep.setContractMaintainer",
+      "offset": [
+        2989,
+        3026
       ],
       "op": "ISZERO",
       "path": "0"
     },
-    "872": {
-      "fn": "VotingAndRep.getEndDate",
+    "874": {
+      "fn": "VotingAndRep.setContractMaintainer",
       "offset": [
-        3008,
-        3083
+        2982,
+        3082
       ],
       "op": "PUSH2",
       "path": "0",
-      "value": "0x3EC"
+      "value": "0x3EE"
     },
-    "875": {
+    "877": {
       "branch": 13,
-      "fn": "VotingAndRep.getEndDate",
+      "fn": "VotingAndRep.setContractMaintainer",
       "offset": [
-        3008,
-        3083
+        2982,
+        3082
       ],
       "op": "JUMPI",
       "path": "0"
     },
-    "876": {
-      "op": "PUSH1",
-      "value": "0x2F"
-    },
     "878": {
+      "op": "PUSH1",
+      "value": "0x34"
+    },
+    "880": {
       "op": "PUSH1",
       "value": "0x60"
     },
-    "880": {
-      "fn": "VotingAndRep.getEndDate",
+    "882": {
+      "fn": "VotingAndRep.setContractMaintainer",
       "offset": [
-        3034,
-        3083
+        3028,
+        3082
       ],
       "op": "MSTORE",
       "path": "0"
     },
-    "881": {
+    "883": {
       "op": "PUSH32",
-      "value": "0x566F74696E672069732073757370656E64656420647572696E6720636F6E7472"
+      "value": "0x4F6E6C7920746865206D61696E7461696E6572206F722044414F2063616E2063"
     },
-    "914": {
+    "916": {
       "op": "PUSH1",
       "value": "0x80"
     },
-    "916": {
-      "fn": "VotingAndRep.getEndDate",
+    "918": {
+      "fn": "VotingAndRep.setContractMaintainer",
       "offset": [
-        3034,
-        3083
+        3028,
+        3082
       ],
       "op": "MSTORE",
       "path": "0"
     },
-    "917": {
+    "919": {
       "op": "PUSH32",
-      "value": "0x6163742064697361626C656D656E7400000000000000000"
+      "value": "0x68616E676520746865206D61696E7461696E6572000000000000"
     },
-    "950": {
+    "952": {
       "op": "PUSH1",
       "value": "0xA0"
     },
-    "952": {
-      "fn": "VotingAndRep.getEndDate",
+    "954": {
+      "fn": "VotingAndRep.setContractMaintainer",
       "offset": [
-        3034,
-        3083
+        3028,
+        3082
       ],
       "op": "MSTORE",
       "path": "0"
     },
-    "953": {
-      "fn": "VotingAndRep.getEndDate",
+    "955": {
+      "fn": "VotingAndRep.setContractMaintainer",
       "offset": [
-        3034,
-        3083
+        3028,
+        3082
       ],
       "op": "PUSH1",
       "path": "0",
       "value": "0x60"
     },
-    "955": {
-      "fn": "VotingAndRep.getEndDate",
+    "957": {
+      "fn": "VotingAndRep.setContractMaintainer",
       "offset": [
-        3008,
-        3083
+        2982,
+        3082
       ],
       "op": "POP",
       "path": "0"
     },
-    "956": {
+    "958": {
       "op": "PUSH1",
       "value": "0x60"
     },
-    "958": {
+    "960": {
       "op": "MLOAD"
     },
-    "959": {
+    "961": {
       "op": "DUP1"
     },
-    "960": {
+    "962": {
       "op": "PUSH1",
       "value": "0x80"
     },
-    "962": {
+    "964": {
       "op": "ADD"
     },
-    "963": {
+    "965": {
       "op": "PUSH1",
       "value": "0x1F"
     },
-    "965": {
+    "967": {
       "op": "DUP3"
     },
-    "966": {
+    "968": {
       "op": "PUSH1",
       "value": "0x0"
     },
-    "968": {
+    "970": {
       "op": "SUB"
     },
-    "969": {
+    "971": {
       "op": "AND"
     },
-    "970": {
+    "972": {
       "op": "CALLDATASIZE"
     },
-    "971": {
+    "973": {
       "op": "DUP3"
     },
-    "972": {
+    "974": {
       "op": "CALLDATACOPY"
     },
-    "973": {
-      "op": "POP"
-    },
-    "974": {
-      "op": "POP"
-    },
     "975": {
+      "op": "POP"
+    },
+    "976": {
+      "op": "POP"
+    },
+    "977": {
       "op": "PUSH4",
       "value": "0x8C379A0"
     },
-    "980": {
-      "op": "PUSH1",
-      "value": "0x20"
-    },
     "982": {
-      "op": "MSTORE"
-    },
-    "983": {
       "op": "PUSH1",
       "value": "0x20"
+    },
+    "984": {
+      "op": "MSTORE"
     },
     "985": {
       "op": "PUSH1",
-      "value": "0x40"
+      "value": "0x20"
     },
     "987": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "989": {
       "op": "MSTORE"
     },
-    "988": {
-      "op": "PUSH1",
-      "value": "0x1F"
-    },
     "990": {
-      "op": "NOT"
-    },
-    "991": {
       "op": "PUSH1",
       "value": "0x1F"
+    },
+    "992": {
+      "op": "NOT"
     },
     "993": {
       "op": "PUSH1",
-      "value": "0x60"
+      "value": "0x1F"
     },
     "995": {
-      "op": "MLOAD"
-    },
-    "996": {
-      "op": "ADD"
+      "op": "PUSH1",
+      "value": "0x60"
     },
     "997": {
-      "op": "AND"
+      "op": "MLOAD"
     },
     "998": {
+      "op": "ADD"
+    },
+    "999": {
+      "op": "AND"
+    },
+    "1000": {
       "op": "PUSH1",
       "value": "0x44"
     },
-    "1000": {
+    "1002": {
       "op": "ADD"
     },
-    "1001": {
+    "1003": {
       "op": "PUSH1",
       "value": "0x3C"
     },
-    "1003": {
+    "1005": {
       "op": "REVERT"
     },
-    "1004": {
-      "fn": "VotingAndRep.getEndDate",
+    "1006": {
+      "fn": "VotingAndRep.setContractMaintainer",
       "offset": [
-        3008,
-        3083
+        2982,
+        3082
       ],
       "op": "JUMPDEST",
       "path": "0"
     },
-    "1005": {
-      "fn": "VotingAndRep.getEndDate",
+    "1007": {
+      "fn": "VotingAndRep.setContractMaintainer",
       "offset": [
-        3095,
-        3108
+        3094,
+        3107
       ],
       "op": "PUSH1",
       "path": "0",
       "statement": 14,
-      "value": "0x6"
-    },
-    "1007": {
-      "fn": "VotingAndRep.getEndDate",
-      "offset": [
-        3109,
-        3123
-      ],
-      "op": "PUSH1",
-      "path": "0",
       "value": "0x40"
     },
     "1009": {
-      "op": "MLOAD"
+      "fn": "VotingAndRep.setContractMaintainer",
+      "offset": [
+        3094,
+        3125
+      ],
+      "op": "MLOAD",
+      "path": "0"
     },
     "1010": {
-      "fn": "VotingAndRep.getEndDate",
+      "fn": "VotingAndRep.setContractMaintainer",
       "offset": [
-        3095,
-        3124
+        3087,
+        3160
       ],
-      "op": "PUSH1",
+      "op": "PUSH2",
       "path": "0",
-      "value": "0x20"
-    },
-    "1012": {
-      "fn": "VotingAndRep.getEndDate",
-      "offset": [
-        3095,
-        3124
-      ],
-      "op": "MSTORE",
-      "path": "0"
+      "value": "0x452"
     },
     "1013": {
-      "fn": "VotingAndRep.getEndDate",
+      "branch": 15,
+      "fn": "VotingAndRep.setContractMaintainer",
       "offset": [
-        3095,
-        3124
+        3087,
+        3160
       ],
-      "op": "PUSH1",
-      "path": "0",
-      "value": "0x0"
+      "op": "JUMPI",
+      "path": "0"
     },
-    "1015": {
-      "fn": "VotingAndRep.getEndDate",
+    "1014": {
+      "op": "PUSH1",
+      "value": "0x1F"
+    },
+    "1016": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "1018": {
+      "fn": "VotingAndRep.setContractMaintainer",
       "offset": [
-        3095,
-        3124
+        3127,
+        3160
       ],
       "op": "MSTORE",
       "path": "0"
     },
-    "1016": {
-      "fn": "VotingAndRep.getEndDate",
-      "offset": [
-        3095,
-        3124
-      ],
-      "op": "PUSH1",
-      "path": "0",
-      "value": "0x40"
-    },
-    "1018": {
-      "fn": "VotingAndRep.getEndDate",
-      "offset": [
-        3095,
-        3124
-      ],
-      "op": "PUSH1",
-      "path": "0",
-      "value": "0x0"
-    },
-    "1020": {
-      "fn": "VotingAndRep.getEndDate",
-      "offset": [
-        3095,
-        3124
-      ],
-      "op": "SHA3",
-      "path": "0"
-    },
-    "1021": {
-      "op": "SLOAD"
-    },
-    "1022": {
-      "op": "PUSH1",
-      "value": "0x60"
-    },
-    "1024": {
-      "op": "MSTORE"
-    },
-    "1025": {
-      "op": "PUSH1",
-      "value": "0x20"
-    },
-    "1027": {
-      "op": "PUSH1",
-      "value": "0x60"
-    },
-    "1029": {
-      "op": "RETURN"
-    },
-    "1030": {
-      "op": "JUMPDEST"
-    },
-    "1031": {
-      "op": "PUSH4",
-      "value": "0x475B5822"
-    },
-    "1036": {
-      "op": "DUP2"
-    },
-    "1037": {
-      "op": "XOR"
-    },
-    "1038": {
-      "op": "PUSH2",
-      "value": "0x425"
-    },
-    "1041": {
-      "op": "JUMPI"
-    },
-    "1042": {
-      "op": "PUSH1",
-      "value": "0x4"
-    },
-    "1044": {
-      "op": "CALLDATASIZE"
-    },
-    "1045": {
-      "op": "LT"
-    },
-    "1046": {
-      "op": "PUSH2",
-      "value": "0x6B"
-    },
-    "1049": {
-      "op": "JUMPI"
-    },
-    "1050": {
-      "fn": "VotingAndRep.getContractMaintainer",
-      "offset": [
-        3187,
-        3210
-      ],
-      "op": "PUSH1",
-      "path": "0",
-      "statement": 15,
-      "value": "0x9"
+    "1019": {
+      "op": "PUSH32",
+      "value": "0x596F752063616E27742072656D6F766520746865206D61696E7461696E65720"
     },
     "1052": {
-      "op": "SLOAD"
-    },
-    "1053": {
       "op": "PUSH1",
-      "value": "0x40"
+      "value": "0x80"
+    },
+    "1054": {
+      "fn": "VotingAndRep.setContractMaintainer",
+      "offset": [
+        3127,
+        3160
+      ],
+      "op": "MSTORE",
+      "path": "0"
     },
     "1055": {
-      "op": "MSTORE"
-    },
-    "1056": {
+      "fn": "VotingAndRep.setContractMaintainer",
+      "offset": [
+        3127,
+        3160
+      ],
       "op": "PUSH1",
-      "value": "0x20"
+      "path": "0",
+      "value": "0x60"
+    },
+    "1057": {
+      "fn": "VotingAndRep.setContractMaintainer",
+      "offset": [
+        3087,
+        3160
+      ],
+      "op": "POP",
+      "path": "0"
     },
     "1058": {
       "op": "PUSH1",
-      "value": "0x40"
+      "value": "0x60"
     },
     "1060": {
-      "op": "RETURN"
+      "op": "MLOAD"
     },
     "1061": {
-      "op": "JUMPDEST"
+      "op": "DUP1"
     },
     "1062": {
-      "op": "PUSH4",
-      "value": "0xCCD79410"
+      "op": "PUSH1",
+      "value": "0x80"
+    },
+    "1064": {
+      "op": "ADD"
+    },
+    "1065": {
+      "op": "PUSH1",
+      "value": "0x1F"
     },
     "1067": {
-      "op": "DUP2"
+      "op": "DUP3"
     },
     "1068": {
-      "op": "XOR"
+      "op": "PUSH1",
+      "value": "0x0"
     },
-    "1069": {
-      "op": "PUSH2",
-      "value": "0x460"
+    "1070": {
+      "op": "SUB"
+    },
+    "1071": {
+      "op": "AND"
     },
     "1072": {
-      "op": "JUMPI"
-    },
-    "1073": {
-      "op": "PUSH1",
-      "value": "0x24"
-    },
-    "1075": {
       "op": "CALLDATASIZE"
     },
+    "1073": {
+      "op": "DUP3"
+    },
+    "1074": {
+      "op": "CALLDATACOPY"
+    },
+    "1075": {
+      "op": "POP"
+    },
     "1076": {
-      "op": "LT"
+      "op": "POP"
     },
     "1077": {
-      "op": "PUSH2",
-      "value": "0x6B"
+      "op": "PUSH4",
+      "value": "0x8C379A0"
     },
-    "1080": {
-      "op": "JUMPI"
-    },
-    "1081": {
+    "1082": {
       "op": "PUSH1",
-      "value": "0x4"
-    },
-    "1083": {
-      "op": "CALLDATALOAD"
+      "value": "0x20"
     },
     "1084": {
-      "op": "DUP1"
+      "op": "MSTORE"
     },
     "1085": {
       "op": "PUSH1",
-      "value": "0xA0"
+      "value": "0x20"
     },
     "1087": {
-      "op": "SHR"
-    },
-    "1088": {
-      "op": "PUSH2",
-      "value": "0x6B"
-    },
-    "1091": {
-      "op": "JUMPI"
-    },
-    "1092": {
       "op": "PUSH1",
       "value": "0x40"
     },
-    "1094": {
+    "1089": {
       "op": "MSTORE"
+    },
+    "1090": {
+      "op": "PUSH1",
+      "value": "0x1F"
+    },
+    "1092": {
+      "op": "NOT"
+    },
+    "1093": {
+      "op": "PUSH1",
+      "value": "0x1F"
     },
     "1095": {
       "op": "PUSH1",
-      "value": "0x0"
+      "value": "0x60"
     },
     "1097": {
-      "op": "PUSH1",
-      "value": "0x40"
+      "op": "MLOAD"
+    },
+    "1098": {
+      "op": "ADD"
     },
     "1099": {
-      "op": "MLOAD"
+      "op": "AND"
     },
     "1100": {
       "op": "PUSH1",
-      "value": "0x20"
+      "value": "0x44"
     },
     "1102": {
-      "op": "MSTORE"
+      "op": "ADD"
     },
     "1103": {
       "op": "PUSH1",
-      "value": "0x0"
+      "value": "0x3C"
     },
     "1105": {
-      "op": "MSTORE"
+      "op": "REVERT"
     },
     "1106": {
+      "fn": "VotingAndRep.setContractMaintainer",
+      "offset": [
+        3087,
+        3160
+      ],
+      "op": "JUMPDEST",
+      "path": "0"
+    },
+    "1107": {
+      "fn": "VotingAndRep.setContractMaintainer",
+      "offset": [
+        3192,
+        3205
+      ],
       "op": "PUSH1",
+      "path": "0",
+      "statement": 16,
       "value": "0x40"
     },
-    "1108": {
-      "op": "PUSH1",
-      "value": "0x0"
+    "1109": {
+      "op": "MLOAD"
     },
     "1110": {
-      "op": "SHA3"
-    },
-    "1111": {
-      "op": "SLOAD"
+      "fn": "VotingAndRep.setContractMaintainer",
+      "offset": [
+        3166,
+        3189
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x9"
     },
     "1112": {
-      "op": "PUSH1",
-      "value": "0x60"
+      "op": "SSTORE"
+    },
+    "1113": {
+      "op": "STOP"
     },
     "1114": {
-      "op": "MSTORE"
+      "op": "JUMPDEST"
     },
     "1115": {
-      "op": "PUSH1",
-      "value": "0x20"
-    },
-    "1117": {
-      "op": "PUSH1",
-      "value": "0x60"
-    },
-    "1119": {
-      "op": "RETURN"
+      "op": "PUSH4",
+      "value": "0xCCD79410"
     },
     "1120": {
-      "op": "JUMPDEST"
+      "op": "DUP2"
     },
     "1121": {
-      "op": "PUSH4",
-      "value": "0xBE9395F1"
+      "op": "XOR"
+    },
+    "1122": {
+      "op": "PUSH2",
+      "value": "0x495"
+    },
+    "1125": {
+      "op": "JUMPI"
     },
     "1126": {
-      "op": "DUP2"
-    },
-    "1127": {
-      "op": "XOR"
-    },
-    "1128": {
-      "op": "PUSH2",
-      "value": "0x47F"
-    },
-    "1131": {
-      "op": "JUMPI"
-    },
-    "1132": {
-      "op": "PUSH1",
-      "value": "0x4"
-    },
-    "1134": {
-      "op": "CALLDATASIZE"
-    },
-    "1135": {
-      "op": "LT"
-    },
-    "1136": {
-      "op": "PUSH2",
-      "value": "0x6B"
-    },
-    "1139": {
-      "op": "JUMPI"
-    },
-    "1140": {
-      "op": "PUSH1",
-      "value": "0x1"
-    },
-    "1142": {
-      "op": "SLOAD"
-    },
-    "1143": {
-      "op": "PUSH1",
-      "value": "0x40"
-    },
-    "1145": {
-      "op": "MSTORE"
-    },
-    "1146": {
-      "op": "PUSH1",
-      "value": "0x20"
-    },
-    "1148": {
-      "op": "PUSH1",
-      "value": "0x40"
-    },
-    "1150": {
-      "op": "RETURN"
-    },
-    "1151": {
-      "op": "JUMPDEST"
-    },
-    "1152": {
-      "op": "PUSH4",
-      "value": "0x54B6C47E"
-    },
-    "1157": {
-      "op": "DUP2"
-    },
-    "1158": {
-      "op": "XOR"
-    },
-    "1159": {
-      "op": "PUSH2",
-      "value": "0x4BA"
-    },
-    "1162": {
-      "op": "JUMPI"
-    },
-    "1163": {
       "op": "PUSH1",
       "value": "0x24"
     },
-    "1165": {
+    "1128": {
       "op": "CALLDATASIZE"
     },
-    "1166": {
+    "1129": {
       "op": "LT"
     },
-    "1167": {
+    "1130": {
       "op": "PUSH2",
-      "value": "0x6B"
+      "value": "0x640"
     },
-    "1170": {
+    "1133": {
       "op": "JUMPI"
     },
-    "1171": {
+    "1134": {
       "op": "PUSH1",
       "value": "0x4"
     },
-    "1173": {
+    "1136": {
       "op": "CALLDATALOAD"
     },
-    "1174": {
+    "1137": {
       "op": "DUP1"
     },
-    "1175": {
+    "1138": {
       "op": "PUSH1",
       "value": "0xA0"
     },
-    "1177": {
+    "1140": {
       "op": "SHR"
     },
-    "1178": {
+    "1141": {
       "op": "PUSH2",
-      "value": "0x6B"
+      "value": "0x640"
     },
-    "1181": {
+    "1144": {
       "op": "JUMPI"
     },
-    "1182": {
+    "1145": {
       "op": "PUSH1",
       "value": "0x40"
     },
-    "1184": {
+    "1147": {
       "op": "MSTORE"
     },
-    "1185": {
-      "op": "PUSH1",
-      "value": "0x2"
-    },
-    "1187": {
-      "op": "PUSH1",
-      "value": "0x40"
-    },
-    "1189": {
-      "op": "MLOAD"
-    },
-    "1190": {
-      "op": "PUSH1",
-      "value": "0x20"
-    },
-    "1192": {
-      "op": "MSTORE"
-    },
-    "1193": {
+    "1148": {
       "op": "PUSH1",
       "value": "0x0"
     },
-    "1195": {
+    "1150": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "1152": {
+      "op": "MLOAD"
+    },
+    "1153": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "1155": {
       "op": "MSTORE"
+    },
+    "1156": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "1158": {
+      "op": "MSTORE"
+    },
+    "1159": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "1161": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "1163": {
+      "op": "SHA3"
+    },
+    "1164": {
+      "op": "SLOAD"
+    },
+    "1165": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "1167": {
+      "op": "MSTORE"
+    },
+    "1168": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "1170": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "1172": {
+      "op": "RETURN"
+    },
+    "1173": {
+      "op": "JUMPDEST"
+    },
+    "1174": {
+      "op": "PUSH4",
+      "value": "0xBE9395F1"
+    },
+    "1179": {
+      "op": "DUP2"
+    },
+    "1180": {
+      "op": "XOR"
+    },
+    "1181": {
+      "op": "PUSH2",
+      "value": "0x4B4"
+    },
+    "1184": {
+      "op": "JUMPI"
+    },
+    "1185": {
+      "op": "PUSH1",
+      "value": "0x4"
+    },
+    "1187": {
+      "op": "CALLDATASIZE"
+    },
+    "1188": {
+      "op": "LT"
+    },
+    "1189": {
+      "op": "PUSH2",
+      "value": "0x640"
+    },
+    "1192": {
+      "op": "JUMPI"
+    },
+    "1193": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "1195": {
+      "op": "SLOAD"
     },
     "1196": {
       "op": "PUSH1",
       "value": "0x40"
     },
     "1198": {
-      "op": "PUSH1",
-      "value": "0x0"
-    },
-    "1200": {
-      "op": "SHA3"
-    },
-    "1201": {
-      "op": "SLOAD"
-    },
-    "1202": {
-      "op": "PUSH1",
-      "value": "0x60"
-    },
-    "1204": {
       "op": "MSTORE"
     },
-    "1205": {
+    "1199": {
       "op": "PUSH1",
       "value": "0x20"
     },
-    "1207": {
-      "op": "PUSH1",
-      "value": "0x60"
-    },
-    "1209": {
-      "op": "RETURN"
-    },
-    "1210": {
-      "op": "JUMPDEST"
-    },
-    "1211": {
-      "op": "PUSH4",
-      "value": "0x43DA504E"
-    },
-    "1216": {
-      "op": "DUP2"
-    },
-    "1217": {
-      "op": "XOR"
-    },
-    "1218": {
-      "op": "PUSH2",
-      "value": "0x4F5"
-    },
-    "1221": {
-      "op": "JUMPI"
-    },
-    "1222": {
-      "op": "PUSH1",
-      "value": "0x24"
-    },
-    "1224": {
-      "op": "CALLDATASIZE"
-    },
-    "1225": {
-      "op": "LT"
-    },
-    "1226": {
-      "op": "PUSH2",
-      "value": "0x6B"
-    },
-    "1229": {
-      "op": "JUMPI"
-    },
-    "1230": {
-      "op": "PUSH1",
-      "value": "0x4"
-    },
-    "1232": {
-      "op": "CALLDATALOAD"
-    },
-    "1233": {
-      "op": "DUP1"
-    },
-    "1234": {
-      "op": "PUSH1",
-      "value": "0xA0"
-    },
-    "1236": {
-      "op": "SHR"
-    },
-    "1237": {
-      "op": "PUSH2",
-      "value": "0x6B"
-    },
-    "1240": {
-      "op": "JUMPI"
-    },
-    "1241": {
+    "1201": {
       "op": "PUSH1",
       "value": "0x40"
     },
-    "1243": {
+    "1203": {
+      "op": "RETURN"
+    },
+    "1204": {
+      "op": "JUMPDEST"
+    },
+    "1205": {
+      "op": "PUSH4",
+      "value": "0x54B6C47E"
+    },
+    "1210": {
+      "op": "DUP2"
+    },
+    "1211": {
+      "op": "XOR"
+    },
+    "1212": {
+      "op": "PUSH2",
+      "value": "0x4EF"
+    },
+    "1215": {
+      "op": "JUMPI"
+    },
+    "1216": {
+      "op": "PUSH1",
+      "value": "0x24"
+    },
+    "1218": {
+      "op": "CALLDATASIZE"
+    },
+    "1219": {
+      "op": "LT"
+    },
+    "1220": {
+      "op": "PUSH2",
+      "value": "0x640"
+    },
+    "1223": {
+      "op": "JUMPI"
+    },
+    "1224": {
+      "op": "PUSH1",
+      "value": "0x4"
+    },
+    "1226": {
+      "op": "CALLDATALOAD"
+    },
+    "1227": {
+      "op": "DUP1"
+    },
+    "1228": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "1230": {
+      "op": "SHR"
+    },
+    "1231": {
+      "op": "PUSH2",
+      "value": "0x640"
+    },
+    "1234": {
+      "op": "JUMPI"
+    },
+    "1235": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "1237": {
       "op": "MSTORE"
     },
-    "1244": {
+    "1238": {
       "op": "PUSH1",
-      "value": "0x3"
+      "value": "0x2"
+    },
+    "1240": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "1242": {
+      "op": "MLOAD"
+    },
+    "1243": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "1245": {
+      "op": "MSTORE"
     },
     "1246": {
       "op": "PUSH1",
-      "value": "0x40"
+      "value": "0x0"
     },
     "1248": {
-      "op": "MLOAD"
+      "op": "MSTORE"
     },
     "1249": {
       "op": "PUSH1",
-      "value": "0x20"
+      "value": "0x40"
     },
     "1251": {
-      "op": "MSTORE"
-    },
-    "1252": {
       "op": "PUSH1",
       "value": "0x0"
     },
+    "1253": {
+      "op": "SHA3"
+    },
     "1254": {
-      "op": "MSTORE"
+      "op": "SLOAD"
     },
     "1255": {
       "op": "PUSH1",
-      "value": "0x40"
-    },
-    "1257": {
-      "op": "PUSH1",
-      "value": "0x0"
-    },
-    "1259": {
-      "op": "SHA3"
-    },
-    "1260": {
-      "op": "SLOAD"
-    },
-    "1261": {
-      "op": "PUSH1",
       "value": "0x60"
     },
-    "1263": {
+    "1257": {
       "op": "MSTORE"
     },
-    "1264": {
+    "1258": {
       "op": "PUSH1",
       "value": "0x20"
     },
-    "1266": {
+    "1260": {
       "op": "PUSH1",
       "value": "0x60"
     },
-    "1268": {
+    "1262": {
       "op": "RETURN"
     },
-    "1269": {
+    "1263": {
       "op": "JUMPDEST"
     },
-    "1270": {
+    "1264": {
       "op": "PUSH4",
-      "value": "0xA3C771FC"
+      "value": "0x43DA504E"
     },
-    "1275": {
+    "1269": {
       "op": "DUP2"
     },
-    "1276": {
+    "1270": {
       "op": "XOR"
     },
-    "1277": {
+    "1271": {
       "op": "PUSH2",
-      "value": "0x54F"
+      "value": "0x52A"
     },
-    "1280": {
+    "1274": {
       "op": "JUMPI"
     },
-    "1281": {
-      "op": "PUSH1",
-      "value": "0x44"
-    },
-    "1283": {
-      "op": "CALLDATASIZE"
-    },
-    "1284": {
-      "op": "LT"
-    },
-    "1285": {
-      "op": "PUSH2",
-      "value": "0x6B"
-    },
-    "1288": {
-      "op": "JUMPI"
-    },
-    "1289": {
-      "op": "PUSH1",
-      "value": "0x4"
-    },
-    "1291": {
-      "op": "CALLDATALOAD"
-    },
-    "1292": {
-      "op": "DUP1"
-    },
-    "1293": {
-      "op": "PUSH1",
-      "value": "0xA0"
-    },
-    "1295": {
-      "op": "SHR"
-    },
-    "1296": {
-      "op": "PUSH2",
-      "value": "0x6B"
-    },
-    "1299": {
-      "op": "JUMPI"
-    },
-    "1300": {
-      "op": "PUSH1",
-      "value": "0x40"
-    },
-    "1302": {
-      "op": "MSTORE"
-    },
-    "1303": {
+    "1275": {
       "op": "PUSH1",
       "value": "0x24"
     },
-    "1305": {
+    "1277": {
+      "op": "CALLDATASIZE"
+    },
+    "1278": {
+      "op": "LT"
+    },
+    "1279": {
+      "op": "PUSH2",
+      "value": "0x640"
+    },
+    "1282": {
+      "op": "JUMPI"
+    },
+    "1283": {
+      "op": "PUSH1",
+      "value": "0x4"
+    },
+    "1285": {
       "op": "CALLDATALOAD"
     },
-    "1306": {
+    "1286": {
       "op": "DUP1"
     },
-    "1307": {
+    "1287": {
       "op": "PUSH1",
       "value": "0xA0"
     },
-    "1309": {
+    "1289": {
       "op": "SHR"
     },
-    "1310": {
+    "1290": {
       "op": "PUSH2",
-      "value": "0x6B"
+      "value": "0x640"
+    },
+    "1293": {
+      "op": "JUMPI"
+    },
+    "1294": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "1296": {
+      "op": "MSTORE"
+    },
+    "1297": {
+      "op": "PUSH1",
+      "value": "0x3"
+    },
+    "1299": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "1301": {
+      "op": "MLOAD"
+    },
+    "1302": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "1304": {
+      "op": "MSTORE"
+    },
+    "1305": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "1307": {
+      "op": "MSTORE"
+    },
+    "1308": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "1310": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "1312": {
+      "op": "SHA3"
     },
     "1313": {
-      "op": "JUMPI"
+      "op": "SLOAD"
     },
     "1314": {
       "op": "PUSH1",
@@ -5265,512 +5221,622 @@
     },
     "1317": {
       "op": "PUSH1",
-      "value": "0x4"
+      "value": "0x20"
     },
     "1319": {
       "op": "PUSH1",
-      "value": "0x40"
+      "value": "0x60"
     },
     "1321": {
-      "op": "MLOAD"
+      "op": "RETURN"
     },
     "1322": {
-      "op": "PUSH1",
-      "value": "0x20"
+      "op": "JUMPDEST"
     },
-    "1324": {
-      "op": "MSTORE"
-    },
-    "1325": {
-      "op": "PUSH1",
-      "value": "0x0"
-    },
-    "1327": {
-      "op": "MSTORE"
+    "1323": {
+      "op": "PUSH4",
+      "value": "0xA3C771FC"
     },
     "1328": {
-      "op": "PUSH1",
-      "value": "0x40"
+      "op": "DUP2"
+    },
+    "1329": {
+      "op": "XOR"
     },
     "1330": {
-      "op": "PUSH1",
-      "value": "0x0"
-    },
-    "1332": {
-      "op": "SHA3"
+      "op": "PUSH2",
+      "value": "0x584"
     },
     "1333": {
-      "op": "DUP1"
+      "op": "JUMPI"
     },
     "1334": {
       "op": "PUSH1",
-      "value": "0x60"
+      "value": "0x44"
     },
     "1336": {
-      "op": "MLOAD"
-    },
-    "1337": {
-      "op": "PUSH1",
-      "value": "0x20"
-    },
-    "1339": {
-      "op": "MSTORE"
-    },
-    "1340": {
-      "op": "PUSH1",
-      "value": "0x0"
-    },
-    "1342": {
-      "op": "MSTORE"
-    },
-    "1343": {
-      "op": "PUSH1",
-      "value": "0x40"
-    },
-    "1345": {
-      "op": "PUSH1",
-      "value": "0x0"
-    },
-    "1347": {
-      "op": "SHA3"
-    },
-    "1348": {
-      "op": "SWAP1"
-    },
-    "1349": {
-      "op": "POP"
-    },
-    "1350": {
-      "op": "SLOAD"
-    },
-    "1351": {
-      "op": "PUSH1",
-      "value": "0x80"
-    },
-    "1353": {
-      "op": "MSTORE"
-    },
-    "1354": {
-      "op": "PUSH1",
-      "value": "0x20"
-    },
-    "1356": {
-      "op": "PUSH1",
-      "value": "0x80"
-    },
-    "1358": {
-      "op": "RETURN"
-    },
-    "1359": {
-      "op": "JUMPDEST"
-    },
-    "1360": {
-      "op": "PUSH4",
-      "value": "0x84618DDC"
-    },
-    "1365": {
-      "op": "DUP2"
-    },
-    "1366": {
-      "op": "XOR"
-    },
-    "1367": {
-      "op": "PUSH2",
-      "value": "0x58A"
-    },
-    "1370": {
-      "op": "JUMPI"
-    },
-    "1371": {
-      "op": "PUSH1",
-      "value": "0x24"
-    },
-    "1373": {
       "op": "CALLDATASIZE"
     },
-    "1374": {
+    "1337": {
       "op": "LT"
     },
-    "1375": {
+    "1338": {
       "op": "PUSH2",
-      "value": "0x6B"
+      "value": "0x640"
     },
-    "1378": {
+    "1341": {
       "op": "JUMPI"
     },
-    "1379": {
+    "1342": {
       "op": "PUSH1",
       "value": "0x4"
     },
-    "1381": {
+    "1344": {
       "op": "CALLDATALOAD"
     },
-    "1382": {
+    "1345": {
       "op": "DUP1"
     },
-    "1383": {
+    "1346": {
       "op": "PUSH1",
       "value": "0xA0"
     },
-    "1385": {
+    "1348": {
       "op": "SHR"
     },
-    "1386": {
+    "1349": {
       "op": "PUSH2",
-      "value": "0x6B"
+      "value": "0x640"
+    },
+    "1352": {
+      "op": "JUMPI"
+    },
+    "1353": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "1355": {
+      "op": "MSTORE"
+    },
+    "1356": {
+      "op": "PUSH1",
+      "value": "0x24"
+    },
+    "1358": {
+      "op": "CALLDATALOAD"
+    },
+    "1359": {
+      "op": "DUP1"
+    },
+    "1360": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "1362": {
+      "op": "SHR"
+    },
+    "1363": {
+      "op": "PUSH2",
+      "value": "0x640"
+    },
+    "1366": {
+      "op": "JUMPI"
+    },
+    "1367": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "1369": {
+      "op": "MSTORE"
+    },
+    "1370": {
+      "op": "PUSH1",
+      "value": "0x4"
+    },
+    "1372": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "1374": {
+      "op": "MLOAD"
+    },
+    "1375": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "1377": {
+      "op": "MSTORE"
+    },
+    "1378": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "1380": {
+      "op": "MSTORE"
+    },
+    "1381": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "1383": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "1385": {
+      "op": "SHA3"
+    },
+    "1386": {
+      "op": "DUP1"
+    },
+    "1387": {
+      "op": "PUSH1",
+      "value": "0x60"
     },
     "1389": {
-      "op": "JUMPI"
+      "op": "MLOAD"
     },
     "1390": {
       "op": "PUSH1",
-      "value": "0x40"
+      "value": "0x20"
     },
     "1392": {
       "op": "MSTORE"
     },
     "1393": {
       "op": "PUSH1",
-      "value": "0x6"
+      "value": "0x0"
     },
     "1395": {
+      "op": "MSTORE"
+    },
+    "1396": {
       "op": "PUSH1",
       "value": "0x40"
-    },
-    "1397": {
-      "op": "MLOAD"
     },
     "1398": {
       "op": "PUSH1",
-      "value": "0x20"
-    },
-    "1400": {
-      "op": "MSTORE"
-    },
-    "1401": {
-      "op": "PUSH1",
       "value": "0x0"
     },
+    "1400": {
+      "op": "SHA3"
+    },
+    "1401": {
+      "op": "SWAP1"
+    },
+    "1402": {
+      "op": "POP"
+    },
     "1403": {
-      "op": "MSTORE"
+      "op": "SLOAD"
     },
     "1404": {
       "op": "PUSH1",
-      "value": "0x40"
+      "value": "0x80"
     },
     "1406": {
-      "op": "PUSH1",
-      "value": "0x0"
-    },
-    "1408": {
-      "op": "SHA3"
-    },
-    "1409": {
-      "op": "SLOAD"
-    },
-    "1410": {
-      "op": "PUSH1",
-      "value": "0x60"
-    },
-    "1412": {
       "op": "MSTORE"
     },
-    "1413": {
+    "1407": {
       "op": "PUSH1",
       "value": "0x20"
     },
-    "1415": {
+    "1409": {
       "op": "PUSH1",
-      "value": "0x60"
+      "value": "0x80"
     },
-    "1417": {
+    "1411": {
       "op": "RETURN"
     },
-    "1418": {
+    "1412": {
       "op": "JUMPDEST"
     },
-    "1419": {
+    "1413": {
       "op": "PUSH4",
-      "value": "0x7ABC40E7"
+      "value": "0x84618DDC"
     },
-    "1424": {
+    "1418": {
       "op": "DUP2"
     },
-    "1425": {
+    "1419": {
       "op": "XOR"
     },
-    "1426": {
+    "1420": {
       "op": "PUSH2",
-      "value": "0x5C5"
+      "value": "0x5BF"
     },
-    "1429": {
+    "1423": {
       "op": "JUMPI"
     },
-    "1430": {
+    "1424": {
       "op": "PUSH1",
       "value": "0x24"
     },
-    "1432": {
+    "1426": {
       "op": "CALLDATASIZE"
     },
-    "1433": {
+    "1427": {
       "op": "LT"
     },
-    "1434": {
+    "1428": {
       "op": "PUSH2",
-      "value": "0x6B"
+      "value": "0x640"
     },
-    "1437": {
+    "1431": {
       "op": "JUMPI"
     },
-    "1438": {
+    "1432": {
       "op": "PUSH1",
       "value": "0x4"
     },
-    "1440": {
+    "1434": {
       "op": "CALLDATALOAD"
     },
-    "1441": {
+    "1435": {
       "op": "DUP1"
     },
-    "1442": {
+    "1436": {
       "op": "PUSH1",
       "value": "0xA0"
     },
-    "1444": {
+    "1438": {
       "op": "SHR"
     },
-    "1445": {
+    "1439": {
       "op": "PUSH2",
-      "value": "0x6B"
+      "value": "0x640"
     },
-    "1448": {
+    "1442": {
       "op": "JUMPI"
     },
-    "1449": {
+    "1443": {
       "op": "PUSH1",
       "value": "0x40"
     },
-    "1451": {
+    "1445": {
       "op": "MSTORE"
     },
-    "1452": {
+    "1446": {
       "op": "PUSH1",
-      "value": "0x7"
+      "value": "0x6"
+    },
+    "1448": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "1450": {
+      "op": "MLOAD"
+    },
+    "1451": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "1453": {
+      "op": "MSTORE"
     },
     "1454": {
       "op": "PUSH1",
-      "value": "0x40"
+      "value": "0x0"
     },
     "1456": {
-      "op": "MLOAD"
+      "op": "MSTORE"
     },
     "1457": {
       "op": "PUSH1",
-      "value": "0x20"
+      "value": "0x40"
     },
     "1459": {
-      "op": "MSTORE"
-    },
-    "1460": {
       "op": "PUSH1",
       "value": "0x0"
     },
+    "1461": {
+      "op": "SHA3"
+    },
     "1462": {
-      "op": "MSTORE"
+      "op": "SLOAD"
     },
     "1463": {
       "op": "PUSH1",
-      "value": "0x40"
-    },
-    "1465": {
-      "op": "PUSH1",
-      "value": "0x0"
-    },
-    "1467": {
-      "op": "SHA3"
-    },
-    "1468": {
-      "op": "SLOAD"
-    },
-    "1469": {
-      "op": "PUSH1",
       "value": "0x60"
     },
-    "1471": {
+    "1465": {
       "op": "MSTORE"
     },
-    "1472": {
+    "1466": {
       "op": "PUSH1",
       "value": "0x20"
     },
-    "1474": {
+    "1468": {
       "op": "PUSH1",
       "value": "0x60"
     },
-    "1476": {
+    "1470": {
       "op": "RETURN"
     },
-    "1477": {
+    "1471": {
       "op": "JUMPDEST"
     },
-    "1478": {
+    "1472": {
       "op": "PUSH4",
-      "value": "0x56364499"
+      "value": "0x7ABC40E7"
     },
-    "1483": {
+    "1477": {
       "op": "DUP2"
     },
-    "1484": {
+    "1478": {
       "op": "XOR"
     },
-    "1485": {
+    "1479": {
       "op": "PUSH2",
-      "value": "0x5E4"
+      "value": "0x5FA"
     },
-    "1488": {
+    "1482": {
       "op": "JUMPI"
     },
-    "1489": {
+    "1483": {
+      "op": "PUSH1",
+      "value": "0x24"
+    },
+    "1485": {
+      "op": "CALLDATASIZE"
+    },
+    "1486": {
+      "op": "LT"
+    },
+    "1487": {
+      "op": "PUSH2",
+      "value": "0x640"
+    },
+    "1490": {
+      "op": "JUMPI"
+    },
+    "1491": {
       "op": "PUSH1",
       "value": "0x4"
     },
-    "1491": {
-      "op": "CALLDATASIZE"
-    },
-    "1492": {
-      "op": "LT"
-    },
     "1493": {
-      "op": "PUSH2",
-      "value": "0x6B"
+      "op": "CALLDATALOAD"
     },
-    "1496": {
-      "op": "JUMPI"
+    "1494": {
+      "op": "DUP1"
+    },
+    "1495": {
+      "op": "PUSH1",
+      "value": "0xA0"
     },
     "1497": {
-      "op": "PUSH1",
-      "value": "0x8"
+      "op": "SHR"
     },
-    "1499": {
-      "op": "SLOAD"
+    "1498": {
+      "op": "PUSH2",
+      "value": "0x640"
     },
-    "1500": {
+    "1501": {
+      "op": "JUMPI"
+    },
+    "1502": {
       "op": "PUSH1",
       "value": "0x40"
     },
-    "1502": {
+    "1504": {
       "op": "MSTORE"
-    },
-    "1503": {
-      "op": "PUSH1",
-      "value": "0x20"
     },
     "1505": {
       "op": "PUSH1",
-      "value": "0x40"
+      "value": "0x7"
     },
     "1507": {
-      "op": "RETURN"
-    },
-    "1508": {
-      "op": "JUMPDEST"
-    },
-    "1509": {
-      "op": "PUSH4",
-      "value": "0x3F9A8C4A"
-    },
-    "1514": {
-      "op": "DUP2"
-    },
-    "1515": {
-      "op": "XOR"
-    },
-    "1516": {
-      "op": "PUSH2",
-      "value": "0x63"
-    },
-    "1519": {
-      "op": "JUMPI"
-    },
-    "1520": {
-      "op": "PUSH1",
-      "value": "0x4"
-    },
-    "1522": {
-      "op": "CALLDATASIZE"
-    },
-    "1523": {
-      "op": "LT"
-    },
-    "1524": {
-      "op": "PUSH2",
-      "value": "0x6B"
-    },
-    "1527": {
-      "op": "JUMPI"
-    },
-    "1528": {
-      "op": "PUSH1",
-      "value": "0x9"
-    },
-    "1530": {
-      "op": "SLOAD"
-    },
-    "1531": {
       "op": "PUSH1",
       "value": "0x40"
     },
-    "1533": {
-      "op": "MSTORE"
+    "1509": {
+      "op": "MLOAD"
     },
-    "1534": {
+    "1510": {
       "op": "PUSH1",
       "value": "0x20"
     },
-    "1536": {
+    "1512": {
+      "op": "MSTORE"
+    },
+    "1513": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "1515": {
+      "op": "MSTORE"
+    },
+    "1516": {
       "op": "PUSH1",
       "value": "0x40"
     },
-    "1538": {
+    "1518": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "1520": {
+      "op": "SHA3"
+    },
+    "1521": {
+      "op": "SLOAD"
+    },
+    "1522": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "1524": {
+      "op": "MSTORE"
+    },
+    "1525": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "1527": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "1529": {
       "op": "RETURN"
     },
-    "1539": {
+    "1530": {
       "op": "JUMPDEST"
     },
-    "1540": {
-      "op": "POP"
+    "1531": {
+      "op": "PUSH4",
+      "value": "0x56364499"
+    },
+    "1536": {
+      "op": "DUP2"
+    },
+    "1537": {
+      "op": "XOR"
+    },
+    "1538": {
+      "op": "PUSH2",
+      "value": "0x619"
     },
     "1541": {
-      "op": "JUMPDEST"
+      "op": "JUMPI"
     },
     "1542": {
       "op": "PUSH1",
-      "value": "0x0"
+      "value": "0x4"
     },
     "1544": {
-      "op": "PUSH1",
-      "value": "0x0"
+      "op": "CALLDATASIZE"
+    },
+    "1545": {
+      "op": "LT"
     },
     "1546": {
-      "op": "REVERT"
+      "op": "PUSH2",
+      "value": "0x640"
     },
-    "1547": {
+    "1549": {
+      "op": "JUMPI"
+    },
+    "1550": {
+      "op": "PUSH1",
+      "value": "0x8"
+    },
+    "1552": {
+      "op": "SLOAD"
+    },
+    "1553": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "1555": {
+      "op": "MSTORE"
+    },
+    "1556": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "1558": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "1560": {
+      "op": "RETURN"
+    },
+    "1561": {
       "op": "JUMPDEST"
     },
-    "1548": {
+    "1562": {
+      "op": "PUSH4",
+      "value": "0x3F9A8C4A"
+    },
+    "1567": {
+      "op": "DUP2"
+    },
+    "1568": {
+      "op": "XOR"
+    },
+    "1569": {
+      "op": "PUSH2",
+      "value": "0x638"
+    },
+    "1572": {
+      "op": "JUMPI"
+    },
+    "1573": {
+      "op": "PUSH1",
+      "value": "0x4"
+    },
+    "1575": {
+      "op": "CALLDATASIZE"
+    },
+    "1576": {
+      "op": "LT"
+    },
+    "1577": {
+      "op": "PUSH2",
+      "value": "0x640"
+    },
+    "1580": {
+      "op": "JUMPI"
+    },
+    "1581": {
+      "op": "PUSH1",
+      "value": "0x9"
+    },
+    "1583": {
+      "op": "SLOAD"
+    },
+    "1584": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "1586": {
+      "op": "MSTORE"
+    },
+    "1587": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "1589": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "1591": {
+      "op": "RETURN"
+    },
+    "1592": {
+      "op": "JUMPDEST"
+    },
+    "1593": {
+      "op": "POP"
+    },
+    "1594": {
+      "op": "JUMPDEST"
+    },
+    "1595": {
       "op": "PUSH1",
       "value": "0x0"
     },
-    "1550": {
+    "1597": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "1599": {
+      "op": "REVERT"
+    },
+    "1600": {
+      "op": "JUMPDEST"
+    },
+    "1601": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "1603": {
       "op": "DUP1"
     },
-    "1551": {
+    "1604": {
       "op": "REVERT"
     }
   },
-  "sha1": "2b93c4dd1f4c320b9c78dff531c29888ef198e22",
-  "source": "# @dev An rundementary implementation of a voting system \n# @author Evan Stokdyk (@Focus172)\n\n# @version 0.3.7\n\n# VotingAndRep.vy\n\n# list of variables that are only referenced internally\n\n# the balence of voter coin (VC) for each user, drawn from amount of tax payed\nvoterCoinBalance: public(HashMap[address, uint256])\n# total supply of VC\nvoterCoinSupply: public(uint256)\n# the map containing active propositions with total amount invested\nactivePropositions: public(HashMap[address, uint256])\n# a boolean for each function on if it needs a super majority\naffectsDao: public(HashMap[address, bool])\n# storage for each persons money in a proposition\namountInFavor: public(HashMap[address, HashMap[address, uint256]]) # this maybe should not be public\n# list of people in each proposition (to improve efficency in money returns)\npeopleInvested: HashMap[address, DynArray[address, 1024]]\n# the ending block for each proposition\nendBlock: public(HashMap[address, uint256])\n# the value sent to contract on sucsessful vote\nstoredDonation: public(HashMap[address, uint256])\n\n# list of variables that could be changed (via voting) \n# returnedWinner\n# returnedLoser\nvoteDuration: public(uint256)\n# percent needed\n# super percent needed\ncontractMaintainer: public(address)\n\n\ndisabled: bool\n\nevent VoteStarted:\n    subjectContract: address\n    creator: address\n    amountSent: uint256\n\n@external\ndef __init__ ():\n    self.voteDuration = 100\n    self.contractMaintainer = msg.sender\n    self.disabled = False\n\n   \n# @dev This creates a new proposition for people to vote on\n# @param contract address The contract that will be given ran with adminstrator on vote sucsess\n# @param payable wei The WvC that will be sent to the executed contract on a sucsess\n@payable\n@external\ndef proposeVote (contract: address, explaination: String[255]):\n    # there is no current (unhackable) way to check if an address is a contract \n    # https://stackoverflow.com/a/37670490 \n    # as such there is no assert that can check the validity of the submitted contract\n\n    # checks that code is ok to run\n    assert not self.disabled, \"This contract is no longer active\"\n    assert contract != empty(address), \"Cannot add the 0 address as vote subject\"\n    # NOTE: the below code currently means the same charity cannot recive money twice, this should be fixed\n    assert self.endBlock[contract] == 0, \"A vote has already been created for that address\"\n\n\n    # checking if it affects the Dao\n    # TODO: implement this\n    # curAffectsDAO: bool = True\n\n    # main body of the code\n    # self.affectsDao[contract] = curAffectsDAO\n    self.endBlock[contract] = block.number + self.voteDuration\n    self.storedDonation[contract] = msg.value\n\n    log VoteStarted(contract, msg.sender, msg.value)\n\n\n@external\ndef setDisabled(newState: bool):\n    assert msg.sender == self.contractMaintainer, \"Only the maintainer can change the contract state\"\n\n    self.disabled = newState\n\n\n@external\ndef getEndDate(checkedAddress: address) -> uint256:\n    assert not self.disabled, \"Voting is suspended during contract disablement\"\n    return self.endBlock[checkedAddress]\n\n@external\ndef getContractMaintainer() -> address:\n    return self.contractMaintainer\n",
+  "sha1": "65662ba9a3d391ed3e37e40ff05fee43a6769a8b",
+  "source": "# @version 0.3.7\n\n# @dev An rundementary implementation of a voting system \n# @author Evan Stokdyk (@Focus172)\n\n# VotingAndRep.vy\n\n# list of variables that are only referenced internally\n\n# the balence of voter coin (VC) for each user, drawn from amount of tax payed\nvoterCoinBalance: public(HashMap[address, uint256])\n# total supply of VC\nvoterCoinSupply: public(uint256)\n# the map containing active propositions with total amount invested\nactivePropositions: public(HashMap[address, uint256])\n# a boolean for each function on if it needs a super majority\naffectsDao: public(HashMap[address, bool])\n# storage for each persons money in a proposition\namountInFavor: public(HashMap[address, HashMap[address, uint256]]) # this maybe should not be public\n# list of people in each proposition (to improve efficency in money returns)\npeopleInvested: HashMap[address, DynArray[address, 1024]]\n# the ending block for each proposition\nendBlock: public(HashMap[address, uint256])\n# the value sent to contract on sucsessful vote\nstoredDonation: public(HashMap[address, uint256])\n\n# list of variables that could be changed (via voting) \n# returnedWinner\n# returnedLoser\nvoteDuration: public(uint256)\n# percent needed\n# super percent needed\ncontractMaintainer: public(address)\n\n\ndisabled: bool\n\nevent VoteStarted:\n    subjectContract: address\n    creator: address\n    amountSent: uint256\n\n@external\ndef __init__ ():\n    self.voteDuration = 100\n    self.contractMaintainer = msg.sender\n    self.disabled = False\n\n   \n# @dev This creates a new proposition for people to vote on\n# @param contract address The contract that will be given ran with adminstrator on vote sucsess\n# @param payable wei The WvC that will be sent to the executed contract on a sucsess\n@payable\n@external\ndef proposeVote (contract: address, explaination: String[255]):\n    # there is no current (unhackable) way to check if an address is a contract \n    # https://stackoverflow.com/a/37670490 \n    # as such there is no assert that can check the validity of the submitted contract\n\n    # checks that code is ok to run\n    assert not self.disabled, \"This contract is no longer active\"\n    assert contract != empty(address), \"Cannot add the 0 address as vote subject\"\n    # NOTE: the below code currently means the same charity cannot recive money twice, this should be fixed\n    assert self.endBlock[contract] == 0, \"A vote has already been created for that address\"\n\n    # Implementation is near impossible\n    # curAffectsDAO: bool = True\n\n    # main body of the code\n    # self.affectsDao[contract] = curAffectsDAO\n    self.endBlock[contract] = block.number + self.voteDuration\n    self.storedDonation[contract] = msg.value\n\n    log VoteStarted(contract, msg.sender, msg.value)\n\n\n@external\ndef setDisabled(newState: bool):\n    assert msg.sender == self.contractMaintainer, \"Only the maintainer can change the contract state\"\n\n    self.disabled = newState\n\n@external \ndef setContractMaintainer(newMaintainer: address):\n    assert msg.sender == self.contractMaintainer, \"Only the maintainer or DAO can change the maintainer\"\n    assert newMaintainer != empty(address), \"You can't remove the maintainer\"\n\n    self.contractMaintainer = newMaintainer",
   "sourceMap": "",
   "sourcePath": "contracts/VotingAndRep.vy",
   "type": "contract"
