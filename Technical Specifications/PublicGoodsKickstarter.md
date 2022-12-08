@@ -1,10 +1,11 @@
 ## Structs
 - Good
+- Donation
 ## Variables
 - goods: HashMap<string, Good>
     - name: string (THIS IS ALSO THE KEY OF THE ENTRY IN THE HASHMAP)
     - goal: the donation goal to be met
-    - donations: HashMap<address, float>: the amount of money each user has donated
+    - donations: Donation[]
     - totalDonations: the total amount of money donated so far
 ## Methods
 - createGood(String nameOfGood, int price)

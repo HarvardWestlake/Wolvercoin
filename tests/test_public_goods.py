@@ -6,7 +6,7 @@ DEFAULT_GAS = 100000
 
 @pytest.fixture
 def publicGoodsContract(PublicGoods, accounts):
-    return PublicGoods.deploy({})
+    return PublicGoods.deploy({'from': accounts[0]})
 
 def test_createGood(publicGoodsContract, accounts):
     # TODO for @exoskeleton-1729
