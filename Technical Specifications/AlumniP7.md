@@ -1,3 +1,14 @@
+## Variables
+- allAlumni = address array
+- nonActive Alumni = address array
+- activeHTStudents = address array
+- allStudents = HashMap (public Key = address array, gradYear = uint256)
+## Methods
+- addAlumni()
+	- Iterate through lists of student objects and if the current year is greater than the student's graduating year, remove that student from the student set and add it to the alumni list
+		- Call mintNFT method (SEE NFT TECH SPEC) and assign it to the student moved to alumni set
+- stake (SEE INVESTING TECH SPEC), add userKey = String parameter
+
 NFT Badge Function
 - Create a HashSet of student objects student object that each have an ID (public key) and graduating year (integer). Create a hashSet (alumniSet) that stores a student object of every Honors Topic graduate/alum
 - Create an addAlumni method with no parameters
