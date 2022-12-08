@@ -90,3 +90,6 @@ def test_setContractMaintainer(votingContract, accounts):
     except:
         allowChanges = False
     assert allowChanges, "Maintainer should be able to change maintainer"
+
+#def test_burnCoin(votingContract, accounts):
+#votingContract.burnCoin()

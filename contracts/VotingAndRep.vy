@@ -86,3 +86,11 @@ def setContractMaintainer(newMaintainer: address):
     assert newMaintainer != empty(address), "You can't remove the maintainer"
 
     self.contractMaintainer = newMaintainer
+
+@external
+def burnCoin(voterAddress: address, winningProposal: address):
+    assert not self.disabled, "This contract is no longer active"
+    assert voterAddress != empty(address), "Cannot add the 0 address as vote subject"
+    assert amountInFavor[winningContract][voterAddress] == True
+    self.voterCoinBalance[voterAddress] += self.amountInFavor[winningContract][voterAddress]/2
+    self.voterCoinSupply -= self.amountInFavor[winningContract][voterAddress]/2
