@@ -1,13 +1,13 @@
 {
   "contracts": {
-    "VotingAndRep": "5113b0e75460b46d0659dab536011937425c3469"
+    "VotingAndRep": "8f1cc80023530e321e265b13c4efe093ceb164af"
   },
   "tests": {
     "tests/test_voting.py": {
       "coverage": false,
       "isolated": false,
-      "results": ".",
-      "sha1": "a1b5ee13981bbc4eba96d32e9e359e78723d1643",
+      "results": "...",
+      "sha1": "4bf0a0fc5dc4567d09b411ac085c93a6a5ed0a67",
       "txhash": []
     }
   },

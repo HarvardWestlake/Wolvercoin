@@ -30,33 +30,59 @@ storedDonation: public(HashMap[address, uint256])
 voteDuration: public(uint256)
 # percent needed
 # super percent needed
+contractMaintainer: public(address)
+
+
+disabled: bool
+
+event VoteStarted:
+    subjectContract: address
+    creator: address
+    amountSent: uint256
 
 @external
 def __init__ ():
     self.voteDuration = 100
+    self.contractMaintainer = msg.sender
+    self.disabled = False
 
    
-# This creates a new proposition for people to vote on
-# @param contract - the contract that will be given ran with adminstrator on vote sucsess
-# @payable the WvC that will be sent to the executed contract on a sucsess
+# @dev This creates a new proposition for people to vote on
+# @param contract address The contract that will be given ran with adminstrator on vote sucsess
+# @param payable wei The WvC that will be sent to the executed contract on a sucsess
 @payable
 @external
-def proposeVote (contract: address) -> bool:
-    # read the contract to find out what it does
-
+def proposeVote (contract: address, explaination: String[255]):
     # there is no current (unhackable) way to check if an address is a contract 
     # https://stackoverflow.com/a/37670490 
     # as such there is no assert that can check the validity of the submitted contract
 
-    # checks that there is not already a proposition for that contract
-    assert self.endBlock[contract] == 0
+    # checks that code is ok to run
+    assert not self.disabled, "This contract is no longer active"
+    assert contract != empty(address), "Cannot add the 0 address as vote subject"
+    # NOTE: the below code currently means the same charity cannot recive money twice, this should be fixed
+    assert self.endBlock[contract] == 0, "A vote has already been created for that address"
 
-    # checking if it affects the Dao
-    # TODO: implement this
-    curAffectsDAO: bool = True
+    # Implementation is near impossible
+    # curAffectsDAO: bool = True
 
     # main body of the code
-    self.affectsDao[contract] = curAffectsDAO
+    # self.affectsDao[contract] = curAffectsDAO
     self.endBlock[contract] = block.number + self.voteDuration
     self.storedDonation[contract] = msg.value
-    return True
+
+    log VoteStarted(contract, msg.sender, msg.value)
+
+
+@external
+def setDisabled(newState: bool):
+    assert msg.sender == self.contractMaintainer, "Only the maintainer can change the contract state"
+
+    self.disabled = newState
+
+@external 
+def setContractMaintainer(newMaintainer: address):
+    assert msg.sender == self.contractMaintainer, "Only the maintainer or DAO can change the maintainer"
+    assert newMaintainer != empty(address), "You can't remove the maintainer"
+
+    self.contractMaintainer = newMaintainer
