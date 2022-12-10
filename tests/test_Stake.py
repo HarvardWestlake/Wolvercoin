@@ -1,13 +1,17 @@
 import pytest
 import brownie
 from web3.exceptions import ValidationError
+interface Wolvercoin:
+    def transferFrom(_from : address, _to : address, _value : uint256) -> bool: payable
+    def burnFrom(_to: address, _value: uint256): payable
 
 DEFAULT_GAS = 100000
 
 # . This runs before ALL tests
 @pytest.fixture
 def stakeContract(Stake, accounts):
-    return Stake.deploy(accounts[1], Wolvercoin wolvercoin, {'from': accounts[0]})
+    wolvercoinContract: Wolvercoin
+    return Stake.deploy(accounts[1], wolvercoinContract, {'from': accounts[0]})
     #I'm passing in accounts[1] as the bank address
 
 def test_unstakeForNonexistentAccount (stakeContract, accounts):
