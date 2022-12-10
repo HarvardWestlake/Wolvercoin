@@ -27,7 +27,7 @@ def unstake (_userAddress: address, amtUnstaked: uint256) -> (bool, uint256):
             self.wolvercoinContract.burnFrom (self.bank, 1/3 * amtUnstaked)
         else:
             days: uint256 = changeInTime/86400
-            newAmt = convert (amtUnstaked*((101/100)**days), uint256)
+            newAmt = amtUnstaked*((101/100)**days)
             self.wolvercoinContract.transferFrom (self.bank, _userAddress, newAmt)
             self.stakeAmounts[_userAddress] = 0
             self.stakeDates[_userAddress] = 0
