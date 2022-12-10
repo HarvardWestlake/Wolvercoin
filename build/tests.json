@@ -1,8 +1,16 @@
 {
   "contracts": {
+    "Stake": "b1f0b51f63015293a598758e63e7c8f486b04aa8",
     "VotingAndRep": "2b6d9c2ba5b719a2c43ba0e10beb0e921147fa8f"
   },
   "tests": {
+    "tests/test_Stake.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": "E",
+      "sha1": "851a9ea0594f47732fa8fa2657e49912f84e7547",
+      "txhash": []
+    },
     "tests/test_voting.py": {
       "coverage": false,
       "isolated": false,

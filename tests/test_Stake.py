@@ -7,7 +7,7 @@ DEFAULT_GAS = 100000
 # . This runs before ALL tests
 @pytest.fixture
 def stakeContract(Stake, accounts):
-    return Stake.deploy(accounts[1], {'from': accounts[0]})
+    return Stake.deploy(accounts[1], Wolvercoin wolvercoin, {'from': accounts[0]})
     #I'm passing in accounts[1] as the bank address
 
 def test_unstakeForNonexistentAccount (stakeContract, accounts):
