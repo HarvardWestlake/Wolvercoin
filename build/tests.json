@@ -1,0 +1,59 @@
+{
+  "contracts": {
+    "VotingAndRep": "2b6d9c2ba5b719a2c43ba0e10beb0e921147fa8f"
+  },
+  "tests": {
+    "tests/test_voting.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": "....",
+      "sha1": "4d8b225033d2005e698bc76388f4c1ba7c9a3413",
+      "txhash": [
+        "74cf13a6ddc20790c1c178b5d25d51ef477014cc",
+        "cf7a75bca5c9d99aa8a4c6d346336948b4fbc398",
+        "e2fb9b09236168324b3820934a67028f4bcdb576"
+      ]
+    }
+  },
+  "tx": {
+    "74cf13a6ddc20790c1c178b5d25d51ef477014cc": {
+      "VotingAndRep": {
+        "0": [
+          [
+            9
+          ],
+          [
+            10
+          ],
+          []
+        ]
+      }
+    },
+    "cf7a75bca5c9d99aa8a4c6d346336948b4fbc398": {
+      "VotingAndRep": {
+        "0": [
+          [
+            0
+          ],
+          [
+            1
+          ],
+          []
+        ]
+      }
+    },
+    "e2fb9b09236168324b3820934a67028f4bcdb576": {
+      "VotingAndRep": {
+        "0": [
+          [
+            12
+          ],
+          [
+            13
+          ],
+          []
+        ]
+      }
+    }
+  }
+}
