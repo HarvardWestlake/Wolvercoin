@@ -1,3 +1,4 @@
+# @version ^0.3.3
 interface Wolvercoin:
     def transferFrom(_from : address, _to : address, _value : uint256) -> bool: payable
     def burnFrom(_to: address, _value: uint256): payable
