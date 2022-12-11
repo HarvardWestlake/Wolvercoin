@@ -2,7 +2,7 @@ import React from "react";
 // https://dev.to/edge-and-node/uploading-files-to-ipfs-from-a-web-application-50a
 import { create } from 'ipfs-http-client'
 import {sha256} from 'crypto-hash';
-import "./contribute.css";
+import "./main.css";
 import ImageUpload from "../Utils/ImageUpload.js"
 
 
