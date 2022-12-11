@@ -1,21 +1,27 @@
 import pytest
 import brownie
 from web3.exceptions import ValidationError
-interface Wolvercoin:
-    def transferFrom(_from : address, _to : address, _value : uint256) -> bool: payable
-    def burnFrom(_to: address, _value: uint256): payable
-
-DEFAULT_GAS = 100000
 
 # . This runs before ALL tests
 @pytest.fixture
 def stakeContract(Stake, accounts):
-    wolvercoinContract: Wolvercoin
-    return Stake.deploy(accounts[1], wolvercoinContract, {'from': accounts[0]})
+    return Stake.deploy(accounts[1], {'from': accounts[0]})
     #I'm passing in accounts[1] as the bank address
 
-def test_unstakeForNonexistentAccount (stakeContract, accounts):
-    assert stakeContract.unstake (accounts[0],10) == (False, 0)
+@pytest.fixture
+def WolvercoinContract(Wolvercoin, accounts):
+    return Wolvercoin.deploy("Wolvercoin", "WVC", 10, 10000000, {'from': accounts[0]})
+
+def test_nonexistentAccount (stakeContract, accounts):
+    assert stakeContract.stakeAmounts(accounts[0]) == 0, "An account that has not staked should have a balance of 0"
+
+def test_unstakeForNonexistentAccount (stakeContract, WolvercoinContract, accounts):
+    badAccountFail = False
+    try:
+        stakeContract.unstake(accounts[0],10,WolvercoinContract)
+    except:
+        badAccountFail = True
+    assert badAccountFail, "Accounts without money should not be able to unstake"
 
 #def test_unstakeLessThanTwoWeeks (stakeContract, accounts):
     #this can only be run once the stake method is merged into the code
