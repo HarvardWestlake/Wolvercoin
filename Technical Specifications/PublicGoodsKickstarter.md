@@ -6,7 +6,9 @@
     - name: string (THIS IS ALSO THE KEY OF THE ENTRY IN THE HASHMAP)
     - goal: the donation goal to be met
     - donations: Donation[]
+        - donationsLen: how many unique people have donated
     - totalDonations: the total amount of money donated so far
+    - creator: who created the good
 ## Methods
 - createGood(String nameOfGood, int price)
     - makes a good with whatever price is decided and is not redeemed until curent is equal to price.
@@ -16,11 +18,13 @@
 - contribute(String nameOfGood, int amount)
     - people can contribute to a public good of id _id_ with amount _amount_ until the price is met
     - Adds _amount_ to the user's _donations_ entry
+        - if the user doesn't already have a _donations_ entry, make one and increment donationsLen
     - Increments totalDonations
     - Rejects if the goal is already met
     - Caps donation at the amount needed to achieve the goal
 - retract(String nameOfGood, uint256 adress)
     - Removes _amount_ from the user's _donations_ entry
+        - if the user retracts all the money they've donated, delete their _donations_ entry and decrement donationsLen
     - Make sure user can't retract money that haven't put in, i.e. _amount_ <= donations[user]
     - decrements totalDonations
 - complete(String nameOfGood)
