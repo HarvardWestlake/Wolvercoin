@@ -1,0 +1,2319 @@
+{
+  "abi": [
+    {
+      "inputs": [],
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [
+        {
+          "name": "productOwner",
+          "type": "address"
+        },
+        {
+          "name": "uRL",
+          "type": "string"
+        }
+      ],
+      "name": "createBoundNFT",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "name": "arg0",
+          "type": "uint256"
+        }
+      ],
+      "name": "hashie",
+      "outputs": [
+        {
+          "components": [
+            {
+              "name": "addr",
+              "type": "address"
+            },
+            {
+              "name": "decimals",
+              "type": "uint256"
+            },
+            {
+              "name": "symbol",
+              "type": "string"
+            },
+            {
+              "name": "hashImag",
+              "type": "string"
+            }
+          ],
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "allSourcePaths": {
+    "0": "contracts/BookstoreNFT.vy"
+  },
+  "ast": {
+    "ast_type": "Module",
+    "body": [
+      {
+        "annotation": {
+          "ast_type": "Name",
+          "col_offset": 5,
+          "end_col_offset": 12,
+          "end_lineno": 2,
+          "id": "uint256",
+          "lineno": 2,
+          "node_id": 4,
+          "src": "22:7:0"
+        },
+        "ast_type": "VariableDecl",
+        "col_offset": 0,
+        "end_col_offset": 12,
+        "end_lineno": 2,
+        "is_constant": false,
+        "is_immutable": false,
+        "is_public": false,
+        "lineno": 2,
+        "node_id": 1,
+        "src": "17:12:0",
+        "target": {
+          "ast_type": "Name",
+          "col_offset": 0,
+          "end_col_offset": 3,
+          "end_lineno": 2,
+          "id": "num",
+          "lineno": 2,
+          "node_id": 2,
+          "src": "17:3:0"
+        },
+        "value": null
+      },
+      {
+        "ast_type": "StructDef",
+        "body": [
+          {
+            "annotation": {
+              "ast_type": "Name",
+              "col_offset": 10,
+              "end_col_offset": 17,
+              "end_lineno": 4,
+              "id": "address",
+              "lineno": 4,
+              "node_id": 10,
+              "src": "60:7:0"
+            },
+            "ast_type": "AnnAssign",
+            "col_offset": 4,
+            "end_col_offset": 17,
+            "end_lineno": 4,
+            "lineno": 4,
+            "node_id": 7,
+            "simple": 1,
+            "src": "54:13:0",
+            "target": {
+              "ast_type": "Name",
+              "col_offset": 4,
+              "end_col_offset": 8,
+              "end_lineno": 4,
+              "id": "addr",
+              "lineno": 4,
+              "node_id": 8,
+              "src": "54:4:0"
+            },
+            "value": null
+          },
+          {
+            "annotation": {
+              "ast_type": "Name",
+              "col_offset": 14,
+              "end_col_offset": 21,
+              "end_lineno": 5,
+              "id": "uint256",
+              "lineno": 5,
+              "node_id": 15,
+              "src": "82:7:0"
+            },
+            "ast_type": "AnnAssign",
+            "col_offset": 4,
+            "end_col_offset": 21,
+            "end_lineno": 5,
+            "lineno": 5,
+            "node_id": 12,
+            "simple": 1,
+            "src": "72:17:0",
+            "target": {
+              "ast_type": "Name",
+              "col_offset": 4,
+              "end_col_offset": 12,
+              "end_lineno": 5,
+              "id": "decimals",
+              "lineno": 5,
+              "node_id": 13,
+              "src": "72:8:0"
+            },
+            "value": null
+          },
+          {
+            "annotation": {
+              "ast_type": "Subscript",
+              "col_offset": 12,
+              "end_col_offset": 22,
+              "end_lineno": 6,
+              "lineno": 6,
+              "node_id": 20,
+              "slice": {
+                "ast_type": "Index",
+                "col_offset": 12,
+                "end_col_offset": 22,
+                "end_lineno": 6,
+                "lineno": 6,
+                "node_id": 25,
+                "src": "102:10:0",
+                "value": {
+                  "ast_type": "Int",
+                  "col_offset": 19,
+                  "end_col_offset": 21,
+                  "end_lineno": 6,
+                  "lineno": 6,
+                  "node_id": 23,
+                  "src": "109:2:0",
+                  "value": 16
+                }
+              },
+              "src": "102:10:0",
+              "value": {
+                "ast_type": "Name",
+                "col_offset": 12,
+                "end_col_offset": 18,
+                "end_lineno": 6,
+                "id": "String",
+                "lineno": 6,
+                "node_id": 21,
+                "src": "102:6:0"
+              }
+            },
+            "ast_type": "AnnAssign",
+            "col_offset": 4,
+            "end_col_offset": 22,
+            "end_lineno": 6,
+            "lineno": 6,
+            "node_id": 17,
+            "simple": 1,
+            "src": "94:18:0",
+            "target": {
+              "ast_type": "Name",
+              "col_offset": 4,
+              "end_col_offset": 10,
+              "end_lineno": 6,
+              "id": "symbol",
+              "lineno": 6,
+              "node_id": 18,
+              "src": "94:6:0"
+            },
+            "value": null
+          },
+          {
+            "annotation": {
+              "ast_type": "Subscript",
+              "col_offset": 14,
+              "end_col_offset": 25,
+              "end_lineno": 7,
+              "lineno": 7,
+              "node_id": 29,
+              "slice": {
+                "ast_type": "Index",
+                "col_offset": 14,
+                "end_col_offset": 25,
+                "end_lineno": 7,
+                "lineno": 7,
+                "node_id": 34,
+                "src": "127:11:0",
+                "value": {
+                  "ast_type": "Int",
+                  "col_offset": 21,
+                  "end_col_offset": 24,
+                  "end_lineno": 7,
+                  "lineno": 7,
+                  "node_id": 32,
+                  "src": "134:3:0",
+                  "value": 100
+                }
+              },
+              "src": "127:11:0",
+              "value": {
+                "ast_type": "Name",
+                "col_offset": 14,
+                "end_col_offset": 20,
+                "end_lineno": 7,
+                "id": "String",
+                "lineno": 7,
+                "node_id": 30,
+                "src": "127:6:0"
+              }
+            },
+            "ast_type": "AnnAssign",
+            "col_offset": 4,
+            "end_col_offset": 25,
+            "end_lineno": 7,
+            "lineno": 7,
+            "node_id": 26,
+            "simple": 1,
+            "src": "117:21:0",
+            "target": {
+              "ast_type": "Name",
+              "col_offset": 4,
+              "end_col_offset": 12,
+              "end_lineno": 7,
+              "id": "hashImag",
+              "lineno": 7,
+              "node_id": 27,
+              "src": "117:8:0"
+            },
+            "value": null
+          }
+        ],
+        "col_offset": 0,
+        "end_col_offset": 25,
+        "end_lineno": 7,
+        "lineno": 3,
+        "name": "Erc20Token",
+        "node_id": 6,
+        "src": "31:107:0"
+      },
+      {
+        "annotation": {
+          "ast_type": "Subscript",
+          "col_offset": 16,
+          "end_col_offset": 44,
+          "end_lineno": 8,
+          "lineno": 8,
+          "node_id": 41,
+          "slice": {
+            "ast_type": "Index",
+            "col_offset": 16,
+            "end_col_offset": 44,
+            "end_lineno": 8,
+            "lineno": 8,
+            "node_id": 51,
+            "src": "155:28:0",
+            "value": {
+              "ast_type": "Tuple",
+              "col_offset": 24,
+              "elements": [
+                {
+                  "ast_type": "Name",
+                  "col_offset": 24,
+                  "end_col_offset": 31,
+                  "end_lineno": 8,
+                  "id": "uint256",
+                  "lineno": 8,
+                  "node_id": 45,
+                  "src": "163:7:0"
+                },
+                {
+                  "ast_type": "Name",
+                  "col_offset": 33,
+                  "end_col_offset": 43,
+                  "end_lineno": 8,
+                  "id": "Erc20Token",
+                  "lineno": 8,
+                  "node_id": 47,
+                  "src": "172:10:0"
+                }
+              ],
+              "end_col_offset": 43,
+              "end_lineno": 8,
+              "lineno": 8,
+              "node_id": 44,
+              "src": "163:19:0"
+            }
+          },
+          "src": "155:28:0",
+          "value": {
+            "ast_type": "Name",
+            "col_offset": 16,
+            "end_col_offset": 23,
+            "end_lineno": 8,
+            "id": "HashMap",
+            "lineno": 8,
+            "node_id": 42,
+            "src": "155:7:0"
+          }
+        },
+        "ast_type": "VariableDecl",
+        "col_offset": 0,
+        "end_col_offset": 45,
+        "end_lineno": 8,
+        "is_constant": false,
+        "is_immutable": false,
+        "is_public": true,
+        "lineno": 8,
+        "node_id": 35,
+        "src": "139:45:0",
+        "target": {
+          "ast_type": "Name",
+          "col_offset": 0,
+          "end_col_offset": 6,
+          "end_lineno": 8,
+          "id": "hashie",
+          "lineno": 8,
+          "node_id": 36,
+          "src": "139:6:0"
+        },
+        "value": null
+      },
+      {
+        "args": {
+          "args": [],
+          "ast_type": "arguments",
+          "col_offset": 0,
+          "default": null,
+          "defaults": [],
+          "end_col_offset": 3,
+          "end_lineno": 10,
+          "lineno": 10,
+          "node_id": 53,
+          "src": "195:3:0"
+        },
+        "ast_type": "FunctionDef",
+        "body": [
+          {
+            "ast_type": "Return",
+            "col_offset": 4,
+            "end_col_offset": 10,
+            "end_lineno": 11,
+            "lineno": 11,
+            "node_id": 54,
+            "src": "215:6:0",
+            "value": null
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [
+          {
+            "ast_type": "Name",
+            "col_offset": 1,
+            "end_col_offset": 9,
+            "end_lineno": 9,
+            "id": "external",
+            "lineno": 9,
+            "node_id": 55,
+            "src": "186:8:0"
+          }
+        ],
+        "doc_string": null,
+        "end_col_offset": 10,
+        "end_lineno": 11,
+        "lineno": 10,
+        "name": "__init__",
+        "node_id": 52,
+        "pos": null,
+        "returns": null,
+        "src": "195:26:0"
+      },
+      {
+        "args": {
+          "args": [
+            {
+              "annotation": {
+                "ast_type": "Name",
+                "col_offset": 33,
+                "end_col_offset": 40,
+                "end_lineno": 16,
+                "id": "address",
+                "lineno": 16,
+                "node_id": 60,
+                "src": "356:7:0"
+              },
+              "arg": "productOwner",
+              "ast_type": "arg",
+              "col_offset": 19,
+              "end_col_offset": 40,
+              "end_lineno": 16,
+              "lineno": 16,
+              "node_id": 59,
+              "src": "342:21:0"
+            },
+            {
+              "annotation": {
+                "ast_type": "Subscript",
+                "col_offset": 47,
+                "end_col_offset": 58,
+                "end_lineno": 16,
+                "lineno": 16,
+                "node_id": 63,
+                "slice": {
+                  "ast_type": "Index",
+                  "col_offset": 47,
+                  "end_col_offset": 58,
+                  "end_lineno": 16,
+                  "lineno": 16,
+                  "node_id": 68,
+                  "src": "370:11:0",
+                  "value": {
+                    "ast_type": "Int",
+                    "col_offset": 54,
+                    "end_col_offset": 57,
+                    "end_lineno": 16,
+                    "lineno": 16,
+                    "node_id": 66,
+                    "src": "377:3:0",
+                    "value": 100
+                  }
+                },
+                "src": "370:11:0",
+                "value": {
+                  "ast_type": "Name",
+                  "col_offset": 47,
+                  "end_col_offset": 53,
+                  "end_lineno": 16,
+                  "id": "String",
+                  "lineno": 16,
+                  "node_id": 64,
+                  "src": "370:6:0"
+                }
+              },
+              "arg": "uRL",
+              "ast_type": "arg",
+              "col_offset": 42,
+              "end_col_offset": 58,
+              "end_lineno": 16,
+              "lineno": 16,
+              "node_id": 62,
+              "src": "365:16:0"
+            }
+          ],
+          "ast_type": "arguments",
+          "col_offset": 19,
+          "default": null,
+          "defaults": [],
+          "end_col_offset": 58,
+          "end_lineno": 16,
+          "lineno": 16,
+          "node_id": 58,
+          "src": "342:39:0"
+        },
+        "ast_type": "FunctionDef",
+        "body": [
+          {
+            "ast_type": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 10,
+            "end_lineno": 22,
+            "lineno": 17,
+            "node_id": 69,
+            "src": "388:142:0",
+            "target": {
+              "ast_type": "Subscript",
+              "col_offset": 4,
+              "end_col_offset": 25,
+              "end_lineno": 17,
+              "lineno": 17,
+              "node_id": 70,
+              "slice": {
+                "ast_type": "Index",
+                "col_offset": 4,
+                "end_col_offset": 25,
+                "end_lineno": 17,
+                "lineno": 17,
+                "node_id": 80,
+                "src": "388:21:0",
+                "value": {
+                  "ast_type": "Attribute",
+                  "attr": "num",
+                  "col_offset": 16,
+                  "end_col_offset": 24,
+                  "end_lineno": 17,
+                  "lineno": 17,
+                  "node_id": 75,
+                  "src": "400:8:0",
+                  "value": {
+                    "ast_type": "Name",
+                    "col_offset": 16,
+                    "end_col_offset": 20,
+                    "end_lineno": 17,
+                    "id": "self",
+                    "lineno": 17,
+                    "node_id": 76,
+                    "src": "400:4:0"
+                  }
+                }
+              },
+              "src": "388:21:0",
+              "value": {
+                "ast_type": "Attribute",
+                "attr": "hashie",
+                "col_offset": 4,
+                "end_col_offset": 15,
+                "end_lineno": 17,
+                "lineno": 17,
+                "node_id": 71,
+                "src": "388:11:0",
+                "value": {
+                  "ast_type": "Name",
+                  "col_offset": 4,
+                  "end_col_offset": 8,
+                  "end_lineno": 17,
+                  "id": "self",
+                  "lineno": 17,
+                  "node_id": 72,
+                  "src": "388:4:0"
+                }
+              }
+            },
+            "value": {
+              "args": [
+                {
+                  "ast_type": "Dict",
+                  "col_offset": 39,
+                  "end_col_offset": 9,
+                  "end_lineno": 22,
+                  "keys": [
+                    {
+                      "ast_type": "Name",
+                      "col_offset": 8,
+                      "end_col_offset": 12,
+                      "end_lineno": 18,
+                      "id": "addr",
+                      "lineno": 18,
+                      "node_id": 85,
+                      "src": "433:4:0"
+                    },
+                    {
+                      "ast_type": "Name",
+                      "col_offset": 8,
+                      "end_col_offset": 16,
+                      "end_lineno": 19,
+                      "id": "decimals",
+                      "lineno": 19,
+                      "node_id": 87,
+                      "src": "461:8:0"
+                    },
+                    {
+                      "ast_type": "Name",
+                      "col_offset": 8,
+                      "end_col_offset": 14,
+                      "end_lineno": 20,
+                      "id": "symbol",
+                      "lineno": 20,
+                      "node_id": 89,
+                      "src": "483:6:0"
+                    },
+                    {
+                      "ast_type": "Name",
+                      "col_offset": 8,
+                      "end_col_offset": 16,
+                      "end_lineno": 21,
+                      "id": "hashImag",
+                      "lineno": 21,
+                      "node_id": 91,
+                      "src": "506:8:0"
+                    }
+                  ],
+                  "lineno": 17,
+                  "node_id": 84,
+                  "src": "423:106:0",
+                  "values": [
+                    {
+                      "ast_type": "Name",
+                      "col_offset": 14,
+                      "end_col_offset": 26,
+                      "end_lineno": 18,
+                      "id": "productOwner",
+                      "lineno": 18,
+                      "node_id": 93,
+                      "src": "439:12:0"
+                    },
+                    {
+                      "ast_type": "Int",
+                      "col_offset": 18,
+                      "end_col_offset": 20,
+                      "end_lineno": 19,
+                      "lineno": 19,
+                      "node_id": 95,
+                      "src": "471:2:0",
+                      "value": 18
+                    },
+                    {
+                      "ast_type": "Str",
+                      "col_offset": 16,
+                      "end_col_offset": 21,
+                      "end_lineno": 20,
+                      "lineno": 20,
+                      "node_id": 96,
+                      "src": "491:5:0",
+                      "value": "WVC"
+                    },
+                    {
+                      "ast_type": "Name",
+                      "col_offset": 18,
+                      "end_col_offset": 21,
+                      "end_lineno": 21,
+                      "id": "uRL",
+                      "lineno": 21,
+                      "node_id": 97,
+                      "src": "516:3:0"
+                    }
+                  ]
+                }
+              ],
+              "ast_type": "Call",
+              "col_offset": 28,
+              "end_col_offset": 10,
+              "end_lineno": 22,
+              "func": {
+                "ast_type": "Name",
+                "col_offset": 28,
+                "end_col_offset": 38,
+                "end_lineno": 17,
+                "id": "Erc20Token",
+                "lineno": 17,
+                "node_id": 82,
+                "src": "412:10:0"
+              },
+              "keyword": null,
+              "keywords": [],
+              "lineno": 17,
+              "node_id": 81,
+              "src": "412:118:0"
+            }
+          },
+          {
+            "ast_type": "AugAssign",
+            "col_offset": 4,
+            "end_col_offset": 17,
+            "end_lineno": 23,
+            "lineno": 23,
+            "node_id": 99,
+            "op": {
+              "ast_type": "Add",
+              "col_offset": 4,
+              "end_col_offset": 17,
+              "end_lineno": 23,
+              "lineno": 23,
+              "node_id": 104,
+              "src": "535:13:0"
+            },
+            "src": "535:13:0",
+            "target": {
+              "ast_type": "Attribute",
+              "attr": "num",
+              "col_offset": 4,
+              "end_col_offset": 12,
+              "end_lineno": 23,
+              "lineno": 23,
+              "node_id": 100,
+              "src": "535:8:0",
+              "value": {
+                "ast_type": "Name",
+                "col_offset": 4,
+                "end_col_offset": 8,
+                "end_lineno": 23,
+                "id": "self",
+                "lineno": 23,
+                "node_id": 101,
+                "src": "535:4:0"
+              }
+            },
+            "value": {
+              "ast_type": "Int",
+              "col_offset": 16,
+              "end_col_offset": 17,
+              "end_lineno": 23,
+              "lineno": 23,
+              "node_id": 105,
+              "src": "547:1:0",
+              "value": 1
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [
+          {
+            "ast_type": "Name",
+            "col_offset": 1,
+            "end_col_offset": 9,
+            "end_lineno": 15,
+            "id": "external",
+            "lineno": 15,
+            "node_id": 106,
+            "src": "314:8:0"
+          }
+        ],
+        "doc_string": null,
+        "end_col_offset": 17,
+        "end_lineno": 23,
+        "lineno": 16,
+        "name": "createBoundNFT",
+        "node_id": 57,
+        "pos": null,
+        "returns": null,
+        "src": "323:225:0"
+      }
+    ],
+    "col_offset": 0,
+    "doc_string": null,
+    "end_col_offset": 17,
+    "end_lineno": 23,
+    "lineno": 1,
+    "name": "contracts/BookstoreNFT.vy",
+    "node_id": 0,
+    "src": "0:548:0"
+  },
+  "bytecode": "0x346102515761023a6100166100003961023a610000f36003361161000c57610222565b60003560e01c346102285763f28abbe181186101185760643610610228576004358060a01c61022857604052602435600401606481351161022857803580606052602082018181608037505050600160005460205260005260406000206040518155601260018201556003610100527f57564300000000000000000000000000000000000000000000000000000000006101205261010080518060028401556020820160016002850101815181555050505060605180600483015560016004830101600082601f0160051c600481116102285780156100fe57905b8060051b60800151818401556001018181186100e7575b505050505060005460018101818110610228579050600055005b63b13557e981186102205760243610610228576020806040526001600435602052600052604060002081604001608082548252600183015460208301528060408301526002830181830181548082526001830160208301815481525050508051806020830101601f82600003163682375050601f19601f8251602001011690509050810190508060608301526004830181830181548082526001830160208301600083601f0160051c600481116102285780156101e757905b808401548160051b8401526001018181186101d1575b50505050508051806020830101601f82600003163682375050601f19601f82516020010116905090508101905090509050810190506040f35b505b60006000fd5b600080fda165767970657283000307000b005b600080fd",
+  "bytecodeSha1": "ab84f703741cd0242cdab2a9e87ce20048eaeb4d",
+  "compiler": {
+    "evm_version": "istanbul",
+    "version": "0.3.7"
+  },
+  "contractName": "BookstoreNFT",
+  "coverageMap": {
+    "branches": {
+      "0": {}
+    },
+    "statements": {
+      "0": {
+        "BookstoreNFT.createBoundNFT": {
+          "0": [
+            388,
+            530
+          ],
+          "1": [
+            535,
+            548
+          ]
+        }
+      }
+    }
+  },
+  "dependencies": [],
+  "deployedBytecode": "0x6003361161000c57610222565b60003560e01c346102285763f28abbe181186101185760643610610228576004358060a01c61022857604052602435600401606481351161022857803580606052602082018181608037505050600160005460205260005260406000206040518155601260018201556003610100527f57564300000000000000000000000000000000000000000000000000000000006101205261010080518060028401556020820160016002850101815181555050505060605180600483015560016004830101600082601f0160051c600481116102285780156100fe57905b8060051b60800151818401556001018181186100e7575b505050505060005460018101818110610228579050600055005b63b13557e981186102205760243610610228576020806040526001600435602052600052604060002081604001608082548252600183015460208301528060408301526002830181830181548082526001830160208301815481525050508051806020830101601f82600003163682375050601f19601f8251602001011690509050810190508060608301526004830181830181548082526001830160208301600083601f0160051c600481116102285780156101e757905b808401548160051b8401526001018181186101d1575b50505050508051806020830101601f82600003163682375050601f19601f82516020010116905090508101905090509050810190506040f35b505b60006000fd5b600080fda165767970657283000307000b",
+  "deployedSourceMap": "-1:-1:0:-;;;;:::-;;:::-;:::-;;;;;;;:::-;;;;;:::-;;;;;:::-;;;;;;;:::-;342:21;;-1:-1;;;365:16;-1:-1;365:16;-1:-1;;;:::-;365:16;-1:-1;;;;;365:16;-1:-1;;;;;;;365:16;388:11;400:8;-1:-1;388:21;;;;;;;439:12;-1:-1;388:142;-1:-1;471:2;-1:-1;388:142;-1:-1;;;;491:5;-1:-1;;491:5;;-1:-1;;;;388:142;-1:-1;;;;;;;388:142;-1:-1;;;;;;;;;;516:3;-1:-1;;;388:142;-1:-1;;;;388:142;-1:-1;;;;;;;;;;;;:::-;;;;:::-;;:::-;;;;;;;;;;;;;;;;;:::-;:::-;;;;;388:142;535:8;-1:-1;547:1;-1:-1;;;;;;:::-;535:13;;:8;-1:-1;;:::-;;;;;:::-;;;;;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::-;;;;:::-;;:::-;;;;;;;;;;;;;;;;;:::-;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::-;;:::-;;;;:::-;;;",
+  "language": "Vyper",
+  "natspec": {
+    "methods": {}
+  },
+  "offset": [
+    0,
+    557
+  ],
+  "opcodes": "PUSH1 0x3 CALLDATASIZE GT PUSH2 0x0C JUMPI PUSH2 0x222 JUMP JUMPDEST PUSH1 0x0 CALLDATALOAD PUSH1 0xE0 SHR CALLVALUE PUSH2 0x228 JUMPI PUSH4 0xF28ABBE1 DUP2 XOR PUSH2 0x118 JUMPI PUSH1 0x64 CALLDATASIZE LT PUSH2 0x228 JUMPI PUSH1 0x4 CALLDATALOAD DUP1 PUSH1 0xA0 SHR PUSH2 0x228 JUMPI PUSH1 0x40 MSTORE PUSH1 0x24 CALLDATALOAD PUSH1 0x4 ADD PUSH1 0x64 DUP2 CALLDATALOAD GT PUSH2 0x228 JUMPI DUP1 CALLDATALOAD DUP1 PUSH1 0x60 MSTORE PUSH1 0x20 DUP3 ADD DUP2 DUP2 PUSH1 0x80 CALLDATACOPY POP POP POP PUSH1 0x1 PUSH1 0x0 SLOAD PUSH1 0x20 MSTORE PUSH1 0x0 MSTORE PUSH1 0x40 PUSH1 0x0 SHA3 PUSH1 0x40 MLOAD DUP2 SSTORE PUSH1 0x12 PUSH1 0x1 DUP3 ADD SSTORE PUSH1 0x3 PUSH2 0x10 MSTORE PUSH32 0x57564300000000000000000000000000000 PUSH2 0x120 MSTORE PUSH2 0x10 DUP1 MLOAD DUP1 PUSH1 0x2 DUP5 ADD SSTORE PUSH1 0x20 DUP3 ADD PUSH1 0x1 PUSH1 0x2 DUP6 ADD ADD DUP2 MLOAD DUP2 SSTORE POP POP POP POP PUSH1 0x60 MLOAD DUP1 PUSH1 0x4 DUP4 ADD SSTORE PUSH1 0x1 PUSH1 0x4 DUP4 ADD ADD PUSH1 0x0 DUP3 PUSH1 0x1F ADD PUSH1 0x5 SHR PUSH1 0x4 DUP2 GT PUSH2 0x228 JUMPI DUP1 ISZERO PUSH2 0x0FE JUMPI SWAP1 JUMPDEST DUP1 PUSH1 0x5 SHL PUSH1 0x80 ADD MLOAD DUP2 DUP5 ADD SSTORE PUSH1 0x1 ADD DUP2 DUP2 XOR PUSH2 0x0E7 JUMPI JUMPDEST POP POP POP POP POP PUSH1 0x0 SLOAD PUSH1 0x1 DUP2 ADD DUP2 DUP2 LT PUSH2 0x228 JUMPI SWAP1 POP PUSH1 0x0 SSTORE STOP JUMPDEST PUSH4 0xB13557E9 DUP2 XOR PUSH2 0x220 JUMPI PUSH1 0x24 CALLDATASIZE LT PUSH2 0x228 JUMPI PUSH1 0x20 DUP1 PUSH1 0x40 MSTORE PUSH1 0x1 PUSH1 0x4 CALLDATALOAD PUSH1 0x20 MSTORE PUSH1 0x0 MSTORE PUSH1 0x40 PUSH1 0x0 SHA3 DUP2 PUSH1 0x40 ADD PUSH1 0x80 DUP3 SLOAD DUP3 MSTORE PUSH1 0x1 DUP4 ADD SLOAD PUSH1 0x20 DUP4 ADD MSTORE DUP1 PUSH1 0x40 DUP4 ADD MSTORE PUSH1 0x2 DUP4 ADD DUP2 DUP4 ADD DUP2 SLOAD DUP1 DUP3 MSTORE PUSH1 0x1 DUP4 ADD PUSH1 0x20 DUP4 ADD DUP2 SLOAD DUP2 MSTORE POP POP POP DUP1 MLOAD DUP1 PUSH1 0x20 DUP4 ADD ADD PUSH1 0x1F DUP3 PUSH1 0x0 SUB AND CALLDATASIZE DUP3 CALLDATACOPY POP POP PUSH1 0x1F NOT PUSH1 0x1F DUP3 MLOAD PUSH1 0x20 ADD ADD AND SWAP1 POP SWAP1 POP DUP2 ADD SWAP1 POP DUP1 PUSH1 0x60 DUP4 ADD MSTORE PUSH1 0x4 DUP4 ADD DUP2 DUP4 ADD DUP2 SLOAD DUP1 DUP3 MSTORE PUSH1 0x1 DUP4 ADD PUSH1 0x20 DUP4 ADD PUSH1 0x0 DUP4 PUSH1 0x1F ADD PUSH1 0x5 SHR PUSH1 0x4 DUP2 GT PUSH2 0x228 JUMPI DUP1 ISZERO PUSH2 0x1E7 JUMPI SWAP1 JUMPDEST DUP1 DUP5 ADD SLOAD DUP2 PUSH1 0x5 SHL DUP5 ADD MSTORE PUSH1 0x1 ADD DUP2 DUP2 XOR PUSH2 0x1D1 JUMPI JUMPDEST POP POP POP POP POP DUP1 MLOAD DUP1 PUSH1 0x20 DUP4 ADD ADD PUSH1 0x1F DUP3 PUSH1 0x0 SUB AND CALLDATASIZE DUP3 CALLDATACOPY POP POP PUSH1 0x1F NOT PUSH1 0x1F DUP3 MLOAD PUSH1 0x20 ADD ADD AND SWAP1 POP SWAP1 POP DUP2 ADD SWAP1 POP SWAP1 POP SWAP1 POP DUP2 ADD SWAP1 POP PUSH1 0x40 RETURN JUMPDEST POP JUMPDEST PUSH1 0x0 PUSH1 0x0 REVERT JUMPDEST PUSH1 0x0 DUP1 REVERT LOG1 PUSH6 0x767970657283 STOP SUB SMOD STOP SIGNEXTEND",
+  "pcMap": {
+    "0": {
+      "offset": [
+        0,
+        548
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x3"
+    },
+    "2": {
+      "op": "CALLDATASIZE"
+    },
+    "3": {
+      "op": "GT"
+    },
+    "4": {
+      "op": "PUSH2",
+      "value": "0x0C"
+    },
+    "7": {
+      "op": "JUMPI"
+    },
+    "8": {
+      "op": "PUSH2",
+      "value": "0x222"
+    },
+    "11": {
+      "op": "JUMP"
+    },
+    "12": {
+      "op": "JUMPDEST"
+    },
+    "13": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "15": {
+      "op": "CALLDATALOAD"
+    },
+    "16": {
+      "op": "PUSH1",
+      "value": "0xE0"
+    },
+    "18": {
+      "op": "SHR"
+    },
+    "19": {
+      "op": "CALLVALUE"
+    },
+    "20": {
+      "op": "PUSH2",
+      "value": "0x228"
+    },
+    "23": {
+      "op": "JUMPI"
+    },
+    "24": {
+      "op": "PUSH4",
+      "value": "0xF28ABBE1"
+    },
+    "29": {
+      "op": "DUP2"
+    },
+    "30": {
+      "op": "XOR"
+    },
+    "31": {
+      "op": "PUSH2",
+      "value": "0x118"
+    },
+    "34": {
+      "op": "JUMPI"
+    },
+    "35": {
+      "op": "PUSH1",
+      "value": "0x64"
+    },
+    "37": {
+      "op": "CALLDATASIZE"
+    },
+    "38": {
+      "op": "LT"
+    },
+    "39": {
+      "op": "PUSH2",
+      "value": "0x228"
+    },
+    "42": {
+      "op": "JUMPI"
+    },
+    "43": {
+      "op": "PUSH1",
+      "value": "0x4"
+    },
+    "45": {
+      "op": "CALLDATALOAD"
+    },
+    "46": {
+      "op": "DUP1"
+    },
+    "47": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "49": {
+      "op": "SHR"
+    },
+    "50": {
+      "op": "PUSH2",
+      "value": "0x228"
+    },
+    "53": {
+      "op": "JUMPI"
+    },
+    "54": {
+      "fn": "BookstoreNFT.createBoundNFT",
+      "offset": [
+        342,
+        363
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x40"
+    },
+    "56": {
+      "fn": "BookstoreNFT.createBoundNFT",
+      "offset": [
+        342,
+        363
+      ],
+      "op": "MSTORE",
+      "path": "0"
+    },
+    "57": {
+      "op": "PUSH1",
+      "value": "0x24"
+    },
+    "59": {
+      "op": "CALLDATALOAD"
+    },
+    "60": {
+      "op": "PUSH1",
+      "value": "0x4"
+    },
+    "62": {
+      "fn": "BookstoreNFT.createBoundNFT",
+      "offset": [
+        365,
+        381
+      ],
+      "op": "ADD",
+      "path": "0"
+    },
+    "63": {
+      "op": "PUSH1",
+      "value": "0x64"
+    },
+    "65": {
+      "fn": "BookstoreNFT.createBoundNFT",
+      "offset": [
+        365,
+        381
+      ],
+      "op": "DUP2",
+      "path": "0"
+    },
+    "66": {
+      "op": "CALLDATALOAD"
+    },
+    "67": {
+      "op": "GT"
+    },
+    "68": {
+      "op": "PUSH2",
+      "value": "0x228"
+    },
+    "71": {
+      "op": "JUMPI"
+    },
+    "72": {
+      "fn": "BookstoreNFT.createBoundNFT",
+      "offset": [
+        365,
+        381
+      ],
+      "op": "DUP1",
+      "path": "0"
+    },
+    "73": {
+      "op": "CALLDATALOAD"
+    },
+    "74": {
+      "op": "DUP1"
+    },
+    "75": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "77": {
+      "op": "MSTORE"
+    },
+    "78": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "80": {
+      "fn": "BookstoreNFT.createBoundNFT",
+      "offset": [
+        365,
+        381
+      ],
+      "op": "DUP3",
+      "path": "0"
+    },
+    "81": {
+      "op": "ADD"
+    },
+    "82": {
+      "op": "DUP2"
+    },
+    "83": {
+      "op": "DUP2"
+    },
+    "84": {
+      "op": "PUSH1",
+      "value": "0x80"
+    },
+    "86": {
+      "op": "CALLDATACOPY"
+    },
+    "87": {
+      "op": "POP"
+    },
+    "88": {
+      "op": "POP"
+    },
+    "89": {
+      "fn": "BookstoreNFT.createBoundNFT",
+      "offset": [
+        365,
+        381
+      ],
+      "op": "POP",
+      "path": "0"
+    },
+    "90": {
+      "fn": "BookstoreNFT.createBoundNFT",
+      "offset": [
+        388,
+        399
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "statement": 0,
+      "value": "0x1"
+    },
+    "92": {
+      "fn": "BookstoreNFT.createBoundNFT",
+      "offset": [
+        400,
+        408
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x0"
+    },
+    "94": {
+      "op": "SLOAD"
+    },
+    "95": {
+      "fn": "BookstoreNFT.createBoundNFT",
+      "offset": [
+        388,
+        409
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x20"
+    },
+    "97": {
+      "fn": "BookstoreNFT.createBoundNFT",
+      "offset": [
+        388,
+        409
+      ],
+      "op": "MSTORE",
+      "path": "0"
+    },
+    "98": {
+      "fn": "BookstoreNFT.createBoundNFT",
+      "offset": [
+        388,
+        409
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x0"
+    },
+    "100": {
+      "fn": "BookstoreNFT.createBoundNFT",
+      "offset": [
+        388,
+        409
+      ],
+      "op": "MSTORE",
+      "path": "0"
+    },
+    "101": {
+      "fn": "BookstoreNFT.createBoundNFT",
+      "offset": [
+        388,
+        409
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x40"
+    },
+    "103": {
+      "fn": "BookstoreNFT.createBoundNFT",
+      "offset": [
+        388,
+        409
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x0"
+    },
+    "105": {
+      "fn": "BookstoreNFT.createBoundNFT",
+      "offset": [
+        388,
+        409
+      ],
+      "op": "SHA3",
+      "path": "0"
+    },
+    "106": {
+      "fn": "BookstoreNFT.createBoundNFT",
+      "offset": [
+        439,
+        451
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x40"
+    },
+    "108": {
+      "op": "MLOAD"
+    },
+    "109": {
+      "fn": "BookstoreNFT.createBoundNFT",
+      "offset": [
+        388,
+        530
+      ],
+      "op": "DUP2",
+      "path": "0"
+    },
+    "110": {
+      "op": "SSTORE"
+    },
+    "111": {
+      "fn": "BookstoreNFT.createBoundNFT",
+      "offset": [
+        471,
+        473
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x12"
+    },
+    "113": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "115": {
+      "fn": "BookstoreNFT.createBoundNFT",
+      "offset": [
+        388,
+        530
+      ],
+      "op": "DUP3",
+      "path": "0"
+    },
+    "116": {
+      "op": "ADD"
+    },
+    "117": {
+      "op": "SSTORE"
+    },
+    "118": {
+      "op": "PUSH1",
+      "value": "0x3"
+    },
+    "120": {
+      "op": "PUSH2",
+      "value": "0x10"
+    },
+    "123": {
+      "fn": "BookstoreNFT.createBoundNFT",
+      "offset": [
+        491,
+        496
+      ],
+      "op": "MSTORE",
+      "path": "0"
+    },
+    "124": {
+      "op": "PUSH32",
+      "value": "0x57564300000000000000000000000000000"
+    },
+    "157": {
+      "op": "PUSH2",
+      "value": "0x120"
+    },
+    "160": {
+      "fn": "BookstoreNFT.createBoundNFT",
+      "offset": [
+        491,
+        496
+      ],
+      "op": "MSTORE",
+      "path": "0"
+    },
+    "161": {
+      "fn": "BookstoreNFT.createBoundNFT",
+      "offset": [
+        491,
+        496
+      ],
+      "op": "PUSH2",
+      "path": "0",
+      "value": "0x10"
+    },
+    "164": {
+      "op": "DUP1"
+    },
+    "165": {
+      "op": "MLOAD"
+    },
+    "166": {
+      "op": "DUP1"
+    },
+    "167": {
+      "op": "PUSH1",
+      "value": "0x2"
+    },
+    "169": {
+      "fn": "BookstoreNFT.createBoundNFT",
+      "offset": [
+        388,
+        530
+      ],
+      "op": "DUP5",
+      "path": "0"
+    },
+    "170": {
+      "op": "ADD"
+    },
+    "171": {
+      "op": "SSTORE"
+    },
+    "172": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "174": {
+      "op": "DUP3"
+    },
+    "175": {
+      "op": "ADD"
+    },
+    "176": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "178": {
+      "op": "PUSH1",
+      "value": "0x2"
+    },
+    "180": {
+      "fn": "BookstoreNFT.createBoundNFT",
+      "offset": [
+        388,
+        530
+      ],
+      "op": "DUP6",
+      "path": "0"
+    },
+    "181": {
+      "op": "ADD"
+    },
+    "182": {
+      "op": "ADD"
+    },
+    "183": {
+      "op": "DUP2"
+    },
+    "184": {
+      "op": "MLOAD"
+    },
+    "185": {
+      "op": "DUP2"
+    },
+    "186": {
+      "op": "SSTORE"
+    },
+    "187": {
+      "op": "POP"
+    },
+    "188": {
+      "op": "POP"
+    },
+    "189": {
+      "op": "POP"
+    },
+    "190": {
+      "op": "POP"
+    },
+    "191": {
+      "fn": "BookstoreNFT.createBoundNFT",
+      "offset": [
+        516,
+        519
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x60"
+    },
+    "193": {
+      "op": "MLOAD"
+    },
+    "194": {
+      "op": "DUP1"
+    },
+    "195": {
+      "op": "PUSH1",
+      "value": "0x4"
+    },
+    "197": {
+      "fn": "BookstoreNFT.createBoundNFT",
+      "offset": [
+        388,
+        530
+      ],
+      "op": "DUP4",
+      "path": "0"
+    },
+    "198": {
+      "op": "ADD"
+    },
+    "199": {
+      "op": "SSTORE"
+    },
+    "200": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "202": {
+      "op": "PUSH1",
+      "value": "0x4"
+    },
+    "204": {
+      "fn": "BookstoreNFT.createBoundNFT",
+      "offset": [
+        388,
+        530
+      ],
+      "op": "DUP4",
+      "path": "0"
+    },
+    "205": {
+      "op": "ADD"
+    },
+    "206": {
+      "op": "ADD"
+    },
+    "207": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "209": {
+      "op": "DUP3"
+    },
+    "210": {
+      "op": "PUSH1",
+      "value": "0x1F"
+    },
+    "212": {
+      "op": "ADD"
+    },
+    "213": {
+      "op": "PUSH1",
+      "value": "0x5"
+    },
+    "215": {
+      "op": "SHR"
+    },
+    "216": {
+      "op": "PUSH1",
+      "value": "0x4"
+    },
+    "218": {
+      "op": "DUP2"
+    },
+    "219": {
+      "op": "GT"
+    },
+    "220": {
+      "op": "PUSH2",
+      "value": "0x228"
+    },
+    "223": {
+      "op": "JUMPI"
+    },
+    "224": {
+      "op": "DUP1"
+    },
+    "225": {
+      "op": "ISZERO"
+    },
+    "226": {
+      "op": "PUSH2",
+      "value": "0x0FE"
+    },
+    "229": {
+      "op": "JUMPI"
+    },
+    "230": {
+      "op": "SWAP1"
+    },
+    "231": {
+      "op": "JUMPDEST"
+    },
+    "232": {
+      "op": "DUP1"
+    },
+    "233": {
+      "op": "PUSH1",
+      "value": "0x5"
+    },
+    "235": {
+      "op": "SHL"
+    },
+    "236": {
+      "op": "PUSH1",
+      "value": "0x80"
+    },
+    "238": {
+      "op": "ADD"
+    },
+    "239": {
+      "op": "MLOAD"
+    },
+    "240": {
+      "op": "DUP2"
+    },
+    "241": {
+      "op": "DUP5"
+    },
+    "242": {
+      "op": "ADD"
+    },
+    "243": {
+      "op": "SSTORE"
+    },
+    "244": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "246": {
+      "op": "ADD"
+    },
+    "247": {
+      "op": "DUP2"
+    },
+    "248": {
+      "op": "DUP2"
+    },
+    "249": {
+      "op": "XOR"
+    },
+    "250": {
+      "op": "PUSH2",
+      "value": "0x0E7"
+    },
+    "253": {
+      "op": "JUMPI"
+    },
+    "254": {
+      "op": "JUMPDEST"
+    },
+    "255": {
+      "op": "POP"
+    },
+    "256": {
+      "op": "POP"
+    },
+    "257": {
+      "op": "POP"
+    },
+    "258": {
+      "op": "POP"
+    },
+    "259": {
+      "fn": "BookstoreNFT.createBoundNFT",
+      "offset": [
+        388,
+        530
+      ],
+      "op": "POP",
+      "path": "0"
+    },
+    "260": {
+      "fn": "BookstoreNFT.createBoundNFT",
+      "offset": [
+        535,
+        543
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "statement": 1,
+      "value": "0x0"
+    },
+    "262": {
+      "op": "SLOAD"
+    },
+    "263": {
+      "fn": "BookstoreNFT.createBoundNFT",
+      "offset": [
+        547,
+        548
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x1"
+    },
+    "265": {
+      "op": "DUP2"
+    },
+    "266": {
+      "op": "ADD"
+    },
+    "267": {
+      "op": "DUP2"
+    },
+    "268": {
+      "op": "DUP2"
+    },
+    "269": {
+      "op": "LT"
+    },
+    "270": {
+      "op": "PUSH2",
+      "value": "0x228"
+    },
+    "273": {
+      "op": "JUMPI"
+    },
+    "274": {
+      "fn": "BookstoreNFT.createBoundNFT",
+      "offset": [
+        535,
+        548
+      ],
+      "op": "SWAP1",
+      "path": "0"
+    },
+    "275": {
+      "fn": "BookstoreNFT.createBoundNFT",
+      "offset": [
+        535,
+        548
+      ],
+      "op": "POP",
+      "path": "0"
+    },
+    "276": {
+      "fn": "BookstoreNFT.createBoundNFT",
+      "offset": [
+        535,
+        543
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x0"
+    },
+    "278": {
+      "op": "SSTORE"
+    },
+    "279": {
+      "op": "STOP"
+    },
+    "280": {
+      "op": "JUMPDEST"
+    },
+    "281": {
+      "op": "PUSH4",
+      "value": "0xB13557E9"
+    },
+    "286": {
+      "op": "DUP2"
+    },
+    "287": {
+      "op": "XOR"
+    },
+    "288": {
+      "op": "PUSH2",
+      "value": "0x220"
+    },
+    "291": {
+      "op": "JUMPI"
+    },
+    "292": {
+      "op": "PUSH1",
+      "value": "0x24"
+    },
+    "294": {
+      "op": "CALLDATASIZE"
+    },
+    "295": {
+      "op": "LT"
+    },
+    "296": {
+      "op": "PUSH2",
+      "value": "0x228"
+    },
+    "299": {
+      "op": "JUMPI"
+    },
+    "300": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "302": {
+      "op": "DUP1"
+    },
+    "303": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "305": {
+      "op": "MSTORE"
+    },
+    "306": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "308": {
+      "op": "PUSH1",
+      "value": "0x4"
+    },
+    "310": {
+      "op": "CALLDATALOAD"
+    },
+    "311": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "313": {
+      "op": "MSTORE"
+    },
+    "314": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "316": {
+      "op": "MSTORE"
+    },
+    "317": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "319": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "321": {
+      "op": "SHA3"
+    },
+    "322": {
+      "op": "DUP2"
+    },
+    "323": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "325": {
+      "op": "ADD"
+    },
+    "326": {
+      "op": "PUSH1",
+      "value": "0x80"
+    },
+    "328": {
+      "op": "DUP3"
+    },
+    "329": {
+      "op": "SLOAD"
+    },
+    "330": {
+      "op": "DUP3"
+    },
+    "331": {
+      "op": "MSTORE"
+    },
+    "332": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "334": {
+      "op": "DUP4"
+    },
+    "335": {
+      "op": "ADD"
+    },
+    "336": {
+      "op": "SLOAD"
+    },
+    "337": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "339": {
+      "op": "DUP4"
+    },
+    "340": {
+      "op": "ADD"
+    },
+    "341": {
+      "op": "MSTORE"
+    },
+    "342": {
+      "op": "DUP1"
+    },
+    "343": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "345": {
+      "op": "DUP4"
+    },
+    "346": {
+      "op": "ADD"
+    },
+    "347": {
+      "op": "MSTORE"
+    },
+    "348": {
+      "op": "PUSH1",
+      "value": "0x2"
+    },
+    "350": {
+      "op": "DUP4"
+    },
+    "351": {
+      "op": "ADD"
+    },
+    "352": {
+      "op": "DUP2"
+    },
+    "353": {
+      "op": "DUP4"
+    },
+    "354": {
+      "op": "ADD"
+    },
+    "355": {
+      "op": "DUP2"
+    },
+    "356": {
+      "op": "SLOAD"
+    },
+    "357": {
+      "op": "DUP1"
+    },
+    "358": {
+      "op": "DUP3"
+    },
+    "359": {
+      "op": "MSTORE"
+    },
+    "360": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "362": {
+      "op": "DUP4"
+    },
+    "363": {
+      "op": "ADD"
+    },
+    "364": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "366": {
+      "op": "DUP4"
+    },
+    "367": {
+      "op": "ADD"
+    },
+    "368": {
+      "op": "DUP2"
+    },
+    "369": {
+      "op": "SLOAD"
+    },
+    "370": {
+      "op": "DUP2"
+    },
+    "371": {
+      "op": "MSTORE"
+    },
+    "372": {
+      "op": "POP"
+    },
+    "373": {
+      "op": "POP"
+    },
+    "374": {
+      "op": "POP"
+    },
+    "375": {
+      "op": "DUP1"
+    },
+    "376": {
+      "op": "MLOAD"
+    },
+    "377": {
+      "op": "DUP1"
+    },
+    "378": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "380": {
+      "op": "DUP4"
+    },
+    "381": {
+      "op": "ADD"
+    },
+    "382": {
+      "op": "ADD"
+    },
+    "383": {
+      "op": "PUSH1",
+      "value": "0x1F"
+    },
+    "385": {
+      "op": "DUP3"
+    },
+    "386": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "388": {
+      "op": "SUB"
+    },
+    "389": {
+      "op": "AND"
+    },
+    "390": {
+      "op": "CALLDATASIZE"
+    },
+    "391": {
+      "op": "DUP3"
+    },
+    "392": {
+      "op": "CALLDATACOPY"
+    },
+    "393": {
+      "op": "POP"
+    },
+    "394": {
+      "op": "POP"
+    },
+    "395": {
+      "op": "PUSH1",
+      "value": "0x1F"
+    },
+    "397": {
+      "op": "NOT"
+    },
+    "398": {
+      "op": "PUSH1",
+      "value": "0x1F"
+    },
+    "400": {
+      "op": "DUP3"
+    },
+    "401": {
+      "op": "MLOAD"
+    },
+    "402": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "404": {
+      "op": "ADD"
+    },
+    "405": {
+      "op": "ADD"
+    },
+    "406": {
+      "op": "AND"
+    },
+    "407": {
+      "op": "SWAP1"
+    },
+    "408": {
+      "op": "POP"
+    },
+    "409": {
+      "op": "SWAP1"
+    },
+    "410": {
+      "op": "POP"
+    },
+    "411": {
+      "op": "DUP2"
+    },
+    "412": {
+      "op": "ADD"
+    },
+    "413": {
+      "op": "SWAP1"
+    },
+    "414": {
+      "op": "POP"
+    },
+    "415": {
+      "op": "DUP1"
+    },
+    "416": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "418": {
+      "op": "DUP4"
+    },
+    "419": {
+      "op": "ADD"
+    },
+    "420": {
+      "op": "MSTORE"
+    },
+    "421": {
+      "op": "PUSH1",
+      "value": "0x4"
+    },
+    "423": {
+      "op": "DUP4"
+    },
+    "424": {
+      "op": "ADD"
+    },
+    "425": {
+      "op": "DUP2"
+    },
+    "426": {
+      "op": "DUP4"
+    },
+    "427": {
+      "op": "ADD"
+    },
+    "428": {
+      "op": "DUP2"
+    },
+    "429": {
+      "op": "SLOAD"
+    },
+    "430": {
+      "op": "DUP1"
+    },
+    "431": {
+      "op": "DUP3"
+    },
+    "432": {
+      "op": "MSTORE"
+    },
+    "433": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "435": {
+      "op": "DUP4"
+    },
+    "436": {
+      "op": "ADD"
+    },
+    "437": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "439": {
+      "op": "DUP4"
+    },
+    "440": {
+      "op": "ADD"
+    },
+    "441": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "443": {
+      "op": "DUP4"
+    },
+    "444": {
+      "op": "PUSH1",
+      "value": "0x1F"
+    },
+    "446": {
+      "op": "ADD"
+    },
+    "447": {
+      "op": "PUSH1",
+      "value": "0x5"
+    },
+    "449": {
+      "op": "SHR"
+    },
+    "450": {
+      "op": "PUSH1",
+      "value": "0x4"
+    },
+    "452": {
+      "op": "DUP2"
+    },
+    "453": {
+      "op": "GT"
+    },
+    "454": {
+      "op": "PUSH2",
+      "value": "0x228"
+    },
+    "457": {
+      "op": "JUMPI"
+    },
+    "458": {
+      "op": "DUP1"
+    },
+    "459": {
+      "op": "ISZERO"
+    },
+    "460": {
+      "op": "PUSH2",
+      "value": "0x1E7"
+    },
+    "463": {
+      "op": "JUMPI"
+    },
+    "464": {
+      "op": "SWAP1"
+    },
+    "465": {
+      "op": "JUMPDEST"
+    },
+    "466": {
+      "op": "DUP1"
+    },
+    "467": {
+      "op": "DUP5"
+    },
+    "468": {
+      "op": "ADD"
+    },
+    "469": {
+      "op": "SLOAD"
+    },
+    "470": {
+      "op": "DUP2"
+    },
+    "471": {
+      "op": "PUSH1",
+      "value": "0x5"
+    },
+    "473": {
+      "op": "SHL"
+    },
+    "474": {
+      "op": "DUP5"
+    },
+    "475": {
+      "op": "ADD"
+    },
+    "476": {
+      "op": "MSTORE"
+    },
+    "477": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "479": {
+      "op": "ADD"
+    },
+    "480": {
+      "op": "DUP2"
+    },
+    "481": {
+      "op": "DUP2"
+    },
+    "482": {
+      "op": "XOR"
+    },
+    "483": {
+      "op": "PUSH2",
+      "value": "0x1D1"
+    },
+    "486": {
+      "op": "JUMPI"
+    },
+    "487": {
+      "op": "JUMPDEST"
+    },
+    "488": {
+      "op": "POP"
+    },
+    "489": {
+      "op": "POP"
+    },
+    "490": {
+      "op": "POP"
+    },
+    "491": {
+      "op": "POP"
+    },
+    "492": {
+      "op": "POP"
+    },
+    "493": {
+      "op": "DUP1"
+    },
+    "494": {
+      "op": "MLOAD"
+    },
+    "495": {
+      "op": "DUP1"
+    },
+    "496": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "498": {
+      "op": "DUP4"
+    },
+    "499": {
+      "op": "ADD"
+    },
+    "500": {
+      "op": "ADD"
+    },
+    "501": {
+      "op": "PUSH1",
+      "value": "0x1F"
+    },
+    "503": {
+      "op": "DUP3"
+    },
+    "504": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "506": {
+      "op": "SUB"
+    },
+    "507": {
+      "op": "AND"
+    },
+    "508": {
+      "op": "CALLDATASIZE"
+    },
+    "509": {
+      "op": "DUP3"
+    },
+    "510": {
+      "op": "CALLDATACOPY"
+    },
+    "511": {
+      "op": "POP"
+    },
+    "512": {
+      "op": "POP"
+    },
+    "513": {
+      "op": "PUSH1",
+      "value": "0x1F"
+    },
+    "515": {
+      "op": "NOT"
+    },
+    "516": {
+      "op": "PUSH1",
+      "value": "0x1F"
+    },
+    "518": {
+      "op": "DUP3"
+    },
+    "519": {
+      "op": "MLOAD"
+    },
+    "520": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "522": {
+      "op": "ADD"
+    },
+    "523": {
+      "op": "ADD"
+    },
+    "524": {
+      "op": "AND"
+    },
+    "525": {
+      "op": "SWAP1"
+    },
+    "526": {
+      "op": "POP"
+    },
+    "527": {
+      "op": "SWAP1"
+    },
+    "528": {
+      "op": "POP"
+    },
+    "529": {
+      "op": "DUP2"
+    },
+    "530": {
+      "op": "ADD"
+    },
+    "531": {
+      "op": "SWAP1"
+    },
+    "532": {
+      "op": "POP"
+    },
+    "533": {
+      "op": "SWAP1"
+    },
+    "534": {
+      "op": "POP"
+    },
+    "535": {
+      "op": "SWAP1"
+    },
+    "536": {
+      "op": "POP"
+    },
+    "537": {
+      "op": "DUP2"
+    },
+    "538": {
+      "op": "ADD"
+    },
+    "539": {
+      "op": "SWAP1"
+    },
+    "540": {
+      "op": "POP"
+    },
+    "541": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "543": {
+      "op": "RETURN"
+    },
+    "544": {
+      "op": "JUMPDEST"
+    },
+    "545": {
+      "op": "POP"
+    },
+    "546": {
+      "op": "JUMPDEST"
+    },
+    "547": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "549": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "551": {
+      "op": "REVERT"
+    },
+    "552": {
+      "op": "JUMPDEST"
+    },
+    "553": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "555": {
+      "op": "DUP1"
+    },
+    "556": {
+      "op": "REVERT"
+    }
+  },
+  "sha1": "6f9fa40633393a33a2d93bd68c84e46081ceaae9",
+  "source": "# @version 0.3.7\nnum: uint256 \nstruct Erc20Token:\n    addr: address\n    decimals: uint256\n    symbol: String[16]\n    hashImag: String[100]\nhashie: public (HashMap[uint256, Erc20Token])\n@external\ndef __init__():\n    return \n\n# hashmap that contains the product sha and the image url \n# method to add to hashmap ()\n@external\ndef createBoundNFT(productOwner: address, uRL: String[100]):\n    self.hashie[self.num] = Erc20Token({\n        addr: productOwner,\n        decimals: 18,\n        symbol: \"WVC\",\n        hashImag: uRL\n        })\n    self.num += 1\n\n\n\n\n\n\n\n\n",
+  "sourceMap": "",
+  "sourcePath": "contracts/BookstoreNFT.vy",
+  "type": "contract"
+}
