@@ -1,3 +1,5 @@
+# @version 0.3.7
+
 #write variable names
 #hashmap public instance var right here
 #in vyper example there is an example of this
@@ -6,10 +8,12 @@
 hashie : public (HashMap[uint256,Erc20Token])
 
 @external
-def __init__ ()
+def __init__ ():
+    return
 
 @external
-def redeemProduct(NFTid : uint256) -> bool
+
+def redeemProduct(NFTid : uint256) -> bool:
     nftStr : struct = self.hashie.get_val(NFTid)
     if (msg.sender == nftStr.addr):
         return true
