@@ -1,35 +1,33 @@
 {
   "contracts": {
-    "VotingAndRep": "2b6d9c2ba5b719a2c43ba0e10beb0e921147fa8f"
+    "Stake": "d4f4587ea9960e2b28f6e2213370070cac95d060",
+    "VotingAndRep": "2b6d9c2ba5b719a2c43ba0e10beb0e921147fa8f",
+    "Wolvercoin": "ed18f7176799ef070baeb860f08e3c37f557ffd3"
   },
   "tests": {
+    "tests/test_Stake.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": "..",
+      "sha1": "ce2b87aacb4c425e6f0ec80d7e5cbcd918ad92d8",
+      "txhash": [
+        "6c8ad8090c8cf05cbac07075ab72d747b8dbbc30"
+      ]
+    },
     "tests/test_voting.py": {
       "coverage": false,
       "isolated": false,
       "results": "....",
       "sha1": "4d8b225033d2005e698bc76388f4c1ba7c9a3413",
       "txhash": [
-        "74cf13a6ddc20790c1c178b5d25d51ef477014cc",
-        "cf7a75bca5c9d99aa8a4c6d346336948b4fbc398",
-        "e2fb9b09236168324b3820934a67028f4bcdb576"
+        "6c7c577f58ada66f5a3a644b277bcfdf2f61b5ed",
+        "7a8cf93cb9e889b6e1341d3a1c2deac6eccfd2d5",
+        "cd41c9a3fa2d611d85cb24ab0c7451dac403fb80"
       ]
     }
   },
   "tx": {
-    "74cf13a6ddc20790c1c178b5d25d51ef477014cc": {
-      "VotingAndRep": {
-        "0": [
-          [
-            9
-          ],
-          [
-            10
-          ],
-          []
-        ]
-      }
-    },
-    "cf7a75bca5c9d99aa8a4c6d346336948b4fbc398": {
+    "6c7c577f58ada66f5a3a644b277bcfdf2f61b5ed": {
       "VotingAndRep": {
         "0": [
           [
@@ -42,7 +40,35 @@
         ]
       }
     },
-    "e2fb9b09236168324b3820934a67028f4bcdb576": {
+    "6c8ad8090c8cf05cbac07075ab72d747b8dbbc30": {
+      "Stake": {
+        "0": [
+          [
+            0,
+            1,
+            2
+          ],
+          [],
+          [
+            3
+          ]
+        ]
+      }
+    },
+    "7a8cf93cb9e889b6e1341d3a1c2deac6eccfd2d5": {
+      "VotingAndRep": {
+        "0": [
+          [
+            9
+          ],
+          [
+            10
+          ],
+          []
+        ]
+      }
+    },
+    "cd41c9a3fa2d611d85cb24ab0c7451dac403fb80": {
       "VotingAndRep": {
         "0": [
           [
