@@ -4,6 +4,7 @@ import * as Constants from "./consts"
 import Contribute from "../Contribute/Contribute.js";
 import NFTs from "../NFTs/NFTs.js";
 import Balance from "../Balance/Balance.js";
+import Footer from "./Footer"
 
 
 class Main extends React.Component {
@@ -49,6 +50,7 @@ class Main extends React.Component {
     <div>
         <Header onChangeLocation={this.setLocation} location={this.state.location}></Header>
         {pageToRender}
+        <Footer></Footer>
     </div>
     );
   }

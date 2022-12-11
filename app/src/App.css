@@ -104,7 +104,9 @@ body {
   font-size: 16px;
   line-height: 25px;
   color: rgb(255, 255, 255);
+  text-transform: lowercase; 
 }
+.menu-item:first-letter {text-transform: uppercase}
 
 .menu-item.active {
   padding-bottom: 5px;
