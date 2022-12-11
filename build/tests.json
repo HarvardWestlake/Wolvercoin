@@ -1,5 +1,6 @@
 {
   "contracts": {
+    "CommunityPot": "8d7bfba5c7fabd9702677d95cdc8fbf3646b4281",
     "VotingAndRep": "2b6d9c2ba5b719a2c43ba0e10beb0e921147fa8f"
   },
   "tests": {

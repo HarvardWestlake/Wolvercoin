@@ -1,0 +1,1888 @@
+{
+  "abi": [
+    {
+      "inputs": [],
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [
+        {
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "addMoney",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "name": "newEleectedOfficials",
+          "type": "address[]"
+        }
+      ],
+      "name": "setElectedOfficials",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getMoney",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getElectedOfficials",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address[]"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "allSourcePaths": {
+    "0": "contracts/CommunityPot.vy"
+  },
+  "ast": {
+    "ast_type": "Module",
+    "body": [
+      {
+        "annotation": {
+          "ast_type": "Subscript",
+          "col_offset": 18,
+          "end_col_offset": 39,
+          "end_lineno": 3,
+          "lineno": 3,
+          "node_id": 4,
+          "slice": {
+            "ast_type": "Index",
+            "col_offset": 18,
+            "end_col_offset": 39,
+            "end_lineno": 3,
+            "lineno": 3,
+            "node_id": 13,
+            "src": "37:21:0",
+            "value": {
+              "ast_type": "Tuple",
+              "col_offset": 28,
+              "elements": [
+                {
+                  "ast_type": "Name",
+                  "col_offset": 28,
+                  "end_col_offset": 35,
+                  "end_lineno": 3,
+                  "id": "address",
+                  "lineno": 3,
+                  "node_id": 8,
+                  "src": "47:7:0"
+                },
+                {
+                  "ast_type": "Int",
+                  "col_offset": 37,
+                  "end_col_offset": 38,
+                  "end_lineno": 3,
+                  "lineno": 3,
+                  "node_id": 10,
+                  "src": "56:1:0",
+                  "value": 3
+                }
+              ],
+              "end_col_offset": 38,
+              "end_lineno": 3,
+              "lineno": 3,
+              "node_id": 7,
+              "src": "47:10:0"
+            }
+          },
+          "src": "37:21:0",
+          "value": {
+            "ast_type": "Name",
+            "col_offset": 18,
+            "end_col_offset": 26,
+            "end_lineno": 3,
+            "id": "DynArray",
+            "lineno": 3,
+            "node_id": 5,
+            "src": "37:8:0"
+          }
+        },
+        "ast_type": "VariableDecl",
+        "col_offset": 0,
+        "end_col_offset": 39,
+        "end_lineno": 3,
+        "is_constant": false,
+        "is_immutable": false,
+        "is_public": false,
+        "lineno": 3,
+        "node_id": 1,
+        "src": "19:39:0",
+        "target": {
+          "ast_type": "Name",
+          "col_offset": 0,
+          "end_col_offset": 16,
+          "end_lineno": 3,
+          "id": "electedOfficials",
+          "lineno": 3,
+          "node_id": 2,
+          "src": "19:16:0"
+        },
+        "value": null
+      },
+      {
+        "annotation": {
+          "ast_type": "Name",
+          "col_offset": 13,
+          "end_col_offset": 20,
+          "end_lineno": 4,
+          "id": "uint256",
+          "lineno": 4,
+          "node_id": 17,
+          "src": "72:7:0"
+        },
+        "ast_type": "VariableDecl",
+        "col_offset": 0,
+        "end_col_offset": 20,
+        "end_lineno": 4,
+        "is_constant": false,
+        "is_immutable": false,
+        "is_public": false,
+        "lineno": 4,
+        "node_id": 14,
+        "src": "59:20:0",
+        "target": {
+          "ast_type": "Name",
+          "col_offset": 0,
+          "end_col_offset": 11,
+          "end_lineno": 4,
+          "id": "moneyStored",
+          "lineno": 4,
+          "node_id": 15,
+          "src": "59:11:0"
+        },
+        "value": null
+      },
+      {
+        "args": {
+          "args": [],
+          "ast_type": "arguments",
+          "col_offset": 0,
+          "default": null,
+          "defaults": [],
+          "end_col_offset": 3,
+          "end_lineno": 7,
+          "lineno": 7,
+          "node_id": 20,
+          "src": "91:3:0"
+        },
+        "ast_type": "FunctionDef",
+        "body": [
+          {
+            "ast_type": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 24,
+            "end_lineno": 8,
+            "lineno": 8,
+            "node_id": 21,
+            "src": "112:20:0",
+            "target": {
+              "ast_type": "Attribute",
+              "attr": "moneyStored",
+              "col_offset": 4,
+              "end_col_offset": 20,
+              "end_lineno": 8,
+              "lineno": 8,
+              "node_id": 22,
+              "src": "112:16:0",
+              "value": {
+                "ast_type": "Name",
+                "col_offset": 4,
+                "end_col_offset": 8,
+                "end_lineno": 8,
+                "id": "self",
+                "lineno": 8,
+                "node_id": 23,
+                "src": "112:4:0"
+              }
+            },
+            "value": {
+              "ast_type": "Int",
+              "col_offset": 23,
+              "end_col_offset": 24,
+              "end_lineno": 8,
+              "lineno": 8,
+              "node_id": 26,
+              "src": "131:1:0",
+              "value": 0
+            }
+          },
+          {
+            "ast_type": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 30,
+            "end_lineno": 9,
+            "lineno": 9,
+            "node_id": 27,
+            "src": "137:26:0",
+            "target": {
+              "ast_type": "Attribute",
+              "attr": "electedOfficials",
+              "col_offset": 4,
+              "end_col_offset": 25,
+              "end_lineno": 9,
+              "lineno": 9,
+              "node_id": 28,
+              "src": "137:21:0",
+              "value": {
+                "ast_type": "Name",
+                "col_offset": 4,
+                "end_col_offset": 8,
+                "end_lineno": 9,
+                "id": "self",
+                "lineno": 9,
+                "node_id": 29,
+                "src": "137:4:0"
+              }
+            },
+            "value": {
+              "ast_type": "List",
+              "col_offset": 28,
+              "elements": [],
+              "end_col_offset": 30,
+              "end_lineno": 9,
+              "lineno": 9,
+              "node_id": 32,
+              "src": "161:2:0"
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [
+          {
+            "ast_type": "Name",
+            "col_offset": 1,
+            "end_col_offset": 9,
+            "end_lineno": 6,
+            "id": "external",
+            "lineno": 6,
+            "node_id": 34,
+            "src": "82:8:0"
+          }
+        ],
+        "doc_string": null,
+        "end_col_offset": 30,
+        "end_lineno": 9,
+        "lineno": 7,
+        "name": "__init__",
+        "node_id": 19,
+        "pos": null,
+        "returns": null,
+        "src": "91:72:0"
+      },
+      {
+        "args": {
+          "args": [
+            {
+              "annotation": {
+                "ast_type": "Name",
+                "col_offset": 22,
+                "end_col_offset": 29,
+                "end_lineno": 12,
+                "id": "uint256",
+                "lineno": 12,
+                "node_id": 39,
+                "src": "197:7:0"
+              },
+              "arg": "amount",
+              "ast_type": "arg",
+              "col_offset": 14,
+              "end_col_offset": 29,
+              "end_lineno": 12,
+              "lineno": 12,
+              "node_id": 38,
+              "src": "189:15:0"
+            }
+          ],
+          "ast_type": "arguments",
+          "col_offset": 14,
+          "default": null,
+          "defaults": [],
+          "end_col_offset": 29,
+          "end_lineno": 12,
+          "lineno": 12,
+          "node_id": 37,
+          "src": "189:15:0"
+        },
+        "ast_type": "FunctionDef",
+        "body": [
+          {
+            "ast_type": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 48,
+            "end_lineno": 13,
+            "lineno": 13,
+            "node_id": 41,
+            "src": "211:44:0",
+            "target": {
+              "ast_type": "Attribute",
+              "attr": "moneyStored",
+              "col_offset": 4,
+              "end_col_offset": 20,
+              "end_lineno": 13,
+              "lineno": 13,
+              "node_id": 42,
+              "src": "211:16:0",
+              "value": {
+                "ast_type": "Name",
+                "col_offset": 4,
+                "end_col_offset": 8,
+                "end_lineno": 13,
+                "id": "self",
+                "lineno": 13,
+                "node_id": 43,
+                "src": "211:4:0"
+              }
+            },
+            "value": {
+              "ast_type": "BinOp",
+              "col_offset": 23,
+              "end_col_offset": 48,
+              "end_lineno": 13,
+              "left": {
+                "ast_type": "Attribute",
+                "attr": "moneyStored",
+                "col_offset": 23,
+                "end_col_offset": 39,
+                "end_lineno": 13,
+                "lineno": 13,
+                "node_id": 47,
+                "src": "230:16:0",
+                "value": {
+                  "ast_type": "Name",
+                  "col_offset": 23,
+                  "end_col_offset": 27,
+                  "end_lineno": 13,
+                  "id": "self",
+                  "lineno": 13,
+                  "node_id": 48,
+                  "src": "230:4:0"
+                }
+              },
+              "lineno": 13,
+              "node_id": 46,
+              "op": {
+                "ast_type": "Add",
+                "col_offset": 23,
+                "end_col_offset": 48,
+                "end_lineno": 13,
+                "lineno": 13,
+                "node_id": 51,
+                "src": "230:25:0"
+              },
+              "right": {
+                "ast_type": "Name",
+                "col_offset": 42,
+                "end_col_offset": 48,
+                "end_lineno": 13,
+                "id": "amount",
+                "lineno": 13,
+                "node_id": 52,
+                "src": "249:6:0"
+              },
+              "src": "230:25:0"
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [
+          {
+            "ast_type": "Name",
+            "col_offset": 1,
+            "end_col_offset": 9,
+            "end_lineno": 11,
+            "id": "external",
+            "lineno": 11,
+            "node_id": 54,
+            "src": "166:8:0"
+          }
+        ],
+        "doc_string": null,
+        "end_col_offset": 48,
+        "end_lineno": 13,
+        "lineno": 12,
+        "name": "addMoney",
+        "node_id": 36,
+        "pos": null,
+        "returns": null,
+        "src": "175:80:0"
+      },
+      {
+        "args": {
+          "args": [
+            {
+              "annotation": {
+                "ast_type": "Subscript",
+                "col_offset": 47,
+                "end_col_offset": 67,
+                "end_lineno": 16,
+                "lineno": 16,
+                "node_id": 59,
+                "slice": {
+                  "ast_type": "Index",
+                  "col_offset": 47,
+                  "end_col_offset": 67,
+                  "end_lineno": 16,
+                  "lineno": 16,
+                  "node_id": 68,
+                  "src": "314:20:0",
+                  "value": {
+                    "ast_type": "Tuple",
+                    "col_offset": 57,
+                    "elements": [
+                      {
+                        "ast_type": "Name",
+                        "col_offset": 57,
+                        "end_col_offset": 64,
+                        "end_lineno": 16,
+                        "id": "address",
+                        "lineno": 16,
+                        "node_id": 63,
+                        "src": "324:7:0"
+                      },
+                      {
+                        "ast_type": "Int",
+                        "col_offset": 65,
+                        "end_col_offset": 66,
+                        "end_lineno": 16,
+                        "lineno": 16,
+                        "node_id": 65,
+                        "src": "332:1:0",
+                        "value": 3
+                      }
+                    ],
+                    "end_col_offset": 66,
+                    "end_lineno": 16,
+                    "lineno": 16,
+                    "node_id": 62,
+                    "src": "324:9:0"
+                  }
+                },
+                "src": "314:20:0",
+                "value": {
+                  "ast_type": "Name",
+                  "col_offset": 47,
+                  "end_col_offset": 55,
+                  "end_lineno": 16,
+                  "id": "DynArray",
+                  "lineno": 16,
+                  "node_id": 60,
+                  "src": "314:8:0"
+                }
+              },
+              "arg": "newEleectedOfficials",
+              "ast_type": "arg",
+              "col_offset": 25,
+              "end_col_offset": 67,
+              "end_lineno": 16,
+              "lineno": 16,
+              "node_id": 58,
+              "src": "292:42:0"
+            }
+          ],
+          "ast_type": "arguments",
+          "col_offset": 25,
+          "default": null,
+          "defaults": [],
+          "end_col_offset": 67,
+          "end_lineno": 16,
+          "lineno": 16,
+          "node_id": 57,
+          "src": "292:42:0"
+        },
+        "ast_type": "FunctionDef",
+        "body": [
+          {
+            "ast_type": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 48,
+            "end_lineno": 17,
+            "lineno": 17,
+            "node_id": 69,
+            "src": "341:44:0",
+            "target": {
+              "ast_type": "Attribute",
+              "attr": "electedOfficials",
+              "col_offset": 4,
+              "end_col_offset": 25,
+              "end_lineno": 17,
+              "lineno": 17,
+              "node_id": 70,
+              "src": "341:21:0",
+              "value": {
+                "ast_type": "Name",
+                "col_offset": 4,
+                "end_col_offset": 8,
+                "end_lineno": 17,
+                "id": "self",
+                "lineno": 17,
+                "node_id": 71,
+                "src": "341:4:0"
+              }
+            },
+            "value": {
+              "ast_type": "Name",
+              "col_offset": 28,
+              "end_col_offset": 48,
+              "end_lineno": 17,
+              "id": "newEleectedOfficials",
+              "lineno": 17,
+              "node_id": 74,
+              "src": "365:20:0"
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [
+          {
+            "ast_type": "Name",
+            "col_offset": 1,
+            "end_col_offset": 9,
+            "end_lineno": 15,
+            "id": "external",
+            "lineno": 15,
+            "node_id": 76,
+            "src": "258:8:0"
+          }
+        ],
+        "doc_string": null,
+        "end_col_offset": 48,
+        "end_lineno": 17,
+        "lineno": 16,
+        "name": "setElectedOfficials",
+        "node_id": 56,
+        "pos": null,
+        "returns": null,
+        "src": "267:118:0"
+      },
+      {
+        "args": {
+          "args": [],
+          "ast_type": "arguments",
+          "col_offset": 0,
+          "default": null,
+          "defaults": [],
+          "end_col_offset": 3,
+          "end_lineno": 20,
+          "lineno": 20,
+          "node_id": 79,
+          "src": "397:3:0"
+        },
+        "ast_type": "FunctionDef",
+        "body": [
+          {
+            "ast_type": "Return",
+            "col_offset": 4,
+            "end_col_offset": 27,
+            "end_lineno": 21,
+            "lineno": 21,
+            "node_id": 80,
+            "src": "429:23:0",
+            "value": {
+              "ast_type": "Attribute",
+              "attr": "moneyStored",
+              "col_offset": 11,
+              "end_col_offset": 27,
+              "end_lineno": 21,
+              "lineno": 21,
+              "node_id": 81,
+              "src": "436:16:0",
+              "value": {
+                "ast_type": "Name",
+                "col_offset": 11,
+                "end_col_offset": 15,
+                "end_lineno": 21,
+                "id": "self",
+                "lineno": 21,
+                "node_id": 82,
+                "src": "436:4:0"
+              }
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [
+          {
+            "ast_type": "Name",
+            "col_offset": 1,
+            "end_col_offset": 9,
+            "end_lineno": 19,
+            "id": "external",
+            "lineno": 19,
+            "node_id": 85,
+            "src": "388:8:0"
+          }
+        ],
+        "doc_string": null,
+        "end_col_offset": 27,
+        "end_lineno": 21,
+        "lineno": 20,
+        "name": "getMoney",
+        "node_id": 78,
+        "pos": null,
+        "returns": {
+          "ast_type": "Name",
+          "col_offset": 19,
+          "end_col_offset": 26,
+          "end_lineno": 20,
+          "id": "uint256",
+          "lineno": 20,
+          "node_id": 87,
+          "src": "416:7:0"
+        },
+        "src": "397:55:0"
+      },
+      {
+        "args": {
+          "args": [],
+          "ast_type": "arguments",
+          "col_offset": 0,
+          "default": null,
+          "defaults": [],
+          "end_col_offset": 3,
+          "end_lineno": 24,
+          "lineno": 24,
+          "node_id": 90,
+          "src": "464:3:0"
+        },
+        "ast_type": "FunctionDef",
+        "body": [
+          {
+            "ast_type": "Return",
+            "col_offset": 4,
+            "end_col_offset": 32,
+            "end_lineno": 25,
+            "lineno": 25,
+            "node_id": 91,
+            "src": "519:28:0",
+            "value": {
+              "ast_type": "Attribute",
+              "attr": "electedOfficials",
+              "col_offset": 11,
+              "end_col_offset": 32,
+              "end_lineno": 25,
+              "lineno": 25,
+              "node_id": 92,
+              "src": "526:21:0",
+              "value": {
+                "ast_type": "Name",
+                "col_offset": 11,
+                "end_col_offset": 15,
+                "end_lineno": 25,
+                "id": "self",
+                "lineno": 25,
+                "node_id": 93,
+                "src": "526:4:0"
+              }
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [
+          {
+            "ast_type": "Name",
+            "col_offset": 1,
+            "end_col_offset": 9,
+            "end_lineno": 23,
+            "id": "external",
+            "lineno": 23,
+            "node_id": 96,
+            "src": "455:8:0"
+          }
+        ],
+        "doc_string": null,
+        "end_col_offset": 32,
+        "end_lineno": 25,
+        "lineno": 24,
+        "name": "getElectedOfficials",
+        "node_id": 89,
+        "pos": null,
+        "returns": {
+          "ast_type": "Subscript",
+          "col_offset": 29,
+          "end_col_offset": 49,
+          "end_lineno": 24,
+          "lineno": 24,
+          "node_id": 98,
+          "slice": {
+            "ast_type": "Index",
+            "col_offset": 29,
+            "end_col_offset": 49,
+            "end_lineno": 24,
+            "lineno": 24,
+            "node_id": 107,
+            "src": "493:20:0",
+            "value": {
+              "ast_type": "Tuple",
+              "col_offset": 38,
+              "elements": [
+                {
+                  "ast_type": "Name",
+                  "col_offset": 38,
+                  "end_col_offset": 45,
+                  "end_lineno": 24,
+                  "id": "address",
+                  "lineno": 24,
+                  "node_id": 102,
+                  "src": "502:7:0"
+                },
+                {
+                  "ast_type": "Int",
+                  "col_offset": 47,
+                  "end_col_offset": 48,
+                  "end_lineno": 24,
+                  "lineno": 24,
+                  "node_id": 104,
+                  "src": "511:1:0",
+                  "value": 3
+                }
+              ],
+              "end_col_offset": 48,
+              "end_lineno": 24,
+              "lineno": 24,
+              "node_id": 101,
+              "src": "502:10:0"
+            }
+          },
+          "src": "493:20:0",
+          "value": {
+            "ast_type": "Name",
+            "col_offset": 29,
+            "end_col_offset": 37,
+            "end_lineno": 24,
+            "id": "DynArray",
+            "lineno": 24,
+            "node_id": 99,
+            "src": "493:8:0"
+          }
+        },
+        "src": "464:83:0"
+      }
+    ],
+    "col_offset": 0,
+    "doc_string": null,
+    "end_col_offset": 32,
+    "end_lineno": 25,
+    "lineno": 1,
+    "name": "contracts/CommunityPot.vy",
+    "node_id": 0,
+    "src": "0:547:0"
+  },
+  "bytecode": "0x346101ad576000600455600060005561018c6100206100003961018c610000f36003361161000c57610174565b60003560e01c3461017a5763d0bc1a888118610043576024361061017a5760045460043580820182811061017a5790509050600455005b63559dbec081186100e9576044361061017a57600435600401600381351161017a578035806040526000816003811161017a5780156100a357905b8060051b6020850101358060a01c61017a578160051b6060015260010181811861007e575b50505050604051806000558060051b600081601f0160051c6003811161017a5780156100e357905b8060051b6060015181600101556001018181186100cb575b50505050005b6398e1b4108118610108576004361061017a5760045460405260206040f35b6338e4b2f78118610172576004361061017a576020806040528060400160006000548083528060051b6000826003811161017a57801561015e57905b80600101548160051b602088010152600101818118610144575b505082016020019150509050810190506040f35b505b60006000fd5b600080fda165767970657283000307000b005b600080fd",
+  "bytecodeSha1": "8d7bfba5c7fabd9702677d95cdc8fbf3646b4281",
+  "compiler": {
+    "evm_version": "istanbul",
+    "version": "0.3.7"
+  },
+  "contractName": "CommunityPot",
+  "coverageMap": {
+    "branches": {
+      "0": {}
+    },
+    "statements": {
+      "0": {
+        "CommunityPot.addMoney": {
+          "0": [
+            211,
+            255
+          ]
+        },
+        "CommunityPot.getElectedOfficials": {
+          "3": [
+            519,
+            547
+          ]
+        },
+        "CommunityPot.getMoney": {
+          "2": [
+            429,
+            452
+          ]
+        },
+        "CommunityPot.setElectedOfficials": {
+          "1": [
+            341,
+            385
+          ]
+        }
+      }
+    }
+  },
+  "dependencies": [],
+  "deployedBytecode": "0x6003361161000c57610174565b60003560e01c3461017a5763d0bc1a888118610043576024361061017a5760045460043580820182811061017a5790509050600455005b63559dbec081186100e9576044361061017a57600435600401600381351161017a578035806040526000816003811161017a5780156100a357905b8060051b6020850101358060a01c61017a578160051b6060015260010181811861007e575b50505050604051806000558060051b600081601f0160051c6003811161017a5780156100e357905b8060051b6060015181600101556001018181186100cb575b50505050005b6398e1b4108118610108576004361061017a5760045460405260206040f35b6338e4b2f78118610172576004361061017a576020806040528060400160006000548083528060051b6000826003811161017a57801561015e57905b80600101548160051b602088010152600101818118610144575b505082016020019150509050810190506040f35b505b60006000fd5b600080fda165767970657283000307000b",
+  "deployedSourceMap": "-1:-1:0:-;;;;:::-;;:::-;:::-;;;;;;;:::-;;;;;:::-;;;;;:::-;230:16;:25;249:6;-1:-1;;230:25;-1:-1;230:25;-1:-1;;;:::-;230:25;;;;211:16;:44;-1:-1;:::-;;;;;:::-;;;;;:::-;;;;292:42;-1:-1;292:42;-1:-1;;;:::-;292:42;-1:-1;;;;;;;;;;:::-;;;;:::-;;:::-;;;;;292:42;-1:-1;;;;;;;:::-;;;;;;;;;;;;;:::-;:::-;;;;292:42;365:20;341:44;;:21;-1:-1;341:44;-1:-1;;;;;;;;;;;;:::-;;;;:::-;;:::-;;;;;;;;;;;;;;;;;:::-;:::-;;;;341:44;-1:-1;:::-;;;;;:::-;;;;;:::-;436:16;-1:-1;;;;;;:::-;;;;;:::-;;;;;:::-;;;;;;;;;526:21;-1:-1;;;;;;;;;;;;;:::-;;;;:::-;;:::-;;;;;;;;;;;;;;;;;;;:::-;:::-;;;;;;;;;;;;;;;;;;:::-;;:::-;;;;:::-;;;",
+  "language": "Vyper",
+  "natspec": {
+    "methods": {}
+  },
+  "offset": [
+    0,
+    547
+  ],
+  "opcodes": "PUSH1 0x3 CALLDATASIZE GT PUSH2 0x0C JUMPI PUSH2 0x174 JUMP JUMPDEST PUSH1 0x0 CALLDATALOAD PUSH1 0xE0 SHR CALLVALUE PUSH2 0x17A JUMPI PUSH4 0xD0BC1A88 DUP2 XOR PUSH2 0x043 JUMPI PUSH1 0x24 CALLDATASIZE LT PUSH2 0x17A JUMPI PUSH1 0x4 SLOAD PUSH1 0x4 CALLDATALOAD DUP1 DUP3 ADD DUP3 DUP2 LT PUSH2 0x17A JUMPI SWAP1 POP SWAP1 POP PUSH1 0x4 SSTORE STOP JUMPDEST PUSH4 0x559DBEC0 DUP2 XOR PUSH2 0x0E9 JUMPI PUSH1 0x44 CALLDATASIZE LT PUSH2 0x17A JUMPI PUSH1 0x4 CALLDATALOAD PUSH1 0x4 ADD PUSH1 0x3 DUP2 CALLDATALOAD GT PUSH2 0x17A JUMPI DUP1 CALLDATALOAD DUP1 PUSH1 0x40 MSTORE PUSH1 0x0 DUP2 PUSH1 0x3 DUP2 GT PUSH2 0x17A JUMPI DUP1 ISZERO PUSH2 0x0A3 JUMPI SWAP1 JUMPDEST DUP1 PUSH1 0x5 SHL PUSH1 0x20 DUP6 ADD ADD CALLDATALOAD DUP1 PUSH1 0xA0 SHR PUSH2 0x17A JUMPI DUP2 PUSH1 0x5 SHL PUSH1 0x60 ADD MSTORE PUSH1 0x1 ADD DUP2 DUP2 XOR PUSH2 0x07E JUMPI JUMPDEST POP POP POP POP PUSH1 0x40 MLOAD DUP1 PUSH1 0x0 SSTORE DUP1 PUSH1 0x5 SHL PUSH1 0x0 DUP2 PUSH1 0x1F ADD PUSH1 0x5 SHR PUSH1 0x3 DUP2 GT PUSH2 0x17A JUMPI DUP1 ISZERO PUSH2 0x0E3 JUMPI SWAP1 JUMPDEST DUP1 PUSH1 0x5 SHL PUSH1 0x60 ADD MLOAD DUP2 PUSH1 0x1 ADD SSTORE PUSH1 0x1 ADD DUP2 DUP2 XOR PUSH2 0x0CB JUMPI JUMPDEST POP POP POP POP STOP JUMPDEST PUSH4 0x98E1B410 DUP2 XOR PUSH2 0x18 JUMPI PUSH1 0x4 CALLDATASIZE LT PUSH2 0x17A JUMPI PUSH1 0x4 SLOAD PUSH1 0x40 MSTORE PUSH1 0x20 PUSH1 0x40 RETURN JUMPDEST PUSH4 0x38E4B2F7 DUP2 XOR PUSH2 0x172 JUMPI PUSH1 0x4 CALLDATASIZE LT PUSH2 0x17A JUMPI PUSH1 0x20 DUP1 PUSH1 0x40 MSTORE DUP1 PUSH1 0x40 ADD PUSH1 0x0 PUSH1 0x0 SLOAD DUP1 DUP4 MSTORE DUP1 PUSH1 0x5 SHL PUSH1 0x0 DUP3 PUSH1 0x3 DUP2 GT PUSH2 0x17A JUMPI DUP1 ISZERO PUSH2 0x15E JUMPI SWAP1 JUMPDEST DUP1 PUSH1 0x1 ADD SLOAD DUP2 PUSH1 0x5 SHL PUSH1 0x20 DUP9 ADD ADD MSTORE PUSH1 0x1 ADD DUP2 DUP2 XOR PUSH2 0x144 JUMPI JUMPDEST POP POP DUP3 ADD PUSH1 0x20 ADD SWAP2 POP POP SWAP1 POP DUP2 ADD SWAP1 POP PUSH1 0x40 RETURN JUMPDEST POP JUMPDEST PUSH1 0x0 PUSH1 0x0 REVERT JUMPDEST PUSH1 0x0 DUP1 REVERT LOG1 PUSH6 0x767970657283 STOP SUB SMOD STOP SIGNEXTEND",
+  "pcMap": {
+    "0": {
+      "offset": [
+        0,
+        547
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x3"
+    },
+    "2": {
+      "op": "CALLDATASIZE"
+    },
+    "3": {
+      "op": "GT"
+    },
+    "4": {
+      "op": "PUSH2",
+      "value": "0x0C"
+    },
+    "7": {
+      "op": "JUMPI"
+    },
+    "8": {
+      "op": "PUSH2",
+      "value": "0x174"
+    },
+    "11": {
+      "op": "JUMP"
+    },
+    "12": {
+      "op": "JUMPDEST"
+    },
+    "13": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "15": {
+      "op": "CALLDATALOAD"
+    },
+    "16": {
+      "op": "PUSH1",
+      "value": "0xE0"
+    },
+    "18": {
+      "op": "SHR"
+    },
+    "19": {
+      "op": "CALLVALUE"
+    },
+    "20": {
+      "op": "PUSH2",
+      "value": "0x17A"
+    },
+    "23": {
+      "op": "JUMPI"
+    },
+    "24": {
+      "op": "PUSH4",
+      "value": "0xD0BC1A88"
+    },
+    "29": {
+      "op": "DUP2"
+    },
+    "30": {
+      "op": "XOR"
+    },
+    "31": {
+      "op": "PUSH2",
+      "value": "0x043"
+    },
+    "34": {
+      "op": "JUMPI"
+    },
+    "35": {
+      "op": "PUSH1",
+      "value": "0x24"
+    },
+    "37": {
+      "op": "CALLDATASIZE"
+    },
+    "38": {
+      "op": "LT"
+    },
+    "39": {
+      "op": "PUSH2",
+      "value": "0x17A"
+    },
+    "42": {
+      "op": "JUMPI"
+    },
+    "43": {
+      "fn": "CommunityPot.addMoney",
+      "offset": [
+        230,
+        246
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "statement": 0,
+      "value": "0x4"
+    },
+    "45": {
+      "fn": "CommunityPot.addMoney",
+      "offset": [
+        230,
+        255
+      ],
+      "op": "SLOAD",
+      "path": "0"
+    },
+    "46": {
+      "fn": "CommunityPot.addMoney",
+      "offset": [
+        249,
+        255
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x4"
+    },
+    "48": {
+      "op": "CALLDATALOAD"
+    },
+    "49": {
+      "op": "DUP1"
+    },
+    "50": {
+      "fn": "CommunityPot.addMoney",
+      "offset": [
+        230,
+        255
+      ],
+      "op": "DUP3",
+      "path": "0"
+    },
+    "51": {
+      "op": "ADD"
+    },
+    "52": {
+      "fn": "CommunityPot.addMoney",
+      "offset": [
+        230,
+        255
+      ],
+      "op": "DUP3",
+      "path": "0"
+    },
+    "53": {
+      "op": "DUP2"
+    },
+    "54": {
+      "op": "LT"
+    },
+    "55": {
+      "op": "PUSH2",
+      "value": "0x17A"
+    },
+    "58": {
+      "op": "JUMPI"
+    },
+    "59": {
+      "fn": "CommunityPot.addMoney",
+      "offset": [
+        230,
+        255
+      ],
+      "op": "SWAP1",
+      "path": "0"
+    },
+    "60": {
+      "fn": "CommunityPot.addMoney",
+      "offset": [
+        230,
+        255
+      ],
+      "op": "POP",
+      "path": "0"
+    },
+    "61": {
+      "fn": "CommunityPot.addMoney",
+      "offset": [
+        230,
+        255
+      ],
+      "op": "SWAP1",
+      "path": "0"
+    },
+    "62": {
+      "fn": "CommunityPot.addMoney",
+      "offset": [
+        230,
+        255
+      ],
+      "op": "POP",
+      "path": "0"
+    },
+    "63": {
+      "fn": "CommunityPot.addMoney",
+      "offset": [
+        211,
+        227
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x4"
+    },
+    "65": {
+      "fn": "CommunityPot.addMoney",
+      "offset": [
+        211,
+        255
+      ],
+      "op": "SSTORE",
+      "path": "0"
+    },
+    "66": {
+      "op": "STOP"
+    },
+    "67": {
+      "op": "JUMPDEST"
+    },
+    "68": {
+      "op": "PUSH4",
+      "value": "0x559DBEC0"
+    },
+    "73": {
+      "op": "DUP2"
+    },
+    "74": {
+      "op": "XOR"
+    },
+    "75": {
+      "op": "PUSH2",
+      "value": "0x0E9"
+    },
+    "78": {
+      "op": "JUMPI"
+    },
+    "79": {
+      "op": "PUSH1",
+      "value": "0x44"
+    },
+    "81": {
+      "op": "CALLDATASIZE"
+    },
+    "82": {
+      "op": "LT"
+    },
+    "83": {
+      "op": "PUSH2",
+      "value": "0x17A"
+    },
+    "86": {
+      "op": "JUMPI"
+    },
+    "87": {
+      "op": "PUSH1",
+      "value": "0x4"
+    },
+    "89": {
+      "op": "CALLDATALOAD"
+    },
+    "90": {
+      "op": "PUSH1",
+      "value": "0x4"
+    },
+    "92": {
+      "fn": "CommunityPot.setElectedOfficials",
+      "offset": [
+        292,
+        334
+      ],
+      "op": "ADD",
+      "path": "0"
+    },
+    "93": {
+      "op": "PUSH1",
+      "value": "0x3"
+    },
+    "95": {
+      "fn": "CommunityPot.setElectedOfficials",
+      "offset": [
+        292,
+        334
+      ],
+      "op": "DUP2",
+      "path": "0"
+    },
+    "96": {
+      "op": "CALLDATALOAD"
+    },
+    "97": {
+      "op": "GT"
+    },
+    "98": {
+      "op": "PUSH2",
+      "value": "0x17A"
+    },
+    "101": {
+      "op": "JUMPI"
+    },
+    "102": {
+      "fn": "CommunityPot.setElectedOfficials",
+      "offset": [
+        292,
+        334
+      ],
+      "op": "DUP1",
+      "path": "0"
+    },
+    "103": {
+      "op": "CALLDATALOAD"
+    },
+    "104": {
+      "op": "DUP1"
+    },
+    "105": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "107": {
+      "op": "MSTORE"
+    },
+    "108": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "110": {
+      "op": "DUP2"
+    },
+    "111": {
+      "op": "PUSH1",
+      "value": "0x3"
+    },
+    "113": {
+      "op": "DUP2"
+    },
+    "114": {
+      "op": "GT"
+    },
+    "115": {
+      "op": "PUSH2",
+      "value": "0x17A"
+    },
+    "118": {
+      "op": "JUMPI"
+    },
+    "119": {
+      "op": "DUP1"
+    },
+    "120": {
+      "op": "ISZERO"
+    },
+    "121": {
+      "op": "PUSH2",
+      "value": "0x0A3"
+    },
+    "124": {
+      "op": "JUMPI"
+    },
+    "125": {
+      "op": "SWAP1"
+    },
+    "126": {
+      "op": "JUMPDEST"
+    },
+    "127": {
+      "op": "DUP1"
+    },
+    "128": {
+      "op": "PUSH1",
+      "value": "0x5"
+    },
+    "130": {
+      "op": "SHL"
+    },
+    "131": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "133": {
+      "fn": "CommunityPot.setElectedOfficials",
+      "offset": [
+        292,
+        334
+      ],
+      "op": "DUP6",
+      "path": "0"
+    },
+    "134": {
+      "op": "ADD"
+    },
+    "135": {
+      "op": "ADD"
+    },
+    "136": {
+      "op": "CALLDATALOAD"
+    },
+    "137": {
+      "op": "DUP1"
+    },
+    "138": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "140": {
+      "op": "SHR"
+    },
+    "141": {
+      "op": "PUSH2",
+      "value": "0x17A"
+    },
+    "144": {
+      "op": "JUMPI"
+    },
+    "145": {
+      "op": "DUP2"
+    },
+    "146": {
+      "op": "PUSH1",
+      "value": "0x5"
+    },
+    "148": {
+      "op": "SHL"
+    },
+    "149": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "151": {
+      "op": "ADD"
+    },
+    "152": {
+      "op": "MSTORE"
+    },
+    "153": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "155": {
+      "op": "ADD"
+    },
+    "156": {
+      "op": "DUP2"
+    },
+    "157": {
+      "op": "DUP2"
+    },
+    "158": {
+      "op": "XOR"
+    },
+    "159": {
+      "op": "PUSH2",
+      "value": "0x07E"
+    },
+    "162": {
+      "op": "JUMPI"
+    },
+    "163": {
+      "op": "JUMPDEST"
+    },
+    "164": {
+      "op": "POP"
+    },
+    "165": {
+      "op": "POP"
+    },
+    "166": {
+      "op": "POP"
+    },
+    "167": {
+      "fn": "CommunityPot.setElectedOfficials",
+      "offset": [
+        292,
+        334
+      ],
+      "op": "POP",
+      "path": "0"
+    },
+    "168": {
+      "fn": "CommunityPot.setElectedOfficials",
+      "offset": [
+        365,
+        385
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "statement": 1,
+      "value": "0x40"
+    },
+    "170": {
+      "fn": "CommunityPot.setElectedOfficials",
+      "offset": [
+        341,
+        385
+      ],
+      "op": "MLOAD",
+      "path": "0"
+    },
+    "171": {
+      "fn": "CommunityPot.setElectedOfficials",
+      "offset": [
+        341,
+        385
+      ],
+      "op": "DUP1",
+      "path": "0"
+    },
+    "172": {
+      "fn": "CommunityPot.setElectedOfficials",
+      "offset": [
+        341,
+        362
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x0"
+    },
+    "174": {
+      "op": "SSTORE"
+    },
+    "175": {
+      "fn": "CommunityPot.setElectedOfficials",
+      "offset": [
+        341,
+        385
+      ],
+      "op": "DUP1",
+      "path": "0"
+    },
+    "176": {
+      "op": "PUSH1",
+      "value": "0x5"
+    },
+    "178": {
+      "op": "SHL"
+    },
+    "179": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "181": {
+      "op": "DUP2"
+    },
+    "182": {
+      "op": "PUSH1",
+      "value": "0x1F"
+    },
+    "184": {
+      "op": "ADD"
+    },
+    "185": {
+      "op": "PUSH1",
+      "value": "0x5"
+    },
+    "187": {
+      "op": "SHR"
+    },
+    "188": {
+      "op": "PUSH1",
+      "value": "0x3"
+    },
+    "190": {
+      "op": "DUP2"
+    },
+    "191": {
+      "op": "GT"
+    },
+    "192": {
+      "op": "PUSH2",
+      "value": "0x17A"
+    },
+    "195": {
+      "op": "JUMPI"
+    },
+    "196": {
+      "op": "DUP1"
+    },
+    "197": {
+      "op": "ISZERO"
+    },
+    "198": {
+      "op": "PUSH2",
+      "value": "0x0E3"
+    },
+    "201": {
+      "op": "JUMPI"
+    },
+    "202": {
+      "op": "SWAP1"
+    },
+    "203": {
+      "op": "JUMPDEST"
+    },
+    "204": {
+      "op": "DUP1"
+    },
+    "205": {
+      "op": "PUSH1",
+      "value": "0x5"
+    },
+    "207": {
+      "op": "SHL"
+    },
+    "208": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "210": {
+      "op": "ADD"
+    },
+    "211": {
+      "op": "MLOAD"
+    },
+    "212": {
+      "op": "DUP2"
+    },
+    "213": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "215": {
+      "op": "ADD"
+    },
+    "216": {
+      "op": "SSTORE"
+    },
+    "217": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "219": {
+      "op": "ADD"
+    },
+    "220": {
+      "op": "DUP2"
+    },
+    "221": {
+      "op": "DUP2"
+    },
+    "222": {
+      "op": "XOR"
+    },
+    "223": {
+      "op": "PUSH2",
+      "value": "0x0CB"
+    },
+    "226": {
+      "op": "JUMPI"
+    },
+    "227": {
+      "op": "JUMPDEST"
+    },
+    "228": {
+      "op": "POP"
+    },
+    "229": {
+      "op": "POP"
+    },
+    "230": {
+      "op": "POP"
+    },
+    "231": {
+      "fn": "CommunityPot.setElectedOfficials",
+      "offset": [
+        341,
+        385
+      ],
+      "op": "POP",
+      "path": "0"
+    },
+    "232": {
+      "op": "STOP"
+    },
+    "233": {
+      "op": "JUMPDEST"
+    },
+    "234": {
+      "op": "PUSH4",
+      "value": "0x98E1B410"
+    },
+    "239": {
+      "op": "DUP2"
+    },
+    "240": {
+      "op": "XOR"
+    },
+    "241": {
+      "op": "PUSH2",
+      "value": "0x18"
+    },
+    "244": {
+      "op": "JUMPI"
+    },
+    "245": {
+      "op": "PUSH1",
+      "value": "0x4"
+    },
+    "247": {
+      "op": "CALLDATASIZE"
+    },
+    "248": {
+      "op": "LT"
+    },
+    "249": {
+      "op": "PUSH2",
+      "value": "0x17A"
+    },
+    "252": {
+      "op": "JUMPI"
+    },
+    "253": {
+      "fn": "CommunityPot.getMoney",
+      "offset": [
+        436,
+        452
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "statement": 2,
+      "value": "0x4"
+    },
+    "255": {
+      "op": "SLOAD"
+    },
+    "256": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "258": {
+      "op": "MSTORE"
+    },
+    "259": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "261": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "263": {
+      "op": "RETURN"
+    },
+    "264": {
+      "op": "JUMPDEST"
+    },
+    "265": {
+      "op": "PUSH4",
+      "value": "0x38E4B2F7"
+    },
+    "270": {
+      "op": "DUP2"
+    },
+    "271": {
+      "op": "XOR"
+    },
+    "272": {
+      "op": "PUSH2",
+      "value": "0x172"
+    },
+    "275": {
+      "op": "JUMPI"
+    },
+    "276": {
+      "op": "PUSH1",
+      "value": "0x4"
+    },
+    "278": {
+      "op": "CALLDATASIZE"
+    },
+    "279": {
+      "op": "LT"
+    },
+    "280": {
+      "op": "PUSH2",
+      "value": "0x17A"
+    },
+    "283": {
+      "op": "JUMPI"
+    },
+    "284": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "286": {
+      "op": "DUP1"
+    },
+    "287": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "289": {
+      "op": "MSTORE"
+    },
+    "290": {
+      "op": "DUP1"
+    },
+    "291": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "293": {
+      "op": "ADD"
+    },
+    "294": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "296": {
+      "fn": "CommunityPot.getElectedOfficials",
+      "offset": [
+        526,
+        547
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "statement": 3,
+      "value": "0x0"
+    },
+    "298": {
+      "op": "SLOAD"
+    },
+    "299": {
+      "op": "DUP1"
+    },
+    "300": {
+      "op": "DUP4"
+    },
+    "301": {
+      "op": "MSTORE"
+    },
+    "302": {
+      "op": "DUP1"
+    },
+    "303": {
+      "op": "PUSH1",
+      "value": "0x5"
+    },
+    "305": {
+      "op": "SHL"
+    },
+    "306": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "308": {
+      "op": "DUP3"
+    },
+    "309": {
+      "op": "PUSH1",
+      "value": "0x3"
+    },
+    "311": {
+      "op": "DUP2"
+    },
+    "312": {
+      "op": "GT"
+    },
+    "313": {
+      "op": "PUSH2",
+      "value": "0x17A"
+    },
+    "316": {
+      "op": "JUMPI"
+    },
+    "317": {
+      "op": "DUP1"
+    },
+    "318": {
+      "op": "ISZERO"
+    },
+    "319": {
+      "op": "PUSH2",
+      "value": "0x15E"
+    },
+    "322": {
+      "op": "JUMPI"
+    },
+    "323": {
+      "op": "SWAP1"
+    },
+    "324": {
+      "op": "JUMPDEST"
+    },
+    "325": {
+      "op": "DUP1"
+    },
+    "326": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "328": {
+      "op": "ADD"
+    },
+    "329": {
+      "op": "SLOAD"
+    },
+    "330": {
+      "op": "DUP2"
+    },
+    "331": {
+      "op": "PUSH1",
+      "value": "0x5"
+    },
+    "333": {
+      "op": "SHL"
+    },
+    "334": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "336": {
+      "op": "DUP9"
+    },
+    "337": {
+      "op": "ADD"
+    },
+    "338": {
+      "op": "ADD"
+    },
+    "339": {
+      "op": "MSTORE"
+    },
+    "340": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "342": {
+      "op": "ADD"
+    },
+    "343": {
+      "op": "DUP2"
+    },
+    "344": {
+      "op": "DUP2"
+    },
+    "345": {
+      "op": "XOR"
+    },
+    "346": {
+      "op": "PUSH2",
+      "value": "0x144"
+    },
+    "349": {
+      "op": "JUMPI"
+    },
+    "350": {
+      "op": "JUMPDEST"
+    },
+    "351": {
+      "op": "POP"
+    },
+    "352": {
+      "op": "POP"
+    },
+    "353": {
+      "op": "DUP3"
+    },
+    "354": {
+      "op": "ADD"
+    },
+    "355": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "357": {
+      "op": "ADD"
+    },
+    "358": {
+      "op": "SWAP2"
+    },
+    "359": {
+      "op": "POP"
+    },
+    "360": {
+      "op": "POP"
+    },
+    "361": {
+      "op": "SWAP1"
+    },
+    "362": {
+      "op": "POP"
+    },
+    "363": {
+      "op": "DUP2"
+    },
+    "364": {
+      "op": "ADD"
+    },
+    "365": {
+      "op": "SWAP1"
+    },
+    "366": {
+      "op": "POP"
+    },
+    "367": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "369": {
+      "op": "RETURN"
+    },
+    "370": {
+      "op": "JUMPDEST"
+    },
+    "371": {
+      "op": "POP"
+    },
+    "372": {
+      "op": "JUMPDEST"
+    },
+    "373": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "375": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "377": {
+      "op": "REVERT"
+    },
+    "378": {
+      "op": "JUMPDEST"
+    },
+    "379": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "381": {
+      "op": "DUP1"
+    },
+    "382": {
+      "op": "REVERT"
+    }
+  },
+  "sha1": "87e2936e06fd43448190186e5d1b506ec2caebea",
+  "source": "# @version ^0.3.7\n\nelectedOfficials: DynArray [address, 3]\nmoneyStored: uint256\n\n@external\ndef __init__ ():\n    self.moneyStored = 0\n    self.electedOfficials = []\n\n@external\ndef addMoney (amount: uint256):\n    self.moneyStored = self.moneyStored + amount\n\n@external\ndef setElectedOfficials (newEleectedOfficials: DynArray [address,3]):\n    self.electedOfficials = newEleectedOfficials\n\n@external\ndef getMoney () -> uint256:\n    return self.moneyStored\n\n@external\ndef getElectedOfficials() -> DynArray[address, 3]:\n    return self.electedOfficials",
+  "sourceMap": "",
+  "sourcePath": "contracts/CommunityPot.vy",
+  "type": "contract"
+}

@@ -1,17 +1,25 @@
 # @version ^0.3.7
 
-electedOfficials: dynArray [address, 3]
+electedOfficials: DynArray [address, 3]
 moneyStored: uint256
 
 @external
-def _init_ (initialElectedOfficials:  dynArray [address, 3]):
-    moneyStored = 0
-    electedOfficials = initialElectedOfficials
+def __init__ ():
+    self.moneyStored = 0
+    self.electedOfficials = []
 
 @external
 def addMoney (amount: uint256):
-    moneyStored = moneyStored + amount
+    self.moneyStored = self.moneyStored + amount
 
 @external
-def setElectedOfficials (newEleectedOfficials: dynArray [address,3]):
-    electedOfficials = newEleectedOfficials
+def setElectedOfficials (newEleectedOfficials: DynArray [address,3]):
+    self.electedOfficials = newEleectedOfficials
+
+@external
+def getMoney () -> uint256:
+    return self.moneyStored
+
+@external
+def getElectedOfficials() -> DynArray[address, 3]:
+    return self.electedOfficials
