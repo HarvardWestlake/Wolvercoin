@@ -32,8 +32,8 @@ voteDuration: public(uint256)
 # super percent needed
 contractMaintainer: public(address)
 
-interface Exclusivity:
-    isActiveUser(user: address) -> (boolean)
+#interface Exclusivity:
+    #isActiveUser(user:address)
 
 disabled: bool
 
@@ -52,18 +52,15 @@ def __init__ ():
 @external
 def hasCoin (user: address, proposal: address) -> (uint256):
     assert not self.disabled, "checks if contract is not disabled"
-    assert isActiveUser(user) == True, "checks if user is active"
-    assert amountInFavor[proposal][user] == True, "checks if the proposal exists"
-    return amountInFavor[proposal][user]
+    #assert isActiveUser(user) == True, "checks if user is active" add later when exclusivity is done
+    #assert proposal in self.ammountInFavor, "checks if the proposal exists"
+    return self.amountInFavor[proposal][user]
 
 @external 
-def amountAvailable (user: adress) -> (uint256):
+def amountAvailable (user: address) -> (uint256):
     assert not self.disabled, "checks if contract is not disabled"
-    assert isActiveUser(user) == True, "checks if user is active"
-    amountTotal: uint256
-    for add in amountInFavor:
-        amountTotal += amountInFavor[add][user], "gets a running total of all propositions the user invested in"
-    return voterCoinBalance[user] - amountTotal, "gets how much coin they have that is not invested"
+    #assert isActiveUser(user) == True, "checks if user is active", add later when exclusivity is done
+    return self.voterCoinBalance[user], "gets how much coin they have that is not invested"
 
 # @dev This creates a new proposition for people to vote on
 # @param contract address The contract that will be given ran with adminstrator on vote sucsess
