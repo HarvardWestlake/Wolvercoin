@@ -2,25 +2,28 @@
 interfaceWolvercoin: 
     def isInActiveStudents()
 """
+"""
 activeStudents: public(Hashmap[address, uint256])
 activeYear: public( uint256 )
 teachers: public(HashMap[address, boolean]) # hashmap?
 electedOfficials: public(DynArray[address, 3])
 alreadyVotedOfficials: public(HashMap [address, bool])
 votesForOfficials: public(HashMap [address, uint256])
+"""
 officialVotingPeriod: public(bool)
+
 alreadyVotedProposal: DynArray [address,100]
 proposalVotes: DynArray[uint256, 3]
 wvcVariable: Wolvercoin
 
 
-
+"""
 @external
 def __init__ ():
     self.activeYear = 2023
 
 
-"""@external
+@external
 def endVoteOfficial():
     assert wvcVariable.isTeacher(block.coinbase)   # what is the contains function for dynarrays
     # how would I get the top three votes for officials
@@ -36,7 +39,7 @@ def voteProposal(proposalNumber : uint256):
         assert i != self
     assert self.officialVotingPeriod == True
     self.alreadyVotedProposal.append(self)
-
+"""
 @external
 def voteOfficial(ballot : address):
     assert wvcVariable.isInActiveStudents(msg.sender) 
@@ -46,3 +49,4 @@ def voteOfficial(ballot : address):
         value = self.votesForOfficials.get_val(ballot) + 1
         self.votesForOfficials.set_val(ballot,value)
         self.alreadyVotedOfficials.set_val(msg.sender,true)
+        """
