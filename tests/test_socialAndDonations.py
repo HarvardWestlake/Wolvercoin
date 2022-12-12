@@ -20,3 +20,15 @@ with pytest.raises(Exception) as e_info:
 
 with pytest.raises(Exception) as e_info:
     socialAdnDonationsContract.endVoteOfficials()
+
+    def test_voteProposal (proposalNumber: uint256):
+        b: bool = False
+        socialAdnDonationsContract.voteProposal(2)
+        if socialAdnDonations.proposalVotes[2] == 1:
+            b = True
+        assert b = True
+        
+        
+
+      
+        
