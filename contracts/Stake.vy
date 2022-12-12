@@ -1,7 +1,13 @@
+## interface w/ method that determines if someone is an active user
+## interface w/ method that removes Wolvercoin from an account
 # @version ^0.3.7
 interface Wolvercoin:
     def transferFrom(_from : address, _to : address, _value : uint256) -> bool: payable
     def burnFrom(_to: address, _value: uint256): payable
+
+interface ActiveUser:
+    def getActiveUser(potentialUser: address) -> bool: view
+    def getAdmin(potentialAdmin: address) -> bool: view
 
 bank: address
 stakeAmounts: public(HashMap [address, uint256])
@@ -29,3 +35,11 @@ def unstake (_userAddress: address, amtUnstaked: uint256):
         self.wolvercoinContract.transferFrom (self.bank, _userAddress, newAmt)
         self.stakeAmounts[_userAddress] = 0
         self.stakeDates[_userAddress] = 0
+
+@external
+def stake (user : address, amountStaked : uint256,_wolvercoinContract: Wolvercoin):
+    self.wolvercoinContract = _wolvercoinContract
+    assert self.activeUserContract.getActiveUser (user)
+    self.stakeAmounts[user] = amountStaked
+    self.wolvercoinContract.transferFrom (user, self.bank, amountStaked)
+
