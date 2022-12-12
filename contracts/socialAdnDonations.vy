@@ -28,7 +28,7 @@ def __init__ (activeUserAddress: address):
 @external
 def endVoteOfficial():
     assert self.activeUserContract.getAdmin(block.coinbase)   
-    officialVotingPeriod=false
+    self.officialVotingPeriod=false
 
 
 @external
@@ -41,7 +41,7 @@ def voteProposal(proposalNumber : uint256):
 @external
 def voteOfficial( ballot : address ):
     assert self.activeUserContract.getActiveUser(msg.sender) 
-    if (officialVotingPeriod):
+    if (self.officialVotingPeriod):
         assert not self.alreadyVotedOfficials.get_val(msg.sender) == true
         value : unit265
         value = self.votesForOfficials.get_val(ballot) + 1
