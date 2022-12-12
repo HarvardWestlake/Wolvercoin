@@ -1,5 +1,6 @@
 {
   "contracts": {
+<<<<<<< HEAD
     "VotingAndRep": "3c3da45e81613bfbee6f16250168926ec51bc0f6"
   },
   "tests": {
@@ -56,4 +57,10 @@
       }
     }
   }
+=======
+    "VotingAndRep": "3331b76bc511cbe3f97ae9a5dd0d5b6a814bc108"
+  },
+  "tests": {},
+  "tx": {}
+>>>>>>> code_VotingAndRepresentation
 }

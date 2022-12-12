@@ -108,3 +108,47 @@ def test_setContractMaintainer(votingContract, accounts):
     except:
         allowChanges = False
     assert allowChanges, "Maintainer should be able to change maintainer"
+
+def test_burnCoin(votingContract, accounts):
+    
+    winningProp = "2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824"
+    losingProp = "82e35a63ceba37e9646434c5dd412ea577147f1e4a41ccde1614253187e3dbf9"
+    votingContract.activePropositions[winningProp] = 0
+    votingContract.activePropositions[losingProp] = 0
+    votingContract.voterCoinSupply += 100
+    votingContract.voterCoinBalance[accounts[4]] = 50
+    votingContract.voterCoinBalance[accounts[6]] = 50
+    votingContract.vote(accounts[4],losingProp,10)
+    votingContract.vote(accounts[6],winningProp,20)
+    
+    stopBadBurn = False
+    try:
+        votingContract.burnCoin(accounts[4])
+    except:
+        stopBadBurn = True
+    assert stopBadBurn, "Coin should not be burned/returned if user is on losing side of the vote"
+
+    allowBurn = True
+    try:
+        votingContract.burnCoin(accounts[6])
+    except:
+        allowBurn = False
+    assert allowBurn, "Coin should be burned/returned if user is on winning side of the vote"
+
+def test_endVote(votingContract, accounts):
+    winningProp = "2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824"
+    losingProp = "82e35a63ceba37e9646434c5dd412ea577147f1e4a41ccde1614253187e3dbf9"
+    votingContract.activePropositions[winningProp] = 0
+    votingContract.activePropositions[losingProp] = 0
+    votingContract.voterCoinSupply += 100
+    votingContract.voterCoinBalance[accounts[4]] = 50
+    votingContract.voterCoinBalance[accounts[6]] = 50
+    # vote method should increase voterCoinStaked accordingly
+    votingContract.vote(accounts[4],losingProp,10)
+    votingContract.vote(accounts[6],winningProp,20)
+    assert votingContract.voterCoinSupply == 100
+    assert votingContract.voterCoinStaked == 30
+    votingContract.finishVote(winningProp)
+    votingContract.finishVote(losingProp)
+    assert votingContract.voterCoinSupply == 90
+    assert votingContract.voterCoinStaked == 0
