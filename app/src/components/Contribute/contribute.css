@@ -1,0 +1,8 @@
+.readableContent {
+    background-color:antiquewhite;
+    padding: 5px;
+    border: 1px solid black;
+    max-width: 500px;
+    margin: 10px auto;
+    text-align: center;
+}
