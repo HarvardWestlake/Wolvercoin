@@ -1,6 +1,6 @@
 {
   "contracts": {
-    "PublicGoods": "26ff59272fb57b2767dbb5319c8332bdceeefd97",
+    "PublicGoods": "75f132788ed7996caf91efb865e4b3cb95a3b24a",
     "VotingAndRep": "2b6d9c2ba5b719a2c43ba0e10beb0e921147fa8f"
   },
   "tests": {
@@ -8,9 +8,9 @@
       "coverage": false,
       "isolated": false,
       "results": "FFFF",
-      "sha1": "6b605bd644849979f2616f20ca62ab4cfa13ad7c",
+      "sha1": "cdf7cba67d53049565c0f9be7578515c8a5cb0a9",
       "txhash": [
-        "c364a66d799b7a70a9ec37f2b9e521bbd03841ab"
+        "3fa8ad4063e789d3833566298b11500273cf4d9f"
       ]
     },
     "tests/test_voting.py": {
@@ -19,14 +19,39 @@
       "results": "....",
       "sha1": "4d8b225033d2005e698bc76388f4c1ba7c9a3413",
       "txhash": [
-        "9593f55eb1a87edf66279fb7323b43d018ff60b4",
-        "dc62988d18d06f2ec850b471b3cea1f35eb36deb",
-        "e75e8703b3533c8f76c2f6cb61d5698e33c5922f"
+        "60781e224b925d5b33a7c9da903b0e68f0f37121",
+        "7d09a6f2cbc112331d72522efc38344a41f7bfbe",
+        "9abfbe1e2f4a5ef9da09ed7b68469124e9fb7365"
       ]
     }
   },
   "tx": {
-    "9593f55eb1a87edf66279fb7323b43d018ff60b4": {
+    "3fa8ad4063e789d3833566298b11500273cf4d9f": {
+      "PublicGoods": {
+        "0": [
+          [
+            6,
+            7
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "60781e224b925d5b33a7c9da903b0e68f0f37121": {
+      "VotingAndRep": {
+        "0": [
+          [
+            9
+          ],
+          [
+            10
+          ],
+          []
+        ]
+      }
+    },
+    "7d09a6f2cbc112331d72522efc38344a41f7bfbe": {
       "VotingAndRep": {
         "0": [
           [
@@ -39,19 +64,7 @@
         ]
       }
     },
-    "c364a66d799b7a70a9ec37f2b9e521bbd03841ab": {
-      "PublicGoods": {
-        "0": [
-          [
-            1,
-            2
-          ],
-          [],
-          []
-        ]
-      }
-    },
-    "dc62988d18d06f2ec850b471b3cea1f35eb36deb": {
+    "9abfbe1e2f4a5ef9da09ed7b68469124e9fb7365": {
       "VotingAndRep": {
         "0": [
           [
@@ -59,19 +72,6 @@
           ],
           [
             1
-          ],
-          []
-        ]
-      }
-    },
-    "e75e8703b3533c8f76c2f6cb61d5698e33c5922f": {
-      "VotingAndRep": {
-        "0": [
-          [
-            9
-          ],
-          [
-            10
           ],
           []
         ]
