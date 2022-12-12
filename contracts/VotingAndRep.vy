@@ -27,7 +27,7 @@ endBlock: public(HashMap[address, uint256])
 storedDonation: public(HashMap[address, uint256])
 
 # list of variables that could be changed (via voting) 
-# returnedWinner
+returnedWinner: address
 # returnedLoser
 voteDuration: public(uint256)
 # percent needed
@@ -100,3 +100,11 @@ def void finishVote(contract: address):
             returnCoin(self.peopleInvested[address][i])
 
     - if affectsDAO is false, and the majority of VoterCoin currently staked in a vote is staked on a specific side of the vote, and 20% of total VoterCoin is also on that side of the vote, then that side is passed. If a side is passed, call burnCoin. If so side is passed, call returnCoin. If affectsDAO is true, then the proposal must contain 75% of all VoterCoin in existence to be passed.
+
+@external
+def burnCoin(voterAddress: address):
+    assert not self.disabled, "This contract is no longer active"
+    assert voterAddress != empty(address), "Cannot add the 0 address as vote subject"
+    assert self.amountInFavor[self.returnedWinner][voterAddress] != empty(uint256)
+    self.voterCoinBalance[voterAddress] += self.amountInFavor[self.returnedWinner][voterAddress]/2
+    self.voterCoinSupply -= self.amountInFavor[self.returnedWinner][voterAddress]/2
