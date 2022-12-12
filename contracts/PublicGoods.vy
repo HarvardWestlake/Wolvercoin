@@ -28,7 +28,7 @@ def __init__(erc20address: address):
 @external
 def createGood(name: String[50], goal: uint256) -> String:
     # Change made by @ericyoondotcom where ID is name, which is key for HashMap
-    assert (!self.goods.has_key(name))
+    assert (not self.goods.has_key(name))
     self.goods[name] = Good({
         name: name,
         goal: goal,
