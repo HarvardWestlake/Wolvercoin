@@ -17,7 +17,8 @@ startDate: public(uint256)
 #the final date when the auction will end no matter what
 endDate: public(uint256)
 #the address for the auction item NFT
-NFT: public(address)
+buy: bool
+
 
 @external
 def __init__(_duration: uint256, _startPrice: uint256, _endPrice: uint256, _NFT: address):
@@ -36,6 +37,7 @@ def transferFrom(_from : address, _to : address, _value : uint256):
 
 @external
 def _buy(buyer: address):
+    self.buy = Ture
     self.transferFrom(buyer, self.seller, self._getPrice())
     self._endAuction()
 
@@ -51,10 +53,15 @@ def _isItemValid() -> (bool):
     else:
         return True
 
-@internal
-def _endAuction():
-    self.endDate = 0
-
-@external
-def endAuction():
-    self.endDate = 0
+@external 
+def _endAuction:
+        self.startDate = null
+    if block.timestamp > self.endDate:
+        self.endDate = null
+    if self.buy == False:
+        if self._getPrice() < self.endPrice:
+            self.startDate = null
+            self.endDate = null
+        self.startDate = null
+    else:
+        self.endDate = null
