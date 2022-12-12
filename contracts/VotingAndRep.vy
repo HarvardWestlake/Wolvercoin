@@ -34,21 +34,41 @@ voteDuration: public(uint256)
 # super percent needed
 contractMaintainer: public(address)
 
-
-disabled: bool
-
 event VoteStarted:
     subjectContract: address
     creator: address
     amountSent: uint256
 
+disabled: bool
+
+interface ActiveUser:
+    def getActiveUser(potentialUser: address) -> bool: view
+    def getAdmin(potentialAdmin: address) -> bool: view
+
+activeUserContract: public(ActiveUser)
+
 @external
-def __init__ ():
+def __init__ (activeUserAddress: address):
     self.voteDuration = 100
     self.contractMaintainer = msg.sender
     self.disabled = False
+    self.activeUserContract = ActiveUser(activeUserAddress)
 
-   
+
+@external
+def hasCoin (user: address, proposal: address) -> (uint256):
+    assert not self.disabled, "checks if contract is not disabled"
+    assert self.activeUserContract.getActiveUser(user) == True #"checks if user is active" add later when exclusivity is done
+    #assert proposal in self.ammountInFavor, "checks if the proposal exists"
+    return self.amountInFavor[proposal][user]
+
+@external 
+def amountAvailable (user: address) -> (uint256):
+    assert not self.disabled, "checks if contract is not disabled"
+    assert self.activeUserContract.getActiveUser(user) == True #"checks if user is active", add later when exclusivity is done
+    amount: uint256 = self.voterCoinBalance[user]
+    return amount #"gets how much coin they have that is not invested"
+
 # @dev This creates a new proposition for people to vote on
 # @param contract address The contract that will be given ran with adminstrator on vote sucsess
 # @param payable wei The WvC that will be sent to the executed contract on a sucsess

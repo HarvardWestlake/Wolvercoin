@@ -1,6 +1,66 @@
 {
   "contracts": {
 <<<<<<< HEAD
+<<<<<<< HEAD
+    "VotingAndRep": "3c3da45e81613bfbee6f16250168926ec51bc0f6"
+  },
+  "tests": {
+    "tests/test_voting.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": "FF....",
+      "sha1": "160ce289c0ed53334b621a86524ec08236c78925",
+      "txhash": [
+        "376e022b5818fd14b52b18db82155df7216f6d37",
+        "68152c6064964f5c9ea3aadef762cb81d0d0041d",
+        "8778bd52228bc5bbc8434f51b326967e87521d01"
+      ]
+    }
+  },
+  "tx": {
+    "376e022b5818fd14b52b18db82155df7216f6d37": {
+      "VotingAndRep": {
+        "0": [
+          [
+            19
+          ],
+          [
+            20
+          ],
+          []
+        ]
+      }
+    },
+    "68152c6064964f5c9ea3aadef762cb81d0d0041d": {
+      "VotingAndRep": {
+        "0": [
+          [
+            0
+          ],
+          [
+            1
+          ],
+          []
+        ]
+      }
+    },
+    "8778bd52228bc5bbc8434f51b326967e87521d01": {
+      "VotingAndRep": {
+        "0": [
+          [
+            16
+          ],
+          [
+            17
+          ],
+          []
+        ]
+      }
+    }
+  }
+=======
+=======
+>>>>>>> code_VotingAndRepresentation
     "VotingAndRep": "3331b76bc511cbe3f97ae9a5dd0d5b6a814bc108"
 =======
     "VotingAndRep": "e838cfd8f50c977b133f8f51c5a4254265672cf8"
@@ -8,4 +68,5 @@
   },
   "tests": {},
   "tx": {}
+>>>>>>> code_VotingAndRepresentation
 }
