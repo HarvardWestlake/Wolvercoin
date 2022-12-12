@@ -47,8 +47,8 @@ def voteOfficial( ballot : address ):
         self.votesForOfficials[ballot]=value
         self.alreadyVotedOfficials[msg.sender]= True
         if self.votesForOfficials[ballot] >= self.votesLeaderBoard[0]:
-            self.votesLeaderBoard[2]= votesLeaderBoard[1]
-            self.votesLeaderBoard[1]= votesLeaderBoard[0]
+            self.votesLeaderBoard[2]= self.votesLeaderBoard[1]
+            self.votesLeaderBoard[1]= self.votesLeaderBoard[0]
             self.votesLeaderBoard[0]= value
             # we need to change these bottom ones to change the addresses 
             self.electedOfficials[2]= electedOfficials[1] 
