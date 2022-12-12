@@ -7,6 +7,9 @@ from brownie.network.state import Chain
 
 chain = Chain()
 
+@pytest.fixture
+def votingContract(VotingAndRep, accounts):
+    return VotingAndRep.deploy({'from': accounts[0]})
 
 def test_determineResult(socialAndDonationsContract):
     length = len(socialAndDonationsContract.electedOfficials)
