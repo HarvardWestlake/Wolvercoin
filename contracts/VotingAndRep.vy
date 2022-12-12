@@ -1,4 +1,4 @@
-# @version 0.3.7
+# @version ^0.3.7
 #Interface:
 #   ActiveUser:
 #       getActiveUser
@@ -7,9 +7,7 @@
 #   amountAvailable
 #   
 # @dev An rundementary implementation of a voting system 
-# @author Evan Stokdyk (@Focus172)
 # @author Gavin Goldsmith (@Gav-G)
-# @author Jack Moreland (@jmoreland57)
 
 # VotingAndRep.vy
 
@@ -142,9 +140,17 @@ def burnCoin(voterAddress: address):
     self.voterCoinBalance[voterAddress] += self.amountInFavor[self.returnedWinner][voterAddress]/2
     self.voterCoinSupply -= self.amountInFavor[self.returnedWinner][voterAddress]/2
 
+@internal
+def returnCoin(voterAddress: address):
+    assert not self.disabled, "This contract is no longer active"
+    assert voterAddress != empty(address), "Cannot add the 0 address as vote subject"
+    assert self.amountInFavor[self.returnedWinner][voterAddress] != empty(uint256)
+    self.voterCoinBalance[voterAddress] += self.amountInFavor[self.returnedWinner][voterAddress]
+
 @external
 def vote(voter: address, proposition: address, amount: uint256):
     self.voterCoinBalance[voter] -= amount
+    self.voterCoinStaked += amount
     self.activePropositions[proposition] += amount
     self.peopleInvested[proposition].append(voter)
     self.amountInFavor[proposition][voter] = amount

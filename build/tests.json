@@ -1,72 +1,130 @@
 {
   "contracts": {
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "VotingAndRep": "3c3da45e81613bfbee6f16250168926ec51bc0f6"
+    "ActiveUser": "1c86845ce3ca8a184ba0ab3aa70b31b67f57e289",
+    "ERC20": "ed18f7176799ef070baeb860f08e3c37f557ffd3",
+    "Reimbursement": "846b1d910193c44201d3fc3c764fc2ddd1cdd33f",
+    "Stake": "d4f4587ea9960e2b28f6e2213370070cac95d060",
+    "VotingAndRep": "1fd8617f0a11e53d039ed2a386b9754f60eabb88",
+    "Wolvercoin": "ed18f7176799ef070baeb860f08e3c37f557ffd3"
   },
   "tests": {
+    "tests/test_Stake.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": "..",
+      "sha1": "ce2b87aacb4c425e6f0ec80d7e5cbcd918ad92d8",
+      "txhash": [
+        "6c8ad8090c8cf05cbac07075ab72d747b8dbbc30"
+      ]
+    },
+    "tests/test_activeUser.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": ".....",
+      "sha1": "dd022c3c866a931f0afd6b43339fda604af10134",
+      "txhash": [
+        "3de6022827f0a05ed1220c1a8b33ed5f5a1482c9",
+        "5a48092067e51d472b37902d32a52a25f2c56f17"
+      ]
+    },
+    "tests/test_reimbursement.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": ".......",
+      "sha1": "27f3d2b0fa5e87d232ec32406a457eae7ec43173",
+      "txhash": [
+        "521d321fbb5aed6ad2f144e946acb1edb143ff99",
+        "b1f38795f41c14ae8290e1883ffb937df872eaf0"
+      ]
+    },
     "tests/test_voting.py": {
       "coverage": false,
       "isolated": false,
-      "results": "FF....",
-      "sha1": "160ce289c0ed53334b621a86524ec08236c78925",
-      "txhash": [
-        "376e022b5818fd14b52b18db82155df7216f6d37",
-        "68152c6064964f5c9ea3aadef762cb81d0d0041d",
-        "8778bd52228bc5bbc8434f51b326967e87521d01"
-      ]
+      "results": "EEEEEEEEE",
+      "sha1": "3e7dcbf5155ebfce2f24b86a9513029c1004151c",
+      "txhash": []
     }
   },
   "tx": {
-    "376e022b5818fd14b52b18db82155df7216f6d37": {
-      "VotingAndRep": {
+    "3de6022827f0a05ed1220c1a8b33ed5f5a1482c9": {
+      "ActiveUser": {
         "0": [
           [
             19
           ],
+          [],
           [
             20
-          ],
-          []
+          ]
         ]
       }
     },
-    "68152c6064964f5c9ea3aadef762cb81d0d0041d": {
-      "VotingAndRep": {
+    "521d321fbb5aed6ad2f144e946acb1edb143ff99": {
+      "Reimbursement": {
         "0": [
           [
-            0
+            0,
+            13
           ],
           [
-            1
+            14
           ],
           []
         ]
       }
     },
-    "8778bd52228bc5bbc8434f51b326967e87521d01": {
-      "VotingAndRep": {
+    "5a48092067e51d472b37902d32a52a25f2c56f17": {
+      "ActiveUser": {
+        "0": [
+          [
+            19
+          ],
+          [],
+          [
+            20
+          ]
+        ]
+      }
+    },
+    "6c8ad8090c8cf05cbac07075ab72d747b8dbbc30": {
+      "Stake": {
+        "0": [
+          [
+            0,
+            1,
+            2
+          ],
+          [],
+          [
+            3
+          ]
+        ]
+      }
+    },
+    "b1f38795f41c14ae8290e1883ffb937df872eaf0": {
+      "ActiveUser": {
         "0": [
           [
             16
           ],
+          [],
+          []
+        ]
+      },
+      "Reimbursement": {
+        "0": [
           [
-            17
+            1,
+            22,
+            23,
+            24
+          ],
+          [
+            2
           ],
           []
         ]
       }
     }
   }
-=======
-=======
->>>>>>> code_VotingAndRepresentation
-    "VotingAndRep": "3331b76bc511cbe3f97ae9a5dd0d5b6a814bc108"
-=======
-    "VotingAndRep": "e838cfd8f50c977b133f8f51c5a4254265672cf8"
->>>>>>> code_VotingAndRepresentation-Wyatt
-  },
-  "tests": {},
-  "tx": {}
->>>>>>> code_VotingAndRepresentation
 }
