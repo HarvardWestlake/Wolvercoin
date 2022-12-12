@@ -42,18 +42,18 @@ def voteProposal(proposalNumber : uint256):
 def voteOfficial( ballot : address ):
     assert self.activeUserContract.getActiveUser(msg.sender) 
     if (self.officialVotingPeriod):
-        assert not self.alreadyVotedOfficials.get_val(msg.sender) == true
+        assert not self.alreadyVotedOfficials[msg.sender] == true
         value : unit265
-        value = self.votesForOfficials.get_val(ballot) + 1
-        self.votesForOfficials.set_val(ballot,value)
-        self.alreadyVotedOfficials.set_val(msg.sender,true)
-        if self.votesForOfficials.get_val(ballot) >= self.electedOfficials[0]:
+        value = self.votesForOfficials.[ballot] + 1
+        self.votesForOfficials[ballot]=value
+        self.alreadyVotedOfficials[msg.sender]=true
+        if self.votesForOfficials[ballot] >= self.electedOfficials[0]:
             self.electedOfficials[2]= electedOfficials[1]
             self.electedOfficials[1]= electedOfficials[0]
             self.electedOfficials[0] = ballot
-        elif self.votesForOfficials.get_val(ballot) >= electedOfficials[1]:
+        elif self.votesForOfficials[ballot] >= electedOfficials[1]:
             self.electedOfficials[2]=electedOfficials[1]
             self.electedOfficials[1]= ballot
-        elif self.votesForOfficials.get_val(ballot) >= electedOfficials[2]:
+        elif self.votesForOfficials[ballot] >= electedOfficials[2]:
             self.electedOfficials[2] = ballot
         
