@@ -57,11 +57,11 @@ def _isItemValid() -> (bool):
 def _endAuction:
         self.startDate = null
     if block.timestamp > self.endDate:
-        self.endDate = null
+        self.endDate = 0
     if self.buy == False:
         if self._getPrice() < self.endPrice:
-            self.startDate = null
-            self.endDate = null
-        self.startDate = null
+            self.startDate = 0
+            self.endDate =0
+        self.startDate = 0
     else:
-        self.endDate = null
+        self.endDate = 0
