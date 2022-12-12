@@ -1,7 +1,6 @@
 {
   "contracts": {
     "ERC20": "ed18f7176799ef070baeb860f08e3c37f557ffd3",
-    "VotingAndRep": "2b6d9c2ba5b719a2c43ba0e10beb0e921147fa8f",
     "privateGoodDutchAuction": "92ea17ccea900ccc3c960654f5192bf40799a74f"
   },
   "tests": {
@@ -9,60 +8,9 @@
       "coverage": false,
       "isolated": false,
       "results": "E",
-      "sha1": "6641d279d194e83d6b0267981f203629e7e0eb3c",
+      "sha1": "7316769c24f17b0e95f8b5521f4a4a16d804975c",
       "txhash": []
-    },
-    "tests/test_voting.py": {
-      "coverage": false,
-      "isolated": false,
-      "results": "....",
-      "sha1": "4d8b225033d2005e698bc76388f4c1ba7c9a3413",
-      "txhash": [
-        "14b44d10590bf6d5c8d1804c80501b27cef955af",
-        "560d3f935f59ebd7938013d2c1e358554b84bb83",
-        "5c6e82d38a7eadaaba481d446a30d647a1d2ffd3"
-      ]
     }
   },
-  "tx": {
-    "14b44d10590bf6d5c8d1804c80501b27cef955af": {
-      "VotingAndRep": {
-        "0": [
-          [
-            0
-          ],
-          [
-            1
-          ],
-          []
-        ]
-      }
-    },
-    "560d3f935f59ebd7938013d2c1e358554b84bb83": {
-      "VotingAndRep": {
-        "0": [
-          [
-            9
-          ],
-          [
-            10
-          ],
-          []
-        ]
-      }
-    },
-    "5c6e82d38a7eadaaba481d446a30d647a1d2ffd3": {
-      "VotingAndRep": {
-        "0": [
-          [
-            12
-          ],
-          [
-            13
-          ],
-          []
-        ]
-      }
-    }
-  }
+  "tx": {}
 }
