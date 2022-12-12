@@ -7,7 +7,7 @@ interface ActiveUser:
 
 activeStudents: public(HashMap[address, uint256])
 activeYear: public( uint256 )
-teachers: public(HashMap[address, boolean]) 
+teachers: public(HashMap[address, bool]) 
 electedOfficials: public(DynArray[address, 3])
 alreadyVotedOfficials: public(HashMap [address, bool])
 votesForOfficials: public(HashMap [address, uint256])
