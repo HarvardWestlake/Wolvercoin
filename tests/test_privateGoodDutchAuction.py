@@ -25,6 +25,6 @@ def _as_wei_value(base, conversion):
     return base * (10 ** 18)
 
 def test_endAuction(privateGoodContract, accounts):
-    assert privateGoodContract.endDate != 0
+    assert privateGoodContract.getEndDate() != 0
     privateGoodContract.endAuction
-    assert privateGoodContract.endDate == 0
+    assert privateGoodContract.getEndDate() == 0

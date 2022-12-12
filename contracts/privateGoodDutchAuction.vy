@@ -38,6 +38,10 @@ def __init__(_duration: uint256, _startPrice: uint256, _endPrice: uint256, _NFT:
     self.endDate = self.startDate + self.duration
     self.ERC20Contract = ERC20(Wolvercoin)
 
+@external
+def getEndDate() -> (uint256):
+    return self.endDate
+
 @internal
 def transferFrom(_from : address, _to : address, _value : uint256):
     return
