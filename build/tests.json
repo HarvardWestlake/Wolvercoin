@@ -1,6 +1,7 @@
 {
   "contracts": {
 <<<<<<< HEAD
+<<<<<<< HEAD
     "VotingAndRep": "3c3da45e81613bfbee6f16250168926ec51bc0f6"
   },
   "tests": {
@@ -58,7 +59,12 @@
     }
   }
 =======
+=======
+>>>>>>> code_VotingAndRepresentation
     "VotingAndRep": "3331b76bc511cbe3f97ae9a5dd0d5b6a814bc108"
+=======
+    "VotingAndRep": "e838cfd8f50c977b133f8f51c5a4254265672cf8"
+>>>>>>> code_VotingAndRepresentation-Wyatt
   },
   "tests": {},
   "tx": {}

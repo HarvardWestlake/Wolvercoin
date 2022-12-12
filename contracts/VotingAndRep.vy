@@ -132,3 +132,10 @@ def burnCoin(voterAddress: address):
     assert self.amountInFavor[self.returnedWinner][voterAddress] != empty(uint256)
     self.voterCoinBalance[voterAddress] += self.amountInFavor[self.returnedWinner][voterAddress]/2
     self.voterCoinSupply -= self.amountInFavor[self.returnedWinner][voterAddress]/2
+
+@external
+def vote(voter: address, proposition: address, amount: uint256):
+    self.voterCoinBalance[voter] -= amount
+    self.activePropositions[proposition] += amount
+    self.peopleInvested[proposition].append(voter)
+    self.amountInFavor[proposition][voter] = amount
