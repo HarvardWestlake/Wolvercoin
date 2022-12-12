@@ -282,7 +282,7 @@
         "module": "vyper.interfaces",
         "name": "ERC20",
         "node_id": 1,
-        "src": "168:34:0"
+        "src": "169:34:0"
       },
       {
         "alias": null,
@@ -295,7 +295,7 @@
         "module": "vyper.interfaces",
         "name": "ERC20Detailed",
         "node_id": 3,
-        "src": "203:42:0"
+        "src": "204:42:0"
       },
       {
         "annotation": {
@@ -306,7 +306,7 @@
           "id": "ERC20",
           "lineno": 10,
           "node_id": 8,
-          "src": "259:5:0"
+          "src": "260:5:0"
         },
         "ast_type": "AnnAssign",
         "col_offset": 0,
@@ -315,7 +315,7 @@
         "lineno": 10,
         "node_id": 5,
         "simple": 1,
-        "src": "247:17:0",
+        "src": "248:17:0",
         "target": {
           "ast_type": "Name",
           "col_offset": 0,
@@ -324,7 +324,7 @@
           "id": "implements",
           "lineno": 10,
           "node_id": 6,
-          "src": "247:10:0"
+          "src": "248:10:0"
         },
         "value": null
       },
@@ -337,7 +337,7 @@
           "id": "ERC20Detailed",
           "lineno": 11,
           "node_id": 13,
-          "src": "277:13:0"
+          "src": "278:13:0"
         },
         "ast_type": "AnnAssign",
         "col_offset": 0,
@@ -346,7 +346,7 @@
         "lineno": 11,
         "node_id": 10,
         "simple": 1,
-        "src": "265:25:0",
+        "src": "266:25:0",
         "target": {
           "ast_type": "Name",
           "col_offset": 0,
@@ -355,7 +355,7 @@
           "id": "implements",
           "lineno": 11,
           "node_id": 11,
-          "src": "265:10:0"
+          "src": "266:10:0"
         },
         "value": null
       },
@@ -373,7 +373,7 @@
                   "id": "address",
                   "lineno": 14,
                   "node_id": 22,
-                  "src": "328:7:0"
+                  "src": "329:7:0"
                 }
               ],
               "ast_type": "Call",
@@ -388,13 +388,13 @@
                 "id": "indexed",
                 "lineno": 14,
                 "node_id": 20,
-                "src": "320:7:0"
+                "src": "321:7:0"
               },
               "keyword": null,
               "keywords": [],
               "lineno": 14,
               "node_id": 19,
-              "src": "320:16:0"
+              "src": "321:16:0"
             },
             "ast_type": "AnnAssign",
             "col_offset": 4,
@@ -403,7 +403,7 @@
             "lineno": 14,
             "node_id": 16,
             "simple": 1,
-            "src": "312:24:0",
+            "src": "313:24:0",
             "target": {
               "ast_type": "Name",
               "col_offset": 4,
@@ -412,7 +412,7 @@
               "id": "sender",
               "lineno": 14,
               "node_id": 17,
-              "src": "312:6:0"
+              "src": "313:6:0"
             },
             "value": null
           },
@@ -427,7 +427,7 @@
                   "id": "address",
                   "lineno": 15,
                   "node_id": 30,
-                  "src": "359:7:0"
+                  "src": "360:7:0"
                 }
               ],
               "ast_type": "Call",
@@ -442,13 +442,13 @@
                 "id": "indexed",
                 "lineno": 15,
                 "node_id": 28,
-                "src": "351:7:0"
+                "src": "352:7:0"
               },
               "keyword": null,
               "keywords": [],
               "lineno": 15,
               "node_id": 27,
-              "src": "351:16:0"
+              "src": "352:16:0"
             },
             "ast_type": "AnnAssign",
             "col_offset": 4,
@@ -457,7 +457,7 @@
             "lineno": 15,
             "node_id": 24,
             "simple": 1,
-            "src": "341:26:0",
+            "src": "342:26:0",
             "target": {
               "ast_type": "Name",
               "col_offset": 4,
@@ -466,7 +466,7 @@
               "id": "receiver",
               "lineno": 15,
               "node_id": 25,
-              "src": "341:8:0"
+              "src": "342:8:0"
             },
             "value": null
           },
@@ -479,7 +479,7 @@
               "id": "uint256",
               "lineno": 16,
               "node_id": 35,
-              "src": "379:7:0"
+              "src": "380:7:0"
             },
             "ast_type": "AnnAssign",
             "col_offset": 4,
@@ -488,7 +488,7 @@
             "lineno": 16,
             "node_id": 32,
             "simple": 1,
-            "src": "372:14:0",
+            "src": "373:14:0",
             "target": {
               "ast_type": "Name",
               "col_offset": 4,
@@ -497,7 +497,7 @@
               "id": "value",
               "lineno": 16,
               "node_id": 33,
-              "src": "372:5:0"
+              "src": "373:5:0"
             },
             "value": null
           }
@@ -508,7 +508,7 @@
         "lineno": 13,
         "name": "Transfer",
         "node_id": 15,
-        "src": "292:94:0"
+        "src": "293:94:0"
       },
       {
         "ast_type": "EventDef",
@@ -524,7 +524,7 @@
                   "id": "address",
                   "lineno": 19,
                   "node_id": 44,
-                  "src": "423:7:0"
+                  "src": "424:7:0"
                 }
               ],
               "ast_type": "Call",
@@ -539,13 +539,13 @@
                 "id": "indexed",
                 "lineno": 19,
                 "node_id": 42,
-                "src": "415:7:0"
+                "src": "416:7:0"
               },
               "keyword": null,
               "keywords": [],
               "lineno": 19,
               "node_id": 41,
-              "src": "415:16:0"
+              "src": "416:16:0"
             },
             "ast_type": "AnnAssign",
             "col_offset": 4,
@@ -554,7 +554,7 @@
             "lineno": 19,
             "node_id": 38,
             "simple": 1,
-            "src": "408:23:0",
+            "src": "409:23:0",
             "target": {
               "ast_type": "Name",
               "col_offset": 4,
@@ -563,7 +563,7 @@
               "id": "owner",
               "lineno": 19,
               "node_id": 39,
-              "src": "408:5:0"
+              "src": "409:5:0"
             },
             "value": null
           },
@@ -578,7 +578,7 @@
                   "id": "address",
                   "lineno": 20,
                   "node_id": 52,
-                  "src": "453:7:0"
+                  "src": "454:7:0"
                 }
               ],
               "ast_type": "Call",
@@ -593,13 +593,13 @@
                 "id": "indexed",
                 "lineno": 20,
                 "node_id": 50,
-                "src": "445:7:0"
+                "src": "446:7:0"
               },
               "keyword": null,
               "keywords": [],
               "lineno": 20,
               "node_id": 49,
-              "src": "445:16:0"
+              "src": "446:16:0"
             },
             "ast_type": "AnnAssign",
             "col_offset": 4,
@@ -608,7 +608,7 @@
             "lineno": 20,
             "node_id": 46,
             "simple": 1,
-            "src": "436:25:0",
+            "src": "437:25:0",
             "target": {
               "ast_type": "Name",
               "col_offset": 4,
@@ -617,7 +617,7 @@
               "id": "spender",
               "lineno": 20,
               "node_id": 47,
-              "src": "436:7:0"
+              "src": "437:7:0"
             },
             "value": null
           },
@@ -630,7 +630,7 @@
               "id": "uint256",
               "lineno": 21,
               "node_id": 57,
-              "src": "473:7:0"
+              "src": "474:7:0"
             },
             "ast_type": "AnnAssign",
             "col_offset": 4,
@@ -639,7 +639,7 @@
             "lineno": 21,
             "node_id": 54,
             "simple": 1,
-            "src": "466:14:0",
+            "src": "467:14:0",
             "target": {
               "ast_type": "Name",
               "col_offset": 4,
@@ -648,7 +648,7 @@
               "id": "value",
               "lineno": 21,
               "node_id": 55,
-              "src": "466:5:0"
+              "src": "467:5:0"
             },
             "value": null
           }
@@ -659,7 +659,7 @@
         "lineno": 18,
         "name": "Approval",
         "node_id": 37,
-        "src": "388:92:0"
+        "src": "389:92:0"
       },
       {
         "annotation": {
@@ -676,7 +676,7 @@
             "end_lineno": 23,
             "lineno": 23,
             "node_id": 70,
-            "src": "495:10:0",
+            "src": "496:10:0",
             "value": {
               "ast_type": "Int",
               "col_offset": 20,
@@ -684,11 +684,11 @@
               "end_lineno": 23,
               "lineno": 23,
               "node_id": 68,
-              "src": "502:2:0",
+              "src": "503:2:0",
               "value": 32
             }
           },
-          "src": "495:10:0",
+          "src": "496:10:0",
           "value": {
             "ast_type": "Name",
             "col_offset": 13,
@@ -697,7 +697,7 @@
             "id": "String",
             "lineno": 23,
             "node_id": 66,
-            "src": "495:6:0"
+            "src": "496:6:0"
           }
         },
         "ast_type": "VariableDecl",
@@ -709,7 +709,7 @@
         "is_public": true,
         "lineno": 23,
         "node_id": 59,
-        "src": "482:24:0",
+        "src": "483:24:0",
         "target": {
           "ast_type": "Name",
           "col_offset": 0,
@@ -718,7 +718,7 @@
           "id": "name",
           "lineno": 23,
           "node_id": 60,
-          "src": "482:4:0"
+          "src": "483:4:0"
         },
         "value": null
       },
@@ -737,7 +737,7 @@
             "end_lineno": 24,
             "lineno": 24,
             "node_id": 82,
-            "src": "522:10:0",
+            "src": "523:10:0",
             "value": {
               "ast_type": "Int",
               "col_offset": 22,
@@ -745,11 +745,11 @@
               "end_lineno": 24,
               "lineno": 24,
               "node_id": 80,
-              "src": "529:2:0",
+              "src": "530:2:0",
               "value": 32
             }
           },
-          "src": "522:10:0",
+          "src": "523:10:0",
           "value": {
             "ast_type": "Name",
             "col_offset": 15,
@@ -758,7 +758,7 @@
             "id": "String",
             "lineno": 24,
             "node_id": 78,
-            "src": "522:6:0"
+            "src": "523:6:0"
           }
         },
         "ast_type": "VariableDecl",
@@ -770,7 +770,7 @@
         "is_public": true,
         "lineno": 24,
         "node_id": 71,
-        "src": "507:26:0",
+        "src": "508:26:0",
         "target": {
           "ast_type": "Name",
           "col_offset": 0,
@@ -779,7 +779,7 @@
           "id": "symbol",
           "lineno": 24,
           "node_id": 72,
-          "src": "507:6:0"
+          "src": "508:6:0"
         },
         "value": null
       },
@@ -792,7 +792,7 @@
           "id": "uint8",
           "lineno": 25,
           "node_id": 89,
-          "src": "551:5:0"
+          "src": "552:5:0"
         },
         "ast_type": "VariableDecl",
         "col_offset": 0,
@@ -803,7 +803,7 @@
         "is_public": true,
         "lineno": 25,
         "node_id": 83,
-        "src": "534:23:0",
+        "src": "535:23:0",
         "target": {
           "ast_type": "Name",
           "col_offset": 0,
@@ -812,7 +812,7 @@
           "id": "decimals",
           "lineno": 25,
           "node_id": 84,
-          "src": "534:8:0"
+          "src": "535:8:0"
         },
         "value": null
       },
@@ -831,7 +831,7 @@
             "end_lineno": 31,
             "lineno": 31,
             "node_id": 107,
-            "src": "922:25:0",
+            "src": "923:25:0",
             "value": {
               "ast_type": "Tuple",
               "col_offset": 26,
@@ -844,7 +844,7 @@
                   "id": "address",
                   "lineno": 31,
                   "node_id": 101,
-                  "src": "930:7:0"
+                  "src": "931:7:0"
                 },
                 {
                   "ast_type": "Name",
@@ -854,17 +854,17 @@
                   "id": "uint256",
                   "lineno": 31,
                   "node_id": 103,
-                  "src": "939:7:0"
+                  "src": "940:7:0"
                 }
               ],
               "end_col_offset": 42,
               "end_lineno": 31,
               "lineno": 31,
               "node_id": 100,
-              "src": "930:16:0"
+              "src": "931:16:0"
             }
           },
-          "src": "922:25:0",
+          "src": "923:25:0",
           "value": {
             "ast_type": "Name",
             "col_offset": 18,
@@ -873,7 +873,7 @@
             "id": "HashMap",
             "lineno": 31,
             "node_id": 98,
-            "src": "922:7:0"
+            "src": "923:7:0"
           }
         },
         "ast_type": "VariableDecl",
@@ -885,7 +885,7 @@
         "is_public": true,
         "lineno": 31,
         "node_id": 91,
-        "src": "904:44:0",
+        "src": "905:44:0",
         "target": {
           "ast_type": "Name",
           "col_offset": 0,
@@ -894,7 +894,7 @@
           "id": "balanceOf",
           "lineno": 31,
           "node_id": 92,
-          "src": "904:9:0"
+          "src": "905:9:0"
         },
         "value": null
       },
@@ -913,7 +913,7 @@
             "end_lineno": 33,
             "lineno": 33,
             "node_id": 133,
-            "src": "1060:43:0",
+            "src": "1061:43:0",
             "value": {
               "ast_type": "Tuple",
               "col_offset": 26,
@@ -926,7 +926,7 @@
                   "id": "address",
                   "lineno": 33,
                   "node_id": 118,
-                  "src": "1068:7:0"
+                  "src": "1069:7:0"
                 },
                 {
                   "ast_type": "Subscript",
@@ -942,7 +942,7 @@
                     "end_lineno": 33,
                     "lineno": 33,
                     "node_id": 130,
-                    "src": "1077:25:0",
+                    "src": "1078:25:0",
                     "value": {
                       "ast_type": "Tuple",
                       "col_offset": 43,
@@ -955,7 +955,7 @@
                           "id": "address",
                           "lineno": 33,
                           "node_id": 124,
-                          "src": "1085:7:0"
+                          "src": "1086:7:0"
                         },
                         {
                           "ast_type": "Name",
@@ -965,17 +965,17 @@
                           "id": "uint256",
                           "lineno": 33,
                           "node_id": 126,
-                          "src": "1094:7:0"
+                          "src": "1095:7:0"
                         }
                       ],
                       "end_col_offset": 59,
                       "end_lineno": 33,
                       "lineno": 33,
                       "node_id": 123,
-                      "src": "1085:16:0"
+                      "src": "1086:16:0"
                     }
                   },
-                  "src": "1077:25:0",
+                  "src": "1078:25:0",
                   "value": {
                     "ast_type": "Name",
                     "col_offset": 35,
@@ -984,7 +984,7 @@
                     "id": "HashMap",
                     "lineno": 33,
                     "node_id": 121,
-                    "src": "1077:7:0"
+                    "src": "1078:7:0"
                   }
                 }
               ],
@@ -992,10 +992,10 @@
               "end_lineno": 33,
               "lineno": 33,
               "node_id": 117,
-              "src": "1068:34:0"
+              "src": "1069:34:0"
             }
           },
-          "src": "1060:43:0",
+          "src": "1061:43:0",
           "value": {
             "ast_type": "Name",
             "col_offset": 18,
@@ -1004,7 +1004,7 @@
             "id": "HashMap",
             "lineno": 33,
             "node_id": 115,
-            "src": "1060:7:0"
+            "src": "1061:7:0"
           }
         },
         "ast_type": "VariableDecl",
@@ -1016,7 +1016,7 @@
         "is_public": true,
         "lineno": 33,
         "node_id": 108,
-        "src": "1042:62:0",
+        "src": "1043:62:0",
         "target": {
           "ast_type": "Name",
           "col_offset": 0,
@@ -1025,7 +1025,7 @@
           "id": "allowance",
           "lineno": 33,
           "node_id": 109,
-          "src": "1042:9:0"
+          "src": "1043:9:0"
         },
         "value": null
       },
@@ -1038,7 +1038,7 @@
           "id": "uint256",
           "lineno": 35,
           "node_id": 140,
-          "src": "1216:7:0"
+          "src": "1217:7:0"
         },
         "ast_type": "VariableDecl",
         "col_offset": 0,
@@ -1049,7 +1049,7 @@
         "is_public": true,
         "lineno": 35,
         "node_id": 134,
-        "src": "1196:28:0",
+        "src": "1197:28:0",
         "target": {
           "ast_type": "Name",
           "col_offset": 0,
@@ -1058,7 +1058,7 @@
           "id": "totalSupply",
           "lineno": 35,
           "node_id": 135,
-          "src": "1196:11:0"
+          "src": "1197:11:0"
         },
         "value": null
       },
@@ -1071,7 +1071,7 @@
           "id": "address",
           "lineno": 36,
           "node_id": 145,
-          "src": "1233:7:0"
+          "src": "1234:7:0"
         },
         "ast_type": "VariableDecl",
         "col_offset": 0,
@@ -1082,7 +1082,7 @@
         "is_public": false,
         "lineno": 36,
         "node_id": 142,
-        "src": "1225:15:0",
+        "src": "1226:15:0",
         "target": {
           "ast_type": "Name",
           "col_offset": 0,
@@ -1091,7 +1091,7 @@
           "id": "minter",
           "lineno": 36,
           "node_id": 143,
-          "src": "1225:6:0"
+          "src": "1226:6:0"
         },
         "value": null
       },
@@ -1113,7 +1113,7 @@
                   "end_lineno": 40,
                   "lineno": 40,
                   "node_id": 155,
-                  "src": "1273:10:0",
+                  "src": "1274:10:0",
                   "value": {
                     "ast_type": "Int",
                     "col_offset": 27,
@@ -1121,11 +1121,11 @@
                     "end_lineno": 40,
                     "lineno": 40,
                     "node_id": 153,
-                    "src": "1280:2:0",
+                    "src": "1281:2:0",
                     "value": 32
                   }
                 },
-                "src": "1273:10:0",
+                "src": "1274:10:0",
                 "value": {
                   "ast_type": "Name",
                   "col_offset": 20,
@@ -1134,7 +1134,7 @@
                   "id": "String",
                   "lineno": 40,
                   "node_id": 151,
-                  "src": "1273:6:0"
+                  "src": "1274:6:0"
                 }
               },
               "arg": "_name",
@@ -1144,7 +1144,7 @@
               "end_lineno": 40,
               "lineno": 40,
               "node_id": 149,
-              "src": "1266:17:0"
+              "src": "1267:17:0"
             },
             {
               "annotation": {
@@ -1161,7 +1161,7 @@
                   "end_lineno": 40,
                   "lineno": 40,
                   "node_id": 162,
-                  "src": "1294:10:0",
+                  "src": "1295:10:0",
                   "value": {
                     "ast_type": "Int",
                     "col_offset": 48,
@@ -1169,11 +1169,11 @@
                     "end_lineno": 40,
                     "lineno": 40,
                     "node_id": 160,
-                    "src": "1301:2:0",
+                    "src": "1302:2:0",
                     "value": 32
                   }
                 },
-                "src": "1294:10:0",
+                "src": "1295:10:0",
                 "value": {
                   "ast_type": "Name",
                   "col_offset": 41,
@@ -1182,7 +1182,7 @@
                   "id": "String",
                   "lineno": 40,
                   "node_id": 158,
-                  "src": "1294:6:0"
+                  "src": "1295:6:0"
                 }
               },
               "arg": "_symbol",
@@ -1192,7 +1192,7 @@
               "end_lineno": 40,
               "lineno": 40,
               "node_id": 156,
-              "src": "1285:19:0"
+              "src": "1286:19:0"
             },
             {
               "annotation": {
@@ -1203,7 +1203,7 @@
                 "id": "uint8",
                 "lineno": 40,
                 "node_id": 164,
-                "src": "1317:5:0"
+                "src": "1318:5:0"
               },
               "arg": "_decimals",
               "ast_type": "arg",
@@ -1212,7 +1212,7 @@
               "end_lineno": 40,
               "lineno": 40,
               "node_id": 163,
-              "src": "1306:16:0"
+              "src": "1307:16:0"
             },
             {
               "annotation": {
@@ -1223,7 +1223,7 @@
                 "id": "uint256",
                 "lineno": 40,
                 "node_id": 167,
-                "src": "1333:7:0"
+                "src": "1334:7:0"
               },
               "arg": "_supply",
               "ast_type": "arg",
@@ -1232,7 +1232,7 @@
               "end_lineno": 40,
               "lineno": 40,
               "node_id": 166,
-              "src": "1324:16:0"
+              "src": "1325:16:0"
             }
           ],
           "ast_type": "arguments",
@@ -1243,7 +1243,7 @@
           "end_lineno": 40,
           "lineno": 40,
           "node_id": 148,
-          "src": "1266:74:0"
+          "src": "1267:74:0"
         },
         "ast_type": "FunctionDef",
         "body": [
@@ -1256,7 +1256,7 @@
               "id": "uint256",
               "lineno": 41,
               "node_id": 172,
-              "src": "1360:7:0"
+              "src": "1361:7:0"
             },
             "ast_type": "AnnAssign",
             "col_offset": 4,
@@ -1265,7 +1265,7 @@
             "lineno": 41,
             "node_id": 169,
             "simple": 1,
-            "src": "1347:66:0",
+            "src": "1348:66:0",
             "target": {
               "ast_type": "Name",
               "col_offset": 4,
@@ -1274,7 +1274,7 @@
               "id": "init_supply",
               "lineno": 41,
               "node_id": 170,
-              "src": "1347:11:0"
+              "src": "1348:11:0"
             },
             "value": {
               "ast_type": "BinOp",
@@ -1289,7 +1289,7 @@
                 "id": "_supply",
                 "lineno": 41,
                 "node_id": 175,
-                "src": "1370:7:0"
+                "src": "1371:7:0"
               },
               "lineno": 41,
               "node_id": 174,
@@ -1300,7 +1300,7 @@
                 "end_lineno": 41,
                 "lineno": 41,
                 "node_id": 177,
-                "src": "1370:43:0"
+                "src": "1371:43:0"
               },
               "right": {
                 "ast_type": "BinOp",
@@ -1314,7 +1314,7 @@
                   "end_lineno": 41,
                   "lineno": 41,
                   "node_id": 179,
-                  "src": "1380:2:0",
+                  "src": "1381:2:0",
                   "value": 10
                 },
                 "lineno": 41,
@@ -1326,7 +1326,7 @@
                   "end_lineno": 41,
                   "lineno": 41,
                   "node_id": 180,
-                  "src": "1380:33:0"
+                  "src": "1381:33:0"
                 },
                 "right": {
                   "args": [
@@ -1338,7 +1338,7 @@
                       "id": "_decimals",
                       "lineno": 41,
                       "node_id": 184,
-                      "src": "1394:9:0"
+                      "src": "1395:9:0"
                     },
                     {
                       "ast_type": "Name",
@@ -1348,7 +1348,7 @@
                       "id": "uint256",
                       "lineno": 41,
                       "node_id": 186,
-                      "src": "1405:7:0"
+                      "src": "1406:7:0"
                     }
                   ],
                   "ast_type": "Call",
@@ -1363,17 +1363,17 @@
                     "id": "convert",
                     "lineno": 41,
                     "node_id": 182,
-                    "src": "1386:7:0"
+                    "src": "1387:7:0"
                   },
                   "keyword": null,
                   "keywords": [],
                   "lineno": 41,
                   "node_id": 181,
-                  "src": "1386:27:0"
+                  "src": "1387:27:0"
                 },
-                "src": "1380:33:0"
+                "src": "1381:33:0"
               },
-              "src": "1370:43:0"
+              "src": "1371:43:0"
             }
           },
           {
@@ -1383,7 +1383,7 @@
             "end_lineno": 42,
             "lineno": 42,
             "node_id": 188,
-            "src": "1418:17:0",
+            "src": "1419:17:0",
             "target": {
               "ast_type": "Attribute",
               "attr": "name",
@@ -1392,7 +1392,7 @@
               "end_lineno": 42,
               "lineno": 42,
               "node_id": 189,
-              "src": "1418:9:0",
+              "src": "1419:9:0",
               "value": {
                 "ast_type": "Name",
                 "col_offset": 4,
@@ -1401,7 +1401,7 @@
                 "id": "self",
                 "lineno": 42,
                 "node_id": 190,
-                "src": "1418:4:0"
+                "src": "1419:4:0"
               }
             },
             "value": {
@@ -1412,7 +1412,7 @@
               "id": "_name",
               "lineno": 42,
               "node_id": 193,
-              "src": "1430:5:0"
+              "src": "1431:5:0"
             }
           },
           {
@@ -1422,7 +1422,7 @@
             "end_lineno": 43,
             "lineno": 43,
             "node_id": 195,
-            "src": "1440:21:0",
+            "src": "1441:21:0",
             "target": {
               "ast_type": "Attribute",
               "attr": "symbol",
@@ -1431,7 +1431,7 @@
               "end_lineno": 43,
               "lineno": 43,
               "node_id": 196,
-              "src": "1440:11:0",
+              "src": "1441:11:0",
               "value": {
                 "ast_type": "Name",
                 "col_offset": 4,
@@ -1440,7 +1440,7 @@
                 "id": "self",
                 "lineno": 43,
                 "node_id": 197,
-                "src": "1440:4:0"
+                "src": "1441:4:0"
               }
             },
             "value": {
@@ -1451,7 +1451,7 @@
               "id": "_symbol",
               "lineno": 43,
               "node_id": 200,
-              "src": "1454:7:0"
+              "src": "1455:7:0"
             }
           },
           {
@@ -1461,7 +1461,7 @@
             "end_lineno": 44,
             "lineno": 44,
             "node_id": 202,
-            "src": "1466:25:0",
+            "src": "1467:25:0",
             "target": {
               "ast_type": "Attribute",
               "attr": "decimals",
@@ -1470,7 +1470,7 @@
               "end_lineno": 44,
               "lineno": 44,
               "node_id": 203,
-              "src": "1466:13:0",
+              "src": "1467:13:0",
               "value": {
                 "ast_type": "Name",
                 "col_offset": 4,
@@ -1479,7 +1479,7 @@
                 "id": "self",
                 "lineno": 44,
                 "node_id": 204,
-                "src": "1466:4:0"
+                "src": "1467:4:0"
               }
             },
             "value": {
@@ -1490,7 +1490,7 @@
               "id": "_decimals",
               "lineno": 44,
               "node_id": 207,
-              "src": "1482:9:0"
+              "src": "1483:9:0"
             }
           },
           {
@@ -1500,7 +1500,7 @@
             "end_lineno": 45,
             "lineno": 45,
             "node_id": 209,
-            "src": "1496:40:0",
+            "src": "1497:40:0",
             "target": {
               "ast_type": "Subscript",
               "col_offset": 4,
@@ -1515,7 +1515,7 @@
                 "end_lineno": 45,
                 "lineno": 45,
                 "node_id": 220,
-                "src": "1496:26:0",
+                "src": "1497:26:0",
                 "value": {
                   "ast_type": "Attribute",
                   "attr": "sender",
@@ -1524,7 +1524,7 @@
                   "end_lineno": 45,
                   "lineno": 45,
                   "node_id": 215,
-                  "src": "1511:10:0",
+                  "src": "1512:10:0",
                   "value": {
                     "ast_type": "Name",
                     "col_offset": 19,
@@ -1533,11 +1533,11 @@
                     "id": "msg",
                     "lineno": 45,
                     "node_id": 216,
-                    "src": "1511:3:0"
+                    "src": "1512:3:0"
                   }
                 }
               },
-              "src": "1496:26:0",
+              "src": "1497:26:0",
               "value": {
                 "ast_type": "Attribute",
                 "attr": "balanceOf",
@@ -1546,7 +1546,7 @@
                 "end_lineno": 45,
                 "lineno": 45,
                 "node_id": 211,
-                "src": "1496:14:0",
+                "src": "1497:14:0",
                 "value": {
                   "ast_type": "Name",
                   "col_offset": 4,
@@ -1555,7 +1555,7 @@
                   "id": "self",
                   "lineno": 45,
                   "node_id": 212,
-                  "src": "1496:4:0"
+                  "src": "1497:4:0"
                 }
               }
             },
@@ -1567,7 +1567,7 @@
               "id": "init_supply",
               "lineno": 45,
               "node_id": 221,
-              "src": "1525:11:0"
+              "src": "1526:11:0"
             }
           },
           {
@@ -1577,7 +1577,7 @@
             "end_lineno": 46,
             "lineno": 46,
             "node_id": 223,
-            "src": "1541:30:0",
+            "src": "1542:30:0",
             "target": {
               "ast_type": "Attribute",
               "attr": "totalSupply",
@@ -1586,7 +1586,7 @@
               "end_lineno": 46,
               "lineno": 46,
               "node_id": 224,
-              "src": "1541:16:0",
+              "src": "1542:16:0",
               "value": {
                 "ast_type": "Name",
                 "col_offset": 4,
@@ -1595,7 +1595,7 @@
                 "id": "self",
                 "lineno": 46,
                 "node_id": 225,
-                "src": "1541:4:0"
+                "src": "1542:4:0"
               }
             },
             "value": {
@@ -1606,7 +1606,7 @@
               "id": "init_supply",
               "lineno": 46,
               "node_id": 228,
-              "src": "1560:11:0"
+              "src": "1561:11:0"
             }
           },
           {
@@ -1616,7 +1616,7 @@
             "end_lineno": 47,
             "lineno": 47,
             "node_id": 230,
-            "src": "1576:24:0",
+            "src": "1577:24:0",
             "target": {
               "ast_type": "Attribute",
               "attr": "minter",
@@ -1625,7 +1625,7 @@
               "end_lineno": 47,
               "lineno": 47,
               "node_id": 231,
-              "src": "1576:11:0",
+              "src": "1577:11:0",
               "value": {
                 "ast_type": "Name",
                 "col_offset": 4,
@@ -1634,7 +1634,7 @@
                 "id": "self",
                 "lineno": 47,
                 "node_id": 232,
-                "src": "1576:4:0"
+                "src": "1577:4:0"
               }
             },
             "value": {
@@ -1645,7 +1645,7 @@
               "end_lineno": 47,
               "lineno": 47,
               "node_id": 235,
-              "src": "1590:10:0",
+              "src": "1591:10:0",
               "value": {
                 "ast_type": "Name",
                 "col_offset": 18,
@@ -1654,7 +1654,7 @@
                 "id": "msg",
                 "lineno": 47,
                 "node_id": 236,
-                "src": "1590:3:0"
+                "src": "1591:3:0"
               }
             }
           },
@@ -1665,7 +1665,7 @@
             "end_lineno": 48,
             "lineno": 48,
             "node_id": 240,
-            "src": "1605:53:0",
+            "src": "1606:53:0",
             "value": {
               "args": [
                 {
@@ -1678,7 +1678,7 @@
                       "id": "address",
                       "lineno": 48,
                       "node_id": 247,
-                      "src": "1624:7:0"
+                      "src": "1625:7:0"
                     }
                   ],
                   "ast_type": "Call",
@@ -1693,13 +1693,13 @@
                     "id": "empty",
                     "lineno": 48,
                     "node_id": 245,
-                    "src": "1618:5:0"
+                    "src": "1619:5:0"
                   },
                   "keyword": null,
                   "keywords": [],
                   "lineno": 48,
                   "node_id": 244,
-                  "src": "1618:14:0"
+                  "src": "1619:14:0"
                 },
                 {
                   "ast_type": "Attribute",
@@ -1709,7 +1709,7 @@
                   "end_lineno": 48,
                   "lineno": 48,
                   "node_id": 249,
-                  "src": "1634:10:0",
+                  "src": "1635:10:0",
                   "value": {
                     "ast_type": "Name",
                     "col_offset": 33,
@@ -1718,7 +1718,7 @@
                     "id": "msg",
                     "lineno": 48,
                     "node_id": 250,
-                    "src": "1634:3:0"
+                    "src": "1635:3:0"
                   }
                 },
                 {
@@ -1729,7 +1729,7 @@
                   "id": "init_supply",
                   "lineno": 48,
                   "node_id": 253,
-                  "src": "1646:11:0"
+                  "src": "1647:11:0"
                 }
               ],
               "ast_type": "Call",
@@ -1744,13 +1744,13 @@
                 "id": "Transfer",
                 "lineno": 48,
                 "node_id": 242,
-                "src": "1609:8:0"
+                "src": "1610:8:0"
               },
               "keyword": null,
               "keywords": [],
               "lineno": 48,
               "node_id": 241,
-              "src": "1609:49:0"
+              "src": "1610:49:0"
             }
           }
         ],
@@ -1764,7 +1764,7 @@
             "id": "external",
             "lineno": 39,
             "node_id": 255,
-            "src": "1244:8:0"
+            "src": "1245:8:0"
           }
         ],
         "doc_string": null,
@@ -1775,7 +1775,7 @@
         "node_id": 147,
         "pos": null,
         "returns": null,
-        "src": "1253:405:0"
+        "src": "1254:405:0"
       },
       {
         "args": {
@@ -1789,7 +1789,7 @@
                 "id": "address",
                 "lineno": 53,
                 "node_id": 260,
-                "src": "1691:7:0"
+                "src": "1692:7:0"
               },
               "arg": "_to",
               "ast_type": "arg",
@@ -1798,7 +1798,7 @@
               "end_lineno": 53,
               "lineno": 53,
               "node_id": 259,
-              "src": "1685:13:0"
+              "src": "1686:13:0"
             },
             {
               "annotation": {
@@ -1809,7 +1809,7 @@
                 "id": "uint256",
                 "lineno": 53,
                 "node_id": 263,
-                "src": "1709:7:0"
+                "src": "1710:7:0"
               },
               "arg": "_value",
               "ast_type": "arg",
@@ -1818,7 +1818,7 @@
               "end_lineno": 53,
               "lineno": 53,
               "node_id": 262,
-              "src": "1700:16:0"
+              "src": "1701:16:0"
             }
           ],
           "ast_type": "arguments",
@@ -1829,7 +1829,7 @@
           "end_lineno": 53,
           "lineno": 53,
           "node_id": 258,
-          "src": "1685:31:0"
+          "src": "1686:31:0"
         },
         "ast_type": "FunctionDef",
         "body": [
@@ -1847,9 +1847,9 @@
               "end_lineno": 61,
               "lineno": 61,
               "node_id": 617,
-              "src": "2008:36:0"
+              "src": "2009:36:0"
             },
-            "src": "2008:36:0",
+            "src": "2009:36:0",
             "target": {
               "ast_type": "Subscript",
               "col_offset": 4,
@@ -1864,7 +1864,7 @@
                 "end_lineno": 61,
                 "lineno": 61,
                 "node_id": 278,
-                "src": "2008:26:0",
+                "src": "2009:26:0",
                 "value": {
                   "ast_type": "Attribute",
                   "attr": "sender",
@@ -1873,7 +1873,7 @@
                   "end_lineno": 61,
                   "lineno": 61,
                   "node_id": 273,
-                  "src": "2023:10:0",
+                  "src": "2024:10:0",
                   "value": {
                     "ast_type": "Name",
                     "col_offset": 19,
@@ -1882,11 +1882,11 @@
                     "id": "msg",
                     "lineno": 61,
                     "node_id": 274,
-                    "src": "2023:3:0"
+                    "src": "2024:3:0"
                   }
                 }
               },
-              "src": "2008:26:0",
+              "src": "2009:26:0",
               "value": {
                 "ast_type": "Attribute",
                 "attr": "balanceOf",
@@ -1895,7 +1895,7 @@
                 "end_lineno": 61,
                 "lineno": 61,
                 "node_id": 269,
-                "src": "2008:14:0",
+                "src": "2009:14:0",
                 "value": {
                   "ast_type": "Name",
                   "col_offset": 4,
@@ -1904,7 +1904,7 @@
                   "id": "self",
                   "lineno": 61,
                   "node_id": 270,
-                  "src": "2008:4:0"
+                  "src": "2009:4:0"
                 }
               }
             },
@@ -1916,7 +1916,7 @@
               "id": "_value",
               "lineno": 61,
               "node_id": 280,
-              "src": "2038:6:0"
+              "src": "2039:6:0"
             }
           },
           {
@@ -1933,9 +1933,9 @@
               "end_lineno": 62,
               "lineno": 62,
               "node_id": 490,
-              "src": "2049:29:0"
+              "src": "2050:29:0"
             },
-            "src": "2049:29:0",
+            "src": "2050:29:0",
             "target": {
               "ast_type": "Subscript",
               "col_offset": 4,
@@ -1950,7 +1950,7 @@
                 "end_lineno": 62,
                 "lineno": 62,
                 "node_id": 291,
-                "src": "2049:19:0",
+                "src": "2050:19:0",
                 "value": {
                   "ast_type": "Name",
                   "col_offset": 19,
@@ -1959,10 +1959,10 @@
                   "id": "_to",
                   "lineno": 62,
                   "node_id": 288,
-                  "src": "2064:3:0"
+                  "src": "2065:3:0"
                 }
               },
-              "src": "2049:19:0",
+              "src": "2050:19:0",
               "value": {
                 "ast_type": "Attribute",
                 "attr": "balanceOf",
@@ -1971,7 +1971,7 @@
                 "end_lineno": 62,
                 "lineno": 62,
                 "node_id": 284,
-                "src": "2049:14:0",
+                "src": "2050:14:0",
                 "value": {
                   "ast_type": "Name",
                   "col_offset": 4,
@@ -1980,7 +1980,7 @@
                   "id": "self",
                   "lineno": 62,
                   "node_id": 285,
-                  "src": "2049:4:0"
+                  "src": "2050:4:0"
                 }
               }
             },
@@ -1992,7 +1992,7 @@
               "id": "_value",
               "lineno": 62,
               "node_id": 293,
-              "src": "2072:6:0"
+              "src": "2073:6:0"
             }
           },
           {
@@ -2002,7 +2002,7 @@
             "end_lineno": 63,
             "lineno": 63,
             "node_id": 296,
-            "src": "2083:37:0",
+            "src": "2084:37:0",
             "value": {
               "args": [
                 {
@@ -2013,7 +2013,7 @@
                   "end_lineno": 63,
                   "lineno": 63,
                   "node_id": 300,
-                  "src": "2096:10:0",
+                  "src": "2097:10:0",
                   "value": {
                     "ast_type": "Name",
                     "col_offset": 17,
@@ -2022,7 +2022,7 @@
                     "id": "msg",
                     "lineno": 63,
                     "node_id": 301,
-                    "src": "2096:3:0"
+                    "src": "2097:3:0"
                   }
                 },
                 {
@@ -2033,7 +2033,7 @@
                   "id": "_to",
                   "lineno": 63,
                   "node_id": 304,
-                  "src": "2108:3:0"
+                  "src": "2109:3:0"
                 },
                 {
                   "ast_type": "Name",
@@ -2043,7 +2043,7 @@
                   "id": "_value",
                   "lineno": 63,
                   "node_id": 306,
-                  "src": "2113:6:0"
+                  "src": "2114:6:0"
                 }
               ],
               "ast_type": "Call",
@@ -2058,13 +2058,13 @@
                 "id": "Transfer",
                 "lineno": 63,
                 "node_id": 298,
-                "src": "2087:8:0"
+                "src": "2088:8:0"
               },
               "keyword": null,
               "keywords": [],
               "lineno": 63,
               "node_id": 297,
-              "src": "2087:33:0"
+              "src": "2088:33:0"
             }
           },
           {
@@ -2074,7 +2074,7 @@
             "end_lineno": 64,
             "lineno": 64,
             "node_id": 308,
-            "src": "2125:11:0",
+            "src": "2126:11:0",
             "value": {
               "ast_type": "NameConstant",
               "col_offset": 11,
@@ -2082,7 +2082,7 @@
               "end_lineno": 64,
               "lineno": 64,
               "node_id": 309,
-              "src": "2132:4:0",
+              "src": "2133:4:0",
               "value": true
             }
           }
@@ -2097,7 +2097,7 @@
             "id": "external",
             "lineno": 52,
             "node_id": 310,
-            "src": "1663:8:0"
+            "src": "1664:8:0"
           }
         ],
         "doc_string": {
@@ -2107,7 +2107,7 @@
           "end_lineno": 58,
           "lineno": 54,
           "node_id": 314,
-          "src": "1731:150:0",
+          "src": "1732:150:0",
           "value": "\n    @dev Transfer token for a specified address\n    @param _to The address to transfer to.\n    @param _value The amount to be transferred.\n    "
         },
         "end_col_offset": 15,
@@ -2124,9 +2124,9 @@
           "id": "bool",
           "lineno": 53,
           "node_id": 312,
-          "src": "1721:4:0"
+          "src": "1722:4:0"
         },
-        "src": "1672:464:0"
+        "src": "1673:464:0"
       },
       {
         "args": {
@@ -2140,7 +2140,7 @@
                 "id": "address",
                 "lineno": 68,
                 "node_id": 318,
-                "src": "2174:7:0"
+                "src": "2175:7:0"
               },
               "arg": "_from",
               "ast_type": "arg",
@@ -2149,7 +2149,7 @@
               "end_lineno": 68,
               "lineno": 68,
               "node_id": 317,
-              "src": "2166:15:0"
+              "src": "2167:15:0"
             },
             {
               "annotation": {
@@ -2160,7 +2160,7 @@
                 "id": "address",
                 "lineno": 68,
                 "node_id": 321,
-                "src": "2189:7:0"
+                "src": "2190:7:0"
               },
               "arg": "_to",
               "ast_type": "arg",
@@ -2169,7 +2169,7 @@
               "end_lineno": 68,
               "lineno": 68,
               "node_id": 320,
-              "src": "2183:13:0"
+              "src": "2184:13:0"
             },
             {
               "annotation": {
@@ -2180,7 +2180,7 @@
                 "id": "uint256",
                 "lineno": 68,
                 "node_id": 324,
-                "src": "2207:7:0"
+                "src": "2208:7:0"
               },
               "arg": "_value",
               "ast_type": "arg",
@@ -2189,7 +2189,7 @@
               "end_lineno": 68,
               "lineno": 68,
               "node_id": 323,
-              "src": "2198:16:0"
+              "src": "2199:16:0"
             }
           ],
           "ast_type": "arguments",
@@ -2200,7 +2200,7 @@
           "end_lineno": 68,
           "lineno": 68,
           "node_id": 316,
-          "src": "2166:48:0"
+          "src": "2167:48:0"
         },
         "ast_type": "FunctionDef",
         "body": [
@@ -2218,9 +2218,9 @@
               "end_lineno": 77,
               "lineno": 77,
               "node_id": 617,
-              "src": "2627:31:0"
+              "src": "2628:31:0"
             },
-            "src": "2627:31:0",
+            "src": "2628:31:0",
             "target": {
               "ast_type": "Subscript",
               "col_offset": 4,
@@ -2235,7 +2235,7 @@
                 "end_lineno": 77,
                 "lineno": 77,
                 "node_id": 337,
-                "src": "2627:21:0",
+                "src": "2628:21:0",
                 "value": {
                   "ast_type": "Name",
                   "col_offset": 19,
@@ -2244,10 +2244,10 @@
                   "id": "_from",
                   "lineno": 77,
                   "node_id": 334,
-                  "src": "2642:5:0"
+                  "src": "2643:5:0"
                 }
               },
-              "src": "2627:21:0",
+              "src": "2628:21:0",
               "value": {
                 "ast_type": "Attribute",
                 "attr": "balanceOf",
@@ -2256,7 +2256,7 @@
                 "end_lineno": 77,
                 "lineno": 77,
                 "node_id": 330,
-                "src": "2627:14:0",
+                "src": "2628:14:0",
                 "value": {
                   "ast_type": "Name",
                   "col_offset": 4,
@@ -2265,7 +2265,7 @@
                   "id": "self",
                   "lineno": 77,
                   "node_id": 331,
-                  "src": "2627:4:0"
+                  "src": "2628:4:0"
                 }
               }
             },
@@ -2277,7 +2277,7 @@
               "id": "_value",
               "lineno": 77,
               "node_id": 339,
-              "src": "2652:6:0"
+              "src": "2653:6:0"
             }
           },
           {
@@ -2294,9 +2294,9 @@
               "end_lineno": 78,
               "lineno": 78,
               "node_id": 490,
-              "src": "2663:29:0"
+              "src": "2664:29:0"
             },
-            "src": "2663:29:0",
+            "src": "2664:29:0",
             "target": {
               "ast_type": "Subscript",
               "col_offset": 4,
@@ -2311,7 +2311,7 @@
                 "end_lineno": 78,
                 "lineno": 78,
                 "node_id": 350,
-                "src": "2663:19:0",
+                "src": "2664:19:0",
                 "value": {
                   "ast_type": "Name",
                   "col_offset": 19,
@@ -2320,10 +2320,10 @@
                   "id": "_to",
                   "lineno": 78,
                   "node_id": 347,
-                  "src": "2678:3:0"
+                  "src": "2679:3:0"
                 }
               },
-              "src": "2663:19:0",
+              "src": "2664:19:0",
               "value": {
                 "ast_type": "Attribute",
                 "attr": "balanceOf",
@@ -2332,7 +2332,7 @@
                 "end_lineno": 78,
                 "lineno": 78,
                 "node_id": 343,
-                "src": "2663:14:0",
+                "src": "2664:14:0",
                 "value": {
                   "ast_type": "Name",
                   "col_offset": 4,
@@ -2341,7 +2341,7 @@
                   "id": "self",
                   "lineno": 78,
                   "node_id": 344,
-                  "src": "2663:4:0"
+                  "src": "2664:4:0"
                 }
               }
             },
@@ -2353,7 +2353,7 @@
               "id": "_value",
               "lineno": 78,
               "node_id": 352,
-              "src": "2686:6:0"
+              "src": "2687:6:0"
             }
           },
           {
@@ -2370,9 +2370,9 @@
               "end_lineno": 81,
               "lineno": 81,
               "node_id": 617,
-              "src": "2820:43:0"
+              "src": "2821:43:0"
             },
-            "src": "2820:43:0",
+            "src": "2821:43:0",
             "target": {
               "ast_type": "Subscript",
               "col_offset": 4,
@@ -2387,7 +2387,7 @@
                 "end_lineno": 81,
                 "lineno": 81,
                 "node_id": 370,
-                "src": "2820:33:0",
+                "src": "2821:33:0",
                 "value": {
                   "ast_type": "Attribute",
                   "attr": "sender",
@@ -2396,7 +2396,7 @@
                   "end_lineno": 81,
                   "lineno": 81,
                   "node_id": 365,
-                  "src": "2842:10:0",
+                  "src": "2843:10:0",
                   "value": {
                     "ast_type": "Name",
                     "col_offset": 26,
@@ -2405,11 +2405,11 @@
                     "id": "msg",
                     "lineno": 81,
                     "node_id": 366,
-                    "src": "2842:3:0"
+                    "src": "2843:3:0"
                   }
                 }
               },
-              "src": "2820:33:0",
+              "src": "2821:33:0",
               "value": {
                 "ast_type": "Subscript",
                 "col_offset": 4,
@@ -2424,7 +2424,7 @@
                   "end_lineno": 81,
                   "lineno": 81,
                   "node_id": 364,
-                  "src": "2820:21:0",
+                  "src": "2821:21:0",
                   "value": {
                     "ast_type": "Name",
                     "col_offset": 19,
@@ -2433,10 +2433,10 @@
                     "id": "_from",
                     "lineno": 81,
                     "node_id": 361,
-                    "src": "2835:5:0"
+                    "src": "2836:5:0"
                   }
                 },
-                "src": "2820:21:0",
+                "src": "2821:21:0",
                 "value": {
                   "ast_type": "Attribute",
                   "attr": "allowance",
@@ -2445,7 +2445,7 @@
                   "end_lineno": 81,
                   "lineno": 81,
                   "node_id": 357,
-                  "src": "2820:14:0",
+                  "src": "2821:14:0",
                   "value": {
                     "ast_type": "Name",
                     "col_offset": 4,
@@ -2454,7 +2454,7 @@
                     "id": "self",
                     "lineno": 81,
                     "node_id": 358,
-                    "src": "2820:4:0"
+                    "src": "2821:4:0"
                   }
                 }
               }
@@ -2467,7 +2467,7 @@
               "id": "_value",
               "lineno": 81,
               "node_id": 372,
-              "src": "2857:6:0"
+              "src": "2858:6:0"
             }
           },
           {
@@ -2477,7 +2477,7 @@
             "end_lineno": 82,
             "lineno": 82,
             "node_id": 375,
-            "src": "2868:32:0",
+            "src": "2869:32:0",
             "value": {
               "args": [
                 {
@@ -2488,7 +2488,7 @@
                   "id": "_from",
                   "lineno": 82,
                   "node_id": 379,
-                  "src": "2881:5:0"
+                  "src": "2882:5:0"
                 },
                 {
                   "ast_type": "Name",
@@ -2498,7 +2498,7 @@
                   "id": "_to",
                   "lineno": 82,
                   "node_id": 381,
-                  "src": "2888:3:0"
+                  "src": "2889:3:0"
                 },
                 {
                   "ast_type": "Name",
@@ -2508,7 +2508,7 @@
                   "id": "_value",
                   "lineno": 82,
                   "node_id": 383,
-                  "src": "2893:6:0"
+                  "src": "2894:6:0"
                 }
               ],
               "ast_type": "Call",
@@ -2523,13 +2523,13 @@
                 "id": "Transfer",
                 "lineno": 82,
                 "node_id": 377,
-                "src": "2872:8:0"
+                "src": "2873:8:0"
               },
               "keyword": null,
               "keywords": [],
               "lineno": 82,
               "node_id": 376,
-              "src": "2872:28:0"
+              "src": "2873:28:0"
             }
           },
           {
@@ -2539,7 +2539,7 @@
             "end_lineno": 83,
             "lineno": 83,
             "node_id": 385,
-            "src": "2905:11:0",
+            "src": "2906:11:0",
             "value": {
               "ast_type": "NameConstant",
               "col_offset": 11,
@@ -2547,7 +2547,7 @@
               "end_lineno": 83,
               "lineno": 83,
               "node_id": 386,
-              "src": "2912:4:0",
+              "src": "2913:4:0",
               "value": true
             }
           }
@@ -2562,7 +2562,7 @@
             "id": "external",
             "lineno": 67,
             "node_id": 387,
-            "src": "2140:8:0"
+            "src": "2141:8:0"
           }
         ],
         "doc_string": {
@@ -2572,7 +2572,7 @@
           "end_lineno": 74,
           "lineno": 69,
           "node_id": 391,
-          "src": "2229:271:0",
+          "src": "2230:271:0",
           "value": "\n     @dev Transfer tokens from one address to another.\n     @param _from address The address which you want to send tokens from\n     @param _to address The address which you want to transfer to\n     @param _value uint256 the amount of tokens to be transferred\n    "
         },
         "end_col_offset": 15,
@@ -2589,9 +2589,9 @@
           "id": "bool",
           "lineno": 68,
           "node_id": 389,
-          "src": "2219:4:0"
+          "src": "2220:4:0"
         },
-        "src": "2149:767:0"
+        "src": "2150:767:0"
       },
       {
         "args": {
@@ -2605,7 +2605,7 @@
                 "id": "address",
                 "lineno": 87,
                 "node_id": 395,
-                "src": "2952:7:0"
+                "src": "2953:7:0"
               },
               "arg": "_spender",
               "ast_type": "arg",
@@ -2614,7 +2614,7 @@
               "end_lineno": 87,
               "lineno": 87,
               "node_id": 394,
-              "src": "2941:18:0"
+              "src": "2942:18:0"
             },
             {
               "annotation": {
@@ -2625,7 +2625,7 @@
                 "id": "uint256",
                 "lineno": 87,
                 "node_id": 398,
-                "src": "2970:7:0"
+                "src": "2971:7:0"
               },
               "arg": "_value",
               "ast_type": "arg",
@@ -2634,7 +2634,7 @@
               "end_lineno": 87,
               "lineno": 87,
               "node_id": 397,
-              "src": "2961:16:0"
+              "src": "2962:16:0"
             }
           ],
           "ast_type": "arguments",
@@ -2645,7 +2645,7 @@
           "end_lineno": 87,
           "lineno": 87,
           "node_id": 393,
-          "src": "2941:36:0"
+          "src": "2942:36:0"
         },
         "ast_type": "FunctionDef",
         "body": [
@@ -2656,7 +2656,7 @@
             "end_lineno": 97,
             "lineno": 97,
             "node_id": 402,
-            "src": "3623:45:0",
+            "src": "3624:45:0",
             "target": {
               "ast_type": "Subscript",
               "col_offset": 4,
@@ -2671,7 +2671,7 @@
                 "end_lineno": 97,
                 "lineno": 97,
                 "node_id": 418,
-                "src": "3623:36:0",
+                "src": "3624:36:0",
                 "value": {
                   "ast_type": "Name",
                   "col_offset": 31,
@@ -2680,10 +2680,10 @@
                   "id": "_spender",
                   "lineno": 97,
                   "node_id": 415,
-                  "src": "3650:8:0"
+                  "src": "3651:8:0"
                 }
               },
-              "src": "3623:36:0",
+              "src": "3624:36:0",
               "value": {
                 "ast_type": "Subscript",
                 "col_offset": 4,
@@ -2698,7 +2698,7 @@
                   "end_lineno": 97,
                   "lineno": 97,
                   "node_id": 414,
-                  "src": "3623:26:0",
+                  "src": "3624:26:0",
                   "value": {
                     "ast_type": "Attribute",
                     "attr": "sender",
@@ -2707,7 +2707,7 @@
                     "end_lineno": 97,
                     "lineno": 97,
                     "node_id": 409,
-                    "src": "3638:10:0",
+                    "src": "3639:10:0",
                     "value": {
                       "ast_type": "Name",
                       "col_offset": 19,
@@ -2716,11 +2716,11 @@
                       "id": "msg",
                       "lineno": 97,
                       "node_id": 410,
-                      "src": "3638:3:0"
+                      "src": "3639:3:0"
                     }
                   }
                 },
-                "src": "3623:26:0",
+                "src": "3624:26:0",
                 "value": {
                   "ast_type": "Attribute",
                   "attr": "allowance",
@@ -2729,7 +2729,7 @@
                   "end_lineno": 97,
                   "lineno": 97,
                   "node_id": 405,
-                  "src": "3623:14:0",
+                  "src": "3624:14:0",
                   "value": {
                     "ast_type": "Name",
                     "col_offset": 4,
@@ -2738,7 +2738,7 @@
                     "id": "self",
                     "lineno": 97,
                     "node_id": 406,
-                    "src": "3623:4:0"
+                    "src": "3624:4:0"
                   }
                 }
               }
@@ -2751,7 +2751,7 @@
               "id": "_value",
               "lineno": 97,
               "node_id": 419,
-              "src": "3662:6:0"
+              "src": "3663:6:0"
             }
           },
           {
@@ -2761,7 +2761,7 @@
             "end_lineno": 98,
             "lineno": 98,
             "node_id": 422,
-            "src": "3673:42:0",
+            "src": "3674:42:0",
             "value": {
               "args": [
                 {
@@ -2772,7 +2772,7 @@
                   "end_lineno": 98,
                   "lineno": 98,
                   "node_id": 426,
-                  "src": "3686:10:0",
+                  "src": "3687:10:0",
                   "value": {
                     "ast_type": "Name",
                     "col_offset": 17,
@@ -2781,7 +2781,7 @@
                     "id": "msg",
                     "lineno": 98,
                     "node_id": 427,
-                    "src": "3686:3:0"
+                    "src": "3687:3:0"
                   }
                 },
                 {
@@ -2792,7 +2792,7 @@
                   "id": "_spender",
                   "lineno": 98,
                   "node_id": 430,
-                  "src": "3698:8:0"
+                  "src": "3699:8:0"
                 },
                 {
                   "ast_type": "Name",
@@ -2802,7 +2802,7 @@
                   "id": "_value",
                   "lineno": 98,
                   "node_id": 432,
-                  "src": "3708:6:0"
+                  "src": "3709:6:0"
                 }
               ],
               "ast_type": "Call",
@@ -2817,13 +2817,13 @@
                 "id": "Approval",
                 "lineno": 98,
                 "node_id": 424,
-                "src": "3677:8:0"
+                "src": "3678:8:0"
               },
               "keyword": null,
               "keywords": [],
               "lineno": 98,
               "node_id": 423,
-              "src": "3677:38:0"
+              "src": "3678:38:0"
             }
           },
           {
@@ -2833,7 +2833,7 @@
             "end_lineno": 99,
             "lineno": 99,
             "node_id": 434,
-            "src": "3720:11:0",
+            "src": "3721:11:0",
             "value": {
               "ast_type": "NameConstant",
               "col_offset": 11,
@@ -2841,7 +2841,7 @@
               "end_lineno": 99,
               "lineno": 99,
               "node_id": 435,
-              "src": "3727:4:0",
+              "src": "3728:4:0",
               "value": true
             }
           }
@@ -2856,7 +2856,7 @@
             "id": "external",
             "lineno": 86,
             "node_id": 436,
-            "src": "2920:8:0"
+            "src": "2921:8:0"
           }
         ],
         "doc_string": {
@@ -2866,7 +2866,7 @@
           "end_lineno": 96,
           "lineno": 88,
           "node_id": 440,
-          "src": "2992:626:0",
+          "src": "2993:626:0",
           "value": "\n    @dev Approve the passed address to spend the specified amount of tokens on behalf of msg.sender.\n         Beware that changing an allowance with this method brings the risk that someone may use both the old\n         and the new allowance by unfortunate transaction ordering. One possible solution to mitigate this\n         race condition is to first reduce the spender's allowance to 0 and set the desired value afterwards:\n         https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729\n    @param _spender The address which will spend the funds.\n    @param _value The amount of tokens to be spent.\n    "
         },
         "end_col_offset": 15,
@@ -2883,9 +2883,9 @@
           "id": "bool",
           "lineno": 87,
           "node_id": 438,
-          "src": "2982:4:0"
+          "src": "2983:4:0"
         },
-        "src": "2929:802:0"
+        "src": "2930:802:0"
       },
       {
         "args": {
@@ -2899,7 +2899,7 @@
                 "id": "address",
                 "lineno": 103,
                 "node_id": 444,
-                "src": "3758:7:0"
+                "src": "3759:7:0"
               },
               "arg": "_to",
               "ast_type": "arg",
@@ -2908,7 +2908,7 @@
               "end_lineno": 103,
               "lineno": 103,
               "node_id": 443,
-              "src": "3753:12:0"
+              "src": "3754:12:0"
             },
             {
               "annotation": {
@@ -2919,7 +2919,7 @@
                 "id": "uint256",
                 "lineno": 103,
                 "node_id": 447,
-                "src": "3775:7:0"
+                "src": "3776:7:0"
               },
               "arg": "_value",
               "ast_type": "arg",
@@ -2928,7 +2928,7 @@
               "end_lineno": 103,
               "lineno": 103,
               "node_id": 446,
-              "src": "3767:15:0"
+              "src": "3768:15:0"
             }
           ],
           "ast_type": "arguments",
@@ -2939,7 +2939,7 @@
           "end_lineno": 103,
           "lineno": 103,
           "node_id": 442,
-          "src": "3753:29:0"
+          "src": "3754:29:0"
         },
         "ast_type": "FunctionDef",
         "body": [
@@ -2951,7 +2951,7 @@
             "lineno": 111,
             "msg": null,
             "node_id": 451,
-            "src": "4094:32:0",
+            "src": "4095:32:0",
             "test": {
               "ast_type": "Compare",
               "col_offset": 11,
@@ -2965,7 +2965,7 @@
                 "end_lineno": 111,
                 "lineno": 111,
                 "node_id": 453,
-                "src": "4101:10:0",
+                "src": "4102:10:0",
                 "value": {
                   "ast_type": "Name",
                   "col_offset": 11,
@@ -2974,7 +2974,7 @@
                   "id": "msg",
                   "lineno": 111,
                   "node_id": 454,
-                  "src": "4101:3:0"
+                  "src": "4102:3:0"
                 }
               },
               "lineno": 111,
@@ -2986,7 +2986,7 @@
                 "end_lineno": 111,
                 "lineno": 111,
                 "node_id": 457,
-                "src": "4101:25:0"
+                "src": "4102:25:0"
               },
               "right": {
                 "ast_type": "Attribute",
@@ -2996,7 +2996,7 @@
                 "end_lineno": 111,
                 "lineno": 111,
                 "node_id": 458,
-                "src": "4115:11:0",
+                "src": "4116:11:0",
                 "value": {
                   "ast_type": "Name",
                   "col_offset": 25,
@@ -3005,10 +3005,10 @@
                   "id": "self",
                   "lineno": 111,
                   "node_id": 459,
-                  "src": "4115:4:0"
+                  "src": "4116:4:0"
                 }
               },
-              "src": "4101:25:0"
+              "src": "4102:25:0"
             }
           },
           {
@@ -3019,7 +3019,7 @@
             "lineno": 112,
             "msg": null,
             "node_id": 462,
-            "src": "4131:28:0",
+            "src": "4132:28:0",
             "test": {
               "ast_type": "Compare",
               "col_offset": 11,
@@ -3033,7 +3033,7 @@
                 "id": "_to",
                 "lineno": 112,
                 "node_id": 464,
-                "src": "4138:3:0"
+                "src": "4139:3:0"
               },
               "lineno": 112,
               "node_id": 463,
@@ -3044,7 +3044,7 @@
                 "end_lineno": 112,
                 "lineno": 112,
                 "node_id": 524,
-                "src": "4138:21:0"
+                "src": "4139:21:0"
               },
               "right": {
                 "args": [
@@ -3056,7 +3056,7 @@
                     "id": "address",
                     "lineno": 112,
                     "node_id": 470,
-                    "src": "4151:7:0"
+                    "src": "4152:7:0"
                   }
                 ],
                 "ast_type": "Call",
@@ -3071,15 +3071,15 @@
                   "id": "empty",
                   "lineno": 112,
                   "node_id": 468,
-                  "src": "4145:5:0"
+                  "src": "4146:5:0"
                 },
                 "keyword": null,
                 "keywords": [],
                 "lineno": 112,
                 "node_id": 467,
-                "src": "4145:14:0"
+                "src": "4146:14:0"
               },
-              "src": "4138:21:0"
+              "src": "4139:21:0"
             }
           },
           {
@@ -3096,9 +3096,9 @@
               "end_lineno": 113,
               "lineno": 113,
               "node_id": 490,
-              "src": "4164:26:0"
+              "src": "4165:26:0"
             },
-            "src": "4164:26:0",
+            "src": "4165:26:0",
             "target": {
               "ast_type": "Attribute",
               "attr": "totalSupply",
@@ -3107,7 +3107,7 @@
               "end_lineno": 113,
               "lineno": 113,
               "node_id": 473,
-              "src": "4164:16:0",
+              "src": "4165:16:0",
               "value": {
                 "ast_type": "Name",
                 "col_offset": 4,
@@ -3116,7 +3116,7 @@
                 "id": "self",
                 "lineno": 113,
                 "node_id": 474,
-                "src": "4164:4:0"
+                "src": "4165:4:0"
               }
             },
             "value": {
@@ -3127,7 +3127,7 @@
               "id": "_value",
               "lineno": 113,
               "node_id": 478,
-              "src": "4184:6:0"
+              "src": "4185:6:0"
             }
           },
           {
@@ -3144,9 +3144,9 @@
               "end_lineno": 114,
               "lineno": 114,
               "node_id": 490,
-              "src": "4195:29:0"
+              "src": "4196:29:0"
             },
-            "src": "4195:29:0",
+            "src": "4196:29:0",
             "target": {
               "ast_type": "Subscript",
               "col_offset": 4,
@@ -3161,7 +3161,7 @@
                 "end_lineno": 114,
                 "lineno": 114,
                 "node_id": 489,
-                "src": "4195:19:0",
+                "src": "4196:19:0",
                 "value": {
                   "ast_type": "Name",
                   "col_offset": 19,
@@ -3170,10 +3170,10 @@
                   "id": "_to",
                   "lineno": 114,
                   "node_id": 486,
-                  "src": "4210:3:0"
+                  "src": "4211:3:0"
                 }
               },
-              "src": "4195:19:0",
+              "src": "4196:19:0",
               "value": {
                 "ast_type": "Attribute",
                 "attr": "balanceOf",
@@ -3182,7 +3182,7 @@
                 "end_lineno": 114,
                 "lineno": 114,
                 "node_id": 482,
-                "src": "4195:14:0",
+                "src": "4196:14:0",
                 "value": {
                   "ast_type": "Name",
                   "col_offset": 4,
@@ -3191,7 +3191,7 @@
                   "id": "self",
                   "lineno": 114,
                   "node_id": 483,
-                  "src": "4195:4:0"
+                  "src": "4196:4:0"
                 }
               }
             },
@@ -3203,7 +3203,7 @@
               "id": "_value",
               "lineno": 114,
               "node_id": 491,
-              "src": "4218:6:0"
+              "src": "4219:6:0"
             }
           },
           {
@@ -3213,7 +3213,7 @@
             "end_lineno": 115,
             "lineno": 115,
             "node_id": 494,
-            "src": "4229:41:0",
+            "src": "4230:41:0",
             "value": {
               "args": [
                 {
@@ -3226,7 +3226,7 @@
                       "id": "address",
                       "lineno": 115,
                       "node_id": 501,
-                      "src": "4248:7:0"
+                      "src": "4249:7:0"
                     }
                   ],
                   "ast_type": "Call",
@@ -3241,13 +3241,13 @@
                     "id": "empty",
                     "lineno": 115,
                     "node_id": 499,
-                    "src": "4242:5:0"
+                    "src": "4243:5:0"
                   },
                   "keyword": null,
                   "keywords": [],
                   "lineno": 115,
                   "node_id": 498,
-                  "src": "4242:14:0"
+                  "src": "4243:14:0"
                 },
                 {
                   "ast_type": "Name",
@@ -3257,7 +3257,7 @@
                   "id": "_to",
                   "lineno": 115,
                   "node_id": 503,
-                  "src": "4258:3:0"
+                  "src": "4259:3:0"
                 },
                 {
                   "ast_type": "Name",
@@ -3267,7 +3267,7 @@
                   "id": "_value",
                   "lineno": 115,
                   "node_id": 505,
-                  "src": "4263:6:0"
+                  "src": "4264:6:0"
                 }
               ],
               "ast_type": "Call",
@@ -3282,13 +3282,13 @@
                 "id": "Transfer",
                 "lineno": 115,
                 "node_id": 496,
-                "src": "4233:8:0"
+                "src": "4234:8:0"
               },
               "keyword": null,
               "keywords": [],
               "lineno": 115,
               "node_id": 495,
-              "src": "4233:37:0"
+              "src": "4234:37:0"
             }
           }
         ],
@@ -3302,7 +3302,7 @@
             "id": "external",
             "lineno": 102,
             "node_id": 507,
-            "src": "3735:8:0"
+            "src": "3736:8:0"
           }
         ],
         "doc_string": {
@@ -3312,7 +3312,7 @@
           "end_lineno": 110,
           "lineno": 104,
           "node_id": 509,
-          "src": "3789:300:0",
+          "src": "3790:300:0",
           "value": "\n    @dev Mint an amount of the token and assigns it to an account.\n         This encapsulates the modification of balances such that the\n         proper events are emitted.\n    @param _to The account that will receive the created tokens.\n    @param _value The amount that will be created.\n    "
         },
         "end_col_offset": 45,
@@ -3322,7 +3322,7 @@
         "node_id": 441,
         "pos": null,
         "returns": null,
-        "src": "3744:526:0"
+        "src": "3745:526:0"
       },
       {
         "args": {
@@ -3336,7 +3336,7 @@
                 "id": "address",
                 "lineno": 119,
                 "node_id": 513,
-                "src": "4298:7:0"
+                "src": "4299:7:0"
               },
               "arg": "_to",
               "ast_type": "arg",
@@ -3345,7 +3345,7 @@
               "end_lineno": 119,
               "lineno": 119,
               "node_id": 512,
-              "src": "4293:12:0"
+              "src": "4294:12:0"
             },
             {
               "annotation": {
@@ -3356,7 +3356,7 @@
                 "id": "uint256",
                 "lineno": 119,
                 "node_id": 516,
-                "src": "4315:7:0"
+                "src": "4316:7:0"
               },
               "arg": "_value",
               "ast_type": "arg",
@@ -3365,7 +3365,7 @@
               "end_lineno": 119,
               "lineno": 119,
               "node_id": 515,
-              "src": "4307:15:0"
+              "src": "4308:15:0"
             }
           ],
           "ast_type": "arguments",
@@ -3376,7 +3376,7 @@
           "end_lineno": 119,
           "lineno": 119,
           "node_id": 511,
-          "src": "4293:29:0"
+          "src": "4294:29:0"
         },
         "ast_type": "FunctionDef",
         "body": [
@@ -3388,7 +3388,7 @@
             "lineno": 126,
             "msg": null,
             "node_id": 520,
-            "src": "4541:28:0",
+            "src": "4542:28:0",
             "test": {
               "ast_type": "Compare",
               "col_offset": 11,
@@ -3402,7 +3402,7 @@
                 "id": "_to",
                 "lineno": 126,
                 "node_id": 522,
-                "src": "4548:3:0"
+                "src": "4549:3:0"
               },
               "lineno": 126,
               "node_id": 521,
@@ -3413,7 +3413,7 @@
                 "end_lineno": 126,
                 "lineno": 126,
                 "node_id": 524,
-                "src": "4548:21:0"
+                "src": "4549:21:0"
               },
               "right": {
                 "args": [
@@ -3425,7 +3425,7 @@
                     "id": "address",
                     "lineno": 126,
                     "node_id": 528,
-                    "src": "4561:7:0"
+                    "src": "4562:7:0"
                   }
                 ],
                 "ast_type": "Call",
@@ -3440,15 +3440,15 @@
                   "id": "empty",
                   "lineno": 126,
                   "node_id": 526,
-                  "src": "4555:5:0"
+                  "src": "4556:5:0"
                 },
                 "keyword": null,
                 "keywords": [],
                 "lineno": 126,
                 "node_id": 525,
-                "src": "4555:14:0"
+                "src": "4556:14:0"
               },
-              "src": "4548:21:0"
+              "src": "4549:21:0"
             }
           },
           {
@@ -3465,9 +3465,9 @@
               "end_lineno": 127,
               "lineno": 127,
               "node_id": 617,
-              "src": "4574:26:0"
+              "src": "4575:26:0"
             },
-            "src": "4574:26:0",
+            "src": "4575:26:0",
             "target": {
               "ast_type": "Attribute",
               "attr": "totalSupply",
@@ -3476,7 +3476,7 @@
               "end_lineno": 127,
               "lineno": 127,
               "node_id": 531,
-              "src": "4574:16:0",
+              "src": "4575:16:0",
               "value": {
                 "ast_type": "Name",
                 "col_offset": 4,
@@ -3485,7 +3485,7 @@
                 "id": "self",
                 "lineno": 127,
                 "node_id": 532,
-                "src": "4574:4:0"
+                "src": "4575:4:0"
               }
             },
             "value": {
@@ -3496,7 +3496,7 @@
               "id": "_value",
               "lineno": 127,
               "node_id": 536,
-              "src": "4594:6:0"
+              "src": "4595:6:0"
             }
           },
           {
@@ -3513,9 +3513,9 @@
               "end_lineno": 128,
               "lineno": 128,
               "node_id": 617,
-              "src": "4605:29:0"
+              "src": "4606:29:0"
             },
-            "src": "4605:29:0",
+            "src": "4606:29:0",
             "target": {
               "ast_type": "Subscript",
               "col_offset": 4,
@@ -3530,7 +3530,7 @@
                 "end_lineno": 128,
                 "lineno": 128,
                 "node_id": 547,
-                "src": "4605:19:0",
+                "src": "4606:19:0",
                 "value": {
                   "ast_type": "Name",
                   "col_offset": 19,
@@ -3539,10 +3539,10 @@
                   "id": "_to",
                   "lineno": 128,
                   "node_id": 544,
-                  "src": "4620:3:0"
+                  "src": "4621:3:0"
                 }
               },
-              "src": "4605:19:0",
+              "src": "4606:19:0",
               "value": {
                 "ast_type": "Attribute",
                 "attr": "balanceOf",
@@ -3551,7 +3551,7 @@
                 "end_lineno": 128,
                 "lineno": 128,
                 "node_id": 540,
-                "src": "4605:14:0",
+                "src": "4606:14:0",
                 "value": {
                   "ast_type": "Name",
                   "col_offset": 4,
@@ -3560,7 +3560,7 @@
                   "id": "self",
                   "lineno": 128,
                   "node_id": 541,
-                  "src": "4605:4:0"
+                  "src": "4606:4:0"
                 }
               }
             },
@@ -3572,7 +3572,7 @@
               "id": "_value",
               "lineno": 128,
               "node_id": 549,
-              "src": "4628:6:0"
+              "src": "4629:6:0"
             }
           },
           {
@@ -3582,7 +3582,7 @@
             "end_lineno": 129,
             "lineno": 129,
             "node_id": 552,
-            "src": "4639:41:0",
+            "src": "4640:41:0",
             "value": {
               "args": [
                 {
@@ -3593,7 +3593,7 @@
                   "id": "_to",
                   "lineno": 129,
                   "node_id": 556,
-                  "src": "4652:3:0"
+                  "src": "4653:3:0"
                 },
                 {
                   "args": [
@@ -3605,7 +3605,7 @@
                       "id": "address",
                       "lineno": 129,
                       "node_id": 561,
-                      "src": "4663:7:0"
+                      "src": "4664:7:0"
                     }
                   ],
                   "ast_type": "Call",
@@ -3620,13 +3620,13 @@
                     "id": "empty",
                     "lineno": 129,
                     "node_id": 559,
-                    "src": "4657:5:0"
+                    "src": "4658:5:0"
                   },
                   "keyword": null,
                   "keywords": [],
                   "lineno": 129,
                   "node_id": 558,
-                  "src": "4657:14:0"
+                  "src": "4658:14:0"
                 },
                 {
                   "ast_type": "Name",
@@ -3636,7 +3636,7 @@
                   "id": "_value",
                   "lineno": 129,
                   "node_id": 563,
-                  "src": "4673:6:0"
+                  "src": "4674:6:0"
                 }
               ],
               "ast_type": "Call",
@@ -3651,13 +3651,13 @@
                 "id": "Transfer",
                 "lineno": 129,
                 "node_id": 554,
-                "src": "4643:8:0"
+                "src": "4644:8:0"
               },
               "keyword": null,
               "keywords": [],
               "lineno": 129,
               "node_id": 553,
-              "src": "4643:37:0"
+              "src": "4644:37:0"
             }
           }
         ],
@@ -3671,7 +3671,7 @@
             "id": "internal",
             "lineno": 118,
             "node_id": 565,
-            "src": "4274:8:0"
+            "src": "4275:8:0"
           }
         ],
         "doc_string": {
@@ -3681,7 +3681,7 @@
           "end_lineno": 125,
           "lineno": 120,
           "node_id": 567,
-          "src": "4329:207:0",
+          "src": "4330:207:0",
           "value": "\n    @dev Internal function that burns an amount of the token of a given\n         account.\n    @param _to The account whose tokens will be burned.\n    @param _value The amount that will be burned.\n    "
         },
         "end_col_offset": 45,
@@ -3691,7 +3691,7 @@
         "node_id": 510,
         "pos": null,
         "returns": null,
-        "src": "4283:397:0"
+        "src": "4284:397:0"
       },
       {
         "args": {
@@ -3705,7 +3705,7 @@
                 "id": "uint256",
                 "lineno": 133,
                 "node_id": 571,
-                "src": "4710:7:0"
+                "src": "4711:7:0"
               },
               "arg": "_value",
               "ast_type": "arg",
@@ -3714,7 +3714,7 @@
               "end_lineno": 133,
               "lineno": 133,
               "node_id": 570,
-              "src": "4702:15:0"
+              "src": "4703:15:0"
             }
           ],
           "ast_type": "arguments",
@@ -3725,7 +3725,7 @@
           "end_lineno": 133,
           "lineno": 133,
           "node_id": 569,
-          "src": "4702:15:0"
+          "src": "4703:15:0"
         },
         "ast_type": "FunctionDef",
         "body": [
@@ -3736,7 +3736,7 @@
             "end_lineno": 138,
             "lineno": 138,
             "node_id": 575,
-            "src": "4842:30:0",
+            "src": "4843:30:0",
             "value": {
               "args": [
                 {
@@ -3747,7 +3747,7 @@
                   "end_lineno": 138,
                   "lineno": 138,
                   "node_id": 581,
-                  "src": "4853:10:0",
+                  "src": "4854:10:0",
                   "value": {
                     "ast_type": "Name",
                     "col_offset": 15,
@@ -3756,7 +3756,7 @@
                     "id": "msg",
                     "lineno": 138,
                     "node_id": 582,
-                    "src": "4853:3:0"
+                    "src": "4854:3:0"
                   }
                 },
                 {
@@ -3767,7 +3767,7 @@
                   "id": "_value",
                   "lineno": 138,
                   "node_id": 585,
-                  "src": "4865:6:0"
+                  "src": "4866:6:0"
                 }
               ],
               "ast_type": "Call",
@@ -3782,7 +3782,7 @@
                 "end_lineno": 138,
                 "lineno": 138,
                 "node_id": 577,
-                "src": "4842:10:0",
+                "src": "4843:10:0",
                 "value": {
                   "ast_type": "Name",
                   "col_offset": 4,
@@ -3791,14 +3791,14 @@
                   "id": "self",
                   "lineno": 138,
                   "node_id": 578,
-                  "src": "4842:4:0"
+                  "src": "4843:4:0"
                 }
               },
               "keyword": null,
               "keywords": [],
               "lineno": 138,
               "node_id": 576,
-              "src": "4842:30:0"
+              "src": "4843:30:0"
             }
           }
         ],
@@ -3812,7 +3812,7 @@
             "id": "external",
             "lineno": 132,
             "node_id": 587,
-            "src": "4684:8:0"
+            "src": "4685:8:0"
           }
         ],
         "doc_string": {
@@ -3822,7 +3822,7 @@
           "end_lineno": 137,
           "lineno": 134,
           "node_id": 589,
-          "src": "4724:113:0",
+          "src": "4725:113:0",
           "value": "\n    @dev Burn an amount of the token of msg.sender.\n    @param _value The amount that will be burned.\n    "
         },
         "end_col_offset": 34,
@@ -3832,7 +3832,7 @@
         "node_id": 568,
         "pos": null,
         "returns": null,
-        "src": "4693:179:0"
+        "src": "4694:179:0"
       },
       {
         "args": {
@@ -3846,7 +3846,7 @@
                 "id": "address",
                 "lineno": 142,
                 "node_id": 593,
-                "src": "4903:7:0"
+                "src": "4904:7:0"
               },
               "arg": "_to",
               "ast_type": "arg",
@@ -3855,7 +3855,7 @@
               "end_lineno": 142,
               "lineno": 142,
               "node_id": 592,
-              "src": "4898:12:0"
+              "src": "4899:12:0"
             },
             {
               "annotation": {
@@ -3866,7 +3866,7 @@
                 "id": "uint256",
                 "lineno": 142,
                 "node_id": 596,
-                "src": "4920:7:0"
+                "src": "4921:7:0"
               },
               "arg": "_value",
               "ast_type": "arg",
@@ -3875,7 +3875,7 @@
               "end_lineno": 142,
               "lineno": 142,
               "node_id": 595,
-              "src": "4912:15:0"
+              "src": "4913:15:0"
             }
           ],
           "ast_type": "arguments",
@@ -3886,7 +3886,7 @@
           "end_lineno": 142,
           "lineno": 142,
           "node_id": 591,
-          "src": "4898:29:0"
+          "src": "4899:29:0"
         },
         "ast_type": "FunctionDef",
         "body": [
@@ -3904,9 +3904,9 @@
               "end_lineno": 148,
               "lineno": 148,
               "node_id": 617,
-              "src": "5115:41:0"
+              "src": "5116:41:0"
             },
-            "src": "5115:41:0",
+            "src": "5116:41:0",
             "target": {
               "ast_type": "Subscript",
               "col_offset": 4,
@@ -3921,7 +3921,7 @@
                 "end_lineno": 148,
                 "lineno": 148,
                 "node_id": 616,
-                "src": "5115:31:0",
+                "src": "5116:31:0",
                 "value": {
                   "ast_type": "Attribute",
                   "attr": "sender",
@@ -3930,7 +3930,7 @@
                   "end_lineno": 148,
                   "lineno": 148,
                   "node_id": 611,
-                  "src": "5135:10:0",
+                  "src": "5136:10:0",
                   "value": {
                     "ast_type": "Name",
                     "col_offset": 24,
@@ -3939,11 +3939,11 @@
                     "id": "msg",
                     "lineno": 148,
                     "node_id": 612,
-                    "src": "5135:3:0"
+                    "src": "5136:3:0"
                   }
                 }
               },
-              "src": "5115:31:0",
+              "src": "5116:31:0",
               "value": {
                 "ast_type": "Subscript",
                 "col_offset": 4,
@@ -3958,7 +3958,7 @@
                   "end_lineno": 148,
                   "lineno": 148,
                   "node_id": 610,
-                  "src": "5115:19:0",
+                  "src": "5116:19:0",
                   "value": {
                     "ast_type": "Name",
                     "col_offset": 19,
@@ -3967,10 +3967,10 @@
                     "id": "_to",
                     "lineno": 148,
                     "node_id": 607,
-                    "src": "5130:3:0"
+                    "src": "5131:3:0"
                   }
                 },
-                "src": "5115:19:0",
+                "src": "5116:19:0",
                 "value": {
                   "ast_type": "Attribute",
                   "attr": "allowance",
@@ -3979,7 +3979,7 @@
                   "end_lineno": 148,
                   "lineno": 148,
                   "node_id": 603,
-                  "src": "5115:14:0",
+                  "src": "5116:14:0",
                   "value": {
                     "ast_type": "Name",
                     "col_offset": 4,
@@ -3988,7 +3988,7 @@
                     "id": "self",
                     "lineno": 148,
                     "node_id": 604,
-                    "src": "5115:4:0"
+                    "src": "5116:4:0"
                   }
                 }
               }
@@ -4001,7 +4001,7 @@
               "id": "_value",
               "lineno": 148,
               "node_id": 618,
-              "src": "5150:6:0"
+              "src": "5151:6:0"
             }
           },
           {
@@ -4011,7 +4011,7 @@
             "end_lineno": 149,
             "lineno": 149,
             "node_id": 620,
-            "src": "5161:23:0",
+            "src": "5162:23:0",
             "value": {
               "args": [
                 {
@@ -4022,7 +4022,7 @@
                   "id": "_to",
                   "lineno": 149,
                   "node_id": 626,
-                  "src": "5172:3:0"
+                  "src": "5173:3:0"
                 },
                 {
                   "ast_type": "Name",
@@ -4032,7 +4032,7 @@
                   "id": "_value",
                   "lineno": 149,
                   "node_id": 628,
-                  "src": "5177:6:0"
+                  "src": "5178:6:0"
                 }
               ],
               "ast_type": "Call",
@@ -4047,7 +4047,7 @@
                 "end_lineno": 149,
                 "lineno": 149,
                 "node_id": 622,
-                "src": "5161:10:0",
+                "src": "5162:10:0",
                 "value": {
                   "ast_type": "Name",
                   "col_offset": 4,
@@ -4056,14 +4056,14 @@
                   "id": "self",
                   "lineno": 149,
                   "node_id": 623,
-                  "src": "5161:4:0"
+                  "src": "5162:4:0"
                 }
               },
               "keyword": null,
               "keywords": [],
               "lineno": 149,
               "node_id": 621,
-              "src": "5161:23:0"
+              "src": "5162:23:0"
             }
           }
         ],
@@ -4077,7 +4077,7 @@
             "id": "external",
             "lineno": 141,
             "node_id": 630,
-            "src": "4876:8:0"
+            "src": "4877:8:0"
           }
         ],
         "doc_string": {
@@ -4087,7 +4087,7 @@
           "end_lineno": 147,
           "lineno": 143,
           "node_id": 632,
-          "src": "4934:176:0",
+          "src": "4935:176:0",
           "value": "\n    @dev Burn an amount of the token from a given account.\n    @param _to The account whose tokens will be burned.\n    @param _value The amount that will be burned.\n    "
         },
         "end_col_offset": 27,
@@ -4097,7 +4097,7 @@
         "node_id": 590,
         "pos": null,
         "returns": null,
-        "src": "4885:299:0"
+        "src": "4886:299:0"
       }
     ],
     "col_offset": 0,
@@ -4107,7 +4107,7 @@
     "lineno": 1,
     "name": "contracts/ERC20.vy",
     "node_id": 0,
-    "src": "0:5184:0"
+    "src": "0:5185:0"
   },
   "bytecode": "0x60206106d560003960005160206020826106d501600039600051116106d0576020816106d50160003960005180604052602082016020816106d50160003960005160605250505060206106f560003960005160206020826106d501600039600051116106d0576020816106d50160003960005180608052602082016020816106d50160003960005160a05250505060206107156000396000518060081c6106d05760c052346106d057602061073560003960005160c051604d81116106d05780600a0a90508082028115838383041417156106d0579050905060e05260405180600055606051600155506080518060025560a0516003555060c05160045560e05160053360205260005260406000205560e051600755336008553360007fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef60e051610100526020610100a361057361015c61000039610573610000f36003361161000c576104e3565b60003560e01c346105615763a9059cbb81186100bd5760443610610561576004358060a01c610561576040526005336020526000526040600020805460243580820382811161056157905090508155506005604051602052600052604060002080546024358082018281106105615790509050815550604051337fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef60243560605260206060a3600160605260206060f35b6323b872dd81186101aa5760643610610561576004358060a01c610561576040526024358060a01c610561576060526005604051602052600052604060002080546044358082038281116105615790509050815550600560605160205260005260406000208054604435808201828110610561579050905081555060066040516020526000526040600020803360205260005260406000209050805460443580820382811161056157905090508155506060516040517fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef60443560805260206080a3600160805260206080f35b63095ea7b381186102295760443610610561576004358060a01c610561576040526024356006336020526000526040600020806040516020526000526040600020905055604051337f8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b92560243560605260206060a3600160605260206060f35b6340c10f1981186102cb5760443610610561576004358060a01c6105615760405260085433186105615760405115610561576007546024358082018281106105615790509050600755600560405160205260005260406000208054602435808201828110610561579050905081555060405160007fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef60243560605260206060a3005b6342966c6881186102f2576024361061056157336040526004356060526102f06104e9565b005b6379cc6790811861035e5760443610610561576004358060a01c6105615760a052600660a05160205260005260406000208033602052600052604060002090508054602435808203828111610561579050905081555060a05160405260243560605261035c6104e9565b005b6306fdde0381186103b65760043610610561576020806040528060400160005480825260208201600154815250508051806020830101601f82600003163682375050601f19601f825160200101169050810190506040f35b6395d89b41811861040e5760043610610561576020806040528060400160025480825260208201600354815250508051806020830101601f82600003163682375050601f19601f825160200101169050810190506040f35b63313ce567811861042d57600436106105615760045460405260206040f35b6370a0823181186104685760243610610561576004358060a01c61056157604052600560405160205260005260406000205460605260206060f35b63dd62ed3e81186104c25760443610610561576004358060a01c610561576040526024358060a01c610561576060526006604051602052600052604060002080606051602052600052604060002090505460805260206080f35b6318160ddd81186104e157600436106105615760075460405260206040f35b505b60006000fd5b60405115610561576007546060518082038281116105615790509050600755600560405160205260005260406000208054606051808203828111610561579050905081555060006040517fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef60605160805260206080a3565b600080fda165767970657283000307000b005b600080fd",
   "bytecodeSha1": "ed18f7176799ef070baeb860f08e3c37f557ffd3",
@@ -4121,20 +4121,20 @@
       "0": {
         "ERC20._burn": {
           "23": [
-            4541,
-            4569,
+            4542,
+            4570,
             true
           ]
         },
         "ERC20.mint": {
           "13": [
-            4094,
-            4126,
+            4095,
+            4127,
             true
           ],
           "15": [
-            4131,
-            4159,
+            4132,
+            4160,
             true
           ]
         }
@@ -4144,112 +4144,112 @@
       "0": {
         "ERC20._burn": {
           "22": [
-            4541,
-            4569
+            4542,
+            4570
           ],
           "24": [
-            4574,
-            4600
+            4575,
+            4601
           ],
           "25": [
-            4605,
-            4634
+            4606,
+            4635
           ],
           "26": [
-            4639,
-            4680
+            4640,
+            4681
           ]
         },
         "ERC20.approve": {
           "9": [
-            3673,
-            3715
+            3674,
+            3716
           ],
           "10": [
-            3623,
-            3668
+            3624,
+            3669
           ],
           "11": [
-            3720,
-            3731
+            3721,
+            3732
           ]
         },
         "ERC20.burn": {
           "19": [
-            4842,
-            4872
+            4843,
+            4873
           ]
         },
         "ERC20.burnFrom": {
           "20": [
-            5115,
-            5156
+            5116,
+            5157
           ],
           "21": [
-            5161,
-            5184
+            5162,
+            5185
           ]
         },
         "ERC20.mint": {
           "12": [
-            4094,
-            4126
+            4095,
+            4127
           ],
           "14": [
-            4131,
-            4159
+            4132,
+            4160
           ],
           "16": [
-            4164,
-            4190
+            4165,
+            4191
           ],
           "17": [
-            4229,
-            4270
+            4230,
+            4271
           ],
           "18": [
-            4195,
-            4224
+            4196,
+            4225
           ]
         },
         "ERC20.transfer": {
           "0": [
-            2008,
-            2044
+            2009,
+            2045
           ],
           "1": [
-            2083,
-            2120
+            2084,
+            2121
           ],
           "2": [
-            2049,
-            2078
+            2050,
+            2079
           ],
           "3": [
-            2125,
-            2136
+            2126,
+            2137
           ]
         },
         "ERC20.transferFrom": {
           "4": [
-            2627,
-            2658
+            2628,
+            2659
           ],
           "5": [
-            2868,
-            2900
+            2869,
+            2901
           ],
           "6": [
-            2663,
-            2692
+            2664,
+            2693
           ],
           "7": [
-            2820,
-            2863
+            2821,
+            2864
           ],
           "8": [
-            2905,
-            2916
+            2906,
+            2917
           ]
         }
       }
@@ -4257,7 +4257,7 @@
   },
   "dependencies": [],
   "deployedBytecode": "0x6003361161000c576104e3565b60003560e01c346105615763a9059cbb81186100bd5760443610610561576004358060a01c610561576040526005336020526000526040600020805460243580820382811161056157905090508155506005604051602052600052604060002080546024358082018281106105615790509050815550604051337fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef60243560605260206060a3600160605260206060f35b6323b872dd81186101aa5760643610610561576004358060a01c610561576040526024358060a01c610561576060526005604051602052600052604060002080546044358082038281116105615790509050815550600560605160205260005260406000208054604435808201828110610561579050905081555060066040516020526000526040600020803360205260005260406000209050805460443580820382811161056157905090508155506060516040517fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef60443560805260206080a3600160805260206080f35b63095ea7b381186102295760443610610561576004358060a01c610561576040526024356006336020526000526040600020806040516020526000526040600020905055604051337f8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b92560243560605260206060a3600160605260206060f35b6340c10f1981186102cb5760443610610561576004358060a01c6105615760405260085433186105615760405115610561576007546024358082018281106105615790509050600755600560405160205260005260406000208054602435808201828110610561579050905081555060405160007fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef60243560605260206060a3005b6342966c6881186102f2576024361061056157336040526004356060526102f06104e9565b005b6379cc6790811861035e5760443610610561576004358060a01c6105615760a052600660a05160205260005260406000208033602052600052604060002090508054602435808203828111610561579050905081555060a05160405260243560605261035c6104e9565b005b6306fdde0381186103b65760043610610561576020806040528060400160005480825260208201600154815250508051806020830101601f82600003163682375050601f19601f825160200101169050810190506040f35b6395d89b41811861040e5760043610610561576020806040528060400160025480825260208201600354815250508051806020830101601f82600003163682375050601f19601f825160200101169050810190506040f35b63313ce567811861042d57600436106105615760045460405260206040f35b6370a0823181186104685760243610610561576004358060a01c61056157604052600560405160205260005260406000205460605260206060f35b63dd62ed3e81186104c25760443610610561576004358060a01c610561576040526024358060a01c610561576060526006604051602052600052604060002080606051602052600052604060002090505460805260206080f35b6318160ddd81186104e157600436106105615760075460405260206040f35b505b60006000fd5b60405115610561576007546060518082038281116105615790509050600755600560405160205260005260406000208054606051808203828111610561579050905081555060006040517fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef60605160805260206080a3565b600080fda165767970657283000307000b",
-  "deployedSourceMap": "-1:-1:0:-;;;;:::-;;:::-;:::-;;;;;;;:::-;;;;;:::-;;;;;:::-;;;;;;;:::-;1685:13;;2008:14;2023:10;2008:26;;;;;;;:36;;2113:6;-1:-1;;2008:36;-1:-1;2008:36;-1:-1;;;:::-;2008:36;;;;;-1:-1;2008:36;2049:14;2064:3;-1:-1;2049:19;;;;;;;:29;;2113:6;-1:-1;;2049:29;-1:-1;2049:29;-1:-1;;;:::-;2049:29;;;;;-1:-1;2049:29;2108:3;2083:37;2096:10;2083:37;2113:6;-1:-1;;;;2083:37;;2132:4;-1:-1;;;;;:::-;;;;;:::-;;;;;:::-;;;;;;;:::-;2166:15;;-1:-1;;;;;;:::-;2183:13;;2627:14;2642:5;-1:-1;2627:21;;;;;;;:31;;2893:6;-1:-1;;2627:31;-1:-1;2627:31;-1:-1;;;:::-;2627:31;;;;;-1:-1;2627:31;2663:14;2678:3;-1:-1;2663:19;;;;;;;:29;;2893:6;-1:-1;;2663:29;-1:-1;2663:29;-1:-1;;;:::-;2663:29;;;;;-1:-1;2663:29;2820:14;2835:5;-1:-1;2820:21;;;;;;;-1:-1;2842:10;-1:-1;;;;;;;2820:33;;:43;;2893:6;-1:-1;;2820:43;-1:-1;2820:43;-1:-1;;;:::-;2820:43;;;;;-1:-1;2820:43;2888:3;2868:32;2881:5;2868:32;;2893:6;-1:-1;;;;2868:32;;2912:4;-1:-1;;;;;:::-;;;;;:::-;;;;;:::-;;;;;;;:::-;2941:18;;3708:6;-1:-1;3623:14;3638:10;3623:26;;;;;;;-1:-1;3650:8;-1:-1;;;;;;;;3623:36;;:45;3698:8;3673:42;3686:10;3673:42;3708:6;-1:-1;;;;3673:42;;3727:4;-1:-1;;;;;:::-;;;;;:::-;;;;;:::-;;;;;;;:::-;3753:12;;4115:11;4101:25;:10;:25;4094:32;:::-;4138:3;:21;;4131:28;:::-;4164:16;:26;4263:6;-1:-1;;4164:26;-1:-1;4164:26;-1:-1;;;:::-;4164:26;;;;:16;:26;4195:14;4210:3;-1:-1;4195:19;;;;;;;:29;;4263:6;-1:-1;;4195:29;-1:-1;4195:29;-1:-1;;;:::-;4195:29;;;;;-1:-1;4195:29;4258:3;4229:41;;;4263:6;-1:-1;;;;4229:41;;-1:-1;:::-;;;;;:::-;;;;;:::-;4853:10;-1:-1;;4865:6;-1:-1;;;;4842:30;:::i;-1:-1::-;;:::-;;;;;:::-;;;;;:::-;;;;;;;:::-;4898:12;;5115:14;5130:3;-1:-1;5115:19;;;;;;;-1:-1;5135:10;-1:-1;;;;;;;5115:31;;:41;;5177:6;-1:-1;;5115:41;-1:-1;5115:41;-1:-1;;;:::-;5115:41;;;;;-1:-1;5115:41;5172:3;-1:-1;;;5177:6;-1:-1;;;;5161:23;:::i;-1:-1::-;;:::-;;;;;:::-;;;;;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::-;;;;;:::-;;;;;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::-;;;;;:::-;;;;;:::-;;;;;;;;:::-;;;;;:::-;;;;;:::-;;;;;;;:::-;;;;;;;;;;;;;;;;;;;:::-;;;;;:::-;;;;;:::-;;;;;;;:::-;;;;;;;;;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::-;;;;;:::-;;;;;:::-;;;;;;;;:::-;;:::-;;;;4283:397::-;4548:3;:21;;4541:28;:::-;4574:16;-1:-1;4594:6;-1:-1;;;;;;;;:::-;;;4574:26;;:16;-1:-1;4605:14;4620:3;-1:-1;4605:19;;;;;;;-1:-1;;4628:6;-1:-1;;;;;;;;:::-;;;4605:29;;-1:-1;;4605:29;4639:41;4652:3;4639:41;;4673:6;-1:-1;;;;4639:41;;-1:-1::-;:::-;;;",
+  "deployedSourceMap": "-1:-1:0:-;;;;:::-;;:::-;:::-;;;;;;;:::-;;;;;:::-;;;;;:::-;;;;;;;:::-;1686:13;;2009:14;2024:10;2009:26;;;;;;;:36;;2114:6;-1:-1;;2009:36;-1:-1;2009:36;-1:-1;;;:::-;2009:36;;;;;-1:-1;2009:36;2050:14;2065:3;-1:-1;2050:19;;;;;;;:29;;2114:6;-1:-1;;2050:29;-1:-1;2050:29;-1:-1;;;:::-;2050:29;;;;;-1:-1;2050:29;2109:3;2084:37;2097:10;2084:37;2114:6;-1:-1;;;;2084:37;;2133:4;-1:-1;;;;;:::-;;;;;:::-;;;;;:::-;;;;;;;:::-;2167:15;;-1:-1;;;;;;:::-;2184:13;;2628:14;2643:5;-1:-1;2628:21;;;;;;;:31;;2894:6;-1:-1;;2628:31;-1:-1;2628:31;-1:-1;;;:::-;2628:31;;;;;-1:-1;2628:31;2664:14;2679:3;-1:-1;2664:19;;;;;;;:29;;2894:6;-1:-1;;2664:29;-1:-1;2664:29;-1:-1;;;:::-;2664:29;;;;;-1:-1;2664:29;2821:14;2836:5;-1:-1;2821:21;;;;;;;-1:-1;2843:10;-1:-1;;;;;;;2821:33;;:43;;2894:6;-1:-1;;2821:43;-1:-1;2821:43;-1:-1;;;:::-;2821:43;;;;;-1:-1;2821:43;2889:3;2869:32;2882:5;2869:32;;2894:6;-1:-1;;;;2869:32;;2913:4;-1:-1;;;;;:::-;;;;;:::-;;;;;:::-;;;;;;;:::-;2942:18;;3709:6;-1:-1;3624:14;3639:10;3624:26;;;;;;;-1:-1;3651:8;-1:-1;;;;;;;;3624:36;;:45;3699:8;3674:42;3687:10;3674:42;3709:6;-1:-1;;;;3674:42;;3728:4;-1:-1;;;;;:::-;;;;;:::-;;;;;:::-;;;;;;;:::-;3754:12;;4116:11;4102:25;:10;:25;4095:32;:::-;4139:3;:21;;4132:28;:::-;4165:16;:26;4264:6;-1:-1;;4165:26;-1:-1;4165:26;-1:-1;;;:::-;4165:26;;;;:16;:26;4196:14;4211:3;-1:-1;4196:19;;;;;;;:29;;4264:6;-1:-1;;4196:29;-1:-1;4196:29;-1:-1;;;:::-;4196:29;;;;;-1:-1;4196:29;4259:3;4230:41;;;4264:6;-1:-1;;;;4230:41;;-1:-1;:::-;;;;;:::-;;;;;:::-;4854:10;-1:-1;;4866:6;-1:-1;;;;4843:30;:::i;-1:-1::-;;:::-;;;;;:::-;;;;;:::-;;;;;;;:::-;4899:12;;5116:14;5131:3;-1:-1;5116:19;;;;;;;-1:-1;5136:10;-1:-1;;;;;;;5116:31;;:41;;5178:6;-1:-1;;5116:41;-1:-1;5116:41;-1:-1;;;:::-;5116:41;;;;;-1:-1;5116:41;5173:3;-1:-1;;;5178:6;-1:-1;;;;5162:23;:::i;-1:-1::-;;:::-;;;;;:::-;;;;;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::-;;;;;:::-;;;;;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::-;;;;;:::-;;;;;:::-;;;;;;;;:::-;;;;;:::-;;;;;:::-;;;;;;;:::-;;;;;;;;;;;;;;;;;;;:::-;;;;;:::-;;;;;:::-;;;;;;;:::-;;;;;;;;;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::-;;;;;:::-;;;;;:::-;;;;;;;;:::-;;:::-;;;;4284:397::-;4549:3;:21;;4542:28;:::-;4575:16;-1:-1;4595:6;-1:-1;;;;;;;;:::-;;;4575:26;;:16;-1:-1;4606:14;4621:3;-1:-1;4606:19;;;;;;;-1:-1;;4629:6;-1:-1;;;;;;;;:::-;;;4606:29;;-1:-1;;4606:29;4640:41;4653:3;4640:41;;4674:6;-1:-1;;;;4640:41;;-1:-1::-;:::-;;;",
   "language": "Vyper",
   "natspec": {
     "methods": {
@@ -4307,14 +4307,14 @@
   },
   "offset": [
     0,
-    5184
+    5185
   ],
   "opcodes": "PUSH1 0x3 CALLDATASIZE GT PUSH2 0x0C JUMPI PUSH2 0x4E3 JUMP JUMPDEST PUSH1 0x0 CALLDATALOAD PUSH1 0xE0 SHR CALLVALUE PUSH2 0x561 JUMPI PUSH4 0xA959CBB DUP2 XOR PUSH2 0x0BD JUMPI PUSH1 0x44 CALLDATASIZE LT PUSH2 0x561 JUMPI PUSH1 0x4 CALLDATALOAD DUP1 PUSH1 0xA0 SHR PUSH2 0x561 JUMPI PUSH1 0x40 MSTORE PUSH1 0x5 CALLER PUSH1 0x20 MSTORE PUSH1 0x0 MSTORE PUSH1 0x40 PUSH1 0x0 SHA3 DUP1 SLOAD PUSH1 0x24 CALLDATALOAD DUP1 DUP3 SUB DUP3 DUP2 GT PUSH2 0x561 JUMPI SWAP1 POP SWAP1 POP DUP2 SSTORE POP PUSH1 0x5 PUSH1 0x40 MLOAD PUSH1 0x20 MSTORE PUSH1 0x0 MSTORE PUSH1 0x40 PUSH1 0x0 SHA3 DUP1 SLOAD PUSH1 0x24 CALLDATALOAD DUP1 DUP3 ADD DUP3 DUP2 LT PUSH2 0x561 JUMPI SWAP1 POP SWAP1 POP DUP2 SSTORE POP PUSH1 0x40 MLOAD CALLER PUSH32 0xDDF252AD1BE2C89B69C2B068FC378DAA952BA7F163C4A11628F55A4DF523B3EF PUSH1 0x24 CALLDATALOAD PUSH1 0x60 MSTORE PUSH1 0x20 PUSH1 0x60 LOG3 PUSH1 0x1 PUSH1 0x60 MSTORE PUSH1 0x20 PUSH1 0x60 RETURN JUMPDEST PUSH4 0x23B872DD DUP2 XOR PUSH2 0x1AA JUMPI PUSH1 0x64 CALLDATASIZE LT PUSH2 0x561 JUMPI PUSH1 0x4 CALLDATALOAD DUP1 PUSH1 0xA0 SHR PUSH2 0x561 JUMPI PUSH1 0x40 MSTORE PUSH1 0x24 CALLDATALOAD DUP1 PUSH1 0xA0 SHR PUSH2 0x561 JUMPI PUSH1 0x60 MSTORE PUSH1 0x5 PUSH1 0x40 MLOAD PUSH1 0x20 MSTORE PUSH1 0x0 MSTORE PUSH1 0x40 PUSH1 0x0 SHA3 DUP1 SLOAD PUSH1 0x44 CALLDATALOAD DUP1 DUP3 SUB DUP3 DUP2 GT PUSH2 0x561 JUMPI SWAP1 POP SWAP1 POP DUP2 SSTORE POP PUSH1 0x5 PUSH1 0x60 MLOAD PUSH1 0x20 MSTORE PUSH1 0x0 MSTORE PUSH1 0x40 PUSH1 0x0 SHA3 DUP1 SLOAD PUSH1 0x44 CALLDATALOAD DUP1 DUP3 ADD DUP3 DUP2 LT PUSH2 0x561 JUMPI SWAP1 POP SWAP1 POP DUP2 SSTORE POP PUSH1 0x6 PUSH1 0x40 MLOAD PUSH1 0x20 MSTORE PUSH1 0x0 MSTORE PUSH1 0x40 PUSH1 0x0 SHA3 DUP1 CALLER PUSH1 0x20 MSTORE PUSH1 0x0 MSTORE PUSH1 0x40 PUSH1 0x0 SHA3 SWAP1 POP DUP1 SLOAD PUSH1 0x44 CALLDATALOAD DUP1 DUP3 SUB DUP3 DUP2 GT PUSH2 0x561 JUMPI SWAP1 POP SWAP1 POP DUP2 SSTORE POP PUSH1 0x60 MLOAD PUSH1 0x40 MLOAD PUSH32 0xDDF252AD1BE2C89B69C2B068FC378DAA952BA7F163C4A11628F55A4DF523B3EF PUSH1 0x44 CALLDATALOAD PUSH1 0x80 MSTORE PUSH1 0x20 PUSH1 0x80 LOG3 PUSH1 0x1 PUSH1 0x80 MSTORE PUSH1 0x20 PUSH1 0x80 RETURN JUMPDEST PUSH4 0x95EA7B3 DUP2 XOR PUSH2 0x229 JUMPI PUSH1 0x44 CALLDATASIZE LT PUSH2 0x561 JUMPI PUSH1 0x4 CALLDATALOAD DUP1 PUSH1 0xA0 SHR PUSH2 0x561 JUMPI PUSH1 0x40 MSTORE PUSH1 0x24 CALLDATALOAD PUSH1 0x6 CALLER PUSH1 0x20 MSTORE PUSH1 0x0 MSTORE PUSH1 0x40 PUSH1 0x0 SHA3 DUP1 PUSH1 0x40 MLOAD PUSH1 0x20 MSTORE PUSH1 0x0 MSTORE PUSH1 0x40 PUSH1 0x0 SHA3 SWAP1 POP SSTORE PUSH1 0x40 MLOAD CALLER PUSH32 0x8C5BE1E5EBEC7D5BD14F71427D1E84F3DD314C0F7B2291E5B20AC8C7C3B925 PUSH1 0x24 CALLDATALOAD PUSH1 0x60 MSTORE PUSH1 0x20 PUSH1 0x60 LOG3 PUSH1 0x1 PUSH1 0x60 MSTORE PUSH1 0x20 PUSH1 0x60 RETURN JUMPDEST PUSH4 0x40C1F19 DUP2 XOR PUSH2 0x2CB JUMPI PUSH1 0x44 CALLDATASIZE LT PUSH2 0x561 JUMPI PUSH1 0x4 CALLDATALOAD DUP1 PUSH1 0xA0 SHR PUSH2 0x561 JUMPI PUSH1 0x40 MSTORE PUSH1 0x8 SLOAD CALLER XOR PUSH2 0x561 JUMPI PUSH1 0x40 MLOAD ISZERO PUSH2 0x561 JUMPI PUSH1 0x7 SLOAD PUSH1 0x24 CALLDATALOAD DUP1 DUP3 ADD DUP3 DUP2 LT PUSH2 0x561 JUMPI SWAP1 POP SWAP1 POP PUSH1 0x7 SSTORE PUSH1 0x5 PUSH1 0x40 MLOAD PUSH1 0x20 MSTORE PUSH1 0x0 MSTORE PUSH1 0x40 PUSH1 0x0 SHA3 DUP1 SLOAD PUSH1 0x24 CALLDATALOAD DUP1 DUP3 ADD DUP3 DUP2 LT PUSH2 0x561 JUMPI SWAP1 POP SWAP1 POP DUP2 SSTORE POP PUSH1 0x40 MLOAD PUSH1 0x0 PUSH32 0xDDF252AD1BE2C89B69C2B068FC378DAA952BA7F163C4A11628F55A4DF523B3EF PUSH1 0x24 CALLDATALOAD PUSH1 0x60 MSTORE PUSH1 0x20 PUSH1 0x60 LOG3 STOP JUMPDEST PUSH4 0x42966C68 DUP2 XOR PUSH2 0x2F2 JUMPI PUSH1 0x24 CALLDATASIZE LT PUSH2 0x561 JUMPI CALLER PUSH1 0x40 MSTORE PUSH1 0x4 CALLDATALOAD PUSH1 0x60 MSTORE PUSH2 0x2F0 PUSH2 0x4E9 JUMP JUMPDEST STOP JUMPDEST PUSH4 0x79CC6790 DUP2 XOR PUSH2 0x35E JUMPI PUSH1 0x44 CALLDATASIZE LT PUSH2 0x561 JUMPI PUSH1 0x4 CALLDATALOAD DUP1 PUSH1 0xA0 SHR PUSH2 0x561 JUMPI PUSH1 0xA0 MSTORE PUSH1 0x6 PUSH1 0xA0 MLOAD PUSH1 0x20 MSTORE PUSH1 0x0 MSTORE PUSH1 0x40 PUSH1 0x0 SHA3 DUP1 CALLER PUSH1 0x20 MSTORE PUSH1 0x0 MSTORE PUSH1 0x40 PUSH1 0x0 SHA3 SWAP1 POP DUP1 SLOAD PUSH1 0x24 CALLDATALOAD DUP1 DUP3 SUB DUP3 DUP2 GT PUSH2 0x561 JUMPI SWAP1 POP SWAP1 POP DUP2 SSTORE POP PUSH1 0xA0 MLOAD PUSH1 0x40 MSTORE PUSH1 0x24 CALLDATALOAD PUSH1 0x60 MSTORE PUSH2 0x35C PUSH2 0x4E9 JUMP JUMPDEST STOP JUMPDEST PUSH4 0x6FDDE3 DUP2 XOR PUSH2 0x3B6 JUMPI PUSH1 0x4 CALLDATASIZE LT PUSH2 0x561 JUMPI PUSH1 0x20 DUP1 PUSH1 0x40 MSTORE DUP1 PUSH1 0x40 ADD PUSH1 0x0 SLOAD DUP1 DUP3 MSTORE PUSH1 0x20 DUP3 ADD PUSH1 0x1 SLOAD DUP2 MSTORE POP POP DUP1 MLOAD DUP1 PUSH1 0x20 DUP4 ADD ADD PUSH1 0x1F DUP3 PUSH1 0x0 SUB AND CALLDATASIZE DUP3 CALLDATACOPY POP POP PUSH1 0x1F NOT PUSH1 0x1F DUP3 MLOAD PUSH1 0x20 ADD ADD AND SWAP1 POP DUP2 ADD SWAP1 POP PUSH1 0x40 RETURN JUMPDEST PUSH4 0x95D89B41 DUP2 XOR PUSH2 0x4E JUMPI PUSH1 0x4 CALLDATASIZE LT PUSH2 0x561 JUMPI PUSH1 0x20 DUP1 PUSH1 0x40 MSTORE DUP1 PUSH1 0x40 ADD PUSH1 0x2 SLOAD DUP1 DUP3 MSTORE PUSH1 0x20 DUP3 ADD PUSH1 0x3 SLOAD DUP2 MSTORE POP POP DUP1 MLOAD DUP1 PUSH1 0x20 DUP4 ADD ADD PUSH1 0x1F DUP3 PUSH1 0x0 SUB AND CALLDATASIZE DUP3 CALLDATACOPY POP POP PUSH1 0x1F NOT PUSH1 0x1F DUP3 MLOAD PUSH1 0x20 ADD ADD AND SWAP1 POP DUP2 ADD SWAP1 POP PUSH1 0x40 RETURN JUMPDEST PUSH4 0x313CE567 DUP2 XOR PUSH2 0x42D JUMPI PUSH1 0x4 CALLDATASIZE LT PUSH2 0x561 JUMPI PUSH1 0x4 SLOAD PUSH1 0x40 MSTORE PUSH1 0x20 PUSH1 0x40 RETURN JUMPDEST PUSH4 0x70A08231 DUP2 XOR PUSH2 0x468 JUMPI PUSH1 0x24 CALLDATASIZE LT PUSH2 0x561 JUMPI PUSH1 0x4 CALLDATALOAD DUP1 PUSH1 0xA0 SHR PUSH2 0x561 JUMPI PUSH1 0x40 MSTORE PUSH1 0x5 PUSH1 0x40 MLOAD PUSH1 0x20 MSTORE PUSH1 0x0 MSTORE PUSH1 0x40 PUSH1 0x0 SHA3 SLOAD PUSH1 0x60 MSTORE PUSH1 0x20 PUSH1 0x60 RETURN JUMPDEST PUSH4 0xDD62ED3E DUP2 XOR PUSH2 0x4C2 JUMPI PUSH1 0x44 CALLDATASIZE LT PUSH2 0x561 JUMPI PUSH1 0x4 CALLDATALOAD DUP1 PUSH1 0xA0 SHR PUSH2 0x561 JUMPI PUSH1 0x40 MSTORE PUSH1 0x24 CALLDATALOAD DUP1 PUSH1 0xA0 SHR PUSH2 0x561 JUMPI PUSH1 0x60 MSTORE PUSH1 0x6 PUSH1 0x40 MLOAD PUSH1 0x20 MSTORE PUSH1 0x0 MSTORE PUSH1 0x40 PUSH1 0x0 SHA3 DUP1 PUSH1 0x60 MLOAD PUSH1 0x20 MSTORE PUSH1 0x0 MSTORE PUSH1 0x40 PUSH1 0x0 SHA3 SWAP1 POP SLOAD PUSH1 0x80 MSTORE PUSH1 0x20 PUSH1 0x80 RETURN JUMPDEST PUSH4 0x1816DDD DUP2 XOR PUSH2 0x4E1 JUMPI PUSH1 0x4 CALLDATASIZE LT PUSH2 0x561 JUMPI PUSH1 0x7 SLOAD PUSH1 0x40 MSTORE PUSH1 0x20 PUSH1 0x40 RETURN JUMPDEST POP JUMPDEST PUSH1 0x0 PUSH1 0x0 REVERT JUMPDEST PUSH1 0x40 MLOAD ISZERO PUSH2 0x561 JUMPI PUSH1 0x7 SLOAD PUSH1 0x60 MLOAD DUP1 DUP3 SUB DUP3 DUP2 GT PUSH2 0x561 JUMPI SWAP1 POP SWAP1 POP PUSH1 0x7 SSTORE PUSH1 0x5 PUSH1 0x40 MLOAD PUSH1 0x20 MSTORE PUSH1 0x0 MSTORE PUSH1 0x40 PUSH1 0x0 SHA3 DUP1 SLOAD PUSH1 0x60 MLOAD DUP1 DUP3 SUB DUP3 DUP2 GT PUSH2 0x561 JUMPI SWAP1 POP SWAP1 POP DUP2 SSTORE POP PUSH1 0x0 PUSH1 0x40 MLOAD PUSH32 0xDDF252AD1BE2C89B69C2B068FC378DAA952BA7F163C4A11628F55A4DF523B3EF PUSH1 0x60 MLOAD PUSH1 0x80 MSTORE PUSH1 0x20 PUSH1 0x80 LOG3 JUMP JUMPDEST PUSH1 0x0 DUP1 REVERT LOG1 PUSH6 0x767970657283 STOP SUB SMOD STOP SIGNEXTEND",
   "pcMap": {
     "0": {
       "offset": [
         0,
-        5184
+        5185
       ],
       "op": "PUSH1",
       "path": "0",
@@ -4428,8 +4428,8 @@
     "54": {
       "fn": "ERC20.transfer",
       "offset": [
-        1685,
-        1698
+        1686,
+        1699
       ],
       "op": "PUSH1",
       "path": "0",
@@ -4438,8 +4438,8 @@
     "56": {
       "fn": "ERC20.transfer",
       "offset": [
-        1685,
-        1698
+        1686,
+        1699
       ],
       "op": "MSTORE",
       "path": "0"
@@ -4447,8 +4447,8 @@
     "57": {
       "fn": "ERC20.transfer",
       "offset": [
-        2008,
-        2022
+        2009,
+        2023
       ],
       "op": "PUSH1",
       "path": "0",
@@ -4458,8 +4458,8 @@
     "59": {
       "fn": "ERC20.transfer",
       "offset": [
-        2023,
-        2033
+        2024,
+        2034
       ],
       "op": "CALLER",
       "path": "0"
@@ -4467,8 +4467,8 @@
     "60": {
       "fn": "ERC20.transfer",
       "offset": [
-        2008,
-        2034
+        2009,
+        2035
       ],
       "op": "PUSH1",
       "path": "0",
@@ -4477,8 +4477,8 @@
     "62": {
       "fn": "ERC20.transfer",
       "offset": [
-        2008,
-        2034
+        2009,
+        2035
       ],
       "op": "MSTORE",
       "path": "0"
@@ -4486,8 +4486,8 @@
     "63": {
       "fn": "ERC20.transfer",
       "offset": [
-        2008,
-        2034
+        2009,
+        2035
       ],
       "op": "PUSH1",
       "path": "0",
@@ -4496,8 +4496,8 @@
     "65": {
       "fn": "ERC20.transfer",
       "offset": [
-        2008,
-        2034
+        2009,
+        2035
       ],
       "op": "MSTORE",
       "path": "0"
@@ -4505,8 +4505,8 @@
     "66": {
       "fn": "ERC20.transfer",
       "offset": [
-        2008,
-        2034
+        2009,
+        2035
       ],
       "op": "PUSH1",
       "path": "0",
@@ -4515,8 +4515,8 @@
     "68": {
       "fn": "ERC20.transfer",
       "offset": [
-        2008,
-        2034
+        2009,
+        2035
       ],
       "op": "PUSH1",
       "path": "0",
@@ -4525,8 +4525,8 @@
     "70": {
       "fn": "ERC20.transfer",
       "offset": [
-        2008,
-        2034
+        2009,
+        2035
       ],
       "op": "SHA3",
       "path": "0"
@@ -4534,8 +4534,8 @@
     "71": {
       "fn": "ERC20.transfer",
       "offset": [
-        2008,
-        2044
+        2009,
+        2045
       ],
       "op": "DUP1",
       "path": "0"
@@ -4543,8 +4543,8 @@
     "72": {
       "fn": "ERC20.transfer",
       "offset": [
-        2008,
-        2044
+        2009,
+        2045
       ],
       "op": "SLOAD",
       "path": "0"
@@ -4552,8 +4552,8 @@
     "73": {
       "fn": "ERC20.transfer",
       "offset": [
-        2113,
-        2119
+        2114,
+        2120
       ],
       "op": "PUSH1",
       "path": "0",
@@ -4569,8 +4569,8 @@
     "77": {
       "fn": "ERC20.transfer",
       "offset": [
-        2008,
-        2044
+        2009,
+        2045
       ],
       "op": "DUP3",
       "path": "0"
@@ -4581,8 +4581,8 @@
     "79": {
       "fn": "ERC20.transfer",
       "offset": [
-        2008,
-        2044
+        2009,
+        2045
       ],
       "op": "DUP3",
       "path": "0"
@@ -4603,8 +4603,8 @@
     "86": {
       "fn": "ERC20.transfer",
       "offset": [
-        2008,
-        2044
+        2009,
+        2045
       ],
       "op": "SWAP1",
       "path": "0"
@@ -4612,8 +4612,8 @@
     "87": {
       "fn": "ERC20.transfer",
       "offset": [
-        2008,
-        2044
+        2009,
+        2045
       ],
       "op": "POP",
       "path": "0"
@@ -4621,8 +4621,8 @@
     "88": {
       "fn": "ERC20.transfer",
       "offset": [
-        2008,
-        2044
+        2009,
+        2045
       ],
       "op": "SWAP1",
       "path": "0"
@@ -4630,8 +4630,8 @@
     "89": {
       "fn": "ERC20.transfer",
       "offset": [
-        2008,
-        2044
+        2009,
+        2045
       ],
       "op": "POP",
       "path": "0"
@@ -4639,8 +4639,8 @@
     "90": {
       "fn": "ERC20.transfer",
       "offset": [
-        2008,
-        2044
+        2009,
+        2045
       ],
       "op": "DUP2",
       "path": "0"
@@ -4651,8 +4651,8 @@
     "92": {
       "fn": "ERC20.transfer",
       "offset": [
-        2008,
-        2044
+        2009,
+        2045
       ],
       "op": "POP",
       "path": "0"
@@ -4660,8 +4660,8 @@
     "93": {
       "fn": "ERC20.transfer",
       "offset": [
-        2049,
-        2063
+        2050,
+        2064
       ],
       "op": "PUSH1",
       "path": "0",
@@ -4671,8 +4671,8 @@
     "95": {
       "fn": "ERC20.transfer",
       "offset": [
-        2064,
-        2067
+        2065,
+        2068
       ],
       "op": "PUSH1",
       "path": "0",
@@ -4684,8 +4684,8 @@
     "98": {
       "fn": "ERC20.transfer",
       "offset": [
-        2049,
-        2068
+        2050,
+        2069
       ],
       "op": "PUSH1",
       "path": "0",
@@ -4694,8 +4694,8 @@
     "100": {
       "fn": "ERC20.transfer",
       "offset": [
-        2049,
-        2068
+        2050,
+        2069
       ],
       "op": "MSTORE",
       "path": "0"
@@ -4703,8 +4703,8 @@
     "101": {
       "fn": "ERC20.transfer",
       "offset": [
-        2049,
-        2068
+        2050,
+        2069
       ],
       "op": "PUSH1",
       "path": "0",
@@ -4713,8 +4713,8 @@
     "103": {
       "fn": "ERC20.transfer",
       "offset": [
-        2049,
-        2068
+        2050,
+        2069
       ],
       "op": "MSTORE",
       "path": "0"
@@ -4722,8 +4722,8 @@
     "104": {
       "fn": "ERC20.transfer",
       "offset": [
-        2049,
-        2068
+        2050,
+        2069
       ],
       "op": "PUSH1",
       "path": "0",
@@ -4732,8 +4732,8 @@
     "106": {
       "fn": "ERC20.transfer",
       "offset": [
-        2049,
-        2068
+        2050,
+        2069
       ],
       "op": "PUSH1",
       "path": "0",
@@ -4742,8 +4742,8 @@
     "108": {
       "fn": "ERC20.transfer",
       "offset": [
-        2049,
-        2068
+        2050,
+        2069
       ],
       "op": "SHA3",
       "path": "0"
@@ -4751,8 +4751,8 @@
     "109": {
       "fn": "ERC20.transfer",
       "offset": [
-        2049,
-        2078
+        2050,
+        2079
       ],
       "op": "DUP1",
       "path": "0"
@@ -4760,8 +4760,8 @@
     "110": {
       "fn": "ERC20.transfer",
       "offset": [
-        2049,
-        2078
+        2050,
+        2079
       ],
       "op": "SLOAD",
       "path": "0"
@@ -4769,8 +4769,8 @@
     "111": {
       "fn": "ERC20.transfer",
       "offset": [
-        2113,
-        2119
+        2114,
+        2120
       ],
       "op": "PUSH1",
       "path": "0",
@@ -4785,8 +4785,8 @@
     "115": {
       "fn": "ERC20.transfer",
       "offset": [
-        2049,
-        2078
+        2050,
+        2079
       ],
       "op": "DUP3",
       "path": "0"
@@ -4797,8 +4797,8 @@
     "117": {
       "fn": "ERC20.transfer",
       "offset": [
-        2049,
-        2078
+        2050,
+        2079
       ],
       "op": "DUP3",
       "path": "0"
@@ -4819,8 +4819,8 @@
     "124": {
       "fn": "ERC20.transfer",
       "offset": [
-        2049,
-        2078
+        2050,
+        2079
       ],
       "op": "SWAP1",
       "path": "0"
@@ -4828,8 +4828,8 @@
     "125": {
       "fn": "ERC20.transfer",
       "offset": [
-        2049,
-        2078
+        2050,
+        2079
       ],
       "op": "POP",
       "path": "0"
@@ -4837,8 +4837,8 @@
     "126": {
       "fn": "ERC20.transfer",
       "offset": [
-        2049,
-        2078
+        2050,
+        2079
       ],
       "op": "SWAP1",
       "path": "0"
@@ -4846,8 +4846,8 @@
     "127": {
       "fn": "ERC20.transfer",
       "offset": [
-        2049,
-        2078
+        2050,
+        2079
       ],
       "op": "POP",
       "path": "0"
@@ -4855,8 +4855,8 @@
     "128": {
       "fn": "ERC20.transfer",
       "offset": [
-        2049,
-        2078
+        2050,
+        2079
       ],
       "op": "DUP2",
       "path": "0"
@@ -4867,8 +4867,8 @@
     "130": {
       "fn": "ERC20.transfer",
       "offset": [
-        2049,
-        2078
+        2050,
+        2079
       ],
       "op": "POP",
       "path": "0"
@@ -4876,8 +4876,8 @@
     "131": {
       "fn": "ERC20.transfer",
       "offset": [
-        2108,
-        2111
+        2109,
+        2112
       ],
       "op": "PUSH1",
       "path": "0",
@@ -4886,8 +4886,8 @@
     "133": {
       "fn": "ERC20.transfer",
       "offset": [
-        2083,
-        2120
+        2084,
+        2121
       ],
       "op": "MLOAD",
       "path": "0"
@@ -4895,8 +4895,8 @@
     "134": {
       "fn": "ERC20.transfer",
       "offset": [
-        2096,
-        2106
+        2097,
+        2107
       ],
       "op": "CALLER",
       "path": "0"
@@ -4904,8 +4904,8 @@
     "135": {
       "fn": "ERC20.transfer",
       "offset": [
-        2083,
-        2120
+        2084,
+        2121
       ],
       "op": "PUSH32",
       "path": "0",
@@ -4914,8 +4914,8 @@
     "168": {
       "fn": "ERC20.transfer",
       "offset": [
-        2113,
-        2119
+        2114,
+        2120
       ],
       "op": "PUSH1",
       "path": "0",
@@ -4938,8 +4938,8 @@
     "176": {
       "fn": "ERC20.transfer",
       "offset": [
-        2083,
-        2120
+        2084,
+        2121
       ],
       "op": "PUSH1",
       "path": "0",
@@ -4948,8 +4948,8 @@
     "178": {
       "fn": "ERC20.transfer",
       "offset": [
-        2083,
-        2120
+        2084,
+        2121
       ],
       "op": "LOG3",
       "path": "0"
@@ -4957,8 +4957,8 @@
     "179": {
       "fn": "ERC20.transfer",
       "offset": [
-        2132,
-        2136
+        2133,
+        2137
       ],
       "op": "PUSH1",
       "path": "0",
@@ -5047,8 +5047,8 @@
     "220": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2166,
-        2181
+        2167,
+        2182
       ],
       "op": "PUSH1",
       "path": "0",
@@ -5057,8 +5057,8 @@
     "222": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2166,
-        2181
+        2167,
+        2182
       ],
       "op": "MSTORE",
       "path": "0"
@@ -5090,8 +5090,8 @@
     "234": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2183,
-        2196
+        2184,
+        2197
       ],
       "op": "PUSH1",
       "path": "0",
@@ -5100,8 +5100,8 @@
     "236": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2183,
-        2196
+        2184,
+        2197
       ],
       "op": "MSTORE",
       "path": "0"
@@ -5109,8 +5109,8 @@
     "237": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2627,
-        2641
+        2628,
+        2642
       ],
       "op": "PUSH1",
       "path": "0",
@@ -5120,8 +5120,8 @@
     "239": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2642,
-        2647
+        2643,
+        2648
       ],
       "op": "PUSH1",
       "path": "0",
@@ -5133,8 +5133,8 @@
     "242": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2627,
-        2648
+        2628,
+        2649
       ],
       "op": "PUSH1",
       "path": "0",
@@ -5143,8 +5143,8 @@
     "244": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2627,
-        2648
+        2628,
+        2649
       ],
       "op": "MSTORE",
       "path": "0"
@@ -5152,8 +5152,8 @@
     "245": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2627,
-        2648
+        2628,
+        2649
       ],
       "op": "PUSH1",
       "path": "0",
@@ -5162,8 +5162,8 @@
     "247": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2627,
-        2648
+        2628,
+        2649
       ],
       "op": "MSTORE",
       "path": "0"
@@ -5171,8 +5171,8 @@
     "248": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2627,
-        2648
+        2628,
+        2649
       ],
       "op": "PUSH1",
       "path": "0",
@@ -5181,8 +5181,8 @@
     "250": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2627,
-        2648
+        2628,
+        2649
       ],
       "op": "PUSH1",
       "path": "0",
@@ -5191,8 +5191,8 @@
     "252": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2627,
-        2648
+        2628,
+        2649
       ],
       "op": "SHA3",
       "path": "0"
@@ -5200,8 +5200,8 @@
     "253": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2627,
-        2658
+        2628,
+        2659
       ],
       "op": "DUP1",
       "path": "0"
@@ -5209,8 +5209,8 @@
     "254": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2627,
-        2658
+        2628,
+        2659
       ],
       "op": "SLOAD",
       "path": "0"
@@ -5218,8 +5218,8 @@
     "255": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2893,
-        2899
+        2894,
+        2900
       ],
       "op": "PUSH1",
       "path": "0",
@@ -5235,8 +5235,8 @@
     "259": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2627,
-        2658
+        2628,
+        2659
       ],
       "op": "DUP3",
       "path": "0"
@@ -5247,8 +5247,8 @@
     "261": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2627,
-        2658
+        2628,
+        2659
       ],
       "op": "DUP3",
       "path": "0"
@@ -5269,8 +5269,8 @@
     "268": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2627,
-        2658
+        2628,
+        2659
       ],
       "op": "SWAP1",
       "path": "0"
@@ -5278,8 +5278,8 @@
     "269": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2627,
-        2658
+        2628,
+        2659
       ],
       "op": "POP",
       "path": "0"
@@ -5287,8 +5287,8 @@
     "270": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2627,
-        2658
+        2628,
+        2659
       ],
       "op": "SWAP1",
       "path": "0"
@@ -5296,8 +5296,8 @@
     "271": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2627,
-        2658
+        2628,
+        2659
       ],
       "op": "POP",
       "path": "0"
@@ -5305,8 +5305,8 @@
     "272": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2627,
-        2658
+        2628,
+        2659
       ],
       "op": "DUP2",
       "path": "0"
@@ -5317,8 +5317,8 @@
     "274": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2627,
-        2658
+        2628,
+        2659
       ],
       "op": "POP",
       "path": "0"
@@ -5326,8 +5326,8 @@
     "275": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2663,
-        2677
+        2664,
+        2678
       ],
       "op": "PUSH1",
       "path": "0",
@@ -5337,8 +5337,8 @@
     "277": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2678,
-        2681
+        2679,
+        2682
       ],
       "op": "PUSH1",
       "path": "0",
@@ -5350,8 +5350,8 @@
     "280": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2663,
-        2682
+        2664,
+        2683
       ],
       "op": "PUSH1",
       "path": "0",
@@ -5360,8 +5360,8 @@
     "282": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2663,
-        2682
+        2664,
+        2683
       ],
       "op": "MSTORE",
       "path": "0"
@@ -5369,8 +5369,8 @@
     "283": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2663,
-        2682
+        2664,
+        2683
       ],
       "op": "PUSH1",
       "path": "0",
@@ -5379,8 +5379,8 @@
     "285": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2663,
-        2682
+        2664,
+        2683
       ],
       "op": "MSTORE",
       "path": "0"
@@ -5388,8 +5388,8 @@
     "286": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2663,
-        2682
+        2664,
+        2683
       ],
       "op": "PUSH1",
       "path": "0",
@@ -5398,8 +5398,8 @@
     "288": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2663,
-        2682
+        2664,
+        2683
       ],
       "op": "PUSH1",
       "path": "0",
@@ -5408,8 +5408,8 @@
     "290": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2663,
-        2682
+        2664,
+        2683
       ],
       "op": "SHA3",
       "path": "0"
@@ -5417,8 +5417,8 @@
     "291": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2663,
-        2692
+        2664,
+        2693
       ],
       "op": "DUP1",
       "path": "0"
@@ -5426,8 +5426,8 @@
     "292": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2663,
-        2692
+        2664,
+        2693
       ],
       "op": "SLOAD",
       "path": "0"
@@ -5435,8 +5435,8 @@
     "293": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2893,
-        2899
+        2894,
+        2900
       ],
       "op": "PUSH1",
       "path": "0",
@@ -5451,8 +5451,8 @@
     "297": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2663,
-        2692
+        2664,
+        2693
       ],
       "op": "DUP3",
       "path": "0"
@@ -5463,8 +5463,8 @@
     "299": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2663,
-        2692
+        2664,
+        2693
       ],
       "op": "DUP3",
       "path": "0"
@@ -5485,8 +5485,8 @@
     "306": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2663,
-        2692
+        2664,
+        2693
       ],
       "op": "SWAP1",
       "path": "0"
@@ -5494,8 +5494,8 @@
     "307": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2663,
-        2692
+        2664,
+        2693
       ],
       "op": "POP",
       "path": "0"
@@ -5503,8 +5503,8 @@
     "308": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2663,
-        2692
+        2664,
+        2693
       ],
       "op": "SWAP1",
       "path": "0"
@@ -5512,8 +5512,8 @@
     "309": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2663,
-        2692
+        2664,
+        2693
       ],
       "op": "POP",
       "path": "0"
@@ -5521,8 +5521,8 @@
     "310": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2663,
-        2692
+        2664,
+        2693
       ],
       "op": "DUP2",
       "path": "0"
@@ -5533,8 +5533,8 @@
     "312": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2663,
-        2692
+        2664,
+        2693
       ],
       "op": "POP",
       "path": "0"
@@ -5542,8 +5542,8 @@
     "313": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2820,
-        2834
+        2821,
+        2835
       ],
       "op": "PUSH1",
       "path": "0",
@@ -5553,8 +5553,8 @@
     "315": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2835,
-        2840
+        2836,
+        2841
       ],
       "op": "PUSH1",
       "path": "0",
@@ -5566,8 +5566,8 @@
     "318": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2820,
-        2841
+        2821,
+        2842
       ],
       "op": "PUSH1",
       "path": "0",
@@ -5576,8 +5576,8 @@
     "320": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2820,
-        2841
+        2821,
+        2842
       ],
       "op": "MSTORE",
       "path": "0"
@@ -5585,8 +5585,8 @@
     "321": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2820,
-        2841
+        2821,
+        2842
       ],
       "op": "PUSH1",
       "path": "0",
@@ -5595,8 +5595,8 @@
     "323": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2820,
-        2841
+        2821,
+        2842
       ],
       "op": "MSTORE",
       "path": "0"
@@ -5604,8 +5604,8 @@
     "324": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2820,
-        2841
+        2821,
+        2842
       ],
       "op": "PUSH1",
       "path": "0",
@@ -5614,8 +5614,8 @@
     "326": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2820,
-        2841
+        2821,
+        2842
       ],
       "op": "PUSH1",
       "path": "0",
@@ -5624,8 +5624,8 @@
     "328": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2820,
-        2841
+        2821,
+        2842
       ],
       "op": "SHA3",
       "path": "0"
@@ -5636,8 +5636,8 @@
     "330": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2842,
-        2852
+        2843,
+        2853
       ],
       "op": "CALLER",
       "path": "0"
@@ -5670,8 +5670,8 @@
     "342": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2820,
-        2853
+        2821,
+        2854
       ],
       "op": "SWAP1",
       "path": "0"
@@ -5679,8 +5679,8 @@
     "343": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2820,
-        2853
+        2821,
+        2854
       ],
       "op": "POP",
       "path": "0"
@@ -5688,8 +5688,8 @@
     "344": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2820,
-        2863
+        2821,
+        2864
       ],
       "op": "DUP1",
       "path": "0"
@@ -5697,8 +5697,8 @@
     "345": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2820,
-        2863
+        2821,
+        2864
       ],
       "op": "SLOAD",
       "path": "0"
@@ -5706,8 +5706,8 @@
     "346": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2893,
-        2899
+        2894,
+        2900
       ],
       "op": "PUSH1",
       "path": "0",
@@ -5722,8 +5722,8 @@
     "350": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2820,
-        2863
+        2821,
+        2864
       ],
       "op": "DUP3",
       "path": "0"
@@ -5734,8 +5734,8 @@
     "352": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2820,
-        2863
+        2821,
+        2864
       ],
       "op": "DUP3",
       "path": "0"
@@ -5756,8 +5756,8 @@
     "359": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2820,
-        2863
+        2821,
+        2864
       ],
       "op": "SWAP1",
       "path": "0"
@@ -5765,8 +5765,8 @@
     "360": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2820,
-        2863
+        2821,
+        2864
       ],
       "op": "POP",
       "path": "0"
@@ -5774,8 +5774,8 @@
     "361": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2820,
-        2863
+        2821,
+        2864
       ],
       "op": "SWAP1",
       "path": "0"
@@ -5783,8 +5783,8 @@
     "362": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2820,
-        2863
+        2821,
+        2864
       ],
       "op": "POP",
       "path": "0"
@@ -5792,8 +5792,8 @@
     "363": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2820,
-        2863
+        2821,
+        2864
       ],
       "op": "DUP2",
       "path": "0"
@@ -5804,8 +5804,8 @@
     "365": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2820,
-        2863
+        2821,
+        2864
       ],
       "op": "POP",
       "path": "0"
@@ -5813,8 +5813,8 @@
     "366": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2888,
-        2891
+        2889,
+        2892
       ],
       "op": "PUSH1",
       "path": "0",
@@ -5823,8 +5823,8 @@
     "368": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2868,
-        2900
+        2869,
+        2901
       ],
       "op": "MLOAD",
       "path": "0"
@@ -5832,8 +5832,8 @@
     "369": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2881,
-        2886
+        2882,
+        2887
       ],
       "op": "PUSH1",
       "path": "0",
@@ -5842,8 +5842,8 @@
     "371": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2868,
-        2900
+        2869,
+        2901
       ],
       "op": "MLOAD",
       "path": "0"
@@ -5851,8 +5851,8 @@
     "372": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2868,
-        2900
+        2869,
+        2901
       ],
       "op": "PUSH32",
       "path": "0",
@@ -5861,8 +5861,8 @@
     "405": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2893,
-        2899
+        2894,
+        2900
       ],
       "op": "PUSH1",
       "path": "0",
@@ -5885,8 +5885,8 @@
     "413": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2868,
-        2900
+        2869,
+        2901
       ],
       "op": "PUSH1",
       "path": "0",
@@ -5895,8 +5895,8 @@
     "415": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2868,
-        2900
+        2869,
+        2901
       ],
       "op": "LOG3",
       "path": "0"
@@ -5904,8 +5904,8 @@
     "416": {
       "fn": "ERC20.transferFrom",
       "offset": [
-        2912,
-        2916
+        2913,
+        2917
       ],
       "op": "PUSH1",
       "path": "0",
@@ -5994,8 +5994,8 @@
     "457": {
       "fn": "ERC20.approve",
       "offset": [
-        2941,
-        2959
+        2942,
+        2960
       ],
       "op": "PUSH1",
       "path": "0",
@@ -6004,8 +6004,8 @@
     "459": {
       "fn": "ERC20.approve",
       "offset": [
-        2941,
-        2959
+        2942,
+        2960
       ],
       "op": "MSTORE",
       "path": "0"
@@ -6013,8 +6013,8 @@
     "460": {
       "fn": "ERC20.approve",
       "offset": [
-        3708,
-        3714
+        3709,
+        3715
       ],
       "op": "PUSH1",
       "path": "0",
@@ -6027,8 +6027,8 @@
     "463": {
       "fn": "ERC20.approve",
       "offset": [
-        3623,
-        3637
+        3624,
+        3638
       ],
       "op": "PUSH1",
       "path": "0",
@@ -6038,8 +6038,8 @@
     "465": {
       "fn": "ERC20.approve",
       "offset": [
-        3638,
-        3648
+        3639,
+        3649
       ],
       "op": "CALLER",
       "path": "0"
@@ -6047,8 +6047,8 @@
     "466": {
       "fn": "ERC20.approve",
       "offset": [
-        3623,
-        3649
+        3624,
+        3650
       ],
       "op": "PUSH1",
       "path": "0",
@@ -6057,8 +6057,8 @@
     "468": {
       "fn": "ERC20.approve",
       "offset": [
-        3623,
-        3649
+        3624,
+        3650
       ],
       "op": "MSTORE",
       "path": "0"
@@ -6066,8 +6066,8 @@
     "469": {
       "fn": "ERC20.approve",
       "offset": [
-        3623,
-        3649
+        3624,
+        3650
       ],
       "op": "PUSH1",
       "path": "0",
@@ -6076,8 +6076,8 @@
     "471": {
       "fn": "ERC20.approve",
       "offset": [
-        3623,
-        3649
+        3624,
+        3650
       ],
       "op": "MSTORE",
       "path": "0"
@@ -6085,8 +6085,8 @@
     "472": {
       "fn": "ERC20.approve",
       "offset": [
-        3623,
-        3649
+        3624,
+        3650
       ],
       "op": "PUSH1",
       "path": "0",
@@ -6095,8 +6095,8 @@
     "474": {
       "fn": "ERC20.approve",
       "offset": [
-        3623,
-        3649
+        3624,
+        3650
       ],
       "op": "PUSH1",
       "path": "0",
@@ -6105,8 +6105,8 @@
     "476": {
       "fn": "ERC20.approve",
       "offset": [
-        3623,
-        3649
+        3624,
+        3650
       ],
       "op": "SHA3",
       "path": "0"
@@ -6117,8 +6117,8 @@
     "478": {
       "fn": "ERC20.approve",
       "offset": [
-        3650,
-        3658
+        3651,
+        3659
       ],
       "op": "PUSH1",
       "path": "0",
@@ -6155,8 +6155,8 @@
     "492": {
       "fn": "ERC20.approve",
       "offset": [
-        3623,
-        3659
+        3624,
+        3660
       ],
       "op": "SWAP1",
       "path": "0"
@@ -6164,8 +6164,8 @@
     "493": {
       "fn": "ERC20.approve",
       "offset": [
-        3623,
-        3659
+        3624,
+        3660
       ],
       "op": "POP",
       "path": "0"
@@ -6173,8 +6173,8 @@
     "494": {
       "fn": "ERC20.approve",
       "offset": [
-        3623,
-        3668
+        3624,
+        3669
       ],
       "op": "SSTORE",
       "path": "0"
@@ -6182,8 +6182,8 @@
     "495": {
       "fn": "ERC20.approve",
       "offset": [
-        3698,
-        3706
+        3699,
+        3707
       ],
       "op": "PUSH1",
       "path": "0",
@@ -6192,8 +6192,8 @@
     "497": {
       "fn": "ERC20.approve",
       "offset": [
-        3673,
-        3715
+        3674,
+        3716
       ],
       "op": "MLOAD",
       "path": "0"
@@ -6201,8 +6201,8 @@
     "498": {
       "fn": "ERC20.approve",
       "offset": [
-        3686,
-        3696
+        3687,
+        3697
       ],
       "op": "CALLER",
       "path": "0"
@@ -6210,8 +6210,8 @@
     "499": {
       "fn": "ERC20.approve",
       "offset": [
-        3673,
-        3715
+        3674,
+        3716
       ],
       "op": "PUSH32",
       "path": "0",
@@ -6220,8 +6220,8 @@
     "532": {
       "fn": "ERC20.approve",
       "offset": [
-        3708,
-        3714
+        3709,
+        3715
       ],
       "op": "PUSH1",
       "path": "0",
@@ -6244,8 +6244,8 @@
     "540": {
       "fn": "ERC20.approve",
       "offset": [
-        3673,
-        3715
+        3674,
+        3716
       ],
       "op": "PUSH1",
       "path": "0",
@@ -6254,8 +6254,8 @@
     "542": {
       "fn": "ERC20.approve",
       "offset": [
-        3673,
-        3715
+        3674,
+        3716
       ],
       "op": "LOG3",
       "path": "0"
@@ -6263,8 +6263,8 @@
     "543": {
       "fn": "ERC20.approve",
       "offset": [
-        3727,
-        3731
+        3728,
+        3732
       ],
       "op": "PUSH1",
       "path": "0",
@@ -6353,8 +6353,8 @@
     "584": {
       "fn": "ERC20.mint",
       "offset": [
-        3753,
-        3765
+        3754,
+        3766
       ],
       "op": "PUSH1",
       "path": "0",
@@ -6363,8 +6363,8 @@
     "586": {
       "fn": "ERC20.mint",
       "offset": [
-        3753,
-        3765
+        3754,
+        3766
       ],
       "op": "MSTORE",
       "path": "0"
@@ -6372,8 +6372,8 @@
     "587": {
       "fn": "ERC20.mint",
       "offset": [
-        4115,
-        4126
+        4116,
+        4127
       ],
       "op": "PUSH1",
       "path": "0",
@@ -6383,8 +6383,8 @@
     "589": {
       "fn": "ERC20.mint",
       "offset": [
-        4101,
-        4126
+        4102,
+        4127
       ],
       "op": "SLOAD",
       "path": "0"
@@ -6392,8 +6392,8 @@
     "590": {
       "fn": "ERC20.mint",
       "offset": [
-        4101,
-        4111
+        4102,
+        4112
       ],
       "op": "CALLER",
       "path": "0"
@@ -6401,8 +6401,8 @@
     "591": {
       "fn": "ERC20.mint",
       "offset": [
-        4101,
-        4126
+        4102,
+        4127
       ],
       "op": "XOR",
       "path": "0"
@@ -6410,8 +6410,8 @@
     "592": {
       "fn": "ERC20.mint",
       "offset": [
-        4094,
-        4126
+        4095,
+        4127
       ],
       "op": "PUSH2",
       "path": "0",
@@ -6421,8 +6421,8 @@
       "branch": 13,
       "fn": "ERC20.mint",
       "offset": [
-        4094,
-        4126
+        4095,
+        4127
       ],
       "op": "JUMPI",
       "path": "0"
@@ -6430,8 +6430,8 @@
     "596": {
       "fn": "ERC20.mint",
       "offset": [
-        4138,
-        4141
+        4139,
+        4142
       ],
       "op": "PUSH1",
       "path": "0",
@@ -6441,8 +6441,8 @@
     "598": {
       "fn": "ERC20.mint",
       "offset": [
-        4138,
-        4159
+        4139,
+        4160
       ],
       "op": "MLOAD",
       "path": "0"
@@ -6450,8 +6450,8 @@
     "599": {
       "fn": "ERC20.mint",
       "offset": [
-        4138,
-        4159
+        4139,
+        4160
       ],
       "op": "ISZERO",
       "path": "0"
@@ -6459,8 +6459,8 @@
     "600": {
       "fn": "ERC20.mint",
       "offset": [
-        4131,
-        4159
+        4132,
+        4160
       ],
       "op": "PUSH2",
       "path": "0",
@@ -6470,8 +6470,8 @@
       "branch": 15,
       "fn": "ERC20.mint",
       "offset": [
-        4131,
-        4159
+        4132,
+        4160
       ],
       "op": "JUMPI",
       "path": "0"
@@ -6479,8 +6479,8 @@
     "604": {
       "fn": "ERC20.mint",
       "offset": [
-        4164,
-        4180
+        4165,
+        4181
       ],
       "op": "PUSH1",
       "path": "0",
@@ -6490,8 +6490,8 @@
     "606": {
       "fn": "ERC20.mint",
       "offset": [
-        4164,
-        4190
+        4165,
+        4191
       ],
       "op": "SLOAD",
       "path": "0"
@@ -6499,8 +6499,8 @@
     "607": {
       "fn": "ERC20.mint",
       "offset": [
-        4263,
-        4269
+        4264,
+        4270
       ],
       "op": "PUSH1",
       "path": "0",
@@ -6516,8 +6516,8 @@
     "611": {
       "fn": "ERC20.mint",
       "offset": [
-        4164,
-        4190
+        4165,
+        4191
       ],
       "op": "DUP3",
       "path": "0"
@@ -6528,8 +6528,8 @@
     "613": {
       "fn": "ERC20.mint",
       "offset": [
-        4164,
-        4190
+        4165,
+        4191
       ],
       "op": "DUP3",
       "path": "0"
@@ -6550,8 +6550,8 @@
     "620": {
       "fn": "ERC20.mint",
       "offset": [
-        4164,
-        4190
+        4165,
+        4191
       ],
       "op": "SWAP1",
       "path": "0"
@@ -6559,8 +6559,8 @@
     "621": {
       "fn": "ERC20.mint",
       "offset": [
-        4164,
-        4190
+        4165,
+        4191
       ],
       "op": "POP",
       "path": "0"
@@ -6568,8 +6568,8 @@
     "622": {
       "fn": "ERC20.mint",
       "offset": [
-        4164,
-        4190
+        4165,
+        4191
       ],
       "op": "SWAP1",
       "path": "0"
@@ -6577,8 +6577,8 @@
     "623": {
       "fn": "ERC20.mint",
       "offset": [
-        4164,
-        4190
+        4165,
+        4191
       ],
       "op": "POP",
       "path": "0"
@@ -6586,8 +6586,8 @@
     "624": {
       "fn": "ERC20.mint",
       "offset": [
-        4164,
-        4180
+        4165,
+        4181
       ],
       "op": "PUSH1",
       "path": "0",
@@ -6596,8 +6596,8 @@
     "626": {
       "fn": "ERC20.mint",
       "offset": [
-        4164,
-        4190
+        4165,
+        4191
       ],
       "op": "SSTORE",
       "path": "0"
@@ -6605,8 +6605,8 @@
     "627": {
       "fn": "ERC20.mint",
       "offset": [
-        4195,
-        4209
+        4196,
+        4210
       ],
       "op": "PUSH1",
       "path": "0",
@@ -6616,8 +6616,8 @@
     "629": {
       "fn": "ERC20.mint",
       "offset": [
-        4210,
-        4213
+        4211,
+        4214
       ],
       "op": "PUSH1",
       "path": "0",
@@ -6629,8 +6629,8 @@
     "632": {
       "fn": "ERC20.mint",
       "offset": [
-        4195,
-        4214
+        4196,
+        4215
       ],
       "op": "PUSH1",
       "path": "0",
@@ -6639,8 +6639,8 @@
     "634": {
       "fn": "ERC20.mint",
       "offset": [
-        4195,
-        4214
+        4196,
+        4215
       ],
       "op": "MSTORE",
       "path": "0"
@@ -6648,8 +6648,8 @@
     "635": {
       "fn": "ERC20.mint",
       "offset": [
-        4195,
-        4214
+        4196,
+        4215
       ],
       "op": "PUSH1",
       "path": "0",
@@ -6658,8 +6658,8 @@
     "637": {
       "fn": "ERC20.mint",
       "offset": [
-        4195,
-        4214
+        4196,
+        4215
       ],
       "op": "MSTORE",
       "path": "0"
@@ -6667,8 +6667,8 @@
     "638": {
       "fn": "ERC20.mint",
       "offset": [
-        4195,
-        4214
+        4196,
+        4215
       ],
       "op": "PUSH1",
       "path": "0",
@@ -6677,8 +6677,8 @@
     "640": {
       "fn": "ERC20.mint",
       "offset": [
-        4195,
-        4214
+        4196,
+        4215
       ],
       "op": "PUSH1",
       "path": "0",
@@ -6687,8 +6687,8 @@
     "642": {
       "fn": "ERC20.mint",
       "offset": [
-        4195,
-        4214
+        4196,
+        4215
       ],
       "op": "SHA3",
       "path": "0"
@@ -6696,8 +6696,8 @@
     "643": {
       "fn": "ERC20.mint",
       "offset": [
-        4195,
-        4224
+        4196,
+        4225
       ],
       "op": "DUP1",
       "path": "0"
@@ -6705,8 +6705,8 @@
     "644": {
       "fn": "ERC20.mint",
       "offset": [
-        4195,
-        4224
+        4196,
+        4225
       ],
       "op": "SLOAD",
       "path": "0"
@@ -6714,8 +6714,8 @@
     "645": {
       "fn": "ERC20.mint",
       "offset": [
-        4263,
-        4269
+        4264,
+        4270
       ],
       "op": "PUSH1",
       "path": "0",
@@ -6730,8 +6730,8 @@
     "649": {
       "fn": "ERC20.mint",
       "offset": [
-        4195,
-        4224
+        4196,
+        4225
       ],
       "op": "DUP3",
       "path": "0"
@@ -6742,8 +6742,8 @@
     "651": {
       "fn": "ERC20.mint",
       "offset": [
-        4195,
-        4224
+        4196,
+        4225
       ],
       "op": "DUP3",
       "path": "0"
@@ -6764,8 +6764,8 @@
     "658": {
       "fn": "ERC20.mint",
       "offset": [
-        4195,
-        4224
+        4196,
+        4225
       ],
       "op": "SWAP1",
       "path": "0"
@@ -6773,8 +6773,8 @@
     "659": {
       "fn": "ERC20.mint",
       "offset": [
-        4195,
-        4224
+        4196,
+        4225
       ],
       "op": "POP",
       "path": "0"
@@ -6782,8 +6782,8 @@
     "660": {
       "fn": "ERC20.mint",
       "offset": [
-        4195,
-        4224
+        4196,
+        4225
       ],
       "op": "SWAP1",
       "path": "0"
@@ -6791,8 +6791,8 @@
     "661": {
       "fn": "ERC20.mint",
       "offset": [
-        4195,
-        4224
+        4196,
+        4225
       ],
       "op": "POP",
       "path": "0"
@@ -6800,8 +6800,8 @@
     "662": {
       "fn": "ERC20.mint",
       "offset": [
-        4195,
-        4224
+        4196,
+        4225
       ],
       "op": "DUP2",
       "path": "0"
@@ -6812,8 +6812,8 @@
     "664": {
       "fn": "ERC20.mint",
       "offset": [
-        4195,
-        4224
+        4196,
+        4225
       ],
       "op": "POP",
       "path": "0"
@@ -6821,8 +6821,8 @@
     "665": {
       "fn": "ERC20.mint",
       "offset": [
-        4258,
-        4261
+        4259,
+        4262
       ],
       "op": "PUSH1",
       "path": "0",
@@ -6831,8 +6831,8 @@
     "667": {
       "fn": "ERC20.mint",
       "offset": [
-        4229,
-        4270
+        4230,
+        4271
       ],
       "op": "MLOAD",
       "path": "0"
@@ -6840,8 +6840,8 @@
     "668": {
       "fn": "ERC20.mint",
       "offset": [
-        4229,
-        4270
+        4230,
+        4271
       ],
       "op": "PUSH1",
       "path": "0",
@@ -6850,8 +6850,8 @@
     "670": {
       "fn": "ERC20.mint",
       "offset": [
-        4229,
-        4270
+        4230,
+        4271
       ],
       "op": "PUSH32",
       "path": "0",
@@ -6860,8 +6860,8 @@
     "703": {
       "fn": "ERC20.mint",
       "offset": [
-        4263,
-        4269
+        4264,
+        4270
       ],
       "op": "PUSH1",
       "path": "0",
@@ -6884,8 +6884,8 @@
     "711": {
       "fn": "ERC20.mint",
       "offset": [
-        4229,
-        4270
+        4230,
+        4271
       ],
       "op": "PUSH1",
       "path": "0",
@@ -6894,8 +6894,8 @@
     "713": {
       "fn": "ERC20.mint",
       "offset": [
-        4229,
-        4270
+        4230,
+        4271
       ],
       "op": "LOG3",
       "path": "0"
@@ -6943,8 +6943,8 @@
     "735": {
       "fn": "ERC20.burn",
       "offset": [
-        4853,
-        4863
+        4854,
+        4864
       ],
       "op": "CALLER",
       "path": "0",
@@ -6960,8 +6960,8 @@
     "739": {
       "fn": "ERC20.burn",
       "offset": [
-        4865,
-        4871
+        4866,
+        4872
       ],
       "op": "PUSH1",
       "path": "0",
@@ -6984,8 +6984,8 @@
     "748": {
       "fn": "ERC20.burn",
       "offset": [
-        4842,
-        4872
+        4843,
+        4873
       ],
       "op": "PUSH2",
       "path": "0",
@@ -6995,8 +6995,8 @@
       "fn": "ERC20.burn",
       "jump": "i",
       "offset": [
-        4842,
-        4872
+        4843,
+        4873
       ],
       "op": "JUMP",
       "path": "0"
@@ -7071,8 +7071,8 @@
     "785": {
       "fn": "ERC20.burnFrom",
       "offset": [
-        4898,
-        4910
+        4899,
+        4911
       ],
       "op": "PUSH1",
       "path": "0",
@@ -7081,8 +7081,8 @@
     "787": {
       "fn": "ERC20.burnFrom",
       "offset": [
-        4898,
-        4910
+        4899,
+        4911
       ],
       "op": "MSTORE",
       "path": "0"
@@ -7090,8 +7090,8 @@
     "788": {
       "fn": "ERC20.burnFrom",
       "offset": [
-        5115,
-        5129
+        5116,
+        5130
       ],
       "op": "PUSH1",
       "path": "0",
@@ -7101,8 +7101,8 @@
     "790": {
       "fn": "ERC20.burnFrom",
       "offset": [
-        5130,
-        5133
+        5131,
+        5134
       ],
       "op": "PUSH1",
       "path": "0",
@@ -7114,8 +7114,8 @@
     "793": {
       "fn": "ERC20.burnFrom",
       "offset": [
-        5115,
-        5134
+        5116,
+        5135
       ],
       "op": "PUSH1",
       "path": "0",
@@ -7124,8 +7124,8 @@
     "795": {
       "fn": "ERC20.burnFrom",
       "offset": [
-        5115,
-        5134
+        5116,
+        5135
       ],
       "op": "MSTORE",
       "path": "0"
@@ -7133,8 +7133,8 @@
     "796": {
       "fn": "ERC20.burnFrom",
       "offset": [
-        5115,
-        5134
+        5116,
+        5135
       ],
       "op": "PUSH1",
       "path": "0",
@@ -7143,8 +7143,8 @@
     "798": {
       "fn": "ERC20.burnFrom",
       "offset": [
-        5115,
-        5134
+        5116,
+        5135
       ],
       "op": "MSTORE",
       "path": "0"
@@ -7152,8 +7152,8 @@
     "799": {
       "fn": "ERC20.burnFrom",
       "offset": [
-        5115,
-        5134
+        5116,
+        5135
       ],
       "op": "PUSH1",
       "path": "0",
@@ -7162,8 +7162,8 @@
     "801": {
       "fn": "ERC20.burnFrom",
       "offset": [
-        5115,
-        5134
+        5116,
+        5135
       ],
       "op": "PUSH1",
       "path": "0",
@@ -7172,8 +7172,8 @@
     "803": {
       "fn": "ERC20.burnFrom",
       "offset": [
-        5115,
-        5134
+        5116,
+        5135
       ],
       "op": "SHA3",
       "path": "0"
@@ -7184,8 +7184,8 @@
     "805": {
       "fn": "ERC20.burnFrom",
       "offset": [
-        5135,
-        5145
+        5136,
+        5146
       ],
       "op": "CALLER",
       "path": "0"
@@ -7218,8 +7218,8 @@
     "817": {
       "fn": "ERC20.burnFrom",
       "offset": [
-        5115,
-        5146
+        5116,
+        5147
       ],
       "op": "SWAP1",
       "path": "0"
@@ -7227,8 +7227,8 @@
     "818": {
       "fn": "ERC20.burnFrom",
       "offset": [
-        5115,
-        5146
+        5116,
+        5147
       ],
       "op": "POP",
       "path": "0"
@@ -7236,8 +7236,8 @@
     "819": {
       "fn": "ERC20.burnFrom",
       "offset": [
-        5115,
-        5156
+        5116,
+        5157
       ],
       "op": "DUP1",
       "path": "0"
@@ -7245,8 +7245,8 @@
     "820": {
       "fn": "ERC20.burnFrom",
       "offset": [
-        5115,
-        5156
+        5116,
+        5157
       ],
       "op": "SLOAD",
       "path": "0"
@@ -7254,8 +7254,8 @@
     "821": {
       "fn": "ERC20.burnFrom",
       "offset": [
-        5177,
-        5183
+        5178,
+        5184
       ],
       "op": "PUSH1",
       "path": "0",
@@ -7271,8 +7271,8 @@
     "825": {
       "fn": "ERC20.burnFrom",
       "offset": [
-        5115,
-        5156
+        5116,
+        5157
       ],
       "op": "DUP3",
       "path": "0"
@@ -7283,8 +7283,8 @@
     "827": {
       "fn": "ERC20.burnFrom",
       "offset": [
-        5115,
-        5156
+        5116,
+        5157
       ],
       "op": "DUP3",
       "path": "0"
@@ -7305,8 +7305,8 @@
     "834": {
       "fn": "ERC20.burnFrom",
       "offset": [
-        5115,
-        5156
+        5116,
+        5157
       ],
       "op": "SWAP1",
       "path": "0"
@@ -7314,8 +7314,8 @@
     "835": {
       "fn": "ERC20.burnFrom",
       "offset": [
-        5115,
-        5156
+        5116,
+        5157
       ],
       "op": "POP",
       "path": "0"
@@ -7323,8 +7323,8 @@
     "836": {
       "fn": "ERC20.burnFrom",
       "offset": [
-        5115,
-        5156
+        5116,
+        5157
       ],
       "op": "SWAP1",
       "path": "0"
@@ -7332,8 +7332,8 @@
     "837": {
       "fn": "ERC20.burnFrom",
       "offset": [
-        5115,
-        5156
+        5116,
+        5157
       ],
       "op": "POP",
       "path": "0"
@@ -7341,8 +7341,8 @@
     "838": {
       "fn": "ERC20.burnFrom",
       "offset": [
-        5115,
-        5156
+        5116,
+        5157
       ],
       "op": "DUP2",
       "path": "0"
@@ -7353,8 +7353,8 @@
     "840": {
       "fn": "ERC20.burnFrom",
       "offset": [
-        5115,
-        5156
+        5116,
+        5157
       ],
       "op": "POP",
       "path": "0"
@@ -7362,8 +7362,8 @@
     "841": {
       "fn": "ERC20.burnFrom",
       "offset": [
-        5172,
-        5175
+        5173,
+        5176
       ],
       "op": "PUSH1",
       "path": "0",
@@ -7382,8 +7382,8 @@
     "847": {
       "fn": "ERC20.burnFrom",
       "offset": [
-        5177,
-        5183
+        5178,
+        5184
       ],
       "op": "PUSH1",
       "path": "0",
@@ -7406,8 +7406,8 @@
     "856": {
       "fn": "ERC20.burnFrom",
       "offset": [
-        5161,
-        5184
+        5162,
+        5185
       ],
       "op": "PUSH2",
       "path": "0",
@@ -7417,8 +7417,8 @@
       "fn": "ERC20.burnFrom",
       "jump": "i",
       "offset": [
-        5161,
-        5184
+        5162,
+        5185
       ],
       "op": "JUMP",
       "path": "0"
@@ -8328,8 +8328,8 @@
     "1257": {
       "fn": "ERC20._burn",
       "offset": [
-        4283,
-        4680
+        4284,
+        4681
       ],
       "op": "JUMPDEST",
       "path": "0"
@@ -8337,8 +8337,8 @@
     "1258": {
       "fn": "ERC20._burn",
       "offset": [
-        4548,
-        4551
+        4549,
+        4552
       ],
       "op": "PUSH1",
       "path": "0",
@@ -8348,8 +8348,8 @@
     "1260": {
       "fn": "ERC20._burn",
       "offset": [
-        4548,
-        4569
+        4549,
+        4570
       ],
       "op": "MLOAD",
       "path": "0"
@@ -8357,8 +8357,8 @@
     "1261": {
       "fn": "ERC20._burn",
       "offset": [
-        4548,
-        4569
+        4549,
+        4570
       ],
       "op": "ISZERO",
       "path": "0"
@@ -8366,8 +8366,8 @@
     "1262": {
       "fn": "ERC20._burn",
       "offset": [
-        4541,
-        4569
+        4542,
+        4570
       ],
       "op": "PUSH2",
       "path": "0",
@@ -8377,8 +8377,8 @@
       "branch": 23,
       "fn": "ERC20._burn",
       "offset": [
-        4541,
-        4569
+        4542,
+        4570
       ],
       "op": "JUMPI",
       "path": "0"
@@ -8386,8 +8386,8 @@
     "1266": {
       "fn": "ERC20._burn",
       "offset": [
-        4574,
-        4590
+        4575,
+        4591
       ],
       "op": "PUSH1",
       "path": "0",
@@ -8400,8 +8400,8 @@
     "1269": {
       "fn": "ERC20._burn",
       "offset": [
-        4594,
-        4600
+        4595,
+        4601
       ],
       "op": "PUSH1",
       "path": "0",
@@ -8444,8 +8444,8 @@
     "1284": {
       "fn": "ERC20._burn",
       "offset": [
-        4574,
-        4600
+        4575,
+        4601
       ],
       "op": "SWAP1",
       "path": "0"
@@ -8453,8 +8453,8 @@
     "1285": {
       "fn": "ERC20._burn",
       "offset": [
-        4574,
-        4600
+        4575,
+        4601
       ],
       "op": "POP",
       "path": "0"
@@ -8462,8 +8462,8 @@
     "1286": {
       "fn": "ERC20._burn",
       "offset": [
-        4574,
-        4590
+        4575,
+        4591
       ],
       "op": "PUSH1",
       "path": "0",
@@ -8475,8 +8475,8 @@
     "1289": {
       "fn": "ERC20._burn",
       "offset": [
-        4605,
-        4619
+        4606,
+        4620
       ],
       "op": "PUSH1",
       "path": "0",
@@ -8486,8 +8486,8 @@
     "1291": {
       "fn": "ERC20._burn",
       "offset": [
-        4620,
-        4623
+        4621,
+        4624
       ],
       "op": "PUSH1",
       "path": "0",
@@ -8499,8 +8499,8 @@
     "1294": {
       "fn": "ERC20._burn",
       "offset": [
-        4605,
-        4624
+        4606,
+        4625
       ],
       "op": "PUSH1",
       "path": "0",
@@ -8509,8 +8509,8 @@
     "1296": {
       "fn": "ERC20._burn",
       "offset": [
-        4605,
-        4624
+        4606,
+        4625
       ],
       "op": "MSTORE",
       "path": "0"
@@ -8518,8 +8518,8 @@
     "1297": {
       "fn": "ERC20._burn",
       "offset": [
-        4605,
-        4624
+        4606,
+        4625
       ],
       "op": "PUSH1",
       "path": "0",
@@ -8528,8 +8528,8 @@
     "1299": {
       "fn": "ERC20._burn",
       "offset": [
-        4605,
-        4624
+        4606,
+        4625
       ],
       "op": "MSTORE",
       "path": "0"
@@ -8537,8 +8537,8 @@
     "1300": {
       "fn": "ERC20._burn",
       "offset": [
-        4605,
-        4624
+        4606,
+        4625
       ],
       "op": "PUSH1",
       "path": "0",
@@ -8547,8 +8547,8 @@
     "1302": {
       "fn": "ERC20._burn",
       "offset": [
-        4605,
-        4624
+        4606,
+        4625
       ],
       "op": "PUSH1",
       "path": "0",
@@ -8557,8 +8557,8 @@
     "1304": {
       "fn": "ERC20._burn",
       "offset": [
-        4605,
-        4624
+        4606,
+        4625
       ],
       "op": "SHA3",
       "path": "0"
@@ -8572,8 +8572,8 @@
     "1307": {
       "fn": "ERC20._burn",
       "offset": [
-        4628,
-        4634
+        4629,
+        4635
       ],
       "op": "PUSH1",
       "path": "0",
@@ -8616,8 +8616,8 @@
     "1322": {
       "fn": "ERC20._burn",
       "offset": [
-        4605,
-        4634
+        4606,
+        4635
       ],
       "op": "SWAP1",
       "path": "0"
@@ -8625,8 +8625,8 @@
     "1323": {
       "fn": "ERC20._burn",
       "offset": [
-        4605,
-        4634
+        4606,
+        4635
       ],
       "op": "POP",
       "path": "0"
@@ -8640,8 +8640,8 @@
     "1326": {
       "fn": "ERC20._burn",
       "offset": [
-        4605,
-        4634
+        4606,
+        4635
       ],
       "op": "POP",
       "path": "0"
@@ -8649,8 +8649,8 @@
     "1327": {
       "fn": "ERC20._burn",
       "offset": [
-        4639,
-        4680
+        4640,
+        4681
       ],
       "op": "PUSH1",
       "path": "0",
@@ -8660,8 +8660,8 @@
     "1329": {
       "fn": "ERC20._burn",
       "offset": [
-        4652,
-        4655
+        4653,
+        4656
       ],
       "op": "PUSH1",
       "path": "0",
@@ -8670,8 +8670,8 @@
     "1331": {
       "fn": "ERC20._burn",
       "offset": [
-        4639,
-        4680
+        4640,
+        4681
       ],
       "op": "MLOAD",
       "path": "0"
@@ -8679,8 +8679,8 @@
     "1332": {
       "fn": "ERC20._burn",
       "offset": [
-        4639,
-        4680
+        4640,
+        4681
       ],
       "op": "PUSH32",
       "path": "0",
@@ -8689,8 +8689,8 @@
     "1365": {
       "fn": "ERC20._burn",
       "offset": [
-        4673,
-        4679
+        4674,
+        4680
       ],
       "op": "PUSH1",
       "path": "0",
@@ -8713,8 +8713,8 @@
     "1373": {
       "fn": "ERC20._burn",
       "offset": [
-        4639,
-        4680
+        4640,
+        4681
       ],
       "op": "PUSH1",
       "path": "0",
@@ -8723,8 +8723,8 @@
     "1375": {
       "fn": "ERC20._burn",
       "offset": [
-        4639,
-        4680
+        4640,
+        4681
       ],
       "op": "LOG3",
       "path": "0"
@@ -8746,8 +8746,8 @@
       "op": "REVERT"
     }
   },
-  "sha1": "4a0a31784d456671a7c07d5949e2856b0d7dc17b",
-  "source": "# @version 0.3.7\n\n# @dev Implementation of ERC-20 token standard.\n# @author Takayuki Jimba (@yudetamago)\n# https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md\n\nfrom vyper.interfaces import ERC20\nfrom vyper.interfaces import ERC20Detailed\n\nimplements: ERC20\nimplements: ERC20Detailed\n\nevent Transfer:\n    sender: indexed(address)\n    receiver: indexed(address)\n    value: uint256\n\nevent Approval:\n    owner: indexed(address)\n    spender: indexed(address)\n    value: uint256\n\nname: public(String[32])\nsymbol: public(String[32])\ndecimals: public(uint8)\n\n# NOTE: By declaring `balanceOf` as public, vyper automatically generates a 'balanceOf()' getter\n#       method to allow access to account balances.\n#       The _KeyType will become a required parameter for the getter and it will return _ValueType.\n#       See: https://vyper.readthedocs.io/en/v0.1.0-beta.8/types.html?highlight=getter#mappings\nbalanceOf: public(HashMap[address, uint256])\n# By declaring `allowance` as public, vyper automatically generates the `allowance()` getter\nallowance: public(HashMap[address, HashMap[address, uint256]])\n# By declaring `totalSupply` as public, we automatically create the `totalSupply()` getter\ntotalSupply: public(uint256)\nminter: address\n\n\n@external\ndef __init__(_name: String[32], _symbol: String[32], _decimals: uint8, _supply: uint256):\n    init_supply: uint256 = _supply * 10 ** convert(_decimals, uint256)\n    self.name = _name\n    self.symbol = _symbol\n    self.decimals = _decimals\n    self.balanceOf[msg.sender] = init_supply\n    self.totalSupply = init_supply\n    self.minter = msg.sender\n    log Transfer(empty(address), msg.sender, init_supply)\n\n\n\n@external\ndef transfer(_to : address, _value : uint256) -> bool:\n    \"\"\"\n    @dev Transfer token for a specified address\n    @param _to The address to transfer to.\n    @param _value The amount to be transferred.\n    \"\"\"\n    # NOTE: vyper does not allow underflows\n    #       so the following subtraction would revert on insufficient balance\n    self.balanceOf[msg.sender] -= _value\n    self.balanceOf[_to] += _value\n    log Transfer(msg.sender, _to, _value)\n    return True\n\n\n@external\ndef transferFrom(_from : address, _to : address, _value : uint256) -> bool:\n    \"\"\"\n     @dev Transfer tokens from one address to another.\n     @param _from address The address which you want to send tokens from\n     @param _to address The address which you want to transfer to\n     @param _value uint256 the amount of tokens to be transferred\n    \"\"\"\n    # NOTE: vyper does not allow underflows\n    #       so the following subtraction would revert on insufficient balance\n    self.balanceOf[_from] -= _value\n    self.balanceOf[_to] += _value\n    # NOTE: vyper does not allow underflows\n    #      so the following subtraction would revert on insufficient allowance\n    self.allowance[_from][msg.sender] -= _value\n    log Transfer(_from, _to, _value)\n    return True\n\n\n@external\ndef approve(_spender : address, _value : uint256) -> bool:\n    \"\"\"\n    @dev Approve the passed address to spend the specified amount of tokens on behalf of msg.sender.\n         Beware that changing an allowance with this method brings the risk that someone may use both the old\n         and the new allowance by unfortunate transaction ordering. One possible solution to mitigate this\n         race condition is to first reduce the spender's allowance to 0 and set the desired value afterwards:\n         https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729\n    @param _spender The address which will spend the funds.\n    @param _value The amount of tokens to be spent.\n    \"\"\"\n    self.allowance[msg.sender][_spender] = _value\n    log Approval(msg.sender, _spender, _value)\n    return True\n\n\n@external\ndef mint(_to: address, _value: uint256):\n    \"\"\"\n    @dev Mint an amount of the token and assigns it to an account.\n         This encapsulates the modification of balances such that the\n         proper events are emitted.\n    @param _to The account that will receive the created tokens.\n    @param _value The amount that will be created.\n    \"\"\"\n    assert msg.sender == self.minter\n    assert _to != empty(address)\n    self.totalSupply += _value\n    self.balanceOf[_to] += _value\n    log Transfer(empty(address), _to, _value)\n\n\n@internal\ndef _burn(_to: address, _value: uint256):\n    \"\"\"\n    @dev Internal function that burns an amount of the token of a given\n         account.\n    @param _to The account whose tokens will be burned.\n    @param _value The amount that will be burned.\n    \"\"\"\n    assert _to != empty(address)\n    self.totalSupply -= _value\n    self.balanceOf[_to] -= _value\n    log Transfer(_to, empty(address), _value)\n\n\n@external\ndef burn(_value: uint256):\n    \"\"\"\n    @dev Burn an amount of the token of msg.sender.\n    @param _value The amount that will be burned.\n    \"\"\"\n    self._burn(msg.sender, _value)\n\n\n@external\ndef burnFrom(_to: address, _value: uint256):\n    \"\"\"\n    @dev Burn an amount of the token from a given account.\n    @param _to The account whose tokens will be burned.\n    @param _value The amount that will be burned.\n    \"\"\"\n    self.allowance[_to][msg.sender] -= _value\n    self._burn(_to, _value)",
+  "sha1": "deadb5653c0aca1f0cc84aab015f4ffccb0a8a5b",
+  "source": "# @version ^0.3.7\n\n# @dev Implementation of ERC-20 token standard.\n# @author Takayuki Jimba (@yudetamago)\n# https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md\n\nfrom vyper.interfaces import ERC20\nfrom vyper.interfaces import ERC20Detailed\n\nimplements: ERC20\nimplements: ERC20Detailed\n\nevent Transfer:\n    sender: indexed(address)\n    receiver: indexed(address)\n    value: uint256\n\nevent Approval:\n    owner: indexed(address)\n    spender: indexed(address)\n    value: uint256\n\nname: public(String[32])\nsymbol: public(String[32])\ndecimals: public(uint8)\n\n# NOTE: By declaring `balanceOf` as public, vyper automatically generates a 'balanceOf()' getter\n#       method to allow access to account balances.\n#       The _KeyType will become a required parameter for the getter and it will return _ValueType.\n#       See: https://vyper.readthedocs.io/en/v0.1.0-beta.8/types.html?highlight=getter#mappings\nbalanceOf: public(HashMap[address, uint256])\n# By declaring `allowance` as public, vyper automatically generates the `allowance()` getter\nallowance: public(HashMap[address, HashMap[address, uint256]])\n# By declaring `totalSupply` as public, we automatically create the `totalSupply()` getter\ntotalSupply: public(uint256)\nminter: address\n\n\n@external\ndef __init__(_name: String[32], _symbol: String[32], _decimals: uint8, _supply: uint256):\n    init_supply: uint256 = _supply * 10 ** convert(_decimals, uint256)\n    self.name = _name\n    self.symbol = _symbol\n    self.decimals = _decimals\n    self.balanceOf[msg.sender] = init_supply\n    self.totalSupply = init_supply\n    self.minter = msg.sender\n    log Transfer(empty(address), msg.sender, init_supply)\n\n\n\n@external\ndef transfer(_to : address, _value : uint256) -> bool:\n    \"\"\"\n    @dev Transfer token for a specified address\n    @param _to The address to transfer to.\n    @param _value The amount to be transferred.\n    \"\"\"\n    # NOTE: vyper does not allow underflows\n    #       so the following subtraction would revert on insufficient balance\n    self.balanceOf[msg.sender] -= _value\n    self.balanceOf[_to] += _value\n    log Transfer(msg.sender, _to, _value)\n    return True\n\n\n@external\ndef transferFrom(_from : address, _to : address, _value : uint256) -> bool:\n    \"\"\"\n     @dev Transfer tokens from one address to another.\n     @param _from address The address which you want to send tokens from\n     @param _to address The address which you want to transfer to\n     @param _value uint256 the amount of tokens to be transferred\n    \"\"\"\n    # NOTE: vyper does not allow underflows\n    #       so the following subtraction would revert on insufficient balance\n    self.balanceOf[_from] -= _value\n    self.balanceOf[_to] += _value\n    # NOTE: vyper does not allow underflows\n    #      so the following subtraction would revert on insufficient allowance\n    self.allowance[_from][msg.sender] -= _value\n    log Transfer(_from, _to, _value)\n    return True\n\n\n@external\ndef approve(_spender : address, _value : uint256) -> bool:\n    \"\"\"\n    @dev Approve the passed address to spend the specified amount of tokens on behalf of msg.sender.\n         Beware that changing an allowance with this method brings the risk that someone may use both the old\n         and the new allowance by unfortunate transaction ordering. One possible solution to mitigate this\n         race condition is to first reduce the spender's allowance to 0 and set the desired value afterwards:\n         https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729\n    @param _spender The address which will spend the funds.\n    @param _value The amount of tokens to be spent.\n    \"\"\"\n    self.allowance[msg.sender][_spender] = _value\n    log Approval(msg.sender, _spender, _value)\n    return True\n\n\n@external\ndef mint(_to: address, _value: uint256):\n    \"\"\"\n    @dev Mint an amount of the token and assigns it to an account.\n         This encapsulates the modification of balances such that the\n         proper events are emitted.\n    @param _to The account that will receive the created tokens.\n    @param _value The amount that will be created.\n    \"\"\"\n    assert msg.sender == self.minter\n    assert _to != empty(address)\n    self.totalSupply += _value\n    self.balanceOf[_to] += _value\n    log Transfer(empty(address), _to, _value)\n\n\n@internal\ndef _burn(_to: address, _value: uint256):\n    \"\"\"\n    @dev Internal function that burns an amount of the token of a given\n         account.\n    @param _to The account whose tokens will be burned.\n    @param _value The amount that will be burned.\n    \"\"\"\n    assert _to != empty(address)\n    self.totalSupply -= _value\n    self.balanceOf[_to] -= _value\n    log Transfer(_to, empty(address), _value)\n\n\n@external\ndef burn(_value: uint256):\n    \"\"\"\n    @dev Burn an amount of the token of msg.sender.\n    @param _value The amount that will be burned.\n    \"\"\"\n    self._burn(msg.sender, _value)\n\n\n@external\ndef burnFrom(_to: address, _value: uint256):\n    \"\"\"\n    @dev Burn an amount of the token from a given account.\n    @param _to The account whose tokens will be burned.\n    @param _value The amount that will be burned.\n    \"\"\"\n    self.allowance[_to][msg.sender] -= _value\n    self._burn(_to, _value)",
   "sourceMap": "",
   "sourcePath": "contracts/ERC20.vy",
   "type": "contract"
