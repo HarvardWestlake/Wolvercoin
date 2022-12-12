@@ -1,4 +1,6 @@
 # @version ^0.3.7
+# Contracts depending on this: Lottery, Crash
+# Contracts this depends on: none
 # @dev Implementation of ERC-20 token standard.
 # @author Takayuki Jimba (@yudetamago)
 # https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md

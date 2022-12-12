@@ -20,7 +20,7 @@ def test_gambling_pot_tax(accounts, token):
 
     amount = math.floor(sender_balance / 4)
 
-    gamblingTax = math.floor(amount * 0.03500000000000000000000000000000000000) # 3.5% tax
+    gamblingTax = math.floor(amount * 0.035) # 3.5% tax
 
     # calculate after-tax amount
     amountAfterTax = amount - gamblingTax
