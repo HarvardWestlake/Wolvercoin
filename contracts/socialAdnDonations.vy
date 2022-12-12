@@ -6,10 +6,13 @@ activeStudents: public(Hashmap[address, uint256])
 activeYear: public( uint256 )
 teachers: public(HashMap[address, boolean]) # hashmap?
 electedOfficials: public(DynArray[address, 3])
-alreadyVotedOfficials: public(HashMap [address, boolean])
+alreadyVotedOfficials: public(HashMap [address, bool])
 votesForOfficials: public(HashMap [address, uint256])
-officialVotingPeriod: public(boolean)
+officialVotingPeriod: public(bool)
+alreadyVotedProposal: DynArray [address,100]
+proposalVotes: DynArray[uint256, 3]
 wvcVariable: Wolvercoin
+
 
 
 @external
@@ -27,13 +30,6 @@ def endVoteOfficial():
     officialVotingPeriod=false
 
 
-
-
-=======
-officialVotingPeriod: bool
-alreadyVotedProposal: DynArray [address,100]
-proposalVotes: DynArray[uint256, 3]
-
 @external
 def voteProposal(proposalNumber : uint256):
     for i in self.alreadyVotedProposal:
@@ -41,8 +37,6 @@ def voteProposal(proposalNumber : uint256):
     assert self.officialVotingPeriod == True
     self.alreadyVotedProposal.append(self)
 
-    
->>>>>>> code_socialAndDonations
 @external
 def voteOfficial( ballot : address )
     assert wvcVariable.isInActiveStudents(msg.sender) 
