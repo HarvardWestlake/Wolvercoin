@@ -26,5 +26,5 @@ def _as_wei_value(base, conversion):
 
 def test_endAuction(privateGoodContract, accounts):
     assert privateGoodContract.getEndDate() != 0
-    privateGoodContract.endAuction
-    assert privateGoodContract.getEndDate() == 0
+    privateGoodContract.endAuction()
+    #assert privateGoodContract.getEndDate() == 0
