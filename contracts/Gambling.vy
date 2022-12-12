@@ -1,3 +1,4 @@
+# @version ^0.3.7
 justCrashed: public(bool)
 crashBets: public(HashMap[address, uint256])
 multiplier: public(uint256)
