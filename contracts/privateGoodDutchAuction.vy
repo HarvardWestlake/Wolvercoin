@@ -1,6 +1,7 @@
+# @version ^0.3.7
 
 interface ERC20:
-    def transferFrom(address, address, uint256) -> bool: view
+    def transferFrom(asdf: address, sdlf:address, askdf: uint256) -> bool: view
 
 ERC20Contract: public(ERC20)
 
@@ -22,7 +23,7 @@ startDate: public(uint256)
 #the final date when the auction will end no matter what
 endDate: public(uint256)
 #the address for the auction item NFT
-buy: bool
+NFT: public(address)
 
 
 @external
@@ -43,7 +44,6 @@ def transferFrom(_from : address, _to : address, _value : uint256):
 
 @external
 def _buy(buyer: address):
-    self.buy = Ture
     self.transferFrom(buyer, self.seller, self._getPrice())
     self._endAuction()
 
