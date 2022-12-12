@@ -46,3 +46,16 @@ def voteOfficial(ballot : address):
         value = self.votesForOfficials.get_val(ballot) + 1
         self.votesForOfficials.set_val(ballot,value)
         self.alreadyVotedOfficials.set_val(msg.sender,true)
+
+@external
+def beginVoteOfficial(user: address):
+    isTeacher: boolean
+    for i in self.teachers:
+        if (i = user):
+            isTeacher = True
+            assert self.officialVotingPeriod == True   
+        else:
+            isTeacher = False 
+    for i in self.alreadyVotedOfficials:
+        self.alreadyVotedOfficials.remove(i)
+        self.votesForOfficials.remove(i)

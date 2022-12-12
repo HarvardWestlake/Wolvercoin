@@ -27,7 +27,13 @@ with pytest.raises(Exception) as e_info:
         if socialAdnDonations.proposalVotes[2] == 1:
             b = True
         assert b = True
-        
+    
+    def test_beginVoteOfficial(user: address):
+        isTeacher = True
+        if (isTeacher == True):
+            assert self.officialVotingPeriod == True  
+        else:
+            asser self.officialVotingPeriod == False
         
 
       
