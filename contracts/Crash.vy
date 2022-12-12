@@ -3,18 +3,15 @@
 interface ActiveUser:
     def getActiveUser(potentialUser: address) -> bool: view
 
-interface Gambling:
-    def randomPrime() -> uint256: random
-
-interface Wolvercoin:
-    def transferFrom(_from : address, _to : address, _value : uint256) -> bool: payable
+interface Token:
+    generate_random_number(maxVal: uint256) -> uint256:
+    transferFrom(_from : address, _to : address, _value : uint256) -> bool: payable
 
 justCrashed: public(bool)
 crashBets: public(HashMap[address, uint256])
 multiplier: public(uint256)
 pot: public(address)
-gamblingContract: immutable(gambling)
-wolvercoinContract: Wolvercoin
+tokenContract: Token(_name: String[32], _symbol: String[32], _decimals: uint8, _supply: uint256, _gamblingPot: address):
 activeUserAddress: public(ActiveUser)
 
 event BetWithdrawn:
@@ -34,7 +31,7 @@ def __init__():
     self.pot = msg.sender
     log CrashStart(block.timestamp, block.number)
     self.activeUserContract = ActiveUser(activeUserAddress)
-    self.wolvercoinContract
+    self.tokenContract = Token("Wolvercoin", "WVC", 10, 10000000)
 
 @payable
 @external
@@ -43,6 +40,6 @@ def withdrawBet(gambler: address):
     
     paid: uint256 = (self.crashBets[gambler] * (self.multiplier / 10))
 
-    self.wolvercoinContract.transferFrom (self.pot, gambler, paid)
+    self.tokenContract.transferFrom (self.pot, gambler, paid)
 
     log BetWithdrawn(self.multiplier, paid, gambler)
