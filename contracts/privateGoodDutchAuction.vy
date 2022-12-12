@@ -54,7 +54,7 @@ def _endAuction:
         self.startDate = null
         self.endDate = null
     if self.buy == False:
-        if self._getPrice() < endPrice:
+        if self._getPrice() < self.endPrice:
             self.startDate = null
             self.endDate = null
     else:
