@@ -92,18 +92,20 @@ def setContractMaintainer(newMaintainer: address):
 @external
 def finishVote(contract: address): 
     assert not self.disabled, "This contract is no longer active"
-    if (self.affectsDAO[contract] == False and voterCoinStaked * 0.5 < self.activePropositions[contract] and voterCoinSupply * 0.2 < self.activePropositions[contract]) or (voterCoinSupply * 0.75 < self.activePropositions[contract]):
-        # TODO: change proxy pointer to address
-        for i in range(0,len(self.peopleInvested[address])):
-            voterCoinSupply -= self.activePropositions[address] * 0.5
-            burnCoin(self.peopleInvested[address][i])
+    amtStaked: uint256 = self.activePropositions[contract]
+    array: DynArray[address,1024] = self.peopleInvested[contract]
+    if (self.affectsDao[contract] == False and self.voterCoinStaked < amtStaked * 2 and self.voterCoinSupply < amtStaked * 5) or (self.voterCoinSupply * 3 < amtStaked * 4):
+        self.voterCoinSupply -= self.activePropositions[contract] / 2
+        for affectedAdr in array:
+            self.burnCoin(affectedAdr)
+            
     else:
-        for i in range(0,len(self.peopleInvested[address])):
-            returnCoin(self.peopleInvested[address][i])
-    voterCoinStaked -= self.activePropositions[address]
+        for affectedAdr in array:
+            self.returnCoin(affectedAdr)
+    self.voterCoinStaked -= self.activePropositions[contract]
     
-
-@external
+#set to internal to make finishVote work, but can be set to external temporarily to run burnCoin test separately
+@internal
 def burnCoin(voterAddress: address):
     assert not self.disabled, "This contract is no longer active"
     assert voterAddress != empty(address), "Cannot add the 0 address as vote subject"
