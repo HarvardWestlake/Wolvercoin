@@ -26,7 +26,8 @@ with pytest.raises(Exception) as e_info:
         socialAdnDonationsContract.voteProposal(2)
         if socialAdnDonations.proposalVotes[2] == 1:
             b = True
-        assert b = False "proposalVotes[2] should be 1"
+        assert b = False 
+        
         
 
       
