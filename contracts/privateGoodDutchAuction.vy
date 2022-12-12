@@ -28,7 +28,7 @@ NFT: public(address)
 
 @external
 def __init__(_duration: uint256, _startPrice: uint256, _endPrice: uint256, _NFT: address, Wolvercoin: address):
-    assert _startPrice >= _endPrice
+    assert _endPrice >= _startPrice
     self.duration = _duration
     self.startPrice = _startPrice
     self.endPrice = _endPrice

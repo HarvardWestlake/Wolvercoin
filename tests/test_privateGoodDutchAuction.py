@@ -16,7 +16,6 @@ def privateGoodContract(privateGoodDutchAuction, ERC20, accounts):
     ERC20Contract = ERC20.deploy("str", "string", 8, 12, {'from':accounts[0]})
     NFTContract = ERC20.deploy("unused", "notused", 8, 12, {'from':accounts[0]})
     return privateGoodDutchAuction.deploy(100, 100, 200, NFTContract, ERC20Contract, {'from': accounts[0]})
-    
 
 def _as_wei_value(base, conversion):
     if conversion == "wei":
