@@ -25,7 +25,7 @@ endBlock: public(HashMap[address, uint256])
 storedDonation: public(HashMap[address, uint256])
 
 # list of variables that could be changed (via voting) 
-# returnedWinner
+returnedWinner: address
 # returnedLoser
 voteDuration: public(uint256)
 # percent needed
@@ -86,3 +86,11 @@ def setContractMaintainer(newMaintainer: address):
     assert newMaintainer != empty(address), "You can't remove the maintainer"
 
     self.contractMaintainer = newMaintainer
+
+@external
+def burnCoin(voterAddress: address):
+    assert not self.disabled, "This contract is no longer active"
+    assert voterAddress != empty(address), "Cannot add the 0 address as vote subject"
+    assert self.amountInFavor[self.returnedWinner][voterAddress] != empty(uint256)
+    self.voterCoinBalance[voterAddress] += self.amountInFavor[self.returnedWinner][voterAddress]/2
+    self.voterCoinSupply -= self.amountInFavor[self.returnedWinner][voterAddress]/2
