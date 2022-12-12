@@ -1,8 +1,7 @@
 """
 interfaceWolvercoin: 
     def isInActiveStudents()
-"""
-"""
+    
 activeStudents: public(Hashmap[address, uint256])
 activeYear: public( uint256 )
 teachers: public(HashMap[address, boolean]) # hashmap?
