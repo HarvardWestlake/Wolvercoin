@@ -26,7 +26,6 @@ def __init__(erc20address: address):
     return
 
 @external
-@author Anika Iyer (@exoskeleton1729)
 def createGood(name: String[50], goal: uint256) -> String:
     # Change made by @ericyoondotcom where ID is name, which is key for HashMap
     assert (!self.goods.has_key(name))
@@ -72,7 +71,6 @@ def retract(name: String[50], amount: uint256):
     # See comment above
     return
 
-@author Eric Yoon (@ericyoondotcom)
 @external
 def complete(name: String[50]):
     assert name != ""
