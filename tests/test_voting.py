@@ -25,14 +25,14 @@ def _as_wei_value(base, conversion):
 
 def test_hasCoin(votingContract, accounts): 
     sampleContract = votingContract.address
-    votingContract.voterCoinBalance[accounts[3]] += 1000, "adds 1000 to accounts balance"
+    #votingContract.voterCoinBalance[accounts[3]] += 1000, "adds 1000 to accounts balance"
     votingContract.proposeVote(sampleContract, "Vote for Kian"), "starts a vote for Kian"
     votingContract.vote(accounts[3], votingContract.endBlock(sampleContract), 100), "User invests 100 coin into vote"
     assert votingContract.hasCoin(accounts[3], votingContract.endBlock(sampleContract)) == 100, "checks if it gets how much user invested in proposition"
 
 def test_amountAvailable(votingContract, accounts):
     sampleContract = votingContract.address
-    votingContract.voterCoinBalance[accounts[3]] += 1000, "adds 1000 to accounts balance"
+    #votingContract.voterCoinBalance[accounts[3]] += 1000, "adds 1000 to accounts balance"
     votingContract.proposeVote(sampleContract, "Vote for cows"), "starts a vote for cows"
     votingContract.vote(accounts[3], votingContract.endBlock(sampleContract), 100), "User invests 100 coin into vote"
     votingContract.proposeVote(sampleContract, "Vote for sheep"), "starts a vote for sheep"
