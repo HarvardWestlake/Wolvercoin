@@ -13,19 +13,17 @@ bank: address
 stakeAmounts: public(HashMap [address, uint256])
 stakeDates: HashMap [address, uint256]
 wolvercoinContract: Wolvercoin
-activeUserContract: public(ActiveUser)
+newAmt: public(uint256)
 
 @external 
-def __init__(_bankAddress: address,activeUserAddress: address):
+def __init__(_bankAddress: address, _wolvercoinContract: Wolvercoin):
     self.bank = _bankAddress
-    self.activeUserContract = ActiveUser(activeUserAddress)
-
+    self.wolvercoinContract = _wolvercoinContract
 
 @external
-def unstake (_userAddress: address, amtUnstaked: uint256, _wolvercoinContract: Wolvercoin):
-    self.wolvercoinContract = _wolvercoinContract
+def unstake (_userAddress: address, amtUnstaked: uint256):
     assert amtUnstaked<self.stakeAmounts[_userAddress]
-    newAmt: uint256 = 0
+    newAmt = 0
     changeInTime: uint256 = block.timestamp - self.stakeDates[_userAddress]
     if changeInTime < 1210000:
         newAmt = 2/3*amtUnstaked

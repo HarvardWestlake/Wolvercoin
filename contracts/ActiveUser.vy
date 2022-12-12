@@ -81,3 +81,4 @@ def setCurrentGradYear(year: uint256):
     assert self.admins[msg.sender] == True, "Only admins can add active students"
     self.currentGradYear = year
     log SetGradYear(msg.sender, year) 
+
