@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 interfaceWolvercoin: 
     def isInActiveStudents()
 
@@ -28,6 +29,20 @@ def endVoteOfficial():
 
 
 
+=======
+officialVotingPeriod: bool
+alreadyVotedProposal: DynArray [address,100]
+proposalVotes: DynArray[uint256, 3]
+
+@external
+def voteProposal(proposalNumber : uint256):
+    for i in self.alreadyVotedProposal:
+        assert i == self
+    assert self.officialVotingPeriod == True
+    self.alreadyVotedProposal.append(self)
+
+    
+>>>>>>> code_socialAndDonations
 @external
 def voteOfficial( ballot : address )
     assert wvcVariable.isInActiveStudents(msg.sender) 
