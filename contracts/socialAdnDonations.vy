@@ -39,7 +39,7 @@ def voteProposal(proposalNumber : uint256):
     self.alreadyVotedProposal.append(self)
 
 @external
-def voteOfficial( ballot : address )
+def voteOfficial( ballot : address ):
     assert self.activeUserContract.getActiveUser(msg.sender) 
         if (officialVotingPeriod)
             assert not self.alreadyVotedOfficials.get_val(msg.sender) == true
