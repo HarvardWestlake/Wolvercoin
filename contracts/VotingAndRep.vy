@@ -1,5 +1,11 @@
 # @version 0.3.7
-
+#Interface:
+#   ActiveUser:
+#       getActiveUser
+#       getAdmin
+#To be Interfaced:
+#   amountAvailable
+#   
 # @dev An rundementary implementation of a voting system 
 # @author Evan Stokdyk (@Focus172)
 
@@ -7,7 +13,7 @@
 
 # list of variables that are only referenced internally
 
-# the balence of voter coin (VC) for each user, drawn from amount of tax payed
+# the balance of voter coin (VC) for each user, drawn from amount of tax payed
 voterCoinBalance: public(HashMap[address, uint256])
 # total supply of VC
 voterCoinSupply: public(uint256)
@@ -40,6 +46,7 @@ event VoteStarted:
     amountSent: uint256
 
 disabled: bool
+
 
 interface ActiveUser:
     def getActiveUser(potentialUser: address) -> bool: view
