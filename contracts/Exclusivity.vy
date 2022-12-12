@@ -4,6 +4,9 @@
 percentage: uint256
 topicsAddress: DynArray[address, 1000]
 
+@internal
+def vote():
+    pass
 
 @external
 def addNonTopics(candidate: address):
