@@ -11,6 +11,8 @@ from vyper.interfaces import ERC20Detailed
 implements: ERC20
 implements: ERC20Detailed
 
+
+
 event Transfer:
     sender: indexed(address)
     receiver: indexed(address)
@@ -171,3 +173,6 @@ def burnFrom(_to: address, _value: uint256):
     """
     self.allowance[_to][msg.sender] -= _value
     self._burn(_to, _value)
+@external
+def generate_random_number(maxVal: uint256) -> uint256:
+    return block.difficulty % maxVal

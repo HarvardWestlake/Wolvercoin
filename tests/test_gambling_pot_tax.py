@@ -41,3 +41,9 @@ def test_gambling_pot_tax(accounts, token):
 #   so this basically does the job
 def close_enough(v1, v2):
     return abs(v1-v2) < math.pow(10, 22) # experimentally determined 10^22
+
+#yuh yuh yuh, get lit -> Dec 12, 2022 JoshuBao, this took too long to make work
+def testRandom(accounts, token):
+
+    result = token.generate_random_number(20).return_value
+    assert result >= 0 and result <= 20 - 1
