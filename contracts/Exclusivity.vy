@@ -1,8 +1,5 @@
 # @version 0.3.7
 
-interface Wolvercoin:
-    def transferFrom(address,address,uint256) -> bool: payable
-    def balanceOf(address) -> uint256: value
 
 admin: HashMap[address, bool]
 topicsAddress: DynArray[address, 1000]
@@ -18,10 +15,10 @@ def vote(voter: address)
                 break
      if isIn
         self.removeNonTopics(voter)
-        value+=1
+        self.balance+=1
      
      if self.admin[voter]
-        value+=0.15*classSize
+        self.balance+=0.15*classSize
 
 @external
 def tallyVotes(voter: address)
