@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 interfaceWolvercoin: 
     def isInActiveStudents()
 
