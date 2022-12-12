@@ -7,8 +7,8 @@ interface ActiveUser:
 activeStudents: public(HashMap[address, uint256])
 activeYear: public( uint256 )
 teachers: public(HashMap[address, bool]) 
-electedOfficials: public(DynArray[address, 3])
-votesLeaderBoard
+electedOfficials: public(HashMap[address, uint256])
+votesLeaderBoard: public(uint256[3])
 alreadyVotedOfficials: public(HashMap [address, bool])
 votesForOfficials: public(HashMap [address, uint256])
 officialVotingPeriod: public(bool)
@@ -46,8 +46,12 @@ def voteOfficial( ballot : address ):
         value : uint256 =  self.votesForOfficials[ballot] + 1 
         self.votesForOfficials[ballot]=value
         self.alreadyVotedOfficials[msg.sender]= True
-        if self.votesForOfficials[ballot] >= self.electedOfficials[0]:
-            self.electedOfficials[2]= electedOfficials[1]
+        if self.votesForOfficials[ballot] >= self.votesLeaderBoard[0]:
+            self.votesLeaderBoard[2]= votesLeaderBoard[1]
+            self.votesLeaderBoard[1]= votesLeaderBoard[0]
+            self.votesLeaderBoard[0]= value
+            # we need to change these bottom ones to change the addresses 
+            self.electedOfficials[2]= electedOfficials[1] 
             self.electedOfficials[1]= electedOfficials[0]
             self.electedOfficials[0] = ballot
         elif self.votesForOfficials[ballot] >= electedOfficials[1]:
