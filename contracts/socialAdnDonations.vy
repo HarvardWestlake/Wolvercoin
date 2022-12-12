@@ -40,7 +40,7 @@ def voteProposal(proposalNumber : uint256):
 
 @external
 def voteOfficial( ballot : address )
-    assert wvcVariable.isInActiveStudents(msg.sender) 
+    assert self.activeUserContract.getActiveUser(msg.sender) 
         if (officialVotingPeriod)
             assert not self.alreadyVotedOfficials.get_val(msg.sender) == true
             value : unit265
