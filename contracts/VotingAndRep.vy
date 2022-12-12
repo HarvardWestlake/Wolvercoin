@@ -11,6 +11,8 @@
 voterCoinBalance: public(HashMap[address, uint256])
 # total supply of VC
 voterCoinSupply: public(uint256)
+# amount of VC currently staked
+voterCoinStaked: public(uint256)
 # the map containing active propositions with total amount invested
 activePropositions: public(HashMap[address, uint256])
 # a boolean for each function on if it needs a super majority
@@ -86,3 +88,15 @@ def setContractMaintainer(newMaintainer: address):
     assert newMaintainer != empty(address), "You can't remove the maintainer"
 
     self.contractMaintainer = newMaintainer
+
+@external
+def void finishVote(contract: address): 
+    if (self.affectsDAO[contract] == False and voterCoinStaked * 0.5 < self.activePropositions[contract] and voterCoinSupply * 0.2 < self.activePropositions[contract]) or (voterCoinSupply * 0.75 < self.activePropositions[contract]):
+        # change proxy pointer to address
+        for i in range(0,len(self.peopleInvested[address])):
+            burnCoin(self.peopleInvested[address][i])
+    else:
+        for i in range(0,len(self.peopleInvested[address])):
+            returnCoin(self.peopleInvested[address][i])
+
+    - if affectsDAO is false, and the majority of VoterCoin currently staked in a vote is staked on a specific side of the vote, and 20% of total VoterCoin is also on that side of the vote, then that side is passed. If a side is passed, call burnCoin. If so side is passed, call returnCoin. If affectsDAO is true, then the proposal must contain 75% of all VoterCoin in existence to be passed.
