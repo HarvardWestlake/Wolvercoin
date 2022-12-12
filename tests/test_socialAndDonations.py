@@ -1,3 +1,4 @@
+        return socialAdnDonations.deploy({'from': accounts[0]})
 #version ^0.3.8
 
 # @dev Basic testing for the voting system
