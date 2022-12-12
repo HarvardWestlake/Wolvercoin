@@ -14,8 +14,8 @@ chain = Chain()
 @pytest.fixture
 def privateGoodContract(privateGoodDutchAuction, ERC20, accounts):
     ERC20Contract = ERC20.deploy("str", "string", 8, 12, {'from':accounts[0]})
-    NFTContract = NFT.deploy({'from':accounts[0]})
-    return privateGoodDutchAuction.deploy(100, 100, 200, 0x77098733eed4c19442a76b8ed5e4ea618b1bf335, ERC20Contract, {'from': accounts[0]})
+    NFTContract = ERC20.deploy("unused", "notused", 8, 12, {'from':accounts[0]})
+    return privateGoodDutchAuction.deploy(100, 100, 200, NFTContract, ERC20Contract, {'from': accounts[0]})
     
 
 def _as_wei_value(base, conversion):
