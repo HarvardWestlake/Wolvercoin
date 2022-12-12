@@ -1,4 +1,4 @@
-#version ^0.3.8
+#version ^0.3.7
 
 # @dev Basic testing for the voting system
 # @author Evan Stokdyk (@Focus172)
