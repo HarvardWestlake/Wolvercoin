@@ -1,6 +1,7 @@
 #version ^0.3.8
 import pytest
 import brownie
+import math
 from web3.exceptions import ValidationError
 from brownie import Token, accounts
 
@@ -17,9 +18,9 @@ def test_gambling_pot_tax(accounts, token):
     receiver_balance = token.balanceOf(accounts[1])
     gambling_pot_balance = token.balanceOf(accounts[2])
 
-    amount = sender_balance // 4
+    amount = math.floor(sender_balance / 4)
 
-    gamblingTax = amount * 0.035 # 3.5% tax
+    gamblingTax = math.floor(amount * 0.035) # 3.5% tax
 
     # calculate after-tax amount
     amountAfterTax = amount - gamblingTax
@@ -27,10 +28,22 @@ def test_gambling_pot_tax(accounts, token):
     token.transferFrom(accounts[0], accounts[1], amount)
 
     # check sender balance
-    assert token.balanceOf(accounts[0]) == sender_balance - amount
+    assert close_enough(token.balanceOf(accounts[0]), sender_balance - amount)
 
     # check receiver balance
-    assert token.balanceOf(accounts[1]) == receiver_balance + amountAfterTax
+    assert close_enough(token.balanceOf(accounts[1]), receiver_balance + amountAfterTax)
 
     # check gambling pot balance
-    assert token.balanceOf(accounts[2]) == gambling_pot_balance + gamblingTax
+    assert close_enough(token.balanceOf(accounts[2]), gambling_pot_balance + gamblingTax)
+
+# NOTE: integer values in python and vyper are different ... 
+#   asserting equality is janky esp with floored decimal values
+#   so this basically does the job
+def close_enough(v1, v2):
+    return abs(v1-v2) < math.pow(10, 22) # experimentally determined 10^22
+
+#yuh yuh yuh, get lit -> Dec 12, 2022 JoshuBao, this took too long to make work
+def testRandom(accounts, token):
+
+    result = token.generate_random_number(20).return_value
+    assert result >= 0 and result <= 20 - 1

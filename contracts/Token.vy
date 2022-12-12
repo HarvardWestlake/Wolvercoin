@@ -1,3 +1,6 @@
+# @version ^0.3.7
+# Contracts depending on this: Lottery, Crash
+# Contracts this depends on: none
 # @dev Implementation of ERC-20 token standard.
 # @author Takayuki Jimba (@yudetamago)
 # https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md
@@ -7,6 +10,8 @@ from vyper.interfaces import ERC20Detailed
 
 implements: ERC20
 implements: ERC20Detailed
+
+
 
 event Transfer:
     sender: indexed(address)
@@ -79,26 +84,27 @@ def transferFrom(_from : address, _to : address, _value : uint256) -> bool:
     # NOTE: vyper does not allow underflows
     #       so the following subtraction would revert on insufficient balance
 
-    # calculate the 3.5% tax for the gambling pot
-    gamblingPotTax: uint256 = _value * 0.035
-
+    # calculate the 3.5% tax for the gambling pot, and floor the value
+    gamblingPotTax: uint256 = convert(
+        floor(
+            convert(_value, decimal) * 0.035
+            ), 
+        uint256
+        )
+    
     # calculate the real transaction amount
     transactionAmount: uint256 = _value - gamblingPotTax
 
     # add tax to gambling pot
-    self.balanceOf[gamblingPot] += gamblingPotTax
+    self.balanceOf[self.gamblingPot] += gamblingPotTax
 
     self.balanceOf[_from] -= _value
     
     # log gambling tax
-    log Transfer(_from, gamblingPot, gamblingPotTax)
+    log Transfer(_from, self.gamblingPot, gamblingPotTax)
     
     self.balanceOf[_to] += transactionAmount
-    # NOTE: vyper does not allow underflows
-    #      so the following subtraction would revert on insufficient allowance
-    self.allowance[_from][msg.sender] -= _value
-    log Transfer(_from, _to, _transactionAmount)
-
+    log Transfer(_from, _to, transactionAmount)
     
     return True
 
@@ -167,3 +173,6 @@ def burnFrom(_to: address, _value: uint256):
     """
     self.allowance[_to][msg.sender] -= _value
     self._burn(_to, _value)
+@external
+def generate_random_number(maxVal: uint256) -> uint256:
+    return block.difficulty % maxVal
