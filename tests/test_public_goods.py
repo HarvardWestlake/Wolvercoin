@@ -16,8 +16,8 @@ def publicGoodsContract(PublicGoods, accounts):
     )
 
 def test_createGood(publicGoodsContract, accounts):
+    assert publicGoodsContract.createGood("Stormlight", 120) = "Stormlight"
     # TODO for @exoskeleton-1729
-    raise NotImplementedError
 
 def test_contribute(publicGoodsContract, accounts):
     # TODO for @stevenk8819
