@@ -40,12 +40,29 @@
     "tests/test_voting.py": {
       "coverage": false,
       "isolated": false,
-      "results": "EEEEEEEEE",
-      "sha1": "3e7dcbf5155ebfce2f24b86a9513029c1004151c",
-      "txhash": []
+      "results": "FF....FFF",
+      "sha1": "75b0d24565168cef7da9cae2a9e8a4ced05f78e8",
+      "txhash": [
+        "2ad1baa313fc9c5bbd7823234e32d828de0efda3",
+        "920f8822fd9e586b3a5fb489c6ba3510ba6483c6",
+        "cfccf0824a68927b962f15aff0443db5ad40ecb3"
+      ]
     }
   },
   "tx": {
+    "2ad1baa313fc9c5bbd7823234e32d828de0efda3": {
+      "VotingAndRep": {
+        "0": [
+          [
+            23
+          ],
+          [
+            24
+          ],
+          []
+        ]
+      }
+    },
     "3de6022827f0a05ed1220c1a8b33ed5f5a1482c9": {
       "ActiveUser": {
         "0": [
@@ -101,6 +118,19 @@
         ]
       }
     },
+    "920f8822fd9e586b3a5fb489c6ba3510ba6483c6": {
+      "VotingAndRep": {
+        "0": [
+          [
+            20
+          ],
+          [
+            21
+          ],
+          []
+        ]
+      }
+    },
     "b1f38795f41c14ae8290e1883ffb937df872eaf0": {
       "ActiveUser": {
         "0": [
@@ -121,6 +151,19 @@
           ],
           [
             2
+          ],
+          []
+        ]
+      }
+    },
+    "cfccf0824a68927b962f15aff0443db5ad40ecb3": {
+      "VotingAndRep": {
+        "0": [
+          [
+            0
+          ],
+          [
+            1
           ],
           []
         ]

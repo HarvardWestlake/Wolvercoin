@@ -15,7 +15,7 @@ chain = Chain()
 # . This runs before ALL tests
 @pytest.fixture
 def votingContract(VotingAndRep, accounts):
-    return VotingAndRep.deploy({'from': accounts[0]})
+    return VotingAndRep.deploy(accounts[1], {'from': accounts[0]})
     
 
 def _as_wei_value(base, conversion):
