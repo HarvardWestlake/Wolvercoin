@@ -1,0 +1,7240 @@
+{
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "year",
+          "type": "uint256"
+        }
+      ],
+      "name": "SetGradYear",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "admin",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "label",
+          "type": "string"
+        }
+      ],
+      "name": "AdminAdded",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "name": "initialAdmin",
+          "type": "address"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [
+        {
+          "name": "adminToAdd",
+          "type": "address"
+        }
+      ],
+      "name": "addAdmin",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "name": "userToAdd",
+          "type": "address"
+        }
+      ],
+      "name": "addUser",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "name": "student",
+          "type": "address"
+        }
+      ],
+      "name": "getUserGradYear",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "name": "potentialAdmin",
+          "type": "address"
+        }
+      ],
+      "name": "getAdmin",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "name": "potentialUser",
+          "type": "address"
+        }
+      ],
+      "name": "getActiveUser",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "name": "potentialUser",
+          "type": "address"
+        }
+      ],
+      "name": "isAlumni",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "name": "disabled",
+          "type": "bool"
+        }
+      ],
+      "name": "setDisableContract",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "name": "year",
+          "type": "uint256"
+        }
+      ],
+      "name": "setCurrentGradYear",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "currentGradYear",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "name": "arg0",
+          "type": "address"
+        }
+      ],
+      "name": "admins",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "allSourcePaths": {
+    "0": "contracts/ActiveUser.vy"
+  },
+  "ast": {
+    "ast_type": "Module",
+    "body": [
+      {
+        "annotation": {
+          "ast_type": "Name",
+          "col_offset": 24,
+          "end_col_offset": 31,
+          "end_lineno": 2,
+          "id": "uint256",
+          "lineno": 2,
+          "node_id": 7,
+          "src": "42:7:0"
+        },
+        "ast_type": "VariableDecl",
+        "col_offset": 0,
+        "end_col_offset": 32,
+        "end_lineno": 2,
+        "is_constant": false,
+        "is_immutable": false,
+        "is_public": true,
+        "lineno": 2,
+        "node_id": 1,
+        "src": "18:32:0",
+        "target": {
+          "ast_type": "Name",
+          "col_offset": 0,
+          "end_col_offset": 15,
+          "end_lineno": 2,
+          "id": "currentGradYear",
+          "lineno": 2,
+          "node_id": 2,
+          "src": "18:15:0"
+        },
+        "value": null
+      },
+      {
+        "annotation": {
+          "ast_type": "Subscript",
+          "col_offset": 20,
+          "end_col_offset": 45,
+          "end_lineno": 3,
+          "lineno": 3,
+          "node_id": 12,
+          "slice": {
+            "ast_type": "Index",
+            "col_offset": 20,
+            "end_col_offset": 45,
+            "end_lineno": 3,
+            "lineno": 3,
+            "node_id": 22,
+            "src": "71:25:0",
+            "value": {
+              "ast_type": "Tuple",
+              "col_offset": 28,
+              "elements": [
+                {
+                  "ast_type": "Name",
+                  "col_offset": 28,
+                  "end_col_offset": 35,
+                  "end_lineno": 3,
+                  "id": "address",
+                  "lineno": 3,
+                  "node_id": 16,
+                  "src": "79:7:0"
+                },
+                {
+                  "ast_type": "Name",
+                  "col_offset": 37,
+                  "end_col_offset": 44,
+                  "end_lineno": 3,
+                  "id": "uint256",
+                  "lineno": 3,
+                  "node_id": 18,
+                  "src": "88:7:0"
+                }
+              ],
+              "end_col_offset": 44,
+              "end_lineno": 3,
+              "lineno": 3,
+              "node_id": 15,
+              "src": "79:16:0"
+            }
+          },
+          "src": "71:25:0",
+          "value": {
+            "ast_type": "Name",
+            "col_offset": 20,
+            "end_col_offset": 27,
+            "end_lineno": 3,
+            "id": "HashMap",
+            "lineno": 3,
+            "node_id": 13,
+            "src": "71:7:0"
+          }
+        },
+        "ast_type": "VariableDecl",
+        "col_offset": 0,
+        "end_col_offset": 45,
+        "end_lineno": 3,
+        "is_constant": false,
+        "is_immutable": false,
+        "is_public": false,
+        "lineno": 3,
+        "node_id": 9,
+        "src": "51:45:0",
+        "target": {
+          "ast_type": "Name",
+          "col_offset": 0,
+          "end_col_offset": 18,
+          "end_lineno": 3,
+          "id": "userGraduationYear",
+          "lineno": 3,
+          "node_id": 10,
+          "src": "51:18:0"
+        },
+        "value": null
+      },
+      {
+        "annotation": {
+          "ast_type": "Subscript",
+          "col_offset": 15,
+          "end_col_offset": 37,
+          "end_lineno": 4,
+          "lineno": 4,
+          "node_id": 29,
+          "slice": {
+            "ast_type": "Index",
+            "col_offset": 15,
+            "end_col_offset": 37,
+            "end_lineno": 4,
+            "lineno": 4,
+            "node_id": 39,
+            "src": "112:22:0",
+            "value": {
+              "ast_type": "Tuple",
+              "col_offset": 23,
+              "elements": [
+                {
+                  "ast_type": "Name",
+                  "col_offset": 23,
+                  "end_col_offset": 30,
+                  "end_lineno": 4,
+                  "id": "address",
+                  "lineno": 4,
+                  "node_id": 33,
+                  "src": "120:7:0"
+                },
+                {
+                  "ast_type": "Name",
+                  "col_offset": 32,
+                  "end_col_offset": 36,
+                  "end_lineno": 4,
+                  "id": "bool",
+                  "lineno": 4,
+                  "node_id": 35,
+                  "src": "129:4:0"
+                }
+              ],
+              "end_col_offset": 36,
+              "end_lineno": 4,
+              "lineno": 4,
+              "node_id": 32,
+              "src": "120:13:0"
+            }
+          },
+          "src": "112:22:0",
+          "value": {
+            "ast_type": "Name",
+            "col_offset": 15,
+            "end_col_offset": 22,
+            "end_lineno": 4,
+            "id": "HashMap",
+            "lineno": 4,
+            "node_id": 30,
+            "src": "112:7:0"
+          }
+        },
+        "ast_type": "VariableDecl",
+        "col_offset": 0,
+        "end_col_offset": 38,
+        "end_lineno": 4,
+        "is_constant": false,
+        "is_immutable": false,
+        "is_public": true,
+        "lineno": 4,
+        "node_id": 23,
+        "src": "97:38:0",
+        "target": {
+          "ast_type": "Name",
+          "col_offset": 0,
+          "end_col_offset": 6,
+          "end_lineno": 4,
+          "id": "admins",
+          "lineno": 4,
+          "node_id": 24,
+          "src": "97:6:0"
+        },
+        "value": null
+      },
+      {
+        "annotation": {
+          "ast_type": "Name",
+          "col_offset": 7,
+          "end_col_offset": 14,
+          "end_lineno": 6,
+          "id": "address",
+          "lineno": 6,
+          "node_id": 43,
+          "src": "144:7:0"
+        },
+        "ast_type": "VariableDecl",
+        "col_offset": 0,
+        "end_col_offset": 14,
+        "end_lineno": 6,
+        "is_constant": false,
+        "is_immutable": false,
+        "is_public": false,
+        "lineno": 6,
+        "node_id": 40,
+        "src": "137:14:0",
+        "target": {
+          "ast_type": "Name",
+          "col_offset": 0,
+          "end_col_offset": 5,
+          "end_lineno": 6,
+          "id": "owner",
+          "lineno": 6,
+          "node_id": 41,
+          "src": "137:5:0"
+        },
+        "value": null
+      },
+      {
+        "annotation": {
+          "ast_type": "Name",
+          "col_offset": 10,
+          "end_col_offset": 14,
+          "end_lineno": 7,
+          "id": "bool",
+          "lineno": 7,
+          "node_id": 48,
+          "src": "162:4:0"
+        },
+        "ast_type": "VariableDecl",
+        "col_offset": 0,
+        "end_col_offset": 14,
+        "end_lineno": 7,
+        "is_constant": false,
+        "is_immutable": false,
+        "is_public": false,
+        "lineno": 7,
+        "node_id": 45,
+        "src": "152:14:0",
+        "target": {
+          "ast_type": "Name",
+          "col_offset": 0,
+          "end_col_offset": 8,
+          "end_lineno": 7,
+          "id": "disabled",
+          "lineno": 7,
+          "node_id": 46,
+          "src": "152:8:0"
+        },
+        "value": null
+      },
+      {
+        "ast_type": "EventDef",
+        "body": [
+          {
+            "annotation": {
+              "ast_type": "Name",
+              "col_offset": 10,
+              "end_col_offset": 17,
+              "end_lineno": 10,
+              "id": "address",
+              "lineno": 10,
+              "node_id": 54,
+              "src": "197:7:0"
+            },
+            "ast_type": "AnnAssign",
+            "col_offset": 4,
+            "end_col_offset": 17,
+            "end_lineno": 10,
+            "lineno": 10,
+            "node_id": 51,
+            "simple": 1,
+            "src": "191:13:0",
+            "target": {
+              "ast_type": "Name",
+              "col_offset": 4,
+              "end_col_offset": 8,
+              "end_lineno": 10,
+              "id": "user",
+              "lineno": 10,
+              "node_id": 52,
+              "src": "191:4:0"
+            },
+            "value": null
+          },
+          {
+            "annotation": {
+              "ast_type": "Name",
+              "col_offset": 10,
+              "end_col_offset": 17,
+              "end_lineno": 11,
+              "id": "uint256",
+              "lineno": 11,
+              "node_id": 59,
+              "src": "215:7:0"
+            },
+            "ast_type": "AnnAssign",
+            "col_offset": 4,
+            "end_col_offset": 17,
+            "end_lineno": 11,
+            "lineno": 11,
+            "node_id": 56,
+            "simple": 1,
+            "src": "209:13:0",
+            "target": {
+              "ast_type": "Name",
+              "col_offset": 4,
+              "end_col_offset": 8,
+              "end_lineno": 11,
+              "id": "year",
+              "lineno": 11,
+              "node_id": 57,
+              "src": "209:4:0"
+            },
+            "value": null
+          }
+        ],
+        "col_offset": 0,
+        "end_col_offset": 17,
+        "end_lineno": 11,
+        "lineno": 9,
+        "name": "SetGradYear",
+        "node_id": 50,
+        "src": "168:54:0"
+      },
+      {
+        "ast_type": "EventDef",
+        "body": [
+          {
+            "annotation": {
+              "ast_type": "Name",
+              "col_offset": 11,
+              "end_col_offset": 18,
+              "end_lineno": 14,
+              "id": "address",
+              "lineno": 14,
+              "node_id": 65,
+              "src": "253:7:0"
+            },
+            "ast_type": "AnnAssign",
+            "col_offset": 4,
+            "end_col_offset": 18,
+            "end_lineno": 14,
+            "lineno": 14,
+            "node_id": 62,
+            "simple": 1,
+            "src": "246:14:0",
+            "target": {
+              "ast_type": "Name",
+              "col_offset": 4,
+              "end_col_offset": 9,
+              "end_lineno": 14,
+              "id": "admin",
+              "lineno": 14,
+              "node_id": 63,
+              "src": "246:5:0"
+            },
+            "value": null
+          },
+          {
+            "annotation": {
+              "ast_type": "Subscript",
+              "col_offset": 11,
+              "end_col_offset": 21,
+              "end_lineno": 15,
+              "lineno": 15,
+              "node_id": 70,
+              "slice": {
+                "ast_type": "Index",
+                "col_offset": 11,
+                "end_col_offset": 21,
+                "end_lineno": 15,
+                "lineno": 15,
+                "node_id": 75,
+                "src": "272:10:0",
+                "value": {
+                  "ast_type": "Int",
+                  "col_offset": 18,
+                  "end_col_offset": 20,
+                  "end_lineno": 15,
+                  "lineno": 15,
+                  "node_id": 73,
+                  "src": "279:2:0",
+                  "value": 10
+                }
+              },
+              "src": "272:10:0",
+              "value": {
+                "ast_type": "Name",
+                "col_offset": 11,
+                "end_col_offset": 17,
+                "end_lineno": 15,
+                "id": "String",
+                "lineno": 15,
+                "node_id": 71,
+                "src": "272:6:0"
+              }
+            },
+            "ast_type": "AnnAssign",
+            "col_offset": 4,
+            "end_col_offset": 21,
+            "end_lineno": 15,
+            "lineno": 15,
+            "node_id": 67,
+            "simple": 1,
+            "src": "265:17:0",
+            "target": {
+              "ast_type": "Name",
+              "col_offset": 4,
+              "end_col_offset": 9,
+              "end_lineno": 15,
+              "id": "label",
+              "lineno": 15,
+              "node_id": 68,
+              "src": "265:5:0"
+            },
+            "value": null
+          }
+        ],
+        "col_offset": 0,
+        "end_col_offset": 21,
+        "end_lineno": 15,
+        "lineno": 13,
+        "name": "AdminAdded",
+        "node_id": 61,
+        "src": "224:58:0"
+      },
+      {
+        "args": {
+          "args": [
+            {
+              "annotation": {
+                "ast_type": "Name",
+                "col_offset": 27,
+                "end_col_offset": 34,
+                "end_lineno": 18,
+                "id": "address",
+                "lineno": 18,
+                "node_id": 79,
+                "src": "321:7:0"
+              },
+              "arg": "initialAdmin",
+              "ast_type": "arg",
+              "col_offset": 13,
+              "end_col_offset": 34,
+              "end_lineno": 18,
+              "lineno": 18,
+              "node_id": 78,
+              "src": "307:21:0"
+            }
+          ],
+          "ast_type": "arguments",
+          "col_offset": 13,
+          "default": null,
+          "defaults": [],
+          "end_col_offset": 34,
+          "end_lineno": 18,
+          "lineno": 18,
+          "node_id": 77,
+          "src": "307:21:0"
+        },
+        "ast_type": "FunctionDef",
+        "body": [
+          {
+            "ast_type": "Assert",
+            "col_offset": 4,
+            "end_col_offset": 41,
+            "end_lineno": 23,
+            "lineno": 23,
+            "msg": null,
+            "node_id": 83,
+            "src": "474:37:0",
+            "test": {
+              "ast_type": "Compare",
+              "col_offset": 11,
+              "end_col_offset": 41,
+              "end_lineno": 23,
+              "left": {
+                "ast_type": "Name",
+                "col_offset": 11,
+                "end_col_offset": 23,
+                "end_lineno": 23,
+                "id": "initialAdmin",
+                "lineno": 23,
+                "node_id": 85,
+                "src": "481:12:0"
+              },
+              "lineno": 23,
+              "node_id": 84,
+              "op": {
+                "ast_type": "NotEq",
+                "col_offset": 11,
+                "end_col_offset": 41,
+                "end_lineno": 23,
+                "lineno": 23,
+                "node_id": 234,
+                "src": "481:30:0"
+              },
+              "right": {
+                "args": [
+                  {
+                    "ast_type": "Name",
+                    "col_offset": 33,
+                    "end_col_offset": 40,
+                    "end_lineno": 23,
+                    "id": "address",
+                    "lineno": 23,
+                    "node_id": 91,
+                    "src": "503:7:0"
+                  }
+                ],
+                "ast_type": "Call",
+                "col_offset": 27,
+                "end_col_offset": 41,
+                "end_lineno": 23,
+                "func": {
+                  "ast_type": "Name",
+                  "col_offset": 27,
+                  "end_col_offset": 32,
+                  "end_lineno": 23,
+                  "id": "empty",
+                  "lineno": 23,
+                  "node_id": 89,
+                  "src": "497:5:0"
+                },
+                "keyword": null,
+                "keywords": [],
+                "lineno": 23,
+                "node_id": 88,
+                "src": "497:14:0"
+              },
+              "src": "481:30:0"
+            }
+          },
+          {
+            "ast_type": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 25,
+            "end_lineno": 24,
+            "lineno": 24,
+            "node_id": 93,
+            "src": "516:21:0",
+            "target": {
+              "ast_type": "Attribute",
+              "attr": "disabled",
+              "col_offset": 4,
+              "end_col_offset": 17,
+              "end_lineno": 24,
+              "lineno": 24,
+              "node_id": 94,
+              "src": "516:13:0",
+              "value": {
+                "ast_type": "Name",
+                "col_offset": 4,
+                "end_col_offset": 8,
+                "end_lineno": 24,
+                "id": "self",
+                "lineno": 24,
+                "node_id": 95,
+                "src": "516:4:0"
+              }
+            },
+            "value": {
+              "ast_type": "NameConstant",
+              "col_offset": 20,
+              "end_col_offset": 25,
+              "end_lineno": 24,
+              "lineno": 24,
+              "node_id": 98,
+              "src": "532:5:0",
+              "value": false
+            }
+          },
+          {
+            "ast_type": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 27,
+            "end_lineno": 25,
+            "lineno": 25,
+            "node_id": 99,
+            "src": "542:23:0",
+            "target": {
+              "ast_type": "Attribute",
+              "attr": "owner",
+              "col_offset": 4,
+              "end_col_offset": 14,
+              "end_lineno": 25,
+              "lineno": 25,
+              "node_id": 100,
+              "src": "542:10:0",
+              "value": {
+                "ast_type": "Name",
+                "col_offset": 4,
+                "end_col_offset": 8,
+                "end_lineno": 25,
+                "id": "self",
+                "lineno": 25,
+                "node_id": 101,
+                "src": "542:4:0"
+              }
+            },
+            "value": {
+              "ast_type": "Attribute",
+              "attr": "sender",
+              "col_offset": 17,
+              "end_col_offset": 27,
+              "end_lineno": 25,
+              "lineno": 25,
+              "node_id": 104,
+              "src": "555:10:0",
+              "value": {
+                "ast_type": "Name",
+                "col_offset": 17,
+                "end_col_offset": 20,
+                "end_lineno": 25,
+                "id": "msg",
+                "lineno": 25,
+                "node_id": 105,
+                "src": "555:3:0"
+              }
+            }
+          },
+          {
+            "ast_type": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 34,
+            "end_lineno": 27,
+            "lineno": 27,
+            "node_id": 108,
+            "src": "571:30:0",
+            "target": {
+              "ast_type": "Subscript",
+              "col_offset": 4,
+              "end_col_offset": 27,
+              "end_lineno": 27,
+              "lineno": 27,
+              "node_id": 109,
+              "slice": {
+                "ast_type": "Index",
+                "col_offset": 4,
+                "end_col_offset": 27,
+                "end_lineno": 27,
+                "lineno": 27,
+                "node_id": 119,
+                "src": "571:23:0",
+                "value": {
+                  "ast_type": "Attribute",
+                  "attr": "sender",
+                  "col_offset": 16,
+                  "end_col_offset": 26,
+                  "end_lineno": 27,
+                  "lineno": 27,
+                  "node_id": 114,
+                  "src": "583:10:0",
+                  "value": {
+                    "ast_type": "Name",
+                    "col_offset": 16,
+                    "end_col_offset": 19,
+                    "end_lineno": 27,
+                    "id": "msg",
+                    "lineno": 27,
+                    "node_id": 115,
+                    "src": "583:3:0"
+                  }
+                }
+              },
+              "src": "571:23:0",
+              "value": {
+                "ast_type": "Attribute",
+                "attr": "admins",
+                "col_offset": 4,
+                "end_col_offset": 15,
+                "end_lineno": 27,
+                "lineno": 27,
+                "node_id": 110,
+                "src": "571:11:0",
+                "value": {
+                  "ast_type": "Name",
+                  "col_offset": 4,
+                  "end_col_offset": 8,
+                  "end_lineno": 27,
+                  "id": "self",
+                  "lineno": 27,
+                  "node_id": 111,
+                  "src": "571:4:0"
+                }
+              }
+            },
+            "value": {
+              "ast_type": "NameConstant",
+              "col_offset": 30,
+              "end_col_offset": 34,
+              "end_lineno": 27,
+              "lineno": 27,
+              "node_id": 120,
+              "src": "597:4:0",
+              "value": true
+            }
+          },
+          {
+            "ast_type": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 36,
+            "end_lineno": 28,
+            "lineno": 28,
+            "node_id": 121,
+            "src": "606:32:0",
+            "target": {
+              "ast_type": "Subscript",
+              "col_offset": 4,
+              "end_col_offset": 29,
+              "end_lineno": 28,
+              "lineno": 28,
+              "node_id": 122,
+              "slice": {
+                "ast_type": "Index",
+                "col_offset": 4,
+                "end_col_offset": 29,
+                "end_lineno": 28,
+                "lineno": 28,
+                "node_id": 130,
+                "src": "606:25:0",
+                "value": {
+                  "ast_type": "Name",
+                  "col_offset": 16,
+                  "end_col_offset": 28,
+                  "end_lineno": 28,
+                  "id": "initialAdmin",
+                  "lineno": 28,
+                  "node_id": 127,
+                  "src": "618:12:0"
+                }
+              },
+              "src": "606:25:0",
+              "value": {
+                "ast_type": "Attribute",
+                "attr": "admins",
+                "col_offset": 4,
+                "end_col_offset": 15,
+                "end_lineno": 28,
+                "lineno": 28,
+                "node_id": 123,
+                "src": "606:11:0",
+                "value": {
+                  "ast_type": "Name",
+                  "col_offset": 4,
+                  "end_col_offset": 8,
+                  "end_lineno": 28,
+                  "id": "self",
+                  "lineno": 28,
+                  "node_id": 124,
+                  "src": "606:4:0"
+                }
+              }
+            },
+            "value": {
+              "ast_type": "NameConstant",
+              "col_offset": 32,
+              "end_col_offset": 36,
+              "end_lineno": 28,
+              "lineno": 28,
+              "node_id": 131,
+              "src": "634:4:0",
+              "value": true
+            }
+          },
+          {
+            "ast_type": "Log",
+            "col_offset": 4,
+            "end_col_offset": 44,
+            "end_lineno": 30,
+            "lineno": 30,
+            "node_id": 133,
+            "src": "644:40:0",
+            "value": {
+              "args": [
+                {
+                  "ast_type": "Attribute",
+                  "attr": "sender",
+                  "col_offset": 19,
+                  "end_col_offset": 29,
+                  "end_lineno": 30,
+                  "lineno": 30,
+                  "node_id": 137,
+                  "src": "659:10:0",
+                  "value": {
+                    "ast_type": "Name",
+                    "col_offset": 19,
+                    "end_col_offset": 22,
+                    "end_lineno": 30,
+                    "id": "msg",
+                    "lineno": 30,
+                    "node_id": 138,
+                    "src": "659:3:0"
+                  }
+                },
+                {
+                  "ast_type": "Str",
+                  "col_offset": 31,
+                  "end_col_offset": 43,
+                  "end_lineno": 30,
+                  "lineno": 30,
+                  "node_id": 141,
+                  "src": "671:12:0",
+                  "value": "init owner"
+                }
+              ],
+              "ast_type": "Call",
+              "col_offset": 8,
+              "end_col_offset": 44,
+              "end_lineno": 30,
+              "func": {
+                "ast_type": "Name",
+                "col_offset": 8,
+                "end_col_offset": 18,
+                "end_lineno": 30,
+                "id": "AdminAdded",
+                "lineno": 30,
+                "node_id": 135,
+                "src": "648:10:0"
+              },
+              "keyword": null,
+              "keywords": [],
+              "lineno": 30,
+              "node_id": 134,
+              "src": "648:36:0"
+            }
+          },
+          {
+            "ast_type": "Log",
+            "col_offset": 4,
+            "end_col_offset": 46,
+            "end_lineno": 31,
+            "lineno": 31,
+            "node_id": 143,
+            "src": "689:42:0",
+            "value": {
+              "args": [
+                {
+                  "ast_type": "Name",
+                  "col_offset": 19,
+                  "end_col_offset": 31,
+                  "end_lineno": 31,
+                  "id": "initialAdmin",
+                  "lineno": 31,
+                  "node_id": 147,
+                  "src": "704:12:0"
+                },
+                {
+                  "ast_type": "Str",
+                  "col_offset": 33,
+                  "end_col_offset": 45,
+                  "end_lineno": 31,
+                  "lineno": 31,
+                  "node_id": 149,
+                  "src": "718:12:0",
+                  "value": "init admin"
+                }
+              ],
+              "ast_type": "Call",
+              "col_offset": 8,
+              "end_col_offset": 46,
+              "end_lineno": 31,
+              "func": {
+                "ast_type": "Name",
+                "col_offset": 8,
+                "end_col_offset": 18,
+                "end_lineno": 31,
+                "id": "AdminAdded",
+                "lineno": 31,
+                "node_id": 145,
+                "src": "693:10:0"
+              },
+              "keyword": null,
+              "keywords": [],
+              "lineno": 31,
+              "node_id": 144,
+              "src": "693:38:0"
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [
+          {
+            "ast_type": "Name",
+            "col_offset": 1,
+            "end_col_offset": 9,
+            "end_lineno": 17,
+            "id": "external",
+            "lineno": 17,
+            "node_id": 150,
+            "src": "285:8:0"
+          }
+        ],
+        "doc_string": {
+          "ast_type": "DocStr",
+          "col_offset": 4,
+          "end_col_offset": 7,
+          "end_lineno": 22,
+          "lineno": 19,
+          "node_id": 152,
+          "src": "335:134:0",
+          "value": "\n        @notice Sets the reimburesement and reimburseGas contract\n        @param initialAdmin is a mandatory admin address\n    "
+        },
+        "end_col_offset": 46,
+        "end_lineno": 31,
+        "lineno": 18,
+        "name": "__init__",
+        "node_id": 76,
+        "pos": null,
+        "returns": null,
+        "src": "294:437:0"
+      },
+      {
+        "args": {
+          "args": [
+            {
+              "annotation": {
+                "ast_type": "Name",
+                "col_offset": 25,
+                "end_col_offset": 32,
+                "end_lineno": 34,
+                "id": "address",
+                "lineno": 34,
+                "node_id": 156,
+                "src": "768:7:0"
+              },
+              "arg": "adminToAdd",
+              "ast_type": "arg",
+              "col_offset": 13,
+              "end_col_offset": 32,
+              "end_lineno": 34,
+              "lineno": 34,
+              "node_id": 155,
+              "src": "756:19:0"
+            }
+          ],
+          "ast_type": "arguments",
+          "col_offset": 13,
+          "default": null,
+          "defaults": [],
+          "end_col_offset": 32,
+          "end_lineno": 34,
+          "lineno": 34,
+          "node_id": 154,
+          "src": "756:19:0"
+        },
+        "ast_type": "FunctionDef",
+        "body": [
+          {
+            "ast_type": "Assert",
+            "col_offset": 4,
+            "end_col_offset": 65,
+            "end_lineno": 40,
+            "lineno": 40,
+            "msg": {
+              "ast_type": "Str",
+              "col_offset": 30,
+              "end_col_offset": 65,
+              "end_lineno": 40,
+              "lineno": 40,
+              "node_id": 167,
+              "src": "977:35:0",
+              "value": "This contract is no longer active"
+            },
+            "node_id": 160,
+            "src": "951:61:0",
+            "test": {
+              "ast_type": "UnaryOp",
+              "col_offset": 11,
+              "end_col_offset": 28,
+              "end_lineno": 40,
+              "lineno": 40,
+              "node_id": 161,
+              "op": {
+                "ast_type": "Not",
+                "col_offset": 11,
+                "end_col_offset": 28,
+                "end_lineno": 40,
+                "lineno": 40,
+                "node_id": 385,
+                "src": "958:17:0"
+              },
+              "operand": {
+                "ast_type": "Attribute",
+                "attr": "disabled",
+                "col_offset": 15,
+                "end_col_offset": 28,
+                "end_lineno": 40,
+                "lineno": 40,
+                "node_id": 163,
+                "src": "962:13:0",
+                "value": {
+                  "ast_type": "Name",
+                  "col_offset": 15,
+                  "end_col_offset": 19,
+                  "end_lineno": 40,
+                  "id": "self",
+                  "lineno": 40,
+                  "node_id": 164,
+                  "src": "962:4:0"
+                }
+              },
+              "src": "958:17:0"
+            }
+          },
+          {
+            "ast_type": "Assert",
+            "col_offset": 4,
+            "end_col_offset": 76,
+            "end_lineno": 41,
+            "lineno": 41,
+            "msg": {
+              "ast_type": "Str",
+              "col_offset": 41,
+              "end_col_offset": 76,
+              "end_lineno": 41,
+              "lineno": 41,
+              "node_id": 178,
+              "src": "1054:35:0",
+              "value": "Cannot add the 0 address as admin"
+            },
+            "node_id": 168,
+            "src": "1017:72:0",
+            "test": {
+              "ast_type": "Compare",
+              "col_offset": 11,
+              "end_col_offset": 39,
+              "end_lineno": 41,
+              "left": {
+                "ast_type": "Name",
+                "col_offset": 11,
+                "end_col_offset": 21,
+                "end_lineno": 41,
+                "id": "adminToAdd",
+                "lineno": 41,
+                "node_id": 170,
+                "src": "1024:10:0"
+              },
+              "lineno": 41,
+              "node_id": 169,
+              "op": {
+                "ast_type": "NotEq",
+                "col_offset": 11,
+                "end_col_offset": 39,
+                "end_lineno": 41,
+                "lineno": 41,
+                "node_id": 234,
+                "src": "1024:28:0"
+              },
+              "right": {
+                "args": [
+                  {
+                    "ast_type": "Name",
+                    "col_offset": 31,
+                    "end_col_offset": 38,
+                    "end_lineno": 41,
+                    "id": "address",
+                    "lineno": 41,
+                    "node_id": 176,
+                    "src": "1044:7:0"
+                  }
+                ],
+                "ast_type": "Call",
+                "col_offset": 25,
+                "end_col_offset": 39,
+                "end_lineno": 41,
+                "func": {
+                  "ast_type": "Name",
+                  "col_offset": 25,
+                  "end_col_offset": 30,
+                  "end_lineno": 41,
+                  "id": "empty",
+                  "lineno": 41,
+                  "node_id": 174,
+                  "src": "1038:5:0"
+                },
+                "keyword": null,
+                "keywords": [],
+                "lineno": 41,
+                "node_id": 173,
+                "src": "1038:14:0"
+              },
+              "src": "1024:28:0"
+            }
+          },
+          {
+            "ast_type": "Assert",
+            "col_offset": 4,
+            "end_col_offset": 88,
+            "end_lineno": 42,
+            "lineno": 42,
+            "msg": {
+              "ast_type": "Str",
+              "col_offset": 44,
+              "end_col_offset": 88,
+              "end_lineno": 42,
+              "lineno": 42,
+              "node_id": 194,
+              "src": "1134:44:0",
+              "value": "You need to be a teacher to add a teacher."
+            },
+            "node_id": 179,
+            "src": "1094:84:0",
+            "test": {
+              "ast_type": "Compare",
+              "col_offset": 11,
+              "end_col_offset": 42,
+              "end_lineno": 42,
+              "left": {
+                "ast_type": "Subscript",
+                "col_offset": 11,
+                "end_col_offset": 34,
+                "end_lineno": 42,
+                "lineno": 42,
+                "node_id": 181,
+                "slice": {
+                  "ast_type": "Index",
+                  "col_offset": 11,
+                  "end_col_offset": 34,
+                  "end_lineno": 42,
+                  "lineno": 42,
+                  "node_id": 191,
+                  "src": "1101:23:0",
+                  "value": {
+                    "ast_type": "Attribute",
+                    "attr": "sender",
+                    "col_offset": 23,
+                    "end_col_offset": 33,
+                    "end_lineno": 42,
+                    "lineno": 42,
+                    "node_id": 186,
+                    "src": "1113:10:0",
+                    "value": {
+                      "ast_type": "Name",
+                      "col_offset": 23,
+                      "end_col_offset": 26,
+                      "end_lineno": 42,
+                      "id": "msg",
+                      "lineno": 42,
+                      "node_id": 187,
+                      "src": "1113:3:0"
+                    }
+                  }
+                },
+                "src": "1101:23:0",
+                "value": {
+                  "ast_type": "Attribute",
+                  "attr": "admins",
+                  "col_offset": 11,
+                  "end_col_offset": 22,
+                  "end_lineno": 42,
+                  "lineno": 42,
+                  "node_id": 182,
+                  "src": "1101:11:0",
+                  "value": {
+                    "ast_type": "Name",
+                    "col_offset": 11,
+                    "end_col_offset": 15,
+                    "end_lineno": 42,
+                    "id": "self",
+                    "lineno": 42,
+                    "node_id": 183,
+                    "src": "1101:4:0"
+                  }
+                }
+              },
+              "lineno": 42,
+              "node_id": 180,
+              "op": {
+                "ast_type": "Eq",
+                "col_offset": 11,
+                "end_col_offset": 42,
+                "end_lineno": 42,
+                "lineno": 42,
+                "node_id": 404,
+                "src": "1101:31:0"
+              },
+              "right": {
+                "ast_type": "NameConstant",
+                "col_offset": 38,
+                "end_col_offset": 42,
+                "end_lineno": 42,
+                "lineno": 42,
+                "node_id": 193,
+                "src": "1128:4:0",
+                "value": true
+              },
+              "src": "1101:31:0"
+            }
+          },
+          {
+            "ast_type": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 34,
+            "end_lineno": 43,
+            "lineno": 43,
+            "node_id": 195,
+            "src": "1183:30:0",
+            "target": {
+              "ast_type": "Subscript",
+              "col_offset": 4,
+              "end_col_offset": 27,
+              "end_lineno": 43,
+              "lineno": 43,
+              "node_id": 196,
+              "slice": {
+                "ast_type": "Index",
+                "col_offset": 4,
+                "end_col_offset": 27,
+                "end_lineno": 43,
+                "lineno": 43,
+                "node_id": 204,
+                "src": "1183:23:0",
+                "value": {
+                  "ast_type": "Name",
+                  "col_offset": 16,
+                  "end_col_offset": 26,
+                  "end_lineno": 43,
+                  "id": "adminToAdd",
+                  "lineno": 43,
+                  "node_id": 201,
+                  "src": "1195:10:0"
+                }
+              },
+              "src": "1183:23:0",
+              "value": {
+                "ast_type": "Attribute",
+                "attr": "admins",
+                "col_offset": 4,
+                "end_col_offset": 15,
+                "end_lineno": 43,
+                "lineno": 43,
+                "node_id": 197,
+                "src": "1183:11:0",
+                "value": {
+                  "ast_type": "Name",
+                  "col_offset": 4,
+                  "end_col_offset": 8,
+                  "end_lineno": 43,
+                  "id": "self",
+                  "lineno": 43,
+                  "node_id": 198,
+                  "src": "1183:4:0"
+                }
+              }
+            },
+            "value": {
+              "ast_type": "NameConstant",
+              "col_offset": 30,
+              "end_col_offset": 34,
+              "end_lineno": 43,
+              "lineno": 43,
+              "node_id": 205,
+              "src": "1209:4:0",
+              "value": true
+            }
+          },
+          {
+            "ast_type": "Log",
+            "col_offset": 4,
+            "end_col_offset": 43,
+            "end_lineno": 44,
+            "lineno": 44,
+            "node_id": 207,
+            "src": "1218:39:0",
+            "value": {
+              "args": [
+                {
+                  "ast_type": "Name",
+                  "col_offset": 19,
+                  "end_col_offset": 29,
+                  "end_lineno": 44,
+                  "id": "adminToAdd",
+                  "lineno": 44,
+                  "node_id": 211,
+                  "src": "1233:10:0"
+                },
+                {
+                  "ast_type": "Str",
+                  "col_offset": 31,
+                  "end_col_offset": 42,
+                  "end_lineno": 44,
+                  "lineno": 44,
+                  "node_id": 213,
+                  "src": "1245:11:0",
+                  "value": "add admin"
+                }
+              ],
+              "ast_type": "Call",
+              "col_offset": 8,
+              "end_col_offset": 43,
+              "end_lineno": 44,
+              "func": {
+                "ast_type": "Name",
+                "col_offset": 8,
+                "end_col_offset": 18,
+                "end_lineno": 44,
+                "id": "AdminAdded",
+                "lineno": 44,
+                "node_id": 209,
+                "src": "1222:10:0"
+              },
+              "keyword": null,
+              "keywords": [],
+              "lineno": 44,
+              "node_id": 208,
+              "src": "1222:35:0"
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [
+          {
+            "ast_type": "Name",
+            "col_offset": 1,
+            "end_col_offset": 9,
+            "end_lineno": 33,
+            "id": "external",
+            "lineno": 33,
+            "node_id": 214,
+            "src": "734:8:0"
+          }
+        ],
+        "doc_string": {
+          "ast_type": "DocStr",
+          "col_offset": 4,
+          "end_col_offset": 7,
+          "end_lineno": 39,
+          "lineno": 35,
+          "node_id": 216,
+          "src": "782:164:0",
+          "value": "\n        @notice addAdmin function adds a new admin\n        @param  adminToAdd is the admin to input\n        can only be called by existing admin / owner\n    "
+        },
+        "end_col_offset": 43,
+        "end_lineno": 44,
+        "lineno": 34,
+        "name": "addAdmin",
+        "node_id": 153,
+        "pos": null,
+        "returns": null,
+        "src": "743:514:0"
+      },
+      {
+        "args": {
+          "args": [
+            {
+              "annotation": {
+                "ast_type": "Name",
+                "col_offset": 23,
+                "end_col_offset": 30,
+                "end_lineno": 48,
+                "id": "address",
+                "lineno": 48,
+                "node_id": 220,
+                "src": "1293:7:0"
+              },
+              "arg": "userToAdd",
+              "ast_type": "arg",
+              "col_offset": 12,
+              "end_col_offset": 30,
+              "end_lineno": 48,
+              "lineno": 48,
+              "node_id": 219,
+              "src": "1282:18:0"
+            }
+          ],
+          "ast_type": "arguments",
+          "col_offset": 12,
+          "default": null,
+          "defaults": [],
+          "end_col_offset": 30,
+          "end_lineno": 48,
+          "lineno": 48,
+          "node_id": 218,
+          "src": "1282:18:0"
+        },
+        "ast_type": "FunctionDef",
+        "body": [
+          {
+            "ast_type": "Assert",
+            "col_offset": 4,
+            "end_col_offset": 75,
+            "end_lineno": 49,
+            "lineno": 49,
+            "msg": {
+              "ast_type": "Str",
+              "col_offset": 30,
+              "end_col_offset": 75,
+              "end_lineno": 49,
+              "lineno": 49,
+              "node_id": 229,
+              "src": "1333:45:0",
+              "value": "This contract and its features are disabled"
+            },
+            "node_id": 222,
+            "src": "1307:71:0",
+            "test": {
+              "ast_type": "UnaryOp",
+              "col_offset": 11,
+              "end_col_offset": 28,
+              "end_lineno": 49,
+              "lineno": 49,
+              "node_id": 223,
+              "op": {
+                "ast_type": "Not",
+                "col_offset": 11,
+                "end_col_offset": 28,
+                "end_lineno": 49,
+                "lineno": 49,
+                "node_id": 385,
+                "src": "1314:17:0"
+              },
+              "operand": {
+                "ast_type": "Attribute",
+                "attr": "disabled",
+                "col_offset": 15,
+                "end_col_offset": 28,
+                "end_lineno": 49,
+                "lineno": 49,
+                "node_id": 225,
+                "src": "1318:13:0",
+                "value": {
+                  "ast_type": "Name",
+                  "col_offset": 15,
+                  "end_col_offset": 19,
+                  "end_lineno": 49,
+                  "id": "self",
+                  "lineno": 49,
+                  "node_id": 226,
+                  "src": "1318:4:0"
+                }
+              },
+              "src": "1314:17:0"
+            }
+          },
+          {
+            "ast_type": "Assert",
+            "col_offset": 4,
+            "end_col_offset": 76,
+            "end_lineno": 50,
+            "lineno": 50,
+            "msg": {
+              "ast_type": "Str",
+              "col_offset": 40,
+              "end_col_offset": 76,
+              "end_lineno": 50,
+              "lineno": 50,
+              "node_id": 240,
+              "src": "1419:36:0",
+              "value": "Cannot add the 0 address as a user"
+            },
+            "node_id": 230,
+            "src": "1383:72:0",
+            "test": {
+              "ast_type": "Compare",
+              "col_offset": 11,
+              "end_col_offset": 38,
+              "end_lineno": 50,
+              "left": {
+                "ast_type": "Name",
+                "col_offset": 11,
+                "end_col_offset": 20,
+                "end_lineno": 50,
+                "id": "userToAdd",
+                "lineno": 50,
+                "node_id": 232,
+                "src": "1390:9:0"
+              },
+              "lineno": 50,
+              "node_id": 231,
+              "op": {
+                "ast_type": "NotEq",
+                "col_offset": 11,
+                "end_col_offset": 38,
+                "end_lineno": 50,
+                "lineno": 50,
+                "node_id": 234,
+                "src": "1390:27:0"
+              },
+              "right": {
+                "args": [
+                  {
+                    "ast_type": "Name",
+                    "col_offset": 30,
+                    "end_col_offset": 37,
+                    "end_lineno": 50,
+                    "id": "address",
+                    "lineno": 50,
+                    "node_id": 238,
+                    "src": "1409:7:0"
+                  }
+                ],
+                "ast_type": "Call",
+                "col_offset": 24,
+                "end_col_offset": 38,
+                "end_lineno": 50,
+                "func": {
+                  "ast_type": "Name",
+                  "col_offset": 24,
+                  "end_col_offset": 29,
+                  "end_lineno": 50,
+                  "id": "empty",
+                  "lineno": 50,
+                  "node_id": 236,
+                  "src": "1403:5:0"
+                },
+                "keyword": null,
+                "keywords": [],
+                "lineno": 50,
+                "node_id": 235,
+                "src": "1403:14:0"
+              },
+              "src": "1390:27:0"
+            }
+          },
+          {
+            "ast_type": "Assert",
+            "col_offset": 4,
+            "end_col_offset": 78,
+            "end_lineno": 51,
+            "lineno": 51,
+            "msg": {
+              "ast_type": "Str",
+              "col_offset": 44,
+              "end_col_offset": 78,
+              "end_lineno": 51,
+              "lineno": 51,
+              "node_id": 256,
+              "src": "1500:34:0",
+              "value": "Only admins can add active users"
+            },
+            "node_id": 241,
+            "src": "1460:74:0",
+            "test": {
+              "ast_type": "Compare",
+              "col_offset": 11,
+              "end_col_offset": 42,
+              "end_lineno": 51,
+              "left": {
+                "ast_type": "Subscript",
+                "col_offset": 11,
+                "end_col_offset": 34,
+                "end_lineno": 51,
+                "lineno": 51,
+                "node_id": 243,
+                "slice": {
+                  "ast_type": "Index",
+                  "col_offset": 11,
+                  "end_col_offset": 34,
+                  "end_lineno": 51,
+                  "lineno": 51,
+                  "node_id": 253,
+                  "src": "1467:23:0",
+                  "value": {
+                    "ast_type": "Attribute",
+                    "attr": "sender",
+                    "col_offset": 23,
+                    "end_col_offset": 33,
+                    "end_lineno": 51,
+                    "lineno": 51,
+                    "node_id": 248,
+                    "src": "1479:10:0",
+                    "value": {
+                      "ast_type": "Name",
+                      "col_offset": 23,
+                      "end_col_offset": 26,
+                      "end_lineno": 51,
+                      "id": "msg",
+                      "lineno": 51,
+                      "node_id": 249,
+                      "src": "1479:3:0"
+                    }
+                  }
+                },
+                "src": "1467:23:0",
+                "value": {
+                  "ast_type": "Attribute",
+                  "attr": "admins",
+                  "col_offset": 11,
+                  "end_col_offset": 22,
+                  "end_lineno": 51,
+                  "lineno": 51,
+                  "node_id": 244,
+                  "src": "1467:11:0",
+                  "value": {
+                    "ast_type": "Name",
+                    "col_offset": 11,
+                    "end_col_offset": 15,
+                    "end_lineno": 51,
+                    "id": "self",
+                    "lineno": 51,
+                    "node_id": 245,
+                    "src": "1467:4:0"
+                  }
+                }
+              },
+              "lineno": 51,
+              "node_id": 242,
+              "op": {
+                "ast_type": "Eq",
+                "col_offset": 11,
+                "end_col_offset": 42,
+                "end_lineno": 51,
+                "lineno": 51,
+                "node_id": 404,
+                "src": "1467:31:0"
+              },
+              "right": {
+                "ast_type": "NameConstant",
+                "col_offset": 38,
+                "end_col_offset": 42,
+                "end_lineno": 51,
+                "lineno": 51,
+                "node_id": 255,
+                "src": "1494:4:0",
+                "value": true
+              },
+              "src": "1467:31:0"
+            }
+          },
+          {
+            "ast_type": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 61,
+            "end_lineno": 52,
+            "lineno": 52,
+            "node_id": 257,
+            "src": "1539:57:0",
+            "target": {
+              "ast_type": "Subscript",
+              "col_offset": 4,
+              "end_col_offset": 38,
+              "end_lineno": 52,
+              "lineno": 52,
+              "node_id": 258,
+              "slice": {
+                "ast_type": "Index",
+                "col_offset": 4,
+                "end_col_offset": 38,
+                "end_lineno": 52,
+                "lineno": 52,
+                "node_id": 266,
+                "src": "1539:34:0",
+                "value": {
+                  "ast_type": "Name",
+                  "col_offset": 28,
+                  "end_col_offset": 37,
+                  "end_lineno": 52,
+                  "id": "userToAdd",
+                  "lineno": 52,
+                  "node_id": 263,
+                  "src": "1563:9:0"
+                }
+              },
+              "src": "1539:34:0",
+              "value": {
+                "ast_type": "Attribute",
+                "attr": "userGraduationYear",
+                "col_offset": 4,
+                "end_col_offset": 27,
+                "end_lineno": 52,
+                "lineno": 52,
+                "node_id": 259,
+                "src": "1539:23:0",
+                "value": {
+                  "ast_type": "Name",
+                  "col_offset": 4,
+                  "end_col_offset": 8,
+                  "end_lineno": 52,
+                  "id": "self",
+                  "lineno": 52,
+                  "node_id": 260,
+                  "src": "1539:4:0"
+                }
+              }
+            },
+            "value": {
+              "ast_type": "Attribute",
+              "attr": "currentGradYear",
+              "col_offset": 41,
+              "end_col_offset": 61,
+              "end_lineno": 52,
+              "lineno": 52,
+              "node_id": 267,
+              "src": "1576:20:0",
+              "value": {
+                "ast_type": "Name",
+                "col_offset": 41,
+                "end_col_offset": 45,
+                "end_lineno": 52,
+                "id": "self",
+                "lineno": 52,
+                "node_id": 268,
+                "src": "1576:4:0"
+              }
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [
+          {
+            "ast_type": "Name",
+            "col_offset": 1,
+            "end_col_offset": 9,
+            "end_lineno": 47,
+            "id": "external",
+            "lineno": 47,
+            "node_id": 271,
+            "src": "1261:8:0"
+          }
+        ],
+        "doc_string": null,
+        "end_col_offset": 61,
+        "end_lineno": 52,
+        "lineno": 48,
+        "name": "addUser",
+        "node_id": 217,
+        "pos": null,
+        "returns": null,
+        "src": "1270:326:0"
+      },
+      {
+        "args": {
+          "args": [
+            {
+              "annotation": {
+                "ast_type": "Name",
+                "col_offset": 29,
+                "end_col_offset": 36,
+                "end_lineno": 56,
+                "id": "address",
+                "lineno": 56,
+                "node_id": 276,
+                "src": "1643:7:0"
+              },
+              "arg": "student",
+              "ast_type": "arg",
+              "col_offset": 20,
+              "end_col_offset": 36,
+              "end_lineno": 56,
+              "lineno": 56,
+              "node_id": 275,
+              "src": "1634:16:0"
+            }
+          ],
+          "ast_type": "arguments",
+          "col_offset": 20,
+          "default": null,
+          "defaults": [],
+          "end_col_offset": 36,
+          "end_lineno": 56,
+          "lineno": 56,
+          "node_id": 274,
+          "src": "1634:16:0"
+        },
+        "ast_type": "FunctionDef",
+        "body": [
+          {
+            "ast_type": "Return",
+            "col_offset": 4,
+            "end_col_offset": 43,
+            "end_lineno": 57,
+            "lineno": 57,
+            "node_id": 278,
+            "src": "1668:39:0",
+            "value": {
+              "ast_type": "Subscript",
+              "col_offset": 11,
+              "end_col_offset": 43,
+              "end_lineno": 57,
+              "lineno": 57,
+              "node_id": 279,
+              "slice": {
+                "ast_type": "Index",
+                "col_offset": 11,
+                "end_col_offset": 43,
+                "end_lineno": 57,
+                "lineno": 57,
+                "node_id": 287,
+                "src": "1675:32:0",
+                "value": {
+                  "ast_type": "Name",
+                  "col_offset": 35,
+                  "end_col_offset": 42,
+                  "end_lineno": 57,
+                  "id": "student",
+                  "lineno": 57,
+                  "node_id": 284,
+                  "src": "1699:7:0"
+                }
+              },
+              "src": "1675:32:0",
+              "value": {
+                "ast_type": "Attribute",
+                "attr": "userGraduationYear",
+                "col_offset": 11,
+                "end_col_offset": 34,
+                "end_lineno": 57,
+                "lineno": 57,
+                "node_id": 280,
+                "src": "1675:23:0",
+                "value": {
+                  "ast_type": "Name",
+                  "col_offset": 11,
+                  "end_col_offset": 15,
+                  "end_lineno": 57,
+                  "id": "self",
+                  "lineno": 57,
+                  "node_id": 281,
+                  "src": "1675:4:0"
+                }
+              }
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [
+          {
+            "ast_type": "Name",
+            "col_offset": 1,
+            "end_col_offset": 5,
+            "end_lineno": 54,
+            "id": "view",
+            "lineno": 54,
+            "node_id": 288,
+            "src": "1599:4:0"
+          },
+          {
+            "ast_type": "Name",
+            "col_offset": 1,
+            "end_col_offset": 9,
+            "end_lineno": 55,
+            "id": "external",
+            "lineno": 55,
+            "node_id": 290,
+            "src": "1605:8:0"
+          }
+        ],
+        "doc_string": null,
+        "end_col_offset": 43,
+        "end_lineno": 57,
+        "lineno": 56,
+        "name": "getUserGradYear",
+        "node_id": 273,
+        "pos": null,
+        "returns": {
+          "ast_type": "Name",
+          "col_offset": 41,
+          "end_col_offset": 48,
+          "end_lineno": 56,
+          "id": "uint256",
+          "lineno": 56,
+          "node_id": 292,
+          "src": "1655:7:0"
+        },
+        "src": "1614:93:0"
+      },
+      {
+        "args": {
+          "args": [
+            {
+              "annotation": {
+                "ast_type": "Name",
+                "col_offset": 29,
+                "end_col_offset": 36,
+                "end_lineno": 61,
+                "id": "address",
+                "lineno": 61,
+                "node_id": 297,
+                "src": "1754:7:0"
+              },
+              "arg": "potentialAdmin",
+              "ast_type": "arg",
+              "col_offset": 13,
+              "end_col_offset": 36,
+              "end_lineno": 61,
+              "lineno": 61,
+              "node_id": 296,
+              "src": "1738:23:0"
+            }
+          ],
+          "ast_type": "arguments",
+          "col_offset": 13,
+          "default": null,
+          "defaults": [],
+          "end_col_offset": 36,
+          "end_lineno": 61,
+          "lineno": 61,
+          "node_id": 295,
+          "src": "1738:23:0"
+        },
+        "ast_type": "FunctionDef",
+        "body": [
+          {
+            "ast_type": "Return",
+            "col_offset": 4,
+            "end_col_offset": 38,
+            "end_lineno": 62,
+            "lineno": 62,
+            "node_id": 299,
+            "src": "1776:34:0",
+            "value": {
+              "ast_type": "Subscript",
+              "col_offset": 11,
+              "end_col_offset": 38,
+              "end_lineno": 62,
+              "lineno": 62,
+              "node_id": 300,
+              "slice": {
+                "ast_type": "Index",
+                "col_offset": 11,
+                "end_col_offset": 38,
+                "end_lineno": 62,
+                "lineno": 62,
+                "node_id": 308,
+                "src": "1783:27:0",
+                "value": {
+                  "ast_type": "Name",
+                  "col_offset": 23,
+                  "end_col_offset": 37,
+                  "end_lineno": 62,
+                  "id": "potentialAdmin",
+                  "lineno": 62,
+                  "node_id": 305,
+                  "src": "1795:14:0"
+                }
+              },
+              "src": "1783:27:0",
+              "value": {
+                "ast_type": "Attribute",
+                "attr": "admins",
+                "col_offset": 11,
+                "end_col_offset": 22,
+                "end_lineno": 62,
+                "lineno": 62,
+                "node_id": 301,
+                "src": "1783:11:0",
+                "value": {
+                  "ast_type": "Name",
+                  "col_offset": 11,
+                  "end_col_offset": 15,
+                  "end_lineno": 62,
+                  "id": "self",
+                  "lineno": 62,
+                  "node_id": 302,
+                  "src": "1783:4:0"
+                }
+              }
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [
+          {
+            "ast_type": "Name",
+            "col_offset": 1,
+            "end_col_offset": 5,
+            "end_lineno": 59,
+            "id": "view",
+            "lineno": 59,
+            "node_id": 309,
+            "src": "1710:4:0"
+          },
+          {
+            "ast_type": "Name",
+            "col_offset": 1,
+            "end_col_offset": 9,
+            "end_lineno": 60,
+            "id": "external",
+            "lineno": 60,
+            "node_id": 311,
+            "src": "1716:8:0"
+          }
+        ],
+        "doc_string": null,
+        "end_col_offset": 38,
+        "end_lineno": 62,
+        "lineno": 61,
+        "name": "getAdmin",
+        "node_id": 294,
+        "pos": null,
+        "returns": {
+          "ast_type": "Name",
+          "col_offset": 41,
+          "end_col_offset": 45,
+          "end_lineno": 61,
+          "id": "bool",
+          "lineno": 61,
+          "node_id": 313,
+          "src": "1766:4:0"
+        },
+        "src": "1725:85:0"
+      },
+      {
+        "args": {
+          "args": [
+            {
+              "annotation": {
+                "ast_type": "Name",
+                "col_offset": 33,
+                "end_col_offset": 40,
+                "end_lineno": 66,
+                "id": "address",
+                "lineno": 66,
+                "node_id": 318,
+                "src": "1861:7:0"
+              },
+              "arg": "potentialUser",
+              "ast_type": "arg",
+              "col_offset": 18,
+              "end_col_offset": 40,
+              "end_lineno": 66,
+              "lineno": 66,
+              "node_id": 317,
+              "src": "1846:22:0"
+            }
+          ],
+          "ast_type": "arguments",
+          "col_offset": 18,
+          "default": null,
+          "defaults": [],
+          "end_col_offset": 40,
+          "end_lineno": 66,
+          "lineno": 66,
+          "node_id": 316,
+          "src": "1846:22:0"
+        },
+        "ast_type": "FunctionDef",
+        "body": [
+          {
+            "ast_type": "Return",
+            "col_offset": 4,
+            "end_col_offset": 73,
+            "end_lineno": 67,
+            "lineno": 67,
+            "node_id": 320,
+            "src": "1883:69:0",
+            "value": {
+              "ast_type": "Compare",
+              "col_offset": 11,
+              "end_col_offset": 73,
+              "end_lineno": 67,
+              "left": {
+                "ast_type": "Subscript",
+                "col_offset": 11,
+                "end_col_offset": 49,
+                "end_lineno": 67,
+                "lineno": 67,
+                "node_id": 322,
+                "slice": {
+                  "ast_type": "Index",
+                  "col_offset": 11,
+                  "end_col_offset": 49,
+                  "end_lineno": 67,
+                  "lineno": 67,
+                  "node_id": 330,
+                  "src": "1890:38:0",
+                  "value": {
+                    "ast_type": "Name",
+                    "col_offset": 35,
+                    "end_col_offset": 48,
+                    "end_lineno": 67,
+                    "id": "potentialUser",
+                    "lineno": 67,
+                    "node_id": 327,
+                    "src": "1914:13:0"
+                  }
+                },
+                "src": "1890:38:0",
+                "value": {
+                  "ast_type": "Attribute",
+                  "attr": "userGraduationYear",
+                  "col_offset": 11,
+                  "end_col_offset": 34,
+                  "end_lineno": 67,
+                  "lineno": 67,
+                  "node_id": 323,
+                  "src": "1890:23:0",
+                  "value": {
+                    "ast_type": "Name",
+                    "col_offset": 11,
+                    "end_col_offset": 15,
+                    "end_lineno": 67,
+                    "id": "self",
+                    "lineno": 67,
+                    "node_id": 324,
+                    "src": "1890:4:0"
+                  }
+                }
+              },
+              "lineno": 67,
+              "node_id": 321,
+              "op": {
+                "ast_type": "Eq",
+                "col_offset": 11,
+                "end_col_offset": 73,
+                "end_lineno": 67,
+                "lineno": 67,
+                "node_id": 404,
+                "src": "1890:62:0"
+              },
+              "right": {
+                "ast_type": "Attribute",
+                "attr": "currentGradYear",
+                "col_offset": 53,
+                "end_col_offset": 73,
+                "end_lineno": 67,
+                "lineno": 67,
+                "node_id": 332,
+                "src": "1932:20:0",
+                "value": {
+                  "ast_type": "Name",
+                  "col_offset": 53,
+                  "end_col_offset": 57,
+                  "end_lineno": 67,
+                  "id": "self",
+                  "lineno": 67,
+                  "node_id": 333,
+                  "src": "1932:4:0"
+                }
+              },
+              "src": "1890:62:0"
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [
+          {
+            "ast_type": "Name",
+            "col_offset": 1,
+            "end_col_offset": 5,
+            "end_lineno": 64,
+            "id": "view",
+            "lineno": 64,
+            "node_id": 336,
+            "src": "1813:4:0"
+          },
+          {
+            "ast_type": "Name",
+            "col_offset": 1,
+            "end_col_offset": 9,
+            "end_lineno": 65,
+            "id": "external",
+            "lineno": 65,
+            "node_id": 338,
+            "src": "1819:8:0"
+          }
+        ],
+        "doc_string": null,
+        "end_col_offset": 73,
+        "end_lineno": 67,
+        "lineno": 66,
+        "name": "getActiveUser",
+        "node_id": 315,
+        "pos": null,
+        "returns": {
+          "ast_type": "Name",
+          "col_offset": 45,
+          "end_col_offset": 49,
+          "end_lineno": 66,
+          "id": "bool",
+          "lineno": 66,
+          "node_id": 340,
+          "src": "1873:4:0"
+        },
+        "src": "1828:124:0"
+      },
+      {
+        "args": {
+          "args": [
+            {
+              "annotation": {
+                "ast_type": "Name",
+                "col_offset": 28,
+                "end_col_offset": 35,
+                "end_lineno": 70,
+                "id": "address",
+                "lineno": 70,
+                "node_id": 345,
+                "src": "1992:7:0"
+              },
+              "arg": "potentialUser",
+              "ast_type": "arg",
+              "col_offset": 13,
+              "end_col_offset": 35,
+              "end_lineno": 70,
+              "lineno": 70,
+              "node_id": 344,
+              "src": "1977:22:0"
+            }
+          ],
+          "ast_type": "arguments",
+          "col_offset": 13,
+          "default": null,
+          "defaults": [],
+          "end_col_offset": 35,
+          "end_lineno": 70,
+          "lineno": 70,
+          "node_id": 343,
+          "src": "1977:22:0"
+        },
+        "ast_type": "FunctionDef",
+        "body": [
+          {
+            "ast_type": "Return",
+            "col_offset": 4,
+            "end_col_offset": 15,
+            "end_lineno": 71,
+            "lineno": 71,
+            "node_id": 347,
+            "src": "2014:11:0",
+            "value": {
+              "ast_type": "NameConstant",
+              "col_offset": 11,
+              "end_col_offset": 15,
+              "end_lineno": 71,
+              "lineno": 71,
+              "node_id": 348,
+              "src": "2021:4:0",
+              "value": true
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [
+          {
+            "ast_type": "Name",
+            "col_offset": 1,
+            "end_col_offset": 9,
+            "end_lineno": 69,
+            "id": "external",
+            "lineno": 69,
+            "node_id": 349,
+            "src": "1955:8:0"
+          }
+        ],
+        "doc_string": null,
+        "end_col_offset": 15,
+        "end_lineno": 71,
+        "lineno": 70,
+        "name": "isAlumni",
+        "node_id": 342,
+        "pos": null,
+        "returns": {
+          "ast_type": "Name",
+          "col_offset": 40,
+          "end_col_offset": 44,
+          "end_lineno": 70,
+          "id": "bool",
+          "lineno": 70,
+          "node_id": 351,
+          "src": "2004:4:0"
+        },
+        "src": "1964:61:0"
+      },
+      {
+        "args": {
+          "args": [
+            {
+              "annotation": {
+                "ast_type": "Name",
+                "col_offset": 33,
+                "end_col_offset": 37,
+                "end_lineno": 74,
+                "id": "bool",
+                "lineno": 74,
+                "node_id": 356,
+                "src": "2070:4:0"
+              },
+              "arg": "disabled",
+              "ast_type": "arg",
+              "col_offset": 23,
+              "end_col_offset": 37,
+              "end_lineno": 74,
+              "lineno": 74,
+              "node_id": 355,
+              "src": "2060:14:0"
+            }
+          ],
+          "ast_type": "arguments",
+          "col_offset": 23,
+          "default": null,
+          "defaults": [],
+          "end_col_offset": 37,
+          "end_lineno": 74,
+          "lineno": 74,
+          "node_id": 354,
+          "src": "2060:14:0"
+        },
+        "ast_type": "FunctionDef",
+        "body": [
+          {
+            "ast_type": "Assert",
+            "col_offset": 4,
+            "end_col_offset": 35,
+            "end_lineno": 75,
+            "lineno": 75,
+            "msg": null,
+            "node_id": 358,
+            "src": "2081:31:0",
+            "test": {
+              "ast_type": "Compare",
+              "col_offset": 11,
+              "end_col_offset": 35,
+              "end_lineno": 75,
+              "left": {
+                "ast_type": "Attribute",
+                "attr": "owner",
+                "col_offset": 11,
+                "end_col_offset": 21,
+                "end_lineno": 75,
+                "lineno": 75,
+                "node_id": 360,
+                "src": "2088:10:0",
+                "value": {
+                  "ast_type": "Name",
+                  "col_offset": 11,
+                  "end_col_offset": 15,
+                  "end_lineno": 75,
+                  "id": "self",
+                  "lineno": 75,
+                  "node_id": 361,
+                  "src": "2088:4:0"
+                }
+              },
+              "lineno": 75,
+              "node_id": 359,
+              "op": {
+                "ast_type": "Eq",
+                "col_offset": 11,
+                "end_col_offset": 35,
+                "end_lineno": 75,
+                "lineno": 75,
+                "node_id": 404,
+                "src": "2088:24:0"
+              },
+              "right": {
+                "ast_type": "Attribute",
+                "attr": "sender",
+                "col_offset": 25,
+                "end_col_offset": 35,
+                "end_lineno": 75,
+                "lineno": 75,
+                "node_id": 365,
+                "src": "2102:10:0",
+                "value": {
+                  "ast_type": "Name",
+                  "col_offset": 25,
+                  "end_col_offset": 28,
+                  "end_lineno": 75,
+                  "id": "msg",
+                  "lineno": 75,
+                  "node_id": 366,
+                  "src": "2102:3:0"
+                }
+              },
+              "src": "2088:24:0"
+            }
+          },
+          {
+            "ast_type": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 28,
+            "end_lineno": 76,
+            "lineno": 76,
+            "node_id": 369,
+            "src": "2117:24:0",
+            "target": {
+              "ast_type": "Attribute",
+              "attr": "disabled",
+              "col_offset": 4,
+              "end_col_offset": 17,
+              "end_lineno": 76,
+              "lineno": 76,
+              "node_id": 370,
+              "src": "2117:13:0",
+              "value": {
+                "ast_type": "Name",
+                "col_offset": 4,
+                "end_col_offset": 8,
+                "end_lineno": 76,
+                "id": "self",
+                "lineno": 76,
+                "node_id": 371,
+                "src": "2117:4:0"
+              }
+            },
+            "value": {
+              "ast_type": "Name",
+              "col_offset": 20,
+              "end_col_offset": 28,
+              "end_lineno": 76,
+              "id": "disabled",
+              "lineno": 76,
+              "node_id": 374,
+              "src": "2133:8:0"
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [
+          {
+            "ast_type": "Name",
+            "col_offset": 1,
+            "end_col_offset": 9,
+            "end_lineno": 73,
+            "id": "external",
+            "lineno": 73,
+            "node_id": 376,
+            "src": "2028:8:0"
+          }
+        ],
+        "doc_string": null,
+        "end_col_offset": 28,
+        "end_lineno": 76,
+        "lineno": 74,
+        "name": "setDisableContract",
+        "node_id": 353,
+        "pos": null,
+        "returns": null,
+        "src": "2037:104:0"
+      },
+      {
+        "args": {
+          "args": [
+            {
+              "annotation": {
+                "ast_type": "Name",
+                "col_offset": 29,
+                "end_col_offset": 36,
+                "end_lineno": 79,
+                "id": "uint256",
+                "lineno": 79,
+                "node_id": 381,
+                "src": "2182:7:0"
+              },
+              "arg": "year",
+              "ast_type": "arg",
+              "col_offset": 23,
+              "end_col_offset": 36,
+              "end_lineno": 79,
+              "lineno": 79,
+              "node_id": 380,
+              "src": "2176:13:0"
+            }
+          ],
+          "ast_type": "arguments",
+          "col_offset": 23,
+          "default": null,
+          "defaults": [],
+          "end_col_offset": 36,
+          "end_lineno": 79,
+          "lineno": 79,
+          "node_id": 379,
+          "src": "2176:13:0"
+        },
+        "ast_type": "FunctionDef",
+        "body": [
+          {
+            "ast_type": "Assert",
+            "col_offset": 4,
+            "end_col_offset": 75,
+            "end_lineno": 80,
+            "lineno": 80,
+            "msg": {
+              "ast_type": "Str",
+              "col_offset": 30,
+              "end_col_offset": 75,
+              "end_lineno": 80,
+              "lineno": 80,
+              "node_id": 390,
+              "src": "2222:45:0",
+              "value": "This contract and its features are disabled"
+            },
+            "node_id": 383,
+            "src": "2196:71:0",
+            "test": {
+              "ast_type": "UnaryOp",
+              "col_offset": 11,
+              "end_col_offset": 28,
+              "end_lineno": 80,
+              "lineno": 80,
+              "node_id": 384,
+              "op": {
+                "ast_type": "Not",
+                "col_offset": 11,
+                "end_col_offset": 28,
+                "end_lineno": 80,
+                "lineno": 80,
+                "node_id": 385,
+                "src": "2203:17:0"
+              },
+              "operand": {
+                "ast_type": "Attribute",
+                "attr": "disabled",
+                "col_offset": 15,
+                "end_col_offset": 28,
+                "end_lineno": 80,
+                "lineno": 80,
+                "node_id": 386,
+                "src": "2207:13:0",
+                "value": {
+                  "ast_type": "Name",
+                  "col_offset": 15,
+                  "end_col_offset": 19,
+                  "end_lineno": 80,
+                  "id": "self",
+                  "lineno": 80,
+                  "node_id": 387,
+                  "src": "2207:4:0"
+                }
+              },
+              "src": "2203:17:0"
+            }
+          },
+          {
+            "ast_type": "Assert",
+            "col_offset": 4,
+            "end_col_offset": 81,
+            "end_lineno": 81,
+            "lineno": 81,
+            "msg": {
+              "ast_type": "Str",
+              "col_offset": 44,
+              "end_col_offset": 81,
+              "end_lineno": 81,
+              "lineno": 81,
+              "node_id": 406,
+              "src": "2312:37:0",
+              "value": "Only admins can add active students"
+            },
+            "node_id": 391,
+            "src": "2272:77:0",
+            "test": {
+              "ast_type": "Compare",
+              "col_offset": 11,
+              "end_col_offset": 42,
+              "end_lineno": 81,
+              "left": {
+                "ast_type": "Subscript",
+                "col_offset": 11,
+                "end_col_offset": 34,
+                "end_lineno": 81,
+                "lineno": 81,
+                "node_id": 393,
+                "slice": {
+                  "ast_type": "Index",
+                  "col_offset": 11,
+                  "end_col_offset": 34,
+                  "end_lineno": 81,
+                  "lineno": 81,
+                  "node_id": 403,
+                  "src": "2279:23:0",
+                  "value": {
+                    "ast_type": "Attribute",
+                    "attr": "sender",
+                    "col_offset": 23,
+                    "end_col_offset": 33,
+                    "end_lineno": 81,
+                    "lineno": 81,
+                    "node_id": 398,
+                    "src": "2291:10:0",
+                    "value": {
+                      "ast_type": "Name",
+                      "col_offset": 23,
+                      "end_col_offset": 26,
+                      "end_lineno": 81,
+                      "id": "msg",
+                      "lineno": 81,
+                      "node_id": 399,
+                      "src": "2291:3:0"
+                    }
+                  }
+                },
+                "src": "2279:23:0",
+                "value": {
+                  "ast_type": "Attribute",
+                  "attr": "admins",
+                  "col_offset": 11,
+                  "end_col_offset": 22,
+                  "end_lineno": 81,
+                  "lineno": 81,
+                  "node_id": 394,
+                  "src": "2279:11:0",
+                  "value": {
+                    "ast_type": "Name",
+                    "col_offset": 11,
+                    "end_col_offset": 15,
+                    "end_lineno": 81,
+                    "id": "self",
+                    "lineno": 81,
+                    "node_id": 395,
+                    "src": "2279:4:0"
+                  }
+                }
+              },
+              "lineno": 81,
+              "node_id": 392,
+              "op": {
+                "ast_type": "Eq",
+                "col_offset": 11,
+                "end_col_offset": 42,
+                "end_lineno": 81,
+                "lineno": 81,
+                "node_id": 404,
+                "src": "2279:31:0"
+              },
+              "right": {
+                "ast_type": "NameConstant",
+                "col_offset": 38,
+                "end_col_offset": 42,
+                "end_lineno": 81,
+                "lineno": 81,
+                "node_id": 405,
+                "src": "2306:4:0",
+                "value": true
+              },
+              "src": "2279:31:0"
+            }
+          },
+          {
+            "ast_type": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 31,
+            "end_lineno": 82,
+            "lineno": 82,
+            "node_id": 407,
+            "src": "2354:27:0",
+            "target": {
+              "ast_type": "Attribute",
+              "attr": "currentGradYear",
+              "col_offset": 4,
+              "end_col_offset": 24,
+              "end_lineno": 82,
+              "lineno": 82,
+              "node_id": 408,
+              "src": "2354:20:0",
+              "value": {
+                "ast_type": "Name",
+                "col_offset": 4,
+                "end_col_offset": 8,
+                "end_lineno": 82,
+                "id": "self",
+                "lineno": 82,
+                "node_id": 409,
+                "src": "2354:4:0"
+              }
+            },
+            "value": {
+              "ast_type": "Name",
+              "col_offset": 27,
+              "end_col_offset": 31,
+              "end_lineno": 82,
+              "id": "year",
+              "lineno": 82,
+              "node_id": 412,
+              "src": "2377:4:0"
+            }
+          },
+          {
+            "ast_type": "Log",
+            "col_offset": 4,
+            "end_col_offset": 37,
+            "end_lineno": 83,
+            "lineno": 83,
+            "node_id": 415,
+            "src": "2386:33:0",
+            "value": {
+              "args": [
+                {
+                  "ast_type": "Attribute",
+                  "attr": "sender",
+                  "col_offset": 20,
+                  "end_col_offset": 30,
+                  "end_lineno": 83,
+                  "lineno": 83,
+                  "node_id": 419,
+                  "src": "2402:10:0",
+                  "value": {
+                    "ast_type": "Name",
+                    "col_offset": 20,
+                    "end_col_offset": 23,
+                    "end_lineno": 83,
+                    "id": "msg",
+                    "lineno": 83,
+                    "node_id": 420,
+                    "src": "2402:3:0"
+                  }
+                },
+                {
+                  "ast_type": "Name",
+                  "col_offset": 32,
+                  "end_col_offset": 36,
+                  "end_lineno": 83,
+                  "id": "year",
+                  "lineno": 83,
+                  "node_id": 423,
+                  "src": "2414:4:0"
+                }
+              ],
+              "ast_type": "Call",
+              "col_offset": 8,
+              "end_col_offset": 37,
+              "end_lineno": 83,
+              "func": {
+                "ast_type": "Name",
+                "col_offset": 8,
+                "end_col_offset": 19,
+                "end_lineno": 83,
+                "id": "SetGradYear",
+                "lineno": 83,
+                "node_id": 417,
+                "src": "2390:11:0"
+              },
+              "keyword": null,
+              "keywords": [],
+              "lineno": 83,
+              "node_id": 416,
+              "src": "2390:29:0"
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [
+          {
+            "ast_type": "Name",
+            "col_offset": 1,
+            "end_col_offset": 9,
+            "end_lineno": 78,
+            "id": "external",
+            "lineno": 78,
+            "node_id": 425,
+            "src": "2144:8:0"
+          }
+        ],
+        "doc_string": null,
+        "end_col_offset": 37,
+        "end_lineno": 83,
+        "lineno": 79,
+        "name": "setCurrentGradYear",
+        "node_id": 378,
+        "pos": null,
+        "returns": null,
+        "src": "2153:266:0"
+      }
+    ],
+    "col_offset": 0,
+    "doc_string": null,
+    "end_col_offset": 37,
+    "end_lineno": 83,
+    "lineno": 1,
+    "name": "contracts/ActiveUser.vy",
+    "node_id": 0,
+    "src": "0:2419:0"
+  },
+  "bytecode": "0x60206108db6000396000518060a01c6108d657604052346108d657604051156108d6576000600455336003556001600233602052600052604060002055600160026040516020526000526040600020557f8231d1dfb3dd93aaa68bc38254b179791fc196a51aa5eb6634a19e91fa57952260403360a0528060c052600a6060527f696e6974206f776e65720000000000000000000000000000000000000000000060805260608160a00181518082526020830160208301815181525050508051806020830101601f82600003163682375050601f19601f82516020010116905090508101905060a0a17f8231d1dfb3dd93aaa68bc38254b179791fc196a51aa5eb6634a19e91fa579522604060405160a0528060c052600a6060527f696e69742061646d696e0000000000000000000000000000000000000000000060805260608160a00181518082526020830160208301815181525050508051806020830101601f82600003163682375050601f19601f82516020010116905090508101905060a0a161074061019561000039610740610000f36003361161000c57610728565b60003560e01c3461072e5763704802758118610291576024361061072e576004358060a01c61072e57604052600454156100c15760216060527f5468697320636f6e7472616374206973206e6f206c6f6e6765722061637469766080527f650000000000000000000000000000000000000000000000000000000000000060a05260605060605180608001601f826000031636823750506308c379a06020526020604052601f19601f6060510116604401603cfd5b6040516101495760216060527f43616e6e6f742061646420746865203020616464726573732061732061646d696080527f6e0000000000000000000000000000000000000000000000000000000000000060a05260605060605180608001601f826000031636823750506308c379a06020526020604052601f19601f6060510116604401603cfd5b600160023360205260005260406000205418156101e157602a6060527f596f75206e65656420746f2062652061207465616368657220746f20616464206080527f6120746561636865722e0000000000000000000000000000000000000000000060a05260605060605180608001601f826000031636823750506308c379a06020526020604052601f19601f6060510116604401603cfd5b600160026040516020526000526040600020557f8231d1dfb3dd93aaa68bc38254b179791fc196a51aa5eb6634a19e91fa579522604060405160a0528060c05260096060527f6164642061646d696e000000000000000000000000000000000000000000000060805260608160a00181518082526020830160208301815181525050508051806020830101601f82600003163682375050601f19601f82516020010116905090508101905060a0a1005b63421b2d8b811861044d576024361061072e576004358060a01c61072e576040526004541561033b57602b6060527f5468697320636f6e747261637420616e642069747320666561747572657320616080527f72652064697361626c656400000000000000000000000000000000000000000060a05260605060605180608001601f826000031636823750506308c379a06020526020604052601f19601f6060510116604401603cfd5b6040516103c35760226060527f43616e6e6f7420616464207468652030206164647265737320617320612075736080527f657200000000000000000000000000000000000000000000000000000000000060a05260605060605180608001601f826000031636823750506308c379a06020526020604052601f19601f6060510116604401603cfd5b600160023360205260005260406000205418156104375760206060527f4f6e6c792061646d696e732063616e206164642061637469766520757365727360805260605060605180608001601f826000031636823750506308c379a06020526020604052601f19601f6060510116604401603cfd5b6000546001604051602052600052604060002055005b635593b3688118610488576024361061072e576004358060a01c61072e57604052600160405160205260005260406000205460605260206060f35b6364efb22b81186104c3576024361061072e576004358060a01c61072e57604052600260405160205260005260406000205460605260206060f35b6353837ee78118610502576024361061072e576004358060a01c61072e5760405260005460016040516020526000526040600020541460605260206060f35b631de6e302811861052e576024361061072e576004358060a01c61072e57604052600160605260206060f35b63a40a22668118610560576024361061072e576004358060011c61072e57604052336003541861072e57604051600455005b63e8fec15781186106cc576024361061072e57600454156105fc57602b6040527f5468697320636f6e747261637420616e642069747320666561747572657320616060527f72652064697361626c656400000000000000000000000000000000000000000060805260405060405180606001601f826000031636823750506308c379a06000526020602052601f19601f6040510116604401601cfd5b600160023360205260005260406000205418156106945760236040527f4f6e6c792061646d696e732063616e20616464206163746976652073747564656060527f6e7473000000000000000000000000000000000000000000000000000000000060805260405060405180606001601f826000031636823750506308c379a06000526020602052601f19601f6040510116604401601cfd5b6004356000557f3b27bff680ff892d8f941c7714baa456066bc09deb29c6f01f5e1b70c11fc68f3360405260043560605260406040a1005b6345595cf581186106eb576004361061072e5760005460405260206040f35b63429b62e58118610726576024361061072e576004358060a01c61072e57604052600260405160205260005260406000205460605260206060f35b505b60006000fd5b600080fda165767970657283000307000b005b600080fd",
+  "bytecodeSha1": "1c86845ce3ca8a184ba0ab3aa70b31b67f57e289",
+  "compiler": {
+    "evm_version": "istanbul",
+    "version": "0.3.7"
+  },
+  "contractName": "ActiveUser",
+  "coverageMap": {
+    "branches": {
+      "0": {
+        "ActiveUser.addAdmin": {
+          "1": [
+            951,
+            1012,
+            true
+          ],
+          "3": [
+            1017,
+            1089,
+            true
+          ],
+          "5": [
+            1094,
+            1178,
+            true
+          ]
+        },
+        "ActiveUser.addUser": {
+          "9": [
+            1307,
+            1378,
+            true
+          ],
+          "11": [
+            1383,
+            1455,
+            true
+          ],
+          "13": [
+            1460,
+            1534,
+            true
+          ]
+        },
+        "ActiveUser.setCurrentGradYear": {
+          "23": [
+            2196,
+            2267,
+            true
+          ],
+          "25": [
+            2272,
+            2349,
+            true
+          ]
+        },
+        "ActiveUser.setDisableContract": {
+          "20": [
+            2081,
+            2112,
+            true
+          ]
+        }
+      }
+    },
+    "statements": {
+      "0": {
+        "ActiveUser.addAdmin": {
+          "0": [
+            951,
+            1012
+          ],
+          "2": [
+            1017,
+            1089
+          ],
+          "4": [
+            1094,
+            1178
+          ],
+          "6": [
+            1183,
+            1213
+          ],
+          "7": [
+            1218,
+            1257
+          ]
+        },
+        "ActiveUser.addUser": {
+          "8": [
+            1307,
+            1378
+          ],
+          "10": [
+            1383,
+            1455
+          ],
+          "12": [
+            1460,
+            1534
+          ],
+          "14": [
+            1539,
+            1596
+          ]
+        },
+        "ActiveUser.getActiveUser": {
+          "17": [
+            1883,
+            1952
+          ]
+        },
+        "ActiveUser.getAdmin": {
+          "16": [
+            1776,
+            1810
+          ]
+        },
+        "ActiveUser.getUserGradYear": {
+          "15": [
+            1668,
+            1707
+          ]
+        },
+        "ActiveUser.isAlumni": {
+          "18": [
+            2014,
+            2025
+          ]
+        },
+        "ActiveUser.setCurrentGradYear": {
+          "22": [
+            2196,
+            2267
+          ],
+          "24": [
+            2272,
+            2349
+          ],
+          "26": [
+            2386,
+            2419
+          ],
+          "27": [
+            2354,
+            2381
+          ]
+        },
+        "ActiveUser.setDisableContract": {
+          "19": [
+            2081,
+            2112
+          ],
+          "21": [
+            2117,
+            2141
+          ]
+        }
+      }
+    }
+  },
+  "dependencies": [],
+  "deployedBytecode": "0x6003361161000c57610728565b60003560e01c3461072e5763704802758118610291576024361061072e576004358060a01c61072e57604052600454156100c15760216060527f5468697320636f6e7472616374206973206e6f206c6f6e6765722061637469766080527f650000000000000000000000000000000000000000000000000000000000000060a05260605060605180608001601f826000031636823750506308c379a06020526020604052601f19601f6060510116604401603cfd5b6040516101495760216060527f43616e6e6f742061646420746865203020616464726573732061732061646d696080527f6e0000000000000000000000000000000000000000000000000000000000000060a05260605060605180608001601f826000031636823750506308c379a06020526020604052601f19601f6060510116604401603cfd5b600160023360205260005260406000205418156101e157602a6060527f596f75206e65656420746f2062652061207465616368657220746f20616464206080527f6120746561636865722e0000000000000000000000000000000000000000000060a05260605060605180608001601f826000031636823750506308c379a06020526020604052601f19601f6060510116604401603cfd5b600160026040516020526000526040600020557f8231d1dfb3dd93aaa68bc38254b179791fc196a51aa5eb6634a19e91fa579522604060405160a0528060c05260096060527f6164642061646d696e000000000000000000000000000000000000000000000060805260608160a00181518082526020830160208301815181525050508051806020830101601f82600003163682375050601f19601f82516020010116905090508101905060a0a1005b63421b2d8b811861044d576024361061072e576004358060a01c61072e576040526004541561033b57602b6060527f5468697320636f6e747261637420616e642069747320666561747572657320616080527f72652064697361626c656400000000000000000000000000000000000000000060a05260605060605180608001601f826000031636823750506308c379a06020526020604052601f19601f6060510116604401603cfd5b6040516103c35760226060527f43616e6e6f7420616464207468652030206164647265737320617320612075736080527f657200000000000000000000000000000000000000000000000000000000000060a05260605060605180608001601f826000031636823750506308c379a06020526020604052601f19601f6060510116604401603cfd5b600160023360205260005260406000205418156104375760206060527f4f6e6c792061646d696e732063616e206164642061637469766520757365727360805260605060605180608001601f826000031636823750506308c379a06020526020604052601f19601f6060510116604401603cfd5b6000546001604051602052600052604060002055005b635593b3688118610488576024361061072e576004358060a01c61072e57604052600160405160205260005260406000205460605260206060f35b6364efb22b81186104c3576024361061072e576004358060a01c61072e57604052600260405160205260005260406000205460605260206060f35b6353837ee78118610502576024361061072e576004358060a01c61072e5760405260005460016040516020526000526040600020541460605260206060f35b631de6e302811861052e576024361061072e576004358060a01c61072e57604052600160605260206060f35b63a40a22668118610560576024361061072e576004358060011c61072e57604052336003541861072e57604051600455005b63e8fec15781186106cc576024361061072e57600454156105fc57602b6040527f5468697320636f6e747261637420616e642069747320666561747572657320616060527f72652064697361626c656400000000000000000000000000000000000000000060805260405060405180606001601f826000031636823750506308c379a06000526020602052601f19601f6040510116604401601cfd5b600160023360205260005260406000205418156106945760236040527f4f6e6c792061646d696e732063616e20616464206163746976652073747564656060527f6e7473000000000000000000000000000000000000000000000000000000000060805260405060405180606001601f826000031636823750506308c379a06000526020602052601f19601f6040510116604401601cfd5b6004356000557f3b27bff680ff892d8f941c7714baa456066bc09deb29c6f01f5e1b70c11fc68f3360405260043560605260406040a1005b6345595cf581186106eb576004361061072e5760005460405260206040f35b63429b62e58118610726576024361061072e576004358060a01c61072e57604052600260405160205260005260406000205460605260206060f35b505b60006000fd5b600080fda165767970657283000307000b",
+  "deployedSourceMap": "-1:-1:0:-;;;;:::-;;:::-;:::-;;;;;;;:::-;;;;;:::-;;;;;:::-;;;;;;;:::-;756:19;;962:13;-1:-1;958:17;951:61;:::-;-1:-1;;977:35;-1:-1;;977:35;-1:-1;;977:35;;951:61;-1:-1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;951:61::-;1024:10;:28;1017:72;:::-;-1:-1;;1054:35;-1:-1;;1054:35;-1:-1;;1054:35;;1017:72;-1:-1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1017:72::-;1128:4;1101:11;1113:10;1101:23;;;;;;;:31;;;1094:84;:::-;-1:-1;;1134:44;-1:-1;;1134:44;-1:-1;;1134:44;;1094:84;-1:-1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1094:84::-;1209:4;1183:11;1195:10;-1:-1;1183:23;;;;;;;-1:-1;1218:39;-1:-1;1233:10;-1:-1;;;;;;;;1245:11;-1:-1;;1245:11;;-1:-1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1218:39;;-1:-1;:::-;;;;;:::-;;;;;:::-;;;;;;;:::-;1282:18;;1318:13;-1:-1;1314:17;1307:71;:::-;-1:-1;;1333:45;-1:-1;;1333:45;-1:-1;;1333:45;;1307:71;-1:-1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1307:71::-;1390:9;:27;1383:72;:::-;-1:-1;;1419:36;-1:-1;;1419:36;-1:-1;;1419:36;;1383:72;-1:-1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1383:72::-;1494:4;1467:11;1479:10;1467:23;;;;;;;:31;;;1460:74;:::-;-1:-1;;1500:34;-1:-1;;1500:34;;1460:74;-1:-1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1460:74::-;1576:20;-1:-1;1539:23;1563:9;-1:-1;1539:34;;;;;;;-1:-1;;:::-;;;;;:::-;;;;;:::-;;;;;;;:::-;1634:16;;1675:23;1699:7;-1:-1;1675:32;;;;;;;-1:-1;;;;;;:::-;;;;;:::-;;;;;:::-;;;;;;;:::-;1738:23;;1783:11;1795:14;-1:-1;1783:27;;;;;;;-1:-1;;;;;;:::-;;;;;:::-;;;;;:::-;;;;;;;:::-;1846:22;;1932:20;-1:-1;1890:23;1914:13;-1:-1;1890:38;;;;;;;-1:-1;1890:62;-1:-1;;;;;:::-;;;;;:::-;;;;;:::-;;;;;;;:::-;1977:22;;2021:4;-1:-1;;;;;:::-;;;;;:::-;;;;;:::-;;;;;;;:::-;2060:14;;2102:10;2088;:24;;2081:31;:::-;2133:8;-1:-1;2117:13;-1:-1;;:::-;;;;;:::-;;;;;:::-;2207:13;-1:-1;2203:17;2196:71;:::-;-1:-1;;2222:45;-1:-1;;2222:45;-1:-1;;2222:45;;2196:71;-1:-1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2196:71::-;2306:4;2279:11;2291:10;2279:23;;;;;;;:31;;;2272:77;:::-;-1:-1;;2312:37;-1:-1;;2312:37;-1:-1;;2312:37;;2272:77;-1:-1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2272:77::-;2414:4;-1:-1;2354:20;:27;2386:33;2402:10;-1:-1;;2414:4;-1:-1;;;;2386:33;;-1:-1;:::-;;;;;:::-;;;;;:::-;;;;;;;;:::-;;;;;:::-;;;;;:::-;;;;;;;:::-;;;;;;;;;;;;;;;;;;;:::-;;:::-;;;;:::-;;;",
+  "language": "Vyper",
+  "natspec": {
+    "methods": {
+      "__init__(address)": {
+        "notice": "Sets the reimburesement and reimburseGas contract",
+        "params": {
+          "initialAdmin": "is a mandatory admin address"
+        }
+      },
+      "addAdmin(address)": {
+        "notice": "addAdmin function adds a new admin",
+        "params": {
+          "adminToAdd": "is the admin to input can only be called by existing admin / owner"
+        }
+      }
+    }
+  },
+  "offset": [
+    0,
+    2422
+  ],
+  "opcodes": "PUSH1 0x3 CALLDATASIZE GT PUSH2 0x0C JUMPI PUSH2 0x728 JUMP JUMPDEST PUSH1 0x0 CALLDATALOAD PUSH1 0xE0 SHR CALLVALUE PUSH2 0x72E JUMPI PUSH4 0x7048275 DUP2 XOR PUSH2 0x291 JUMPI PUSH1 0x24 CALLDATASIZE LT PUSH2 0x72E JUMPI PUSH1 0x4 CALLDATALOAD DUP1 PUSH1 0xA0 SHR PUSH2 0x72E JUMPI PUSH1 0x40 MSTORE PUSH1 0x4 SLOAD ISZERO PUSH2 0x0C1 JUMPI PUSH1 0x21 PUSH1 0x60 MSTORE PUSH32 0x5468697320636F6E7472616374206973206E6F206C6F6E676572206163746976 PUSH1 0x80 MSTORE PUSH32 0x650000000000000000000000000000000 PUSH1 0xA0 MSTORE PUSH1 0x60 POP PUSH1 0x60 MLOAD DUP1 PUSH1 0x80 ADD PUSH1 0x1F DUP3 PUSH1 0x0 SUB AND CALLDATASIZE DUP3 CALLDATACOPY POP POP PUSH4 0x8C379A0 PUSH1 0x20 MSTORE PUSH1 0x20 PUSH1 0x40 MSTORE PUSH1 0x1F NOT PUSH1 0x1F PUSH1 0x60 MLOAD ADD AND PUSH1 0x44 ADD PUSH1 0x3C REVERT JUMPDEST PUSH1 0x40 MLOAD PUSH2 0x149 JUMPI PUSH1 0x21 PUSH1 0x60 MSTORE PUSH32 0x43616E6E6F742061646420746865203020616464726573732061732061646D69 PUSH1 0x80 MSTORE PUSH32 0x6E0000000000000000000000000000000 PUSH1 0xA0 MSTORE PUSH1 0x60 POP PUSH1 0x60 MLOAD DUP1 PUSH1 0x80 ADD PUSH1 0x1F DUP3 PUSH1 0x0 SUB AND CALLDATASIZE DUP3 CALLDATACOPY POP POP PUSH4 0x8C379A0 PUSH1 0x20 MSTORE PUSH1 0x20 PUSH1 0x40 MSTORE PUSH1 0x1F NOT PUSH1 0x1F PUSH1 0x60 MLOAD ADD AND PUSH1 0x44 ADD PUSH1 0x3C REVERT JUMPDEST PUSH1 0x1 PUSH1 0x2 CALLER PUSH1 0x20 MSTORE PUSH1 0x0 MSTORE PUSH1 0x40 PUSH1 0x0 SHA3 SLOAD XOR ISZERO PUSH2 0x1E1 JUMPI PUSH1 0x2A PUSH1 0x60 MSTORE PUSH32 0x596F75206E65656420746F2062652061207465616368657220746F2061646420 PUSH1 0x80 MSTORE PUSH32 0x6120746561636865722E0000000000000000000000 PUSH1 0xA0 MSTORE PUSH1 0x60 POP PUSH1 0x60 MLOAD DUP1 PUSH1 0x80 ADD PUSH1 0x1F DUP3 PUSH1 0x0 SUB AND CALLDATASIZE DUP3 CALLDATACOPY POP POP PUSH4 0x8C379A0 PUSH1 0x20 MSTORE PUSH1 0x20 PUSH1 0x40 MSTORE PUSH1 0x1F NOT PUSH1 0x1F PUSH1 0x60 MLOAD ADD AND PUSH1 0x44 ADD PUSH1 0x3C REVERT JUMPDEST PUSH1 0x1 PUSH1 0x2 PUSH1 0x40 MLOAD PUSH1 0x20 MSTORE PUSH1 0x0 MSTORE PUSH1 0x40 PUSH1 0x0 SHA3 SSTORE PUSH32 0x8231D1DFB3DD93AAA68BC38254B179791FC196A51AA5EB6634A19E91FA579522 PUSH1 0x40 PUSH1 0x40 MLOAD PUSH1 0xA0 MSTORE DUP1 PUSH1 0xC0 MSTORE PUSH1 0x9 PUSH1 0x60 MSTORE PUSH32 0x6164642061646D696E00000000000000000000000 PUSH1 0x80 MSTORE PUSH1 0x60 DUP2 PUSH1 0xA0 ADD DUP2 MLOAD DUP1 DUP3 MSTORE PUSH1 0x20 DUP4 ADD PUSH1 0x20 DUP4 ADD DUP2 MLOAD DUP2 MSTORE POP POP POP DUP1 MLOAD DUP1 PUSH1 0x20 DUP4 ADD ADD PUSH1 0x1F DUP3 PUSH1 0x0 SUB AND CALLDATASIZE DUP3 CALLDATACOPY POP POP PUSH1 0x1F NOT PUSH1 0x1F DUP3 MLOAD PUSH1 0x20 ADD ADD AND SWAP1 POP SWAP1 POP DUP2 ADD SWAP1 POP PUSH1 0xA0 LOG1 STOP JUMPDEST PUSH4 0x421B2D8B DUP2 XOR PUSH2 0x44D JUMPI PUSH1 0x24 CALLDATASIZE LT PUSH2 0x72E JUMPI PUSH1 0x4 CALLDATALOAD DUP1 PUSH1 0xA0 SHR PUSH2 0x72E JUMPI PUSH1 0x40 MSTORE PUSH1 0x4 SLOAD ISZERO PUSH2 0x33B JUMPI PUSH1 0x2B PUSH1 0x60 MSTORE PUSH32 0x5468697320636F6E747261637420616E64206974732066656174757265732061 PUSH1 0x80 MSTORE PUSH32 0x72652064697361626C6564000000000000000000000 PUSH1 0xA0 MSTORE PUSH1 0x60 POP PUSH1 0x60 MLOAD DUP1 PUSH1 0x80 ADD PUSH1 0x1F DUP3 PUSH1 0x0 SUB AND CALLDATASIZE DUP3 CALLDATACOPY POP POP PUSH4 0x8C379A0 PUSH1 0x20 MSTORE PUSH1 0x20 PUSH1 0x40 MSTORE PUSH1 0x1F NOT PUSH1 0x1F PUSH1 0x60 MLOAD ADD AND PUSH1 0x44 ADD PUSH1 0x3C REVERT JUMPDEST PUSH1 0x40 MLOAD PUSH2 0x3C3 JUMPI PUSH1 0x22 PUSH1 0x60 MSTORE PUSH32 0x43616E6E6F742061646420746865203020616464726573732061732061207573 PUSH1 0x80 MSTORE PUSH32 0x6572000000000000000000000000000000 PUSH1 0xA0 MSTORE PUSH1 0x60 POP PUSH1 0x60 MLOAD DUP1 PUSH1 0x80 ADD PUSH1 0x1F DUP3 PUSH1 0x0 SUB AND CALLDATASIZE DUP3 CALLDATACOPY POP POP PUSH4 0x8C379A0 PUSH1 0x20 MSTORE PUSH1 0x20 PUSH1 0x40 MSTORE PUSH1 0x1F NOT PUSH1 0x1F PUSH1 0x60 MLOAD ADD AND PUSH1 0x44 ADD PUSH1 0x3C REVERT JUMPDEST PUSH1 0x1 PUSH1 0x2 CALLER PUSH1 0x20 MSTORE PUSH1 0x0 MSTORE PUSH1 0x40 PUSH1 0x0 SHA3 SLOAD XOR ISZERO PUSH2 0x437 JUMPI PUSH1 0x20 PUSH1 0x60 MSTORE PUSH32 0x4F6E6C792061646D696E732063616E2061646420616374697665207573657273 PUSH1 0x80 MSTORE PUSH1 0x60 POP PUSH1 0x60 MLOAD DUP1 PUSH1 0x80 ADD PUSH1 0x1F DUP3 PUSH1 0x0 SUB AND CALLDATASIZE DUP3 CALLDATACOPY POP POP PUSH4 0x8C379A0 PUSH1 0x20 MSTORE PUSH1 0x20 PUSH1 0x40 MSTORE PUSH1 0x1F NOT PUSH1 0x1F PUSH1 0x60 MLOAD ADD AND PUSH1 0x44 ADD PUSH1 0x3C REVERT JUMPDEST PUSH1 0x0 SLOAD PUSH1 0x1 PUSH1 0x40 MLOAD PUSH1 0x20 MSTORE PUSH1 0x0 MSTORE PUSH1 0x40 PUSH1 0x0 SHA3 SSTORE STOP JUMPDEST PUSH4 0x5593B368 DUP2 XOR PUSH2 0x488 JUMPI PUSH1 0x24 CALLDATASIZE LT PUSH2 0x72E JUMPI PUSH1 0x4 CALLDATALOAD DUP1 PUSH1 0xA0 SHR PUSH2 0x72E JUMPI PUSH1 0x40 MSTORE PUSH1 0x1 PUSH1 0x40 MLOAD PUSH1 0x20 MSTORE PUSH1 0x0 MSTORE PUSH1 0x40 PUSH1 0x0 SHA3 SLOAD PUSH1 0x60 MSTORE PUSH1 0x20 PUSH1 0x60 RETURN JUMPDEST PUSH4 0x64EFB22B DUP2 XOR PUSH2 0x4C3 JUMPI PUSH1 0x24 CALLDATASIZE LT PUSH2 0x72E JUMPI PUSH1 0x4 CALLDATALOAD DUP1 PUSH1 0xA0 SHR PUSH2 0x72E JUMPI PUSH1 0x40 MSTORE PUSH1 0x2 PUSH1 0x40 MLOAD PUSH1 0x20 MSTORE PUSH1 0x0 MSTORE PUSH1 0x40 PUSH1 0x0 SHA3 SLOAD PUSH1 0x60 MSTORE PUSH1 0x20 PUSH1 0x60 RETURN JUMPDEST PUSH4 0x53837EE7 DUP2 XOR PUSH2 0x52 JUMPI PUSH1 0x24 CALLDATASIZE LT PUSH2 0x72E JUMPI PUSH1 0x4 CALLDATALOAD DUP1 PUSH1 0xA0 SHR PUSH2 0x72E JUMPI PUSH1 0x40 MSTORE PUSH1 0x0 SLOAD PUSH1 0x1 PUSH1 0x40 MLOAD PUSH1 0x20 MSTORE PUSH1 0x0 MSTORE PUSH1 0x40 PUSH1 0x0 SHA3 SLOAD EQ PUSH1 0x60 MSTORE PUSH1 0x20 PUSH1 0x60 RETURN JUMPDEST PUSH4 0x1DE6E32 DUP2 XOR PUSH2 0x52E JUMPI PUSH1 0x24 CALLDATASIZE LT PUSH2 0x72E JUMPI PUSH1 0x4 CALLDATALOAD DUP1 PUSH1 0xA0 SHR PUSH2 0x72E JUMPI PUSH1 0x40 MSTORE PUSH1 0x1 PUSH1 0x60 MSTORE PUSH1 0x20 PUSH1 0x60 RETURN JUMPDEST PUSH4 0xA4A2266 DUP2 XOR PUSH2 0x560 JUMPI PUSH1 0x24 CALLDATASIZE LT PUSH2 0x72E JUMPI PUSH1 0x4 CALLDATALOAD DUP1 PUSH1 0x1 SHR PUSH2 0x72E JUMPI PUSH1 0x40 MSTORE CALLER PUSH1 0x3 SLOAD XOR PUSH2 0x72E JUMPI PUSH1 0x40 MLOAD PUSH1 0x4 SSTORE STOP JUMPDEST PUSH4 0xE8FEC157 DUP2 XOR PUSH2 0x6CC JUMPI PUSH1 0x24 CALLDATASIZE LT PUSH2 0x72E JUMPI PUSH1 0x4 SLOAD ISZERO PUSH2 0x5FC JUMPI PUSH1 0x2B PUSH1 0x40 MSTORE PUSH32 0x5468697320636F6E747261637420616E64206974732066656174757265732061 PUSH1 0x60 MSTORE PUSH32 0x72652064697361626C6564000000000000000000000 PUSH1 0x80 MSTORE PUSH1 0x40 POP PUSH1 0x40 MLOAD DUP1 PUSH1 0x60 ADD PUSH1 0x1F DUP3 PUSH1 0x0 SUB AND CALLDATASIZE DUP3 CALLDATACOPY POP POP PUSH4 0x8C379A0 PUSH1 0x0 MSTORE PUSH1 0x20 PUSH1 0x20 MSTORE PUSH1 0x1F NOT PUSH1 0x1F PUSH1 0x40 MLOAD ADD AND PUSH1 0x44 ADD PUSH1 0x1C REVERT JUMPDEST PUSH1 0x1 PUSH1 0x2 CALLER PUSH1 0x20 MSTORE PUSH1 0x0 MSTORE PUSH1 0x40 PUSH1 0x0 SHA3 SLOAD XOR ISZERO PUSH2 0x694 JUMPI PUSH1 0x23 PUSH1 0x40 MSTORE PUSH32 0x4F6E6C792061646D696E732063616E2061646420616374697665207374756465 PUSH1 0x60 MSTORE PUSH32 0x6E747300000000000000000000000000000 PUSH1 0x80 MSTORE PUSH1 0x40 POP PUSH1 0x40 MLOAD DUP1 PUSH1 0x60 ADD PUSH1 0x1F DUP3 PUSH1 0x0 SUB AND CALLDATASIZE DUP3 CALLDATACOPY POP POP PUSH4 0x8C379A0 PUSH1 0x0 MSTORE PUSH1 0x20 PUSH1 0x20 MSTORE PUSH1 0x1F NOT PUSH1 0x1F PUSH1 0x40 MLOAD ADD AND PUSH1 0x44 ADD PUSH1 0x1C REVERT JUMPDEST PUSH1 0x4 CALLDATALOAD PUSH1 0x0 SSTORE PUSH32 0x3B27BFF680FF892D8F941C7714BAA45666BC09DEB29C6F01F5E1B70C11FC68F CALLER PUSH1 0x40 MSTORE PUSH1 0x4 CALLDATALOAD PUSH1 0x60 MSTORE PUSH1 0x40 PUSH1 0x40 LOG1 STOP JUMPDEST PUSH4 0x45595CF5 DUP2 XOR PUSH2 0x6EB JUMPI PUSH1 0x4 CALLDATASIZE LT PUSH2 0x72E JUMPI PUSH1 0x0 SLOAD PUSH1 0x40 MSTORE PUSH1 0x20 PUSH1 0x40 RETURN JUMPDEST PUSH4 0x429B62E5 DUP2 XOR PUSH2 0x726 JUMPI PUSH1 0x24 CALLDATASIZE LT PUSH2 0x72E JUMPI PUSH1 0x4 CALLDATALOAD DUP1 PUSH1 0xA0 SHR PUSH2 0x72E JUMPI PUSH1 0x40 MSTORE PUSH1 0x2 PUSH1 0x40 MLOAD PUSH1 0x20 MSTORE PUSH1 0x0 MSTORE PUSH1 0x40 PUSH1 0x0 SHA3 SLOAD PUSH1 0x60 MSTORE PUSH1 0x20 PUSH1 0x60 RETURN JUMPDEST POP JUMPDEST PUSH1 0x0 PUSH1 0x0 REVERT JUMPDEST PUSH1 0x0 DUP1 REVERT LOG1 PUSH6 0x767970657283 STOP SUB SMOD STOP SIGNEXTEND",
+  "pcMap": {
+    "0": {
+      "offset": [
+        0,
+        2419
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x3"
+    },
+    "2": {
+      "op": "CALLDATASIZE"
+    },
+    "3": {
+      "op": "GT"
+    },
+    "4": {
+      "op": "PUSH2",
+      "value": "0x0C"
+    },
+    "7": {
+      "op": "JUMPI"
+    },
+    "8": {
+      "op": "PUSH2",
+      "value": "0x728"
+    },
+    "11": {
+      "op": "JUMP"
+    },
+    "12": {
+      "op": "JUMPDEST"
+    },
+    "13": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "15": {
+      "op": "CALLDATALOAD"
+    },
+    "16": {
+      "op": "PUSH1",
+      "value": "0xE0"
+    },
+    "18": {
+      "op": "SHR"
+    },
+    "19": {
+      "op": "CALLVALUE"
+    },
+    "20": {
+      "op": "PUSH2",
+      "value": "0x72E"
+    },
+    "23": {
+      "op": "JUMPI"
+    },
+    "24": {
+      "op": "PUSH4",
+      "value": "0x7048275"
+    },
+    "29": {
+      "op": "DUP2"
+    },
+    "30": {
+      "op": "XOR"
+    },
+    "31": {
+      "op": "PUSH2",
+      "value": "0x291"
+    },
+    "34": {
+      "op": "JUMPI"
+    },
+    "35": {
+      "op": "PUSH1",
+      "value": "0x24"
+    },
+    "37": {
+      "op": "CALLDATASIZE"
+    },
+    "38": {
+      "op": "LT"
+    },
+    "39": {
+      "op": "PUSH2",
+      "value": "0x72E"
+    },
+    "42": {
+      "op": "JUMPI"
+    },
+    "43": {
+      "op": "PUSH1",
+      "value": "0x4"
+    },
+    "45": {
+      "op": "CALLDATALOAD"
+    },
+    "46": {
+      "op": "DUP1"
+    },
+    "47": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "49": {
+      "op": "SHR"
+    },
+    "50": {
+      "op": "PUSH2",
+      "value": "0x72E"
+    },
+    "53": {
+      "op": "JUMPI"
+    },
+    "54": {
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        756,
+        775
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x40"
+    },
+    "56": {
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        756,
+        775
+      ],
+      "op": "MSTORE",
+      "path": "0"
+    },
+    "57": {
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        962,
+        975
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "statement": 0,
+      "value": "0x4"
+    },
+    "59": {
+      "op": "SLOAD"
+    },
+    "60": {
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        958,
+        975
+      ],
+      "op": "ISZERO",
+      "path": "0"
+    },
+    "61": {
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        951,
+        1012
+      ],
+      "op": "PUSH2",
+      "path": "0",
+      "value": "0x0C1"
+    },
+    "64": {
+      "branch": 1,
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        951,
+        1012
+      ],
+      "op": "JUMPI",
+      "path": "0"
+    },
+    "65": {
+      "op": "PUSH1",
+      "value": "0x21"
+    },
+    "67": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "69": {
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        977,
+        1012
+      ],
+      "op": "MSTORE",
+      "path": "0"
+    },
+    "70": {
+      "op": "PUSH32",
+      "value": "0x5468697320636F6E7472616374206973206E6F206C6F6E676572206163746976"
+    },
+    "103": {
+      "op": "PUSH1",
+      "value": "0x80"
+    },
+    "105": {
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        977,
+        1012
+      ],
+      "op": "MSTORE",
+      "path": "0"
+    },
+    "106": {
+      "op": "PUSH32",
+      "value": "0x650000000000000000000000000000000"
+    },
+    "139": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "141": {
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        977,
+        1012
+      ],
+      "op": "MSTORE",
+      "path": "0"
+    },
+    "142": {
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        977,
+        1012
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x60"
+    },
+    "144": {
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        951,
+        1012
+      ],
+      "op": "POP",
+      "path": "0"
+    },
+    "145": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "147": {
+      "op": "MLOAD"
+    },
+    "148": {
+      "op": "DUP1"
+    },
+    "149": {
+      "op": "PUSH1",
+      "value": "0x80"
+    },
+    "151": {
+      "op": "ADD"
+    },
+    "152": {
+      "op": "PUSH1",
+      "value": "0x1F"
+    },
+    "154": {
+      "op": "DUP3"
+    },
+    "155": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "157": {
+      "op": "SUB"
+    },
+    "158": {
+      "op": "AND"
+    },
+    "159": {
+      "op": "CALLDATASIZE"
+    },
+    "160": {
+      "op": "DUP3"
+    },
+    "161": {
+      "op": "CALLDATACOPY"
+    },
+    "162": {
+      "op": "POP"
+    },
+    "163": {
+      "op": "POP"
+    },
+    "164": {
+      "op": "PUSH4",
+      "value": "0x8C379A0"
+    },
+    "169": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "171": {
+      "op": "MSTORE"
+    },
+    "172": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "174": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "176": {
+      "op": "MSTORE"
+    },
+    "177": {
+      "op": "PUSH1",
+      "value": "0x1F"
+    },
+    "179": {
+      "op": "NOT"
+    },
+    "180": {
+      "op": "PUSH1",
+      "value": "0x1F"
+    },
+    "182": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "184": {
+      "op": "MLOAD"
+    },
+    "185": {
+      "op": "ADD"
+    },
+    "186": {
+      "op": "AND"
+    },
+    "187": {
+      "op": "PUSH1",
+      "value": "0x44"
+    },
+    "189": {
+      "op": "ADD"
+    },
+    "190": {
+      "op": "PUSH1",
+      "value": "0x3C"
+    },
+    "192": {
+      "op": "REVERT"
+    },
+    "193": {
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        951,
+        1012
+      ],
+      "op": "JUMPDEST",
+      "path": "0"
+    },
+    "194": {
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        1024,
+        1034
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "statement": 2,
+      "value": "0x40"
+    },
+    "196": {
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        1024,
+        1052
+      ],
+      "op": "MLOAD",
+      "path": "0"
+    },
+    "197": {
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        1017,
+        1089
+      ],
+      "op": "PUSH2",
+      "path": "0",
+      "value": "0x149"
+    },
+    "200": {
+      "branch": 3,
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        1017,
+        1089
+      ],
+      "op": "JUMPI",
+      "path": "0"
+    },
+    "201": {
+      "op": "PUSH1",
+      "value": "0x21"
+    },
+    "203": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "205": {
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        1054,
+        1089
+      ],
+      "op": "MSTORE",
+      "path": "0"
+    },
+    "206": {
+      "op": "PUSH32",
+      "value": "0x43616E6E6F742061646420746865203020616464726573732061732061646D69"
+    },
+    "239": {
+      "op": "PUSH1",
+      "value": "0x80"
+    },
+    "241": {
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        1054,
+        1089
+      ],
+      "op": "MSTORE",
+      "path": "0"
+    },
+    "242": {
+      "op": "PUSH32",
+      "value": "0x6E0000000000000000000000000000000"
+    },
+    "275": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "277": {
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        1054,
+        1089
+      ],
+      "op": "MSTORE",
+      "path": "0"
+    },
+    "278": {
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        1054,
+        1089
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x60"
+    },
+    "280": {
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        1017,
+        1089
+      ],
+      "op": "POP",
+      "path": "0"
+    },
+    "281": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "283": {
+      "op": "MLOAD"
+    },
+    "284": {
+      "op": "DUP1"
+    },
+    "285": {
+      "op": "PUSH1",
+      "value": "0x80"
+    },
+    "287": {
+      "op": "ADD"
+    },
+    "288": {
+      "op": "PUSH1",
+      "value": "0x1F"
+    },
+    "290": {
+      "op": "DUP3"
+    },
+    "291": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "293": {
+      "op": "SUB"
+    },
+    "294": {
+      "op": "AND"
+    },
+    "295": {
+      "op": "CALLDATASIZE"
+    },
+    "296": {
+      "op": "DUP3"
+    },
+    "297": {
+      "op": "CALLDATACOPY"
+    },
+    "298": {
+      "op": "POP"
+    },
+    "299": {
+      "op": "POP"
+    },
+    "300": {
+      "op": "PUSH4",
+      "value": "0x8C379A0"
+    },
+    "305": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "307": {
+      "op": "MSTORE"
+    },
+    "308": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "310": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "312": {
+      "op": "MSTORE"
+    },
+    "313": {
+      "op": "PUSH1",
+      "value": "0x1F"
+    },
+    "315": {
+      "op": "NOT"
+    },
+    "316": {
+      "op": "PUSH1",
+      "value": "0x1F"
+    },
+    "318": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "320": {
+      "op": "MLOAD"
+    },
+    "321": {
+      "op": "ADD"
+    },
+    "322": {
+      "op": "AND"
+    },
+    "323": {
+      "op": "PUSH1",
+      "value": "0x44"
+    },
+    "325": {
+      "op": "ADD"
+    },
+    "326": {
+      "op": "PUSH1",
+      "value": "0x3C"
+    },
+    "328": {
+      "op": "REVERT"
+    },
+    "329": {
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        1017,
+        1089
+      ],
+      "op": "JUMPDEST",
+      "path": "0"
+    },
+    "330": {
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        1128,
+        1132
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "statement": 4,
+      "value": "0x1"
+    },
+    "332": {
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        1101,
+        1112
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x2"
+    },
+    "334": {
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        1113,
+        1123
+      ],
+      "op": "CALLER",
+      "path": "0"
+    },
+    "335": {
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        1101,
+        1124
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x20"
+    },
+    "337": {
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        1101,
+        1124
+      ],
+      "op": "MSTORE",
+      "path": "0"
+    },
+    "338": {
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        1101,
+        1124
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x0"
+    },
+    "340": {
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        1101,
+        1124
+      ],
+      "op": "MSTORE",
+      "path": "0"
+    },
+    "341": {
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        1101,
+        1124
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x40"
+    },
+    "343": {
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        1101,
+        1124
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x0"
+    },
+    "345": {
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        1101,
+        1124
+      ],
+      "op": "SHA3",
+      "path": "0"
+    },
+    "346": {
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        1101,
+        1132
+      ],
+      "op": "SLOAD",
+      "path": "0"
+    },
+    "347": {
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        1101,
+        1132
+      ],
+      "op": "XOR",
+      "path": "0"
+    },
+    "348": {
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        1101,
+        1132
+      ],
+      "op": "ISZERO",
+      "path": "0"
+    },
+    "349": {
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        1094,
+        1178
+      ],
+      "op": "PUSH2",
+      "path": "0",
+      "value": "0x1E1"
+    },
+    "352": {
+      "branch": 5,
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        1094,
+        1178
+      ],
+      "op": "JUMPI",
+      "path": "0"
+    },
+    "353": {
+      "op": "PUSH1",
+      "value": "0x2A"
+    },
+    "355": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "357": {
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        1134,
+        1178
+      ],
+      "op": "MSTORE",
+      "path": "0"
+    },
+    "358": {
+      "op": "PUSH32",
+      "value": "0x596F75206E65656420746F2062652061207465616368657220746F2061646420"
+    },
+    "391": {
+      "op": "PUSH1",
+      "value": "0x80"
+    },
+    "393": {
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        1134,
+        1178
+      ],
+      "op": "MSTORE",
+      "path": "0"
+    },
+    "394": {
+      "op": "PUSH32",
+      "value": "0x6120746561636865722E0000000000000000000000"
+    },
+    "427": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "429": {
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        1134,
+        1178
+      ],
+      "op": "MSTORE",
+      "path": "0"
+    },
+    "430": {
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        1134,
+        1178
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x60"
+    },
+    "432": {
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        1094,
+        1178
+      ],
+      "op": "POP",
+      "path": "0"
+    },
+    "433": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "435": {
+      "op": "MLOAD"
+    },
+    "436": {
+      "op": "DUP1"
+    },
+    "437": {
+      "op": "PUSH1",
+      "value": "0x80"
+    },
+    "439": {
+      "op": "ADD"
+    },
+    "440": {
+      "op": "PUSH1",
+      "value": "0x1F"
+    },
+    "442": {
+      "op": "DUP3"
+    },
+    "443": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "445": {
+      "op": "SUB"
+    },
+    "446": {
+      "op": "AND"
+    },
+    "447": {
+      "op": "CALLDATASIZE"
+    },
+    "448": {
+      "op": "DUP3"
+    },
+    "449": {
+      "op": "CALLDATACOPY"
+    },
+    "450": {
+      "op": "POP"
+    },
+    "451": {
+      "op": "POP"
+    },
+    "452": {
+      "op": "PUSH4",
+      "value": "0x8C379A0"
+    },
+    "457": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "459": {
+      "op": "MSTORE"
+    },
+    "460": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "462": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "464": {
+      "op": "MSTORE"
+    },
+    "465": {
+      "op": "PUSH1",
+      "value": "0x1F"
+    },
+    "467": {
+      "op": "NOT"
+    },
+    "468": {
+      "op": "PUSH1",
+      "value": "0x1F"
+    },
+    "470": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "472": {
+      "op": "MLOAD"
+    },
+    "473": {
+      "op": "ADD"
+    },
+    "474": {
+      "op": "AND"
+    },
+    "475": {
+      "op": "PUSH1",
+      "value": "0x44"
+    },
+    "477": {
+      "op": "ADD"
+    },
+    "478": {
+      "op": "PUSH1",
+      "value": "0x3C"
+    },
+    "480": {
+      "op": "REVERT"
+    },
+    "481": {
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        1094,
+        1178
+      ],
+      "op": "JUMPDEST",
+      "path": "0"
+    },
+    "482": {
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        1209,
+        1213
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "statement": 6,
+      "value": "0x1"
+    },
+    "484": {
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        1183,
+        1194
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x2"
+    },
+    "486": {
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        1195,
+        1205
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x40"
+    },
+    "488": {
+      "op": "MLOAD"
+    },
+    "489": {
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        1183,
+        1206
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x20"
+    },
+    "491": {
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        1183,
+        1206
+      ],
+      "op": "MSTORE",
+      "path": "0"
+    },
+    "492": {
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        1183,
+        1206
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x0"
+    },
+    "494": {
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        1183,
+        1206
+      ],
+      "op": "MSTORE",
+      "path": "0"
+    },
+    "495": {
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        1183,
+        1206
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x40"
+    },
+    "497": {
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        1183,
+        1206
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x0"
+    },
+    "499": {
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        1183,
+        1206
+      ],
+      "op": "SHA3",
+      "path": "0"
+    },
+    "500": {
+      "op": "SSTORE"
+    },
+    "501": {
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        1218,
+        1257
+      ],
+      "op": "PUSH32",
+      "path": "0",
+      "statement": 7,
+      "value": "0x8231D1DFB3DD93AAA68BC38254B179791FC196A51AA5EB6634A19E91FA579522"
+    },
+    "534": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "536": {
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        1233,
+        1243
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x40"
+    },
+    "538": {
+      "op": "MLOAD"
+    },
+    "539": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "541": {
+      "op": "MSTORE"
+    },
+    "542": {
+      "op": "DUP1"
+    },
+    "543": {
+      "op": "PUSH1",
+      "value": "0xC0"
+    },
+    "545": {
+      "op": "MSTORE"
+    },
+    "546": {
+      "op": "PUSH1",
+      "value": "0x9"
+    },
+    "548": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "550": {
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        1245,
+        1256
+      ],
+      "op": "MSTORE",
+      "path": "0"
+    },
+    "551": {
+      "op": "PUSH32",
+      "value": "0x6164642061646D696E00000000000000000000000"
+    },
+    "584": {
+      "op": "PUSH1",
+      "value": "0x80"
+    },
+    "586": {
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        1245,
+        1256
+      ],
+      "op": "MSTORE",
+      "path": "0"
+    },
+    "587": {
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        1245,
+        1256
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x60"
+    },
+    "589": {
+      "op": "DUP2"
+    },
+    "590": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "592": {
+      "op": "ADD"
+    },
+    "593": {
+      "op": "DUP2"
+    },
+    "594": {
+      "op": "MLOAD"
+    },
+    "595": {
+      "op": "DUP1"
+    },
+    "596": {
+      "op": "DUP3"
+    },
+    "597": {
+      "op": "MSTORE"
+    },
+    "598": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "600": {
+      "op": "DUP4"
+    },
+    "601": {
+      "op": "ADD"
+    },
+    "602": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "604": {
+      "op": "DUP4"
+    },
+    "605": {
+      "op": "ADD"
+    },
+    "606": {
+      "op": "DUP2"
+    },
+    "607": {
+      "op": "MLOAD"
+    },
+    "608": {
+      "op": "DUP2"
+    },
+    "609": {
+      "op": "MSTORE"
+    },
+    "610": {
+      "op": "POP"
+    },
+    "611": {
+      "op": "POP"
+    },
+    "612": {
+      "op": "POP"
+    },
+    "613": {
+      "op": "DUP1"
+    },
+    "614": {
+      "op": "MLOAD"
+    },
+    "615": {
+      "op": "DUP1"
+    },
+    "616": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "618": {
+      "op": "DUP4"
+    },
+    "619": {
+      "op": "ADD"
+    },
+    "620": {
+      "op": "ADD"
+    },
+    "621": {
+      "op": "PUSH1",
+      "value": "0x1F"
+    },
+    "623": {
+      "op": "DUP3"
+    },
+    "624": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "626": {
+      "op": "SUB"
+    },
+    "627": {
+      "op": "AND"
+    },
+    "628": {
+      "op": "CALLDATASIZE"
+    },
+    "629": {
+      "op": "DUP3"
+    },
+    "630": {
+      "op": "CALLDATACOPY"
+    },
+    "631": {
+      "op": "POP"
+    },
+    "632": {
+      "op": "POP"
+    },
+    "633": {
+      "op": "PUSH1",
+      "value": "0x1F"
+    },
+    "635": {
+      "op": "NOT"
+    },
+    "636": {
+      "op": "PUSH1",
+      "value": "0x1F"
+    },
+    "638": {
+      "op": "DUP3"
+    },
+    "639": {
+      "op": "MLOAD"
+    },
+    "640": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "642": {
+      "op": "ADD"
+    },
+    "643": {
+      "op": "ADD"
+    },
+    "644": {
+      "op": "AND"
+    },
+    "645": {
+      "op": "SWAP1"
+    },
+    "646": {
+      "op": "POP"
+    },
+    "647": {
+      "op": "SWAP1"
+    },
+    "648": {
+      "op": "POP"
+    },
+    "649": {
+      "op": "DUP2"
+    },
+    "650": {
+      "op": "ADD"
+    },
+    "651": {
+      "op": "SWAP1"
+    },
+    "652": {
+      "op": "POP"
+    },
+    "653": {
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        1218,
+        1257
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0xA0"
+    },
+    "655": {
+      "fn": "ActiveUser.addAdmin",
+      "offset": [
+        1218,
+        1257
+      ],
+      "op": "LOG1",
+      "path": "0"
+    },
+    "656": {
+      "op": "STOP"
+    },
+    "657": {
+      "op": "JUMPDEST"
+    },
+    "658": {
+      "op": "PUSH4",
+      "value": "0x421B2D8B"
+    },
+    "663": {
+      "op": "DUP2"
+    },
+    "664": {
+      "op": "XOR"
+    },
+    "665": {
+      "op": "PUSH2",
+      "value": "0x44D"
+    },
+    "668": {
+      "op": "JUMPI"
+    },
+    "669": {
+      "op": "PUSH1",
+      "value": "0x24"
+    },
+    "671": {
+      "op": "CALLDATASIZE"
+    },
+    "672": {
+      "op": "LT"
+    },
+    "673": {
+      "op": "PUSH2",
+      "value": "0x72E"
+    },
+    "676": {
+      "op": "JUMPI"
+    },
+    "677": {
+      "op": "PUSH1",
+      "value": "0x4"
+    },
+    "679": {
+      "op": "CALLDATALOAD"
+    },
+    "680": {
+      "op": "DUP1"
+    },
+    "681": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "683": {
+      "op": "SHR"
+    },
+    "684": {
+      "op": "PUSH2",
+      "value": "0x72E"
+    },
+    "687": {
+      "op": "JUMPI"
+    },
+    "688": {
+      "fn": "ActiveUser.addUser",
+      "offset": [
+        1282,
+        1300
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x40"
+    },
+    "690": {
+      "fn": "ActiveUser.addUser",
+      "offset": [
+        1282,
+        1300
+      ],
+      "op": "MSTORE",
+      "path": "0"
+    },
+    "691": {
+      "fn": "ActiveUser.addUser",
+      "offset": [
+        1318,
+        1331
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "statement": 8,
+      "value": "0x4"
+    },
+    "693": {
+      "op": "SLOAD"
+    },
+    "694": {
+      "fn": "ActiveUser.addUser",
+      "offset": [
+        1314,
+        1331
+      ],
+      "op": "ISZERO",
+      "path": "0"
+    },
+    "695": {
+      "fn": "ActiveUser.addUser",
+      "offset": [
+        1307,
+        1378
+      ],
+      "op": "PUSH2",
+      "path": "0",
+      "value": "0x33B"
+    },
+    "698": {
+      "branch": 9,
+      "fn": "ActiveUser.addUser",
+      "offset": [
+        1307,
+        1378
+      ],
+      "op": "JUMPI",
+      "path": "0"
+    },
+    "699": {
+      "op": "PUSH1",
+      "value": "0x2B"
+    },
+    "701": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "703": {
+      "fn": "ActiveUser.addUser",
+      "offset": [
+        1333,
+        1378
+      ],
+      "op": "MSTORE",
+      "path": "0"
+    },
+    "704": {
+      "op": "PUSH32",
+      "value": "0x5468697320636F6E747261637420616E64206974732066656174757265732061"
+    },
+    "737": {
+      "op": "PUSH1",
+      "value": "0x80"
+    },
+    "739": {
+      "fn": "ActiveUser.addUser",
+      "offset": [
+        1333,
+        1378
+      ],
+      "op": "MSTORE",
+      "path": "0"
+    },
+    "740": {
+      "op": "PUSH32",
+      "value": "0x72652064697361626C6564000000000000000000000"
+    },
+    "773": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "775": {
+      "fn": "ActiveUser.addUser",
+      "offset": [
+        1333,
+        1378
+      ],
+      "op": "MSTORE",
+      "path": "0"
+    },
+    "776": {
+      "fn": "ActiveUser.addUser",
+      "offset": [
+        1333,
+        1378
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x60"
+    },
+    "778": {
+      "fn": "ActiveUser.addUser",
+      "offset": [
+        1307,
+        1378
+      ],
+      "op": "POP",
+      "path": "0"
+    },
+    "779": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "781": {
+      "op": "MLOAD"
+    },
+    "782": {
+      "op": "DUP1"
+    },
+    "783": {
+      "op": "PUSH1",
+      "value": "0x80"
+    },
+    "785": {
+      "op": "ADD"
+    },
+    "786": {
+      "op": "PUSH1",
+      "value": "0x1F"
+    },
+    "788": {
+      "op": "DUP3"
+    },
+    "789": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "791": {
+      "op": "SUB"
+    },
+    "792": {
+      "op": "AND"
+    },
+    "793": {
+      "op": "CALLDATASIZE"
+    },
+    "794": {
+      "op": "DUP3"
+    },
+    "795": {
+      "op": "CALLDATACOPY"
+    },
+    "796": {
+      "op": "POP"
+    },
+    "797": {
+      "op": "POP"
+    },
+    "798": {
+      "op": "PUSH4",
+      "value": "0x8C379A0"
+    },
+    "803": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "805": {
+      "op": "MSTORE"
+    },
+    "806": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "808": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "810": {
+      "op": "MSTORE"
+    },
+    "811": {
+      "op": "PUSH1",
+      "value": "0x1F"
+    },
+    "813": {
+      "op": "NOT"
+    },
+    "814": {
+      "op": "PUSH1",
+      "value": "0x1F"
+    },
+    "816": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "818": {
+      "op": "MLOAD"
+    },
+    "819": {
+      "op": "ADD"
+    },
+    "820": {
+      "op": "AND"
+    },
+    "821": {
+      "op": "PUSH1",
+      "value": "0x44"
+    },
+    "823": {
+      "op": "ADD"
+    },
+    "824": {
+      "op": "PUSH1",
+      "value": "0x3C"
+    },
+    "826": {
+      "op": "REVERT"
+    },
+    "827": {
+      "fn": "ActiveUser.addUser",
+      "offset": [
+        1307,
+        1378
+      ],
+      "op": "JUMPDEST",
+      "path": "0"
+    },
+    "828": {
+      "fn": "ActiveUser.addUser",
+      "offset": [
+        1390,
+        1399
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "statement": 10,
+      "value": "0x40"
+    },
+    "830": {
+      "fn": "ActiveUser.addUser",
+      "offset": [
+        1390,
+        1417
+      ],
+      "op": "MLOAD",
+      "path": "0"
+    },
+    "831": {
+      "fn": "ActiveUser.addUser",
+      "offset": [
+        1383,
+        1455
+      ],
+      "op": "PUSH2",
+      "path": "0",
+      "value": "0x3C3"
+    },
+    "834": {
+      "branch": 11,
+      "fn": "ActiveUser.addUser",
+      "offset": [
+        1383,
+        1455
+      ],
+      "op": "JUMPI",
+      "path": "0"
+    },
+    "835": {
+      "op": "PUSH1",
+      "value": "0x22"
+    },
+    "837": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "839": {
+      "fn": "ActiveUser.addUser",
+      "offset": [
+        1419,
+        1455
+      ],
+      "op": "MSTORE",
+      "path": "0"
+    },
+    "840": {
+      "op": "PUSH32",
+      "value": "0x43616E6E6F742061646420746865203020616464726573732061732061207573"
+    },
+    "873": {
+      "op": "PUSH1",
+      "value": "0x80"
+    },
+    "875": {
+      "fn": "ActiveUser.addUser",
+      "offset": [
+        1419,
+        1455
+      ],
+      "op": "MSTORE",
+      "path": "0"
+    },
+    "876": {
+      "op": "PUSH32",
+      "value": "0x6572000000000000000000000000000000"
+    },
+    "909": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "911": {
+      "fn": "ActiveUser.addUser",
+      "offset": [
+        1419,
+        1455
+      ],
+      "op": "MSTORE",
+      "path": "0"
+    },
+    "912": {
+      "fn": "ActiveUser.addUser",
+      "offset": [
+        1419,
+        1455
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x60"
+    },
+    "914": {
+      "fn": "ActiveUser.addUser",
+      "offset": [
+        1383,
+        1455
+      ],
+      "op": "POP",
+      "path": "0"
+    },
+    "915": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "917": {
+      "op": "MLOAD"
+    },
+    "918": {
+      "op": "DUP1"
+    },
+    "919": {
+      "op": "PUSH1",
+      "value": "0x80"
+    },
+    "921": {
+      "op": "ADD"
+    },
+    "922": {
+      "op": "PUSH1",
+      "value": "0x1F"
+    },
+    "924": {
+      "op": "DUP3"
+    },
+    "925": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "927": {
+      "op": "SUB"
+    },
+    "928": {
+      "op": "AND"
+    },
+    "929": {
+      "op": "CALLDATASIZE"
+    },
+    "930": {
+      "op": "DUP3"
+    },
+    "931": {
+      "op": "CALLDATACOPY"
+    },
+    "932": {
+      "op": "POP"
+    },
+    "933": {
+      "op": "POP"
+    },
+    "934": {
+      "op": "PUSH4",
+      "value": "0x8C379A0"
+    },
+    "939": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "941": {
+      "op": "MSTORE"
+    },
+    "942": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "944": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "946": {
+      "op": "MSTORE"
+    },
+    "947": {
+      "op": "PUSH1",
+      "value": "0x1F"
+    },
+    "949": {
+      "op": "NOT"
+    },
+    "950": {
+      "op": "PUSH1",
+      "value": "0x1F"
+    },
+    "952": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "954": {
+      "op": "MLOAD"
+    },
+    "955": {
+      "op": "ADD"
+    },
+    "956": {
+      "op": "AND"
+    },
+    "957": {
+      "op": "PUSH1",
+      "value": "0x44"
+    },
+    "959": {
+      "op": "ADD"
+    },
+    "960": {
+      "op": "PUSH1",
+      "value": "0x3C"
+    },
+    "962": {
+      "op": "REVERT"
+    },
+    "963": {
+      "fn": "ActiveUser.addUser",
+      "offset": [
+        1383,
+        1455
+      ],
+      "op": "JUMPDEST",
+      "path": "0"
+    },
+    "964": {
+      "fn": "ActiveUser.addUser",
+      "offset": [
+        1494,
+        1498
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "statement": 12,
+      "value": "0x1"
+    },
+    "966": {
+      "fn": "ActiveUser.addUser",
+      "offset": [
+        1467,
+        1478
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x2"
+    },
+    "968": {
+      "fn": "ActiveUser.addUser",
+      "offset": [
+        1479,
+        1489
+      ],
+      "op": "CALLER",
+      "path": "0"
+    },
+    "969": {
+      "fn": "ActiveUser.addUser",
+      "offset": [
+        1467,
+        1490
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x20"
+    },
+    "971": {
+      "fn": "ActiveUser.addUser",
+      "offset": [
+        1467,
+        1490
+      ],
+      "op": "MSTORE",
+      "path": "0"
+    },
+    "972": {
+      "fn": "ActiveUser.addUser",
+      "offset": [
+        1467,
+        1490
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x0"
+    },
+    "974": {
+      "fn": "ActiveUser.addUser",
+      "offset": [
+        1467,
+        1490
+      ],
+      "op": "MSTORE",
+      "path": "0"
+    },
+    "975": {
+      "fn": "ActiveUser.addUser",
+      "offset": [
+        1467,
+        1490
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x40"
+    },
+    "977": {
+      "fn": "ActiveUser.addUser",
+      "offset": [
+        1467,
+        1490
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x0"
+    },
+    "979": {
+      "fn": "ActiveUser.addUser",
+      "offset": [
+        1467,
+        1490
+      ],
+      "op": "SHA3",
+      "path": "0"
+    },
+    "980": {
+      "fn": "ActiveUser.addUser",
+      "offset": [
+        1467,
+        1498
+      ],
+      "op": "SLOAD",
+      "path": "0"
+    },
+    "981": {
+      "fn": "ActiveUser.addUser",
+      "offset": [
+        1467,
+        1498
+      ],
+      "op": "XOR",
+      "path": "0"
+    },
+    "982": {
+      "fn": "ActiveUser.addUser",
+      "offset": [
+        1467,
+        1498
+      ],
+      "op": "ISZERO",
+      "path": "0"
+    },
+    "983": {
+      "fn": "ActiveUser.addUser",
+      "offset": [
+        1460,
+        1534
+      ],
+      "op": "PUSH2",
+      "path": "0",
+      "value": "0x437"
+    },
+    "986": {
+      "branch": 13,
+      "fn": "ActiveUser.addUser",
+      "offset": [
+        1460,
+        1534
+      ],
+      "op": "JUMPI",
+      "path": "0"
+    },
+    "987": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "989": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "991": {
+      "fn": "ActiveUser.addUser",
+      "offset": [
+        1500,
+        1534
+      ],
+      "op": "MSTORE",
+      "path": "0"
+    },
+    "992": {
+      "op": "PUSH32",
+      "value": "0x4F6E6C792061646D696E732063616E2061646420616374697665207573657273"
+    },
+    "1025": {
+      "op": "PUSH1",
+      "value": "0x80"
+    },
+    "1027": {
+      "fn": "ActiveUser.addUser",
+      "offset": [
+        1500,
+        1534
+      ],
+      "op": "MSTORE",
+      "path": "0"
+    },
+    "1028": {
+      "fn": "ActiveUser.addUser",
+      "offset": [
+        1500,
+        1534
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x60"
+    },
+    "1030": {
+      "fn": "ActiveUser.addUser",
+      "offset": [
+        1460,
+        1534
+      ],
+      "op": "POP",
+      "path": "0"
+    },
+    "1031": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "1033": {
+      "op": "MLOAD"
+    },
+    "1034": {
+      "op": "DUP1"
+    },
+    "1035": {
+      "op": "PUSH1",
+      "value": "0x80"
+    },
+    "1037": {
+      "op": "ADD"
+    },
+    "1038": {
+      "op": "PUSH1",
+      "value": "0x1F"
+    },
+    "1040": {
+      "op": "DUP3"
+    },
+    "1041": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "1043": {
+      "op": "SUB"
+    },
+    "1044": {
+      "op": "AND"
+    },
+    "1045": {
+      "op": "CALLDATASIZE"
+    },
+    "1046": {
+      "op": "DUP3"
+    },
+    "1047": {
+      "op": "CALLDATACOPY"
+    },
+    "1048": {
+      "op": "POP"
+    },
+    "1049": {
+      "op": "POP"
+    },
+    "1050": {
+      "op": "PUSH4",
+      "value": "0x8C379A0"
+    },
+    "1055": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "1057": {
+      "op": "MSTORE"
+    },
+    "1058": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "1060": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "1062": {
+      "op": "MSTORE"
+    },
+    "1063": {
+      "op": "PUSH1",
+      "value": "0x1F"
+    },
+    "1065": {
+      "op": "NOT"
+    },
+    "1066": {
+      "op": "PUSH1",
+      "value": "0x1F"
+    },
+    "1068": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "1070": {
+      "op": "MLOAD"
+    },
+    "1071": {
+      "op": "ADD"
+    },
+    "1072": {
+      "op": "AND"
+    },
+    "1073": {
+      "op": "PUSH1",
+      "value": "0x44"
+    },
+    "1075": {
+      "op": "ADD"
+    },
+    "1076": {
+      "op": "PUSH1",
+      "value": "0x3C"
+    },
+    "1078": {
+      "op": "REVERT"
+    },
+    "1079": {
+      "fn": "ActiveUser.addUser",
+      "offset": [
+        1460,
+        1534
+      ],
+      "op": "JUMPDEST",
+      "path": "0"
+    },
+    "1080": {
+      "fn": "ActiveUser.addUser",
+      "offset": [
+        1576,
+        1596
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "statement": 14,
+      "value": "0x0"
+    },
+    "1082": {
+      "op": "SLOAD"
+    },
+    "1083": {
+      "fn": "ActiveUser.addUser",
+      "offset": [
+        1539,
+        1562
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x1"
+    },
+    "1085": {
+      "fn": "ActiveUser.addUser",
+      "offset": [
+        1563,
+        1572
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x40"
+    },
+    "1087": {
+      "op": "MLOAD"
+    },
+    "1088": {
+      "fn": "ActiveUser.addUser",
+      "offset": [
+        1539,
+        1573
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x20"
+    },
+    "1090": {
+      "fn": "ActiveUser.addUser",
+      "offset": [
+        1539,
+        1573
+      ],
+      "op": "MSTORE",
+      "path": "0"
+    },
+    "1091": {
+      "fn": "ActiveUser.addUser",
+      "offset": [
+        1539,
+        1573
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x0"
+    },
+    "1093": {
+      "fn": "ActiveUser.addUser",
+      "offset": [
+        1539,
+        1573
+      ],
+      "op": "MSTORE",
+      "path": "0"
+    },
+    "1094": {
+      "fn": "ActiveUser.addUser",
+      "offset": [
+        1539,
+        1573
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x40"
+    },
+    "1096": {
+      "fn": "ActiveUser.addUser",
+      "offset": [
+        1539,
+        1573
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x0"
+    },
+    "1098": {
+      "fn": "ActiveUser.addUser",
+      "offset": [
+        1539,
+        1573
+      ],
+      "op": "SHA3",
+      "path": "0"
+    },
+    "1099": {
+      "op": "SSTORE"
+    },
+    "1100": {
+      "op": "STOP"
+    },
+    "1101": {
+      "op": "JUMPDEST"
+    },
+    "1102": {
+      "op": "PUSH4",
+      "value": "0x5593B368"
+    },
+    "1107": {
+      "op": "DUP2"
+    },
+    "1108": {
+      "op": "XOR"
+    },
+    "1109": {
+      "op": "PUSH2",
+      "value": "0x488"
+    },
+    "1112": {
+      "op": "JUMPI"
+    },
+    "1113": {
+      "op": "PUSH1",
+      "value": "0x24"
+    },
+    "1115": {
+      "op": "CALLDATASIZE"
+    },
+    "1116": {
+      "op": "LT"
+    },
+    "1117": {
+      "op": "PUSH2",
+      "value": "0x72E"
+    },
+    "1120": {
+      "op": "JUMPI"
+    },
+    "1121": {
+      "op": "PUSH1",
+      "value": "0x4"
+    },
+    "1123": {
+      "op": "CALLDATALOAD"
+    },
+    "1124": {
+      "op": "DUP1"
+    },
+    "1125": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "1127": {
+      "op": "SHR"
+    },
+    "1128": {
+      "op": "PUSH2",
+      "value": "0x72E"
+    },
+    "1131": {
+      "op": "JUMPI"
+    },
+    "1132": {
+      "fn": "ActiveUser.getUserGradYear",
+      "offset": [
+        1634,
+        1650
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x40"
+    },
+    "1134": {
+      "fn": "ActiveUser.getUserGradYear",
+      "offset": [
+        1634,
+        1650
+      ],
+      "op": "MSTORE",
+      "path": "0"
+    },
+    "1135": {
+      "fn": "ActiveUser.getUserGradYear",
+      "offset": [
+        1675,
+        1698
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "statement": 15,
+      "value": "0x1"
+    },
+    "1137": {
+      "fn": "ActiveUser.getUserGradYear",
+      "offset": [
+        1699,
+        1706
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x40"
+    },
+    "1139": {
+      "op": "MLOAD"
+    },
+    "1140": {
+      "fn": "ActiveUser.getUserGradYear",
+      "offset": [
+        1675,
+        1707
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x20"
+    },
+    "1142": {
+      "fn": "ActiveUser.getUserGradYear",
+      "offset": [
+        1675,
+        1707
+      ],
+      "op": "MSTORE",
+      "path": "0"
+    },
+    "1143": {
+      "fn": "ActiveUser.getUserGradYear",
+      "offset": [
+        1675,
+        1707
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x0"
+    },
+    "1145": {
+      "fn": "ActiveUser.getUserGradYear",
+      "offset": [
+        1675,
+        1707
+      ],
+      "op": "MSTORE",
+      "path": "0"
+    },
+    "1146": {
+      "fn": "ActiveUser.getUserGradYear",
+      "offset": [
+        1675,
+        1707
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x40"
+    },
+    "1148": {
+      "fn": "ActiveUser.getUserGradYear",
+      "offset": [
+        1675,
+        1707
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x0"
+    },
+    "1150": {
+      "fn": "ActiveUser.getUserGradYear",
+      "offset": [
+        1675,
+        1707
+      ],
+      "op": "SHA3",
+      "path": "0"
+    },
+    "1151": {
+      "op": "SLOAD"
+    },
+    "1152": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "1154": {
+      "op": "MSTORE"
+    },
+    "1155": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "1157": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "1159": {
+      "op": "RETURN"
+    },
+    "1160": {
+      "op": "JUMPDEST"
+    },
+    "1161": {
+      "op": "PUSH4",
+      "value": "0x64EFB22B"
+    },
+    "1166": {
+      "op": "DUP2"
+    },
+    "1167": {
+      "op": "XOR"
+    },
+    "1168": {
+      "op": "PUSH2",
+      "value": "0x4C3"
+    },
+    "1171": {
+      "op": "JUMPI"
+    },
+    "1172": {
+      "op": "PUSH1",
+      "value": "0x24"
+    },
+    "1174": {
+      "op": "CALLDATASIZE"
+    },
+    "1175": {
+      "op": "LT"
+    },
+    "1176": {
+      "op": "PUSH2",
+      "value": "0x72E"
+    },
+    "1179": {
+      "op": "JUMPI"
+    },
+    "1180": {
+      "op": "PUSH1",
+      "value": "0x4"
+    },
+    "1182": {
+      "op": "CALLDATALOAD"
+    },
+    "1183": {
+      "op": "DUP1"
+    },
+    "1184": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "1186": {
+      "op": "SHR"
+    },
+    "1187": {
+      "op": "PUSH2",
+      "value": "0x72E"
+    },
+    "1190": {
+      "op": "JUMPI"
+    },
+    "1191": {
+      "fn": "ActiveUser.getAdmin",
+      "offset": [
+        1738,
+        1761
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x40"
+    },
+    "1193": {
+      "fn": "ActiveUser.getAdmin",
+      "offset": [
+        1738,
+        1761
+      ],
+      "op": "MSTORE",
+      "path": "0"
+    },
+    "1194": {
+      "fn": "ActiveUser.getAdmin",
+      "offset": [
+        1783,
+        1794
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "statement": 16,
+      "value": "0x2"
+    },
+    "1196": {
+      "fn": "ActiveUser.getAdmin",
+      "offset": [
+        1795,
+        1809
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x40"
+    },
+    "1198": {
+      "op": "MLOAD"
+    },
+    "1199": {
+      "fn": "ActiveUser.getAdmin",
+      "offset": [
+        1783,
+        1810
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x20"
+    },
+    "1201": {
+      "fn": "ActiveUser.getAdmin",
+      "offset": [
+        1783,
+        1810
+      ],
+      "op": "MSTORE",
+      "path": "0"
+    },
+    "1202": {
+      "fn": "ActiveUser.getAdmin",
+      "offset": [
+        1783,
+        1810
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x0"
+    },
+    "1204": {
+      "fn": "ActiveUser.getAdmin",
+      "offset": [
+        1783,
+        1810
+      ],
+      "op": "MSTORE",
+      "path": "0"
+    },
+    "1205": {
+      "fn": "ActiveUser.getAdmin",
+      "offset": [
+        1783,
+        1810
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x40"
+    },
+    "1207": {
+      "fn": "ActiveUser.getAdmin",
+      "offset": [
+        1783,
+        1810
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x0"
+    },
+    "1209": {
+      "fn": "ActiveUser.getAdmin",
+      "offset": [
+        1783,
+        1810
+      ],
+      "op": "SHA3",
+      "path": "0"
+    },
+    "1210": {
+      "op": "SLOAD"
+    },
+    "1211": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "1213": {
+      "op": "MSTORE"
+    },
+    "1214": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "1216": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "1218": {
+      "op": "RETURN"
+    },
+    "1219": {
+      "op": "JUMPDEST"
+    },
+    "1220": {
+      "op": "PUSH4",
+      "value": "0x53837EE7"
+    },
+    "1225": {
+      "op": "DUP2"
+    },
+    "1226": {
+      "op": "XOR"
+    },
+    "1227": {
+      "op": "PUSH2",
+      "value": "0x52"
+    },
+    "1230": {
+      "op": "JUMPI"
+    },
+    "1231": {
+      "op": "PUSH1",
+      "value": "0x24"
+    },
+    "1233": {
+      "op": "CALLDATASIZE"
+    },
+    "1234": {
+      "op": "LT"
+    },
+    "1235": {
+      "op": "PUSH2",
+      "value": "0x72E"
+    },
+    "1238": {
+      "op": "JUMPI"
+    },
+    "1239": {
+      "op": "PUSH1",
+      "value": "0x4"
+    },
+    "1241": {
+      "op": "CALLDATALOAD"
+    },
+    "1242": {
+      "op": "DUP1"
+    },
+    "1243": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "1245": {
+      "op": "SHR"
+    },
+    "1246": {
+      "op": "PUSH2",
+      "value": "0x72E"
+    },
+    "1249": {
+      "op": "JUMPI"
+    },
+    "1250": {
+      "fn": "ActiveUser.getActiveUser",
+      "offset": [
+        1846,
+        1868
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x40"
+    },
+    "1252": {
+      "fn": "ActiveUser.getActiveUser",
+      "offset": [
+        1846,
+        1868
+      ],
+      "op": "MSTORE",
+      "path": "0"
+    },
+    "1253": {
+      "fn": "ActiveUser.getActiveUser",
+      "offset": [
+        1932,
+        1952
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "statement": 17,
+      "value": "0x0"
+    },
+    "1255": {
+      "op": "SLOAD"
+    },
+    "1256": {
+      "fn": "ActiveUser.getActiveUser",
+      "offset": [
+        1890,
+        1913
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x1"
+    },
+    "1258": {
+      "fn": "ActiveUser.getActiveUser",
+      "offset": [
+        1914,
+        1927
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x40"
+    },
+    "1260": {
+      "op": "MLOAD"
+    },
+    "1261": {
+      "fn": "ActiveUser.getActiveUser",
+      "offset": [
+        1890,
+        1928
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x20"
+    },
+    "1263": {
+      "fn": "ActiveUser.getActiveUser",
+      "offset": [
+        1890,
+        1928
+      ],
+      "op": "MSTORE",
+      "path": "0"
+    },
+    "1264": {
+      "fn": "ActiveUser.getActiveUser",
+      "offset": [
+        1890,
+        1928
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x0"
+    },
+    "1266": {
+      "fn": "ActiveUser.getActiveUser",
+      "offset": [
+        1890,
+        1928
+      ],
+      "op": "MSTORE",
+      "path": "0"
+    },
+    "1267": {
+      "fn": "ActiveUser.getActiveUser",
+      "offset": [
+        1890,
+        1928
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x40"
+    },
+    "1269": {
+      "fn": "ActiveUser.getActiveUser",
+      "offset": [
+        1890,
+        1928
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x0"
+    },
+    "1271": {
+      "fn": "ActiveUser.getActiveUser",
+      "offset": [
+        1890,
+        1928
+      ],
+      "op": "SHA3",
+      "path": "0"
+    },
+    "1272": {
+      "op": "SLOAD"
+    },
+    "1273": {
+      "fn": "ActiveUser.getActiveUser",
+      "offset": [
+        1890,
+        1952
+      ],
+      "op": "EQ",
+      "path": "0"
+    },
+    "1274": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "1276": {
+      "op": "MSTORE"
+    },
+    "1277": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "1279": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "1281": {
+      "op": "RETURN"
+    },
+    "1282": {
+      "op": "JUMPDEST"
+    },
+    "1283": {
+      "op": "PUSH4",
+      "value": "0x1DE6E32"
+    },
+    "1288": {
+      "op": "DUP2"
+    },
+    "1289": {
+      "op": "XOR"
+    },
+    "1290": {
+      "op": "PUSH2",
+      "value": "0x52E"
+    },
+    "1293": {
+      "op": "JUMPI"
+    },
+    "1294": {
+      "op": "PUSH1",
+      "value": "0x24"
+    },
+    "1296": {
+      "op": "CALLDATASIZE"
+    },
+    "1297": {
+      "op": "LT"
+    },
+    "1298": {
+      "op": "PUSH2",
+      "value": "0x72E"
+    },
+    "1301": {
+      "op": "JUMPI"
+    },
+    "1302": {
+      "op": "PUSH1",
+      "value": "0x4"
+    },
+    "1304": {
+      "op": "CALLDATALOAD"
+    },
+    "1305": {
+      "op": "DUP1"
+    },
+    "1306": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "1308": {
+      "op": "SHR"
+    },
+    "1309": {
+      "op": "PUSH2",
+      "value": "0x72E"
+    },
+    "1312": {
+      "op": "JUMPI"
+    },
+    "1313": {
+      "fn": "ActiveUser.isAlumni",
+      "offset": [
+        1977,
+        1999
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x40"
+    },
+    "1315": {
+      "fn": "ActiveUser.isAlumni",
+      "offset": [
+        1977,
+        1999
+      ],
+      "op": "MSTORE",
+      "path": "0"
+    },
+    "1316": {
+      "fn": "ActiveUser.isAlumni",
+      "offset": [
+        2021,
+        2025
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "statement": 18,
+      "value": "0x1"
+    },
+    "1318": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "1320": {
+      "op": "MSTORE"
+    },
+    "1321": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "1323": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "1325": {
+      "op": "RETURN"
+    },
+    "1326": {
+      "op": "JUMPDEST"
+    },
+    "1327": {
+      "op": "PUSH4",
+      "value": "0xA4A2266"
+    },
+    "1332": {
+      "op": "DUP2"
+    },
+    "1333": {
+      "op": "XOR"
+    },
+    "1334": {
+      "op": "PUSH2",
+      "value": "0x560"
+    },
+    "1337": {
+      "op": "JUMPI"
+    },
+    "1338": {
+      "op": "PUSH1",
+      "value": "0x24"
+    },
+    "1340": {
+      "op": "CALLDATASIZE"
+    },
+    "1341": {
+      "op": "LT"
+    },
+    "1342": {
+      "op": "PUSH2",
+      "value": "0x72E"
+    },
+    "1345": {
+      "op": "JUMPI"
+    },
+    "1346": {
+      "op": "PUSH1",
+      "value": "0x4"
+    },
+    "1348": {
+      "op": "CALLDATALOAD"
+    },
+    "1349": {
+      "op": "DUP1"
+    },
+    "1350": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "1352": {
+      "op": "SHR"
+    },
+    "1353": {
+      "op": "PUSH2",
+      "value": "0x72E"
+    },
+    "1356": {
+      "op": "JUMPI"
+    },
+    "1357": {
+      "fn": "ActiveUser.setDisableContract",
+      "offset": [
+        2060,
+        2074
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x40"
+    },
+    "1359": {
+      "fn": "ActiveUser.setDisableContract",
+      "offset": [
+        2060,
+        2074
+      ],
+      "op": "MSTORE",
+      "path": "0"
+    },
+    "1360": {
+      "fn": "ActiveUser.setDisableContract",
+      "offset": [
+        2102,
+        2112
+      ],
+      "op": "CALLER",
+      "path": "0",
+      "statement": 19
+    },
+    "1361": {
+      "fn": "ActiveUser.setDisableContract",
+      "offset": [
+        2088,
+        2098
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x3"
+    },
+    "1363": {
+      "fn": "ActiveUser.setDisableContract",
+      "offset": [
+        2088,
+        2112
+      ],
+      "op": "SLOAD",
+      "path": "0"
+    },
+    "1364": {
+      "fn": "ActiveUser.setDisableContract",
+      "offset": [
+        2088,
+        2112
+      ],
+      "op": "XOR",
+      "path": "0"
+    },
+    "1365": {
+      "fn": "ActiveUser.setDisableContract",
+      "offset": [
+        2081,
+        2112
+      ],
+      "op": "PUSH2",
+      "path": "0",
+      "value": "0x72E"
+    },
+    "1368": {
+      "branch": 20,
+      "fn": "ActiveUser.setDisableContract",
+      "offset": [
+        2081,
+        2112
+      ],
+      "op": "JUMPI",
+      "path": "0"
+    },
+    "1369": {
+      "fn": "ActiveUser.setDisableContract",
+      "offset": [
+        2133,
+        2141
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "statement": 21,
+      "value": "0x40"
+    },
+    "1371": {
+      "op": "MLOAD"
+    },
+    "1372": {
+      "fn": "ActiveUser.setDisableContract",
+      "offset": [
+        2117,
+        2130
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x4"
+    },
+    "1374": {
+      "op": "SSTORE"
+    },
+    "1375": {
+      "op": "STOP"
+    },
+    "1376": {
+      "op": "JUMPDEST"
+    },
+    "1377": {
+      "op": "PUSH4",
+      "value": "0xE8FEC157"
+    },
+    "1382": {
+      "op": "DUP2"
+    },
+    "1383": {
+      "op": "XOR"
+    },
+    "1384": {
+      "op": "PUSH2",
+      "value": "0x6CC"
+    },
+    "1387": {
+      "op": "JUMPI"
+    },
+    "1388": {
+      "op": "PUSH1",
+      "value": "0x24"
+    },
+    "1390": {
+      "op": "CALLDATASIZE"
+    },
+    "1391": {
+      "op": "LT"
+    },
+    "1392": {
+      "op": "PUSH2",
+      "value": "0x72E"
+    },
+    "1395": {
+      "op": "JUMPI"
+    },
+    "1396": {
+      "fn": "ActiveUser.setCurrentGradYear",
+      "offset": [
+        2207,
+        2220
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "statement": 22,
+      "value": "0x4"
+    },
+    "1398": {
+      "op": "SLOAD"
+    },
+    "1399": {
+      "fn": "ActiveUser.setCurrentGradYear",
+      "offset": [
+        2203,
+        2220
+      ],
+      "op": "ISZERO",
+      "path": "0"
+    },
+    "1400": {
+      "fn": "ActiveUser.setCurrentGradYear",
+      "offset": [
+        2196,
+        2267
+      ],
+      "op": "PUSH2",
+      "path": "0",
+      "value": "0x5FC"
+    },
+    "1403": {
+      "branch": 23,
+      "fn": "ActiveUser.setCurrentGradYear",
+      "offset": [
+        2196,
+        2267
+      ],
+      "op": "JUMPI",
+      "path": "0"
+    },
+    "1404": {
+      "op": "PUSH1",
+      "value": "0x2B"
+    },
+    "1406": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "1408": {
+      "fn": "ActiveUser.setCurrentGradYear",
+      "offset": [
+        2222,
+        2267
+      ],
+      "op": "MSTORE",
+      "path": "0"
+    },
+    "1409": {
+      "op": "PUSH32",
+      "value": "0x5468697320636F6E747261637420616E64206974732066656174757265732061"
+    },
+    "1442": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "1444": {
+      "fn": "ActiveUser.setCurrentGradYear",
+      "offset": [
+        2222,
+        2267
+      ],
+      "op": "MSTORE",
+      "path": "0"
+    },
+    "1445": {
+      "op": "PUSH32",
+      "value": "0x72652064697361626C6564000000000000000000000"
+    },
+    "1478": {
+      "op": "PUSH1",
+      "value": "0x80"
+    },
+    "1480": {
+      "fn": "ActiveUser.setCurrentGradYear",
+      "offset": [
+        2222,
+        2267
+      ],
+      "op": "MSTORE",
+      "path": "0"
+    },
+    "1481": {
+      "fn": "ActiveUser.setCurrentGradYear",
+      "offset": [
+        2222,
+        2267
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x40"
+    },
+    "1483": {
+      "fn": "ActiveUser.setCurrentGradYear",
+      "offset": [
+        2196,
+        2267
+      ],
+      "op": "POP",
+      "path": "0"
+    },
+    "1484": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "1486": {
+      "op": "MLOAD"
+    },
+    "1487": {
+      "op": "DUP1"
+    },
+    "1488": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "1490": {
+      "op": "ADD"
+    },
+    "1491": {
+      "op": "PUSH1",
+      "value": "0x1F"
+    },
+    "1493": {
+      "op": "DUP3"
+    },
+    "1494": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "1496": {
+      "op": "SUB"
+    },
+    "1497": {
+      "op": "AND"
+    },
+    "1498": {
+      "op": "CALLDATASIZE"
+    },
+    "1499": {
+      "op": "DUP3"
+    },
+    "1500": {
+      "op": "CALLDATACOPY"
+    },
+    "1501": {
+      "op": "POP"
+    },
+    "1502": {
+      "op": "POP"
+    },
+    "1503": {
+      "op": "PUSH4",
+      "value": "0x8C379A0"
+    },
+    "1508": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "1510": {
+      "op": "MSTORE"
+    },
+    "1511": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "1513": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "1515": {
+      "op": "MSTORE"
+    },
+    "1516": {
+      "op": "PUSH1",
+      "value": "0x1F"
+    },
+    "1518": {
+      "op": "NOT"
+    },
+    "1519": {
+      "op": "PUSH1",
+      "value": "0x1F"
+    },
+    "1521": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "1523": {
+      "op": "MLOAD"
+    },
+    "1524": {
+      "op": "ADD"
+    },
+    "1525": {
+      "op": "AND"
+    },
+    "1526": {
+      "op": "PUSH1",
+      "value": "0x44"
+    },
+    "1528": {
+      "op": "ADD"
+    },
+    "1529": {
+      "op": "PUSH1",
+      "value": "0x1C"
+    },
+    "1531": {
+      "op": "REVERT"
+    },
+    "1532": {
+      "fn": "ActiveUser.setCurrentGradYear",
+      "offset": [
+        2196,
+        2267
+      ],
+      "op": "JUMPDEST",
+      "path": "0"
+    },
+    "1533": {
+      "fn": "ActiveUser.setCurrentGradYear",
+      "offset": [
+        2306,
+        2310
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "statement": 24,
+      "value": "0x1"
+    },
+    "1535": {
+      "fn": "ActiveUser.setCurrentGradYear",
+      "offset": [
+        2279,
+        2290
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x2"
+    },
+    "1537": {
+      "fn": "ActiveUser.setCurrentGradYear",
+      "offset": [
+        2291,
+        2301
+      ],
+      "op": "CALLER",
+      "path": "0"
+    },
+    "1538": {
+      "fn": "ActiveUser.setCurrentGradYear",
+      "offset": [
+        2279,
+        2302
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x20"
+    },
+    "1540": {
+      "fn": "ActiveUser.setCurrentGradYear",
+      "offset": [
+        2279,
+        2302
+      ],
+      "op": "MSTORE",
+      "path": "0"
+    },
+    "1541": {
+      "fn": "ActiveUser.setCurrentGradYear",
+      "offset": [
+        2279,
+        2302
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x0"
+    },
+    "1543": {
+      "fn": "ActiveUser.setCurrentGradYear",
+      "offset": [
+        2279,
+        2302
+      ],
+      "op": "MSTORE",
+      "path": "0"
+    },
+    "1544": {
+      "fn": "ActiveUser.setCurrentGradYear",
+      "offset": [
+        2279,
+        2302
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x40"
+    },
+    "1546": {
+      "fn": "ActiveUser.setCurrentGradYear",
+      "offset": [
+        2279,
+        2302
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x0"
+    },
+    "1548": {
+      "fn": "ActiveUser.setCurrentGradYear",
+      "offset": [
+        2279,
+        2302
+      ],
+      "op": "SHA3",
+      "path": "0"
+    },
+    "1549": {
+      "fn": "ActiveUser.setCurrentGradYear",
+      "offset": [
+        2279,
+        2310
+      ],
+      "op": "SLOAD",
+      "path": "0"
+    },
+    "1550": {
+      "fn": "ActiveUser.setCurrentGradYear",
+      "offset": [
+        2279,
+        2310
+      ],
+      "op": "XOR",
+      "path": "0"
+    },
+    "1551": {
+      "fn": "ActiveUser.setCurrentGradYear",
+      "offset": [
+        2279,
+        2310
+      ],
+      "op": "ISZERO",
+      "path": "0"
+    },
+    "1552": {
+      "fn": "ActiveUser.setCurrentGradYear",
+      "offset": [
+        2272,
+        2349
+      ],
+      "op": "PUSH2",
+      "path": "0",
+      "value": "0x694"
+    },
+    "1555": {
+      "branch": 25,
+      "fn": "ActiveUser.setCurrentGradYear",
+      "offset": [
+        2272,
+        2349
+      ],
+      "op": "JUMPI",
+      "path": "0"
+    },
+    "1556": {
+      "op": "PUSH1",
+      "value": "0x23"
+    },
+    "1558": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "1560": {
+      "fn": "ActiveUser.setCurrentGradYear",
+      "offset": [
+        2312,
+        2349
+      ],
+      "op": "MSTORE",
+      "path": "0"
+    },
+    "1561": {
+      "op": "PUSH32",
+      "value": "0x4F6E6C792061646D696E732063616E2061646420616374697665207374756465"
+    },
+    "1594": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "1596": {
+      "fn": "ActiveUser.setCurrentGradYear",
+      "offset": [
+        2312,
+        2349
+      ],
+      "op": "MSTORE",
+      "path": "0"
+    },
+    "1597": {
+      "op": "PUSH32",
+      "value": "0x6E747300000000000000000000000000000"
+    },
+    "1630": {
+      "op": "PUSH1",
+      "value": "0x80"
+    },
+    "1632": {
+      "fn": "ActiveUser.setCurrentGradYear",
+      "offset": [
+        2312,
+        2349
+      ],
+      "op": "MSTORE",
+      "path": "0"
+    },
+    "1633": {
+      "fn": "ActiveUser.setCurrentGradYear",
+      "offset": [
+        2312,
+        2349
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x40"
+    },
+    "1635": {
+      "fn": "ActiveUser.setCurrentGradYear",
+      "offset": [
+        2272,
+        2349
+      ],
+      "op": "POP",
+      "path": "0"
+    },
+    "1636": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "1638": {
+      "op": "MLOAD"
+    },
+    "1639": {
+      "op": "DUP1"
+    },
+    "1640": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "1642": {
+      "op": "ADD"
+    },
+    "1643": {
+      "op": "PUSH1",
+      "value": "0x1F"
+    },
+    "1645": {
+      "op": "DUP3"
+    },
+    "1646": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "1648": {
+      "op": "SUB"
+    },
+    "1649": {
+      "op": "AND"
+    },
+    "1650": {
+      "op": "CALLDATASIZE"
+    },
+    "1651": {
+      "op": "DUP3"
+    },
+    "1652": {
+      "op": "CALLDATACOPY"
+    },
+    "1653": {
+      "op": "POP"
+    },
+    "1654": {
+      "op": "POP"
+    },
+    "1655": {
+      "op": "PUSH4",
+      "value": "0x8C379A0"
+    },
+    "1660": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "1662": {
+      "op": "MSTORE"
+    },
+    "1663": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "1665": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "1667": {
+      "op": "MSTORE"
+    },
+    "1668": {
+      "op": "PUSH1",
+      "value": "0x1F"
+    },
+    "1670": {
+      "op": "NOT"
+    },
+    "1671": {
+      "op": "PUSH1",
+      "value": "0x1F"
+    },
+    "1673": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "1675": {
+      "op": "MLOAD"
+    },
+    "1676": {
+      "op": "ADD"
+    },
+    "1677": {
+      "op": "AND"
+    },
+    "1678": {
+      "op": "PUSH1",
+      "value": "0x44"
+    },
+    "1680": {
+      "op": "ADD"
+    },
+    "1681": {
+      "op": "PUSH1",
+      "value": "0x1C"
+    },
+    "1683": {
+      "op": "REVERT"
+    },
+    "1684": {
+      "fn": "ActiveUser.setCurrentGradYear",
+      "offset": [
+        2272,
+        2349
+      ],
+      "op": "JUMPDEST",
+      "path": "0"
+    },
+    "1685": {
+      "fn": "ActiveUser.setCurrentGradYear",
+      "offset": [
+        2414,
+        2418
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "statement": 26,
+      "value": "0x4"
+    },
+    "1687": {
+      "op": "CALLDATALOAD"
+    },
+    "1688": {
+      "fn": "ActiveUser.setCurrentGradYear",
+      "offset": [
+        2354,
+        2374
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "statement": 27,
+      "value": "0x0"
+    },
+    "1690": {
+      "fn": "ActiveUser.setCurrentGradYear",
+      "offset": [
+        2354,
+        2381
+      ],
+      "op": "SSTORE",
+      "path": "0"
+    },
+    "1691": {
+      "fn": "ActiveUser.setCurrentGradYear",
+      "offset": [
+        2386,
+        2419
+      ],
+      "op": "PUSH32",
+      "path": "0",
+      "value": "0x3B27BFF680FF892D8F941C7714BAA45666BC09DEB29C6F01F5E1B70C11FC68F"
+    },
+    "1724": {
+      "fn": "ActiveUser.setCurrentGradYear",
+      "offset": [
+        2402,
+        2412
+      ],
+      "op": "CALLER",
+      "path": "0"
+    },
+    "1725": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "1727": {
+      "op": "MSTORE"
+    },
+    "1728": {
+      "fn": "ActiveUser.setCurrentGradYear",
+      "offset": [
+        2414,
+        2418
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x4"
+    },
+    "1730": {
+      "op": "CALLDATALOAD"
+    },
+    "1731": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "1733": {
+      "op": "MSTORE"
+    },
+    "1734": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "1736": {
+      "fn": "ActiveUser.setCurrentGradYear",
+      "offset": [
+        2386,
+        2419
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x40"
+    },
+    "1738": {
+      "fn": "ActiveUser.setCurrentGradYear",
+      "offset": [
+        2386,
+        2419
+      ],
+      "op": "LOG1",
+      "path": "0"
+    },
+    "1739": {
+      "op": "STOP"
+    },
+    "1740": {
+      "op": "JUMPDEST"
+    },
+    "1741": {
+      "op": "PUSH4",
+      "value": "0x45595CF5"
+    },
+    "1746": {
+      "op": "DUP2"
+    },
+    "1747": {
+      "op": "XOR"
+    },
+    "1748": {
+      "op": "PUSH2",
+      "value": "0x6EB"
+    },
+    "1751": {
+      "op": "JUMPI"
+    },
+    "1752": {
+      "op": "PUSH1",
+      "value": "0x4"
+    },
+    "1754": {
+      "op": "CALLDATASIZE"
+    },
+    "1755": {
+      "op": "LT"
+    },
+    "1756": {
+      "op": "PUSH2",
+      "value": "0x72E"
+    },
+    "1759": {
+      "op": "JUMPI"
+    },
+    "1760": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "1762": {
+      "op": "SLOAD"
+    },
+    "1763": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "1765": {
+      "op": "MSTORE"
+    },
+    "1766": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "1768": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "1770": {
+      "op": "RETURN"
+    },
+    "1771": {
+      "op": "JUMPDEST"
+    },
+    "1772": {
+      "op": "PUSH4",
+      "value": "0x429B62E5"
+    },
+    "1777": {
+      "op": "DUP2"
+    },
+    "1778": {
+      "op": "XOR"
+    },
+    "1779": {
+      "op": "PUSH2",
+      "value": "0x726"
+    },
+    "1782": {
+      "op": "JUMPI"
+    },
+    "1783": {
+      "op": "PUSH1",
+      "value": "0x24"
+    },
+    "1785": {
+      "op": "CALLDATASIZE"
+    },
+    "1786": {
+      "op": "LT"
+    },
+    "1787": {
+      "op": "PUSH2",
+      "value": "0x72E"
+    },
+    "1790": {
+      "op": "JUMPI"
+    },
+    "1791": {
+      "op": "PUSH1",
+      "value": "0x4"
+    },
+    "1793": {
+      "op": "CALLDATALOAD"
+    },
+    "1794": {
+      "op": "DUP1"
+    },
+    "1795": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "1797": {
+      "op": "SHR"
+    },
+    "1798": {
+      "op": "PUSH2",
+      "value": "0x72E"
+    },
+    "1801": {
+      "op": "JUMPI"
+    },
+    "1802": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "1804": {
+      "op": "MSTORE"
+    },
+    "1805": {
+      "op": "PUSH1",
+      "value": "0x2"
+    },
+    "1807": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "1809": {
+      "op": "MLOAD"
+    },
+    "1810": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "1812": {
+      "op": "MSTORE"
+    },
+    "1813": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "1815": {
+      "op": "MSTORE"
+    },
+    "1816": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "1818": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "1820": {
+      "op": "SHA3"
+    },
+    "1821": {
+      "op": "SLOAD"
+    },
+    "1822": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "1824": {
+      "op": "MSTORE"
+    },
+    "1825": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "1827": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "1829": {
+      "op": "RETURN"
+    },
+    "1830": {
+      "op": "JUMPDEST"
+    },
+    "1831": {
+      "op": "POP"
+    },
+    "1832": {
+      "op": "JUMPDEST"
+    },
+    "1833": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "1835": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "1837": {
+      "op": "REVERT"
+    },
+    "1838": {
+      "op": "JUMPDEST"
+    },
+    "1839": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "1841": {
+      "op": "DUP1"
+    },
+    "1842": {
+      "op": "REVERT"
+    }
+  },
+  "sha1": "4ce3c8cdbf46cec9dadedc0ef210df3ec775eb9b",
+  "source": "# @version ^0.3.7\ncurrentGradYear: public(uint256)\nuserGraduationYear: HashMap[address, uint256]\nadmins: public(HashMap[address, bool])\n\nowner: address\ndisabled: bool\n\nevent SetGradYear:\n    user: address\n    year: uint256\n\nevent AdminAdded:\n    admin: address\n    label: String[10]\n\n@external\ndef __init__(initialAdmin: address):\n    \"\"\"\n        @notice Sets the reimburesement and reimburseGas contract\n        @param initialAdmin is a mandatory admin address\n    \"\"\"\n    assert initialAdmin != empty(address)\n    self.disabled = False\n    self.owner = msg.sender\n\n    self.admins[msg.sender] = True\n    self.admins[initialAdmin] = True\n\n    log AdminAdded(msg.sender, \"init owner\")\n    log AdminAdded(initialAdmin, \"init admin\")\n\n@external\ndef addAdmin(adminToAdd: address):\n    \"\"\"\n        @notice addAdmin function adds a new admin\n        @param  adminToAdd is the admin to input\n        can only be called by existing admin / owner\n    \"\"\"\n    assert not self.disabled, \"This contract is no longer active\"\n    assert adminToAdd != empty(address), \"Cannot add the 0 address as admin\"\n    assert self.admins[msg.sender] == True, \"You need to be a teacher to add a teacher.\"\n    self.admins[adminToAdd] = True\n    log AdminAdded(adminToAdd, \"add admin\")\n\n\n@external\ndef addUser(userToAdd: address):\n    assert not self.disabled, \"This contract and its features are disabled\"\n    assert userToAdd != empty(address), \"Cannot add the 0 address as a user\"\n    assert self.admins[msg.sender] == True, \"Only admins can add active users\"\n    self.userGraduationYear[userToAdd] = self.currentGradYear\n\n@view\n@external\ndef getUserGradYear(student: address) -> uint256:\n    return self.userGraduationYear[student]\n\n@view\n@external\ndef getAdmin(potentialAdmin: address) -> bool:\n    return self.admins[potentialAdmin]\n\n@view\n@external\ndef getActiveUser(potentialUser: address) -> bool:\n    return self.userGraduationYear[potentialUser] == self.currentGradYear\n\n@external\ndef isAlumni(potentialUser: address) -> bool:\n    return True\n\n@external\ndef setDisableContract(disabled: bool):\n    assert self.owner == msg.sender\n    self.disabled = disabled\n\n@external\ndef setCurrentGradYear(year: uint256):\n    assert not self.disabled, \"This contract and its features are disabled\"\n    assert self.admins[msg.sender] == True, \"Only admins can add active students\"\n    self.currentGradYear = year\n    log SetGradYear(msg.sender, year) \n\n",
+  "sourceMap": "",
+  "sourcePath": "contracts/ActiveUser.vy",
+  "type": "contract"
+}
