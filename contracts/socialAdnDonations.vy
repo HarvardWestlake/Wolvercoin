@@ -1,7 +1,7 @@
 """
 interfaceWolvercoin: 
     def isInActiveStudents()
-    
+
 activeStudents: public(Hashmap[address, uint256])
 activeYear: public( uint256 )
 teachers: public(HashMap[address, boolean]) # hashmap?
@@ -13,10 +13,11 @@ officialVotingPeriod: public(bool)
 
 alreadyVotedProposal: DynArray [address,100]
 proposalVotes: DynArray[uint256, 3]
+"""
 wvcVariable: Wolvercoin
 
 
-"""
+
 @external
 def __init__ ():
     self.activeYear = 2023
