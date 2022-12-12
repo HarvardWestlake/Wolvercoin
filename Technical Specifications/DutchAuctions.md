@@ -15,7 +15,6 @@
 - duration --> inputed by user 
 - startPrice --> inputed by user 
 - endPrice --> inputed by user 
-- decreaseAmount --> inputed by user 
 - seller = msg.sender 
 - startDate = block.timestamp 
 - endDate = startDate + duration 
