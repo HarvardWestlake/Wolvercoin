@@ -1,34 +1,21 @@
 import React from "react";
+import * as Constants from "./consts"
+import Nav from "./Nav"
 
 class Header extends React.Component {
-  componentDidMount() {
-    console.log(this.props);
+  constructor(props) {
+    super(props);
   }
 
-
-  async onUpdateDetails(event) {
-    var state = this.state;
-    state[event.target.name] = event.target.value;
-    await this.setState(state);
-    this.props.onChangeDetails(this.state);
-  }
   render() {
     return (
       <div>
 
-Label: <input name="label" value={this.state.label} onChange={this.onUpdateDetails}  type="text"></input><br />
-        Creation: <input name="creation" onChange={this.onUpdateDetails} value={this.state.creation} type="date"></input><br />
-      
         <div className="container">
         <div className="content">
         <div className="menu-container">
-          <div className="logo-container"><a className="logo-link" href="/">Wolvercoin</a></div>
-          <div className="menu-items">
-            <a id="menu_home" className="menu-item" href="/">Balances</a>
-            <a id="menu_nfts" className="menu-item active" href="/#nfts">NFTs</a>
-            <a id="menu_announcements" className="menu-item " href="/#announcements">Announcements</a>
-            <a id="menu_docs" className="menu-item " href="/#docs">Docs</a>
-          </div>
+          <div className="logo-container"><a className="logo-link" href="/#">Wolvercoin</a></div>
+          <Nav updateHashLocation={this.props.onChangeLocation} location={this.props.location}></Nav>
           <div className="wallet-info">
             <div id="wallet-connected" className="wallet-connected-container">
               <div className="wallet-info ">

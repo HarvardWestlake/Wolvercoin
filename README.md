@@ -24,3 +24,8 @@ text and words and stuff
 > ### Submitting an address
 > This has much less use as all it will do is store money and give it to the address on a sucsessful vote. Is mainly meant to be called from communal reference to allow transfers of money (say to a charity) to be voted on
 
+
+
+# Application Details
+Application is a standard react app created with `npx create-react-app app`
+Utils for web3 are provided by `npm install @web3uikit/core @web3uikit/web3 @web3uikit/icons`

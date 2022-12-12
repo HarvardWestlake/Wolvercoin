@@ -1,5 +1,11 @@
 # @version 0.3.7
-
+#Interface:
+#   ActiveUser:
+#       getActiveUser
+#       getAdmin
+#To be Interfaced:
+#   amountAvailable
+#   
 # @dev An rundementary implementation of a voting system 
 # @author Evan Stokdyk (@Focus172)
 # @author Gavin Goldsmith (@Gav-G)
@@ -9,7 +15,7 @@
 
 # list of variables that are only referenced internally
 
-# the balence of voter coin (VC) for each user, drawn from amount of tax payed
+# the balance of voter coin (VC) for each user, drawn from amount of tax payed
 voterCoinBalance: public(HashMap[address, uint256])
 # total supply of VC
 voterCoinSupply: public(uint256)
@@ -36,21 +42,42 @@ voteDuration: public(uint256)
 # super percent needed
 contractMaintainer: public(address)
 
-
-disabled: bool
-
 event VoteStarted:
     subjectContract: address
     creator: address
     amountSent: uint256
 
+disabled: bool
+
+
+interface ActiveUser:
+    def getActiveUser(potentialUser: address) -> bool: view
+    def getAdmin(potentialAdmin: address) -> bool: view
+
+activeUserContract: public(ActiveUser)
+
 @external
-def __init__ ():
+def __init__ (activeUserAddress: address):
     self.voteDuration = 100
     self.contractMaintainer = msg.sender
     self.disabled = False
+    self.activeUserContract = ActiveUser(activeUserAddress)
 
-   
+
+@external
+def hasCoin (user: address, proposal: address) -> (uint256):
+    assert not self.disabled, "checks if contract is not disabled"
+    assert self.activeUserContract.getActiveUser(user) == True #"checks if user is active" add later when exclusivity is done
+    #assert proposal in self.ammountInFavor, "checks if the proposal exists"
+    return self.amountInFavor[proposal][user]
+
+@external 
+def amountAvailable (user: address) -> (uint256):
+    assert not self.disabled, "checks if contract is not disabled"
+    assert self.activeUserContract.getActiveUser(user) == True #"checks if user is active", add later when exclusivity is done
+    amount: uint256 = self.voterCoinBalance[user]
+    return amount #"gets how much coin they have that is not invested"
+
 # @dev This creates a new proposition for people to vote on
 # @param contract address The contract that will be given ran with adminstrator on vote sucsess
 # @param payable wei The WvC that will be sent to the executed contract on a sucsess
@@ -114,3 +141,10 @@ def burnCoin(voterAddress: address):
     assert self.amountInFavor[self.returnedWinner][voterAddress] != empty(uint256)
     self.voterCoinBalance[voterAddress] += self.amountInFavor[self.returnedWinner][voterAddress]/2
     self.voterCoinSupply -= self.amountInFavor[self.returnedWinner][voterAddress]/2
+
+@external
+def vote(voter: address, proposition: address, amount: uint256):
+    self.voterCoinBalance[voter] -= amount
+    self.activePropositions[proposition] += amount
+    self.peopleInvested[proposition].append(voter)
+    self.amountInFavor[proposition][voter] = amount
