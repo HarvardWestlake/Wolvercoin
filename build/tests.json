@@ -1,22 +1,30 @@
 {
   "contracts": {
+    "Token": "2b3ef99712c8dca68db0a644debf9e9b8c837659",
     "VotingAndRep": "2b6d9c2ba5b719a2c43ba0e10beb0e921147fa8f"
   },
   "tests": {
+    "tests/test_gambling_pot_tax.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": ".",
+      "sha1": "8509b8965874c57b33f07aab95b294a0c61dd400",
+      "txhash": []
+    },
     "tests/test_voting.py": {
       "coverage": false,
       "isolated": false,
       "results": "....",
       "sha1": "4d8b225033d2005e698bc76388f4c1ba7c9a3413",
       "txhash": [
-        "74cf13a6ddc20790c1c178b5d25d51ef477014cc",
-        "cf7a75bca5c9d99aa8a4c6d346336948b4fbc398",
-        "e2fb9b09236168324b3820934a67028f4bcdb576"
+        "3d77dfd2b97702e126cc730c5451b25dd31bbe80",
+        "68b7a4014a8cd582a902abbc1055cdf832280d83",
+        "f329c020f9239fcbadb057fde2ae831d1bd19181"
       ]
     }
   },
   "tx": {
-    "74cf13a6ddc20790c1c178b5d25d51ef477014cc": {
+    "3d77dfd2b97702e126cc730c5451b25dd31bbe80": {
       "VotingAndRep": {
         "0": [
           [
@@ -29,7 +37,7 @@
         ]
       }
     },
-    "cf7a75bca5c9d99aa8a4c6d346336948b4fbc398": {
+    "68b7a4014a8cd582a902abbc1055cdf832280d83": {
       "VotingAndRep": {
         "0": [
           [
@@ -42,7 +50,7 @@
         ]
       }
     },
-    "e2fb9b09236168324b3820934a67028f4bcdb576": {
+    "f329c020f9239fcbadb057fde2ae831d1bd19181": {
       "VotingAndRep": {
         "0": [
           [
