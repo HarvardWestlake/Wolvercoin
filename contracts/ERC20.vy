@@ -33,9 +33,12 @@ allowance: public(HashMap[address, HashMap[address, uint256]])
 totalSupply: public(uint256)
 minter: address
 
+# address of gambling pot
+gamblingPot: public(address)
+
 
 @external
-def __init__(_name: String[32], _symbol: String[32], _decimals: uint8, _supply: uint256):
+def __init__(_name: String[32], _symbol: String[32], _decimals: uint8, _supply: uint256, _gamblingPot: address):
     init_supply: uint256 = _supply * 10 ** convert(_decimals, uint256)
     self.name = _name
     self.symbol = _symbol
@@ -44,6 +47,9 @@ def __init__(_name: String[32], _symbol: String[32], _decimals: uint8, _supply: 
     self.totalSupply = init_supply
     self.minter = msg.sender
     log Transfer(empty(address), msg.sender, init_supply)
+
+    # set the address for the gambling pot
+    self.gamblingPot = _gamblingPot
 
 
 
@@ -72,12 +78,28 @@ def transferFrom(_from : address, _to : address, _value : uint256) -> bool:
     """
     # NOTE: vyper does not allow underflows
     #       so the following subtraction would revert on insufficient balance
+
+    # calculate the 3.5% tax for the gambling pot
+    gamblingPotTax: uint256 = _value * 0.035
+
+    # calculate the real transaction amount
+    transactionAmount: uint256 = _value - gamblingPotTax
+
+    # add tax to gambling pot
+    self.balanceOf[gamblingPot] += gamblingPotTax
+
     self.balanceOf[_from] -= _value
-    self.balanceOf[_to] += _value
+    
+    # log gambling tax
+    log Transfer(_from, gamblingPot, gamblingPotTax)
+    
+    self.balanceOf[_to] += transactionAmount
     # NOTE: vyper does not allow underflows
     #      so the following subtraction would revert on insufficient allowance
     self.allowance[_from][msg.sender] -= _value
-    log Transfer(_from, _to, _value)
+    log Transfer(_from, _to, _transactionAmount)
+
+    
     return True
 
 
