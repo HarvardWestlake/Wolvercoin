@@ -41,19 +41,19 @@ def voteProposal(proposalNumber : uint256):
 @external
 def voteOfficial( ballot : address ):
     assert self.activeUserContract.getActiveUser(msg.sender) 
-        if (officialVotingPeriod)
-            assert not self.alreadyVotedOfficials.get_val(msg.sender) == true
-            value : unit265
-            value = self.votesForOfficials.get_val(ballot) + 1
-            self.votesForOfficials.set_val(ballot,value)
-            self.alreadyVotedOfficials.set_val(msg.sender,true)
-            if self.votesForOfficials.get_val(ballot) >= self.electedOfficials[0]:
-                 self.electedOfficials[2]= electedOfficials[1]
-                 self.electedOfficials[1]= electedOfficials[0]
-                 self.electedOfficials[0] = ballot
-            else if self.votesForOfficials.get_val(ballot) >= electedOfficials[1]:
-                 self.electedOfficials[2]=electedOfficials[1]
-                 self.electedOfficials[1]= ballot
-            else if self.votesForOfficials.get_val(ballot) >= electedOfficials[2]:
-                 self.electedOfficials[2] = ballot
+     if (officialVotingPeriod)
+        assert not self.alreadyVotedOfficials.get_val(msg.sender) == true
+        value : unit265
+        value = self.votesForOfficials.get_val(ballot) + 1
+        self.votesForOfficials.set_val(ballot,value)
+        self.alreadyVotedOfficials.set_val(msg.sender,true)
+        if self.votesForOfficials.get_val(ballot) >= self.electedOfficials[0]:
+            self.electedOfficials[2]= electedOfficials[1]
+            self.electedOfficials[1]= electedOfficials[0]
+            self.electedOfficials[0] = ballot
+        else if self.votesForOfficials.get_val(ballot) >= electedOfficials[1]:
+            self.electedOfficials[2]=electedOfficials[1]
+            self.electedOfficials[1]= ballot
+        else if self.votesForOfficials.get_val(ballot) >= electedOfficials[2]:
+            self.electedOfficials[2] = ballot
         
