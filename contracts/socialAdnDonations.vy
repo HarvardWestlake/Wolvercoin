@@ -51,9 +51,9 @@ def voteOfficial( ballot : address ):
             self.electedOfficials[2]= electedOfficials[1]
             self.electedOfficials[1]= electedOfficials[0]
             self.electedOfficials[0] = ballot
-        else if self.votesForOfficials.get_val(ballot) >= electedOfficials[1]:
+        elif self.votesForOfficials.get_val(ballot) >= electedOfficials[1]:
             self.electedOfficials[2]=electedOfficials[1]
             self.electedOfficials[1]= ballot
-        else if self.votesForOfficials.get_val(ballot) >= electedOfficials[2]:
+        elif self.votesForOfficials.get_val(ballot) >= electedOfficials[2]:
             self.electedOfficials[2] = ballot
         
