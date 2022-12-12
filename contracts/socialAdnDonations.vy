@@ -33,7 +33,7 @@ def endVoteOfficial():
 @external
 def voteProposal(proposalNumber : uint256):
     for i in self.alreadyVotedProposal:
-        assert i == self
+        assert i != self
     assert self.officialVotingPeriod == True
     self.alreadyVotedProposal.append(self)
 
