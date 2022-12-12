@@ -1,20 +1,16 @@
 {
   "contracts": {
     "ERC20": "ed18f7176799ef070baeb860f08e3c37f557ffd3",
-    "privateGoodDutchAuction": "92ea17ccea900ccc3c960654f5192bf40799a74f"
+    "privateGoodDutchAuction": "6006d7dc7e2c96931158533b5cd8e67742e8220f"
   },
   "tests": {
     "tests/test_privateGoodDutchAuction.py": {
       "coverage": false,
       "isolated": false,
-      "results": "E",
+      "results": "F",
       "sha1": "b1f1c491642b4d1b7b59f00ede039f61a071b7d8",
-      "txhash": [
-        "4912654da2672441d44d6686d3680fba355240a4"
-      ]
+      "txhash": []
     }
   },
-  "tx": {
-    "4912654da2672441d44d6686d3680fba355240a4": {}
-  }
+  "tx": {}
 }
