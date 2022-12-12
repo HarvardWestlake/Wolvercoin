@@ -33,7 +33,7 @@ with pytest.raises(Exception) as e_info:
         if (isTeacher == True):
             assert self.officialVotingPeriod == True  
         else:
-            asser self.officialVotingPeriod == False
+            assert self.officialVotingPeriod == False
         
 
       
