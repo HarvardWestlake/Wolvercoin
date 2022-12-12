@@ -1,4 +1,4 @@
-# @version 0.3.7
+# @version 0.3.3
 
 # @dev An rundementary implementation of a voting system 
 # @author Evan Stokdyk (@Focus172)
@@ -32,6 +32,8 @@ voteDuration: public(uint256)
 # super percent needed
 contractMaintainer: public(address)
 
+interface Exclusivity:
+    isActiveUser(user: address) -> (boolean)
 
 disabled: bool
 
@@ -46,7 +48,23 @@ def __init__ ():
     self.contractMaintainer = msg.sender
     self.disabled = False
 
-   
+
+@external
+def hasCoin (user: address, proposal: address) -> (uint256):
+    assert not self.disabled, "checks if contract is not disabled"
+    assert isActiveUser(user) == True, "checks if user is active"
+    assert amountInFavor[proposal][user] == True, "checks if the proposal exists"
+    return amountInFavor[proposal][user]
+
+@external 
+def amountAvailable (user: adress) -> (uint256):
+    assert not self.disabled, "checks if contract is not disabled"
+    assert isActiveUser(user) == True, "checks if user is active"
+    amountTotal: uint256
+    for add in amountInFavor:
+        amountTotal += amountInFavor[add][user], "gets a running total of all propositions the user invested in"
+    return voterCoinBalance[user] - amountTotal, "gets how much coin they have that is not invested"
+
 # @dev This creates a new proposition for people to vote on
 # @param contract address The contract that will be given ran with adminstrator on vote sucsess
 # @param payable wei The WvC that will be sent to the executed contract on a sucsess
