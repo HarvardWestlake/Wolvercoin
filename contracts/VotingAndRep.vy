@@ -2,6 +2,8 @@
 
 # @dev An rundementary implementation of a voting system 
 # @author Evan Stokdyk (@Focus172)
+# @author Gavin Goldsmith (@Gav-G)
+# @author Jack Moreland (@jmoreland57)
 
 # VotingAndRep.vy
 
