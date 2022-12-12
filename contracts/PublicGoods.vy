@@ -26,10 +26,10 @@ def __init__(erc20address: address):
     return
 
 @external
-def createGood(name: String[50], goal: uint256):
-    # Barebones implementation made by @ericyoondotcom so he could test his own method.
-    # Please make this method better
-
+@author Anika Iyer (@exoskeleton1729)
+def createGood(name: String[50], goal: uint256) -> String:
+    # Change made by @ericyoondotcom where ID is name, which is key for HashMap
+    assert (!self.goods.has_key(name))
     self.goods[name] = Good({
         name: name,
         goal: goal,
@@ -38,12 +38,13 @@ def createGood(name: String[50], goal: uint256):
         totalDonations: 0,
         creator: msg.sender
     })
+    assert (self.goods.has_key(name))
 
-    # TODO for @exoskeleton-1729
-    
-    # Note change from tech spec made by @ericyoondotcom 2022-12-08: goods is now a hashmap
-    # The key of the hashmap is the name of the good
-    return
+    # TODO for @exoskeleton-1729 reliant on Andrew
+    # Puts it on whatever website Andrew makes so people can buy
+    # This website does not exist as of right now
+
+    return(name)
 
 @external
 def contribute(name: String[50], amount: uint256):
@@ -71,6 +72,7 @@ def retract(name: String[50], amount: uint256):
     # See comment above
     return
 
+@author Eric Yoon (@ericyoondotcom)
 @external
 def complete(name: String[50]):
     assert name != ""
