@@ -11,6 +11,8 @@
 voterCoinBalance: public(HashMap[address, uint256])
 # total supply of VC
 voterCoinSupply: public(uint256)
+# amount of VC currently staked
+voterCoinStaked: public(uint256)
 # the map containing active propositions with total amount invested
 activePropositions: public(HashMap[address, uint256])
 # a boolean for each function on if it needs a super majority
@@ -88,6 +90,22 @@ def setContractMaintainer(newMaintainer: address):
     self.contractMaintainer = newMaintainer
 
 @external
+def finishVote(contract: address): 
+    assert not self.disabled, "This contract is no longer active"
+    amtStaked: uint256 = self.activePropositions[contract]
+    array: DynArray[address,1024] = self.peopleInvested[contract]
+    if (self.affectsDao[contract] == False and self.voterCoinStaked < amtStaked * 2 and self.voterCoinSupply < amtStaked * 5) or (self.voterCoinSupply * 3 < amtStaked * 4):
+        self.voterCoinSupply -= self.activePropositions[contract] / 2
+        for affectedAdr in array:
+            self.burnCoin(affectedAdr)
+            
+    else:
+        for affectedAdr in array:
+            self.returnCoin(affectedAdr)
+    self.voterCoinStaked -= self.activePropositions[contract]
+    
+#set to internal to make finishVote work, but can be set to external temporarily to run burnCoin test separately
+@internal
 def burnCoin(voterAddress: address):
     assert not self.disabled, "This contract is no longer active"
     assert voterAddress != empty(address), "Cannot add the 0 address as vote subject"
