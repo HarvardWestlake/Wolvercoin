@@ -1,18 +1,16 @@
 {
   "contracts": {
-    "Stake": "d4f4587ea9960e2b28f6e2213370070cac95d060",
+    "ERC20": "ed18f7176799ef070baeb860f08e3c37f557ffd3",
     "VotingAndRep": "2b6d9c2ba5b719a2c43ba0e10beb0e921147fa8f",
-    "Wolvercoin": "ed18f7176799ef070baeb860f08e3c37f557ffd3"
+    "privateGoodDutchAuction": "92ea17ccea900ccc3c960654f5192bf40799a74f"
   },
   "tests": {
-    "tests/test_Stake.py": {
+    "tests/test_privateGoodDutchAuction.py": {
       "coverage": false,
       "isolated": false,
-      "results": "..",
-      "sha1": "ce2b87aacb4c425e6f0ec80d7e5cbcd918ad92d8",
-      "txhash": [
-        "6c8ad8090c8cf05cbac07075ab72d747b8dbbc30"
-      ]
+      "results": "E",
+      "sha1": "6641d279d194e83d6b0267981f203629e7e0eb3c",
+      "txhash": []
     },
     "tests/test_voting.py": {
       "coverage": false,
@@ -20,14 +18,14 @@
       "results": "....",
       "sha1": "4d8b225033d2005e698bc76388f4c1ba7c9a3413",
       "txhash": [
-        "6c7c577f58ada66f5a3a644b277bcfdf2f61b5ed",
-        "7a8cf93cb9e889b6e1341d3a1c2deac6eccfd2d5",
-        "cd41c9a3fa2d611d85cb24ab0c7451dac403fb80"
+        "14b44d10590bf6d5c8d1804c80501b27cef955af",
+        "560d3f935f59ebd7938013d2c1e358554b84bb83",
+        "5c6e82d38a7eadaaba481d446a30d647a1d2ffd3"
       ]
     }
   },
   "tx": {
-    "6c7c577f58ada66f5a3a644b277bcfdf2f61b5ed": {
+    "14b44d10590bf6d5c8d1804c80501b27cef955af": {
       "VotingAndRep": {
         "0": [
           [
@@ -40,22 +38,7 @@
         ]
       }
     },
-    "6c8ad8090c8cf05cbac07075ab72d747b8dbbc30": {
-      "Stake": {
-        "0": [
-          [
-            0,
-            1,
-            2
-          ],
-          [],
-          [
-            3
-          ]
-        ]
-      }
-    },
-    "7a8cf93cb9e889b6e1341d3a1c2deac6eccfd2d5": {
+    "560d3f935f59ebd7938013d2c1e358554b84bb83": {
       "VotingAndRep": {
         "0": [
           [
@@ -68,7 +51,7 @@
         ]
       }
     },
-    "cd41c9a3fa2d611d85cb24ab0c7451dac403fb80": {
+    "5c6e82d38a7eadaaba481d446a30d647a1d2ffd3": {
       "VotingAndRep": {
         "0": [
           [
