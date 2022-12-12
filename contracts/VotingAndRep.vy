@@ -60,7 +60,8 @@ def hasCoin (user: address, proposal: address) -> (uint256):
 def amountAvailable (user: address) -> (uint256):
     assert not self.disabled, "checks if contract is not disabled"
     #assert isActiveUser(user) == True, "checks if user is active", add later when exclusivity is done
-    return self.voterCoinBalance[user], "gets how much coin they have that is not invested"
+    amount: uint256 = self.voterCoinBalance[user]
+    return amount, "gets how much coin they have that is not invested"
 
 # @dev This creates a new proposition for people to vote on
 # @param contract address The contract that will be given ran with adminstrator on vote sucsess
