@@ -4,3 +4,4 @@
 .project
 .vscode/settings.json
 tests/__pycache__
+/app/.firebase/
