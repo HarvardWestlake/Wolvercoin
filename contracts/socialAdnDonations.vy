@@ -44,7 +44,7 @@ def voteOfficial( ballot : address ):
     if (self.officialVotingPeriod):
         assert not self.alreadyVotedOfficials[msg.sender] == true
         value : unit265
-        value = self.votesForOfficials.[ballot] + 1
+        value = self.votesForOfficials[ballot] + 1
         self.votesForOfficials[ballot]=value
         self.alreadyVotedOfficials[msg.sender]=true
         if self.votesForOfficials[ballot] >= self.electedOfficials[0]:
