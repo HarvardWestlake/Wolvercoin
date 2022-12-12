@@ -4,8 +4,38 @@ import pytest
 import brownie
 from web3.exceptions import ValidationError
 
-
-
+@external
+def testVote():
+    exclusivity: Exclusivity=Exclusivity()
+    exclusivity.classSize = 100
+    exclusivity.topicsAddress.append(0xf34b09E22f5115af490eeb7460304aB80c90399E)
+    exclusivity.vote(0xf34b09E22f5115af490eeb7460304aB80c90399E)
+    valueChanged: bool=False
+        if balance(0xf34b09E22f5115af490eeb7460304aB80c90399E)>=1:
+            valueChanged = True
+    assert valueChanged
+    valueChanged = false
+    
+    exclusivity.admin[0xf34b09E22f5115af490eeb7460304aB80c90399E] = True
+    exclusivity.vote(0xf34b09E22f5115af490eeb7460304aB80c90399E)
+     if balance(0xf34b09E22f5115af490eeb7460304aB80c90399E)>=16:
+            valueChanged = True
+    assert valueChanged
+    
+@external
+def testTally():
+    exclusivity: Exclusivity=Exclusivity()
+    exclusivity.percentage = 0.51
+    exclusivity.tallyVotes(0xf34b09E22f5115af490eeb7460304aB80c90399E)
+    
+    removed: bool=True
+    for studentAddress in exclusivity.topicsAddress:
+        if studentAddress==0xf34b09E22f5115af490eeb7460304aB80c90399E:
+            removed = False
+            break
+    
+    assert removed
+    
 @external
 def testAddNonTopics():
     exclusivity: Exclusivity=Exclusivity()
