@@ -1,0 +1,36 @@
+lotteryStart:public(uint256)
+lotteryEnd:public(uint256)
+
+#keep track of addresses and the order of bid purchases
+ticketBuys: public(HashMap[uint256, address])
+holders:public(uint256)
+pot: public(uint256)
+
+ended:public(bool)
+
+@external
+def __init__(_lottery_start:uint256, _lottery_length:uint256):
+    self.lotteryStart = _lottery_start
+    self.lotteryEnd = self.lotteryStart +_lottery_length
+    assert block.timestamp < self.lotteryEnd
+@external
+@payable
+def buyTickets():
+    assert block.timestamp>=self.lotteryStart
+    assert block.timestamp<self.lotteryEnd
+    assert msg.value > 1
+    self.pot+=msg.value
+    self.ticketBuys[self.holders] = msg.sender
+    self.holders = self.holders +1
+
+@external
+def endLottery():
+    assert block.timestamp>=self.lotteryEnd
+    assert not self.ended
+    self.ended = True
+    #Two important things for editor to keep in mind:
+    #1. This lottery is not truly random
+    #2. The pot doesnt work as originally intended, and needs to be integrated with 
+    #   the other groups using pots
+    send(self.ticketBuys[(block.timestamp%self.holders)],self.pot*2/3)
+
