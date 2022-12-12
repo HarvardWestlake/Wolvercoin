@@ -1,3 +1,5 @@
+# @version 0.3.6
+
 import pytest
 from brownie import accounts
 from web3.exceptions import ValidationError
