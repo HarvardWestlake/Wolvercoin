@@ -90,3 +90,16 @@ def test_setContractMaintainer(votingContract, accounts):
     except:
         allowChanges = False
     assert allowChanges, "Maintainer should be able to change maintainer"
+
+def test_vote(votingContract, accounts):
+    sampleContract = votingContract.address
+    initialBal = votingContract.voterCoinBalance[accounts[1]]
+    totalInvestedBefore = votingContract.activePropositions[votingContract.endBlock(sampleContract)]
+    votingContract.vote(accounts[1], votingContract.endBlock(sampleContract), 10)
+
+    # tests if user's votercoin balance decreases by specified amount
+    assert votingContract.voterCoinBalance[accounts[1]] == initialBal-10
+
+    #tests if total amount of votercoin in proposition increases by specified amount
+    assert votingContract.activePropositions[votingContract.endBlock(sampleContract)] == (totalInvestedBefore + 10)
+

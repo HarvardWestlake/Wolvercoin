@@ -86,3 +86,10 @@ def setContractMaintainer(newMaintainer: address):
     assert newMaintainer != empty(address), "You can't remove the maintainer"
 
     self.contractMaintainer = newMaintainer
+
+@external
+def vote(voter: address, proposition: address, amount: uint256):
+    self.voterCoinBalance[voter] -= amount
+    self.activePropositions[proposition] += amount
+    self.amountInFavor[proposition][voter] = amount
+    self.peopleInvested[proposition].append(voter)
