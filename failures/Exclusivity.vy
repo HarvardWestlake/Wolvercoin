@@ -1,4 +1,12 @@
 # @version 0.3.7
+# this relies on functional ActiveUser contract/class
+# no other contract is interfacing with this code as of 12/12 at 9:00AM
+
+interface ActiveUser:
+    def getActiveUser(potentialUser: address) -> bool: view
+    def getAdmin(potentialAdmin: address) -> bool: view
+
+activeUserContract: public(ActiveUser)
 
 
 admin: HashMap[address, bool]
@@ -7,22 +15,22 @@ percentage: uint256
 classSize: uint256
 
 @external
-def vote(voter: address)
+def vote(voter: address):
     isIn: bool = False
     for studentAddress in self.topicsAddress: #find index of address of candidate in topics addresses
             if studentAddress==candidate:
                 isIn = True
                 break
-     if isIn
+    if isIn == True:
         self.removeNonTopics(voter)
         self.balance+=1
      
-     if self.admin[voter]
+    if self.admin[voter]:
         self.balance+=0.15*classSize
 
 @external
-def tallyVotes(voter: address)
-     if self.percentage >= 0.5
+def tallyVotes(voter: address):
+     if self.percentage >= 0.5:
         self.removeNonTopics(voter)
         return True
 
