@@ -1,4 +1,9 @@
 
+interface ERC20:
+    def transferFrom(address, address, uint256) -> bool: view
+
+ERC20Contract: public(ERC20)
+
 event Buy:
     seller: address
     buyer: address
@@ -21,7 +26,7 @@ buy: bool
 
 
 @external
-def __init__(_duration: uint256, _startPrice: uint256, _endPrice: uint256, _NFT: address):
+def __init__(_duration: uint256, _startPrice: uint256, _endPrice: uint256, _NFT: address, Wolvercoin: address):
     assert _startPrice >= _endPrice
     self.duration = _duration
     self.startPrice = _startPrice
@@ -30,6 +35,7 @@ def __init__(_duration: uint256, _startPrice: uint256, _endPrice: uint256, _NFT:
     self.seller = msg.sender
     self.startDate = block.timestamp
     self.endDate = self.startDate + self.duration
+    self.ERC20Contract = ERC20(Wolvercoin)
 
 @internal
 def transferFrom(_from : address, _to : address, _value : uint256):
@@ -53,15 +59,19 @@ def _isItemValid() -> (bool):
     else:
         return True
 
-@external 
-def _endAuction:
-        self.startDate = null
-    if block.timestamp > self.endDate:
-        self.endDate = 0
-    if self.buy == False:
-        if self._getPrice() < self.endPrice:
-            self.startDate = 0
-            self.endDate =0
-        self.startDate = 0
-    else:
-        self.endDate = 0
+@external
+def endAuction():
+    self.endDate = 0
+
+@internal 
+def _endAuction():
+#   self.startDate = null
+#   if block.timestamp > self.endDate:
+    self.endDate = 0
+#   if self.buy == False:
+#       if self._getPrice() < self.endPrice:
+#           self.startDate = 0
+#           self.endDate =0
+#       self.startDate = 0
+#   else:
+#       self.endDate = 0

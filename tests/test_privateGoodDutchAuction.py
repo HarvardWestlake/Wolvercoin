@@ -12,8 +12,9 @@ chain = Chain()
 
 # . This runs before ALL tests
 @pytest.fixture
-def privateGoodContract(privateGoodDutchAuction, accounts):
-    return privateGoodDutchAuction.deploy({'from': accounts[0]})
+def privateGoodContract(privateGoodDutchAuction, ERC20, accounts):
+    ERC20Contract = ERC20.deploy({'from':accounts[0]})
+    return privateGoodDutchAuction.deploy(ERC20Contract, {'from': accounts[0]})
     
 
 def _as_wei_value(base, conversion):
