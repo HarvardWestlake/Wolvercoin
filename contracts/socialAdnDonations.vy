@@ -1,6 +1,7 @@
-<<<<<<< HEAD
-interfaceWolvercoin: 
-    def isInActiveStudents()
+# @version ^0.3.7
+interface ActiveUser:
+    def getActiveUser(potentialUser: address) -> bool: view
+    def getAdmin(potentialAdmin: address) -> bool: view
 
 activeStudents: public(Hashmap[address, uint256])
 activeYear: public( uint256 )
@@ -11,18 +12,19 @@ votesForOfficials: public(HashMap [address, uint256])
 officialVotingPeriod: public(bool)
 alreadyVotedProposal: DynArray [address,100]
 proposalVotes: DynArray[uint256, 3]
-wvcVariable: Wolvercoin
+activeUserContract: public(ActiveUser)
 
 
 
 @external
-def __init__ ():
+def __init__ (activeUserAddress: address):
     self.activeYear = 2023
+    self.activeUserContract = ActiveUser(activeUserAddress)
 
 
 @external
 def endVoteOfficial():
-    assert wvcVariable.isTeacher(block.coinbase)   # what is the contains function for dynarrays
+    assert self.activeUserContract.getAdmin(block.coinbase)   # what is the contains function for dynarrays
     # how would I get the top three votes for officials
     electedOfficials[0]=
     electedOfficials[1]=
