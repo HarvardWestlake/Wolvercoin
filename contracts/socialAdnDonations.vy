@@ -1,6 +1,5 @@
 # @version ^0.3.7
 # code is dependent on activeUser
-# depends on our code
 interface ActiveUser:
     def getActiveUser(potentialUser: address) -> bool: view
     def getAdmin(potentialAdmin: address) -> bool: view
@@ -9,6 +8,7 @@ activeStudents: public(HashMap[address, uint256])
 activeYear: public( uint256 )
 teachers: public(HashMap[address, bool]) 
 electedOfficials: public(DynArray[address, 3])
+votesLeaderBoard
 alreadyVotedOfficials: public(HashMap [address, bool])
 votesForOfficials: public(HashMap [address, uint256])
 officialVotingPeriod: public(bool)
@@ -43,8 +43,7 @@ def voteOfficial( ballot : address ):
     assert self.activeUserContract.getActiveUser(msg.sender) 
     if (self.officialVotingPeriod):
         assert not self.alreadyVotedOfficials[msg.sender] == True
-        value : unit265
-        value = self.votesForOfficials[ballot] + 1
+        value : uint256 =  self.votesForOfficials[ballot] + 1 
         self.votesForOfficials[ballot]=value
         self.alreadyVotedOfficials[msg.sender]= True
         if self.votesForOfficials[ballot] >= self.electedOfficials[0]:
