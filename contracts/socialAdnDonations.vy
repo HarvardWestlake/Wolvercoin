@@ -5,9 +5,9 @@ interface ActiveUser:
     def getActiveUser(potentialUser: address) -> bool: view
     def getAdmin(potentialAdmin: address) -> bool: view
 
-activeStudents: public(Hashmap[address, uint256])
+activeStudents: public(HashMap[address, uint256])
 activeYear: public( uint256 )
-teachers: public(HashMap[address, boolean]) # hashmap?
+teachers: public(HashMap[address, boolean]) 
 electedOfficials: public(DynArray[address, 3])
 alreadyVotedOfficials: public(HashMap [address, bool])
 votesForOfficials: public(HashMap [address, uint256])
