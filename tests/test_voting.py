@@ -2,6 +2,8 @@
 
 # @dev Basic testing for the voting system
 # @author Evan Stokdyk (@Focus172)
+# @author Gavin Goldsmith (@Gav-G)
+# @author Jack Moreland (@jmoreland57)
 
 import pytest
 from brownie import accounts
