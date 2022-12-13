@@ -6,29 +6,33 @@ topicsAddress: DynArray[address, 1000]
 percentage: uint256
 classSize: uint256
 
-@external
-def vote(voter: address):
-    isIn: bool = False
-    for studentAddress in self.topicsAddress: #find index of address of candidate in topics addresses
-            if studentAddress==candidate:
-                isIn = True
-                break
-    if isIn == True:
-        self.removeNonTopics(voter)
-        self.balance+=1
-     
-    if self.admin[voter]:
-        self.balance+=0.15*classSize
 
-@external
-def tallyVotes(voter: address):
-     if self.percentage >= 0.5:
-        self.removeNonTopics(voter)
-        return True
+@internal
+def vote():
+    pass
+# @external
+# def vote(voter: address):
+#     isIn: bool = False
+#     for studentAddress in self.topicsAddress: #find index of address of candidate in topics addresses
+#             if studentAddress==candidate:
+#                 isIn = True
+#                 break
+#     if isIn == True:
+#         self.removeNonTopics(voter) #wait isn't vote supposed to just be for any generic vote, not necessarily remove a student? also I wrote my method based on vote so uhhhhh
+#         self.balance+=1
+     
+#     if self.admin[voter]:
+#         self.balance+=0.15*classSize
+
+# @external
+# def tallyVotes(voter: address):
+#      if self.percentage >= 0.5:
+#         self.removeNonTopics(voter)
+#         return True
 
 @external
 def addNonTopics(candidate: address):
-    self.vote(candidate) #function 1 in tech spec, to be written by someone else
+    self.vote() #function 1 in tech spec, to be written by someone else
     if self.percentage>=1:#assuming percentage doesnt change immediately after vote method is called
         self.topicsAddress.append(candidate)
 
