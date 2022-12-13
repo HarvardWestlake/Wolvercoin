@@ -6,12 +6,13 @@ from web3.exceptions import ValidationError
 
 # . This runs before ALL tests
 @pytest.fixture
-def crashContract(Gambling, accounts):
-    return Gambling.deploy({'from': accounts[1]})
+def crashContract(Crash, accounts):
+    return Crash.deploy({'from': accounts[1]})
 
 def test_crashUpdating(crashContract, accounts):
     multiplierInit = crashContract.getMultiplier()
-    txn1 = crashContract.updateCrash()
+    crashContract.updateCrash()
     newMultiplier = crashContract.getMultiplier()
+    print (newMultiplier)
+    print (multiplierInit)
     assert newMultiplier != multiplierInit
-

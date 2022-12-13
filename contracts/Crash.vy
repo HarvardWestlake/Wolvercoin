@@ -3,6 +3,7 @@ justCrashed: public(bool)
 crashBets: public(HashMap[address, uint256])
 multiplier: public(uint256)
 pot: public(address)
+currentBettors: public(DynArray[address, 1024])
 
 interface ActiveUser:
     def getActiveUser(potentialUser: address) -> bool: view
@@ -20,7 +21,9 @@ event CrashStart:
 @external
 def __init__():
     self.pot = msg.sender
+    self.justCrashed = False
     log CrashStart(block.timestamp, block.number)
+    self.crashGamble()
 
 @external
 def updateCrash():
@@ -34,14 +37,17 @@ def resetCrash():
     self.justCrashed = False
     log Crash(self.multiplier)
     self.multiplier = 0
-    
-    # . Need to figure out how to clear the HashMap of all of its entries
-    #self.crashBets.clear()
+
+    #sets all the remaining bettors in the HashMap's bets to 0
+    for i in self.currentBettors:
+        self.crashBets[i] = 0
 
 @external
 def getMultiplier() -> uint256:
     return self.multiplier
 
+#--DELETE THIS LATER--
+#Dummy method - Will is coding this
 @internal
 def crashGamble():
-    return
+    self.multiplier = self.multiplier+1
