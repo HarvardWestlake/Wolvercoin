@@ -1,26 +1,26 @@
-#version ^0.3.8
-import brownie
-import pytest
+# @version ^0.3.7
 
-implements Wolvercoin:
-def transfer(_to : address, _value : uint256) -> bool:
+
+interface Wolvercoin:
+    def transfer(_to : address, _value : uint256) -> bool: view
 
 theissHighScore: uint256
 users: HashMap[address, String[300]]
-
-def __init__()
-    return true
-
+newScore: uint256
 
 @external
-def compareHighScores (unit256: newScore, address: name) -> String[100]:
+def __init__():
+    return True
+
+@external
+def compareHighScores (uint256: newScore, address: name) -> String[100]:
     if users[name, newScore] == 0:
         if newScore > theissHighScore:
             transfer(name, 2.14*self.balanceOf[msg.sender])
             return "You beat Mr. Theiss! Epic Gamer Moment!"
         else:
             return "You did not beat Mr. Theiss."
-    else
+    else:
         return "You cannot beat Mr. Theiss more than once."
 
 @external

@@ -1,7 +1,6 @@
-#version ^0.3.8
+# @version ^0.3.7
 import pytest
 import brownie
-
 
 @pytest.fixture
 def compareContract(CodeScoreCheck, accounts):
