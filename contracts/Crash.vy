@@ -4,15 +4,19 @@ interface ActiveUser:
     def getActiveUser(potentialUser: address) -> bool: view
 
 interface Token:
-    generate_random_number(maxVal: uint256) -> uint256:
-    transferFrom(_from : address, _to : address, _value : uint256) -> bool: payable
+    def generate_random_number(maxVal: uint256) -> uint256: view
+
+interface Wolvercoin:
+    def transferFrom(_from : address, _to : address, _value : uint256) -> bool: payable
 
 justCrashed: public(bool)
 crashBets: public(HashMap[address, uint256])
 multiplier: public(uint256)
 pot: public(address)
-tokenContract: Token(_name: String[32], _symbol: String[32], _decimals: uint8, _supply: uint256, _gamblingPot: address):
-activeUserAddress: public(ActiveUser)
+
+tokenContract: public(Token)
+activeUserContract: public(ActiveUser)
+wolvercoinContract: public(Wolvercoin)
 
 event BetWithdrawn:
     multiplied: uint256
@@ -27,19 +31,20 @@ event CrashStart:
     blockNumber: uint256
 
 @external
-def __init__():
+def __init__(activeUserAddress: address, tokenContractAddress: address, wolvercoinContractAddress: address):
     self.pot = msg.sender
     log CrashStart(block.timestamp, block.number)
     self.activeUserContract = ActiveUser(activeUserAddress)
-    self.tokenContract = Token("Wolvercoin", "WVC", 10, 10000000)
+    self.tokenContract = Token(tokenContractAddress)
+    self.wolvercoinContract = Wolvercoin(wolvercoinContractAddress)
 
 @payable
 @external
 def withdrawBet(gambler: address):
-    assert(self.activeUserAddress.getActiveUser(gambling) == true)
+    assert self.activeUserContract.getActiveUser(gambler) == True
     
     paid: uint256 = (self.crashBets[gambler] * (self.multiplier / 10))
 
-    self.tokenContract.transferFrom (self.pot, gambler, paid)
+    self.wolvercoinContract.transferFrom (self.pot, gambler, paid)
 
     log BetWithdrawn(self.multiplier, paid, gambler)
