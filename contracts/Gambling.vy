@@ -22,7 +22,7 @@ def __init__():
     self.pot = msg.sender
     log CrashStart(block.timestamp, block.number)
 
-@internal
+@external
 def updateCrash():
     if (self.justCrashed):
         self.resetCrash()
@@ -41,3 +41,7 @@ def resetCrash():
 @external
 def getMultiplier() -> uint256:
     return self.multiplier
+
+@internal
+def crashGamble():
+    return
