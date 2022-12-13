@@ -2,8 +2,9 @@
 
 # vyper.interfaces.ERC20 does not include the mint and burn functions so we make our own interface
 interface ERC20WithAdminAccess:
-    def mint(_to: address, _value: uint256): nonpayable
-    def burnFrom(_to: address, _value: uint256): nonpayable
+    def getBalanceOf(_address: address) -> uint256: nonpayable
+    def mint(_to: address, _value: uint256) -> bool: nonpayable
+    def burnFrom(_to: address, _value: uint256) -> bool: nonpayable
 
 struct Donation:
     donator: address
@@ -19,6 +20,7 @@ struct Good:
 
 goods: public(HashMap[String[50], Good]) # There can be up to 50 goods collecting donations
 erc20: ERC20WithAdminAccess # The main contract we need to interact with
+lastIndex: uint256
 
 @external
 def __init__(erc20address: address):
@@ -27,9 +29,9 @@ def __init__(erc20address: address):
 
 @external
 def createGood(name: String[50], goal: uint256):
-    # Barebones implementation made by @ericyoondotcom so he could test his own method.
-    # Please make this method better
-
+    assert name != ""
+    assert goal > 0
+    assert self.goods[name].name != name # Make sure good with same name doesn't already exist
     self.goods[name] = Good({
         name: name,
         goal: goal,
@@ -39,30 +41,29 @@ def createGood(name: String[50], goal: uint256):
         creator: msg.sender
     })
 
-    # TODO for @exoskeleton-1729
-    
-    # Note change from tech spec made by @ericyoondotcom 2022-12-08: goods is now a hashmap
-    # The key of the hashmap is the name of the good
-    return
-
 @external
 def contribute(name: String[50], amount: uint256):
-    # Barebones implementation made by @ericyoondotcom so he could test his own method.
-    # Please make this method better
+    good: Good = self.goods[name]
+    assert good.name == name
 
-    self.goods[name].donations[0] = Donation({
+    # Fail the function if the user doesn't have enough money
+    assert self.erc20.getBalanceOf(msg.sender) >= amount
+    self.erc20.burnFrom(msg.sender, amount)
+
+    for i in range(50):
+        if i >= good.donationsLen:
+            break
+        if good.donations[i].donator == msg.sender:
+            good.donations[i].amount += amount
+            good.totalDonations += amount
+            return
+    
+    good.donations[good.donationsLen] = Donation({
         donator: msg.sender,
         amount: amount
     })
-    self.erc20.burnFrom(msg.sender, amount)
-
-    # TODO for @stevenk8819
-
-    # Change from tech spec: donations are stored as an array of Donation objects
-    # Loop through the donations array, find the address of the donation associated
-    # with the donator, and increment the value. If user has no associated donation
-    # object, create one
-    return
+    good.donationsLen += 1
+    good.totalDonations += amount
 
 @external
 def retract(name: String[50], amount: uint256):
@@ -70,6 +71,20 @@ def retract(name: String[50], amount: uint256):
 
     # See comment above
     return
+
+@external
+def getContributionTotal(name: String[50]) -> uint256:
+    assert name != ""
+    good: Good = self.goods[name]
+    assert good.name == name
+    return good.totalDonations
+
+@external
+def getGoal(name: String[50]) -> uint256:
+    assert name != ""
+    good: Good = self.goods[name]
+    assert good.name == name
+    return good.goal
 
 @external
 def complete(name: String[50]):
