@@ -39,7 +39,7 @@ def __init__(activeUserAddress: address, tokenContractAddress: address, wolverco
     self.pot = msg.sender
     self.justCrashed = False
     log CrashStart(block.timestamp, block.number)
-    self.activeUserContract = ActiveUser(activeUserAddress)
+    self.activeUserAddress = ActiveUser(activeUserAddress)
     self.tokenContract = Token(tokenContractAddress)
     self.wolvercoinContract = Wolvercoin(wolvercoinContractAddress)
     self.crashGamble()
@@ -47,7 +47,7 @@ def __init__(activeUserAddress: address, tokenContractAddress: address, wolverco
 @payable
 @external
 def withdrawBet(gambler: address):
-    assert self.activeUserContract.getActiveUser(gambler) == True
+    assert self.activeUserAddress.getActiveUser(gambler) == True
     
     paid: uint256 = (self.crashBets[gambler] * (self.multiplier / 10))
 
