@@ -27,7 +27,7 @@ with pytest.raises(Exception) as e_info:
         socialAdnDonationsContract.voteProposal(2)
         if socialAdnDonations.proposalVotes[2] == 1:
             b = True
-        assert b = True
+        assert b == True
         
     def test_donate():
         balance = accounts[0].balance()
