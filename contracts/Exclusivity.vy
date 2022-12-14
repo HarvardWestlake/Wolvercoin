@@ -1,13 +1,38 @@
+# this relies on functional ActiveUser contract/class
+# no other contract is interfacing with this code as of 12/12 at 9:00AM
+interface ActiveUser:
 # @version 0.3.7
 
+    def getActiveUser(potentialUser: address) -> bool: view
+    def getAdmin(potentialAdmin: address) -> bool: view
+activeUserContract: public(ActiveUser)
 
+
+
+admin: HashMap[address, bool]
+topicsAddress: DynArray[address, 1000]
 percentage: uint256
-topicsAddress: public(DynArray[address, 1000])
+classSize: uint256
+@external
+def vote(voter: address):
+    isIn: bool = False
+            if studentAddress==voter:
+    for studentAddress in self.topicsAddress: #find index of address of candidate in topics addresses
+                isIn = True
+                break
+    if isIn == True:
+        self.removeNonTopics(voter)
+        send(voter,1)
+    if self.admin[voter]:
+     
+        send(voter,(15/100)*self.classSize)
 
-@internal
-def vote():
-    pass
-
+@external
+     if self.percentage >= 50:
+def tallyVotes(voter: address)-> bool:
+        self.removeNonTopics(voter)
+        return True
+     return False
 @external
 def addNonTopics(candidate: address):
     self.vote() #function 1 in tech spec, to be written by someone else
