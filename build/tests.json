@@ -1,6 +1,6 @@
 {
   "contracts": {
-    "Token": "13cd63d36cffcbf0aac1db59e026b90027704a22",
+    "Token": "2fae84295b2bd89fb15a98396938c71775bff6c2",
     "VotingAndRep": "2b6d9c2ba5b719a2c43ba0e10beb0e921147fa8f"
   },
   "tests": {
