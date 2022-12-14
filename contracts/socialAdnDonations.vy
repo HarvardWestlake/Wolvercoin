@@ -24,6 +24,8 @@ activeUserContract: public(ActiveUser)
 def __init__ (activeUserAddress: address):
     self.activeYear = 2023
     self.activeUserContract = ActiveUser(activeUserAddress)
+    self.officialVotingPeriod = True
+    self.proposalVotes=[0,0,0]
 
 
 
@@ -44,13 +46,18 @@ def voteProposal(proposalNumber : uint256):
     self.alreadyVotedProposal.append(self)
 
 @external
-def donate(to: Address, value: uint256):
-    # Check if the caller has sufficient balance
-    assert self.balanceOf[msg.sender] >= value, "Insufficient balance"
+def getProposalVotes (num : uint256) -> (uint256):
+    return self.proposalVotes[num]
 
+#def donate(to: Address, value: uint256):
+    # Check if the caller has sufficient balance
+   # assert self.balanceOf[msg.sender] >= value, "Insufficient balance"
+ 
     # Transfer the funds
-    self.balanceOf[msg.sender] -= value
-    self.balanceOf[to] += value
+    #self.balanceOf[msg.sender] -= value
+    #self.balanceOf[to] += value
+
+@external
 def voteOfficial( ballot : address ):
     assert self.activeUserContract.getActiveUser(msg.sender) 
     if (self.officialVotingPeriod):
@@ -73,4 +80,4 @@ def voteOfficial( ballot : address ):
         elif self.votesForOfficials[ballot] >= self.votesLeaderBoard[2]:
             self.votesLeaderBoard[2]= value
             self.electedOfficials[2] = ballot
-        
+       
