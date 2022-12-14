@@ -3,6 +3,12 @@
 #Dependent: None 
 #Dependent on me: None
 
+struct Erc20Token:
+    addr: address
+    decimals: uint256
+    symbol: String[16]
+    hashImag: String[100]
+
 
 hashie : public (HashMap[uint256,Erc20Token])
 
@@ -11,13 +17,11 @@ def __init__ ():
     return
 
 @external
-
 def redeemProduct(NFTid : uint256) -> bool:
-    nftStr : struct = self.hashie.get_val(NFTid)
-    if (msg.sender == nftStr.addr):
-        return true
+    if (msg.sender == self.hashie[NFTid].addr):
+        return True
     else:
-        return false
+        return False
 
 
 #when you want to buy an item make a new nft, whoever buys gets that item, in order to buy nft 
