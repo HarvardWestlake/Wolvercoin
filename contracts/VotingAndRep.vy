@@ -1,15 +1,16 @@
-# @version 0.3.7
+# @version ^0.3.7
 #Interface:
 #   ActiveUser:
 #       getActiveUser
 #       getAdmin
 #To be Interfaced:
 #   amountAvailable
-#   
+#dependent on:
+#   transfer (should call incrementAccountVCBal(amount being))
+#depends on us:
+#   theoretically all contracts, as we can edit the contract via changing the proxy
 # @dev An rundementary implementation of a voting system 
-# @author Evan Stokdyk (@Focus172)
 # @author Gavin Goldsmith (@Gav-G)
-# @author Jack Moreland (@jmoreland57)
 
 # VotingAndRep.vy
 
@@ -55,6 +56,22 @@ interface ActiveUser:
     def getAdmin(potentialAdmin: address) -> bool: view
 
 activeUserContract: public(ActiveUser)
+
+#setters
+@external
+def setAccountVCBal (account: address, newAmount: uint256):
+    self.voterCoinBalance[account] = newAmount
+@external
+def incrementAccountVCBal (account: address, increment: uint256):
+    self.voterCoinBalance[account] += increment
+
+@external
+def setVoterCoinSupply (nVoterCoinSupply: uint256):
+    self.voterCoinSupply = nVoterCoinSupply
+
+@external
+def setActiveProposition(proposition: address, amount: uint256):
+    self.activePropositions[proposition] = amount
 
 @external
 def __init__ (activeUserAddress: address):
@@ -130,7 +147,7 @@ def finishVote(contract: address):
             
     else:
         for affectedAdr in array:
-            self.returnCoin(affectedAdr)
+            self.returnCoin(contract, affectedAdr)
     self.voterCoinStaked -= self.activePropositions[contract]
     
 #set to internal to make finishVote work, but can be set to external temporarily to run burnCoin test separately
@@ -142,9 +159,16 @@ def burnCoin(voterAddress: address):
     self.voterCoinBalance[voterAddress] += self.amountInFavor[self.returnedWinner][voterAddress]/2
     self.voterCoinSupply -= self.amountInFavor[self.returnedWinner][voterAddress]/2
 
+@internal
+def returnCoin(proposition: address, voterAddress: address):
+    assert not self.disabled, "This contract is no longer active"
+    assert voterAddress != empty(address), "Cannot add the 0 address as vote subject"
+    self.voterCoinBalance[voterAddress] += self.amountInFavor[proposition][voterAddress]
+
 @external
 def vote(voter: address, proposition: address, amount: uint256):
     self.voterCoinBalance[voter] -= amount
+    self.voterCoinStaked += amount
     self.activePropositions[proposition] += amount
     self.peopleInvested[proposition].append(voter)
     self.amountInFavor[proposition][voter] = amount

@@ -1,4 +1,4 @@
-#version ^0.3.8
+#version ^0.3.7
 
 # @dev Basic testing for the voting system
 # @author Evan Stokdyk (@Focus172)
@@ -15,7 +15,7 @@ chain = Chain()
 # . This runs before ALL tests
 @pytest.fixture
 def votingContract(VotingAndRep, accounts):
-    return VotingAndRep.deploy({'from': accounts[0]})
+    return VotingAndRep.deploy(accounts[1], {'from': accounts[0]})
     
 
 def _as_wei_value(base, conversion):
@@ -27,7 +27,7 @@ def _as_wei_value(base, conversion):
 
 def test_hasCoin(votingContract, accounts): 
     sampleContract = votingContract.address
-    #votingContract.voterCoinBalance[accounts[3]] += 1000, "adds 1000 to accounts balance"
+    votingContract.incrementAccountVCBal(accounts[3],1000), "adds 1000 to accounts balance"
     votingContract.proposeVote(sampleContract, "Vote for Kian"), "starts a vote for Kian"
     votingContract.vote(accounts[3], votingContract.endBlock(sampleContract), 100), "User invests 100 coin into vote"
     assert votingContract.hasCoin(accounts[3], votingContract.endBlock(sampleContract)) == 100, "checks if it gets how much user invested in proposition"
@@ -113,13 +113,13 @@ def test_setContractMaintainer(votingContract, accounts):
 
 def test_burnCoin(votingContract, accounts):
     
-    winningProp = "2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824"
-    losingProp = "82e35a63ceba37e9646434c5dd412ea577147f1e4a41ccde1614253187e3dbf9"
-    votingContract.activePropositions[winningProp] = 0
-    votingContract.activePropositions[losingProp] = 0
-    votingContract.voterCoinSupply += 100
-    votingContract.voterCoinBalance[accounts[4]] = 50
-    votingContract.voterCoinBalance[accounts[6]] = 50
+    winningProp = "0xc0ffee254729296a45a3885639AC7E10F9d54979"
+    losingProp = "0x999999cf1046e68e36E1aA2E0E07105eDDD1f08E"
+    votingContract.setActiveProposition(winningProp, 0)
+    votingContract.setActiveProposition(losingProp, 0)
+    votingContract.setVoterCoinSupply(votingContract.voterCoinSupply() + 100)
+    votingContract.setAccountVCBal(accounts[4],50)
+    votingContract.setAccountVCBal(accounts[6],50)
     votingContract.vote(accounts[4],losingProp,10)
     votingContract.vote(accounts[6],winningProp,20)
     
@@ -138,31 +138,30 @@ def test_burnCoin(votingContract, accounts):
     assert allowBurn, "Coin should be burned/returned if user is on winning side of the vote"
 
 def test_endVote(votingContract, accounts):
-    losingProp = "82e35a63ceba37e9646434c5dd412ea577147f1e4a41ccde1614253187e3dbf9"
-    winningProp = "2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824"
-    votingContract.activePropositions[winningProp] = 0
-    votingContract.activePropositions[losingProp] = 0
-    votingContract.voterCoinSupply += 100
-    votingContract.voterCoinBalance[accounts[4]] = 50
-    votingContract.voterCoinBalance[accounts[6]] = 50
-    # vote method should increase voterCoinStaked accordingly
+    winningProp = "0xc0ffee254729296a45a3885639AC7E10F9d54979"
+    losingProp = "0x999999cf1046e68e36E1aA2E0E07105eDDD1f08E"
+    votingContract.setActiveProposition(winningProp, 0)
+    votingContract.setActiveProposition(losingProp, 0)
+    votingContract.setVoterCoinSupply(votingContract.voterCoinSupply() + 100)
+    votingContract.setAccountVCBal(accounts[4],50)
+    votingContract.setAccountVCBal(accounts[6],50)
+    votingContract.setVoterCoinSupply(100)
     votingContract.vote(accounts[4],losingProp,10)
     votingContract.vote(accounts[6],winningProp,20)
-    assert votingContract.voterCoinSupply == 100
-    assert votingContract.voterCoinStaked == 30
+    assert votingContract.voterCoinStaked() == 30
     votingContract.finishVote(losingProp)
     votingContract.finishVote(winningProp)
-    assert votingContract.voterCoinSupply == 90
-    assert votingContract.voterCoinStaked == 0
+    assert votingContract.voterCoinSupply() == 90
+    assert votingContract.voterCoinStaked() == 0
 
 def test_vote(votingContract, accounts):
     sampleContract = votingContract.address
-    initialBal = votingContract.voterCoinBalance[accounts[1]]
-    totalInvestedBefore = votingContract.activePropositions[votingContract.endBlock(sampleContract)]
+    initialBal = votingContract.voterCoinBalance()[accounts[1]]
+    totalInvestedBefore = votingContract.activePropositions()[votingContract.endBlock(sampleContract)]
     votingContract.vote(accounts[1], votingContract.endBlock(sampleContract), 10)
 
     # tests if user's votercoin balance decreases by specified amount
-    assert votingContract.voterCoinBalance[accounts[1]] == initialBal-10
+    assert votingContract.voterCoinBalance()[accounts[1]] == initialBal-10
 
     #tests if total amount of votercoin in proposition increases by specified amount
-    assert votingContract.activePropositions[votingContract.endBlock(sampleContract)] == (totalInvestedBefore + 10)
+    assert votingContract.activePropositions()[votingContract.endBlock(sampleContract)] == (totalInvestedBefore + 10)
