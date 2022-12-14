@@ -39,56 +39,35 @@ def testTally(Exclusivity,accounts):
         if studentAddress==0xf34b09E22f5115af490eeb7460304aB80c90399E:
             removed = False
             break
-    
     assert removed
     
-def testAddNonTopics(Exclusivity,accounts):
-    Exclusivity.deploy("0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", {'from': accounts[1]})
-    exclusivity: Exclusivity=Exclusivity()
-    exclusivity.percentage=1
-    exclusivity.addNonTopics(0xC90460533587b81bDC3042329FCf0dB18507b430)#kensuke's public address, just to test
-    added: bool=False
-    for studentAddress in exclusivity.topicsAddress:
-        if studentAddress==0xC90460533587b81bDC3042329FCf0dB18507b430:
-            added=True
-            break
-    assert added,"should add if percentage is 1 or greater"
 
-    exclusivity.topicsAddress.pop()
-    exclusivity.percentage=0.2
-    exclusivity.addNonTopics(0xC90460533587b81bDC3042329FCf0dB18507b430)
-    added=False
-    for studentAddress in exclusivity.topicsAddress:
-        if studentAddress==0xC90460533587b81bDC3042329FCf0dB18507b430:
-            added=True
-            break 
-    assert not added,"should not add if percentage is lower than 1"
+@pytest.fixture
+def ExclusivityContract(Exclusivity, accounts):
+    return Exclusivity.deploy({'from': accounts[0]})
+
+def testAddNonTopics(ExclusivityContract, accounts):
+    ExclusivityContract.addToTopicsList(accounts[2])
+    ExclusivityContract.setPercentage(100)
+    ExclusivityContract.addNonTopics(accounts[1])
     
+    assert ExclusivityContract.isInTopicsList(accounts[1]),"should add if percentage is 100 or greater"
 
-
-def testRemoveTopics(Exclusivity,accounts):
-    Exclusivity.deploy("0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", {'from': accounts[1]})
-    exclusivity: Exclusivity=Exclusivity()
-    exclusivity.topicsAddress.append(0xC90460533587b81bDC3042329FCf0dB18507b430)
-    exclusivity.percentage=1
-    exclusivity.removeNonTopics(0xC90460533587b81bDC3042329FCf0dB18507b430)
-    removed: bool=True
-    for studentAddress in exclusivity.topicsAddress:
-        if studentAddress==0xC90460533587b81bDC3042329FCf0dB18507b430:
-            removed=False
-            break
-    assert removed, "should remove if percentage is greater than or equal to 1"
-
-    exclusivity.topicsAddress.append(0xC90460533587b81bDC3042329FCf0dB18507b430)
-    exclusivity.percentage=0.2
-    exclusivity.removeNonTopics(0xC90460533587b81bDC3042329FCf0dB18507b430)
-    removed=True
-    for studentAddress in exclusivity.topicsAddress:
-        if studentAddress==0xC90460533587b81bDC3042329FCf0dB18507b430:
-            removed=False
-            break
-    assert not removed, "should not remove if percentage is less than 1"
-             
+    ExclusivityContract.popTopicList()
+    ExclusivityContract.setPercentage(20)
+    ExclusivityContract.addNonTopics(accounts[1])
     
-    
+    assert  ExclusivityContract.isNotinTopicsList(accounts[1]),"should not add if percentage is lower than 100"
 
+def testRemoveTopics(ExclusivityContract,accounts):
+    ExclusivityContract.addToTopicsList(accounts[2])
+    ExclusivityContract.addToTopicsList(accounts[1])
+    ExclusivityContract.percentage=100
+    ExclusivityContract.removeNonTopics(accounts[1])
+    
+    assert ExclusivityContract.isNotinTopicsList(accounts[1]), "should remove if percentage is greater than or equal to 1"
+    ExclusivityContract.addToTopicsList(accounts[1])
+
+    ExclusivityContract.percentage=20
+    ExclusivityContract.removeNonTopics(accounts[1])
+    assert ExclusivityContract.isInTopicsList(accounts[1]), "should not remove if percentage is less than 1"
