@@ -7,7 +7,7 @@ interface ActiveUser:
 activeStudents: public(HashMap[address, uint256])
 activeYear: public( uint256 )
 teachers: public(HashMap[address, bool]) 
-electedOfficials: public(HashMap[address, uint256])
+electedOfficials: public(address[3])
 votesLeaderBoard: public(uint256[3])
 alreadyVotedOfficials: public(HashMap [address, bool])
 votesForOfficials: public(HashMap [address, uint256])
@@ -70,12 +70,16 @@ def voteOfficial( ballot : address ):
             self.votesLeaderBoard[1]= self.votesLeaderBoard[0]
             self.votesLeaderBoard[0]= value
             # we need to change these bottom ones to change the addresses 
-            self.electedOfficials[2]= electedOfficials[1] 
-            self.electedOfficials[1]= electedOfficials[0]
+            self.electedOfficials[2]= self.electedOfficials[1] 
+            self.electedOfficials[1]= self.electedOfficials[0]
             self.electedOfficials[0] = ballot
         elif self.votesForOfficials[ballot] >= electedOfficials[1]:
-            self.electedOfficials[2]=electedOfficials[1]
+            self.votesLeaderBoard[2]= self.votesLeaderBoard[1]
+            self.votesLeaderBoard[1]= value
+
+            self.electedOfficials[2]= self.electedOfficials[1]
             self.electedOfficials[1]= ballot
         elif self.votesForOfficials[ballot] >= electedOfficials[2]:
+            self.votesLeaderBoard[2]= value
             self.electedOfficials[2] = ballot
         
