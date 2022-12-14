@@ -1,5 +1,7 @@
 # @version ^0.3.7
 # code is dependent on activeUser
+from vyper.interfaces import ERC20
+
 interface ActiveUser:
     def getActiveUser(potentialUser: address) -> bool: view
     def getAdmin(potentialAdmin: address) -> bool: view
@@ -22,6 +24,8 @@ activeUserContract: public(ActiveUser)
 def __init__ (activeUserAddress: address):
     self.activeYear = 2023
     self.activeUserContract = ActiveUser(activeUserAddress)
+    self.officialVotingPeriod = True
+    self.proposalVotes=[0,0,0]
 
 
 
@@ -33,30 +37,25 @@ def endVoteOfficial():
 
 @external
 def voteProposal(proposalNumber : uint256):
+    assert proposalNumber <= 2  
+    assert proposalNumber >= 0
     for i in self.alreadyVotedProposal:
-        assert i == self
+        assert i != self
     assert self.officialVotingPeriod == True
+    self.proposalVotes [proposalNumber] = self.proposalVotes [proposalNumber] + 1 
     self.alreadyVotedProposal.append(self)
 
+@external
+def getProposalVotes (num : uint256) -> (uint256):
+    return self.proposalVotes[num]
 
-# doesn't work- commenting out for now
-# external
-# def donate(_from : address, _to : address, _value : uint256) -> bool:
-   # """
-   #  @dev Transfer tokens from one address to another.
-   #  @param _from address The address which you want to send tokens from
-   #  @param _to address The address which you want to transfer to
-   #  @param _value uint256 the amount of tokens to be transferred
-   # """
-    # NOTE: vyper does not allow underflows
-    #       so the following subtraction would revert on insufficient balance
-    # self.balanceOf[_from] -= _value
-    # self.balanceOf[_to] += _value
-    # NOTE: vyper does not allow underflows
-    #      so the following subtraction would revert on insufficient allowance
-    # self.allowance[_from][msg.sender] -= _value
-    # log Transfer(_from, _to, _value)
-    # return True
+#def donate(to: Address, value: uint256):
+    # Check if the caller has sufficient balance
+   # assert self.balanceOf[msg.sender] >= value, "Insufficient balance"
+ 
+    # Transfer the funds
+    #self.balanceOf[msg.sender] -= value
+    #self.balanceOf[to] += value
 
 @external
 def voteOfficial( ballot : address ):
@@ -81,4 +80,4 @@ def voteOfficial( ballot : address ):
         elif self.votesForOfficials[ballot] >= self.votesLeaderBoard[2]:
             self.votesLeaderBoard[2]= value
             self.electedOfficials[2] = ballot
-        
+       
