@@ -10,6 +10,8 @@ wolvercoinContract: Wolvercoin
 @external
 def __init__(_wolvercoinContract: Wolvercoin):
     self.wolvercoinContract = _wolvercoinContract
+# @external
+# def __init__():
 
 @external
 def takeTenPercent() -> uint256: 
