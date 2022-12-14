@@ -1,3 +1,8 @@
+# @version ^0.3.7
+
+# @dev Basic testing for the voting system
+# @author Evan Stokdyk (@Focus172)
+
 import pytest
 from brownie import accounts
 from web3.exceptions import ValidationError
@@ -8,7 +13,7 @@ chain = Chain()
 # . This runs before ALL tests
 @pytest.fixture
 def votingContract(VotingAndRep, accounts):
-    return VotingAndRep.deploy(accounts[0], {'from': accounts[0]})
+    return VotingAndRep.deploy({'from': accounts[0]})
     
 
 def _as_wei_value(base, conversion):
@@ -20,6 +25,7 @@ def _as_wei_value(base, conversion):
 
 def test_contractDeployment(votingContract, accounts):
     assert votingContract.voteDuration() == 100, "Voting period should be initialized"
+    assert votingContract.contractMaintainer() == accounts[0].address, "Maintainer should be initailized to creator"
 
 
 def test_proposeVote(votingContract, accounts):
@@ -50,8 +56,6 @@ def test_setDisbled(votingContract, accounts):
     assert badDisableFail, "Random accounts should not be able to disable the contract"
 
 
-    # This code relies on adding admins which is not a problem I want to solve but has been tested independently
-    """
     votingContract.setDisabled(True, {'from': accounts[0]})
 
     runWhenDisabledfail = False
@@ -69,4 +73,29 @@ def test_setDisbled(votingContract, accounts):
     except:
         contractReenabled = False
     assert contractReenabled, "Contract should be able to be re-enabled"
-    """
+
+
+def test_setContractMaintainer(votingContract, accounts):
+    
+    stopBadContractChange = False
+    try:
+        votingContract.setContractMaintainer(accounts[5], {'from': accounts[2]})
+    except:
+        stopBadContractChange = True
+    assert stopBadContractChange, "Randoms should not be able to change maintainer"
+    
+    allowChanges = True
+    try:
+        votingContract.setContractMaintainer(accounts[5], {'from': accounts[0]})
+    except:
+        allowChanges = False
+    assert allowChanges, "Maintainer should be able to change maintainer"
+
+# @dev basic testing for placeBet 
+# @author Ava Weinrot 
+@pytest.fixture
+def gamblingContract(codeGambling, accounts):
+    return codeGambling.deploy(account[1], {'from': accounts[0]})
+def test_placeBets()
+    gamblingContract.placeBets(accounts, 12)
+   assert gamblingContract.getHashValue(accounts) == 12
