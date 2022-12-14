@@ -1,5 +1,4 @@
 #version ^0.3.8
-
 # @dev Basic testing for the voting system
 # @author Evan Stokdyk (@Focus172)
 
@@ -13,13 +12,14 @@ chain = Chain()
 #test for socialAndDonatios
 @pytest.fixture
 def socialAdnDonationsContract(socialAdnDonations, accounts):
-    return socialAdnDonations.deploy({'from': accounts[0]})
+    return socialAdnDonations.deploy("0x0000000000000000000000000000000000000000" , {'from': accounts[0]})
 
 with pytest.raises(Exception) as e_info:
     socialAdnDonationsContract.voteOfficials()
 
 with pytest.raises(Exception) as e_info:
     socialAdnDonationsContract.endVoteOfficials()
+<<<<<<< HEAD
 
 # ur tests don't work
     #def test_voteProposal (proposalNumber: uint256):
@@ -41,3 +41,23 @@ with pytest.raises(Exception) as e_info:
 
       
         
+=======
+"""
+def test_voteProposal (socialAdnDonationsContract):
+    b: bool = False
+    socialAdnDonationsContract.voteProposal(2)
+    #if socialAdnDonationsContract.proposalVotes[2] == 1:
+    #    b = True
+    #assert b == True
+    
+
+    
+def test_donate():
+    balance = accounts[0].balance()
+    accounts[0].transfer(accounts[1], "10 ether", gas_price=0)
+    assert balance - "10 ether" == accounts[0].balance()    
+    """
+
+    
+    
+>>>>>>> code_socialAndDonations
