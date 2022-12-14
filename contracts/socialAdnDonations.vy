@@ -39,8 +39,9 @@ def voteProposal(proposalNumber : uint256):
     self.alreadyVotedProposal.append(self)
 
 
+# doesn't work- commenting out for now
 @external
-def donate(_from : address, _to : address, _value : uint256) -> bool:
+# def donate(_from : address, _to : address, _value : uint256) -> bool:
     """
      @dev Transfer tokens from one address to another.
      @param _from address The address which you want to send tokens from
@@ -49,13 +50,13 @@ def donate(_from : address, _to : address, _value : uint256) -> bool:
     """
     # NOTE: vyper does not allow underflows
     #       so the following subtraction would revert on insufficient balance
-    self.balanceOf[_from] -= _value
-    self.balanceOf[_to] += _value
+    # self.balanceOf[_from] -= _value
+    # self.balanceOf[_to] += _value
     # NOTE: vyper does not allow underflows
     #      so the following subtraction would revert on insufficient allowance
-    self.allowance[_from][msg.sender] -= _value
-    log Transfer(_from, _to, _value)
-    return True
+    # self.allowance[_from][msg.sender] -= _value
+    # log Transfer(_from, _to, _value)
+    # return True
 
 @external
 def voteOfficial( ballot : address ):
@@ -69,14 +70,12 @@ def voteOfficial( ballot : address ):
             self.votesLeaderBoard[2]= self.votesLeaderBoard[1]
             self.votesLeaderBoard[1]= self.votesLeaderBoard[0]
             self.votesLeaderBoard[0]= value
-            # we need to change these bottom ones to change the addresses 
             self.electedOfficials[2]= self.electedOfficials[1] 
             self.electedOfficials[1]= self.electedOfficials[0]
             self.electedOfficials[0] = ballot
         elif self.votesForOfficials[ballot] >= self.votesLeaderBoard[1]:
             self.votesLeaderBoard[2]= self.votesLeaderBoard[1]
             self.votesLeaderBoard[1]= value
-
             self.electedOfficials[2]= self.electedOfficials[1]
             self.electedOfficials[1]= ballot
         elif self.votesForOfficials[ballot] >= self.votesLeaderBoard[2]:
