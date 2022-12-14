@@ -42,12 +42,12 @@ def voteProposal(proposalNumber : uint256):
 # doesn't work- commenting out for now
 @external
 # def donate(_from : address, _to : address, _value : uint256) -> bool:
-    """
-     @dev Transfer tokens from one address to another.
-     @param _from address The address which you want to send tokens from
-     @param _to address The address which you want to transfer to
-     @param _value uint256 the amount of tokens to be transferred
-    """
+   # """
+   #  @dev Transfer tokens from one address to another.
+   #  @param _from address The address which you want to send tokens from
+   #  @param _to address The address which you want to transfer to
+   #  @param _value uint256 the amount of tokens to be transferred
+   # """
     # NOTE: vyper does not allow underflows
     #       so the following subtraction would revert on insufficient balance
     # self.balanceOf[_from] -= _value
