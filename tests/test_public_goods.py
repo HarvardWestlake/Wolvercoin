@@ -40,8 +40,11 @@ def test_contribute(publicGoodsContract, erc20Contract, accounts):
     assert str(returnVal) == "3", "getContributionTotal returned wrong value"
 
 def test_retract(publicGoodsContract, accounts):
-    # TODO for @monkeymatt2023
-    raise NotImplementedError
+    assert publicGoodsContract.createGood("Monkey Party", 10, {'from': accounts[0]}), "createGood failed"
+    assert erc20Contract.mint(accounts[0], 69420, {'from': accounts[0]}) # Supply the account with some token
+    assert erc20Contract.approve(publicGoodsContract.address, 69420, {'from': accounts[0]}) # Approve expenditure
+    assert publicGoodsContract.contribute("Monkey Party", 3, {'from': accounts[0]}), "contribute failed"
+    assert publicGoodsContract.retract("Monkey Party", 1, {'from': accounts[0]}), "retract failed"
 
 def test_complete(publicGoodsContract, accounts):
     assert publicGoodsContract.createGood("Laser Tag Party", 10, {'from': accounts[0]}), "createGood failed"
