@@ -7,8 +7,6 @@ interface ActiveUser:
     def getAdmin(potentialAdmin: address) -> bool: view
 activeUserContract: public(ActiveUser)
 
-
-
 admin: HashMap[address, bool]
 topicsAddress: DynArray[address, 1000]
 percentage: uint256
@@ -16,32 +14,50 @@ classSize: uint256
 @external
 def vote(voter: address):
     isIn: bool = False
-            if studentAddress==voter:
     for studentAddress in self.topicsAddress: #find index of address of candidate in topics addresses
+            if studentAddress==voter:    
                 isIn = True
                 break
     if isIn == True:
-        self.removeNonTopics(voter)
+        self.internalRemoveNonTopics(voter)
         send(voter,1)
     if self.admin[voter]:
      
         send(voter,(15/100)*self.classSize)
 
 @external
-     if self.percentage >= 50:
+     
 def tallyVotes(voter: address)-> bool:
-        self.removeNonTopics(voter)
+    if self.percentage >= 50:
+        self.internalRemoveNonTopics(voter)
         return True
-     return False
+    return False
+
 @external
 def addNonTopics(candidate: address):
-    self.vote() #function 1 in tech spec, to be written by someone else
+    #self.vote() #after or within vote is made to remove/add person
     if self.percentage>=100:#assuming percentage doesnt change immediately after vote method is called
         self.topicsAddress.append(candidate)
 
 @external
 def removeNonTopics(candidate: address):
-    self.vote() #function 1 in tech spec, to be written by someone else
+    #self.vote() #after or within vote is made to remove/add person
+    if self.percentage>=100:#assuming percentage doesnt change immediately after vote method is called
+        count: int256=0
+        found: bool=False
+        for studentAddress in self.topicsAddress: #find index of address of candidate in topics addresses
+            count=count+1
+            if studentAddress==candidate:
+                found=True
+                break
+        if found: #from google, allegedly removes thing at index
+            self.topicsAddress[count] = self.topicsAddress[len(self.topicsAddress) - 1]
+            self.topicsAddress.pop()
+
+#intern verison
+@internal
+def internalRemoveNonTopics(candidate: address):
+    #self.vote() #after or within vote is made to remove/add person
     if self.percentage>=100:#assuming percentage doesnt change immediately after vote method is called
         count: int256=0
         found: bool=False

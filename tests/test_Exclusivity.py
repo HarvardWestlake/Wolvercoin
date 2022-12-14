@@ -41,17 +41,11 @@ def testTally(Exclusivity,accounts):
             break
     assert removed
     
-    
-
-
-             
-    
-    
-
 
 @pytest.fixture
-    return Exclusivity.deploy({'from': accounts[0]})
 def ExclusivityContract(Exclusivity, accounts):
+    return Exclusivity.deploy({'from': accounts[0]})
+
 def testAddNonTopics(ExclusivityContract, accounts):
     ExclusivityContract.addToTopicsList(accounts[2])
     ExclusivityContract.setPercentage(100)
@@ -60,13 +54,11 @@ def testAddNonTopics(ExclusivityContract, accounts):
     assert ExclusivityContract.isInTopicsList(accounts[1]),"should add if percentage is 100 or greater"
 
     ExclusivityContract.popTopicList()
-    assert ExclusivityContract.isInTopicsList(accounts[1])
-
-
     ExclusivityContract.setPercentage(20)
     ExclusivityContract.addNonTopics(accounts[1])
     
     assert  ExclusivityContract.isNotinTopicsList(accounts[1]),"should not add if percentage is lower than 100"
+
 def testRemoveTopics(ExclusivityContract,accounts):
     ExclusivityContract.addToTopicsList(accounts[2])
     ExclusivityContract.addToTopicsList(accounts[1])
