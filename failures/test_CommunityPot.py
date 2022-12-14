@@ -1,3 +1,4 @@
+
 #version ^0.3.8 
 import pytest
 import brownie
@@ -14,6 +15,3 @@ def WolvercoinContract(Wolvercoin, accounts):
 def test_contarct(CommunityPotContract, WolvercoinContract, accounts):
     with pytest.raises(Exception) as e_info:
         CommunityPotContract.VerifyAdmin(accounts[1])
-
-
-

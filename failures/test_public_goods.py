@@ -4,31 +4,94 @@ import brownie
 
 DEFAULT_GAS = 100000
 
-# TODO: Tests are failing because this points to elon musk's ETH address,
-# not a real ERC20 contract address. Change once ERC20 contract is implemented
-ERC20_ADDRESS = "0x83fbdFB42df1eA8cD02a9B28a8F62Cb219D48561"
-
 @pytest.fixture
-def publicGoodsContract(PublicGoods, accounts):
-    return PublicGoods.deploy(
-        ERC20_ADDRESS, # erc20address
+def erc20Contract(ERC20, accounts):
+    return ERC20.deploy(
+        "Wolvercoin", # _name
+        "WVC", # _symbol
+        18, # _decimals
+        1000, # _supply
         {'from': accounts[0]}
     )
 
+@pytest.fixture
+def publicGoodsContract(PublicGoods, erc20Contract, accounts):
+    return PublicGoods.deploy(
+        erc20Contract,
+        {'from': accounts[0]}
+    )
+
+
 def test_createGood(publicGoodsContract, accounts):
-    # TODO for @exoskeleton-1729
-    raise NotImplementedError
+    assert publicGoodsContract.createGood("Ice Cream Party", 10, {'from': accounts[0]}), "createGood failed"
+    returnVal = publicGoodsContract.getGoal("Ice Cream Party", {'from': accounts[0]}).return_value
+    assert str(returnVal) == "10", "getGoal returned wrong value"
 
-def test_contribute(publicGoodsContract, accounts):
-    assert publicGoodsContract.contribute("stevo", 3.0)
-    assert publicGoodsContract.names[0] == "stevo", "correct name"
+def test_contribute(publicGoodsContract, erc20Contract, accounts):
+    creatorOfGood = accounts[5]
+    donator = accounts[4]
+    admin = accounts[0]
 
-def test_retract(publicGoodsContract, accounts):
-    # TODO for @monkeymatt2023
-    raise NotImplementedError
+    # User starts with lots of eth in their account so no need to mint
+    assert publicGoodsContract.createGood("Pizza Party", 10, {'from': creatorOfGood}), "createGood failed"
 
-def test_complete(publicGoodsContract, accounts):
-    assert publicGoodsContract.createGood("Fortnite", 100)
-    assert publicGoodsContract.contribute("Fortnite", 50)
-    # TODO: when ERC20 contract is implemented, make sure it mints when public good is ended without reaching goal
-    assert publicGoodsContract.complete("Fortnite")
+    assert erc20Contract.mint(donator, 69420, {'from': admin}) # Supply the account with some token
+    assert str(erc20Contract.getBalanceOf(donator).return_value) == "69420"
+    
+    assert erc20Contract.approve(publicGoodsContract.address, 69420, {'from': donator}) # Approve expenditure
+    assert str(erc20Contract.getApprovedAmountOf(donator, publicGoodsContract.address).return_value) == "69420"
+    
+    assert publicGoodsContract.contribute("Pizza Party", 3, {'from': donator}), "contribute failed"
+    
+    returnVal = publicGoodsContract.getContributionTotal("Pizza Party", {'from': accounts[0]}).return_value
+    assert str(returnVal) == "3", "getContributionTotal returned wrong value"
+    assert str(erc20Contract.getBalanceOf(donator).return_value) == str(69420 - 3)
+
+# def test_retract(publicGoodsContract, accounts):
+#     # TODO for @monkeymatt2023
+#     raise NotImplementedError
+
+def test_complete_goal_achieved(publicGoodsContract, erc20Contract, accounts):
+    creatorOfGood = accounts[6]
+    donator = accounts[7]
+    admin = accounts[0]
+
+    assert publicGoodsContract.createGood("French Toast Party", 10, {'from': creatorOfGood}), "createGood failed"
+
+    assert erc20Contract.mint(donator, 69420, {'from': admin})
+    assert str(erc20Contract.getBalanceOf(donator).return_value) == "69420"
+    
+    assert erc20Contract.approve(publicGoodsContract.address, 69420, {'from': donator})
+    assert str(erc20Contract.getApprovedAmountOf(donator, publicGoodsContract.address).return_value) == "69420"
+    
+    assert publicGoodsContract.contribute("French Toast Party", 10, {'from': donator}), "contribute failed"
+    
+    returnVal = publicGoodsContract.getContributionTotal("French Toast Party", {'from': accounts[0]}).return_value
+    assert str(returnVal) == "10", "getContributionTotal returned wrong value"
+    assert str(erc20Contract.getBalanceOf(donator).return_value) == str(69420 - 10)
+
+    assert publicGoodsContract.complete("French Toast Party", {'from': creatorOfGood})
+    assert str(erc20Contract.getBalanceOf(donator).return_value) == str(69420 - 10)
+
+def test_complete_goal_not_achieved(publicGoodsContract, erc20Contract, accounts):
+    creatorOfGood = accounts[6]
+    donator = accounts[7]
+    admin = accounts[0]
+
+    assert publicGoodsContract.createGood("French Toast Party", 10, {'from': creatorOfGood}), "createGood failed"
+
+    assert erc20Contract.mint(donator, 69420, {'from': admin})
+    assert str(erc20Contract.getBalanceOf(donator).return_value) == "69420"
+    
+    assert erc20Contract.approve(publicGoodsContract.address, 69420, {'from': donator})
+    assert str(erc20Contract.getApprovedAmountOf(donator, publicGoodsContract.address).return_value) == "69420"
+    
+    assert publicGoodsContract.contribute("French Toast Party", 3, {'from': donator}), "contribute failed"
+    assert str(erc20Contract.getBalanceOf(donator).return_value) == str(69420 - 3)
+    
+    returnVal = publicGoodsContract.getContributionTotal("French Toast Party", {'from': accounts[0]}).return_value
+    assert str(returnVal) == "3", "getContributionTotal returned wrong value"
+    assert str(erc20Contract.getBalanceOf(donator).return_value) == str(69420 - 3)
+
+    assert publicGoodsContract.complete("French Toast Party", {'from': creatorOfGood})
+    assert str(erc20Contract.getBalanceOf(donator).return_value) == "69420" # Make sure user got their money back
