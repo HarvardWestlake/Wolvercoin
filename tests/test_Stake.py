@@ -20,7 +20,7 @@ def stakeContract(Stake, ActiveUser, wolvercoinContract, accounts):
 def test_checkActiveUser (stakeContract, wolvercoinContract, accounts):
     wolvercoinContract.allow (accounts [3], 1000, {'from': stakeContract})
     wolvercoinContract.allow (accounts [1], 1000, {'from': stakeContract})
-    badAccountFail = False
+    badAccountFail = False 
     try:
         stakeContract.stake (accounts[3], 10)
     except:
