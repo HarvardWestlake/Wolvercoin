@@ -2,7 +2,7 @@
 
 
 percentage: uint256
-topicsAddress: DynArray[address, 1000]
+topicsAddress: public(DynArray[address, 1000])
 
 @internal
 def vote():
@@ -28,7 +28,14 @@ def removeNonTopics(candidate: address):
         if found: #from google, allegedly removes thing at index
             self.topicsAddress[count] = self.topicsAddress[len(self.topicsAddress) - 1]
             self.topicsAddress.pop()
-            
+
+@external
+def addToTopicsList(addend: address):
+    self.topicsAddress.append(addend)
+
+@external
+def getTopicsList()->DynArray[address,1000]:
+    return self.topicsAddress
 
 
 
