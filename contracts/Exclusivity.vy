@@ -42,7 +42,7 @@ def addNonTopics(candidate: address):
 
 @external
 def removeNonTopics(candidate: address):
-    self.vote() #function 1 in tech spec, to be written by someone else
+    #self.vote() #function 1 in tech spec, to be written by someone else
     if self.percentage>=1:#assuming percentage doesnt change immediately after vote method is called
         count: int256=0
         found: bool=False
