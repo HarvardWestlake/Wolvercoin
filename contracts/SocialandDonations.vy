@@ -1,6 +1,7 @@
-<<<<<<< HEAD
-interfaceWolvercoin: 
-    def isInActiveStudents()
+
+# @version ^0.3.7
+
+
 
 activeStudents: public(Hashmap[address, uint256])
 activeYear: public( uint256 )
