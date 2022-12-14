@@ -25,3 +25,4 @@ def placeBets(gambler: address, amount: uint256):
 @external 
 def getHashValue() -> uint256: 
     return self.crashBets[msg.sender] 
+
