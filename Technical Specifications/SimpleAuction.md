@@ -15,6 +15,7 @@ Technical Specifications for Simple Open Auction
   - address : beneficiary 
   - uint256 : auctionStart
   - uint256 : biddingTime
+> Functionality
 - Set variables to matching inputs, set end time to start + bidding time
 - Make sure auctionEnd is in the future
 
