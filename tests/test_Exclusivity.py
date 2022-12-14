@@ -1,29 +1,35 @@
-#version ^0.3.8
+#version ^0.3.7
 
 import pytest
 import brownie
 from web3.exceptions import ValidationError
 
-@external
-def testVote():
+@pytest.fixture
+def exclusivityContract(Exclusivity, accounts):
+    return Exclusivity.deploy("0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", {'from': accounts[1]})
+
+@pytest.fixture
+def testVote(Exclusivity,accounts):
+    Exclusivity.deploy("0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", {'from': accounts[1]})
     exclusivity: Exclusivity=Exclusivity()
-    exclusivity.classSize = 100
+    Exclusivity.classSize = 100
     exclusivity.topicsAddress.append(0xf34b09E22f5115af490eeb7460304aB80c90399E)
     exclusivity.vote(0xf34b09E22f5115af490eeb7460304aB80c90399E)
     valueChanged: bool=False
-        if balance(0xf34b09E22f5115af490eeb7460304aB80c90399E)>=1:
+    if balance(0xf34b09E22f5115af490eeb7460304aB80c90399E)>=1:
             valueChanged = True
     assert valueChanged
-    valueChanged = false
+    valueChanged = False
     
     exclusivity.admin[0xf34b09E22f5115af490eeb7460304aB80c90399E] = True
     exclusivity.vote(0xf34b09E22f5115af490eeb7460304aB80c90399E)
-     if balance(0xf34b09E22f5115af490eeb7460304aB80c90399E)>=16:
+    if balance(0xf34b09E22f5115af490eeb7460304aB80c90399E)>=16:
             valueChanged = True
     assert valueChanged
     
-@external
-def testTally():
+@pytest.fixture
+def testTally(Exclusivity,accounts):
+    Exclusivity.deploy("0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", {'from': accounts[1]})
     exclusivity: Exclusivity=Exclusivity()
     exclusivity.percentage = 0.51
     exclusivity.tallyVotes(0xf34b09E22f5115af490eeb7460304aB80c90399E)
@@ -36,8 +42,8 @@ def testTally():
     
     assert removed
     
-@external
-def testAddNonTopics():
+def testAddNonTopics(Exclusivity,accounts):
+    Exclusivity.deploy("0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", {'from': accounts[1]})
     exclusivity: Exclusivity=Exclusivity()
     exclusivity.percentage=1
     exclusivity.addNonTopics(0xC90460533587b81bDC3042329FCf0dB18507b430)#kensuke's public address, just to test
@@ -60,9 +66,10 @@ def testAddNonTopics():
     
 
 
-def testRemoveTopics():
+def testRemoveTopics(Exclusivity,accounts):
+    Exclusivity.deploy("0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", {'from': accounts[1]})
     exclusivity: Exclusivity=Exclusivity()
-    exclusivity.topicsAddress.append(0xC90460533587b81bDC3042329FCf0dB18507b430
+    exclusivity.topicsAddress.append(0xC90460533587b81bDC3042329FCf0dB18507b430)
     exclusivity.percentage=1
     exclusivity.removeNonTopics(0xC90460533587b81bDC3042329FCf0dB18507b430)
     removed: bool=True
@@ -72,7 +79,7 @@ def testRemoveTopics():
             break
     assert removed, "should remove if percentage is greater than or equal to 1"
 
-    exclusivity.topicsAddress.append(0xC90460533587b81bDC3042329FCf0dB18507b430
+    exclusivity.topicsAddress.append(0xC90460533587b81bDC3042329FCf0dB18507b430)
     exclusivity.percentage=0.2
     exclusivity.removeNonTopics(0xC90460533587b81bDC3042329FCf0dB18507b430)
     removed=True
