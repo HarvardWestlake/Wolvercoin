@@ -7,7 +7,7 @@ Variables:
     bank --> the bank's wallet address
 
     totalOfTransactions unit256 
-        variable that keeps track of the total Wolvercoin being transcated through the class
+        variable that keeps track of the total Wolvercoin being transacted through the class
 
 Methods:
 
@@ -23,7 +23,7 @@ Methods:
         - stakeDates.put(userAddress, date)
 
     unstake(address userAddress)
-        if date staked that was recorded for this user in stakeDates is greater than 2 weeks ago from today:
+        if date staked that was recorded for this user in stakeDates is less than 2 weeks ago from today:
             - uint256 amountUnstaked --> 2/3 of initial amount staked by user
             - burn the other 1/3
         else:
@@ -37,7 +37,7 @@ Methods:
         diminishes totalOfTransactions by 10% because that 10% will be put into liquidity provider
         returns a unit256 value that is that 10% of totalOfTransactions
     
-    depost10Percent
+    deposit10Percent
         deposits that 10% into a liquidity provider (uniswap, sushiswap, other internet liquitiy provider)
         returns true if the deposit is successful, false otherwise  
 
