@@ -30,7 +30,7 @@ allowance: public(HashMap[address, HashMap[address, uint256]])
 # By declaring `totalSupply` as public, we automatically create the `totalSupply()` getter
 totalSupply: public(uint256)
 minter: address
-
+totalOfTransactions: public(uint256)
 
 @external
 def __init__(_name: String[32], _symbol: String[32], _decimals: uint8, _supply: uint256):
@@ -41,6 +41,7 @@ def __init__(_name: String[32], _symbol: String[32], _decimals: uint8, _supply: 
     self.balanceOf[msg.sender] = init_supply
     self.totalSupply = init_supply
     self.minter = msg.sender
+    self.totalOfTransactions = 0
     log Transfer(empty(address), msg.sender, init_supply)
 
 
@@ -56,6 +57,7 @@ def transfer(_to : address, _value : uint256) -> bool:
     #       so the following subtraction would revert on insufficient balance
     self.balanceOf[msg.sender] -= _value
     self.balanceOf[_to] += _value
+    self.totalOfTransactions += _value
     log Transfer(msg.sender, _to, _value)
     return True
 
@@ -75,6 +77,7 @@ def transferFrom(_from : address, _to : address, _value : uint256) -> bool:
     # NOTE: vyper does not allow underflows
     #      so the following subtraction would revert on insufficient allowance
     self.allowance[_from][msg.sender] -= _value
+    self.totalOfTransactions += _value
     log Transfer(_from, _to, _value)
     return True
 
