@@ -25,6 +25,23 @@
     {
       "inputs": [
         {
+          "name": "NFTid",
+          "type": "uint256"
+        }
+      ],
+      "name": "redeemProduct",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
           "name": "arg0",
           "type": "uint256"
         }
@@ -294,17 +311,17 @@
           "ast_type": "Subscript",
           "col_offset": 16,
           "end_col_offset": 44,
-          "end_lineno": 10,
-          "lineno": 10,
+          "end_lineno": 11,
+          "lineno": 11,
           "node_id": 41,
           "slice": {
             "ast_type": "Index",
             "col_offset": 16,
             "end_col_offset": 44,
-            "end_lineno": 10,
-            "lineno": 10,
+            "end_lineno": 11,
+            "lineno": 11,
             "node_id": 51,
-            "src": "206:28:0",
+            "src": "207:28:0",
             "value": {
               "ast_type": "Tuple",
               "col_offset": 24,
@@ -313,61 +330,61 @@
                   "ast_type": "Name",
                   "col_offset": 24,
                   "end_col_offset": 31,
-                  "end_lineno": 10,
+                  "end_lineno": 11,
                   "id": "uint256",
-                  "lineno": 10,
+                  "lineno": 11,
                   "node_id": 45,
-                  "src": "214:7:0"
+                  "src": "215:7:0"
                 },
                 {
                   "ast_type": "Name",
                   "col_offset": 33,
                   "end_col_offset": 43,
-                  "end_lineno": 10,
+                  "end_lineno": 11,
                   "id": "Erc20Token",
-                  "lineno": 10,
+                  "lineno": 11,
                   "node_id": 47,
-                  "src": "223:10:0"
+                  "src": "224:10:0"
                 }
               ],
               "end_col_offset": 43,
-              "end_lineno": 10,
-              "lineno": 10,
+              "end_lineno": 11,
+              "lineno": 11,
               "node_id": 44,
-              "src": "214:19:0"
+              "src": "215:19:0"
             }
           },
-          "src": "206:28:0",
+          "src": "207:28:0",
           "value": {
             "ast_type": "Name",
             "col_offset": 16,
             "end_col_offset": 23,
-            "end_lineno": 10,
+            "end_lineno": 11,
             "id": "HashMap",
-            "lineno": 10,
+            "lineno": 11,
             "node_id": 42,
-            "src": "206:7:0"
+            "src": "207:7:0"
           }
         },
         "ast_type": "VariableDecl",
         "col_offset": 0,
         "end_col_offset": 45,
-        "end_lineno": 10,
+        "end_lineno": 11,
         "is_constant": false,
         "is_immutable": false,
         "is_public": true,
-        "lineno": 10,
+        "lineno": 11,
         "node_id": 35,
-        "src": "190:45:0",
+        "src": "191:45:0",
         "target": {
           "ast_type": "Name",
           "col_offset": 0,
           "end_col_offset": 6,
-          "end_lineno": 10,
+          "end_lineno": 11,
           "id": "hashie",
-          "lineno": 10,
+          "lineno": 11,
           "node_id": 36,
-          "src": "190:6:0"
+          "src": "191:6:0"
         },
         "value": null
       },
@@ -379,10 +396,10 @@
           "default": null,
           "defaults": [],
           "end_col_offset": 3,
-          "end_lineno": 12,
-          "lineno": 12,
+          "end_lineno": 14,
+          "lineno": 14,
           "node_id": 53,
-          "src": "246:3:0"
+          "src": "248:3:0"
         },
         "ast_type": "FunctionDef",
         "body": [
@@ -390,10 +407,10 @@
             "ast_type": "Return",
             "col_offset": 4,
             "end_col_offset": 10,
-            "end_lineno": 13,
-            "lineno": 13,
+            "end_lineno": 15,
+            "lineno": 15,
             "node_id": 54,
-            "src": "266:6:0",
+            "src": "268:6:0",
             "value": null
           }
         ],
@@ -403,22 +420,22 @@
             "ast_type": "Name",
             "col_offset": 1,
             "end_col_offset": 9,
-            "end_lineno": 11,
+            "end_lineno": 13,
             "id": "external",
-            "lineno": 11,
+            "lineno": 13,
             "node_id": 55,
-            "src": "237:8:0"
+            "src": "239:8:0"
           }
         ],
         "doc_string": null,
         "end_col_offset": 10,
-        "end_lineno": 13,
-        "lineno": 12,
+        "end_lineno": 15,
+        "lineno": 14,
         "name": "__init__",
         "node_id": 52,
         "pos": null,
         "returns": null,
-        "src": "246:26:0"
+        "src": "248:26:0"
       },
       {
         "args": {
@@ -428,68 +445,68 @@
                 "ast_type": "Name",
                 "col_offset": 33,
                 "end_col_offset": 40,
-                "end_lineno": 18,
+                "end_lineno": 20,
                 "id": "address",
-                "lineno": 18,
+                "lineno": 20,
                 "node_id": 60,
-                "src": "407:7:0"
+                "src": "409:7:0"
               },
               "arg": "productOwner",
               "ast_type": "arg",
               "col_offset": 19,
               "end_col_offset": 40,
-              "end_lineno": 18,
-              "lineno": 18,
+              "end_lineno": 20,
+              "lineno": 20,
               "node_id": 59,
-              "src": "393:21:0"
+              "src": "395:21:0"
             },
             {
               "annotation": {
                 "ast_type": "Subscript",
                 "col_offset": 47,
                 "end_col_offset": 58,
-                "end_lineno": 18,
-                "lineno": 18,
+                "end_lineno": 20,
+                "lineno": 20,
                 "node_id": 63,
                 "slice": {
                   "ast_type": "Index",
                   "col_offset": 47,
                   "end_col_offset": 58,
-                  "end_lineno": 18,
-                  "lineno": 18,
+                  "end_lineno": 20,
+                  "lineno": 20,
                   "node_id": 68,
-                  "src": "421:11:0",
+                  "src": "423:11:0",
                   "value": {
                     "ast_type": "Int",
                     "col_offset": 54,
                     "end_col_offset": 57,
-                    "end_lineno": 18,
-                    "lineno": 18,
+                    "end_lineno": 20,
+                    "lineno": 20,
                     "node_id": 66,
-                    "src": "428:3:0",
+                    "src": "430:3:0",
                     "value": 100
                   }
                 },
-                "src": "421:11:0",
+                "src": "423:11:0",
                 "value": {
                   "ast_type": "Name",
                   "col_offset": 47,
                   "end_col_offset": 53,
-                  "end_lineno": 18,
+                  "end_lineno": 20,
                   "id": "String",
-                  "lineno": 18,
+                  "lineno": 20,
                   "node_id": 64,
-                  "src": "421:6:0"
+                  "src": "423:6:0"
                 }
               },
               "arg": "uRL",
               "ast_type": "arg",
               "col_offset": 42,
               "end_col_offset": 58,
-              "end_lineno": 18,
-              "lineno": 18,
+              "end_lineno": 20,
+              "lineno": 20,
               "node_id": 62,
-              "src": "416:16:0"
+              "src": "418:16:0"
             }
           ],
           "ast_type": "arguments",
@@ -497,10 +514,10 @@
           "default": null,
           "defaults": [],
           "end_col_offset": 58,
-          "end_lineno": 18,
-          "lineno": 18,
+          "end_lineno": 20,
+          "lineno": 20,
           "node_id": 58,
-          "src": "393:39:0"
+          "src": "395:39:0"
         },
         "ast_type": "FunctionDef",
         "body": [
@@ -508,65 +525,65 @@
             "ast_type": "Assign",
             "col_offset": 4,
             "end_col_offset": 10,
-            "end_lineno": 24,
-            "lineno": 19,
+            "end_lineno": 26,
+            "lineno": 21,
             "node_id": 69,
-            "src": "439:142:0",
+            "src": "441:142:0",
             "target": {
               "ast_type": "Subscript",
               "col_offset": 4,
               "end_col_offset": 25,
-              "end_lineno": 19,
-              "lineno": 19,
+              "end_lineno": 21,
+              "lineno": 21,
               "node_id": 70,
               "slice": {
                 "ast_type": "Index",
                 "col_offset": 4,
                 "end_col_offset": 25,
-                "end_lineno": 19,
-                "lineno": 19,
+                "end_lineno": 21,
+                "lineno": 21,
                 "node_id": 80,
-                "src": "439:21:0",
+                "src": "441:21:0",
                 "value": {
                   "ast_type": "Attribute",
                   "attr": "num",
                   "col_offset": 16,
                   "end_col_offset": 24,
-                  "end_lineno": 19,
-                  "lineno": 19,
+                  "end_lineno": 21,
+                  "lineno": 21,
                   "node_id": 75,
-                  "src": "451:8:0",
+                  "src": "453:8:0",
                   "value": {
                     "ast_type": "Name",
                     "col_offset": 16,
                     "end_col_offset": 20,
-                    "end_lineno": 19,
+                    "end_lineno": 21,
                     "id": "self",
-                    "lineno": 19,
+                    "lineno": 21,
                     "node_id": 76,
-                    "src": "451:4:0"
+                    "src": "453:4:0"
                   }
                 }
               },
-              "src": "439:21:0",
+              "src": "441:21:0",
               "value": {
                 "ast_type": "Attribute",
                 "attr": "hashie",
                 "col_offset": 4,
                 "end_col_offset": 15,
-                "end_lineno": 19,
-                "lineno": 19,
+                "end_lineno": 21,
+                "lineno": 21,
                 "node_id": 71,
-                "src": "439:11:0",
+                "src": "441:11:0",
                 "value": {
                   "ast_type": "Name",
                   "col_offset": 4,
                   "end_col_offset": 8,
-                  "end_lineno": 19,
+                  "end_lineno": 21,
                   "id": "self",
-                  "lineno": 19,
+                  "lineno": 21,
                   "node_id": 72,
-                  "src": "439:4:0"
+                  "src": "441:4:0"
                 }
               }
             },
@@ -576,92 +593,92 @@
                   "ast_type": "Dict",
                   "col_offset": 39,
                   "end_col_offset": 9,
-                  "end_lineno": 24,
+                  "end_lineno": 26,
                   "keys": [
                     {
                       "ast_type": "Name",
                       "col_offset": 8,
                       "end_col_offset": 12,
-                      "end_lineno": 20,
-                      "id": "addr",
-                      "lineno": 20,
-                      "node_id": 85,
-                      "src": "484:4:0"
-                    },
-                    {
-                      "ast_type": "Name",
-                      "col_offset": 8,
-                      "end_col_offset": 16,
-                      "end_lineno": 21,
-                      "id": "decimals",
-                      "lineno": 21,
-                      "node_id": 87,
-                      "src": "512:8:0"
-                    },
-                    {
-                      "ast_type": "Name",
-                      "col_offset": 8,
-                      "end_col_offset": 14,
                       "end_lineno": 22,
-                      "id": "symbol",
+                      "id": "addr",
                       "lineno": 22,
-                      "node_id": 89,
-                      "src": "534:6:0"
+                      "node_id": 85,
+                      "src": "486:4:0"
                     },
                     {
                       "ast_type": "Name",
                       "col_offset": 8,
                       "end_col_offset": 16,
                       "end_lineno": 23,
-                      "id": "hashImag",
+                      "id": "decimals",
                       "lineno": 23,
+                      "node_id": 87,
+                      "src": "514:8:0"
+                    },
+                    {
+                      "ast_type": "Name",
+                      "col_offset": 8,
+                      "end_col_offset": 14,
+                      "end_lineno": 24,
+                      "id": "symbol",
+                      "lineno": 24,
+                      "node_id": 89,
+                      "src": "536:6:0"
+                    },
+                    {
+                      "ast_type": "Name",
+                      "col_offset": 8,
+                      "end_col_offset": 16,
+                      "end_lineno": 25,
+                      "id": "hashImag",
+                      "lineno": 25,
                       "node_id": 91,
-                      "src": "557:8:0"
+                      "src": "559:8:0"
                     }
                   ],
-                  "lineno": 19,
+                  "lineno": 21,
                   "node_id": 84,
-                  "src": "474:106:0",
+                  "src": "476:106:0",
                   "values": [
                     {
                       "ast_type": "Name",
                       "col_offset": 14,
                       "end_col_offset": 26,
-                      "end_lineno": 20,
+                      "end_lineno": 22,
                       "id": "productOwner",
-                      "lineno": 20,
+                      "lineno": 22,
                       "node_id": 93,
-                      "src": "490:12:0"
+                      "src": "492:12:0"
                     },
                     {
                       "ast_type": "Int",
                       "col_offset": 18,
                       "end_col_offset": 20,
-                      "end_lineno": 21,
-                      "lineno": 21,
+                      "end_lineno": 23,
+                      "lineno": 23,
                       "node_id": 95,
-                      "src": "522:2:0",
+                      "src": "524:2:0",
                       "value": 18
                     },
                     {
                       "ast_type": "Str",
                       "col_offset": 16,
                       "end_col_offset": 21,
-                      "end_lineno": 22,
-                      "lineno": 22,
+                      "end_lineno": 24,
+                      "lineno": 24,
                       "node_id": 96,
-                      "src": "542:5:0",
+                      "src": "544:5:0",
                       "value": "WVC"
                     },
                     {
                       "ast_type": "Name",
                       "col_offset": 18,
                       "end_col_offset": 21,
-                      "end_lineno": 23,
+                      "end_lineno": 25,
                       "id": "uRL",
-                      "lineno": 23,
+                      "lineno": 25,
                       "node_id": 97,
-                      "src": "567:3:0"
+                      "src": "569:3:0"
                     }
                   ]
                 }
@@ -669,69 +686,69 @@
               "ast_type": "Call",
               "col_offset": 28,
               "end_col_offset": 10,
-              "end_lineno": 24,
+              "end_lineno": 26,
               "func": {
                 "ast_type": "Name",
                 "col_offset": 28,
                 "end_col_offset": 38,
-                "end_lineno": 19,
+                "end_lineno": 21,
                 "id": "Erc20Token",
-                "lineno": 19,
+                "lineno": 21,
                 "node_id": 82,
-                "src": "463:10:0"
+                "src": "465:10:0"
               },
               "keyword": null,
               "keywords": [],
-              "lineno": 19,
+              "lineno": 21,
               "node_id": 81,
-              "src": "463:118:0"
+              "src": "465:118:0"
             }
           },
           {
             "ast_type": "AugAssign",
             "col_offset": 4,
             "end_col_offset": 17,
-            "end_lineno": 25,
-            "lineno": 25,
+            "end_lineno": 27,
+            "lineno": 27,
             "node_id": 99,
             "op": {
               "ast_type": "Add",
               "col_offset": 4,
               "end_col_offset": 17,
-              "end_lineno": 25,
-              "lineno": 25,
+              "end_lineno": 27,
+              "lineno": 27,
               "node_id": 104,
-              "src": "586:13:0"
+              "src": "588:13:0"
             },
-            "src": "586:13:0",
+            "src": "588:13:0",
             "target": {
               "ast_type": "Attribute",
               "attr": "num",
               "col_offset": 4,
               "end_col_offset": 12,
-              "end_lineno": 25,
-              "lineno": 25,
+              "end_lineno": 27,
+              "lineno": 27,
               "node_id": 100,
-              "src": "586:8:0",
+              "src": "588:8:0",
               "value": {
                 "ast_type": "Name",
                 "col_offset": 4,
                 "end_col_offset": 8,
-                "end_lineno": 25,
+                "end_lineno": 27,
                 "id": "self",
-                "lineno": 25,
+                "lineno": 27,
                 "node_id": 101,
-                "src": "586:4:0"
+                "src": "588:4:0"
               }
             },
             "value": {
               "ast_type": "Int",
               "col_offset": 16,
               "end_col_offset": 17,
-              "end_lineno": 25,
-              "lineno": 25,
+              "end_lineno": 27,
+              "lineno": 27,
               "node_id": 105,
-              "src": "598:1:0",
+              "src": "600:1:0",
               "value": 1
             }
           }
@@ -742,35 +759,251 @@
             "ast_type": "Name",
             "col_offset": 1,
             "end_col_offset": 9,
-            "end_lineno": 17,
+            "end_lineno": 19,
             "id": "external",
-            "lineno": 17,
+            "lineno": 19,
             "node_id": 106,
-            "src": "365:8:0"
+            "src": "367:8:0"
           }
         ],
         "doc_string": null,
         "end_col_offset": 17,
-        "end_lineno": 25,
-        "lineno": 18,
+        "end_lineno": 27,
+        "lineno": 20,
         "name": "createBoundNFT",
         "node_id": 57,
         "pos": null,
         "returns": null,
-        "src": "374:225:0"
+        "src": "376:225:0"
+      },
+      {
+        "args": {
+          "args": [
+            {
+              "annotation": {
+                "ast_type": "Name",
+                "col_offset": 26,
+                "end_col_offset": 33,
+                "end_lineno": 30,
+                "id": "uint256",
+                "lineno": 30,
+                "node_id": 111,
+                "src": "639:7:0"
+              },
+              "arg": "NFTid",
+              "ast_type": "arg",
+              "col_offset": 18,
+              "end_col_offset": 33,
+              "end_lineno": 30,
+              "lineno": 30,
+              "node_id": 110,
+              "src": "631:15:0"
+            }
+          ],
+          "ast_type": "arguments",
+          "col_offset": 18,
+          "default": null,
+          "defaults": [],
+          "end_col_offset": 33,
+          "end_lineno": 30,
+          "lineno": 30,
+          "node_id": 109,
+          "src": "631:15:0"
+        },
+        "ast_type": "FunctionDef",
+        "body": [
+          {
+            "ast_type": "If",
+            "body": [
+              {
+                "ast_type": "Return",
+                "col_offset": 8,
+                "end_col_offset": 19,
+                "end_lineno": 32,
+                "lineno": 32,
+                "node_id": 131,
+                "src": "713:11:0",
+                "value": {
+                  "ast_type": "NameConstant",
+                  "col_offset": 15,
+                  "end_col_offset": 19,
+                  "end_lineno": 32,
+                  "lineno": 32,
+                  "node_id": 132,
+                  "src": "720:4:0",
+                  "value": true
+                }
+              }
+            ],
+            "col_offset": 4,
+            "end_col_offset": 20,
+            "end_lineno": 34,
+            "lineno": 31,
+            "node_id": 113,
+            "orelse": [
+              {
+                "ast_type": "Return",
+                "col_offset": 8,
+                "end_col_offset": 20,
+                "end_lineno": 34,
+                "lineno": 34,
+                "node_id": 133,
+                "src": "743:12:0",
+                "value": {
+                  "ast_type": "NameConstant",
+                  "col_offset": 15,
+                  "end_col_offset": 20,
+                  "end_lineno": 34,
+                  "lineno": 34,
+                  "node_id": 134,
+                  "src": "750:5:0",
+                  "value": false
+                }
+              }
+            ],
+            "src": "661:94:0",
+            "test": {
+              "ast_type": "Compare",
+              "col_offset": 8,
+              "end_col_offset": 45,
+              "end_lineno": 31,
+              "left": {
+                "ast_type": "Attribute",
+                "attr": "sender",
+                "col_offset": 8,
+                "end_col_offset": 18,
+                "end_lineno": 31,
+                "lineno": 31,
+                "node_id": 115,
+                "src": "665:10:0",
+                "value": {
+                  "ast_type": "Name",
+                  "col_offset": 8,
+                  "end_col_offset": 11,
+                  "end_lineno": 31,
+                  "id": "msg",
+                  "lineno": 31,
+                  "node_id": 116,
+                  "src": "665:3:0"
+                }
+              },
+              "lineno": 31,
+              "node_id": 114,
+              "op": {
+                "ast_type": "Eq",
+                "col_offset": 8,
+                "end_col_offset": 45,
+                "end_lineno": 31,
+                "lineno": 31,
+                "node_id": 119,
+                "src": "665:37:0"
+              },
+              "right": {
+                "ast_type": "Attribute",
+                "attr": "addr",
+                "col_offset": 22,
+                "end_col_offset": 45,
+                "end_lineno": 31,
+                "lineno": 31,
+                "node_id": 120,
+                "src": "679:23:0",
+                "value": {
+                  "ast_type": "Subscript",
+                  "col_offset": 22,
+                  "end_col_offset": 40,
+                  "end_lineno": 31,
+                  "lineno": 31,
+                  "node_id": 121,
+                  "slice": {
+                    "ast_type": "Index",
+                    "col_offset": 22,
+                    "end_col_offset": 40,
+                    "end_lineno": 31,
+                    "lineno": 31,
+                    "node_id": 129,
+                    "src": "679:18:0",
+                    "value": {
+                      "ast_type": "Name",
+                      "col_offset": 34,
+                      "end_col_offset": 39,
+                      "end_lineno": 31,
+                      "id": "NFTid",
+                      "lineno": 31,
+                      "node_id": 126,
+                      "src": "691:5:0"
+                    }
+                  },
+                  "src": "679:18:0",
+                  "value": {
+                    "ast_type": "Attribute",
+                    "attr": "hashie",
+                    "col_offset": 22,
+                    "end_col_offset": 33,
+                    "end_lineno": 31,
+                    "lineno": 31,
+                    "node_id": 122,
+                    "src": "679:11:0",
+                    "value": {
+                      "ast_type": "Name",
+                      "col_offset": 22,
+                      "end_col_offset": 26,
+                      "end_lineno": 31,
+                      "id": "self",
+                      "lineno": 31,
+                      "node_id": 123,
+                      "src": "679:4:0"
+                    }
+                  }
+                }
+              },
+              "src": "665:37:0"
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [
+          {
+            "ast_type": "Name",
+            "col_offset": 1,
+            "end_col_offset": 9,
+            "end_lineno": 29,
+            "id": "external",
+            "lineno": 29,
+            "node_id": 135,
+            "src": "604:8:0"
+          }
+        ],
+        "doc_string": null,
+        "end_col_offset": 20,
+        "end_lineno": 34,
+        "lineno": 30,
+        "name": "redeemProduct",
+        "node_id": 108,
+        "pos": null,
+        "returns": {
+          "ast_type": "Name",
+          "col_offset": 38,
+          "end_col_offset": 42,
+          "end_lineno": 30,
+          "id": "bool",
+          "lineno": 30,
+          "node_id": 137,
+          "src": "651:4:0"
+        },
+        "src": "613:142:0"
       }
     ],
     "col_offset": 0,
     "doc_string": null,
-    "end_col_offset": 17,
-    "end_lineno": 25,
+    "end_col_offset": 20,
+    "end_lineno": 34,
     "lineno": 1,
     "name": "contracts/BookstoreNFT.vy",
     "node_id": 0,
-    "src": "0:599:0"
+    "src": "0:755:0"
   },
-  "bytecode": "0x346102515761023a6100166100003961023a610000f36003361161000c57610222565b60003560e01c346102285763f28abbe181186101185760643610610228576004358060a01c61022857604052602435600401606481351161022857803580606052602082018181608037505050600160005460205260005260406000206040518155601260018201556003610100527f57564300000000000000000000000000000000000000000000000000000000006101205261010080518060028401556020820160016002850101815181555050505060605180600483015560016004830101600082601f0160051c600481116102285780156100fe57905b8060051b60800151818401556001018181186100e7575b505050505060005460018101818110610228579050600055005b63b13557e981186102205760243610610228576020806040526001600435602052600052604060002081604001608082548252600183015460208301528060408301526002830181830181548082526001830160208301815481525050508051806020830101601f82600003163682375050601f19601f8251602001011690509050810190508060608301526004830181830181548082526001830160208301600083601f0160051c600481116102285780156101e757905b808401548160051b8401526001018181186101d1575b50505050508051806020830101601f82600003163682375050601f19601f82516020010116905090508101905090509050810190506040f35b505b60006000fd5b600080fda165767970657283000307000b005b600080fd",
-  "bytecodeSha1": "ab84f703741cd0242cdab2a9e87ce20048eaeb4d",
+  "bytecode": "0x346102995761028261001661000039610282610000f36003361161000c5761026a565b60003560e01c346102705763f28abbe181186101185760643610610270576004358060a01c61027057604052602435600401606481351161027057803580606052602082018181608037505050600160005460205260005260406000206040518155601260018201556003610100527f57564300000000000000000000000000000000000000000000000000000000006101205261010080518060028401556020820160016002850101815181555050505060605180600483015560016004830101600082601f0160051c600481116102705780156100fe57905b8060051b60800151818401556001018181186100e7575b505050505060005460018101818110610270579050600055005b6386e908758118610160576024361061027057600160043560205260005260406000205433186101545760016040526020604061015e5661015e565b6000604052602060405bf35b63b13557e981186102685760243610610270576020806040526001600435602052600052604060002081604001608082548252600183015460208301528060408301526002830181830181548082526001830160208301815481525050508051806020830101601f82600003163682375050601f19601f8251602001011690509050810190508060608301526004830181830181548082526001830160208301600083601f0160051c6004811161027057801561022f57905b808401548160051b840152600101818118610219575b50505050508051806020830101601f82600003163682375050601f19601f82516020010116905090508101905090509050810190506040f35b505b60006000fd5b600080fda165767970657283000307000b005b600080fd",
+  "bytecodeSha1": "8df1a13fcf8a6a79e9d2f1a756d757a8d45cda9c",
   "compiler": {
     "evm_version": "istanbul",
     "version": "0.3.7"
@@ -778,40 +1011,58 @@
   "contractName": "BookstoreNFT",
   "coverageMap": {
     "branches": {
-      "0": {}
+      "0": {
+        "BookstoreNFT.redeemProduct": {
+          "2": [
+            665,
+            702,
+            false
+          ]
+        }
+      }
     },
     "statements": {
       "0": {
         "BookstoreNFT.createBoundNFT": {
           "0": [
-            439,
-            581
+            441,
+            583
           ],
           "1": [
-            586,
-            599
+            588,
+            601
+          ]
+        },
+        "BookstoreNFT.redeemProduct": {
+          "3": [
+            713,
+            724
+          ],
+          "4": [
+            743,
+            755
           ]
         }
       }
     }
   },
   "dependencies": [],
-  "deployedBytecode": "0x6003361161000c57610222565b60003560e01c346102285763f28abbe181186101185760643610610228576004358060a01c61022857604052602435600401606481351161022857803580606052602082018181608037505050600160005460205260005260406000206040518155601260018201556003610100527f57564300000000000000000000000000000000000000000000000000000000006101205261010080518060028401556020820160016002850101815181555050505060605180600483015560016004830101600082601f0160051c600481116102285780156100fe57905b8060051b60800151818401556001018181186100e7575b505050505060005460018101818110610228579050600055005b63b13557e981186102205760243610610228576020806040526001600435602052600052604060002081604001608082548252600183015460208301528060408301526002830181830181548082526001830160208301815481525050508051806020830101601f82600003163682375050601f19601f8251602001011690509050810190508060608301526004830181830181548082526001830160208301600083601f0160051c600481116102285780156101e757905b808401548160051b8401526001018181186101d1575b50505050508051806020830101601f82600003163682375050601f19601f82516020010116905090508101905090509050810190506040f35b505b60006000fd5b600080fda165767970657283000307000b",
-  "deployedSourceMap": "-1:-1:0:-;;;;:::-;;:::-;:::-;;;;;;;:::-;;;;;:::-;;;;;:::-;;;;;;;:::-;393:21;;-1:-1;;;416:16;-1:-1;416:16;-1:-1;;;:::-;416:16;-1:-1;;;;;416:16;-1:-1;;;;;;;416:16;439:11;451:8;-1:-1;439:21;;;;;;;490:12;-1:-1;439:142;-1:-1;522:2;-1:-1;439:142;-1:-1;;;;542:5;-1:-1;;542:5;;-1:-1;;;;439:142;-1:-1;;;;;;;439:142;-1:-1;;;;;;;;;;567:3;-1:-1;;;439:142;-1:-1;;;;439:142;-1:-1;;;;;;;;;;;;:::-;;;;:::-;;:::-;;;;;;;;;;;;;;;;;:::-;:::-;;;;;439:142;586:8;-1:-1;598:1;-1:-1;;;;;;:::-;586:13;;:8;-1:-1;;:::-;;;;;:::-;;;;;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::-;;;;:::-;;:::-;;;;;;;;;;;;;;;;;:::-;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::-;;:::-;;;;:::-;;;",
+  "deployedBytecode": "0x6003361161000c5761026a565b60003560e01c346102705763f28abbe181186101185760643610610270576004358060a01c61027057604052602435600401606481351161027057803580606052602082018181608037505050600160005460205260005260406000206040518155601260018201556003610100527f57564300000000000000000000000000000000000000000000000000000000006101205261010080518060028401556020820160016002850101815181555050505060605180600483015560016004830101600082601f0160051c600481116102705780156100fe57905b8060051b60800151818401556001018181186100e7575b505050505060005460018101818110610270579050600055005b6386e908758118610160576024361061027057600160043560205260005260406000205433186101545760016040526020604061015e5661015e565b6000604052602060405bf35b63b13557e981186102685760243610610270576020806040526001600435602052600052604060002081604001608082548252600183015460208301528060408301526002830181830181548082526001830160208301815481525050508051806020830101601f82600003163682375050601f19601f8251602001011690509050810190508060608301526004830181830181548082526001830160208301600083601f0160051c6004811161027057801561022f57905b808401548160051b840152600101818118610219575b50505050508051806020830101601f82600003163682375050601f19601f82516020010116905090508101905090509050810190506040f35b505b60006000fd5b600080fda165767970657283000307000b",
+  "deployedSourceMap": "-1:-1:0:-;;;;:::-;;:::-;:::-;;;;;;;:::-;;;;;:::-;;;;;:::-;;;;;;;:::-;395:21;;-1:-1;;;418:16;-1:-1;418:16;-1:-1;;;:::-;418:16;-1:-1;;;;;418:16;-1:-1;;;;;;;418:16;441:11;453:8;-1:-1;441:21;;;;;;;492:12;-1:-1;441:142;-1:-1;524:2;-1:-1;441:142;-1:-1;;;;544:5;-1:-1;;544:5;;-1:-1;;;;441:142;-1:-1;;;;;;;441:142;-1:-1;;;;;;;;;;569:3;-1:-1;;;441:142;-1:-1;;;;441:142;-1:-1;;;;;;;;;;;;:::-;;;;:::-;;:::-;;;;;;;;;;;;;;;;;:::-;:::-;;;;;441:142;588:8;-1:-1;600:1;-1:-1;;;;;;:::-;588:13;;:8;-1:-1;;:::-;;;;;:::-;;;;;:::-;679:11;691:5;679:18;;;;;;;;665:37;:10;:37;661:94;:::-;720:4;-1:-1;;;;;:::-;;661:94::-;:::-;750:5;-1:-1;;;;:::-;;:::-;;;;;:::-;;;;;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::-;;;;:::-;;:::-;;;;;;;;;;;;;;;;;:::-;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::-;;:::-;;;;:::-;;;",
   "language": "Vyper",
   "natspec": {
     "methods": {}
   },
   "offset": [
     0,
-    608
+    764
   ],
-  "opcodes": "PUSH1 0x3 CALLDATASIZE GT PUSH2 0x0C JUMPI PUSH2 0x222 JUMP JUMPDEST PUSH1 0x0 CALLDATALOAD PUSH1 0xE0 SHR CALLVALUE PUSH2 0x228 JUMPI PUSH4 0xF28ABBE1 DUP2 XOR PUSH2 0x118 JUMPI PUSH1 0x64 CALLDATASIZE LT PUSH2 0x228 JUMPI PUSH1 0x4 CALLDATALOAD DUP1 PUSH1 0xA0 SHR PUSH2 0x228 JUMPI PUSH1 0x40 MSTORE PUSH1 0x24 CALLDATALOAD PUSH1 0x4 ADD PUSH1 0x64 DUP2 CALLDATALOAD GT PUSH2 0x228 JUMPI DUP1 CALLDATALOAD DUP1 PUSH1 0x60 MSTORE PUSH1 0x20 DUP3 ADD DUP2 DUP2 PUSH1 0x80 CALLDATACOPY POP POP POP PUSH1 0x1 PUSH1 0x0 SLOAD PUSH1 0x20 MSTORE PUSH1 0x0 MSTORE PUSH1 0x40 PUSH1 0x0 SHA3 PUSH1 0x40 MLOAD DUP2 SSTORE PUSH1 0x12 PUSH1 0x1 DUP3 ADD SSTORE PUSH1 0x3 PUSH2 0x10 MSTORE PUSH32 0x57564300000000000000000000000000000 PUSH2 0x120 MSTORE PUSH2 0x10 DUP1 MLOAD DUP1 PUSH1 0x2 DUP5 ADD SSTORE PUSH1 0x20 DUP3 ADD PUSH1 0x1 PUSH1 0x2 DUP6 ADD ADD DUP2 MLOAD DUP2 SSTORE POP POP POP POP PUSH1 0x60 MLOAD DUP1 PUSH1 0x4 DUP4 ADD SSTORE PUSH1 0x1 PUSH1 0x4 DUP4 ADD ADD PUSH1 0x0 DUP3 PUSH1 0x1F ADD PUSH1 0x5 SHR PUSH1 0x4 DUP2 GT PUSH2 0x228 JUMPI DUP1 ISZERO PUSH2 0x0FE JUMPI SWAP1 JUMPDEST DUP1 PUSH1 0x5 SHL PUSH1 0x80 ADD MLOAD DUP2 DUP5 ADD SSTORE PUSH1 0x1 ADD DUP2 DUP2 XOR PUSH2 0x0E7 JUMPI JUMPDEST POP POP POP POP POP PUSH1 0x0 SLOAD PUSH1 0x1 DUP2 ADD DUP2 DUP2 LT PUSH2 0x228 JUMPI SWAP1 POP PUSH1 0x0 SSTORE STOP JUMPDEST PUSH4 0xB13557E9 DUP2 XOR PUSH2 0x220 JUMPI PUSH1 0x24 CALLDATASIZE LT PUSH2 0x228 JUMPI PUSH1 0x20 DUP1 PUSH1 0x40 MSTORE PUSH1 0x1 PUSH1 0x4 CALLDATALOAD PUSH1 0x20 MSTORE PUSH1 0x0 MSTORE PUSH1 0x40 PUSH1 0x0 SHA3 DUP2 PUSH1 0x40 ADD PUSH1 0x80 DUP3 SLOAD DUP3 MSTORE PUSH1 0x1 DUP4 ADD SLOAD PUSH1 0x20 DUP4 ADD MSTORE DUP1 PUSH1 0x40 DUP4 ADD MSTORE PUSH1 0x2 DUP4 ADD DUP2 DUP4 ADD DUP2 SLOAD DUP1 DUP3 MSTORE PUSH1 0x1 DUP4 ADD PUSH1 0x20 DUP4 ADD DUP2 SLOAD DUP2 MSTORE POP POP POP DUP1 MLOAD DUP1 PUSH1 0x20 DUP4 ADD ADD PUSH1 0x1F DUP3 PUSH1 0x0 SUB AND CALLDATASIZE DUP3 CALLDATACOPY POP POP PUSH1 0x1F NOT PUSH1 0x1F DUP3 MLOAD PUSH1 0x20 ADD ADD AND SWAP1 POP SWAP1 POP DUP2 ADD SWAP1 POP DUP1 PUSH1 0x60 DUP4 ADD MSTORE PUSH1 0x4 DUP4 ADD DUP2 DUP4 ADD DUP2 SLOAD DUP1 DUP3 MSTORE PUSH1 0x1 DUP4 ADD PUSH1 0x20 DUP4 ADD PUSH1 0x0 DUP4 PUSH1 0x1F ADD PUSH1 0x5 SHR PUSH1 0x4 DUP2 GT PUSH2 0x228 JUMPI DUP1 ISZERO PUSH2 0x1E7 JUMPI SWAP1 JUMPDEST DUP1 DUP5 ADD SLOAD DUP2 PUSH1 0x5 SHL DUP5 ADD MSTORE PUSH1 0x1 ADD DUP2 DUP2 XOR PUSH2 0x1D1 JUMPI JUMPDEST POP POP POP POP POP DUP1 MLOAD DUP1 PUSH1 0x20 DUP4 ADD ADD PUSH1 0x1F DUP3 PUSH1 0x0 SUB AND CALLDATASIZE DUP3 CALLDATACOPY POP POP PUSH1 0x1F NOT PUSH1 0x1F DUP3 MLOAD PUSH1 0x20 ADD ADD AND SWAP1 POP SWAP1 POP DUP2 ADD SWAP1 POP SWAP1 POP SWAP1 POP DUP2 ADD SWAP1 POP PUSH1 0x40 RETURN JUMPDEST POP JUMPDEST PUSH1 0x0 PUSH1 0x0 REVERT JUMPDEST PUSH1 0x0 DUP1 REVERT LOG1 PUSH6 0x767970657283 STOP SUB SMOD STOP SIGNEXTEND",
+  "opcodes": "PUSH1 0x3 CALLDATASIZE GT PUSH2 0x0C JUMPI PUSH2 0x26A JUMP JUMPDEST PUSH1 0x0 CALLDATALOAD PUSH1 0xE0 SHR CALLVALUE PUSH2 0x270 JUMPI PUSH4 0xF28ABBE1 DUP2 XOR PUSH2 0x118 JUMPI PUSH1 0x64 CALLDATASIZE LT PUSH2 0x270 JUMPI PUSH1 0x4 CALLDATALOAD DUP1 PUSH1 0xA0 SHR PUSH2 0x270 JUMPI PUSH1 0x40 MSTORE PUSH1 0x24 CALLDATALOAD PUSH1 0x4 ADD PUSH1 0x64 DUP2 CALLDATALOAD GT PUSH2 0x270 JUMPI DUP1 CALLDATALOAD DUP1 PUSH1 0x60 MSTORE PUSH1 0x20 DUP3 ADD DUP2 DUP2 PUSH1 0x80 CALLDATACOPY POP POP POP PUSH1 0x1 PUSH1 0x0 SLOAD PUSH1 0x20 MSTORE PUSH1 0x0 MSTORE PUSH1 0x40 PUSH1 0x0 SHA3 PUSH1 0x40 MLOAD DUP2 SSTORE PUSH1 0x12 PUSH1 0x1 DUP3 ADD SSTORE PUSH1 0x3 PUSH2 0x10 MSTORE PUSH32 0x57564300000000000000000000000000000 PUSH2 0x120 MSTORE PUSH2 0x10 DUP1 MLOAD DUP1 PUSH1 0x2 DUP5 ADD SSTORE PUSH1 0x20 DUP3 ADD PUSH1 0x1 PUSH1 0x2 DUP6 ADD ADD DUP2 MLOAD DUP2 SSTORE POP POP POP POP PUSH1 0x60 MLOAD DUP1 PUSH1 0x4 DUP4 ADD SSTORE PUSH1 0x1 PUSH1 0x4 DUP4 ADD ADD PUSH1 0x0 DUP3 PUSH1 0x1F ADD PUSH1 0x5 SHR PUSH1 0x4 DUP2 GT PUSH2 0x270 JUMPI DUP1 ISZERO PUSH2 0x0FE JUMPI SWAP1 JUMPDEST DUP1 PUSH1 0x5 SHL PUSH1 0x80 ADD MLOAD DUP2 DUP5 ADD SSTORE PUSH1 0x1 ADD DUP2 DUP2 XOR PUSH2 0x0E7 JUMPI JUMPDEST POP POP POP POP POP PUSH1 0x0 SLOAD PUSH1 0x1 DUP2 ADD DUP2 DUP2 LT PUSH2 0x270 JUMPI SWAP1 POP PUSH1 0x0 SSTORE STOP JUMPDEST PUSH4 0x86E9875 DUP2 XOR PUSH2 0x160 JUMPI PUSH1 0x24 CALLDATASIZE LT PUSH2 0x270 JUMPI PUSH1 0x1 PUSH1 0x4 CALLDATALOAD PUSH1 0x20 MSTORE PUSH1 0x0 MSTORE PUSH1 0x40 PUSH1 0x0 SHA3 SLOAD CALLER XOR PUSH2 0x154 JUMPI PUSH1 0x1 PUSH1 0x40 MSTORE PUSH1 0x20 PUSH1 0x40 PUSH2 0x15E JUMP PUSH2 0x15E JUMP JUMPDEST PUSH1 0x0 PUSH1 0x40 MSTORE PUSH1 0x20 PUSH1 0x40 JUMPDEST RETURN JUMPDEST PUSH4 0xB13557E9 DUP2 XOR PUSH2 0x268 JUMPI PUSH1 0x24 CALLDATASIZE LT PUSH2 0x270 JUMPI PUSH1 0x20 DUP1 PUSH1 0x40 MSTORE PUSH1 0x1 PUSH1 0x4 CALLDATALOAD PUSH1 0x20 MSTORE PUSH1 0x0 MSTORE PUSH1 0x40 PUSH1 0x0 SHA3 DUP2 PUSH1 0x40 ADD PUSH1 0x80 DUP3 SLOAD DUP3 MSTORE PUSH1 0x1 DUP4 ADD SLOAD PUSH1 0x20 DUP4 ADD MSTORE DUP1 PUSH1 0x40 DUP4 ADD MSTORE PUSH1 0x2 DUP4 ADD DUP2 DUP4 ADD DUP2 SLOAD DUP1 DUP3 MSTORE PUSH1 0x1 DUP4 ADD PUSH1 0x20 DUP4 ADD DUP2 SLOAD DUP2 MSTORE POP POP POP DUP1 MLOAD DUP1 PUSH1 0x20 DUP4 ADD ADD PUSH1 0x1F DUP3 PUSH1 0x0 SUB AND CALLDATASIZE DUP3 CALLDATACOPY POP POP PUSH1 0x1F NOT PUSH1 0x1F DUP3 MLOAD PUSH1 0x20 ADD ADD AND SWAP1 POP SWAP1 POP DUP2 ADD SWAP1 POP DUP1 PUSH1 0x60 DUP4 ADD MSTORE PUSH1 0x4 DUP4 ADD DUP2 DUP4 ADD DUP2 SLOAD DUP1 DUP3 MSTORE PUSH1 0x1 DUP4 ADD PUSH1 0x20 DUP4 ADD PUSH1 0x0 DUP4 PUSH1 0x1F ADD PUSH1 0x5 SHR PUSH1 0x4 DUP2 GT PUSH2 0x270 JUMPI DUP1 ISZERO PUSH2 0x22F JUMPI SWAP1 JUMPDEST DUP1 DUP5 ADD SLOAD DUP2 PUSH1 0x5 SHL DUP5 ADD MSTORE PUSH1 0x1 ADD DUP2 DUP2 XOR PUSH2 0x219 JUMPI JUMPDEST POP POP POP POP POP DUP1 MLOAD DUP1 PUSH1 0x20 DUP4 ADD ADD PUSH1 0x1F DUP3 PUSH1 0x0 SUB AND CALLDATASIZE DUP3 CALLDATACOPY POP POP PUSH1 0x1F NOT PUSH1 0x1F DUP3 MLOAD PUSH1 0x20 ADD ADD AND SWAP1 POP SWAP1 POP DUP2 ADD SWAP1 POP SWAP1 POP SWAP1 POP DUP2 ADD SWAP1 POP PUSH1 0x40 RETURN JUMPDEST POP JUMPDEST PUSH1 0x0 PUSH1 0x0 REVERT JUMPDEST PUSH1 0x0 DUP1 REVERT LOG1 PUSH6 0x767970657283 STOP SUB SMOD STOP SIGNEXTEND",
   "pcMap": {
     "0": {
       "offset": [
         0,
-        599
+        755
       ],
       "op": "PUSH1",
       "path": "0",
@@ -832,7 +1083,7 @@
     },
     "8": {
       "op": "PUSH2",
-      "value": "0x222"
+      "value": "0x26A"
     },
     "11": {
       "op": "JUMP"
@@ -859,7 +1110,7 @@
     },
     "20": {
       "op": "PUSH2",
-      "value": "0x228"
+      "value": "0x270"
     },
     "23": {
       "op": "JUMPI"
@@ -893,7 +1144,7 @@
     },
     "39": {
       "op": "PUSH2",
-      "value": "0x228"
+      "value": "0x270"
     },
     "42": {
       "op": "JUMPI"
@@ -917,7 +1168,7 @@
     },
     "50": {
       "op": "PUSH2",
-      "value": "0x228"
+      "value": "0x270"
     },
     "53": {
       "op": "JUMPI"
@@ -925,8 +1176,8 @@
     "54": {
       "fn": "BookstoreNFT.createBoundNFT",
       "offset": [
-        393,
-        414
+        395,
+        416
       ],
       "op": "PUSH1",
       "path": "0",
@@ -935,8 +1186,8 @@
     "56": {
       "fn": "BookstoreNFT.createBoundNFT",
       "offset": [
-        393,
-        414
+        395,
+        416
       ],
       "op": "MSTORE",
       "path": "0"
@@ -955,8 +1206,8 @@
     "62": {
       "fn": "BookstoreNFT.createBoundNFT",
       "offset": [
-        416,
-        432
+        418,
+        434
       ],
       "op": "ADD",
       "path": "0"
@@ -968,8 +1219,8 @@
     "65": {
       "fn": "BookstoreNFT.createBoundNFT",
       "offset": [
-        416,
-        432
+        418,
+        434
       ],
       "op": "DUP2",
       "path": "0"
@@ -982,7 +1233,7 @@
     },
     "68": {
       "op": "PUSH2",
-      "value": "0x228"
+      "value": "0x270"
     },
     "71": {
       "op": "JUMPI"
@@ -990,8 +1241,8 @@
     "72": {
       "fn": "BookstoreNFT.createBoundNFT",
       "offset": [
-        416,
-        432
+        418,
+        434
       ],
       "op": "DUP1",
       "path": "0"
@@ -1016,8 +1267,8 @@
     "80": {
       "fn": "BookstoreNFT.createBoundNFT",
       "offset": [
-        416,
-        432
+        418,
+        434
       ],
       "op": "DUP3",
       "path": "0"
@@ -1047,8 +1298,8 @@
     "89": {
       "fn": "BookstoreNFT.createBoundNFT",
       "offset": [
-        416,
-        432
+        418,
+        434
       ],
       "op": "POP",
       "path": "0"
@@ -1056,8 +1307,8 @@
     "90": {
       "fn": "BookstoreNFT.createBoundNFT",
       "offset": [
-        439,
-        450
+        441,
+        452
       ],
       "op": "PUSH1",
       "path": "0",
@@ -1067,8 +1318,8 @@
     "92": {
       "fn": "BookstoreNFT.createBoundNFT",
       "offset": [
-        451,
-        459
+        453,
+        461
       ],
       "op": "PUSH1",
       "path": "0",
@@ -1080,8 +1331,8 @@
     "95": {
       "fn": "BookstoreNFT.createBoundNFT",
       "offset": [
-        439,
-        460
+        441,
+        462
       ],
       "op": "PUSH1",
       "path": "0",
@@ -1090,8 +1341,8 @@
     "97": {
       "fn": "BookstoreNFT.createBoundNFT",
       "offset": [
-        439,
-        460
+        441,
+        462
       ],
       "op": "MSTORE",
       "path": "0"
@@ -1099,8 +1350,8 @@
     "98": {
       "fn": "BookstoreNFT.createBoundNFT",
       "offset": [
-        439,
-        460
+        441,
+        462
       ],
       "op": "PUSH1",
       "path": "0",
@@ -1109,8 +1360,8 @@
     "100": {
       "fn": "BookstoreNFT.createBoundNFT",
       "offset": [
-        439,
-        460
+        441,
+        462
       ],
       "op": "MSTORE",
       "path": "0"
@@ -1118,8 +1369,8 @@
     "101": {
       "fn": "BookstoreNFT.createBoundNFT",
       "offset": [
-        439,
-        460
+        441,
+        462
       ],
       "op": "PUSH1",
       "path": "0",
@@ -1128,8 +1379,8 @@
     "103": {
       "fn": "BookstoreNFT.createBoundNFT",
       "offset": [
-        439,
-        460
+        441,
+        462
       ],
       "op": "PUSH1",
       "path": "0",
@@ -1138,8 +1389,8 @@
     "105": {
       "fn": "BookstoreNFT.createBoundNFT",
       "offset": [
-        439,
-        460
+        441,
+        462
       ],
       "op": "SHA3",
       "path": "0"
@@ -1147,8 +1398,8 @@
     "106": {
       "fn": "BookstoreNFT.createBoundNFT",
       "offset": [
-        490,
-        502
+        492,
+        504
       ],
       "op": "PUSH1",
       "path": "0",
@@ -1160,8 +1411,8 @@
     "109": {
       "fn": "BookstoreNFT.createBoundNFT",
       "offset": [
-        439,
-        581
+        441,
+        583
       ],
       "op": "DUP2",
       "path": "0"
@@ -1172,8 +1423,8 @@
     "111": {
       "fn": "BookstoreNFT.createBoundNFT",
       "offset": [
-        522,
-        524
+        524,
+        526
       ],
       "op": "PUSH1",
       "path": "0",
@@ -1186,8 +1437,8 @@
     "115": {
       "fn": "BookstoreNFT.createBoundNFT",
       "offset": [
-        439,
-        581
+        441,
+        583
       ],
       "op": "DUP3",
       "path": "0"
@@ -1209,8 +1460,8 @@
     "123": {
       "fn": "BookstoreNFT.createBoundNFT",
       "offset": [
-        542,
-        547
+        544,
+        549
       ],
       "op": "MSTORE",
       "path": "0"
@@ -1226,8 +1477,8 @@
     "160": {
       "fn": "BookstoreNFT.createBoundNFT",
       "offset": [
-        542,
-        547
+        544,
+        549
       ],
       "op": "MSTORE",
       "path": "0"
@@ -1235,8 +1486,8 @@
     "161": {
       "fn": "BookstoreNFT.createBoundNFT",
       "offset": [
-        542,
-        547
+        544,
+        549
       ],
       "op": "PUSH2",
       "path": "0",
@@ -1258,8 +1509,8 @@
     "169": {
       "fn": "BookstoreNFT.createBoundNFT",
       "offset": [
-        439,
-        581
+        441,
+        583
       ],
       "op": "DUP5",
       "path": "0"
@@ -1291,8 +1542,8 @@
     "180": {
       "fn": "BookstoreNFT.createBoundNFT",
       "offset": [
-        439,
-        581
+        441,
+        583
       ],
       "op": "DUP6",
       "path": "0"
@@ -1330,8 +1581,8 @@
     "191": {
       "fn": "BookstoreNFT.createBoundNFT",
       "offset": [
-        567,
-        570
+        569,
+        572
       ],
       "op": "PUSH1",
       "path": "0",
@@ -1350,8 +1601,8 @@
     "197": {
       "fn": "BookstoreNFT.createBoundNFT",
       "offset": [
-        439,
-        581
+        441,
+        583
       ],
       "op": "DUP4",
       "path": "0"
@@ -1373,8 +1624,8 @@
     "204": {
       "fn": "BookstoreNFT.createBoundNFT",
       "offset": [
-        439,
-        581
+        441,
+        583
       ],
       "op": "DUP4",
       "path": "0"
@@ -1418,7 +1669,7 @@
     },
     "220": {
       "op": "PUSH2",
-      "value": "0x228"
+      "value": "0x270"
     },
     "223": {
       "op": "JUMPI"
@@ -1515,8 +1766,8 @@
     "259": {
       "fn": "BookstoreNFT.createBoundNFT",
       "offset": [
-        439,
-        581
+        441,
+        583
       ],
       "op": "POP",
       "path": "0"
@@ -1524,8 +1775,8 @@
     "260": {
       "fn": "BookstoreNFT.createBoundNFT",
       "offset": [
-        586,
-        594
+        588,
+        596
       ],
       "op": "PUSH1",
       "path": "0",
@@ -1538,8 +1789,8 @@
     "263": {
       "fn": "BookstoreNFT.createBoundNFT",
       "offset": [
-        598,
-        599
+        600,
+        601
       ],
       "op": "PUSH1",
       "path": "0",
@@ -1562,7 +1813,7 @@
     },
     "270": {
       "op": "PUSH2",
-      "value": "0x228"
+      "value": "0x270"
     },
     "273": {
       "op": "JUMPI"
@@ -1570,8 +1821,8 @@
     "274": {
       "fn": "BookstoreNFT.createBoundNFT",
       "offset": [
-        586,
-        599
+        588,
+        601
       ],
       "op": "SWAP1",
       "path": "0"
@@ -1579,8 +1830,8 @@
     "275": {
       "fn": "BookstoreNFT.createBoundNFT",
       "offset": [
-        586,
-        599
+        588,
+        601
       ],
       "op": "POP",
       "path": "0"
@@ -1588,8 +1839,8 @@
     "276": {
       "fn": "BookstoreNFT.createBoundNFT",
       "offset": [
-        586,
-        594
+        588,
+        596
       ],
       "op": "PUSH1",
       "path": "0",
@@ -1606,7 +1857,7 @@
     },
     "281": {
       "op": "PUSH4",
-      "value": "0xB13557E9"
+      "value": "0x86E9875"
     },
     "286": {
       "op": "DUP2"
@@ -1616,7 +1867,7 @@
     },
     "288": {
       "op": "PUSH2",
-      "value": "0x220"
+      "value": "0x160"
     },
     "291": {
       "op": "JUMPI"
@@ -1633,523 +1884,607 @@
     },
     "296": {
       "op": "PUSH2",
-      "value": "0x228"
+      "value": "0x270"
     },
     "299": {
       "op": "JUMPI"
     },
     "300": {
+      "fn": "BookstoreNFT.redeemProduct",
+      "offset": [
+        679,
+        690
+      ],
       "op": "PUSH1",
-      "value": "0x20"
+      "path": "0",
+      "value": "0x1"
     },
     "302": {
-      "op": "DUP1"
-    },
-    "303": {
+      "fn": "BookstoreNFT.redeemProduct",
+      "offset": [
+        691,
+        696
+      ],
       "op": "PUSH1",
-      "value": "0x40"
-    },
-    "305": {
-      "op": "MSTORE"
-    },
-    "306": {
-      "op": "PUSH1",
-      "value": "0x1"
-    },
-    "308": {
-      "op": "PUSH1",
+      "path": "0",
       "value": "0x4"
     },
+    "304": {
+      "fn": "BookstoreNFT.redeemProduct",
+      "offset": [
+        679,
+        697
+      ],
+      "op": "CALLDATALOAD",
+      "path": "0"
+    },
+    "305": {
+      "fn": "BookstoreNFT.redeemProduct",
+      "offset": [
+        679,
+        697
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x20"
+    },
+    "307": {
+      "fn": "BookstoreNFT.redeemProduct",
+      "offset": [
+        679,
+        697
+      ],
+      "op": "MSTORE",
+      "path": "0"
+    },
+    "308": {
+      "fn": "BookstoreNFT.redeemProduct",
+      "offset": [
+        679,
+        697
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "value": "0x0"
+    },
     "310": {
-      "op": "CALLDATALOAD"
+      "fn": "BookstoreNFT.redeemProduct",
+      "offset": [
+        679,
+        697
+      ],
+      "op": "MSTORE",
+      "path": "0"
     },
     "311": {
+      "fn": "BookstoreNFT.redeemProduct",
+      "offset": [
+        679,
+        697
+      ],
       "op": "PUSH1",
-      "value": "0x20"
+      "path": "0",
+      "value": "0x40"
     },
     "313": {
-      "op": "MSTORE"
-    },
-    "314": {
+      "fn": "BookstoreNFT.redeemProduct",
+      "offset": [
+        679,
+        697
+      ],
       "op": "PUSH1",
+      "path": "0",
       "value": "0x0"
+    },
+    "315": {
+      "fn": "BookstoreNFT.redeemProduct",
+      "offset": [
+        679,
+        697
+      ],
+      "op": "SHA3",
+      "path": "0"
     },
     "316": {
-      "op": "MSTORE"
+      "fn": "BookstoreNFT.redeemProduct",
+      "offset": [
+        665,
+        702
+      ],
+      "op": "SLOAD",
+      "path": "0"
     },
     "317": {
-      "op": "PUSH1",
-      "value": "0x40"
+      "fn": "BookstoreNFT.redeemProduct",
+      "offset": [
+        665,
+        675
+      ],
+      "op": "CALLER",
+      "path": "0"
+    },
+    "318": {
+      "fn": "BookstoreNFT.redeemProduct",
+      "offset": [
+        665,
+        702
+      ],
+      "op": "XOR",
+      "path": "0"
     },
     "319": {
-      "op": "PUSH1",
-      "value": "0x0"
-    },
-    "321": {
-      "op": "SHA3"
+      "fn": "BookstoreNFT.redeemProduct",
+      "offset": [
+        661,
+        755
+      ],
+      "op": "PUSH2",
+      "path": "0",
+      "value": "0x154"
     },
     "322": {
-      "op": "DUP2"
+      "branch": 2,
+      "fn": "BookstoreNFT.redeemProduct",
+      "offset": [
+        661,
+        755
+      ],
+      "op": "JUMPI",
+      "path": "0"
     },
     "323": {
+      "fn": "BookstoreNFT.redeemProduct",
+      "offset": [
+        720,
+        724
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "statement": 3,
+      "value": "0x1"
+    },
+    "325": {
       "op": "PUSH1",
       "value": "0x40"
     },
-    "325": {
-      "op": "ADD"
-    },
-    "326": {
-      "op": "PUSH1",
-      "value": "0x80"
-    },
-    "328": {
-      "op": "DUP3"
-    },
-    "329": {
-      "op": "SLOAD"
-    },
-    "330": {
-      "op": "DUP3"
-    },
-    "331": {
+    "327": {
       "op": "MSTORE"
     },
-    "332": {
-      "op": "PUSH1",
-      "value": "0x1"
-    },
-    "334": {
-      "op": "DUP4"
-    },
-    "335": {
-      "op": "ADD"
-    },
-    "336": {
-      "op": "SLOAD"
-    },
-    "337": {
+    "328": {
       "op": "PUSH1",
       "value": "0x20"
     },
+    "330": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "332": {
+      "op": "PUSH2",
+      "value": "0x15E"
+    },
+    "335": {
+      "op": "JUMP"
+    },
+    "336": {
+      "op": "PUSH2",
+      "value": "0x15E"
+    },
     "339": {
-      "op": "DUP4"
+      "fn": "BookstoreNFT.redeemProduct",
+      "offset": [
+        661,
+        755
+      ],
+      "op": "JUMP",
+      "path": "0"
     },
     "340": {
-      "op": "ADD"
+      "fn": "BookstoreNFT.redeemProduct",
+      "offset": [
+        661,
+        755
+      ],
+      "op": "JUMPDEST",
+      "path": "0"
     },
     "341": {
-      "op": "MSTORE"
-    },
-    "342": {
-      "op": "DUP1"
+      "fn": "BookstoreNFT.redeemProduct",
+      "offset": [
+        750,
+        755
+      ],
+      "op": "PUSH1",
+      "path": "0",
+      "statement": 4,
+      "value": "0x0"
     },
     "343": {
       "op": "PUSH1",
       "value": "0x40"
     },
     "345": {
-      "op": "DUP4"
+      "op": "MSTORE"
     },
     "346": {
-      "op": "ADD"
-    },
-    "347": {
-      "op": "MSTORE"
+      "op": "PUSH1",
+      "value": "0x20"
     },
     "348": {
       "op": "PUSH1",
-      "value": "0x2"
+      "value": "0x40"
     },
     "350": {
-      "op": "DUP4"
+      "op": "JUMPDEST"
     },
     "351": {
-      "op": "ADD"
+      "op": "RETURN"
     },
     "352": {
-      "op": "DUP2"
+      "op": "JUMPDEST"
     },
     "353": {
-      "op": "DUP4"
-    },
-    "354": {
-      "op": "ADD"
-    },
-    "355": {
-      "op": "DUP2"
-    },
-    "356": {
-      "op": "SLOAD"
-    },
-    "357": {
-      "op": "DUP1"
+      "op": "PUSH4",
+      "value": "0xB13557E9"
     },
     "358": {
-      "op": "DUP3"
+      "op": "DUP2"
     },
     "359": {
-      "op": "MSTORE"
+      "op": "XOR"
     },
     "360": {
-      "op": "PUSH1",
-      "value": "0x1"
-    },
-    "362": {
-      "op": "DUP4"
+      "op": "PUSH2",
+      "value": "0x268"
     },
     "363": {
-      "op": "ADD"
+      "op": "JUMPI"
     },
     "364": {
       "op": "PUSH1",
-      "value": "0x20"
+      "value": "0x24"
     },
     "366": {
-      "op": "DUP4"
+      "op": "CALLDATASIZE"
     },
     "367": {
-      "op": "ADD"
+      "op": "LT"
     },
     "368": {
-      "op": "DUP2"
-    },
-    "369": {
-      "op": "SLOAD"
-    },
-    "370": {
-      "op": "DUP2"
+      "op": "PUSH2",
+      "value": "0x270"
     },
     "371": {
-      "op": "MSTORE"
+      "op": "JUMPI"
     },
     "372": {
-      "op": "POP"
-    },
-    "373": {
-      "op": "POP"
+      "op": "PUSH1",
+      "value": "0x20"
     },
     "374": {
-      "op": "POP"
+      "op": "DUP1"
     },
     "375": {
-      "op": "DUP1"
-    },
-    "376": {
-      "op": "MLOAD"
+      "op": "PUSH1",
+      "value": "0x40"
     },
     "377": {
-      "op": "DUP1"
+      "op": "MSTORE"
     },
     "378": {
       "op": "PUSH1",
-      "value": "0x20"
+      "value": "0x1"
     },
     "380": {
-      "op": "DUP4"
-    },
-    "381": {
-      "op": "ADD"
+      "op": "PUSH1",
+      "value": "0x4"
     },
     "382": {
-      "op": "ADD"
+      "op": "CALLDATALOAD"
     },
     "383": {
       "op": "PUSH1",
-      "value": "0x1F"
+      "value": "0x20"
     },
     "385": {
-      "op": "DUP3"
+      "op": "MSTORE"
     },
     "386": {
       "op": "PUSH1",
       "value": "0x0"
     },
     "388": {
-      "op": "SUB"
+      "op": "MSTORE"
     },
     "389": {
-      "op": "AND"
-    },
-    "390": {
-      "op": "CALLDATASIZE"
+      "op": "PUSH1",
+      "value": "0x40"
     },
     "391": {
-      "op": "DUP3"
-    },
-    "392": {
-      "op": "CALLDATACOPY"
+      "op": "PUSH1",
+      "value": "0x0"
     },
     "393": {
-      "op": "POP"
+      "op": "SHA3"
     },
     "394": {
-      "op": "POP"
+      "op": "DUP2"
     },
     "395": {
       "op": "PUSH1",
-      "value": "0x1F"
+      "value": "0x40"
     },
     "397": {
-      "op": "NOT"
+      "op": "ADD"
     },
     "398": {
       "op": "PUSH1",
-      "value": "0x1F"
+      "value": "0x80"
     },
     "400": {
       "op": "DUP3"
     },
     "401": {
-      "op": "MLOAD"
+      "op": "SLOAD"
     },
     "402": {
+      "op": "DUP3"
+    },
+    "403": {
+      "op": "MSTORE"
+    },
+    "404": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "406": {
+      "op": "DUP4"
+    },
+    "407": {
+      "op": "ADD"
+    },
+    "408": {
+      "op": "SLOAD"
+    },
+    "409": {
       "op": "PUSH1",
       "value": "0x20"
     },
-    "404": {
-      "op": "ADD"
-    },
-    "405": {
-      "op": "ADD"
-    },
-    "406": {
-      "op": "AND"
-    },
-    "407": {
-      "op": "SWAP1"
-    },
-    "408": {
-      "op": "POP"
-    },
-    "409": {
-      "op": "SWAP1"
-    },
-    "410": {
-      "op": "POP"
-    },
     "411": {
-      "op": "DUP2"
+      "op": "DUP4"
     },
     "412": {
       "op": "ADD"
     },
     "413": {
-      "op": "SWAP1"
+      "op": "MSTORE"
     },
     "414": {
-      "op": "POP"
+      "op": "DUP1"
     },
     "415": {
-      "op": "DUP1"
-    },
-    "416": {
       "op": "PUSH1",
-      "value": "0x60"
+      "value": "0x40"
+    },
+    "417": {
+      "op": "DUP4"
     },
     "418": {
-      "op": "DUP4"
+      "op": "ADD"
     },
     "419": {
-      "op": "ADD"
+      "op": "MSTORE"
     },
     "420": {
-      "op": "MSTORE"
-    },
-    "421": {
       "op": "PUSH1",
-      "value": "0x4"
+      "value": "0x2"
+    },
+    "422": {
+      "op": "DUP4"
     },
     "423": {
-      "op": "DUP4"
+      "op": "ADD"
     },
     "424": {
-      "op": "ADD"
+      "op": "DUP2"
     },
     "425": {
-      "op": "DUP2"
-    },
-    "426": {
       "op": "DUP4"
     },
-    "427": {
+    "426": {
       "op": "ADD"
     },
-    "428": {
+    "427": {
       "op": "DUP2"
     },
-    "429": {
+    "428": {
       "op": "SLOAD"
     },
-    "430": {
+    "429": {
       "op": "DUP1"
     },
-    "431": {
+    "430": {
       "op": "DUP3"
     },
-    "432": {
+    "431": {
       "op": "MSTORE"
     },
-    "433": {
+    "432": {
       "op": "PUSH1",
       "value": "0x1"
     },
-    "435": {
+    "434": {
       "op": "DUP4"
     },
-    "436": {
+    "435": {
       "op": "ADD"
     },
-    "437": {
+    "436": {
       "op": "PUSH1",
       "value": "0x20"
     },
-    "439": {
+    "438": {
       "op": "DUP4"
+    },
+    "439": {
+      "op": "ADD"
     },
     "440": {
-      "op": "ADD"
+      "op": "DUP2"
     },
     "441": {
-      "op": "PUSH1",
-      "value": "0x0"
+      "op": "SLOAD"
+    },
+    "442": {
+      "op": "DUP2"
     },
     "443": {
-      "op": "DUP4"
+      "op": "MSTORE"
     },
     "444": {
-      "op": "PUSH1",
-      "value": "0x1F"
+      "op": "POP"
+    },
+    "445": {
+      "op": "POP"
     },
     "446": {
-      "op": "ADD"
+      "op": "POP"
     },
     "447": {
-      "op": "PUSH1",
-      "value": "0x5"
+      "op": "DUP1"
+    },
+    "448": {
+      "op": "MLOAD"
     },
     "449": {
-      "op": "SHR"
+      "op": "DUP1"
     },
     "450": {
       "op": "PUSH1",
-      "value": "0x4"
+      "value": "0x20"
     },
     "452": {
-      "op": "DUP2"
+      "op": "DUP4"
     },
     "453": {
-      "op": "GT"
+      "op": "ADD"
     },
     "454": {
-      "op": "PUSH2",
-      "value": "0x228"
+      "op": "ADD"
+    },
+    "455": {
+      "op": "PUSH1",
+      "value": "0x1F"
     },
     "457": {
-      "op": "JUMPI"
+      "op": "DUP3"
     },
     "458": {
-      "op": "DUP1"
-    },
-    "459": {
-      "op": "ISZERO"
+      "op": "PUSH1",
+      "value": "0x0"
     },
     "460": {
-      "op": "PUSH2",
-      "value": "0x1E7"
+      "op": "SUB"
+    },
+    "461": {
+      "op": "AND"
+    },
+    "462": {
+      "op": "CALLDATASIZE"
     },
     "463": {
-      "op": "JUMPI"
+      "op": "DUP3"
     },
     "464": {
-      "op": "SWAP1"
+      "op": "CALLDATACOPY"
     },
     "465": {
-      "op": "JUMPDEST"
+      "op": "POP"
     },
     "466": {
-      "op": "DUP1"
+      "op": "POP"
     },
     "467": {
-      "op": "DUP5"
-    },
-    "468": {
-      "op": "ADD"
+      "op": "PUSH1",
+      "value": "0x1F"
     },
     "469": {
-      "op": "SLOAD"
+      "op": "NOT"
     },
     "470": {
-      "op": "DUP2"
-    },
-    "471": {
       "op": "PUSH1",
-      "value": "0x5"
+      "value": "0x1F"
+    },
+    "472": {
+      "op": "DUP3"
     },
     "473": {
-      "op": "SHL"
-    },
-    "474": {
-      "op": "DUP5"
-    },
-    "475": {
-      "op": "ADD"
-    },
-    "476": {
-      "op": "MSTORE"
-    },
-    "477": {
-      "op": "PUSH1",
-      "value": "0x1"
-    },
-    "479": {
-      "op": "ADD"
-    },
-    "480": {
-      "op": "DUP2"
-    },
-    "481": {
-      "op": "DUP2"
-    },
-    "482": {
-      "op": "XOR"
-    },
-    "483": {
-      "op": "PUSH2",
-      "value": "0x1D1"
-    },
-    "486": {
-      "op": "JUMPI"
-    },
-    "487": {
-      "op": "JUMPDEST"
-    },
-    "488": {
-      "op": "POP"
-    },
-    "489": {
-      "op": "POP"
-    },
-    "490": {
-      "op": "POP"
-    },
-    "491": {
-      "op": "POP"
-    },
-    "492": {
-      "op": "POP"
-    },
-    "493": {
-      "op": "DUP1"
-    },
-    "494": {
       "op": "MLOAD"
     },
-    "495": {
-      "op": "DUP1"
-    },
-    "496": {
+    "474": {
       "op": "PUSH1",
       "value": "0x20"
+    },
+    "476": {
+      "op": "ADD"
+    },
+    "477": {
+      "op": "ADD"
+    },
+    "478": {
+      "op": "AND"
+    },
+    "479": {
+      "op": "SWAP1"
+    },
+    "480": {
+      "op": "POP"
+    },
+    "481": {
+      "op": "SWAP1"
+    },
+    "482": {
+      "op": "POP"
+    },
+    "483": {
+      "op": "DUP2"
+    },
+    "484": {
+      "op": "ADD"
+    },
+    "485": {
+      "op": "SWAP1"
+    },
+    "486": {
+      "op": "POP"
+    },
+    "487": {
+      "op": "DUP1"
+    },
+    "488": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "490": {
+      "op": "DUP4"
+    },
+    "491": {
+      "op": "ADD"
+    },
+    "492": {
+      "op": "MSTORE"
+    },
+    "493": {
+      "op": "PUSH1",
+      "value": "0x4"
+    },
+    "495": {
+      "op": "DUP4"
+    },
+    "496": {
+      "op": "ADD"
+    },
+    "497": {
+      "op": "DUP2"
     },
     "498": {
       "op": "DUP4"
@@ -2158,161 +2493,344 @@
       "op": "ADD"
     },
     "500": {
-      "op": "ADD"
+      "op": "DUP2"
     },
     "501": {
-      "op": "PUSH1",
-      "value": "0x1F"
+      "op": "SLOAD"
+    },
+    "502": {
+      "op": "DUP1"
     },
     "503": {
       "op": "DUP3"
     },
     "504": {
-      "op": "PUSH1",
-      "value": "0x0"
+      "op": "MSTORE"
     },
-    "506": {
-      "op": "SUB"
+    "505": {
+      "op": "PUSH1",
+      "value": "0x1"
     },
     "507": {
-      "op": "AND"
+      "op": "DUP4"
     },
     "508": {
-      "op": "CALLDATASIZE"
+      "op": "ADD"
     },
     "509": {
-      "op": "DUP3"
-    },
-    "510": {
-      "op": "CALLDATACOPY"
+      "op": "PUSH1",
+      "value": "0x20"
     },
     "511": {
-      "op": "POP"
+      "op": "DUP4"
     },
     "512": {
-      "op": "POP"
+      "op": "ADD"
     },
     "513": {
       "op": "PUSH1",
-      "value": "0x1F"
+      "value": "0x0"
     },
     "515": {
-      "op": "NOT"
+      "op": "DUP4"
     },
     "516": {
       "op": "PUSH1",
       "value": "0x1F"
     },
     "518": {
-      "op": "DUP3"
+      "op": "ADD"
     },
     "519": {
-      "op": "MLOAD"
-    },
-    "520": {
       "op": "PUSH1",
-      "value": "0x20"
+      "value": "0x5"
+    },
+    "521": {
+      "op": "SHR"
     },
     "522": {
-      "op": "ADD"
-    },
-    "523": {
-      "op": "ADD"
+      "op": "PUSH1",
+      "value": "0x4"
     },
     "524": {
-      "op": "AND"
+      "op": "DUP2"
     },
     "525": {
-      "op": "SWAP1"
+      "op": "GT"
     },
     "526": {
-      "op": "POP"
-    },
-    "527": {
-      "op": "SWAP1"
-    },
-    "528": {
-      "op": "POP"
+      "op": "PUSH2",
+      "value": "0x270"
     },
     "529": {
-      "op": "DUP2"
+      "op": "JUMPI"
     },
     "530": {
-      "op": "ADD"
+      "op": "DUP1"
     },
     "531": {
-      "op": "SWAP1"
+      "op": "ISZERO"
     },
     "532": {
-      "op": "POP"
-    },
-    "533": {
-      "op": "SWAP1"
-    },
-    "534": {
-      "op": "POP"
+      "op": "PUSH2",
+      "value": "0x22F"
     },
     "535": {
-      "op": "SWAP1"
+      "op": "JUMPI"
     },
     "536": {
-      "op": "POP"
-    },
-    "537": {
-      "op": "DUP2"
-    },
-    "538": {
-      "op": "ADD"
-    },
-    "539": {
       "op": "SWAP1"
     },
+    "537": {
+      "op": "JUMPDEST"
+    },
+    "538": {
+      "op": "DUP1"
+    },
+    "539": {
+      "op": "DUP5"
+    },
     "540": {
-      "op": "POP"
+      "op": "ADD"
     },
     "541": {
-      "op": "PUSH1",
-      "value": "0x40"
+      "op": "SLOAD"
+    },
+    "542": {
+      "op": "DUP2"
     },
     "543": {
-      "op": "RETURN"
-    },
-    "544": {
-      "op": "JUMPDEST"
+      "op": "PUSH1",
+      "value": "0x5"
     },
     "545": {
-      "op": "POP"
+      "op": "SHL"
     },
     "546": {
-      "op": "JUMPDEST"
+      "op": "DUP5"
     },
     "547": {
-      "op": "PUSH1",
-      "value": "0x0"
+      "op": "ADD"
+    },
+    "548": {
+      "op": "MSTORE"
     },
     "549": {
       "op": "PUSH1",
-      "value": "0x0"
+      "value": "0x1"
     },
     "551": {
-      "op": "REVERT"
+      "op": "ADD"
     },
     "552": {
-      "op": "JUMPDEST"
+      "op": "DUP2"
     },
     "553": {
+      "op": "DUP2"
+    },
+    "554": {
+      "op": "XOR"
+    },
+    "555": {
+      "op": "PUSH2",
+      "value": "0x219"
+    },
+    "558": {
+      "op": "JUMPI"
+    },
+    "559": {
+      "op": "JUMPDEST"
+    },
+    "560": {
+      "op": "POP"
+    },
+    "561": {
+      "op": "POP"
+    },
+    "562": {
+      "op": "POP"
+    },
+    "563": {
+      "op": "POP"
+    },
+    "564": {
+      "op": "POP"
+    },
+    "565": {
+      "op": "DUP1"
+    },
+    "566": {
+      "op": "MLOAD"
+    },
+    "567": {
+      "op": "DUP1"
+    },
+    "568": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "570": {
+      "op": "DUP4"
+    },
+    "571": {
+      "op": "ADD"
+    },
+    "572": {
+      "op": "ADD"
+    },
+    "573": {
+      "op": "PUSH1",
+      "value": "0x1F"
+    },
+    "575": {
+      "op": "DUP3"
+    },
+    "576": {
       "op": "PUSH1",
       "value": "0x0"
     },
-    "555": {
+    "578": {
+      "op": "SUB"
+    },
+    "579": {
+      "op": "AND"
+    },
+    "580": {
+      "op": "CALLDATASIZE"
+    },
+    "581": {
+      "op": "DUP3"
+    },
+    "582": {
+      "op": "CALLDATACOPY"
+    },
+    "583": {
+      "op": "POP"
+    },
+    "584": {
+      "op": "POP"
+    },
+    "585": {
+      "op": "PUSH1",
+      "value": "0x1F"
+    },
+    "587": {
+      "op": "NOT"
+    },
+    "588": {
+      "op": "PUSH1",
+      "value": "0x1F"
+    },
+    "590": {
+      "op": "DUP3"
+    },
+    "591": {
+      "op": "MLOAD"
+    },
+    "592": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "594": {
+      "op": "ADD"
+    },
+    "595": {
+      "op": "ADD"
+    },
+    "596": {
+      "op": "AND"
+    },
+    "597": {
+      "op": "SWAP1"
+    },
+    "598": {
+      "op": "POP"
+    },
+    "599": {
+      "op": "SWAP1"
+    },
+    "600": {
+      "op": "POP"
+    },
+    "601": {
+      "op": "DUP2"
+    },
+    "602": {
+      "op": "ADD"
+    },
+    "603": {
+      "op": "SWAP1"
+    },
+    "604": {
+      "op": "POP"
+    },
+    "605": {
+      "op": "SWAP1"
+    },
+    "606": {
+      "op": "POP"
+    },
+    "607": {
+      "op": "SWAP1"
+    },
+    "608": {
+      "op": "POP"
+    },
+    "609": {
+      "op": "DUP2"
+    },
+    "610": {
+      "op": "ADD"
+    },
+    "611": {
+      "op": "SWAP1"
+    },
+    "612": {
+      "op": "POP"
+    },
+    "613": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "615": {
+      "op": "RETURN"
+    },
+    "616": {
+      "op": "JUMPDEST"
+    },
+    "617": {
+      "op": "POP"
+    },
+    "618": {
+      "op": "JUMPDEST"
+    },
+    "619": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "621": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "623": {
+      "op": "REVERT"
+    },
+    "624": {
+      "op": "JUMPDEST"
+    },
+    "625": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "627": {
       "op": "DUP1"
     },
-    "556": {
+    "628": {
       "op": "REVERT"
     }
   },
-  "sha1": "6bbab7c484bea416648441c934f974791cd0cbe1",
-  "source": "# @version 0.3.7\n#Dependent: None \n#Dependent on me: Idalis Mczeal \nnum: uint256 \nstruct Erc20Token:\n    addr: address\n    decimals: uint256\n    symbol: String[16]\n    hashImag: String[100]\nhashie: public (HashMap[uint256, Erc20Token])\n@external\ndef __init__():\n    return \n\n# hashmap that contains the product sha and the image url \n# method to add to hashmap ()\n@external\ndef createBoundNFT(productOwner: address, uRL: String[100]):\n    self.hashie[self.num] = Erc20Token({\n        addr: productOwner,\n        decimals: 18,\n        symbol: \"WVC\",\n        hashImag: uRL\n        })\n    self.num += 1\n\n\n\n\n\n\n\n\n",
+  "sha1": "c946f04a22a06685605034f15c83bc7612f7b0a9",
+  "source": "# @version 0.3.7\n#Dependent: None \n#Dependent on me: Idalis Mczeal \nnum: uint256 \nstruct Erc20Token:\n    addr: address\n    decimals: uint256\n    symbol: String[16]\n    hashImag: String[100]\n\nhashie: public (HashMap[uint256, Erc20Token])\n\n@external\ndef __init__():\n    return \n\n# hashmap that contains the product sha and the image url \n# method to add to hashmap ()\n@external\ndef createBoundNFT(productOwner: address, uRL: String[100]):\n    self.hashie[self.num] = Erc20Token({\n        addr: productOwner,\n        decimals: 18,\n        symbol: \"WVC\",\n        hashImag: uRL\n        })\n    self.num += 1\n\n@external\ndef redeemProduct(NFTid : uint256) -> bool:\n    if (msg.sender == self.hashie[NFTid].addr):\n        return True\n    else:\n        return False\n\n\n\n\n\n\n\n\n",
   "sourceMap": "",
   "sourcePath": "contracts/BookstoreNFT.vy",
   "type": "contract"
