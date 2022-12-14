@@ -16,10 +16,12 @@ def addMoney (amount: uint256):
 def setElectedOfficials (newEleectedOfficials: DynArray [address,3]):
     self.electedOfficials = newEleectedOfficials
 
+@view
 @external
-def getMoney() -> uint256:
+def getMoney() -> uint256: 
     return self.moneyStored
 
+@view
 @external
 def getElectedOfficials() -> DynArray[address, 3]:
     return self.electedOfficials
