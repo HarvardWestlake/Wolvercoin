@@ -14,25 +14,26 @@ topicsAddress: DynArray[address, 1000]
 percentage: uint256
 classSize: uint256
 
-@external
+@internal
 def vote(voter: address):
     isIn: bool = False
     for studentAddress in self.topicsAddress: #find index of address of candidate in topics addresses
-            if studentAddress==candidate:
+            if studentAddress==voter:
                 isIn = True
                 break
     if isIn == True:
         self.removeNonTopics(voter)
-        self.balance+=1
+        send(voter,1)
      
     if self.admin[voter]:
-        self.balance+=0.15*classSize
+        send(voter,(15/100)*self.classSize)
 
 @external
-def tallyVotes(voter: address):
-     if self.percentage >= 0.5:
+def tallyVotes(voter: address)-> bool:
+     if self.percentage >= 50:
         self.removeNonTopics(voter)
         return True
+     return False
 
 @external
 def addNonTopics(candidate: address):
@@ -40,7 +41,7 @@ def addNonTopics(candidate: address):
     if self.percentage>=1:#assuming percentage doesnt change immediately after vote method is called
         self.topicsAddress.append(candidate)
 
-@external
+@internal
 def removeNonTopics(candidate: address):
     #self.vote() #function 1 in tech spec, to be written by someone else
     if self.percentage>=1:#assuming percentage doesnt change immediately after vote method is called
