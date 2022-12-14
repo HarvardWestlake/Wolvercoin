@@ -40,7 +40,7 @@ def voteProposal(proposalNumber : uint256):
 
 
 # doesn't work- commenting out for now
-@external
+# external
 # def donate(_from : address, _to : address, _value : uint256) -> bool:
    # """
    #  @dev Transfer tokens from one address to another.
