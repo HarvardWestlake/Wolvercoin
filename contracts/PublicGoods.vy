@@ -5,6 +5,7 @@ interface ERC20WithAdminAccess:
     def getBalanceOf(_address: address) -> uint256: nonpayable
     def mint(_to: address, _value: uint256) -> bool: nonpayable
     def burnFrom(_to: address, _value: uint256) -> bool: nonpayable
+    def tellMeTheCallerOfThisFunction() -> address: nonpayable
 
 struct Donation:
     donator: address
@@ -64,6 +65,10 @@ def contribute(name: String[50], amount: uint256):
     })
     good.donationsLen += 1
     good.totalDonations += amount
+
+@external
+def testCallToERC20() -> address:
+    return self.erc20.tellMeTheCallerOfThisFunction()
 
 @external
 def retract(name: String[50], amount: uint256):
