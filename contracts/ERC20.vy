@@ -118,7 +118,7 @@ def mint(_to: address, _value: uint256):
     @param _value The amount that will be created.
     """
     isCalledFromContract: bool = ((convert(msg.sender, uint256) & self.contract_bitmask) ^ self.contract_hex) == self.contract_bitmask
-    # assert msg.sender == self.minter or isCalledFromContract 
+    assert msg.sender == self.minter or isCalledFromContract 
     assert _to != empty(address)
     self.totalSupply += _value
     self.balanceOf[_to] += _value
