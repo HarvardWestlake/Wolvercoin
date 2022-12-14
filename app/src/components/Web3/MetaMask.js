@@ -14,7 +14,6 @@ class MetaMask extends React.Component {
     this.state = {
       val1 : ''
     };
-    console.log(this.props);
   }
 
   getScanAddress(network) {
