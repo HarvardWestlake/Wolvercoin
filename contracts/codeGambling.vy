@@ -10,7 +10,7 @@ pot: public(address)
 
 @external 
 def __init__(_pot: address, wolvercoinAddress: address):
-    self.justCrashed = False
+    self.justCrashed = True
     self.crashBets[msg.sender] = 0
     self.multiplier = 0
     self.pot = _pot
@@ -20,8 +20,11 @@ def placeBets(gambler: address, amount: uint256):
     assert msg.sender == gambler
     assert self.justCrashed != False
     assert self.wolvercoinContract.getBalanceOf(msg.sender) > amount
-    self.crashBets[gambler] = amount
-    self.wolvercoinContract.transferFrom(gambler, self.pot, amount)
+    #self.crashBets[gambler] = amount
+    return
+    #self.wolvercoinContract.transferFrom(gambler, self.pot, amount)
+
+@view
 @external 
 def getHashValue() -> uint256: 
     return self.crashBets[msg.sender] 

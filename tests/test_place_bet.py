@@ -94,8 +94,10 @@ def test_setContractMaintainer(votingContract, accounts):
 # @dev basic testing for placeBet 
 # @author Ava Weinrot 
 @pytest.fixture
-def gamblingContract(codeGambling, accounts):
-    return codeGambling.deploy(account[1], {'from': accounts[0]})
-def test_placeBets()
-    gamblingContract.placeBets(accounts, 12)
-   assert gamblingContract.getHashValue(accounts) == 12
+def gamblingContract(Wolvercoin, codeGambling, accounts):
+    wolvercoinPointer = Wolvercoin.deploy("wolvercoin", "wvc", 18, 1000,{'from': accounts[0]})
+    return codeGambling.deploy(accounts[1], wolvercoinPointer, {'from': accounts[0]})
+
+def test_placeBets(gamblingContract, accounts):
+    gamblingContract.placeBets(accounts[0], 12,{'from': accounts[0]})
+    assert gamblingContract.getHashValue() == 12
