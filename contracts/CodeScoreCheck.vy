@@ -3,20 +3,24 @@
 
 interface Wolvercoin:
     def transfer(_to : address, _value : uint256) -> bool: view
+    def getBalanceOf (_user: address) -> uint256: view
 
+wolvercoinContract: public(Wolvercoin)
 theissHighScore: uint256
-users: HashMap[address, String[300]]
-newScore: uint256
+users: HashMap[address, uint256]
 
 @external
-def __init__():
-    return True
+def __init__(wolvercoinAddress: address):
+    self.wolvercoinContract = Wolvercoin(wolvercoinAddress)
+    self.theissHighScore = 72
+    self.users[msg.sender] = 0
 
 @external
-def compareHighScores (uint256: newScore, address: name) -> String[100]:
-    if users[name, newScore] == 0:
-        if newScore > theissHighScore:
-            transfer(name, 2.14*self.balanceOf[msg.sender])
+def compareHighScores (name: address, score: uint256) -> String[100]:
+    if self.users[name] == 0:
+        if score > self.theissHighScore:
+            self.wolvercoinContract.transfer(name, 2*(self.wolvercoinContract.getBalanceOf(msg.sender)))
+
             return "You beat Mr. Theiss! Epic Gamer Moment!"
         else:
             return "You did not beat Mr. Theiss."
@@ -25,5 +29,4 @@ def compareHighScores (uint256: newScore, address: name) -> String[100]:
 
 @external
 def getHighScore() -> uint256:
-    return theissHighScore
-
+    return self.theissHighScore
