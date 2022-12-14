@@ -42,7 +42,6 @@ def voteProposal(proposalNumber : uint256):
     self.alreadyVotedProposal.append(self)
 
 
-
 # doesn't work- commenting out for now
 # external
 # def donate(_from : address, _to : address, _value : uint256) -> bool:
