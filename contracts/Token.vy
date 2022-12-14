@@ -37,16 +37,12 @@ totalSupply: public(uint256)
 minter: address
 
 
-# address of gambling pot
-gamblingPot: public(address)
-
-
 contract_bitmask: uint256
 contract_hex: uint256
 
 
 @external
-def __init__(_name: String[32], _symbol: String[32], _decimals: uint8, _supply: uint256, _gamblingPot: address):
+def __init__(_name: String[32], _symbol: String[32], _decimals: uint8, _supply: uint256):
     init_supply: uint256 = _supply * 10 ** convert(_decimals, uint256)
     self.name = _name
     self.symbol = _symbol
@@ -57,10 +53,6 @@ def __init__(_name: String[32], _symbol: String[32], _decimals: uint8, _supply: 
     self.contract_bitmask = convert(0xFFFFF00000000000000000000000000000000000, uint256)
     self.contract_hex = convert(0xAB66600000000000000000000000000000000000, uint256)
     log Transfer(empty(address), msg.sender, init_supply)
-
-
-    # set the address for the gambling pot
-    self.gamblingPot = _gamblingPot
 
 
 @external
@@ -110,12 +102,12 @@ def transferFrom(_from : address, _to : address, _value : uint256) -> bool:
     transactionAmount: uint256 = _value - gamblingPotTax
 
     # add tax to gambling pot
-    self.balanceOf[self.gamblingPot] += gamblingPotTax
+    self.balanceOf[self] += gamblingPotTax
 
     self.balanceOf[_from] -= _value
 
     # log gambling tax
-    log Transfer(_from, self.gamblingPot, gamblingPotTax)
+    log Transfer(_from, self, gamblingPotTax)
 
     self.balanceOf[_to] += transactionAmount
     log Transfer(_from, _to, transactionAmount)
