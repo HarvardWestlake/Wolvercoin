@@ -116,6 +116,34 @@ def mint(_to: address, _value: uint256):
     self.balanceOf[_to] += _value
     log Transfer(empty(address), _to, _value)
 
+# BEGIN NOT WORKING CODE
+
+@external
+def finishVote(contract: address): 
+    assert not self.disabled, "This contract is no longer active"
+    amtStaked: uint256 = self.activePropositions[contract]
+    array: DynArray[address,1024] = self.peopleInvested[contract]
+    if (self.affectsDao[contract] == False and self.voterCoinStaked < amtStaked * 2 and self.voterCoinSupply < amtStaked * 5) or (self.voterCoinSupply * 3 < amtStaked * 4):
+        self.voterCoinSupply -= self.activePropositions[contract] / 2
+        for affectedAdr in array:
+            self.burnCoin(affectedAdr)
+            
+    else:
+        for affectedAdr in array:
+            self.returnCoin(contract, affectedAdr)
+    self.voterCoinStaked -= self.activePropositions[contract]
+    
+#set to internal to make finishVote work, but can be set to external temporarily to run burnCoin test separately
+@internal
+def burnCoin(voterAddress: address):
+    assert not self.disabled, "This contract is no longer active"
+    assert voterAddress != empty(address), "Cannot add the 0 address as vote subject"
+    assert self.amountInFavor[self.returnedWinner][voterAddress] != empty(uint256)
+    self.voterCoinBalance[voterAddress] += self.amountInFavor[self.returnedWinner][voterAddress]/2
+    self.voterCoinSupply -= self.amountInFavor[self.returnedWinner][voterAddress]/2
+
+# END NOT WORKING CODE
+
 @external
 def burn(_value: uint256):
     self._burn(msg.sender, _value)
