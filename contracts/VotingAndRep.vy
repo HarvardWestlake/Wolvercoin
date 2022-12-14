@@ -1,9 +1,9 @@
 # @version 0.3.7
 
-# @dev An rundementary implementation of a voting system 
-# @author Evan Stokdyk (@Focus172)
+interface ActiveUser:
+    def getAdmin(a: address) -> bool: view
 
-# VotingAndRep.vy
+activeUserAddress: public(ActiveUser)
 
 # list of variables that are only referenced internally
 
@@ -30,10 +30,12 @@ storedDonation: public(HashMap[address, uint256])
 voteDuration: public(uint256)
 # percent needed
 # super percent needed
-contractMaintainer: public(address)
-
-
+# contractMaintainer: public(address)
 disabled: bool
+
+# temporary storage
+# a status temporaryly granted to the contract if the choose to affect the DAO
+allowedToAffectDao: address
 
 event VoteStarted:
     subjectContract: address
@@ -41,11 +43,11 @@ event VoteStarted:
     amountSent: uint256
 
 @external
-def __init__ ():
+def __init__ (activeUserAddress: address):
     self.voteDuration = 100
-    self.contractMaintainer = msg.sender
     self.disabled = False
-
+    self.allowedToAffectDao = empty(address)
+    self.activeUserAddress = ActiveUser(activeUserAddress)
    
 # @dev This creates a new proposition for people to vote on
 # @param contract address The contract that will be given ran with adminstrator on vote sucsess
@@ -63,11 +65,7 @@ def proposeVote (contract: address, explaination: String[255]):
     # NOTE: the below code currently means the same charity cannot recive money twice, this should be fixed
     assert self.endBlock[contract] == 0, "A vote has already been created for that address"
 
-    # Implementation is near impossible
-    # curAffectsDAO: bool = True
-
     # main body of the code
-    # self.affectsDao[contract] = curAffectsDAO
     self.endBlock[contract] = block.number + self.voteDuration
     self.storedDonation[contract] = msg.value
 
@@ -76,13 +74,6 @@ def proposeVote (contract: address, explaination: String[255]):
 
 @external
 def setDisabled(newState: bool):
-    assert msg.sender == self.contractMaintainer, "Only the maintainer can change the contract state"
+    assert self.activeUserAddress.getAdmin(msg.sender) or msg.sender == self.allowedToAffectDao, "Only the maintainer or a contract allowed to affect the Dao can change the contract state"
 
     self.disabled = newState
-
-@external 
-def setContractMaintainer(newMaintainer: address):
-    assert msg.sender == self.contractMaintainer, "Only the maintainer or DAO can change the maintainer"
-    assert newMaintainer != empty(address), "You can't remove the maintainer"
-
-    self.contractMaintainer = newMaintainer
