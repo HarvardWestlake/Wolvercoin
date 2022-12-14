@@ -30,6 +30,7 @@ allowance: public(HashMap[address, HashMap[address, uint256]])
 # By declaring `totalSupply` as public, we automatically create the `totalSupply()` getter
 totalSupply: public(uint256)
 minter: address
+totalOfTransactions: public(uint256)
 
 
 @external
@@ -63,6 +64,7 @@ def transfer(_to : address, _value : uint256) -> bool:
     #       so the following subtraction would revert on insufficient balance
     self.balanceOf[msg.sender] -= _value
     self.balanceOf[_to] += _value
+    self.totalOfTransactions += _value
     log Transfer(msg.sender, _to, _value)
     return True
 
@@ -82,6 +84,7 @@ def transferFrom(_from : address, _to : address, _value : uint256) -> bool:
     # NOTE: vyper does not allow underflows
     #      so the following subtraction would revert on insufficient allowance
     self.allowance[_from][msg.sender] -= _value
+    self.totalOfTransactions += _value
     log Transfer(_from, _to, _value)
     return True
 
@@ -164,3 +167,11 @@ def burnFrom(_to: address, _value: uint256):
     """
     self.allowance[_to][msg.sender] -= _value
     self._burn(_to, _value)
+
+#might be useless
+@external
+def takeTenPercent() -> uint256: 
+    temp:uint256 = self.totalOfTransactions/10
+    if self.totalOfTransactions != 0:
+        self.totalOfTransactions = self.totalOfTransactions - temp
+    return temp 
