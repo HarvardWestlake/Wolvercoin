@@ -1,5 +1,6 @@
 {
   "contracts": {
+    "BookstoreNFT": "ab84f703741cd0242cdab2a9e87ce20048eaeb4d",
     "VotingAndRep": "2b6d9c2ba5b719a2c43ba0e10beb0e921147fa8f"
   },
   "tests": {
