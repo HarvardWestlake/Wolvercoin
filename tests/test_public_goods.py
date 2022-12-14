@@ -5,8 +5,8 @@ import brownie
 DEFAULT_GAS = 100000
 
 @pytest.fixture
-def erc20Contract(ERC20, accounts):
-    return ERC20.deploy(
+def erc20Contract(Token, accounts):
+    return Token.deploy(
         "Wolvercoin", # _name
         "WVC", # _symbol
         18, # _decimals
