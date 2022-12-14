@@ -121,26 +121,47 @@ def mint(_to: address, _value: uint256):
 @external
 def finishVote(contract: address): 
     assert not self.disabled, "This contract is no longer active"
+    assert endBlock[contract] != 0 and endBlock[contract] >= block.number, "this contract either doesn't exist or hasnt ended"
+
     amtStaked: uint256 = self.activePropositions[contract]
     array: DynArray[address,1024] = self.peopleInvested[contract]
-    if (self.affectsDao[contract] == False and self.voterCoinStaked < amtStaked * 2 and self.voterCoinSupply < amtStaked * 5) or (self.voterCoinSupply * 3 < amtStaked * 4):
-        self.voterCoinSupply -= self.activePropositions[contract] / 2
-        for affectedAdr in array:
-            self.burnCoin(affectedAdr)
-            
+
+    # if the vote affects the dao and passes the threshold
+    if (self.affectsDao[containing] and self.activePropositions[address] * 3 > totalSupply * 4) :
+        for voter in self.activePropositions[address]:
+            burnCoinOnWin(voter, contract)
+        # allow to affect DAO
+        runCode(contract)
+        resetVotablity(contract)
+    elif(self.activePropositions[address] * 2 > totalSupply):
+        for voter in self.activePropositions[address]:
+            burnCoinOnWin(voter, contract)
+        runCode(contract)
+        resetVotablity(contract)
     else:
-        for affectedAdr in array:
-            self.returnCoin(contract, affectedAdr)
-    self.voterCoinStaked -= self.activePropositions[contract]
+        for voter in self.activePropositions[address]:
+            returnCoinOnLose(voter, contract)
     
-#set to internal to make finishVote work, but can be set to external temporarily to run burnCoin test separately
 @internal
-def burnCoin(voterAddress: address):
-    assert not self.disabled, "This contract is no longer active"
-    assert voterAddress != empty(address), "Cannot add the 0 address as vote subject"
-    assert self.amountInFavor[self.returnedWinner][voterAddress] != empty(uint256)
-    self.voterCoinBalance[voterAddress] += self.amountInFavor[self.returnedWinner][voterAddress]/2
-    self.voterCoinSupply -= self.amountInFavor[self.returnedWinner][voterAddress]/2
+def runCode(contract: address):
+    # code stuff
+
+@internal
+def resetVotablity(contract: address):
+    # code stuff
+
+# called by finish vote at the end of vote when proposition wins 
+@internal
+def burnCoinOnWin(voterAddress: address, finishedContract: address):
+    self.voterCoinBalance[voterAddress] += shift(self.amountInFavor[self.returnedWinner][voterAddress], -1)
+    self.voterCoinSupply -= shift(self.amountInFavor[self.returnedWinner][voterAddress], -1)
+
+# called by finish vote at end of vote when a proposition loses
+@internal
+def returnCoinOnLose(voterAddress: address, finishedContract: address):
+    self.voterCoinBalance[voterAddress] += self.amountInFavor[self.returnedWinner][voterAddress]
+    self.voterCoinSupply -= self.amountInFavor[self.returnedWinner][voterAddress]
+
 
 # END NOT WORKING CODE
 
