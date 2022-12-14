@@ -5,16 +5,21 @@ import brownie
 from web3.exceptions import ValidationError
 
 @pytest.fixture
-def testVote():
+def exclusivityContract(Exclusivity, accounts):
+    return Exclusivity.deploy("0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", {'from': accounts[1]})
+
+@pytest.fixture
+def testVote(Exclusivity,accounts):
+    return Exclusivity.deploy("0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", {'from': accounts[1]})
     exclusivity: Exclusivity=Exclusivity()
-    exclusivity.classSize = 100
+    Exclusivity.classSize = 100
     exclusivity.topicsAddress.append(0xf34b09E22f5115af490eeb7460304aB80c90399E)
     exclusivity.vote(0xf34b09E22f5115af490eeb7460304aB80c90399E)
     valueChanged: bool=False
     if balance(0xf34b09E22f5115af490eeb7460304aB80c90399E)>=1:
             valueChanged = True
     assert valueChanged
-    valueChanged = false
+    valueChanged = False
     
     exclusivity.admin[0xf34b09E22f5115af490eeb7460304aB80c90399E] = True
     exclusivity.vote(0xf34b09E22f5115af490eeb7460304aB80c90399E)
