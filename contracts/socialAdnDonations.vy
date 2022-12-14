@@ -33,7 +33,6 @@ def endVoteOfficial():
 
 @external
 def voteProposal(proposalNumber : uint256):
-   def voteProposal(proposalNumber : uint256):
     assert proposalNumber <= 2  
     assert proposalNumber >= 0
     for i in self.alreadyVotedProposal:
