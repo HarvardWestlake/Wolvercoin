@@ -1,18 +1,9 @@
-# @version ^0.3.7
-#Interface:
-#   ActiveUser:
-#       getActiveUser
-#       getAdmin
-#To be Interfaced:
-#   amountAvailable
-#dependent on:
-#   transfer (should call incrementAccountVCBal(amount being))
-#depends on us:
-#   theoretically all contracts, as we can edit the contract via changing the proxy
-# @dev An rundementary implementation of a voting system 
-# @author Gavin Goldsmith (@Gav-G)
+# @version 0.3.7
 
-# VotingAndRep.vy
+interface ActiveUser:
+    def getAdmin(a: address) -> bool: view
+
+activeUserAddress: public(ActiveUser)
 
 from vyper.interfaces import ERC20
 from vyper.interfaces import ERC20Detailed
@@ -70,7 +61,12 @@ returnedWinner: address
 voteDuration: public(uint256)
 # percent needed
 # super percent needed
-contractMaintainer: public(address)
+# contractMaintainer: public(address)
+disabled: bool
+
+# temporary storage
+# a status temporaryly granted to the contract if the choose to affect the DAO
+allowedToAffectDao: address
 
 event VoteStarted:
     subjectContract: address
@@ -83,31 +79,10 @@ disabled: bool
 @external
 def __init__ (activeUserAddress: address):
     self.voteDuration = 100
-    self.contractMaintainer = msg.sender
     self.disabled = False
-    self.activeUserContract = ActiveUser(activeUserAddress)
-
-    # more token things
-    self.name = "VoterCoin"
-    self.symbol = "WvcVc"
-    self.decimals = 18
-    self.totalSupply = 0
-    self.minter = msg.sender
-
-@external
-def hasCoin (user: address, proposal: address) -> (uint256):
-    assert not self.disabled, "checks if contract is not disabled"
-    # assert self.activeUserContract.getActiveUser(user) == True #"checks if user is active" add later when exclusivity is done
-    # assert proposal in self.ammountInFavor, "checks if the proposal exists"
-    return self.amountInFavor[proposal][user]
-
-@external 
-def amountAvailable (user: address) -> (uint256):
-    assert not self.disabled, "checks if contract is not disabled"
-    # assert self.activeUserContract.getActiveUser(user) == True #"checks if user is active", add later when exclusivity is done
-    amount: uint256 = self.balanceOf[user]
-    return amount #"gets how much coin they have that is not invested"
-
+    self.allowedToAffectDao = empty(address)
+    self.activeUserAddress = ActiveUser(activeUserAddress)
+   
 # @dev This creates a new proposition for people to vote on
 # @param contract address The contract that will be given ran with adminstrator on vote sucsess
 # @param payable wei The WvC that will be sent to the executed contract on a sucsess
@@ -125,11 +100,7 @@ def proposeVote (contract: address, explaination: String[255]) -> (bool):
     # NOTE: the below code currently means the same charity cannot recive money twice, this should be fixed
     assert self.endBlock[contract] == 0, "A vote has already been created for that address"
 
-    # Implementation is near impossible
-    # curAffectsDAO: bool = True
-
     # main body of the code
-    # self.affectsDao[contract] = curAffectsDAO
     self.endBlock[contract] = block.number + self.voteDuration
     self.storedDonation[contract] = msg.value
 
@@ -211,13 +182,6 @@ def burnFrom(_to: address, _value: uint256):
 
 @external
 def setDisabled(newState: bool):
-    assert msg.sender == self.contractMaintainer, "Only the maintainer can change the contract state"
+    assert self.activeUserAddress.getAdmin(msg.sender) or msg.sender == self.allowedToAffectDao, "Only the maintainer or a contract allowed to affect the Dao can change the contract state"
 
     self.disabled = newState
-
-@external 
-def setContractMaintainer(newMaintainer: address):
-    assert msg.sender == self.contractMaintainer, "Only the maintainer or DAO can change the maintainer"
-    assert newMaintainer != empty(address), "You can't remove the maintainer"
-
-    self.contractMaintainer = newMaintainer
