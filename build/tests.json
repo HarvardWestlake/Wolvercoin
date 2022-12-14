@@ -4,7 +4,7 @@
     "ERC20": "ed18f7176799ef070baeb860f08e3c37f557ffd3",
     "Reimbursement": "846b1d910193c44201d3fc3c764fc2ddd1cdd33f",
     "Stake": "d4f4587ea9960e2b28f6e2213370070cac95d060",
-    "VotingAndRep": "1fd8617f0a11e53d039ed2a386b9754f60eabb88",
+    "VotingAndRep": "f690819c5d9e1c0809924c15c483e9a708e22a11",
     "Wolvercoin": "ed18f7176799ef070baeb860f08e3c37f557ffd3"
   },
   "tests": {
@@ -41,23 +41,23 @@
       "coverage": false,
       "isolated": false,
       "results": "FF....FFF",
-      "sha1": "75b0d24565168cef7da9cae2a9e8a4ced05f78e8",
+      "sha1": "9685c80f5a1de7115038ed8a600414fbeaf8227d",
       "txhash": [
-        "2ad1baa313fc9c5bbd7823234e32d828de0efda3",
-        "920f8822fd9e586b3a5fb489c6ba3510ba6483c6",
-        "cfccf0824a68927b962f15aff0443db5ad40ecb3"
+        "054c9b35a572ad1c0986b8a755a66be249aa1b7f",
+        "69cd8097c9e5d80b3729713c7a6be1ce909e4efd",
+        "9ce11dbabc066fed08115cd3c8ab1ca633fd40cf"
       ]
     }
   },
   "tx": {
-    "2ad1baa313fc9c5bbd7823234e32d828de0efda3": {
+    "054c9b35a572ad1c0986b8a755a66be249aa1b7f": {
       "VotingAndRep": {
         "0": [
           [
-            23
+            29
           ],
           [
-            24
+            30
           ],
           []
         ]
@@ -103,6 +103,19 @@
         ]
       }
     },
+    "69cd8097c9e5d80b3729713c7a6be1ce909e4efd": {
+      "VotingAndRep": {
+        "0": [
+          [
+            0
+          ],
+          [
+            1
+          ],
+          []
+        ]
+      }
+    },
     "6c8ad8090c8cf05cbac07075ab72d747b8dbbc30": {
       "Stake": {
         "0": [
@@ -118,14 +131,14 @@
         ]
       }
     },
-    "920f8822fd9e586b3a5fb489c6ba3510ba6483c6": {
+    "9ce11dbabc066fed08115cd3c8ab1ca633fd40cf": {
       "VotingAndRep": {
         "0": [
           [
-            20
+            26
           ],
           [
-            21
+            27
           ],
           []
         ]
@@ -151,19 +164,6 @@
           ],
           [
             2
-          ],
-          []
-        ]
-      }
-    },
-    "cfccf0824a68927b962f15aff0443db5ad40ecb3": {
-      "VotingAndRep": {
-        "0": [
-          [
-            0
-          ],
-          [
-            1
           ],
           []
         ]

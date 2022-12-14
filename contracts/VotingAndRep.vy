@@ -54,6 +54,28 @@ interface ActiveUser:
 
 activeUserContract: public(ActiveUser)
 
+#setters and getters
+@external
+def getAccountVCBal (account: address) -> uint256:
+    return self.voterCoinBalance[account]
+@external
+def setAccountVCBal (account: address, newAmount: uint256):
+    self.voterCoinBalance[account] = newAmount
+@external
+def incrementAccountVCBal (account: address, increment: uint256):
+    self.voterCoinBalance[account] += increment
+
+@external
+def setVoterCoinSupply (nVoterCoinSupply: uint256):
+    self.voterCoinSupply = nVoterCoinSupply
+@external
+def getVoterCoinSupply () -> (uint256):
+    return self.voterCoinSupply
+
+@external
+def setActiveProposition(proposition: address, amount: uint256):
+    self.activePropositions[proposition] = amount
+
 @external
 def __init__ (activeUserAddress: address):
     self.voteDuration = 100
