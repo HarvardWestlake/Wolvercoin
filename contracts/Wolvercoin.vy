@@ -1,15 +1,10 @@
 # @version ^0.3.7
-# @dev Implementation of ERC-20 token standard.
-# @author Takayuki Jimba (@yudetamago)
-# https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md
 
 from vyper.interfaces import ERC20
 from vyper.interfaces import ERC20Detailed
 
 implements: ERC20
 implements: ERC20Detailed
-
-
 
 event Transfer:
     sender: indexed(address)
@@ -37,16 +32,8 @@ totalSupply: public(uint256)
 minter: address
 
 
-# address of gambling pot
-gamblingPot: public(address)
-
-
-contract_bitmask: uint256
-contract_hex: uint256
-
-
 @external
-def __init__(_name: String[32], _symbol: String[32], _decimals: uint8, _supply: uint256, _gamblingPot: address):
+def __init__(_name: String[32], _symbol: String[32], _decimals: uint8, _supply: uint256):
     init_supply: uint256 = _supply * 10 ** convert(_decimals, uint256)
     self.name = _name
     self.symbol = _symbol
@@ -54,23 +41,16 @@ def __init__(_name: String[32], _symbol: String[32], _decimals: uint8, _supply: 
     self.balanceOf[msg.sender] = init_supply
     self.totalSupply = init_supply
     self.minter = msg.sender
-    self.contract_bitmask = convert(0xFFFFF00000000000000000000000000000000000, uint256)
-    self.contract_hex = convert(0xAB66600000000000000000000000000000000000, uint256)
     log Transfer(empty(address), msg.sender, init_supply)
-
-
-    # set the address for the gambling pot
-    self.gamblingPot = _gamblingPot
 
 
 @external
 def getBalanceOf(_user: address) -> uint256:
     return self.balanceOf[_user]
 
-
 @external
-def getApprovedAmountOf(_user: address, _spender: address) -> uint256:
-    return self.allowance[_user][_spender]
+def getAllowanceOf(_from: address) -> uint256:
+    return self.allowance[_from][msg.sender]
 
 @external
 def transfer(_to : address, _value : uint256) -> bool:
@@ -97,29 +77,12 @@ def transferFrom(_from : address, _to : address, _value : uint256) -> bool:
     """
     # NOTE: vyper does not allow underflows
     #       so the following subtraction would revert on insufficient balance
-
-    # calculate the 3.5% tax for the gambling pot, and floor the value
-    gamblingPotTax: uint256 = convert(
-        floor(
-            convert(_value, decimal) * 0.035
-            ),
-        uint256
-        )
-
-    # calculate the real transaction amount
-    transactionAmount: uint256 = _value - gamblingPotTax
-
-    # add tax to gambling pot
-    self.balanceOf[self.gamblingPot] += gamblingPotTax
-
     self.balanceOf[_from] -= _value
-
-    # log gambling tax
-    log Transfer(_from, self.gamblingPot, gamblingPotTax)
-
-    self.balanceOf[_to] += transactionAmount
-    log Transfer(_from, _to, transactionAmount)
-
+    self.balanceOf[_to] += _value
+    # NOTE: vyper does not allow underflows
+    #      so the following subtraction would revert on insufficient allowance
+    self.allowance[_from][msg.sender] -= _value
+    log Transfer(_from, _to, _value)
     return True
 
 
@@ -138,6 +101,20 @@ def approve(_spender : address, _value : uint256) -> bool:
     log Approval(msg.sender, _spender, _value)
     return True
 
+@external
+def allow(_spender : address, _value : uint256) -> bool:
+    """
+    @dev Approve the passed address to spend the specified amount of tokens on behalf of msg.sender.
+         Beware that changing an allowance with this method brings the risk that someone may use both the old
+         and the new allowance by unfortunate transaction ordering. One possible solution to mitigate this
+         race condition is to first reduce the spender's allowance to 0 and set the desired value afterwards:
+         https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729
+    @param _spender The address which will spend the funds.
+    @param _value The amount of tokens to be spent.
+    """
+    self.allowance[_spender][msg.sender] = _value
+    log Approval(_spender, msg.sender, _value)
+    return True
 
 @external
 def mint(_to: address, _value: uint256):
@@ -148,8 +125,7 @@ def mint(_to: address, _value: uint256):
     @param _to The account that will receive the created tokens.
     @param _value The amount that will be created.
     """
-    isCalledFromContract: bool = ((convert(msg.sender, uint256) & self.contract_bitmask) ^ self.contract_hex) == self.contract_bitmask
-    assert msg.sender == self.minter or isCalledFromContract
+    assert msg.sender == self.minter
     assert _to != empty(address)
     self.totalSupply += _value
     self.balanceOf[_to] += _value
@@ -160,7 +136,7 @@ def mint(_to: address, _value: uint256):
 def _burn(_to: address, _value: uint256):
     """
     @dev Internal function that burns an amount of the token of a given
-    account.
+         account.
     @param _to The account whose tokens will be burned.
     @param _value The amount that will be burned.
     """
@@ -168,7 +144,6 @@ def _burn(_to: address, _value: uint256):
     self.totalSupply -= _value
     self.balanceOf[_to] -= _value
     log Transfer(_to, empty(address), _value)
-    return
 
 
 @external
@@ -179,6 +154,7 @@ def burn(_value: uint256):
     """
     self._burn(msg.sender, _value)
 
+
 @external
 def burnFrom(_to: address, _value: uint256):
     """
@@ -188,6 +164,3 @@ def burnFrom(_to: address, _value: uint256):
     """
     self.allowance[_to][msg.sender] -= _value
     self._burn(_to, _value)
-@external
-def generate_random_number(maxVal: uint256) -> uint256:
-    return block.timestamp % maxVal
