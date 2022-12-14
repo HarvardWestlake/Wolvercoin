@@ -69,15 +69,16 @@ def contribute(name: String[50], amount: uint256):
 @external
 def retract(name: String[50], amount1: uint256):
     good: Good = self.goods[name]
+    assert good.name == name
     for i in range(50):
         if i >= good.donationsLen:
             break
-        if (good.name == name):
-            donation: Donation = good.donations[i]
-            if (amount1 <= donation.amount):
-                donation.amount = donation.amount - amount1
-                self.erc20.mint(donation.donator, amount1)
+        if (good.donations[i].donator == msg.sender):
+            if (amount1 <= good.donations[i].amount):
+                good.donations[i].amount -= amount1
                 good.totalDonations -= amount1
+                self.erc20.mint(msg.sender, amount1)
+                break
     return
 
 @external
