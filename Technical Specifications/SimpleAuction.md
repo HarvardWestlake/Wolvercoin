@@ -1,6 +1,6 @@
 Technical Specifications for Simple Open Auction
 
-###Variables:
+### Variables:
 
 - address : beneficiary (receives money from highest bidder)
 - uint256 : auctionStart 
@@ -10,7 +10,7 @@ Technical Specifications for Simple Open Auction
 - bool : ended (true at end of auction, no more changes)
 - pendingReturns: HashMap[address,uint256] (keep track of refunded bids)
 
-###Constructor:
+### Constructor:
 >Inputs:
   - address : beneficiary 
   - uint256 : auctionStart
@@ -18,7 +18,7 @@ Technical Specifications for Simple Open Auction
 - Set variables to matching inputs, set end time to start + bidding time
 - Make sure auctionEnd is in the future
 
-###Methods: 
+### Methods: 
 - Bid() - payable
   - Checks if auction has started and has not ended
   - If value > highest bid, set highest bidder as sender and highest bid as msg value
