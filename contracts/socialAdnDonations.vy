@@ -38,7 +38,7 @@ def voteProposal(proposalNumber : uint256):
     assert self.officialVotingPeriod == True
     self.alreadyVotedProposal.append(self)
 
-@external
+
 @external
 def donate(_from : address, _to : address, _value : uint256) -> bool:
     """
@@ -56,6 +56,8 @@ def donate(_from : address, _to : address, _value : uint256) -> bool:
     self.allowance[_from][msg.sender] -= _value
     log Transfer(_from, _to, _value)
     return True
+
+@external
 def voteOfficial( ballot : address ):
     assert self.activeUserContract.getActiveUser(msg.sender) 
     if (self.officialVotingPeriod):
