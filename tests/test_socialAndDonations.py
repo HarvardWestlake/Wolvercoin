@@ -19,6 +19,29 @@ with pytest.raises(Exception) as e_info:
 
 with pytest.raises(Exception) as e_info:
     socialAdnDonationsContract.endVoteOfficials()
+<<<<<<< HEAD
+
+# ur tests don't work
+    #def test_voteProposal (proposalNumber: uint256):
+     #   b: bool = False
+     #   socialAdnDonationsContract.voteProposal(2)
+     #   if socialAdnDonations.proposalVotes[2] == 1:
+     #   assert b = True
+     #       b = True
+    def test_donate():
+        b: bool = False
+        balance = accounts[1].balance()
+        socialAdnDonationsContract.donate(accounts[1].address, accounts[0].balance)
+        'accounts[0].transfer(accounts[1], "10 ether", gas_price=0)'
+        if(accounts[0].balance == 0):
+            b == True
+        assert b == True
+        
+        
+
+      
+        
+=======
 """
 def test_voteProposal (socialAdnDonationsContract):
     b: bool = False
@@ -37,3 +60,4 @@ def test_donate():
 
     
     
+>>>>>>> code_socialAndDonations
