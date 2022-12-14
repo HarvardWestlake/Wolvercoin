@@ -38,7 +38,7 @@ def voteProposal(proposalNumber : uint256):
     assert proposalNumber >= 0
     for i in self.alreadyVotedProposal:
         assert i != self
-   assert self.officialVotingPeriod == True
+    assert self.officialVotingPeriod == True
     self.proposalVotes [proposalNumber] = self.proposalVotes [proposalNumber] + 1 
     self.alreadyVotedProposal.append(self)
 
