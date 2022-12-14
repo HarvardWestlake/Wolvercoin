@@ -44,6 +44,13 @@ def __init__(_name: String[32], _symbol: String[32], _decimals: uint8, _supply: 
     log Transfer(empty(address), msg.sender, init_supply)
 
 
+@external
+def getBalanceOf(_user: address) -> uint256:
+    return self.balanceOf[_user]
+
+@external
+def getAllowanceOf(_from: address) -> uint256:
+    return self.allowance[_from][msg.sender]
 
 @external
 def transfer(_to : address, _value : uint256) -> bool:
@@ -94,6 +101,20 @@ def approve(_spender : address, _value : uint256) -> bool:
     log Approval(msg.sender, _spender, _value)
     return True
 
+@external
+def allow(_spender : address, _value : uint256) -> bool:
+    """
+    @dev Approve the passed address to spend the specified amount of tokens on behalf of msg.sender.
+         Beware that changing an allowance with this method brings the risk that someone may use both the old
+         and the new allowance by unfortunate transaction ordering. One possible solution to mitigate this
+         race condition is to first reduce the spender's allowance to 0 and set the desired value afterwards:
+         https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729
+    @param _spender The address which will spend the funds.
+    @param _value The amount of tokens to be spent.
+    """
+    self.allowance[_spender][msg.sender] = _value
+    log Approval(_spender, msg.sender, _value)
+    return True
 
 @external
 def mint(_to: address, _value: uint256):
