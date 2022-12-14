@@ -24,8 +24,9 @@ event BetWithdrawn:
     amountPaid: uint256
     recipient: address
 
-event CrashUpdated:
+event CrashGambled:
     currentMultiple: uint256
+    currentjustCrashed: bool
 
 event CrashStart:
     time: uint256
@@ -59,10 +60,45 @@ def withdrawBet(gambler: address):
     log BetWithdrawn(self.multiplier, paid, gambler)
 
 @nonpayable
-@internal
+@external
 def crashGamble():
-    random: uint256 = self.tokenContract.generate_random_number(1000)
-    if (random > 900):
+    self.crashGambleHelper(self.tokenContract.generate_random_number(1000))
+
+#does all the work for crashGamble()
+#did it this way so it could be tested easily
+@nonpayable
+@internal
+def crashGambleHelper(random: uint256):
+    crashed: bool = self.crashFromRandomNumber(random)
+    if (crashed == True):
         self.justCrashed = True
     else:
         self.multiplier = self.multiplier + 1
+
+    log CrashGambled(self.multiplier, self.justCrashed)
+
+#takes number (between 0-1000) and returns true if its above 900 and false if <= 900
+#this effectively generates true 10% of the time
+@nonpayable
+@internal
+def crashFromRandomNumber(randomNumber: uint256) -> bool:
+    if (randomNumber > 900):
+        return True
+    else:
+        return False
+
+@external
+def getMultiplier() -> uint256:
+    return self.multiplier
+
+@external
+def getJustCrashed() -> bool:
+    return self.justCrashed
+
+@external
+def getCrashFromRandomNumber(useRandomNumber: uint256) -> bool:
+    return self.crashFromRandomNumber(useRandomNumber)
+
+@external
+def getCrashGambleHelper(useRandomNumber: uint256):
+    self.crashGambleHelper(useRandomNumber)
