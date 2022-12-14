@@ -107,7 +107,6 @@ def getCrashFromRandomNumber(useRandomNumber: uint256) -> bool:
 @external
 def getCrashGambleHelper(useRandomNumber: uint256):
     self.crashGambleHelper(useRandomNumber)
-    
 @external
 def updateCrash():
     if (self.justCrashed):
@@ -124,3 +123,7 @@ def resetCrash():
     #sets all the remaining bettors in the HashMap's bets to 0
     for i in self.currentBettors:
         self.crashBets[i] = 0
+
+@external
+def getMultiplier() -> uint256:
+    return self.multiplier
