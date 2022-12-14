@@ -24,7 +24,7 @@ def vote(voter: address):
     if isIn == True:
         self.removeNonTopics(voter)
         self.balance+=1
-     
+    
     if self.admin[voter]:
         self.balance+=0.15*classSize
 
