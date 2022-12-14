@@ -12,8 +12,8 @@ chain = Chain()
 
 #test for socialAndDonatios
 @pytest.fixture
-    def socialAdnDonationsContract(socialAdnDonations, accounts):
-        return socialAdnDonations.deploy({'from': accounts[0]})
+def socialAdnDonationsContract(socialAdnDonations, accounts):
+    return socialAdnDonations.deploy({'from': accounts[0]})
 
 with pytest.raises(Exception) as e_info:
     socialAdnDonationsContract.voteOfficials()
