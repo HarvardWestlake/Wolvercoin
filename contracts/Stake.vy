@@ -1,6 +1,6 @@
 # @version ^0.3.7
-## interface w/ method that determines if someone is an active user
-## interface w/ method that removes Wolvercoin from an account
+## interfaces w/ ActiveUser and Wolvercoin
+## anything that requires staking will interface with this class
 
 interface Wolvercoin:
     def transferFrom(_from : address, _to : address, _value : uint256) -> bool: payable
@@ -25,6 +25,7 @@ def __init__(_bankAddress: address, _wolvercoinContract: Wolvercoin, _activeUser
 
 @external
 def unstake (_userAddress: address, amtUnstaked: uint256):
+    #the type conversions are really janky -- if anyone knows a better way of doing this, pls fix it!
     assert amtUnstaked<self.stakeAmounts[_userAddress]
     self.newAmt = 0
     changeInTime: uint256 = block.timestamp - self.stakeDates[_userAddress]
@@ -44,7 +45,8 @@ def unstake (_userAddress: address, amtUnstaked: uint256):
 
 @external
 def stake (user : address, amountStaked : uint256):
-   # assert self.activeUserContract.getActiveUser (user)
+    assert self.activeUserContract.getActiveUser (user)
     self.stakeAmounts[user] = amountStaked
+    self.stakeDates[user] = block.timestamp
     self.wolvercoinContract.transferFrom (user, self.bank, amountStaked)
 
