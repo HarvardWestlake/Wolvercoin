@@ -1,5 +1,7 @@
 # @version ^0.3.7
 # code is dependent on activeUser
+from vyper.interfaces import ERC20
+
 interface ActiveUser:
     def getActiveUser(potentialUser: address) -> bool: view
     def getAdmin(potentialAdmin: address) -> bool: view
@@ -38,6 +40,7 @@ def voteProposal(proposalNumber : uint256):
     assert self.officialVotingPeriod == True
     self.alreadyVotedProposal.append(self)
 
+<<<<<<< Updated upstream
 
 # doesn't work- commenting out for now
 # external
@@ -82,3 +85,14 @@ def voteOfficial( ballot : address ):
             self.votesLeaderBoard[2]= value
             self.electedOfficials[2] = ballot
         
+=======
+@external
+def donate(to: address, value: uint256):
+    # Check if the caller has sufficient balance
+    assert self.balanceOf[msg.sender] >= value, "Insufficient balance"
+
+    # Transfer the funds
+    self.balanceOf[msg.sender] -= value
+    self.balanceOf[to] += value
+
+>>>>>>> Stashed changes
