@@ -149,10 +149,6 @@ def burn(_value: uint256):
     self._burn(msg.sender, _value)
 
 @external
-def tellMeTheCallerOfThisFunction() -> address:
-    return msg.sender
-
-@external
 def burnFrom(_to: address, _value: uint256):
     """
     @dev Burn an amount of the token from a given account.
@@ -160,9 +156,4 @@ def burnFrom(_to: address, _value: uint256):
     @param _value The amount that will be burned.
     """
     self.allowance[_to][msg.sender] -= _value
-    # self._burn(_to, _value)
-    # Let's replace the internal function call with inline code that does the same thing
-    # assert _to != empty(address)
-    # self.totalSupply -= _value
-    # self.balanceOf[_to] -= _value
-    # log Transfer(_to, empty(address), _value)
+    self._burn(_to, _value)
