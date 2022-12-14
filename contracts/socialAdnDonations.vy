@@ -73,13 +73,13 @@ def voteOfficial( ballot : address ):
             self.electedOfficials[2]= self.electedOfficials[1] 
             self.electedOfficials[1]= self.electedOfficials[0]
             self.electedOfficials[0] = ballot
-        elif self.votesForOfficials[ballot] >= electedOfficials[1]:
+        elif self.votesForOfficials[ballot] >= self.votesLeaderBoard[1]:
             self.votesLeaderBoard[2]= self.votesLeaderBoard[1]
             self.votesLeaderBoard[1]= value
 
             self.electedOfficials[2]= self.electedOfficials[1]
             self.electedOfficials[1]= ballot
-        elif self.votesForOfficials[ballot] >= electedOfficials[2]:
+        elif self.votesForOfficials[ballot] >= self.votesLeaderBoard[2]:
             self.votesLeaderBoard[2]= value
             self.electedOfficials[2] = ballot
         
