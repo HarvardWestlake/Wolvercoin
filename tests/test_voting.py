@@ -23,7 +23,7 @@ def test_hasCoin(votingContract, accounts):
     votingContract.mint(accounts[3], 1000, {'from': accounts[0]}) # adds 1000VC to accounts balance
     votingContract.proposeVote(sampleContract, "Vote for Kian") # starts a vote for Kian
     votingContract.vote(sampleContract, 100, {'from': accounts[3]}) # User invests 100 coin into vote
-    assert votingContract.hasCoin(accounts[3], sampleContract).return_value == 100, "Should be able to see money in vote"
+    assert votingContract.amountInFavor(sampleContract, accounts[3]) == 100, "Should be able to see money in vote"
 
 def test_amountAvailable(votingContract, accounts):
     sampleContract = votingContract.address
@@ -39,7 +39,7 @@ def test_amountAvailable(votingContract, accounts):
     assert failCase, "should not be able to make vote for something that already exists"
 
     assert votingContract.vote(sampleContract, 100, {'from': accounts[3]}), "User invests 100 coin into vote"
-    assert votingContract.amountAvailable(accounts[3]).return_value == 800, "checks if amount available is according to what was invested"
+    assert votingContract.balanceOf(accounts[3]) == 800, "checks if amount available is according to what was invested"
 
 def test_contractDeployment(votingContract, accounts):
     assert votingContract.voteDuration() == 100, "Voting period should be initialized"
@@ -62,6 +62,22 @@ def test_proposeVote(votingContract, accounts):
     assert votingContract.endBlock(accounts[2]) == 0, "Non-existant Vote should not have data"
     assert votingContract.storedDonation(accounts[2]) == 0, "Empty votes should not have money in them"
 
+def test_setContractMaintainer(votingContract, accounts):
+    
+    stopBadContractChange = False
+    try:
+        votingContract.setContractMaintainer(accounts[5], {'from': accounts[2]})
+    except:
+        stopBadContractChange = True
+    assert stopBadContractChange, "Randoms should not be able to change maintainer"
+    
+    #allowChanges = True
+    #try:
+    #    votingContract.setContractMaintainer(accounts[5], {'from': accounts[0]})
+    #except:
+    #    allowChanges = False
+    #assert allowChanges, "Maintainer should be able to change maintainer"
+
 
 def test_setDisbled(votingContract, accounts):
 
@@ -72,43 +88,19 @@ def test_setDisbled(votingContract, accounts):
         badDisableFail = True
     assert badDisableFail, "Random accounts should not be able to disable the contract"
 
+def test_vote(votingContract, accounts):
+    sampleContract = votingContract.address
 
-    # This code relies on adding admins which is not a problem I want to solve but has been tested independently
-    """
-    votingContract.setDisabled(True, {'from': accounts[0]})
+    votingContract.mint(accounts[1], 1000, {'from': accounts[0]}) # adds 1000VC to accounts balance
+    initialBal = votingContract.balanceOf(accounts[1])
+    totalInvestedBefore = votingContract.activePropositions(sampleContract)
+    votingContract.vote(sampleContract, 10, {'from': accounts[1]})
 
-    runWhenDisabledfail = False
-    try:
-        votingContract.proposeVote(accounts[5], "sample message")
-    except:
-        runWhenDisabledfail = True
-    assert runWhenDisabledfail, "Contract should not function while diabled"
-    
-    votingContract.setDisabled(False, {'from': accounts[0]})
+    # tests if user's votercoin balance decreases by specified amount
+    assert votingContract.balanceOf(accounts[1]) == initialBal-10
 
-    contractReenabled = True
-    try:
-        votingContract.proposeVote(accounts[5], "sample message")
-    except:
-        contractReenabled = False
-    assert contractReenabled, "Contract should be able to be re-enabled"
-
-
-def test_setContractMaintainer(votingContract, accounts):
-    
-    stopBadContractChange = False
-    try:
-        votingContract.setContractMaintainer(accounts[5], {'from': accounts[2]})
-    except:
-        stopBadContractChange = True
-    assert stopBadContractChange, "Randoms should not be able to change maintainer"
-    
-    allowChanges = True
-    try:
-        votingContract.setContractMaintainer(accounts[5], {'from': accounts[0]})
-    except:
-        allowChanges = False
-    assert allowChanges, "Maintainer should be able to change maintainer"
+    #tests if total amount of votercoin in proposition increases by specified amount
+    assert votingContract.activePropositions(sampleContract) == (totalInvestedBefore + 10)
 
 """
 def test_burnCoin(votingContract, accounts):
@@ -166,17 +158,3 @@ def test_endVote(votingContract, accounts):
     assert True
 
 """
-
-def test_vote(votingContract, accounts):
-    sampleContract = votingContract.address
-
-    votingContract.mint(accounts[1], 1000, {'from': accounts[0]}) # adds 1000VC to accounts balance
-    initialBal = votingContract.amountAvailable(accounts[1]).return_value
-    totalInvestedBefore = votingContract.activePropositions(sampleContract)
-    votingContract.vote(sampleContract, 10, {'from': accounts[1]})
-
-    # tests if user's votercoin balance decreases by specified amount
-    assert votingContract.amountAvailable(accounts[1]).return_value == initialBal-10
-
-    #tests if total amount of votercoin in proposition increases by specified amount
-    assert votingContract.activePropositions(sampleContract) == (totalInvestedBefore + 10)

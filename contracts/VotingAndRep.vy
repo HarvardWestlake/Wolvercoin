@@ -1,7 +1,8 @@
 # @version 0.3.7
 
 interface ActiveUser:
-    def getAdmin(a: address) -> bool: view
+    def getActiveUser(potentialUser: address) -> bool: view
+    def getAdmin(potentialAdmin: address) -> bool: view
 
 activeUserAddress: public(ActiveUser)
 
@@ -10,12 +11,6 @@ from vyper.interfaces import ERC20Detailed
 
 implements: ERC20
 implements: ERC20Detailed
-
-interface ActiveUser:
-    def getActiveUser(potentialUser: address) -> bool: view
-    def getAdmin(potentialAdmin: address) -> bool: view
-
-activeUserContract: public(ActiveUser)
 
 event Transfer:
     sender: indexed(address)
@@ -73,15 +68,13 @@ event VoteStarted:
     creator: address
     amountSent: uint256
 
-disabled: bool
-
-
 @external
 def __init__ (activeUserAddress: address):
     self.voteDuration = 100
     self.disabled = False
     self.allowedToAffectDao = empty(address)
     self.activeUserAddress = ActiveUser(activeUserAddress)
+    self.minter = msg.sender
    
 # @dev This creates a new proposition for people to vote on
 # @param contract address The contract that will be given ran with adminstrator on vote sucsess
