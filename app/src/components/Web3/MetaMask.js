@@ -1,6 +1,6 @@
 import React from "react";
 import { ethers } from "ethers";
-import * as Contracts from "./config.js"
+import * as Contracts from "../Contexts/config.js"
 import "./web3.css"
 
 // Linked to built contracts 

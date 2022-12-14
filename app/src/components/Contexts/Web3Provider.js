@@ -14,8 +14,12 @@ export const Web3Provider = (props) => {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const accounts = await provider.listAccounts();
 
+    const network = await provider.getNetwork();
+    console.log(network, network.chainId);
+
     // See if account is already connected
     if (accounts.length > 0) {
+      const balance = await provider.getBalance(accounts[0]);
       setConnectedAccount(accounts[0]);
     }
   };
