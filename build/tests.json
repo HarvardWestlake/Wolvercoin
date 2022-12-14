@@ -4,7 +4,7 @@
     "ERC20": "ed18f7176799ef070baeb860f08e3c37f557ffd3",
     "Reimbursement": "846b1d910193c44201d3fc3c764fc2ddd1cdd33f",
     "Stake": "d4f4587ea9960e2b28f6e2213370070cac95d060",
-    "VotingAndRep": "f690819c5d9e1c0809924c15c483e9a708e22a11",
+    "VotingAndRep": "4f8bdebbd72604d2875be93d33e4ba007ea474d2",
     "Wolvercoin": "ed18f7176799ef070baeb860f08e3c37f557ffd3"
   },
   "tests": {
@@ -41,28 +41,15 @@
       "coverage": false,
       "isolated": false,
       "results": "FF....FFF",
-      "sha1": "9685c80f5a1de7115038ed8a600414fbeaf8227d",
+      "sha1": "121b5bccdfd9c4c3ac050b1cf3deaac2a0716ab6",
       "txhash": [
-        "054c9b35a572ad1c0986b8a755a66be249aa1b7f",
+        "5c058373e1923be8aec496041c7c32c615886b79",
         "69cd8097c9e5d80b3729713c7a6be1ce909e4efd",
-        "9ce11dbabc066fed08115cd3c8ab1ca633fd40cf"
+        "a28394bd65fab6dd595c2ab1210065cd26180ca0"
       ]
     }
   },
   "tx": {
-    "054c9b35a572ad1c0986b8a755a66be249aa1b7f": {
-      "VotingAndRep": {
-        "0": [
-          [
-            29
-          ],
-          [
-            30
-          ],
-          []
-        ]
-      }
-    },
     "3de6022827f0a05ed1220c1a8b33ed5f5a1482c9": {
       "ActiveUser": {
         "0": [
@@ -103,6 +90,19 @@
         ]
       }
     },
+    "5c058373e1923be8aec496041c7c32c615886b79": {
+      "VotingAndRep": {
+        "0": [
+          [
+            24
+          ],
+          [
+            25
+          ],
+          []
+        ]
+      }
+    },
     "69cd8097c9e5d80b3729713c7a6be1ce909e4efd": {
       "VotingAndRep": {
         "0": [
@@ -131,14 +131,14 @@
         ]
       }
     },
-    "9ce11dbabc066fed08115cd3c8ab1ca633fd40cf": {
+    "a28394bd65fab6dd595c2ab1210065cd26180ca0": {
       "VotingAndRep": {
         "0": [
           [
-            26
+            27
           ],
           [
-            27
+            28
           ],
           []
         ]

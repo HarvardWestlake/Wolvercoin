@@ -145,18 +145,18 @@ def test_endVote(votingContract, accounts):
     votingContract.setVoterCoinSupply(votingContract.voterCoinSupply() + 100)
     votingContract.setAccountVCBal(accounts[4],50)
     votingContract.setAccountVCBal(accounts[6],50)
+    votingContract.setVoterCoinSupply(100)
     votingContract.vote(accounts[4],losingProp,10)
     votingContract.vote(accounts[6],winningProp,20)
-    assert votingContract.voterCoinSupply == 100
-    assert votingContract.voterCoinStaked == 30
+    assert votingContract.voterCoinStaked() == 30
     votingContract.finishVote(losingProp)
     votingContract.finishVote(winningProp)
-    assert votingContract.voterCoinSupply == 90
-    assert votingContract.voterCoinStaked == 0
+    assert votingContract.voterCoinSupply() == 90
+    assert votingContract.voterCoinStaked() == 0
 
 def test_vote(votingContract, accounts):
     sampleContract = votingContract.address
-    initialBal = votingContract.getAccountVCBal(accounts[1])
+    initialBal = votingContract.voterCoinBalance()[accounts[1]]
     totalInvestedBefore = votingContract.activePropositions()[votingContract.endBlock(sampleContract)]
     votingContract.vote(accounts[1], votingContract.endBlock(sampleContract), 10)
 
