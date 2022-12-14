@@ -21,6 +21,7 @@ with pytest.raises(Exception) as e_info:
 with pytest.raises(Exception) as e_info:
     socialAdnDonationsContract.endVoteOfficials()
 
+# ur tests don't work
     #def test_voteProposal (proposalNumber: uint256):
      #   b: bool = False
      #   socialAdnDonationsContract.voteProposal(2)
