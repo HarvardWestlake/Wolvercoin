@@ -10,7 +10,7 @@ def exclusivityContract(Exclusivity, accounts):
 
 @pytest.fixture
 def testVote(Exclusivity,accounts):
-    return Exclusivity.deploy("0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", {'from': accounts[1]})
+    Exclusivity.deploy("0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", {'from': accounts[1]})
     exclusivity: Exclusivity=Exclusivity()
     Exclusivity.classSize = 100
     exclusivity.topicsAddress.append(0xf34b09E22f5115af490eeb7460304aB80c90399E)
@@ -28,7 +28,8 @@ def testVote(Exclusivity,accounts):
     assert valueChanged
     
 @pytest.fixture
-def testTally():
+def testTally(Exclusivity,accounts):
+    Exclusivity.deploy("0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", {'from': accounts[1]})
     exclusivity: Exclusivity=Exclusivity()
     exclusivity.percentage = 0.51
     exclusivity.tallyVotes(0xf34b09E22f5115af490eeb7460304aB80c90399E)
@@ -41,7 +42,8 @@ def testTally():
     
     assert removed
     
-def testAddNonTopics():
+def testAddNonTopics(Exclusivity,accounts):
+    Exclusivity.deploy("0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", {'from': accounts[1]})
     exclusivity: Exclusivity=Exclusivity()
     exclusivity.percentage=1
     exclusivity.addNonTopics(0xC90460533587b81bDC3042329FCf0dB18507b430)#kensuke's public address, just to test
@@ -64,7 +66,8 @@ def testAddNonTopics():
     
 
 
-def testRemoveTopics():
+def testRemoveTopics(Exclusivity,accounts):
+    Exclusivity.deploy("0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", {'from': accounts[1]})
     exclusivity: Exclusivity=Exclusivity()
     exclusivity.topicsAddress.append(0xC90460533587b81bDC3042329FCf0dB18507b430)
     exclusivity.percentage=1
