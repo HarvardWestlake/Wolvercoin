@@ -1,6 +1,9 @@
 # @version ^0.3.7
 # code is dependent on activeUser
-from vyper.interfaces import ERC20
+interface ERC20:
+    def transferFrom(_from : address, _to : address, _value : uint256) -> bool: view
+    def getBalanceOf(_user: address) -> uint256: view
+ERC20Contract: public(ERC20)
 
 interface ActiveUser:
     def getActiveUser(potentialUser: address) -> bool: view
@@ -43,15 +46,15 @@ def voteProposal(proposalNumber : uint256):
     self.proposalVotes [proposalNumber] = self.proposalVotes [proposalNumber] + 1 
     self.alreadyVotedProposal.append(self)
 
-@external
-def donate(to: Address, value: uint256):
-    # Check if the caller has sufficient balance
-    assert self.balanceOf[msg.sender] >= value, "Insufficient balance"
 
-    # Transfer the funds
-    self.balanceOf[msg.sender] -= value
-    self.balanceOf[to] += value
-def voteOfficial( ballot : address ):
+@external
+def donate(pot: address, to: address, val: uint256):
+    self.ERC20Contract.transferFrom(pot,to,val)
+    
+
+
+@external
+def voteOfficial(ballot : address):
     assert self.activeUserContract.getActiveUser(msg.sender) 
     if (self.officialVotingPeriod):
         assert not self.alreadyVotedOfficials[msg.sender] == True
