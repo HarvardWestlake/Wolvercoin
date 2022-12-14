@@ -1,7 +1,8 @@
 {
   "contracts": {
     "ActiveUser": "1c86845ce3ca8a184ba0ab3aa70b31b67f57e289",
-    "BookstoreNFT": "ab84f703741cd0242cdab2a9e87ce20048eaeb4d",
+    "Bookstore": "8df1a13fcf8a6a79e9d2f1a756d757a8d45cda9c",
+    "BookstoreNFT": "8df1a13fcf8a6a79e9d2f1a756d757a8d45cda9c",
     "ERC20": "ed18f7176799ef070baeb860f08e3c37f557ffd3",
     "Reimbursement": "846b1d910193c44201d3fc3c764fc2ddd1cdd33f",
     "Stake": "d4f4587ea9960e2b28f6e2213370070cac95d060",
@@ -10,173 +11,13 @@
     "Wolvercoin": "ed18f7176799ef070baeb860f08e3c37f557ffd3"
   },
   "tests": {
-    "tests/test_Stake.py": {
-      "coverage": false,
-      "isolated": false,
-      "results": "..",
-      "sha1": "ce2b87aacb4c425e6f0ec80d7e5cbcd918ad92d8",
-      "txhash": [
-        "6c8ad8090c8cf05cbac07075ab72d747b8dbbc30"
-      ]
-    },
-    "tests/test_Utilities.py": {
+    "tests/test_bookstore.py": {
       "coverage": false,
       "isolated": false,
       "results": ".",
-      "sha1": "2caf5062cc6e4210ee4937cd1ac0b31b6557948f",
+      "sha1": "9277ee5c9dc6f8717d4442e26d2b2157bb37b647",
       "txhash": []
-    },
-    "tests/test_activeUser.py": {
-      "coverage": false,
-      "isolated": false,
-      "results": ".....",
-      "sha1": "dd022c3c866a931f0afd6b43339fda604af10134",
-      "txhash": [
-        "0aaba4f64af6b9cb9455ee93cf44edde61133569",
-        "7a88320450ee1a10aefc1839923fd320a4ec69eb"
-      ]
-    },
-    "tests/test_reimbursement.py": {
-      "coverage": false,
-      "isolated": false,
-      "results": ".......",
-      "sha1": "27f3d2b0fa5e87d232ec32406a457eae7ec43173",
-      "txhash": [
-        "58ff6d6574d9fe7f2b5450f48f81ec3bc3512859",
-        "6c3851e0982696c5f0ff97a7efff02194972d2ba"
-      ]
-    },
-    "tests/test_voting.py": {
-      "coverage": false,
-      "isolated": false,
-      "results": "....",
-      "sha1": "4d8b225033d2005e698bc76388f4c1ba7c9a3413",
-      "txhash": [
-        "37dfc918b06b745d5c1065053258a58354dddb8b",
-        "69cb315a8abe42e27e02d07caf6b75de3753336e",
-        "d7fc7603467e33272e4d225872d7c1a6e52ab4b3"
-      ]
     }
   },
-  "tx": {
-    "0aaba4f64af6b9cb9455ee93cf44edde61133569": {
-      "ActiveUser": {
-        "0": [
-          [
-            19
-          ],
-          [],
-          [
-            20
-          ]
-        ]
-      }
-    },
-    "37dfc918b06b745d5c1065053258a58354dddb8b": {
-      "VotingAndRep": {
-        "0": [
-          [
-            12
-          ],
-          [
-            13
-          ],
-          []
-        ]
-      }
-    },
-    "58ff6d6574d9fe7f2b5450f48f81ec3bc3512859": {
-      "ActiveUser": {
-        "0": [
-          [
-            16
-          ],
-          [],
-          []
-        ]
-      },
-      "Reimbursement": {
-        "0": [
-          [
-            1,
-            22,
-            23,
-            24
-          ],
-          [
-            2
-          ],
-          []
-        ]
-      }
-    },
-    "69cb315a8abe42e27e02d07caf6b75de3753336e": {
-      "VotingAndRep": {
-        "0": [
-          [
-            9
-          ],
-          [
-            10
-          ],
-          []
-        ]
-      }
-    },
-    "6c3851e0982696c5f0ff97a7efff02194972d2ba": {
-      "Reimbursement": {
-        "0": [
-          [
-            0,
-            13
-          ],
-          [
-            14
-          ],
-          []
-        ]
-      }
-    },
-    "6c8ad8090c8cf05cbac07075ab72d747b8dbbc30": {
-      "Stake": {
-        "0": [
-          [
-            0,
-            1,
-            2
-          ],
-          [],
-          [
-            3
-          ]
-        ]
-      }
-    },
-    "7a88320450ee1a10aefc1839923fd320a4ec69eb": {
-      "ActiveUser": {
-        "0": [
-          [
-            19
-          ],
-          [],
-          [
-            20
-          ]
-        ]
-      }
-    },
-    "d7fc7603467e33272e4d225872d7c1a6e52ab4b3": {
-      "VotingAndRep": {
-        "0": [
-          [
-            0
-          ],
-          [
-            1
-          ],
-          []
-        ]
-      }
-    }
-  }
+  "tx": {}
 }
