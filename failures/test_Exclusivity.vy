@@ -4,7 +4,7 @@ import pytest
 import brownie
 from web3.exceptions import ValidationError
 
-@external
+@pytest.fixture
 def testVote():
     exclusivity: Exclusivity=Exclusivity()
     exclusivity.classSize = 100
@@ -22,7 +22,7 @@ def testVote():
             valueChanged = True
     assert valueChanged
     
-@external
+@pytest.fixture
 def testTally():
     exclusivity: Exclusivity=Exclusivity()
     exclusivity.percentage = 0.51
