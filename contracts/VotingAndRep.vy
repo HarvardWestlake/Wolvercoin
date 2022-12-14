@@ -41,9 +41,11 @@ symbol: public(String[32])
 decimals: public(uint8)
 
 # the balance of voter coin (VC) for each user, drawn from amount of tax payed
-voterCoinBalanceOf: public(HashMap[address, uint256])
+balanceOf: public(HashMap[address, uint256])
 # total amount in circulation
 totalSupply: public(uint256)
+# allows people to spend other people money
+allowance: public(HashMap[address, HashMap[address, uint256]])
 # the address of the contract that prints people VC
 minter: address
 # amount of VC currently staked
@@ -79,14 +81,13 @@ disabled: bool
 
 
 @external
-def __init__ ( activeUserAddress: address):
+def __init__ (activeUserAddress: address):
     self.voteDuration = 100
     self.contractMaintainer = msg.sender
     self.disabled = False
     self.activeUserContract = ActiveUser(activeUserAddress)
 
     # more token things
-    init_supply: uint256 = _supply * 10 ** convert(_decimals, uint256)
     self.name = "VoterCoin"
     self.symbol = "WvcVc"
     self.decimals = 18
@@ -96,15 +97,15 @@ def __init__ ( activeUserAddress: address):
 @external
 def hasCoin (user: address, proposal: address) -> (uint256):
     assert not self.disabled, "checks if contract is not disabled"
-    assert self.activeUserContract.getActiveUser(user) == True #"checks if user is active" add later when exclusivity is done
-    #assert proposal in self.ammountInFavor, "checks if the proposal exists"
+    # assert self.activeUserContract.getActiveUser(user) == True #"checks if user is active" add later when exclusivity is done
+    # assert proposal in self.ammountInFavor, "checks if the proposal exists"
     return self.amountInFavor[proposal][user]
 
 @external 
 def amountAvailable (user: address) -> (uint256):
     assert not self.disabled, "checks if contract is not disabled"
-    assert self.activeUserContract.getActiveUser(user) == True #"checks if user is active", add later when exclusivity is done
-    amount: uint256 = self.voterCoinBalance[user]
+    # assert self.activeUserContract.getActiveUser(user) == True #"checks if user is active", add later when exclusivity is done
+    amount: uint256 = self.balanceOf[user]
     return amount #"gets how much coin they have that is not invested"
 
 # @dev This creates a new proposition for people to vote on
@@ -112,7 +113,7 @@ def amountAvailable (user: address) -> (uint256):
 # @param payable wei The WvC that will be sent to the executed contract on a sucsess
 @payable
 @external
-def proposeVote (contract: address, explaination: String[255]):
+def proposeVote (contract: address, explaination: String[255]) -> (bool):
     # there is no current (unhackable) way to check if an address is a contract 
     # https://stackoverflow.com/a/37670490 
     # as such there is no assert that can check the validity of the submitted contract
@@ -132,28 +133,15 @@ def proposeVote (contract: address, explaination: String[255]):
     self.storedDonation[contract] = msg.value
 
     log VoteStarted(contract, msg.sender, msg.value)
-
-
-@external
-def setDisabled(newState: bool):
-    assert msg.sender == self.contractMaintainer, "Only the maintainer can change the contract state"
-
-    self.disabled = newState
-
-@external 
-def setContractMaintainer(newMaintainer: address):
-    assert msg.sender == self.contractMaintainer, "Only the maintainer or DAO can change the maintainer"
-    assert newMaintainer != empty(address), "You can't remove the maintainer"
-
-    self.contractMaintainer = newMaintainer
+    return True
 
 @external
 def finishVote(contract: address): 
     assert not self.disabled, "This contract is no longer active"
     amtStaked: uint256 = self.activePropositions[contract]
     array: DynArray[address,1024] = self.peopleInvested[contract]
-    if (self.affectsDao[contract] == False and self.voterCoinStaked < amtStaked * 2 and self.voterCoinSupply < amtStaked * 5) or (self.voterCoinSupply * 3 < amtStaked * 4):
-        self.voterCoinSupply -= self.activePropositions[contract] / 2
+    if (self.affectsDao[contract] == False and self.voterCoinStaked < amtStaked * 2 and self.totalSupply < amtStaked * 5) or (self.totalSupply * 3 < amtStaked * 4):
+        self.totalSupply -= self.activePropositions[contract] / 2
         for affectedAdr in array:
             self.burnCoin(affectedAdr)   
     else:
@@ -167,22 +155,22 @@ def burnCoin(voterAddress: address):
     assert not self.disabled, "This contract is no longer active"
     assert voterAddress != empty(address), "Cannot add the 0 address as vote subject"
     assert self.amountInFavor[self.returnedWinner][voterAddress] != empty(uint256)
-    self.voterCoinBalance[voterAddress] += self.amountInFavor[self.returnedWinner][voterAddress]/2
-    self.voterCoinSupply -= self.amountInFavor[self.returnedWinner][voterAddress]/2
+    self.balanceOf[voterAddress] += self.amountInFavor[self.returnedWinner][voterAddress]/2
+    self.totalSupply -= self.amountInFavor[self.returnedWinner][voterAddress]/2
 
 @internal
 def returnCoin(proposition: address, voterAddress: address):
     assert not self.disabled, "This contract is no longer active"
     assert voterAddress != empty(address), "Cannot add the 0 address as vote subject"
-    self.voterCoinBalance[voterAddress] += self.amountInFavor[proposition][voterAddress]
+    self.balanceOf[voterAddress] += self.amountInFavor[proposition][voterAddress]
 
 @external
-def vote(voter: address, proposition: address, amount: uint256):
-    self.voterCoinBalance[voter] -= amount
+def vote(proposition: address, amount: uint256):
+    self.balanceOf[msg.sender] -= amount
     self.voterCoinStaked += amount
     self.activePropositions[proposition] += amount
-    self.peopleInvested[proposition].append(voter)
-    self.amountInFavor[proposition][voter] = amount
+    self.peopleInvested[proposition].append(msg.sender) # this should not add a new entry for each time someone votes
+    self.amountInFavor[proposition][msg.sender] = amount
 
 @external
 def mint(_to: address, _value: uint256):
@@ -203,21 +191,91 @@ def _burn(_to: address, _value: uint256):
     self.balanceOf[_to] -= _value
     log Transfer(_to, empty(address), _value)
 
+@external
+def transfer(_to : address, _value : uint256) -> bool:
+    """
+    @dev Transfer token for a specified address
+    @param _to The address to transfer to.
+    @param _value The amount to be transferred.
+    """
+    # NOTE: vyper does not allow underflows
+    #       so the following subtraction would revert on insufficient balance
+    self.balanceOf[msg.sender] -= _value
+    self.balanceOf[_to] += _value
+    log Transfer(msg.sender, _to, _value)
+    return True
+
+
+@external
+def transferFrom(_from : address, _to : address, _value : uint256) -> bool:
+    """
+     @dev Transfer tokens from one address to another.
+     @param _from address The address which you want to send tokens from
+     @param _to address The address which you want to transfer to
+     @param _value uint256 the amount of tokens to be transferred
+    """
+    # NOTE: vyper does not allow underflows
+    #       so the following subtraction would revert on insufficient balance
+    self.balanceOf[_from] -= _value
+    self.balanceOf[_to] += _value
+    # NOTE: vyper does not allow underflows
+    #      so the following subtraction would revert on insufficient allowance
+    self.allowance[_from][msg.sender] -= _value
+    log Transfer(_from, _to, _value)
+    return True
+
+
+@external
+def approve(_spender : address, _value : uint256) -> bool:
+    """
+    @dev Approve the passed address to spend the specified amount of tokens on behalf of msg.sender.
+         Beware that changing an allowance with this method brings the risk that someone may use both the old
+         and the new allowance by unfortunate transaction ordering. One possible solution to mitigate this
+         race condition is to first reduce the spender's allowance to 0 and set the desired value afterwards:
+         https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729
+    @param _spender The address which will spend the funds.
+    @param _value The amount of tokens to be spent.
+    """
+    self.allowance[msg.sender][_spender] = _value
+    log Approval(msg.sender, _spender, _value)
+    return True
+
+@external
+def burnFrom(_to: address, _value: uint256):
+    """
+    @dev Burn an amount of the token from a given account.
+    @param _to The account whose tokens will be burned.
+    @param _value The amount that will be burned.
+    """
+    self.allowance[_to][msg.sender] -= _value
+    self._burn(_to, _value)
+
+@external
+def setDisabled(newState: bool):
+    assert msg.sender == self.contractMaintainer, "Only the maintainer can change the contract state"
+
+    self.disabled = newState
+
+@external 
+def setContractMaintainer(newMaintainer: address):
+    assert msg.sender == self.contractMaintainer, "Only the maintainer or DAO can change the maintainer"
+    assert newMaintainer != empty(address), "You can't remove the maintainer"
+
+    self.contractMaintainer = newMaintainer
+
 # Setters for testing only
-"""
-@external
-def setAccountVCBal (account: address, newAmount: uint256):
-    self.voterCoinBalance[account] = newAmount
+# @external
+# def setAccountVCBal (account: address, newAmount: uint256):
+#    self.balanceOf[account] = newAmount
 
-@external
-def incrementAccountVCBal (account: address, increment: uint256):
-    self.voterCoinBalance[account] += increment
+# @external
+#def incrementAccountVCBal (account: address, increment: uint256):
+#    self.balanceOf[account] += increment
 
-@external
-def setVoterCoinSupply (nVoterCoinSupply: uint256):
-    self.voterCoinSupply = nVoterCoinSupply
+# @external
+#def setVoterCoinSupply (nVoterCoinSupply: uint256):
+#    self.voterCoinSupply = nVoterCoinSupply
 
-@external
-def setActiveProposition(proposition: address, amount: uint256):
-    self.activePropositions[proposition] = amount
-"""
+# @external
+#def setActiveProposition(proposition: address, amount: uint256):
+#    self.activePropositions[proposition] = amount

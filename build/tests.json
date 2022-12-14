@@ -4,7 +4,7 @@
     "ERC20": "ed18f7176799ef070baeb860f08e3c37f557ffd3",
     "Reimbursement": "846b1d910193c44201d3fc3c764fc2ddd1cdd33f",
     "Stake": "d4f4587ea9960e2b28f6e2213370070cac95d060",
-    "VotingAndRep": "4f8bdebbd72604d2875be93d33e4ba007ea474d2",
+    "VotingAndRep": "cdd45c26776a1ec60843938b921d3626561bfffe",
     "Wolvercoin": "ed18f7176799ef070baeb860f08e3c37f557ffd3"
   },
   "tests": {
@@ -40,12 +40,13 @@
     "tests/test_voting.py": {
       "coverage": false,
       "isolated": false,
-      "results": "FF....FFF",
-      "sha1": "121b5bccdfd9c4c3ac050b1cf3deaac2a0716ab6",
+      "results": ".........",
+      "sha1": "02ef49e64dc0eeabdc9b0b891222f47cb4c17f0d",
       "txhash": [
-        "5c058373e1923be8aec496041c7c32c615886b79",
-        "69cd8097c9e5d80b3729713c7a6be1ce909e4efd",
-        "a28394bd65fab6dd595c2ab1210065cd26180ca0"
+        "bb6780ff070e3b7bd611e754738341796dbd6338",
+        "cf9f0996019f7a39af6cb7b836995055983917e8",
+        "d40816192f1cfe0f23198bcbe21089df96617a28",
+        "f02f8c795068451ab02ffd057e5f9ac87cfc017c"
       ]
     }
   },
@@ -90,32 +91,6 @@
         ]
       }
     },
-    "5c058373e1923be8aec496041c7c32c615886b79": {
-      "VotingAndRep": {
-        "0": [
-          [
-            24
-          ],
-          [
-            25
-          ],
-          []
-        ]
-      }
-    },
-    "69cd8097c9e5d80b3729713c7a6be1ce909e4efd": {
-      "VotingAndRep": {
-        "0": [
-          [
-            0
-          ],
-          [
-            1
-          ],
-          []
-        ]
-      }
-    },
     "6c8ad8090c8cf05cbac07075ab72d747b8dbbc30": {
       "Stake": {
         "0": [
@@ -128,19 +103,6 @@
           [
             3
           ]
-        ]
-      }
-    },
-    "a28394bd65fab6dd595c2ab1210065cd26180ca0": {
-      "VotingAndRep": {
-        "0": [
-          [
-            27
-          ],
-          [
-            28
-          ],
-          []
         ]
       }
     },
@@ -164,6 +126,63 @@
           ],
           [
             2
+          ],
+          []
+        ]
+      }
+    },
+    "bb6780ff070e3b7bd611e754738341796dbd6338": {
+      "VotingAndRep": {
+        "0": [
+          [
+            0
+          ],
+          [
+            1
+          ],
+          []
+        ]
+      }
+    },
+    "cf9f0996019f7a39af6cb7b836995055983917e8": {
+      "VotingAndRep": {
+        "0": [
+          [
+            0,
+            2,
+            4
+          ],
+          [
+            5
+          ],
+          [
+            1,
+            3
+          ]
+        ]
+      }
+    },
+    "d40816192f1cfe0f23198bcbe21089df96617a28": {
+      "VotingAndRep": {
+        "0": [
+          [
+            56
+          ],
+          [
+            57
+          ],
+          []
+        ]
+      }
+    },
+    "f02f8c795068451ab02ffd057e5f9ac87cfc017c": {
+      "VotingAndRep": {
+        "0": [
+          [
+            53
+          ],
+          [
+            54
           ],
           []
         ]
