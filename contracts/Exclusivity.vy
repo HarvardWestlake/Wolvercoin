@@ -14,7 +14,7 @@ topicsAddress: DynArray[address, 1000]
 percentage: uint256
 classSize: uint256
 
-@internal
+@external
 def vote(voter: address):
     isIn: bool = False
     for studentAddress in self.topicsAddress: #find index of address of candidate in topics addresses
@@ -37,7 +37,7 @@ def tallyVotes(voter: address)-> bool:
 
 @external
 def addNonTopics(candidate: address):
-    self.vote(candidate) #function 1 in tech spec, to be written by someone else
+    #self.vote(candidate) #function 1 in tech spec, to be written by someone else
     if self.percentage>=1:#assuming percentage doesnt change immediately after vote method is called
         self.topicsAddress.append(candidate)
 
