@@ -1,4 +1,4 @@
-#version ^0.3.7
+# @version ^0.3.7
 import pytest
 import brownie
 from web3.exceptions import ValidationError

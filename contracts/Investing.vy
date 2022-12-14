@@ -1,4 +1,6 @@
 #version ^0.3.7
+
+
 ##Interfaces with method that monitors totalOfTransactions
 interface Wolvercoin:
     def totalOfTransactions() -> uint256: view
