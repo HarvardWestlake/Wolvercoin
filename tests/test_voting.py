@@ -1,7 +1,4 @@
-#version ^0.3.7
-
-# @dev Basic testing for the voting system
-# @author Evan Stokdyk (@Focus172)
+# Basic testing for the voting system
 # @author Gavin Goldsmith (@Gav-G)
 # @author Jack Moreland (@jmoreland57)
 

@@ -14,12 +14,38 @@
 
 # VotingAndRep.vy
 
-# list of variables that are only referenced internally
+from vyper.interfaces import ERC20
+from vyper.interfaces import ERC20Detailed
+
+implements: ERC20
+implements: ERC20Detailed
+
+interface ActiveUser:
+    def getActiveUser(potentialUser: address) -> bool: view
+    def getAdmin(potentialAdmin: address) -> bool: view
+
+activeUserContract: public(ActiveUser)
+
+event Transfer:
+    sender: indexed(address)
+    receiver: indexed(address)
+    value: uint256
+
+event Approval:
+    owner: indexed(address)
+    spender: indexed(address)
+    value: uint256
+
+name: public(String[32])
+symbol: public(String[32])
+decimals: public(uint8)
 
 # the balance of voter coin (VC) for each user, drawn from amount of tax payed
-voterCoinBalance: public(HashMap[address, uint256])
-# total supply of VC
-voterCoinSupply: public(uint256)
+voterCoinBalanceOf: public(HashMap[address, uint256])
+# total amount in circulation
+totalSupply: public(uint256)
+# the address of the contract that prints people VC
+minter: address
 # amount of VC currently staked
 voterCoinStaked: public(uint256)
 # the map containing active propositions with total amount invested
@@ -36,6 +62,7 @@ endBlock: public(HashMap[address, uint256])
 storedDonation: public(HashMap[address, uint256])
 
 # list of variables that could be changed (via voting) 
+
 returnedWinner: address
 # returnedLoser
 voteDuration: public(uint256)
@@ -51,35 +78,20 @@ event VoteStarted:
 disabled: bool
 
 
-interface ActiveUser:
-    def getActiveUser(potentialUser: address) -> bool: view
-    def getAdmin(potentialAdmin: address) -> bool: view
-
-activeUserContract: public(ActiveUser)
-
-#setters
 @external
-def setAccountVCBal (account: address, newAmount: uint256):
-    self.voterCoinBalance[account] = newAmount
-@external
-def incrementAccountVCBal (account: address, increment: uint256):
-    self.voterCoinBalance[account] += increment
-
-@external
-def setVoterCoinSupply (nVoterCoinSupply: uint256):
-    self.voterCoinSupply = nVoterCoinSupply
-
-@external
-def setActiveProposition(proposition: address, amount: uint256):
-    self.activePropositions[proposition] = amount
-
-@external
-def __init__ (activeUserAddress: address):
+def __init__ ( activeUserAddress: address):
     self.voteDuration = 100
     self.contractMaintainer = msg.sender
     self.disabled = False
     self.activeUserContract = ActiveUser(activeUserAddress)
 
+    # more token things
+    init_supply: uint256 = _supply * 10 ** convert(_decimals, uint256)
+    self.name = "VoterCoin"
+    self.symbol = "WvcVc"
+    self.decimals = 18
+    self.totalSupply = 0
+    self.minter = msg.sender
 
 @external
 def hasCoin (user: address, proposal: address) -> (uint256):
@@ -143,8 +155,7 @@ def finishVote(contract: address):
     if (self.affectsDao[contract] == False and self.voterCoinStaked < amtStaked * 2 and self.voterCoinSupply < amtStaked * 5) or (self.voterCoinSupply * 3 < amtStaked * 4):
         self.voterCoinSupply -= self.activePropositions[contract] / 2
         for affectedAdr in array:
-            self.burnCoin(affectedAdr)
-            
+            self.burnCoin(affectedAdr)   
     else:
         for affectedAdr in array:
             self.returnCoin(contract, affectedAdr)
@@ -172,3 +183,41 @@ def vote(voter: address, proposition: address, amount: uint256):
     self.activePropositions[proposition] += amount
     self.peopleInvested[proposition].append(voter)
     self.amountInFavor[proposition][voter] = amount
+
+@external
+def mint(_to: address, _value: uint256):
+    assert msg.sender == self.minter
+    assert _to != empty(address)
+    self.totalSupply += _value
+    self.balanceOf[_to] += _value
+    log Transfer(empty(address), _to, _value)
+
+@external
+def burn(_value: uint256):
+    self._burn(msg.sender, _value)
+
+@internal
+def _burn(_to: address, _value: uint256):
+    assert _to != empty(address)
+    self.totalSupply -= _value
+    self.balanceOf[_to] -= _value
+    log Transfer(_to, empty(address), _value)
+
+# Setters for testing only
+"""
+@external
+def setAccountVCBal (account: address, newAmount: uint256):
+    self.voterCoinBalance[account] = newAmount
+
+@external
+def incrementAccountVCBal (account: address, increment: uint256):
+    self.voterCoinBalance[account] += increment
+
+@external
+def setVoterCoinSupply (nVoterCoinSupply: uint256):
+    self.voterCoinSupply = nVoterCoinSupply
+
+@external
+def setActiveProposition(proposition: address, amount: uint256):
+    self.activePropositions[proposition] = amount
+"""
