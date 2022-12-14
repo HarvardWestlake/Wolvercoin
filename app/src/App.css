@@ -271,7 +271,7 @@ body {
 .connected-indicator {
   flex-shrink: 0;
   position: relative;
-  display: block;
+  display: inline-block;
   width: 16px;
   height: 16px;
 }
