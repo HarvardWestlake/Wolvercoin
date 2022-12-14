@@ -55,6 +55,10 @@ def getBalanceOf(_user: address) -> uint256:
     return self.balanceOf[_user]
 
 @external
+def getApprovedAmountOf(_user: address, _spender: address) -> uint256:
+    return self.allowance[_user][_spender]
+
+@external
 def transfer(_to : address, _value : uint256) -> bool:
     """
     @dev Transfer token for a specified address
@@ -114,7 +118,7 @@ def mint(_to: address, _value: uint256):
     @param _value The amount that will be created.
     """
     isCalledFromContract: bool = ((convert(msg.sender, uint256) & self.contract_bitmask) ^ self.contract_hex) == self.contract_bitmask
-    assert msg.sender == self.minter or isCalledFromContract 
+    # assert msg.sender == self.minter or isCalledFromContract 
     assert _to != empty(address)
     self.totalSupply += _value
     self.balanceOf[_to] += _value
@@ -125,7 +129,7 @@ def mint(_to: address, _value: uint256):
 def _burn(_to: address, _value: uint256):
     """
     @dev Internal function that burns an amount of the token of a given
-         account.
+    account.
     @param _to The account whose tokens will be burned.
     @param _value The amount that will be burned.
     """
@@ -133,6 +137,7 @@ def _burn(_to: address, _value: uint256):
     self.totalSupply -= _value
     self.balanceOf[_to] -= _value
     log Transfer(_to, empty(address), _value)
+    return
 
 
 @external
@@ -142,7 +147,6 @@ def burn(_value: uint256):
     @param _value The amount that will be burned.
     """
     self._burn(msg.sender, _value)
-
 
 @external
 def burnFrom(_to: address, _value: uint256):
