@@ -29,6 +29,11 @@ with pytest.raises(Exception) as e_info:
             b = True
         assert b = True
         
+    def test_donate():
+        balance = accounts[0].balance()
+        accounts[0].transfer(accounts[1], "10 ether", gas_price=0)
+        assert balance - "10 ether" == accounts[0].balance()    
+        
         
 
       
