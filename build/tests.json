@@ -4,7 +4,7 @@
     "ERC20": "ed18f7176799ef070baeb860f08e3c37f557ffd3",
     "Reimbursement": "846b1d910193c44201d3fc3c764fc2ddd1cdd33f",
     "Stake": "d4f4587ea9960e2b28f6e2213370070cac95d060",
-    "VotingAndRep": "cdd45c26776a1ec60843938b921d3626561bfffe",
+    "VotingAndRep": "94043f25e42d567752bc6f13e29ef9e144a06777",
     "Wolvercoin": "ed18f7176799ef070baeb860f08e3c37f557ffd3"
   },
   "tests": {
@@ -40,17 +40,30 @@
     "tests/test_voting.py": {
       "coverage": false,
       "isolated": false,
-      "results": ".........",
-      "sha1": "02ef49e64dc0eeabdc9b0b891222f47cb4c17f0d",
+      "results": ".......",
+      "sha1": "74557d170336603e63014ae785a676e5d9192820",
       "txhash": [
+        "02844999724b1a11b30cb330f33b23ca7c999b2e",
         "bb6780ff070e3b7bd611e754738341796dbd6338",
         "cf9f0996019f7a39af6cb7b836995055983917e8",
-        "d40816192f1cfe0f23198bcbe21089df96617a28",
-        "f02f8c795068451ab02ffd057e5f9ac87cfc017c"
+        "dff09d85deae1f5272578e85ef1888d9eaa9111a"
       ]
     }
   },
   "tx": {
+    "02844999724b1a11b30cb330f33b23ca7c999b2e": {
+      "VotingAndRep": {
+        "0": [
+          [
+            44
+          ],
+          [
+            45
+          ],
+          []
+        ]
+      }
+    },
     "3de6022827f0a05ed1220c1a8b33ed5f5a1482c9": {
       "ActiveUser": {
         "0": [
@@ -162,27 +175,14 @@
         ]
       }
     },
-    "d40816192f1cfe0f23198bcbe21089df96617a28": {
+    "dff09d85deae1f5272578e85ef1888d9eaa9111a": {
       "VotingAndRep": {
         "0": [
           [
-            56
+            47
           ],
           [
-            57
-          ],
-          []
-        ]
-      }
-    },
-    "f02f8c795068451ab02ffd057e5f9ac87cfc017c": {
-      "VotingAndRep": {
-        "0": [
-          [
-            53
-          ],
-          [
-            54
+            48
           ],
           []
         ]

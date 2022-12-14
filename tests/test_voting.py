@@ -113,8 +113,8 @@ def test_setContractMaintainer(votingContract, accounts):
         allowChanges = False
     assert allowChanges, "Maintainer should be able to change maintainer"
 
+"""
 def test_burnCoin(votingContract, accounts):
-    """
     winningProp = "0xc0ffee254729296a45a3885639AC7E10F9d54979"
     losingProp = "0x999999cf1046e68e36E1aA2E0E07105eDDD1f08E"
     votingContract.setActiveProposition(winningProp, 0)
@@ -138,28 +138,37 @@ def test_burnCoin(votingContract, accounts):
     except:
         allowBurn = False
     assert allowBurn, "Coin should be burned/returned if user is on winning side of the vote"
-    """
     assert True
 
 def test_endVote(votingContract, accounts):
-    """
+    
     winningProp = "0xc0ffee254729296a45a3885639AC7E10F9d54979"
     losingProp = "0x999999cf1046e68e36E1aA2E0E07105eDDD1f08E"
-    votingContract.setActiveProposition(winningProp, 0)
-    votingContract.setActiveProposition(losingProp, 0)
-    votingContract.setVoterCoinSupply(votingContract.voterCoinSupply() + 100)
-    votingContract.setAccountVCBal(accounts[4],50)
-    votingContract.setAccountVCBal(accounts[6],50)
-    votingContract.setVoterCoinSupply(100)
-    votingContract.vote(accounts[4],losingProp,10)
-    votingContract.vote(accounts[6],winningProp,20)
-    assert votingContract.voterCoinStaked() == 30
+
+    votingContract.proposeVote(winningProp, "Vote for more cows")
+    votingContract.proposeVote(losingProp, "Vote for less cows")
+
+    votingContract.mint(accounts[4], 50, {'from': accounts[0]}) 
+    votingContract.mint(accounts[6], 50, {'from': accounts[0]})
+
+    votingContract.vote(losingProp, 10, {'from': accounts[4]}) # this will not (-5)
+    votingContract.vote(winningProp, 50, {'from': accounts[6]}) # this will pass (-50)
+
+    # fast forwards
+    chain.mine(200)
+
     votingContract.finishVote(losingProp)
     votingContract.finishVote(winningProp)
-    assert votingContract.voterCoinSupply() == 90
+    
+    assert votingContract.totalSupply() == 45
+
+
+    
+    
     assert votingContract.voterCoinStaked() == 0
-    """
     assert True
+
+"""
 
 def test_vote(votingContract, accounts):
     sampleContract = votingContract.address

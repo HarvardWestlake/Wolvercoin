@@ -111,6 +111,7 @@ def amountAvailable (user: address) -> (uint256):
 # @dev This creates a new proposition for people to vote on
 # @param contract address The contract that will be given ran with adminstrator on vote sucsess
 # @param payable wei The WvC that will be sent to the executed contract on a sucsess
+
 @payable
 @external
 def proposeVote (contract: address, explaination: String[255]) -> (bool):
@@ -136,41 +137,12 @@ def proposeVote (contract: address, explaination: String[255]) -> (bool):
     return True
 
 @external
-def finishVote(contract: address): 
-    assert not self.disabled, "This contract is no longer active"
-    amtStaked: uint256 = self.activePropositions[contract]
-    array: DynArray[address,1024] = self.peopleInvested[contract]
-    if (self.affectsDao[contract] == False and self.voterCoinStaked < amtStaked * 2 and self.totalSupply < amtStaked * 5) or (self.totalSupply * 3 < amtStaked * 4):
-        self.totalSupply -= self.activePropositions[contract] / 2
-        for affectedAdr in array:
-            self.burnCoin(affectedAdr)   
-    else:
-        for affectedAdr in array:
-            self.returnCoin(contract, affectedAdr)
-    self.voterCoinStaked -= self.activePropositions[contract]
-    
-#set to internal to make finishVote work, but can be set to external temporarily to run burnCoin test separately
-@internal
-def burnCoin(voterAddress: address):
-    assert not self.disabled, "This contract is no longer active"
-    assert voterAddress != empty(address), "Cannot add the 0 address as vote subject"
-    assert self.amountInFavor[self.returnedWinner][voterAddress] != empty(uint256)
-    self.balanceOf[voterAddress] += self.amountInFavor[self.returnedWinner][voterAddress]/2
-    self.totalSupply -= self.amountInFavor[self.returnedWinner][voterAddress]/2
-
-@internal
-def returnCoin(proposition: address, voterAddress: address):
-    assert not self.disabled, "This contract is no longer active"
-    assert voterAddress != empty(address), "Cannot add the 0 address as vote subject"
-    self.balanceOf[voterAddress] += self.amountInFavor[proposition][voterAddress]
-
-@external
 def vote(proposition: address, amount: uint256):
     self.balanceOf[msg.sender] -= amount
     self.voterCoinStaked += amount
     self.activePropositions[proposition] += amount
     self.peopleInvested[proposition].append(msg.sender) # this should not add a new entry for each time someone votes
-    self.amountInFavor[proposition][msg.sender] = amount
+    self.amountInFavor[proposition][msg.sender] += amount
 
 @external
 def mint(_to: address, _value: uint256):
@@ -224,29 +196,16 @@ def transferFrom(_from : address, _to : address, _value : uint256) -> bool:
     log Transfer(_from, _to, _value)
     return True
 
-
+# allows other people to spend your money
 @external
 def approve(_spender : address, _value : uint256) -> bool:
-    """
-    @dev Approve the passed address to spend the specified amount of tokens on behalf of msg.sender.
-         Beware that changing an allowance with this method brings the risk that someone may use both the old
-         and the new allowance by unfortunate transaction ordering. One possible solution to mitigate this
-         race condition is to first reduce the spender's allowance to 0 and set the desired value afterwards:
-         https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729
-    @param _spender The address which will spend the funds.
-    @param _value The amount of tokens to be spent.
-    """
     self.allowance[msg.sender][_spender] = _value
     log Approval(msg.sender, _spender, _value)
     return True
 
+# burn other peoples money if they let you
 @external
 def burnFrom(_to: address, _value: uint256):
-    """
-    @dev Burn an amount of the token from a given account.
-    @param _to The account whose tokens will be burned.
-    @param _value The amount that will be burned.
-    """
     self.allowance[_to][msg.sender] -= _value
     self._burn(_to, _value)
 
@@ -262,20 +221,3 @@ def setContractMaintainer(newMaintainer: address):
     assert newMaintainer != empty(address), "You can't remove the maintainer"
 
     self.contractMaintainer = newMaintainer
-
-# Setters for testing only
-# @external
-# def setAccountVCBal (account: address, newAmount: uint256):
-#    self.balanceOf[account] = newAmount
-
-# @external
-#def incrementAccountVCBal (account: address, increment: uint256):
-#    self.balanceOf[account] += increment
-
-# @external
-#def setVoterCoinSupply (nVoterCoinSupply: uint256):
-#    self.voterCoinSupply = nVoterCoinSupply
-
-# @external
-#def setActiveProposition(proposition: address, amount: uint256):
-#    self.activePropositions[proposition] = amount
