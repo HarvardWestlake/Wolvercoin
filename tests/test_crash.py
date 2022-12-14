@@ -21,3 +21,11 @@ def test_crashGamble(crashContract, accounts):
     print (newMultiplier)
     print (multiplierInit)
     assert newMultiplier != multiplierInit
+    
+def test_crashUpdating(crashContract, accounts):
+    multiplierInit = crashContract.getMultiplier()
+    crashContract.updateCrash()
+    newMultiplier = crashContract.getMultiplier()
+    print (newMultiplier)
+    print (multiplierInit)
+    assert newMultiplier != multiplierInit
