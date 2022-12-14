@@ -12,8 +12,9 @@ class MetaMask extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      val1 : ''
     };
-    console.log(Contracts);
+    console.log(this.props);
   }
 
   getScanAddress(network) {
@@ -34,6 +35,7 @@ class MetaMask extends React.Component {
   }
 
   async connectToMetamask() {
+    //this.props.web3.connectAccount();
     const provider = new ethers.providers.Web3Provider(window.ethereum)
     const accounts = await provider.send("eth_requestAccounts", []);
 
@@ -89,9 +91,10 @@ class MetaMask extends React.Component {
   }
     render() {
       return (
-        <div className="wallet-info ">
-          {this.renderMetamask()}
-        </div>)
+          <div className="wallet-info ">
+            {this.renderMetamask()}
+          </div>
+        )
     }
 };
 
