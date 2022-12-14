@@ -53,6 +53,35 @@
       ],
       "stateMutability": "nonpayable",
       "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "name": "arg0",
+          "type": "uint256"
+        }
+      ],
+      "name": "electedOfficials",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "moneyStored",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
     }
   ],
   "allSourcePaths": {
@@ -64,73 +93,73 @@
       {
         "annotation": {
           "ast_type": "Subscript",
-          "col_offset": 18,
-          "end_col_offset": 39,
+          "col_offset": 25,
+          "end_col_offset": 46,
           "end_lineno": 3,
           "lineno": 3,
-          "node_id": 4,
+          "node_id": 7,
           "slice": {
             "ast_type": "Index",
-            "col_offset": 18,
-            "end_col_offset": 39,
+            "col_offset": 25,
+            "end_col_offset": 46,
             "end_lineno": 3,
             "lineno": 3,
-            "node_id": 13,
-            "src": "37:21:0",
+            "node_id": 16,
+            "src": "44:21:0",
             "value": {
               "ast_type": "Tuple",
-              "col_offset": 28,
+              "col_offset": 35,
               "elements": [
                 {
                   "ast_type": "Name",
-                  "col_offset": 28,
-                  "end_col_offset": 35,
+                  "col_offset": 35,
+                  "end_col_offset": 42,
                   "end_lineno": 3,
                   "id": "address",
                   "lineno": 3,
-                  "node_id": 8,
-                  "src": "47:7:0"
+                  "node_id": 11,
+                  "src": "54:7:0"
                 },
                 {
                   "ast_type": "Int",
-                  "col_offset": 37,
-                  "end_col_offset": 38,
+                  "col_offset": 44,
+                  "end_col_offset": 45,
                   "end_lineno": 3,
                   "lineno": 3,
-                  "node_id": 10,
-                  "src": "56:1:0",
+                  "node_id": 13,
+                  "src": "63:1:0",
                   "value": 3
                 }
               ],
-              "end_col_offset": 38,
+              "end_col_offset": 45,
               "end_lineno": 3,
               "lineno": 3,
-              "node_id": 7,
-              "src": "47:10:0"
+              "node_id": 10,
+              "src": "54:10:0"
             }
           },
-          "src": "37:21:0",
+          "src": "44:21:0",
           "value": {
             "ast_type": "Name",
-            "col_offset": 18,
-            "end_col_offset": 26,
+            "col_offset": 25,
+            "end_col_offset": 33,
             "end_lineno": 3,
             "id": "DynArray",
             "lineno": 3,
-            "node_id": 5,
-            "src": "37:8:0"
+            "node_id": 8,
+            "src": "44:8:0"
           }
         },
         "ast_type": "VariableDecl",
         "col_offset": 0,
-        "end_col_offset": 39,
+        "end_col_offset": 47,
         "end_lineno": 3,
         "is_constant": false,
         "is_immutable": false,
-        "is_public": false,
+        "is_public": true,
         "lineno": 3,
         "node_id": 1,
-        "src": "19:39:0",
+        "src": "19:47:0",
         "target": {
           "ast_type": "Name",
           "col_offset": 0,
@@ -146,24 +175,24 @@
       {
         "annotation": {
           "ast_type": "Name",
-          "col_offset": 13,
-          "end_col_offset": 20,
+          "col_offset": 20,
+          "end_col_offset": 27,
           "end_lineno": 4,
           "id": "uint256",
           "lineno": 4,
-          "node_id": 17,
-          "src": "72:7:0"
+          "node_id": 23,
+          "src": "87:7:0"
         },
         "ast_type": "VariableDecl",
         "col_offset": 0,
-        "end_col_offset": 20,
+        "end_col_offset": 28,
         "end_lineno": 4,
         "is_constant": false,
         "is_immutable": false,
-        "is_public": false,
+        "is_public": true,
         "lineno": 4,
-        "node_id": 14,
-        "src": "59:20:0",
+        "node_id": 17,
+        "src": "67:28:0",
         "target": {
           "ast_type": "Name",
           "col_offset": 0,
@@ -171,8 +200,8 @@
           "end_lineno": 4,
           "id": "moneyStored",
           "lineno": 4,
-          "node_id": 15,
-          "src": "59:11:0"
+          "node_id": 18,
+          "src": "67:11:0"
         },
         "value": null
       },
@@ -186,8 +215,8 @@
           "end_col_offset": 3,
           "end_lineno": 7,
           "lineno": 7,
-          "node_id": 20,
-          "src": "91:3:0"
+          "node_id": 26,
+          "src": "107:3:0"
         },
         "ast_type": "FunctionDef",
         "body": [
@@ -197,8 +226,8 @@
             "end_col_offset": 24,
             "end_lineno": 8,
             "lineno": 8,
-            "node_id": 21,
-            "src": "112:20:0",
+            "node_id": 27,
+            "src": "128:20:0",
             "target": {
               "ast_type": "Attribute",
               "attr": "moneyStored",
@@ -206,8 +235,8 @@
               "end_col_offset": 20,
               "end_lineno": 8,
               "lineno": 8,
-              "node_id": 22,
-              "src": "112:16:0",
+              "node_id": 28,
+              "src": "128:16:0",
               "value": {
                 "ast_type": "Name",
                 "col_offset": 4,
@@ -215,8 +244,8 @@
                 "end_lineno": 8,
                 "id": "self",
                 "lineno": 8,
-                "node_id": 23,
-                "src": "112:4:0"
+                "node_id": 29,
+                "src": "128:4:0"
               }
             },
             "value": {
@@ -225,8 +254,8 @@
               "end_col_offset": 24,
               "end_lineno": 8,
               "lineno": 8,
-              "node_id": 26,
-              "src": "131:1:0",
+              "node_id": 32,
+              "src": "147:1:0",
               "value": 0
             }
           },
@@ -236,8 +265,8 @@
             "end_col_offset": 30,
             "end_lineno": 9,
             "lineno": 9,
-            "node_id": 27,
-            "src": "137:26:0",
+            "node_id": 33,
+            "src": "153:26:0",
             "target": {
               "ast_type": "Attribute",
               "attr": "electedOfficials",
@@ -245,8 +274,8 @@
               "end_col_offset": 25,
               "end_lineno": 9,
               "lineno": 9,
-              "node_id": 28,
-              "src": "137:21:0",
+              "node_id": 34,
+              "src": "153:21:0",
               "value": {
                 "ast_type": "Name",
                 "col_offset": 4,
@@ -254,8 +283,8 @@
                 "end_lineno": 9,
                 "id": "self",
                 "lineno": 9,
-                "node_id": 29,
-                "src": "137:4:0"
+                "node_id": 35,
+                "src": "153:4:0"
               }
             },
             "value": {
@@ -265,8 +294,8 @@
               "end_col_offset": 30,
               "end_lineno": 9,
               "lineno": 9,
-              "node_id": 32,
-              "src": "161:2:0"
+              "node_id": 38,
+              "src": "177:2:0"
             }
           }
         ],
@@ -279,8 +308,8 @@
             "end_lineno": 6,
             "id": "external",
             "lineno": 6,
-            "node_id": 34,
-            "src": "82:8:0"
+            "node_id": 40,
+            "src": "98:8:0"
           }
         ],
         "doc_string": null,
@@ -288,10 +317,10 @@
         "end_lineno": 9,
         "lineno": 7,
         "name": "__init__",
-        "node_id": 19,
+        "node_id": 25,
         "pos": null,
         "returns": null,
-        "src": "91:72:0"
+        "src": "107:72:0"
       },
       {
         "args": {
@@ -304,8 +333,8 @@
                 "end_lineno": 12,
                 "id": "uint256",
                 "lineno": 12,
-                "node_id": 39,
-                "src": "197:7:0"
+                "node_id": 45,
+                "src": "213:7:0"
               },
               "arg": "amount",
               "ast_type": "arg",
@@ -313,8 +342,8 @@
               "end_col_offset": 29,
               "end_lineno": 12,
               "lineno": 12,
-              "node_id": 38,
-              "src": "189:15:0"
+              "node_id": 44,
+              "src": "205:15:0"
             }
           ],
           "ast_type": "arguments",
@@ -324,8 +353,8 @@
           "end_col_offset": 29,
           "end_lineno": 12,
           "lineno": 12,
-          "node_id": 37,
-          "src": "189:15:0"
+          "node_id": 43,
+          "src": "205:15:0"
         },
         "ast_type": "FunctionDef",
         "body": [
@@ -335,8 +364,8 @@
             "end_col_offset": 48,
             "end_lineno": 13,
             "lineno": 13,
-            "node_id": 41,
-            "src": "211:44:0",
+            "node_id": 47,
+            "src": "227:44:0",
             "target": {
               "ast_type": "Attribute",
               "attr": "moneyStored",
@@ -344,8 +373,8 @@
               "end_col_offset": 20,
               "end_lineno": 13,
               "lineno": 13,
-              "node_id": 42,
-              "src": "211:16:0",
+              "node_id": 48,
+              "src": "227:16:0",
               "value": {
                 "ast_type": "Name",
                 "col_offset": 4,
@@ -353,8 +382,8 @@
                 "end_lineno": 13,
                 "id": "self",
                 "lineno": 13,
-                "node_id": 43,
-                "src": "211:4:0"
+                "node_id": 49,
+                "src": "227:4:0"
               }
             },
             "value": {
@@ -369,8 +398,8 @@
                 "end_col_offset": 39,
                 "end_lineno": 13,
                 "lineno": 13,
-                "node_id": 47,
-                "src": "230:16:0",
+                "node_id": 53,
+                "src": "246:16:0",
                 "value": {
                   "ast_type": "Name",
                   "col_offset": 23,
@@ -378,20 +407,20 @@
                   "end_lineno": 13,
                   "id": "self",
                   "lineno": 13,
-                  "node_id": 48,
-                  "src": "230:4:0"
+                  "node_id": 54,
+                  "src": "246:4:0"
                 }
               },
               "lineno": 13,
-              "node_id": 46,
+              "node_id": 52,
               "op": {
                 "ast_type": "Add",
                 "col_offset": 23,
                 "end_col_offset": 48,
                 "end_lineno": 13,
                 "lineno": 13,
-                "node_id": 51,
-                "src": "230:25:0"
+                "node_id": 57,
+                "src": "246:25:0"
               },
               "right": {
                 "ast_type": "Name",
@@ -400,10 +429,10 @@
                 "end_lineno": 13,
                 "id": "amount",
                 "lineno": 13,
-                "node_id": 52,
-                "src": "249:6:0"
+                "node_id": 58,
+                "src": "265:6:0"
               },
-              "src": "230:25:0"
+              "src": "246:25:0"
             }
           }
         ],
@@ -416,8 +445,8 @@
             "end_lineno": 11,
             "id": "external",
             "lineno": 11,
-            "node_id": 54,
-            "src": "166:8:0"
+            "node_id": 60,
+            "src": "182:8:0"
           }
         ],
         "doc_string": null,
@@ -425,10 +454,10 @@
         "end_lineno": 13,
         "lineno": 12,
         "name": "addMoney",
-        "node_id": 36,
+        "node_id": 42,
         "pos": null,
         "returns": null,
-        "src": "175:80:0"
+        "src": "191:80:0"
       },
       {
         "args": {
@@ -440,15 +469,15 @@
                 "end_col_offset": 67,
                 "end_lineno": 16,
                 "lineno": 16,
-                "node_id": 59,
+                "node_id": 65,
                 "slice": {
                   "ast_type": "Index",
                   "col_offset": 47,
                   "end_col_offset": 67,
                   "end_lineno": 16,
                   "lineno": 16,
-                  "node_id": 68,
-                  "src": "314:20:0",
+                  "node_id": 74,
+                  "src": "330:20:0",
                   "value": {
                     "ast_type": "Tuple",
                     "col_offset": 57,
@@ -460,8 +489,8 @@
                         "end_lineno": 16,
                         "id": "address",
                         "lineno": 16,
-                        "node_id": 63,
-                        "src": "324:7:0"
+                        "node_id": 69,
+                        "src": "340:7:0"
                       },
                       {
                         "ast_type": "Int",
@@ -469,19 +498,19 @@
                         "end_col_offset": 66,
                         "end_lineno": 16,
                         "lineno": 16,
-                        "node_id": 65,
-                        "src": "332:1:0",
+                        "node_id": 71,
+                        "src": "348:1:0",
                         "value": 3
                       }
                     ],
                     "end_col_offset": 66,
                     "end_lineno": 16,
                     "lineno": 16,
-                    "node_id": 62,
-                    "src": "324:9:0"
+                    "node_id": 68,
+                    "src": "340:9:0"
                   }
                 },
-                "src": "314:20:0",
+                "src": "330:20:0",
                 "value": {
                   "ast_type": "Name",
                   "col_offset": 47,
@@ -489,8 +518,8 @@
                   "end_lineno": 16,
                   "id": "DynArray",
                   "lineno": 16,
-                  "node_id": 60,
-                  "src": "314:8:0"
+                  "node_id": 66,
+                  "src": "330:8:0"
                 }
               },
               "arg": "newEleectedOfficials",
@@ -499,8 +528,8 @@
               "end_col_offset": 67,
               "end_lineno": 16,
               "lineno": 16,
-              "node_id": 58,
-              "src": "292:42:0"
+              "node_id": 64,
+              "src": "308:42:0"
             }
           ],
           "ast_type": "arguments",
@@ -510,8 +539,8 @@
           "end_col_offset": 67,
           "end_lineno": 16,
           "lineno": 16,
-          "node_id": 57,
-          "src": "292:42:0"
+          "node_id": 63,
+          "src": "308:42:0"
         },
         "ast_type": "FunctionDef",
         "body": [
@@ -521,8 +550,8 @@
             "end_col_offset": 48,
             "end_lineno": 17,
             "lineno": 17,
-            "node_id": 69,
-            "src": "341:44:0",
+            "node_id": 75,
+            "src": "357:44:0",
             "target": {
               "ast_type": "Attribute",
               "attr": "electedOfficials",
@@ -530,8 +559,8 @@
               "end_col_offset": 25,
               "end_lineno": 17,
               "lineno": 17,
-              "node_id": 70,
-              "src": "341:21:0",
+              "node_id": 76,
+              "src": "357:21:0",
               "value": {
                 "ast_type": "Name",
                 "col_offset": 4,
@@ -539,8 +568,8 @@
                 "end_lineno": 17,
                 "id": "self",
                 "lineno": 17,
-                "node_id": 71,
-                "src": "341:4:0"
+                "node_id": 77,
+                "src": "357:4:0"
               }
             },
             "value": {
@@ -550,8 +579,8 @@
               "end_lineno": 17,
               "id": "newEleectedOfficials",
               "lineno": 17,
-              "node_id": 74,
-              "src": "365:20:0"
+              "node_id": 80,
+              "src": "381:20:0"
             }
           }
         ],
@@ -564,8 +593,8 @@
             "end_lineno": 15,
             "id": "external",
             "lineno": 15,
-            "node_id": 76,
-            "src": "258:8:0"
+            "node_id": 82,
+            "src": "274:8:0"
           }
         ],
         "doc_string": null,
@@ -573,10 +602,10 @@
         "end_lineno": 17,
         "lineno": 16,
         "name": "setElectedOfficials",
-        "node_id": 56,
+        "node_id": 62,
         "pos": null,
         "returns": null,
-        "src": "267:118:0"
+        "src": "283:118:0"
       },
       {
         "args": {
@@ -588,8 +617,8 @@
           "end_col_offset": 3,
           "end_lineno": 20,
           "lineno": 20,
-          "node_id": 79,
-          "src": "397:3:0"
+          "node_id": 85,
+          "src": "413:3:0"
         },
         "ast_type": "FunctionDef",
         "body": [
@@ -599,8 +628,8 @@
             "end_col_offset": 27,
             "end_lineno": 21,
             "lineno": 21,
-            "node_id": 80,
-            "src": "429:23:0",
+            "node_id": 86,
+            "src": "444:23:0",
             "value": {
               "ast_type": "Attribute",
               "attr": "moneyStored",
@@ -608,8 +637,8 @@
               "end_col_offset": 27,
               "end_lineno": 21,
               "lineno": 21,
-              "node_id": 81,
-              "src": "436:16:0",
+              "node_id": 87,
+              "src": "451:16:0",
               "value": {
                 "ast_type": "Name",
                 "col_offset": 11,
@@ -617,8 +646,8 @@
                 "end_lineno": 21,
                 "id": "self",
                 "lineno": 21,
-                "node_id": 82,
-                "src": "436:4:0"
+                "node_id": 88,
+                "src": "451:4:0"
               }
             }
           }
@@ -632,8 +661,8 @@
             "end_lineno": 19,
             "id": "external",
             "lineno": 19,
-            "node_id": 85,
-            "src": "388:8:0"
+            "node_id": 91,
+            "src": "404:8:0"
           }
         ],
         "doc_string": null,
@@ -641,19 +670,19 @@
         "end_lineno": 21,
         "lineno": 20,
         "name": "getMoney",
-        "node_id": 78,
+        "node_id": 84,
         "pos": null,
         "returns": {
           "ast_type": "Name",
-          "col_offset": 19,
-          "end_col_offset": 26,
+          "col_offset": 18,
+          "end_col_offset": 25,
           "end_lineno": 20,
           "id": "uint256",
           "lineno": 20,
-          "node_id": 87,
-          "src": "416:7:0"
+          "node_id": 93,
+          "src": "431:7:0"
         },
-        "src": "397:55:0"
+        "src": "413:54:0"
       },
       {
         "args": {
@@ -665,8 +694,8 @@
           "end_col_offset": 3,
           "end_lineno": 24,
           "lineno": 24,
-          "node_id": 90,
-          "src": "464:3:0"
+          "node_id": 96,
+          "src": "479:3:0"
         },
         "ast_type": "FunctionDef",
         "body": [
@@ -676,8 +705,8 @@
             "end_col_offset": 32,
             "end_lineno": 25,
             "lineno": 25,
-            "node_id": 91,
-            "src": "519:28:0",
+            "node_id": 97,
+            "src": "534:28:0",
             "value": {
               "ast_type": "Attribute",
               "attr": "electedOfficials",
@@ -685,8 +714,8 @@
               "end_col_offset": 32,
               "end_lineno": 25,
               "lineno": 25,
-              "node_id": 92,
-              "src": "526:21:0",
+              "node_id": 98,
+              "src": "541:21:0",
               "value": {
                 "ast_type": "Name",
                 "col_offset": 11,
@@ -694,8 +723,8 @@
                 "end_lineno": 25,
                 "id": "self",
                 "lineno": 25,
-                "node_id": 93,
-                "src": "526:4:0"
+                "node_id": 99,
+                "src": "541:4:0"
               }
             }
           }
@@ -709,8 +738,8 @@
             "end_lineno": 23,
             "id": "external",
             "lineno": 23,
-            "node_id": 96,
-            "src": "455:8:0"
+            "node_id": 102,
+            "src": "470:8:0"
           }
         ],
         "doc_string": null,
@@ -718,7 +747,7 @@
         "end_lineno": 25,
         "lineno": 24,
         "name": "getElectedOfficials",
-        "node_id": 89,
+        "node_id": 95,
         "pos": null,
         "returns": {
           "ast_type": "Subscript",
@@ -726,15 +755,15 @@
           "end_col_offset": 49,
           "end_lineno": 24,
           "lineno": 24,
-          "node_id": 98,
+          "node_id": 104,
           "slice": {
             "ast_type": "Index",
             "col_offset": 29,
             "end_col_offset": 49,
             "end_lineno": 24,
             "lineno": 24,
-            "node_id": 107,
-            "src": "493:20:0",
+            "node_id": 113,
+            "src": "508:20:0",
             "value": {
               "ast_type": "Tuple",
               "col_offset": 38,
@@ -746,8 +775,8 @@
                   "end_lineno": 24,
                   "id": "address",
                   "lineno": 24,
-                  "node_id": 102,
-                  "src": "502:7:0"
+                  "node_id": 108,
+                  "src": "517:7:0"
                 },
                 {
                   "ast_type": "Int",
@@ -755,19 +784,19 @@
                   "end_col_offset": 48,
                   "end_lineno": 24,
                   "lineno": 24,
-                  "node_id": 104,
-                  "src": "511:1:0",
+                  "node_id": 110,
+                  "src": "526:1:0",
                   "value": 3
                 }
               ],
               "end_col_offset": 48,
               "end_lineno": 24,
               "lineno": 24,
-              "node_id": 101,
-              "src": "502:10:0"
+              "node_id": 107,
+              "src": "517:10:0"
             }
           },
-          "src": "493:20:0",
+          "src": "508:20:0",
           "value": {
             "ast_type": "Name",
             "col_offset": 29,
@@ -775,11 +804,11 @@
             "end_lineno": 24,
             "id": "DynArray",
             "lineno": 24,
-            "node_id": 99,
-            "src": "493:8:0"
+            "node_id": 105,
+            "src": "508:8:0"
           }
         },
-        "src": "464:83:0"
+        "src": "479:83:0"
       }
     ],
     "col_offset": 0,
@@ -789,10 +818,10 @@
     "lineno": 1,
     "name": "contracts/CommunityPot.vy",
     "node_id": 0,
-    "src": "0:547:0"
+    "src": "0:562:0"
   },
-  "bytecode": "0x346101ad576000600455600060005561018c6100206100003961018c610000f36003361161000c57610174565b60003560e01c3461017a5763d0bc1a888118610043576024361061017a5760045460043580820182811061017a5790509050600455005b63559dbec081186100e9576044361061017a57600435600401600381351161017a578035806040526000816003811161017a5780156100a357905b8060051b6020850101358060a01c61017a578160051b6060015260010181811861007e575b50505050604051806000558060051b600081601f0160051c6003811161017a5780156100e357905b8060051b6060015181600101556001018181186100cb575b50505050005b6398e1b4108118610108576004361061017a5760045460405260206040f35b6338e4b2f78118610172576004361061017a576020806040528060400160006000548083528060051b6000826003811161017a57801561015e57905b80600101548160051b602088010152600101818118610144575b505082016020019150509050810190506040f35b505b60006000fd5b600080fda165767970657283000307000b005b600080fd",
-  "bytecodeSha1": "8d7bfba5c7fabd9702677d95cdc8fbf3646b4281",
+  "bytecode": "0x346101f957600060045560006000556101d8610020610000396101d8610000f36003361161000c576101c0565b60003560e01c346101c65763d0bc1a88811861004357602436106101c6576004546004358082018281106101c65790509050600455005b63559dbec081186100e957604436106101c65760043560040160038135116101c657803580604052600081600381116101c65780156100a357905b8060051b6020850101358060a01c6101c6578160051b6060015260010181811861007e575b50505050604051806000558060051b600081601f0160051c600381116101c65780156100e357905b8060051b6060015181600101556001018181186100cb575b50505050005b6398e1b410811861010857600436106101c65760045460405260206040f35b6338e4b2f7811861017257600436106101c6576020806040528060400160006000548083528060051b600082600381116101c657801561015e57905b80600101548160051b602088010152600101818118610144575b505082016020019150509050810190506040f35b63a7f10caf811861019f57602436106101c6576004356000548110156101c6576001015460405260206040f35b63f4c88cfb81186101be57600436106101c65760045460405260206040f35b505b60006000fd5b600080fda165767970657283000307000b005b600080fd",
+  "bytecodeSha1": "7a81fe3737a59b212d92f2482d838ff564bd15e5",
   "compiler": {
     "evm_version": "istanbul",
     "version": "0.3.7"
@@ -806,48 +835,48 @@
       "0": {
         "CommunityPot.addMoney": {
           "0": [
-            211,
-            255
+            227,
+            271
           ]
         },
         "CommunityPot.getElectedOfficials": {
           "3": [
-            519,
-            547
+            534,
+            562
           ]
         },
         "CommunityPot.getMoney": {
           "2": [
-            429,
-            452
+            444,
+            467
           ]
         },
         "CommunityPot.setElectedOfficials": {
           "1": [
-            341,
-            385
+            357,
+            401
           ]
         }
       }
     }
   },
   "dependencies": [],
-  "deployedBytecode": "0x6003361161000c57610174565b60003560e01c3461017a5763d0bc1a888118610043576024361061017a5760045460043580820182811061017a5790509050600455005b63559dbec081186100e9576044361061017a57600435600401600381351161017a578035806040526000816003811161017a5780156100a357905b8060051b6020850101358060a01c61017a578160051b6060015260010181811861007e575b50505050604051806000558060051b600081601f0160051c6003811161017a5780156100e357905b8060051b6060015181600101556001018181186100cb575b50505050005b6398e1b4108118610108576004361061017a5760045460405260206040f35b6338e4b2f78118610172576004361061017a576020806040528060400160006000548083528060051b6000826003811161017a57801561015e57905b80600101548160051b602088010152600101818118610144575b505082016020019150509050810190506040f35b505b60006000fd5b600080fda165767970657283000307000b",
-  "deployedSourceMap": "-1:-1:0:-;;;;:::-;;:::-;:::-;;;;;;;:::-;;;;;:::-;;;;;:::-;230:16;:25;249:6;-1:-1;;230:25;-1:-1;230:25;-1:-1;;;:::-;230:25;;;;211:16;:44;-1:-1;:::-;;;;;:::-;;;;;:::-;;;;292:42;-1:-1;292:42;-1:-1;;;:::-;292:42;-1:-1;;;;;;;;;;:::-;;;;:::-;;:::-;;;;;292:42;-1:-1;;;;;;;:::-;;;;;;;;;;;;;:::-;:::-;;;;292:42;365:20;341:44;;:21;-1:-1;341:44;-1:-1;;;;;;;;;;;;:::-;;;;:::-;;:::-;;;;;;;;;;;;;;;;;:::-;:::-;;;;341:44;-1:-1;:::-;;;;;:::-;;;;;:::-;436:16;-1:-1;;;;;;:::-;;;;;:::-;;;;;:::-;;;;;;;;;526:21;-1:-1;;;;;;;;;;;;;:::-;;;;:::-;;:::-;;;;;;;;;;;;;;;;;;;:::-;:::-;;;;;;;;;;;;;;;;;;:::-;;:::-;;;;:::-;;;",
+  "deployedBytecode": "0x6003361161000c576101c0565b60003560e01c346101c65763d0bc1a88811861004357602436106101c6576004546004358082018281106101c65790509050600455005b63559dbec081186100e957604436106101c65760043560040160038135116101c657803580604052600081600381116101c65780156100a357905b8060051b6020850101358060a01c6101c6578160051b6060015260010181811861007e575b50505050604051806000558060051b600081601f0160051c600381116101c65780156100e357905b8060051b6060015181600101556001018181186100cb575b50505050005b6398e1b410811861010857600436106101c65760045460405260206040f35b6338e4b2f7811861017257600436106101c6576020806040528060400160006000548083528060051b600082600381116101c657801561015e57905b80600101548160051b602088010152600101818118610144575b505082016020019150509050810190506040f35b63a7f10caf811861019f57602436106101c6576004356000548110156101c6576001015460405260206040f35b63f4c88cfb81186101be57600436106101c65760045460405260206040f35b505b60006000fd5b600080fda165767970657283000307000b",
+  "deployedSourceMap": "-1:-1:0:-;;;;:::-;;:::-;:::-;;;;;;;:::-;;;;;:::-;;;;;:::-;246:16;:25;265:6;-1:-1;;246:25;-1:-1;246:25;-1:-1;;;:::-;246:25;;;;227:16;:44;-1:-1;:::-;;;;;:::-;;;;;:::-;;;;308:42;-1:-1;308:42;-1:-1;;;:::-;308:42;-1:-1;;;;;;;;;;:::-;;;;:::-;;:::-;;;;;308:42;-1:-1;;;;;;;:::-;;;;;;;;;;;;;:::-;:::-;;;;308:42;381:20;357:44;;:21;-1:-1;357:44;-1:-1;;;;;;;;;;;;:::-;;;;:::-;;:::-;;;;;;;;;;;;;;;;;:::-;:::-;;;;357:44;-1:-1;:::-;;;;;:::-;;;;;:::-;451:16;-1:-1;;;;;;:::-;;;;;:::-;;;;;:::-;;;;;;;;;541:21;-1:-1;;;;;;;;;;;;;:::-;;;;:::-;;:::-;;;;;;;;;;;;;;;;;;;:::-;:::-;;;;;;;;;;;;;;;;;;:::-;;;;;:::-;;;;;:::-;;;;;;;;;:::-;;;;;;;;;:::-;;;;;:::-;;;;;:::-;;;;;;;;:::-;;:::-;;;;:::-;;;",
   "language": "Vyper",
   "natspec": {
     "methods": {}
   },
   "offset": [
     0,
-    547
+    562
   ],
-  "opcodes": "PUSH1 0x3 CALLDATASIZE GT PUSH2 0x0C JUMPI PUSH2 0x174 JUMP JUMPDEST PUSH1 0x0 CALLDATALOAD PUSH1 0xE0 SHR CALLVALUE PUSH2 0x17A JUMPI PUSH4 0xD0BC1A88 DUP2 XOR PUSH2 0x043 JUMPI PUSH1 0x24 CALLDATASIZE LT PUSH2 0x17A JUMPI PUSH1 0x4 SLOAD PUSH1 0x4 CALLDATALOAD DUP1 DUP3 ADD DUP3 DUP2 LT PUSH2 0x17A JUMPI SWAP1 POP SWAP1 POP PUSH1 0x4 SSTORE STOP JUMPDEST PUSH4 0x559DBEC0 DUP2 XOR PUSH2 0x0E9 JUMPI PUSH1 0x44 CALLDATASIZE LT PUSH2 0x17A JUMPI PUSH1 0x4 CALLDATALOAD PUSH1 0x4 ADD PUSH1 0x3 DUP2 CALLDATALOAD GT PUSH2 0x17A JUMPI DUP1 CALLDATALOAD DUP1 PUSH1 0x40 MSTORE PUSH1 0x0 DUP2 PUSH1 0x3 DUP2 GT PUSH2 0x17A JUMPI DUP1 ISZERO PUSH2 0x0A3 JUMPI SWAP1 JUMPDEST DUP1 PUSH1 0x5 SHL PUSH1 0x20 DUP6 ADD ADD CALLDATALOAD DUP1 PUSH1 0xA0 SHR PUSH2 0x17A JUMPI DUP2 PUSH1 0x5 SHL PUSH1 0x60 ADD MSTORE PUSH1 0x1 ADD DUP2 DUP2 XOR PUSH2 0x07E JUMPI JUMPDEST POP POP POP POP PUSH1 0x40 MLOAD DUP1 PUSH1 0x0 SSTORE DUP1 PUSH1 0x5 SHL PUSH1 0x0 DUP2 PUSH1 0x1F ADD PUSH1 0x5 SHR PUSH1 0x3 DUP2 GT PUSH2 0x17A JUMPI DUP1 ISZERO PUSH2 0x0E3 JUMPI SWAP1 JUMPDEST DUP1 PUSH1 0x5 SHL PUSH1 0x60 ADD MLOAD DUP2 PUSH1 0x1 ADD SSTORE PUSH1 0x1 ADD DUP2 DUP2 XOR PUSH2 0x0CB JUMPI JUMPDEST POP POP POP POP STOP JUMPDEST PUSH4 0x98E1B410 DUP2 XOR PUSH2 0x18 JUMPI PUSH1 0x4 CALLDATASIZE LT PUSH2 0x17A JUMPI PUSH1 0x4 SLOAD PUSH1 0x40 MSTORE PUSH1 0x20 PUSH1 0x40 RETURN JUMPDEST PUSH4 0x38E4B2F7 DUP2 XOR PUSH2 0x172 JUMPI PUSH1 0x4 CALLDATASIZE LT PUSH2 0x17A JUMPI PUSH1 0x20 DUP1 PUSH1 0x40 MSTORE DUP1 PUSH1 0x40 ADD PUSH1 0x0 PUSH1 0x0 SLOAD DUP1 DUP4 MSTORE DUP1 PUSH1 0x5 SHL PUSH1 0x0 DUP3 PUSH1 0x3 DUP2 GT PUSH2 0x17A JUMPI DUP1 ISZERO PUSH2 0x15E JUMPI SWAP1 JUMPDEST DUP1 PUSH1 0x1 ADD SLOAD DUP2 PUSH1 0x5 SHL PUSH1 0x20 DUP9 ADD ADD MSTORE PUSH1 0x1 ADD DUP2 DUP2 XOR PUSH2 0x144 JUMPI JUMPDEST POP POP DUP3 ADD PUSH1 0x20 ADD SWAP2 POP POP SWAP1 POP DUP2 ADD SWAP1 POP PUSH1 0x40 RETURN JUMPDEST POP JUMPDEST PUSH1 0x0 PUSH1 0x0 REVERT JUMPDEST PUSH1 0x0 DUP1 REVERT LOG1 PUSH6 0x767970657283 STOP SUB SMOD STOP SIGNEXTEND",
+  "opcodes": "PUSH1 0x3 CALLDATASIZE GT PUSH2 0x0C JUMPI PUSH2 0x1C0 JUMP JUMPDEST PUSH1 0x0 CALLDATALOAD PUSH1 0xE0 SHR CALLVALUE PUSH2 0x1C6 JUMPI PUSH4 0xD0BC1A88 DUP2 XOR PUSH2 0x043 JUMPI PUSH1 0x24 CALLDATASIZE LT PUSH2 0x1C6 JUMPI PUSH1 0x4 SLOAD PUSH1 0x4 CALLDATALOAD DUP1 DUP3 ADD DUP3 DUP2 LT PUSH2 0x1C6 JUMPI SWAP1 POP SWAP1 POP PUSH1 0x4 SSTORE STOP JUMPDEST PUSH4 0x559DBEC0 DUP2 XOR PUSH2 0x0E9 JUMPI PUSH1 0x44 CALLDATASIZE LT PUSH2 0x1C6 JUMPI PUSH1 0x4 CALLDATALOAD PUSH1 0x4 ADD PUSH1 0x3 DUP2 CALLDATALOAD GT PUSH2 0x1C6 JUMPI DUP1 CALLDATALOAD DUP1 PUSH1 0x40 MSTORE PUSH1 0x0 DUP2 PUSH1 0x3 DUP2 GT PUSH2 0x1C6 JUMPI DUP1 ISZERO PUSH2 0x0A3 JUMPI SWAP1 JUMPDEST DUP1 PUSH1 0x5 SHL PUSH1 0x20 DUP6 ADD ADD CALLDATALOAD DUP1 PUSH1 0xA0 SHR PUSH2 0x1C6 JUMPI DUP2 PUSH1 0x5 SHL PUSH1 0x60 ADD MSTORE PUSH1 0x1 ADD DUP2 DUP2 XOR PUSH2 0x07E JUMPI JUMPDEST POP POP POP POP PUSH1 0x40 MLOAD DUP1 PUSH1 0x0 SSTORE DUP1 PUSH1 0x5 SHL PUSH1 0x0 DUP2 PUSH1 0x1F ADD PUSH1 0x5 SHR PUSH1 0x3 DUP2 GT PUSH2 0x1C6 JUMPI DUP1 ISZERO PUSH2 0x0E3 JUMPI SWAP1 JUMPDEST DUP1 PUSH1 0x5 SHL PUSH1 0x60 ADD MLOAD DUP2 PUSH1 0x1 ADD SSTORE PUSH1 0x1 ADD DUP2 DUP2 XOR PUSH2 0x0CB JUMPI JUMPDEST POP POP POP POP STOP JUMPDEST PUSH4 0x98E1B410 DUP2 XOR PUSH2 0x18 JUMPI PUSH1 0x4 CALLDATASIZE LT PUSH2 0x1C6 JUMPI PUSH1 0x4 SLOAD PUSH1 0x40 MSTORE PUSH1 0x20 PUSH1 0x40 RETURN JUMPDEST PUSH4 0x38E4B2F7 DUP2 XOR PUSH2 0x172 JUMPI PUSH1 0x4 CALLDATASIZE LT PUSH2 0x1C6 JUMPI PUSH1 0x20 DUP1 PUSH1 0x40 MSTORE DUP1 PUSH1 0x40 ADD PUSH1 0x0 PUSH1 0x0 SLOAD DUP1 DUP4 MSTORE DUP1 PUSH1 0x5 SHL PUSH1 0x0 DUP3 PUSH1 0x3 DUP2 GT PUSH2 0x1C6 JUMPI DUP1 ISZERO PUSH2 0x15E JUMPI SWAP1 JUMPDEST DUP1 PUSH1 0x1 ADD SLOAD DUP2 PUSH1 0x5 SHL PUSH1 0x20 DUP9 ADD ADD MSTORE PUSH1 0x1 ADD DUP2 DUP2 XOR PUSH2 0x144 JUMPI JUMPDEST POP POP DUP3 ADD PUSH1 0x20 ADD SWAP2 POP POP SWAP1 POP DUP2 ADD SWAP1 POP PUSH1 0x40 RETURN JUMPDEST PUSH4 0xA7F1CAF DUP2 XOR PUSH2 0x19F JUMPI PUSH1 0x24 CALLDATASIZE LT PUSH2 0x1C6 JUMPI PUSH1 0x4 CALLDATALOAD PUSH1 0x0 SLOAD DUP2 LT ISZERO PUSH2 0x1C6 JUMPI PUSH1 0x1 ADD SLOAD PUSH1 0x40 MSTORE PUSH1 0x20 PUSH1 0x40 RETURN JUMPDEST PUSH4 0xF4C88CFB DUP2 XOR PUSH2 0x1BE JUMPI PUSH1 0x4 CALLDATASIZE LT PUSH2 0x1C6 JUMPI PUSH1 0x4 SLOAD PUSH1 0x40 MSTORE PUSH1 0x20 PUSH1 0x40 RETURN JUMPDEST POP JUMPDEST PUSH1 0x0 PUSH1 0x0 REVERT JUMPDEST PUSH1 0x0 DUP1 REVERT LOG1 PUSH6 0x767970657283 STOP SUB SMOD STOP SIGNEXTEND",
   "pcMap": {
     "0": {
       "offset": [
         0,
-        547
+        562
       ],
       "op": "PUSH1",
       "path": "0",
@@ -868,7 +897,7 @@
     },
     "8": {
       "op": "PUSH2",
-      "value": "0x174"
+      "value": "0x1C0"
     },
     "11": {
       "op": "JUMP"
@@ -895,7 +924,7 @@
     },
     "20": {
       "op": "PUSH2",
-      "value": "0x17A"
+      "value": "0x1C6"
     },
     "23": {
       "op": "JUMPI"
@@ -929,7 +958,7 @@
     },
     "39": {
       "op": "PUSH2",
-      "value": "0x17A"
+      "value": "0x1C6"
     },
     "42": {
       "op": "JUMPI"
@@ -937,8 +966,8 @@
     "43": {
       "fn": "CommunityPot.addMoney",
       "offset": [
-        230,
-        246
+        246,
+        262
       ],
       "op": "PUSH1",
       "path": "0",
@@ -948,8 +977,8 @@
     "45": {
       "fn": "CommunityPot.addMoney",
       "offset": [
-        230,
-        255
+        246,
+        271
       ],
       "op": "SLOAD",
       "path": "0"
@@ -957,8 +986,8 @@
     "46": {
       "fn": "CommunityPot.addMoney",
       "offset": [
-        249,
-        255
+        265,
+        271
       ],
       "op": "PUSH1",
       "path": "0",
@@ -973,8 +1002,8 @@
     "50": {
       "fn": "CommunityPot.addMoney",
       "offset": [
-        230,
-        255
+        246,
+        271
       ],
       "op": "DUP3",
       "path": "0"
@@ -985,8 +1014,8 @@
     "52": {
       "fn": "CommunityPot.addMoney",
       "offset": [
-        230,
-        255
+        246,
+        271
       ],
       "op": "DUP3",
       "path": "0"
@@ -999,7 +1028,7 @@
     },
     "55": {
       "op": "PUSH2",
-      "value": "0x17A"
+      "value": "0x1C6"
     },
     "58": {
       "op": "JUMPI"
@@ -1007,8 +1036,8 @@
     "59": {
       "fn": "CommunityPot.addMoney",
       "offset": [
-        230,
-        255
+        246,
+        271
       ],
       "op": "SWAP1",
       "path": "0"
@@ -1016,8 +1045,8 @@
     "60": {
       "fn": "CommunityPot.addMoney",
       "offset": [
-        230,
-        255
+        246,
+        271
       ],
       "op": "POP",
       "path": "0"
@@ -1025,8 +1054,8 @@
     "61": {
       "fn": "CommunityPot.addMoney",
       "offset": [
-        230,
-        255
+        246,
+        271
       ],
       "op": "SWAP1",
       "path": "0"
@@ -1034,8 +1063,8 @@
     "62": {
       "fn": "CommunityPot.addMoney",
       "offset": [
-        230,
-        255
+        246,
+        271
       ],
       "op": "POP",
       "path": "0"
@@ -1043,8 +1072,8 @@
     "63": {
       "fn": "CommunityPot.addMoney",
       "offset": [
-        211,
-        227
+        227,
+        243
       ],
       "op": "PUSH1",
       "path": "0",
@@ -1053,8 +1082,8 @@
     "65": {
       "fn": "CommunityPot.addMoney",
       "offset": [
-        211,
-        255
+        227,
+        271
       ],
       "op": "SSTORE",
       "path": "0"
@@ -1094,7 +1123,7 @@
     },
     "83": {
       "op": "PUSH2",
-      "value": "0x17A"
+      "value": "0x1C6"
     },
     "86": {
       "op": "JUMPI"
@@ -1113,8 +1142,8 @@
     "92": {
       "fn": "CommunityPot.setElectedOfficials",
       "offset": [
-        292,
-        334
+        308,
+        350
       ],
       "op": "ADD",
       "path": "0"
@@ -1126,8 +1155,8 @@
     "95": {
       "fn": "CommunityPot.setElectedOfficials",
       "offset": [
-        292,
-        334
+        308,
+        350
       ],
       "op": "DUP2",
       "path": "0"
@@ -1140,7 +1169,7 @@
     },
     "98": {
       "op": "PUSH2",
-      "value": "0x17A"
+      "value": "0x1C6"
     },
     "101": {
       "op": "JUMPI"
@@ -1148,8 +1177,8 @@
     "102": {
       "fn": "CommunityPot.setElectedOfficials",
       "offset": [
-        292,
-        334
+        308,
+        350
       ],
       "op": "DUP1",
       "path": "0"
@@ -1186,7 +1215,7 @@
     },
     "115": {
       "op": "PUSH2",
-      "value": "0x17A"
+      "value": "0x1C6"
     },
     "118": {
       "op": "JUMPI"
@@ -1227,8 +1256,8 @@
     "133": {
       "fn": "CommunityPot.setElectedOfficials",
       "offset": [
-        292,
-        334
+        308,
+        350
       ],
       "op": "DUP6",
       "path": "0"
@@ -1254,7 +1283,7 @@
     },
     "141": {
       "op": "PUSH2",
-      "value": "0x17A"
+      "value": "0x1C6"
     },
     "144": {
       "op": "JUMPI"
@@ -1317,8 +1346,8 @@
     "167": {
       "fn": "CommunityPot.setElectedOfficials",
       "offset": [
-        292,
-        334
+        308,
+        350
       ],
       "op": "POP",
       "path": "0"
@@ -1326,8 +1355,8 @@
     "168": {
       "fn": "CommunityPot.setElectedOfficials",
       "offset": [
-        365,
-        385
+        381,
+        401
       ],
       "op": "PUSH1",
       "path": "0",
@@ -1337,8 +1366,8 @@
     "170": {
       "fn": "CommunityPot.setElectedOfficials",
       "offset": [
-        341,
-        385
+        357,
+        401
       ],
       "op": "MLOAD",
       "path": "0"
@@ -1346,8 +1375,8 @@
     "171": {
       "fn": "CommunityPot.setElectedOfficials",
       "offset": [
-        341,
-        385
+        357,
+        401
       ],
       "op": "DUP1",
       "path": "0"
@@ -1355,8 +1384,8 @@
     "172": {
       "fn": "CommunityPot.setElectedOfficials",
       "offset": [
-        341,
-        362
+        357,
+        378
       ],
       "op": "PUSH1",
       "path": "0",
@@ -1368,8 +1397,8 @@
     "175": {
       "fn": "CommunityPot.setElectedOfficials",
       "offset": [
-        341,
-        385
+        357,
+        401
       ],
       "op": "DUP1",
       "path": "0"
@@ -1414,7 +1443,7 @@
     },
     "192": {
       "op": "PUSH2",
-      "value": "0x17A"
+      "value": "0x1C6"
     },
     "195": {
       "op": "JUMPI"
@@ -1509,8 +1538,8 @@
     "231": {
       "fn": "CommunityPot.setElectedOfficials",
       "offset": [
-        341,
-        385
+        357,
+        401
       ],
       "op": "POP",
       "path": "0"
@@ -1550,7 +1579,7 @@
     },
     "249": {
       "op": "PUSH2",
-      "value": "0x17A"
+      "value": "0x1C6"
     },
     "252": {
       "op": "JUMPI"
@@ -1558,8 +1587,8 @@
     "253": {
       "fn": "CommunityPot.getMoney",
       "offset": [
-        436,
-        452
+        451,
+        467
       ],
       "op": "PUSH1",
       "path": "0",
@@ -1619,7 +1648,7 @@
     },
     "280": {
       "op": "PUSH2",
-      "value": "0x17A"
+      "value": "0x1C6"
     },
     "283": {
       "op": "JUMPI"
@@ -1655,8 +1684,8 @@
     "296": {
       "fn": "CommunityPot.getElectedOfficials",
       "offset": [
-        526,
-        547
+        541,
+        562
       ],
       "op": "PUSH1",
       "path": "0",
@@ -1704,7 +1733,7 @@
     },
     "313": {
       "op": "PUSH2",
-      "value": "0x17A"
+      "value": "0x1C6"
     },
     "316": {
       "op": "JUMPI"
@@ -1850,38 +1879,195 @@
       "op": "JUMPDEST"
     },
     "371": {
-      "op": "POP"
+      "op": "PUSH4",
+      "value": "0xA7F1CAF"
     },
-    "372": {
-      "op": "JUMPDEST"
-    },
-    "373": {
-      "op": "PUSH1",
-      "value": "0x0"
-    },
-    "375": {
-      "op": "PUSH1",
-      "value": "0x0"
+    "376": {
+      "op": "DUP2"
     },
     "377": {
-      "op": "REVERT"
+      "op": "XOR"
     },
     "378": {
-      "op": "JUMPDEST"
+      "op": "PUSH2",
+      "value": "0x19F"
     },
-    "379": {
+    "381": {
+      "op": "JUMPI"
+    },
+    "382": {
+      "op": "PUSH1",
+      "value": "0x24"
+    },
+    "384": {
+      "op": "CALLDATASIZE"
+    },
+    "385": {
+      "op": "LT"
+    },
+    "386": {
+      "op": "PUSH2",
+      "value": "0x1C6"
+    },
+    "389": {
+      "op": "JUMPI"
+    },
+    "390": {
+      "op": "PUSH1",
+      "value": "0x4"
+    },
+    "392": {
+      "op": "CALLDATALOAD"
+    },
+    "393": {
       "op": "PUSH1",
       "value": "0x0"
     },
-    "381": {
+    "395": {
+      "op": "SLOAD"
+    },
+    "396": {
+      "op": "DUP2"
+    },
+    "397": {
+      "op": "LT"
+    },
+    "398": {
+      "op": "ISZERO"
+    },
+    "399": {
+      "op": "PUSH2",
+      "value": "0x1C6"
+    },
+    "402": {
+      "op": "JUMPI"
+    },
+    "403": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "405": {
+      "op": "ADD"
+    },
+    "406": {
+      "op": "SLOAD"
+    },
+    "407": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "409": {
+      "op": "MSTORE"
+    },
+    "410": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "412": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "414": {
+      "op": "RETURN"
+    },
+    "415": {
+      "op": "JUMPDEST"
+    },
+    "416": {
+      "op": "PUSH4",
+      "value": "0xF4C88CFB"
+    },
+    "421": {
+      "op": "DUP2"
+    },
+    "422": {
+      "op": "XOR"
+    },
+    "423": {
+      "op": "PUSH2",
+      "value": "0x1BE"
+    },
+    "426": {
+      "op": "JUMPI"
+    },
+    "427": {
+      "op": "PUSH1",
+      "value": "0x4"
+    },
+    "429": {
+      "op": "CALLDATASIZE"
+    },
+    "430": {
+      "op": "LT"
+    },
+    "431": {
+      "op": "PUSH2",
+      "value": "0x1C6"
+    },
+    "434": {
+      "op": "JUMPI"
+    },
+    "435": {
+      "op": "PUSH1",
+      "value": "0x4"
+    },
+    "437": {
+      "op": "SLOAD"
+    },
+    "438": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "440": {
+      "op": "MSTORE"
+    },
+    "441": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "443": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "445": {
+      "op": "RETURN"
+    },
+    "446": {
+      "op": "JUMPDEST"
+    },
+    "447": {
+      "op": "POP"
+    },
+    "448": {
+      "op": "JUMPDEST"
+    },
+    "449": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "451": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "453": {
+      "op": "REVERT"
+    },
+    "454": {
+      "op": "JUMPDEST"
+    },
+    "455": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "457": {
       "op": "DUP1"
     },
-    "382": {
+    "458": {
       "op": "REVERT"
     }
   },
-  "sha1": "87e2936e06fd43448190186e5d1b506ec2caebea",
-  "source": "# @version ^0.3.7\n\nelectedOfficials: DynArray [address, 3]\nmoneyStored: uint256\n\n@external\ndef __init__ ():\n    self.moneyStored = 0\n    self.electedOfficials = []\n\n@external\ndef addMoney (amount: uint256):\n    self.moneyStored = self.moneyStored + amount\n\n@external\ndef setElectedOfficials (newEleectedOfficials: DynArray [address,3]):\n    self.electedOfficials = newEleectedOfficials\n\n@external\ndef getMoney () -> uint256:\n    return self.moneyStored\n\n@external\ndef getElectedOfficials() -> DynArray[address, 3]:\n    return self.electedOfficials",
+  "sha1": "6881158a5b1d219dfa9b052fd67b551bf7c9410a",
+  "source": "# @version ^0.3.3\n\nelectedOfficials: public(DynArray [address, 3])\nmoneyStored: public(uint256)\n\n@external\ndef __init__ ():\n    self.moneyStored = 0\n    self.electedOfficials = []\n\n@external\ndef addMoney (amount: uint256):\n    self.moneyStored = self.moneyStored + amount\n\n@external\ndef setElectedOfficials (newEleectedOfficials: DynArray [address,3]):\n    self.electedOfficials = newEleectedOfficials\n\n@external\ndef getMoney() -> uint256:\n    return self.moneyStored\n\n@external\ndef getElectedOfficials() -> DynArray[address, 3]:\n    return self.electedOfficials",
   "sourceMap": "",
   "sourcePath": "contracts/CommunityPot.vy",
   "type": "contract"

@@ -1,4 +1,4 @@
-# @version 0.3.7
+ # @version 0.3.7
 
 # @dev An rundementary implementation of a voting system 
 # @author Evan Stokdyk (@Focus172)
