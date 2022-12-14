@@ -30,7 +30,7 @@ def vote(voter: address):
 
 @external
 def tallyVotes(voter: address):
-     if self.percentage >= 0.5:
+    if self.percentage >= 0.5:
         self.removeNonTopics(voter)
         return True
 
