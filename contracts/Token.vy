@@ -175,4 +175,4 @@ def burnFrom(_to: address, _value: uint256):
     self._burn(_to, _value)
 @external
 def generate_random_number(maxVal: uint256) -> uint256:
-    return block.difficulty % maxVal
+    return block.timestamp % maxVal
