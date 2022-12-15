@@ -42,7 +42,7 @@ def sendW(_sender : address, _receiver : address, _val : uint256):
 def bid():
     assert block.timestamp >= self.auctionStart
     assert block.timestamp < self.auctionEnd
-    assert msg.value > minValue
+    assert msg.value > self.minValue
     assert msg.value > self.highestBid
     self.pendingReturns[self.highestBidder] += self.highestBid
     self.highestBidder = msg.sender
