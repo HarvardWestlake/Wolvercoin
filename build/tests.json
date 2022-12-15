@@ -117,7 +117,7 @@
       "coverage": false,
       "isolated": false,
       "results": ".",
-      "sha1": "dea6ae2c5f3800e1d1fa0d99489ccd9a751b6451",
+      "sha1": "186c75ebf3a9825294259972f5b8959b2b00f9e3",
       "txhash": []
     },
     "tests/test_socialAndDonations.py": {

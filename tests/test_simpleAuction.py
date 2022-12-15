@@ -25,7 +25,7 @@ def simpleAuctionContract(SimpleAuction, tokenContract, accounts):
     date= datetime.utcnow() - datetime(1970, 1, 1)
     seconds =(date.total_seconds())
     milliseconds = round(seconds*1000)
-    return SimpleAuction.deploy(accounts[0], milliseconds, milliseconds+10000, tokenContract, 150, {'from': accounts[0]})
+    return SimpleAuction.deploy(accounts[0], milliseconds, milliseconds+1000, tokenContract, 150, {'from': accounts[0]})
 
 def _as_wei_value(base, conversion):
     if conversion == "wei":
@@ -35,8 +35,10 @@ def _as_wei_value(base, conversion):
     return base * (10 ** 18)
 
 def test_bid(simpleAuctionContract):
-    simpleAuctionContract.bid(200)
-    #assert simpleAuctionContract.highestBid> 100
-    simpleAuctionContract.bid(300)
-    #assert simpleAuctionContract.highestBid> 200
+    assert simpleAuctionContract.bid(200)
+    assert simpleAuctionContract.bid(300)
+
+def endAuction():
+    assert simpleAuctionContract.endAuction()
+
     
