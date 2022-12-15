@@ -16,14 +16,14 @@ export const Web3Provider = (props) => {
   const [chainId, setChainId] = React.useState(0);
   const [wolvercoinBalance, setWolvercoinBalance] = React.useState(0);
   const [nftContract, setNftContract] = React.useState(new ethers.Contract(
-    "0x002606386e5D884e338A5ac351D3A79260bB65CD", 
-    Contracts.ACTIVE_CONTRACTS.wolvercoin.ABI.abi,
-    provider
+    Contracts.ACTIVE_CONTRACTS.nft.address, 
+    Contracts.ACTIVE_CONTRACTS.nft.ABI.abi,
+    provider.getSigner()
   ))
   const [wolvercoinContract, setWolvercoinContract] = React.useState(new ethers.Contract(
     Contracts.ACTIVE_CONTRACTS.wolvercoin.address, 
     Contracts.ACTIVE_CONTRACTS.wolvercoin.ABI.abi, 
-    provider
+    provider.getSigner()
   ))
   
   const setInitialAccount = async(provider) => {

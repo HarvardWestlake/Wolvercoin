@@ -2,7 +2,11 @@
 # @dev Implementation of ERC-721 non-fungible token standard.
 # @author Ryuya Nakamura (@nrryuya)
 # Modified from: https://github.com/vyperlang/vyper/blob/de74722bf2d8718cca46902be165f9fe0e3641dd/examples/tokens/ERC721.vy
+# Again from: https://github.com/vykintasmak/vyper-nft-example/blob/main/contracts/ERC721_OpenSea.vy
+# https://etherscan.io/address/0xa5ea010a46EaE77bD20EEE754f6D15320358dfD8#code
 
+
+from vyper.interfaces import ERC20
 from vyper.interfaces import ERC165
 from vyper.interfaces import ERC721
 
@@ -69,15 +73,8 @@ ownerToOperators: HashMap[address, HashMap[address, bool]]
 # @dev Address of minter, who can mint a token
 minter: address
 
-baseURL: String[64]
-
-# @dev Static list of supported ERC165 interface ids
-SUPPORTED_INTERFACES: constant(bytes4[2]) = [
-    # ERC165 interface ID of ERC165
-    0x01ffc9a7,
-    # ERC165 interface ID of ERC721
-    0x80ac58cd,
-]
+# @dev Hacky helper convert int to string
+IDENTITY_PRECOMPILE: constant(address) = 0x0000000000000000000000000000000000000004
 
 # == Wolvercoin specific NFT fields ==
 # == Wolvercoin specific NFT fields ==
@@ -92,8 +89,6 @@ interface ActiveUser:
     def getAdmin(potentialAdmin: address) -> bool: view
 activeUserContract : public(ActiveUser)
 
-# Current collection index
-latestTokenId : uint256
 
 # Creates a unique ID from the hash to make sure there are no two the same
 # Maps it to a token ID so UniqueHash => TokenId
@@ -101,6 +96,26 @@ uniqueHashesForToken: HashMap[bytes32, uint256]
 tokenURIs: HashMap[uint256,String[128]]
 password: uint256
 
+
+# Total NFT minted 
+tokenCount: public(uint256)
+
+# ERC721 metadata
+name: public(String[64])
+symbol: public(String[32])
+baseURI: String[256]
+contract_uri: String[66]
+
+
+
+# @dev Static list of supported ERC165 interface ids
+SUPPORTED_INTERFACES: constant(bytes4[5]) = [
+    0x01FFC9A7,  # ERC165
+    0x80AC58CD,  # ERC721
+    0x150B7A02,  # ERC721TokenReceiver
+    0x780E9D63,  # ERC721Enumerable
+    0x5B5E139F,  # ERC721Metadata
+]
 
 # For testing this can manually set the 'auctionContract' who will own all the NFTs after mint
 # Eventuall want to update this to automatically mint to the auctionContract or at least approveIt... 
@@ -113,11 +128,27 @@ def __init__(_password: uint256):  # activeUserContractAddress: address):
     """
     @dev Contract constructor.
     """
+    self.name = "Not-So-Fungible Wolvies"
+    self.symbol = "NSFW"
     self.minter = msg.sender
-    self.baseURL = "http://ipfs.wolvercoin.com/ipfs/"
-    self.latestTokenId = 0
+    self.baseURI = "http://ipfs.wolvercoin.com/ipfs/"
+    self.tokenCount = 0
     self.password = _password
     #self.activeUserContract = ActiveUser(activeUserContractAddress)
+
+
+@pure
+@external
+def supportsInterface(interface_id: bytes4) -> bool:
+    """
+    @notice Query if a contract implements an interface.
+    @dev Interface identification is specified in ERC-165.
+    @param interface_id Bytes4 representing the interface.
+    @return bool True if supported.
+    """
+
+    return interface_id in SUPPORTED_INTERFACES
+
 
 @external
 def safeMintToThisContractWithApprovalToExternalContractUsingPassword(_auctionAddress: address, _tokenMetaDataUri: String[128], _password: uint256) -> uint256:
@@ -128,21 +159,11 @@ def safeMintToThisContractWithApprovalToExternalContractUsingPassword(_auctionAd
     uniqueHash: bytes32 = keccak256(_abi_encode(_tokenMetaDataUri))
     assert self.uniqueHashesForToken[uniqueHash] == 0, "token is non-unique"
 
-    self._addTokenTo(_auctionAddress, self.latestTokenId)
-    self._addTokenURI(self.latestTokenId, _tokenMetaDataUri)
-    log Transfer(empty(address), _auctionAddress, self.latestTokenId)
-    self.latestTokenId += 1
-    return self.latestTokenId
-
-@pure
-@external
-def supportsInterface(interface_id: bytes4) -> bool:
-    """
-    @dev Interface identification is specified in ERC-165.
-    @param interface_id Id of the interface
-    """
-    return interface_id in SUPPORTED_INTERFACES
-
+    self._addTokenTo(_auctionAddress, self.tokenCount)
+    self._addTokenURI(self.tokenCount, _tokenMetaDataUri)
+    log Transfer(empty(address), _auctionAddress, self.tokenCount)
+    self.tokenCount += 1
+    return self.tokenCount
 
 ### VIEW FUNCTIONS ###
 
@@ -406,12 +427,12 @@ def mint(_to: address, _tokenURI: String[128]) -> bool:
     uniqueHash: bytes32 = keccak256(_abi_encode(_tokenURI))
     assert self.uniqueHashesForToken[uniqueHash] == 0, "token is non-unique"
 
-    self._addTokenTo(_to, self.latestTokenId)
+    self._addTokenTo(_to, self.tokenCount)
     # Writes the tokenURI for the tokenId
-    self._addTokenURI(self.latestTokenId, _tokenURI)
-    log Transfer(empty(address), _to, self.latestTokenId)
+    self._addTokenURI(self.tokenCount, _tokenURI)
+    log Transfer(empty(address), _to, self.tokenCount)
     # Increase token count
-    self.latestTokenId += 1
+    self.tokenCount += 1
     return True
 
 
@@ -434,7 +455,91 @@ def burn(_tokenId: uint256):
     log Transfer(owner, empty(address), _tokenId)
 
 
+
+@external
+def transferMinter(_new_address: address):
+    assert msg.sender == self.minter
+    self.minter = _new_address
+
+
+@external
+def setBaseURI(_uri: String[256]):
+    # Throws if `msg.sender` is not the minter
+    assert msg.sender == self.minter
+    self.baseURI = _uri
+
+
 @view
 @external
-def tokenURI(tokenId: uint256) -> String[196]:
-    return concat(self.baseURL, self.tokenURIs[tokenId])
+def tokenURI(tokenId: uint256) -> String[384]:
+    return concat(self.baseURI, self.tokenURIs[tokenId])
+
+@external
+@view
+def contractURI() -> String[128]:
+    """
+    @notice URI for contract level metadata
+    @return Contract URI
+    """
+    return self.contract_uri
+
+@external
+def set_contract_uri(new_uri: String[66]):
+    """
+    @notice Admin function to set a new contract URI
+    @param new_uri New URI for the contract
+    """
+
+   # assert msg.sender in [self.owner, self.minter]  # dev: Only Admin
+    assert self.minter == msg.sender
+    self.contract_uri = new_uri
+
+
+@external
+def admin_withdraw_erc20(coin: address, target: address, amount: uint256):
+    """
+    @notice Withdraw ERC20 tokens accidentally sent to contract
+    @param coin ERC20 address
+    @param target Address to receive
+    @param amount Wei
+    """
+    assert self.minter == msg.sender  # dev: "Admin Only"
+    ERC20(coin).transfer(target, amount)
+
+
+
+@external
+@view
+def totalSupply() -> uint256:
+    """
+    @notice Enumerate valid NFTs
+    @dev Throws if `_index` >= `totalSupply()`.
+    @return The token identifier for the `_index`th NFT
+    """
+    return self.tokenCount
+
+
+@external
+@view
+def tokenByIndex(_index: uint256) -> uint256:
+    """
+    @notice Enumerate valid NFTs
+    @dev With no burn and direct minting, this is simple
+    @param _index A counter less than `totalSupply()`
+    @return The token identifier for the `_index`th NFT,
+    """
+    return _index
+
+
+@external
+@view
+def tokenOfOwnerByIndex(owner: address, index: uint256) -> uint256:
+    """
+    @notice Enumerate NFTs assigned to an owner
+    @dev Throws if `index` >= `balanceOf(owner)` or if `owner` is the zero address, representing invalid NFTs.
+    @param owner An address where we are interested in NFTs owned by them
+    @param index A counter less than `balanceOf(owner)`
+    @return The token identifier for the `index`th NFT assigned to `owner`, (sort order not specified)
+    """
+    assert owner != empty(address)
+    return self.ownerToNFTokenCount[owner]

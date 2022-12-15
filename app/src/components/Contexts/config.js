@@ -1,5 +1,5 @@
 import * as Wolvercoin from "../Web3/contracts/contracts/Token.json"
-import * as Nft from "../Web3/contracts/contracts/NTF.json"
+import * as Nft from "../Web3/contracts/contracts/NFT.json"
 
 export const NETWORKS = {
     GOERLI : {
@@ -25,7 +25,7 @@ export const ACTIVE_CONTRACTS = {
     },
     nft : {
         ABI : Nft,
-        address : ""
+        address : "0x4222e8595eef0f036ecc5b7200c67a87bd243e34"
     },
     regularAuction : {
         ABI : "",
