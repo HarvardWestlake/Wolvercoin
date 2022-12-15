@@ -20,7 +20,7 @@ activeUserContract: ActiveUser
 @external
 def stake (user : address, amountStaked : uint256):
     assert self.activeUserContract.getActiveUser (user)
-    self.stakeAmounts[user] = amountStaked
+    self.stakeAmounts[user] += amountStaked
     self.stakeDates[user] = block.timestamp
     self.wolvercoinContract.transferFrom (user, self.bank, amountStaked)
     

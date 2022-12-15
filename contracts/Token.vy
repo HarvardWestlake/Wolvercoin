@@ -56,6 +56,10 @@ def __init__(_name: String[32], _symbol: String[32], _decimals: uint8, _supply: 
 
 
 @external
+def getAllowanceOf(_from: address) -> uint256:
+    return self.allowance[_from][msg.sender]
+
+@external
 def getBalanceOf(_user: address) -> uint256:
     return self.balanceOf[_user]
 
