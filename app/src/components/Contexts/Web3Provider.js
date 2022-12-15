@@ -15,32 +15,17 @@ export const Web3Provider = (props) => {
   const [connectedAccount, setConnectedAccount] = React.useState("");
   const [chainId, setChainId] = React.useState(0);
   const [wolvercoinBalance, setWolvercoinBalance] = React.useState(0);
-
-  // setContract_721(new ethers.Contract("0x002606386e5D884e338A5ac351D3A79260bB65CD", abi));
-
-  // Set app context once
-  const setAppContext = async () => {
-    // See if account is already connected
-    /*
-    if (connectedAccount) {
-      const balance = await provider.getBalance(connectedAccount);
-      setConnectedAccount(connectedAccount);
-
-      const wolvercoinContract = new ethers.Contract(
-        Contracts.ACTIVE_CONTRACTS.wolvercoin.address, 
-        Contracts.ACTIVE_CONTRACTS.wolvercoin.ABI.abi, 
-        provider
-      );
-
-      const tokenName = await wolvercoinContract.name();
-      const tokenBalance = await wolvercoinContract.balanceOf(connectedAccount);
-      const tokenUnits = await wolvercoinContract.decimals();
-      const tokenBalanceInEther = ethers.utils.formatUnits(tokenBalance, tokenUnits);
-      setWolvercoinBalance(tokenBalanceInEther);
-    }
-    */
-  };
-
+  const [nftContract, setNftContract] = React.useState(new ethers.Contract(
+    "0x002606386e5D884e338A5ac351D3A79260bB65CD", 
+    Contracts.ACTIVE_CONTRACTS.wolvercoin.ABI.abi,
+    provider
+  ))
+  const [wolvercoinContract, setWolvercoinContract] = React.useState(new ethers.Contract(
+    Contracts.ACTIVE_CONTRACTS.wolvercoin.address, 
+    Contracts.ACTIVE_CONTRACTS.wolvercoin.ABI.abi, 
+    provider
+  ))
+  
   const setInitialAccount = async(provider) => {
     const accounts = await provider.listAccounts();
     setConnectedAccount(accounts[0]);
@@ -58,11 +43,12 @@ export const Web3Provider = (props) => {
     connectedAccount, setConnectedAccount, 
     chainId, setChainId, 
     wolvercoinBalance, setWolvercoinBalance, 
-    provider, setProvider
+    provider, setProvider,
+    nftContract, setNftContract,
+    wolvercoinContract, setWolvercoinContract
   }), [connectedAccount, chainId, wolvercoinBalance, provider]);
 
   // Set contexts
-  useEffect(() => { setAppContext(); }, []);
   useEffect(() => { setInitialChainId(provider); }, []);
   useEffect(() => { setInitialAccount(provider); }, []);
 

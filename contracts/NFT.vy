@@ -69,7 +69,7 @@ ownerToOperators: HashMap[address, HashMap[address, bool]]
 # @dev Address of minter, who can mint a token
 minter: address
 
-baseURL: String[53]
+baseURL: String[64]
 
 # @dev Static list of supported ERC165 interface ids
 SUPPORTED_INTERFACES: constant(bytes4[2]) = [
@@ -93,21 +93,46 @@ interface ActiveUser:
 activeUserContract : public(ActiveUser)
 
 # Current collection index
-tokenCount : uint256
+latestTokenId : uint256
+
+# Creates a unique ID from the hash to make sure there are no two the same
+# Maps it to a token ID so UniqueHash => TokenId
+uniqueHashesForToken: HashMap[bytes32, uint256]
+tokenURIs: HashMap[uint256,String[128]]
+password: uint256
 
 
-
-
+# For testing this can manually set the 'auctionContract' who will own all the NFTs after mint
+# Eventuall want to update this to automatically mint to the auctionContract or at least approveIt... 
+# . Actually should probably only approve the auctionContract
+# Need to only allow 'actuveUsers to mint'
+# Remove password after ActuveUsers works
+# Set password to something basic for start '12345'
 @external
-def __init__(activeUserContractAddress: address, ):
+def __init__(_password: uint256):  # activeUserContractAddress: address):
     """
     @dev Contract constructor.
     """
     self.minter = msg.sender
-    self.baseURL = "https://api.babby.xyz/metadata/"
-    self.tokenCount = 0
-    self.activeUserContract = ActiveUser(activeUserContractAddress)
+    self.baseURL = "http://ipfs.wolvercoin.com/ipfs/"
+    self.latestTokenId = 0
+    self.password = _password
+    #self.activeUserContract = ActiveUser(activeUserContractAddress)
 
+@external
+def safeMintToThisContractWithApprovalToExternalContractUsingPassword(_auctionAddress: address, _tokenMetaDataUri: String[128], _password: uint256) -> uint256:
+
+    assert self.password == _password
+
+    # assert token does not exist uniqueHashesForToken
+    uniqueHash: bytes32 = keccak256(_abi_encode(_tokenMetaDataUri))
+    assert self.uniqueHashesForToken[uniqueHash] == 0, "token is non-unique"
+
+    self._addTokenTo(_auctionAddress, self.latestTokenId)
+    self._addTokenURI(self.latestTokenId, _tokenMetaDataUri)
+    log Transfer(empty(address), _auctionAddress, self.latestTokenId)
+    self.latestTokenId += 1
+    return self.latestTokenId
 
 @pure
 @external
@@ -202,6 +227,20 @@ def _addTokenTo(_to: address, _tokenId: uint256):
     self.idToOwner[_tokenId] = _to
     # Change count tracking
     self.ownerToNFTokenCount[_to] += 1
+
+@internal
+def _addTokenURI(_tokenId: uint256, _tokenURI: String[128]):
+    """
+    @dev Add a TokenURI for a given tokenId
+        Throws if `_tokenId` already has a URI.
+    """
+    #Throws if `_tokenId` already has a URI
+    assert len(self.tokenURIs[_tokenId]) == 0
+    # Add the token URI
+    self.tokenURIs[_tokenId] = _tokenURI
+    # Add to uniquie hashes
+    uniqueHash: bytes32 = keccak256(_abi_encode(_tokenURI))
+    self.uniqueHashesForToken[uniqueHash] = _tokenId
 
 
 @internal
@@ -348,14 +387,14 @@ def setApprovalForAll(_operator: address, _approved: bool):
 ### MINT & BURN FUNCTIONS ###
 
 @external
-def mint(_to: address, _tokenId: uint256) -> bool:
+def mint(_to: address, _tokenURI: String[128]) -> bool:
     """
     @dev Function to mint tokens
          Throws if `msg.sender` is not the minter.
          Throws if `_to` is zero address.
          Throws if `_tokenId` is owned by someone.
     @param _to The address that will receive the minted tokens.
-    @param _tokenId The token id to mint.
+    @param _tokenURI The token uri of next token to mint.
     @return A boolean that indicates if the operation was successful.
     """
     # Throws if `msg.sender` is not the minter
@@ -363,8 +402,16 @@ def mint(_to: address, _tokenId: uint256) -> bool:
     # Throws if `_to` is zero address
     assert _to != empty(address)
     # Add NFT. Throws if `_tokenId` is owned by someone
-    self._addTokenTo(_to, _tokenId)
-    log Transfer(empty(address), _to, _tokenId)
+    # assert token does not exist uniqueHashesForToken
+    uniqueHash: bytes32 = keccak256(_abi_encode(_tokenURI))
+    assert self.uniqueHashesForToken[uniqueHash] == 0, "token is non-unique"
+
+    self._addTokenTo(_to, self.latestTokenId)
+    # Writes the tokenURI for the tokenId
+    self._addTokenURI(self.latestTokenId, _tokenURI)
+    log Transfer(empty(address), _to, self.latestTokenId)
+    # Increase token count
+    self.latestTokenId += 1
     return True
 
 
@@ -389,5 +436,5 @@ def burn(_tokenId: uint256):
 
 @view
 @external
-def tokenURI(tokenId: uint256) -> String[132]:
-    return concat(self.baseURL, uint2str(tokenId))
+def tokenURI(tokenId: uint256) -> String[196]:
+    return concat(self.baseURL, self.tokenURIs[tokenId])

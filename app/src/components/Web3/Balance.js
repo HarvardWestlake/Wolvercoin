@@ -1,26 +1,34 @@
 import React from "react";
+import { ethers } from "ethers";
 
 class Balance extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {    };
+    this.init();
+    this.state = {
+      balance : "..."
+     };
   }
-  
-  getBalance() {
-    if (!this.props.web3Context.connectedAccount) {
-      return 0;
-    } else {
-      return this.props.web3Context.wolvercoinBalance;
-    }
+
+  async init() {
+
+    let wolvercoinContract = this.props.web3Context.wolvercoinContract;
+      const tokenName = await wolvercoinContract.name();
+      console.log('Change this to getBalanceOf view after update');
+      const tokenBalance = await wolvercoinContract.balanceOf(this.props.web3Context.connectedAccount);
+      const tokenUnits = await wolvercoinContract.decimals();
+      let balance = ethers.utils.formatUnits(tokenBalance, tokenUnits);
+      
+      this.setState({balance});
+      
   }
-  
+
   render() {
-    const balance = this.getBalance();
     return (          
     <div className="header-row">
       <div className="header-item">
         <p className="title">Total Balance</p>
-        <p className="figure">{balance}</p>
+        <p className="figure">{this.state.balance}</p>
       </div>
       <div className="header-item">
         <p className="title">Total Deposits</p>

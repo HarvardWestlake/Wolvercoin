@@ -36,7 +36,7 @@ def test_contribute(publicGoodsContract, erc20Contract, accounts):
     assert publicGoodsContract.createGood("Pizza Party", 10, {'from': creatorOfGood}), "createGood failed"
 
     assert erc20Contract.mint(donator, 69420, {'from': admin}) # Supply the account with some token
-    assert str(erc20Contract.getBalanceOf(donator).return_value) == "69420"
+    assert str(erc20Contract.getBalanceOf(donator)) == "69420"
     
     assert erc20Contract.approve(publicGoodsContract.address, 69420, {'from': donator}) # Approve expenditure
     assert str(erc20Contract.getApprovedAmountOf(donator, publicGoodsContract.address).return_value) == "69420"
@@ -45,7 +45,7 @@ def test_contribute(publicGoodsContract, erc20Contract, accounts):
     
     returnVal = publicGoodsContract.getContributionTotal("Pizza Party", {'from': accounts[0]}).return_value
     assert str(returnVal) == "3", "getContributionTotal returned wrong value"
-    assert str(erc20Contract.getBalanceOf(donator).return_value) == str(69420 - 3)
+    assert str(erc20Contract.getBalanceOf(donator)) == str(69420 - 3)
 
 # def test_retract(publicGoodsContract, accounts):
 #     # TODO for @monkeymatt2023
@@ -59,7 +59,7 @@ def test_complete_goal_achieved(publicGoodsContract, erc20Contract, accounts):
     assert publicGoodsContract.createGood("French Toast Party", 10, {'from': creatorOfGood}), "createGood failed"
 
     assert erc20Contract.mint(donator, 69420, {'from': admin})
-    assert str(erc20Contract.getBalanceOf(donator).return_value) == "69420"
+    assert str(erc20Contract.getBalanceOf(donator)) == "69420"
     
     assert erc20Contract.approve(publicGoodsContract.address, 69420, {'from': donator})
     assert str(erc20Contract.getApprovedAmountOf(donator, publicGoodsContract.address).return_value) == "69420"
@@ -68,10 +68,10 @@ def test_complete_goal_achieved(publicGoodsContract, erc20Contract, accounts):
     
     returnVal = publicGoodsContract.getContributionTotal("French Toast Party", {'from': accounts[0]}).return_value
     assert str(returnVal) == "10", "getContributionTotal returned wrong value"
-    assert str(erc20Contract.getBalanceOf(donator).return_value) == str(69420 - 10)
+    assert str(erc20Contract.getBalanceOf(donator)) == str(69420 - 10)
 
     assert publicGoodsContract.complete("French Toast Party", {'from': creatorOfGood})
-    assert str(erc20Contract.getBalanceOf(donator).return_value) == str(69420 - 10)
+    assert str(erc20Contract.getBalanceOf(donator)) == str(69420 - 10)
 
 def test_complete_goal_not_achieved(publicGoodsContract, erc20Contract, accounts):
     creatorOfGood = accounts[6]
@@ -81,17 +81,17 @@ def test_complete_goal_not_achieved(publicGoodsContract, erc20Contract, accounts
     assert publicGoodsContract.createGood("French Toast Party", 10, {'from': creatorOfGood}), "createGood failed"
 
     assert erc20Contract.mint(donator, 69420, {'from': admin})
-    assert str(erc20Contract.getBalanceOf(donator).return_value) == "69420"
+    assert str(erc20Contract.getBalanceOf(donator)) == "69420"
     
     assert erc20Contract.approve(publicGoodsContract.address, 69420, {'from': donator})
     assert str(erc20Contract.getApprovedAmountOf(donator, publicGoodsContract.address).return_value) == "69420"
     
     assert publicGoodsContract.contribute("French Toast Party", 3, {'from': donator}), "contribute failed"
-    assert str(erc20Contract.getBalanceOf(donator).return_value) == str(69420 - 3)
+    assert str(erc20Contract.getBalanceOf(donator)) == str(69420 - 3)
     
     returnVal = publicGoodsContract.getContributionTotal("French Toast Party", {'from': accounts[0]}).return_value
     assert str(returnVal) == "3", "getContributionTotal returned wrong value"
-    assert str(erc20Contract.getBalanceOf(donator).return_value) == str(69420 - 3)
+    assert str(erc20Contract.getBalanceOf(donator)) == str(69420 - 3)
 
     assert publicGoodsContract.complete("French Toast Party", {'from': creatorOfGood})
-    assert str(erc20Contract.getBalanceOf(donator).return_value) == "69420" # Make sure user got their money back
+    assert str(erc20Contract.getBalanceOf(donator)) == "69420" # Make sure user got their money back
