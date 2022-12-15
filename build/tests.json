@@ -5,7 +5,7 @@
     "CodeScoreCheck": "1534fc12b51fdbd638b66ee20cc185fe03971463",
     "CommunityPot": "117ed5d48018c22bf7edf775bf1f897697726b38",
     "Crash": "f70b9b0d41a190af7c7d6afcf9996053d271a53c",
-    "DutchAuction": "26e965b5e236f4221ffeeaf9800badb049001a24",
+    "DutchAuction": "18ac22646ad1dc99640d1ea68a317ce1e7efe4b3",
     "Exclusivity": "6533451a8f3d5f08a7bf93204e60c327a7e3777b",
     "PublicGoods": "bdb612404da27dfddadec5f42456ff79b8a7f310",
     "Reimbursement": "846b1d910193c44201d3fc3c764fc2ddd1cdd33f",
@@ -21,7 +21,7 @@
       "coverage": false,
       "isolated": false,
       "results": "...",
-      "sha1": "b68212023050b391b5b6eae7f7d7a27d199bd2d7",
+      "sha1": "6de5fece65ff59eb3f1da76e809447c72c129bb1",
       "txhash": []
     }
   },
