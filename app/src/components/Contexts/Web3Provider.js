@@ -6,22 +6,23 @@ import * as Contracts from "./config.js"
 // createContext matches the shape that the consumers expect!
 export const Web3Context = React.createContext();
 
+const getProvider = () => {
+  return new ethers.providers.Web3Provider(window.ethereum, 'any');
+}
+
 export const Web3Provider = (props) => {
+  const [provider, setProvider] = React.useState(getProvider());
   const [connectedAccount, setConnectedAccount] = React.useState("");
-  const [chainId, setChainId] = React.useState(1);
+  const [chainId, setChainId] = React.useState(0);
   const [wolvercoinBalance, setWolvercoinBalance] = React.useState(0);
+
+  // setContract_721(new ethers.Contract("0x002606386e5D884e338A5ac351D3A79260bB65CD", abi));
 
   // Set app context once
   const setAppContext = async () => {
-    const provider = new ethers.providers.Web3Provider(window.ethereum);
-    const accounts = await provider.listAccounts();
-    const connectedAccount = accounts[0];
-
-    const network = await provider.getNetwork();
-    console.log(network, network.chainId);
-
     // See if account is already connected
-    if (accounts.length > 0) {
+    /*
+    if (connectedAccount) {
       const balance = await provider.getBalance(connectedAccount);
       setConnectedAccount(connectedAccount);
 
@@ -37,16 +38,34 @@ export const Web3Provider = (props) => {
       const tokenBalanceInEther = ethers.utils.formatUnits(tokenBalance, tokenUnits);
       setWolvercoinBalance(tokenBalanceInEther);
     }
+    */
   };
 
+  const setInitialAccount = async(provider) => {
+    const accounts = await provider.listAccounts();
+    setConnectedAccount(accounts[0]);
+  }
+
+  const setInitialChainId = async(provider) => {
+    const network = await provider.getNetwork();
+    setChainId(network.chainId);
+  };
   // passing-multiple-value-and-setter-pairs-to-context-provider-in-react
   //const updateContextState = useCallback((value: updateContextType) => {         setContextState((prevState) => ({ ...prevState, ...value }))     }, [])
   // To get around this in a functional component, you can use useMemo to memoise
   //  the value and refresh only when one of these values change.
   const providerValueContext = React.useMemo(() => ({
-    connectedAccount, setConnectedAccount, chainId, setChainId, wolvercoinBalance, setWolvercoinBalance
-  }), [connectedAccount, chainId, wolvercoinBalance]);
+    connectedAccount, setConnectedAccount, 
+    chainId, setChainId, 
+    wolvercoinBalance, setWolvercoinBalance, 
+    provider, setProvider
+  }), [connectedAccount, chainId, wolvercoinBalance, provider]);
+
+  // Set contexts
   useEffect(() => { setAppContext(); }, []);
+  useEffect(() => { setInitialChainId(provider); }, []);
+  useEffect(() => { setInitialAccount(provider); }, []);
+
   return (
     <Web3Context.Provider value={providerValueContext}>
       {props.children}

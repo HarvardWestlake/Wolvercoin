@@ -1,6 +1,7 @@
 import React from "react";
 import MetaMask from "../Web3/MetaMask";
-import Balance from "../Web3/Balance"
+import Balance from "../Web3/Balance";
+import SwitchNetwork from "../Web3/SwitchNetwork";
 import * as Constants from "./consts"
 import Nav from "./Nav"
 import {Web3Context} from "../Contexts/Web3Provider"
@@ -28,6 +29,14 @@ class Header extends React.Component {
                 }}
               </Web3Context.Consumer>
             </div>   
+          </div>
+          <div>
+          <Web3Context.Consumer>
+            {providerValueContext => { 
+              return <SwitchNetwork  web3Context={providerValueContext}/>
+            }}
+          </Web3Context.Consumer>
+            
           </div>
           <Web3Context.Consumer>
             {providerValueContext => { 

@@ -35,5 +35,6 @@ export const ACTIVE_CONTRACTS = {
         ABI : "",
         address : ""
     },
+    chainId: 5,
     network : NETWORKS.goerli
 };
