@@ -7,8 +7,8 @@ DEFAULT_GAS = 100000
 
 # . This runs before ALL tests
 @pytest.fixture
-def wolvercoinContract(Wolvercoin, accounts):
-    return Wolvercoin.deploy("Wolvercoin", "WVC", 10, 1000000000000000000, {'from': accounts[0]})
+def wolvercoinContract(Token, accounts):
+    return Token.deploy("Wolvercoin", "WVC", 10, 1000000000000000000, {'from': accounts[0]})
 
 @pytest.fixture
 def stakeContract(Stake, ActiveUser, wolvercoinContract, accounts):
@@ -18,8 +18,8 @@ def stakeContract(Stake, ActiveUser, wolvercoinContract, accounts):
     #I'm passing in accounts[1] as the bank address
 
 def test_checkActiveUser (stakeContract, wolvercoinContract, accounts):
-    wolvercoinContract.allow (accounts [3], 1000, {'from': stakeContract})
-    wolvercoinContract.allow (accounts [1], 1000, {'from': stakeContract})
+    wolvercoinContract.approve (accounts [3], 1000, {'from': stakeContract})
+    wolvercoinContract.approve (accounts [1], 1000, {'from': stakeContract})
     badAccountFail = False 
     try:
         stakeContract.stake (accounts[3], 10)
@@ -39,8 +39,8 @@ def test_unstakeForNonexistentAccount (stakeContract, accounts):
     assert badAccountFail, "Accounts without money should not be able to unstake"
 
 def test_unstakeMoreThanStaked (stakeContract, wolvercoinContract, accounts):
-    wolvercoinContract.allow (accounts [0], 1000, {'from': stakeContract})
-    wolvercoinContract.allow (accounts [1], 1000, {'from': stakeContract})
+    wolvercoinContract.approve (accounts [0], 1000, {'from': stakeContract})
+    wolvercoinContract.approve (accounts [1], 1000, {'from': stakeContract})
     stakeContract.stake(accounts[0], 1) 
     badAccountFail = False
     try:
@@ -50,8 +50,8 @@ def test_unstakeMoreThanStaked (stakeContract, wolvercoinContract, accounts):
     assert badAccountFail, "Account cannot unstake more than they have staked"
 
 def test_validUnstake (stakeContract, wolvercoinContract, accounts):
-     wolvercoinContract.allow (accounts [0], 1000, {'from': stakeContract})
-     wolvercoinContract.allow (accounts [1], 1000, {'from': stakeContract})
+     wolvercoinContract.approve (accounts [0], 1000, {'from': stakeContract})
+     wolvercoinContract.approve (accounts [1], 1000, {'from': stakeContract})
      assert stakeContract.stake (accounts[0], 10)
      assert stakeContract.unstake(accounts[0],9), "Account can unstake less than they have staked"
      assert stakeContract.stakeAmounts(accounts[0]) == 1, "Account should only have 1 coin left staked"

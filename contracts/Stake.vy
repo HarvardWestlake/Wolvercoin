@@ -2,7 +2,7 @@
 ## interfaces w/ ActiveUser and Wolvercoin
 ## anything that requires staking will interface with this class
 
-interface Wolvercoin:
+interface Token:
     def transferFrom(_from : address, _to : address, _value : uint256) -> bool: payable
     def burnFrom(_to: address, _value: uint256): payable
 
@@ -13,7 +13,7 @@ interface ActiveUser:
 bank: address
 stakeAmounts: public(HashMap [address, uint256])
 stakeDates: HashMap [address, uint256]
-wolvercoinContract: Wolvercoin
+wolvercoinContract: Token
 newAmt: public(uint256)
 activeUserContract: ActiveUser
 
@@ -25,7 +25,7 @@ def stake (user : address, amountStaked : uint256):
     self.wolvercoinContract.transferFrom (user, self.bank, amountStaked)
     
 @external 
-def __init__(_bankAddress: address, _wolvercoinContract: Wolvercoin, _activeUserContract: ActiveUser):
+def __init__(_bankAddress: address, _wolvercoinContract: Token, _activeUserContract: ActiveUser):
     self.bank = _bankAddress
     self.wolvercoinContract = _wolvercoinContract
     self.activeUserContract = _activeUserContract
