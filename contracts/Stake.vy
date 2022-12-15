@@ -30,7 +30,6 @@ def __init__(_wolvercoinContract: Token, _activeUserContract: ActiveUser):
 
 @external
 def unstake (_userAddress: address, amtUnstaked: uint256):
-    #the type conversions are really janky -- if anyone knows a better way of doing this, pls fix it!
     assert amtUnstaked < self.stakeAmounts[_userAddress]
 
     changeInTime: uint256 = block.timestamp - self.stakeDates[_userAddress]

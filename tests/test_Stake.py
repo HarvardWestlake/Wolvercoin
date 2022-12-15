@@ -42,6 +42,7 @@ def test_unstakeForNonexistentAccount (stakeContract, wolvercoinContract, active
 
 def test_unstakeMoreThanStaked (stakeContract, wolvercoinContract, activeUserContract, accounts):
     wolvercoinContract.approve (accounts [0], 1000, {'from': stakeContract})
+    wolvercoinContract.approve (accounts [1], 1000, {'from': stakeContract})
     stakeContract.stake(accounts[0], 1) 
     badAccountFail = False
     try:
@@ -51,10 +52,12 @@ def test_unstakeMoreThanStaked (stakeContract, wolvercoinContract, activeUserCon
     assert badAccountFail, "Account cannot unstake more than they have staked"
 
 def test_validUnstake (stakeContract, wolvercoinContract, activeUserContract, accounts):
-     wolvercoinContract.approve (accounts [0], 1000, {'from': stakeContract})
-     assert stakeContract.stake (accounts[0], 10)
-     assert stakeContract.unstake(accounts[0],9), "Account can unstake less than they have staked"
-     assert stakeContract.stakeAmounts(accounts[0]) == 1, "Account should only have 1 coin left staked"
-     assert stakeContract.newAmt () == 6, "Account should get back 6 coins (2/3 of the unstaked amt)"
+    wolvercoinContract.approve (accounts [0], 1000, {'from': stakeContract})
+    wolvercoinContract.approve (accounts [1], 1000, {'from': stakeContract})
+    wolvercoinContract.approve (stakeContract.address, 1000, {'from': accounts[0]})
+    assert stakeContract.stake (accounts[0], 10)
+    assert stakeContract.unstake(accounts[0], 9), "Account can unstake less than they have staked"
+    assert stakeContract.stakeAmounts(accounts[0]) == 1, "Account should only have 1 coin left staked"
+    assert stakeContract.newAmt () == 6, "Account should get back 6 coins (2/3 of the unstaked amt)"
 
     #will test the wait two weeks if condition once we figure out how to change the timestamp
