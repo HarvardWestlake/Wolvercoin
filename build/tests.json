@@ -14,7 +14,7 @@
     "VotingAndRep": "fda86f072d9c8fca5b29eae53a4a483ff4d6355a",
     "Wolvercoin": "58ab07b8059e89fd44939db5aa391ce861dfabe0",
     "codeGambling": "48e5c8ad9d89d291f540574edfe3531f1480eb89",
-    "socialAdnDonations": "42dced17eee7458206b02644bc30dcf40f729b18"
+    "socialAdnDonations": "9b9bcf3a973a7817fda037d7dea6f6b81a31e939"
   },
   "tests": {
     "tests/test_Exclusivity.py": {
@@ -86,8 +86,8 @@
     "tests/test_socialAndDonations.py": {
       "coverage": false,
       "isolated": false,
-      "results": ".F",
-      "sha1": "4da03ebf233736a07f2b1da8021612d5388a006c",
+      "results": "..",
+      "sha1": "67e10cc80efcc2199577e3ee9dbe8507ae1339ff",
       "txhash": []
     },
     "tests/test_voting.py": {
@@ -96,12 +96,23 @@
       "results": ".......",
       "sha1": "9d19e464acaabb1741fd0d0e6a5df1fe70a513a3",
       "txhash": [
-        "3169f039871549d951794f688f2dad53575c9460",
-        "673ddc3e8fda9a3bcb1bc0d38152c8bff3381f95"
+        "1137dd3379c2d351af9c0c75bc81325fe1890f79",
+        "bb2811b104ad816b9657a2c7b77b6e1b1d3ab891"
       ]
     }
   },
   "tx": {
+    "1137dd3379c2d351af9c0c75bc81325fe1890f79": {
+      "VotingAndRep": {
+        "0": [
+          [
+            37
+          ],
+          [],
+          []
+        ]
+      }
+    },
     "21782992b73633dd7619348812dd40fd4e3fc677": {
       "Stake": {
         "0": [
@@ -112,24 +123,6 @@
           [],
           [
             7
-          ]
-        ]
-      }
-    },
-    "3169f039871549d951794f688f2dad53575c9460": {
-      "VotingAndRep": {
-        "0": [
-          [
-            0,
-            2,
-            4
-          ],
-          [
-            5
-          ],
-          [
-            1,
-            3
           ]
         ]
       }
@@ -157,17 +150,6 @@
           [
             20
           ]
-        ]
-      }
-    },
-    "673ddc3e8fda9a3bcb1bc0d38152c8bff3381f95": {
-      "VotingAndRep": {
-        "0": [
-          [
-            37
-          ],
-          [],
-          []
         ]
       }
     },
@@ -221,6 +203,24 @@
             2
           ],
           []
+        ]
+      }
+    },
+    "bb2811b104ad816b9657a2c7b77b6e1b1d3ab891": {
+      "VotingAndRep": {
+        "0": [
+          [
+            0,
+            2,
+            4
+          ],
+          [
+            5
+          ],
+          [
+            1,
+            3
+          ]
         ]
       }
     },

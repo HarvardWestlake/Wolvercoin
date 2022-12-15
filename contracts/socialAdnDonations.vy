@@ -93,4 +93,9 @@ def beginVoteOfficial(user: address):
     #for i in range (100):
         #self.alreadyVotedOfficials.remove(i)
         #self.votesForOfficials.remove(i)
+@external
+def getOfficalVotingPeriod() -> (bool):
+    return self.officialVotingPeriod
+
+
        

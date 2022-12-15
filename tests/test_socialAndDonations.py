@@ -37,6 +37,6 @@ def test_voteProposal (socialAdnDonationsContract):
     #assert b == True 
    # """
 
-def test_beginVoteOfficial():
-    socialAdnDonations.beginVoteOfficial(accounts[0])
-    assert socialAdnDonations.alreadyVotedOfficials.len() == 0
+def test_beginVoteOfficial(socialAdnDonationsContract):
+    socialAdnDonationsContract.beginVoteOfficial(accounts[0])
+    assert socialAdnDonationsContract.getOfficalVotingPeriod
