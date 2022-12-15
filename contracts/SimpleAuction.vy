@@ -2,7 +2,8 @@
 #Depends on ERC20 Wolvercoin contract, could interact with PublicGoods,DutchAuction in the future
 
 interface Wolvercoin:
-    def sendW(sender: address, receiver:address, val: uint256) -> bool: view
+    def sendW(receiver:address, val: uint256) -> bool: nonpayable
+    def transferW(sender:address, receiver:address, val:uint256) -> bool:nonpayable
 
 wolvercoin: Wolvercoin
 #Simple Open Auction from VyperDocs
@@ -54,7 +55,7 @@ def withdraw():
     assert not self.pendingReturns[msg.sender] == 0 
     pending_amount: uint256 = self.pendingReturns[msg.sender]
     self.pendingReturns[msg.sender]=0
-    self.sendW(self.beneficiary,msg.sender,pending_amount)
+    self.sendW(msg.sender,pending_amount)
     #is it actually from beneficiary? might not be correct here
 
 #endAuction: as long as time is passed auction end, end auction and disallow changes to variables
@@ -63,6 +64,6 @@ def endAuction():
     assert block.timestamp >= self.auctionEnd
     assert not self.ended
     self.ended = True
-    self.sendW(self.highestBidder,self.beneficiary, self.highestBid)
+    self.transferW(self.highestBidder,self.beneficiary, self.highestBid)
 
 
