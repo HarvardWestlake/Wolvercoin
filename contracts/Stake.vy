@@ -13,7 +13,6 @@ interface ActiveUser:
 stakeAmounts: public(HashMap [address, uint256])
 stakeDates: HashMap [address, uint256]
 wolvercoinContract: Token
-newAmt: public(uint256)
 activeUserContract: ActiveUser
 
 @external
@@ -37,14 +36,14 @@ def unstake (_userAddress: address, amtUnstaked: uint256):
         decimalAmt: decimal = convert (amtUnstaked, decimal)
         oneThird: decimal = decimalAmt / 3.0
         newAmt: uint256 = 2 * convert(oneThird, uint256)
-        self.wolvercoinContract.transferFrom (self, _userAddress, self.newAmt)
+        self.wolvercoinContract.transferFrom (self, _userAddress, newAmt)
         self.wolvercoinContract.burnFrom (self, convert (oneThird, uint256))
         self.stakeAmounts[_userAddress] -= amtUnstaked
     else:
         days: uint256 = changeInTime/86400
         percent: decimal = (convert(101**days, decimal) / convert(100**days, decimal))
-        self.newAmt = amtUnstaked * (convert((percent),uint256))
-        self.wolvercoinContract.transferFrom (self, _userAddress, self.newAmt)
+        newAmt: uint256 = amtUnstaked * (convert((percent),uint256))
+        self.wolvercoinContract.transferFrom (self, _userAddress, newAmt)
         self.stakeAmounts[_userAddress] = 0
         self.stakeDates[_userAddress] = 0
 
