@@ -81,11 +81,11 @@ def _endAuction():
 #       self.endDate = 0
 
 @external
-def isAuctionActive() -> bool:
-    if(block.timestamp < self.endDate):
-        return True
-    return False
+def isAuctionActive():
+    assert block.timestamp>= self.startDate
+    assert block.timestamp<self.endDate
 
 @external
 def getTimeRemaining() -> uint256:
-    return self.endDate - block.timestamp
+    #return self.endDate - block.timestamp
+    return 15
