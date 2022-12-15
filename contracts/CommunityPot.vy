@@ -1,8 +1,8 @@
 # @version ^0.3.3
-interface ERC20:
+interface Token:
     def transferFrom(_from : address, _to : address, _value : uint256) -> bool: view
     def getBalanceOf(_user: address) -> uint256: view
-ERC20Contract: public(ERC20)
+TokenContract: public(Token)
 
 
 electedOfficials: public(DynArray [address, 3])
@@ -14,12 +14,16 @@ def __init__(thePotAddress: address, ERC20address: address):
     self.moneyStored = 0
     self.electedOfficials = []
     self.PotAddress=thePotAddress
-    self.ERC20Contract=ERC20(ERC20address)
+    self.TokenContract=Token(ERC20address)
 
 
 @external
 def addMoney (amount: uint256):
     self.moneyStored = self.moneyStored + amount
+
+@internal
+def _removeMoney (amount: uint256):
+    self.moneyStored = self.moneyStored - amount
 
 @external
 def setElectedOfficials (newEleectedOfficials: DynArray [address,3]):
@@ -37,8 +41,9 @@ def getElectedOfficials() -> DynArray[address, 3]:
 
 @external
 def Transact(amount: uint256, destAddress: address):
-    assert self.ERC20Contract.getBalanceOf(self.PotAddress) >= amount
-    self.ERC20Contract.transferFrom(self.PotAddress, destAddress, amount)
+    assert self.TokenContract.getBalanceOf(self.PotAddress) >= amount
+    self.TokenContract.transferFrom(self.PotAddress, destAddress, amount)
+    self._removeMoney(amount)
 
 #whether or not an address is in admin array
 @view
@@ -48,3 +53,4 @@ def VerifyElectedOfficial(wolvAddress: address) -> bool:
         if item==wolvAddress:
             return True
     return False
+

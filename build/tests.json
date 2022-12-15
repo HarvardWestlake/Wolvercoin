@@ -3,7 +3,7 @@
     "ActiveUser": "1c86845ce3ca8a184ba0ab3aa70b31b67f57e289",
     "BookstoreNFT": "ab84f703741cd0242cdab2a9e87ce20048eaeb4d",
     "CodeScoreCheck": "1534fc12b51fdbd638b66ee20cc185fe03971463",
-    "CommunityPot": "ad78314e568379a98d9fc4a5e4c4f66be1b3470c",
+    "CommunityPot": "5776458a0a5ad6e93416a9b7ad14a9a7807ca11b",
     "Crash": "f70b9b0d41a190af7c7d6afcf9996053d271a53c",
     "DutchAuction": "45f96462f7f791460ad9e93b39ad54b6980f8604",
     "Exclusivity": "6533451a8f3d5f08a7bf93204e60c327a7e3777b",
@@ -20,10 +20,25 @@
     "tests/test_CommunityPot.py": {
       "coverage": false,
       "isolated": false,
-      "results": "...",
-      "sha1": "ec7782f0d3c9da2161d095a361b3265fffc0a3c8",
-      "txhash": []
+      "results": "....",
+      "sha1": "a068a37700a7f8462f9a95b2a7992ea1f3b3415d",
+      "txhash": [
+        "c1d9d8e5ac024e87d67fc22abcec9137c1de41b8"
+      ]
     }
   },
-  "tx": {}
+  "tx": {
+    "c1d9d8e5ac024e87d67fc22abcec9137c1de41b8": {
+      "CommunityPot": {
+        "0": [
+          [
+            4,
+            5
+          ],
+          [],
+          []
+        ]
+      }
+    }
+  }
 }

@@ -3,6 +3,8 @@ import pytest
 from brownie import accounts
 from web3.exceptions import ValidationError
 
+MONEY=500
+
 @pytest.fixture
 def communityPotContract(CommunityPot, accounts):
     return CommunityPot.deploy(accounts[1], accounts[2], {'from': accounts[0]})
@@ -27,3 +29,7 @@ def test_setElectedOfficials (communityPotContract, accounts):
 
 def test_VerifyElectedOfficial(communityPotContract, accounts):
      assert communityPotContract.VerifyElectedOfficial(accounts[2])==False
+
+def test_Transact(communityPotContract, accounts):
+    with pytest.raises(Exception) as e_info:
+        communityPotContract.Transact(MONEY, accounts[1])
