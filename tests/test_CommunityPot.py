@@ -5,7 +5,7 @@ from web3.exceptions import ValidationError
 
 @pytest.fixture
 def communityPotContract(CommunityPot, accounts):
-    return CommunityPot.deploy({'from': accounts[0]})
+    return CommunityPot.deploy(accounts[1], accounts[2], {'from': accounts[0]})
 
 def  _as_wei_value(base, conversion):
     if conversion == "wei":
@@ -24,3 +24,6 @@ def test_setElectedOfficials (communityPotContract, accounts):
     assert newElectedOfficials!=communityPotContract.getElectedOfficials()
     communityPotContract.setElectedOfficials (newElectedOfficials)
     assert  newElectedOfficials==communityPotContract.getElectedOfficials()
+
+def test_VerifyElectedOfficial(communityPotContract, accounts):
+     assert communityPotContract.VerifyElectedOfficial(accounts[2])==False
