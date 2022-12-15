@@ -12,6 +12,7 @@ auctionStart: public(uint256)
 auctionEnd: public(uint256)
 highestBidder: public(address)
 highestBid: public(uint256)
+minValue: public(uint256)
 ended: public(bool)
 pendingReturns: public(HashMap[address,uint256])
 
@@ -21,12 +22,13 @@ event AuctionFinished:
 
 #Constructor
 @external
-def __init__(benef: address, start: uint256, time: uint256, _wolvC: Wolvercoin):
+def __init__(benef: address, start: uint256, time: uint256, _wolvC: Wolvercoin, minV: uint256):
     self.beneficiary = benef
     self.auctionStart = start
     self.auctionEnd = start + time
     assert block.timestamp < self.auctionEnd
     self.wolvercoin = _wolvC
+    self.minValue = minV
 
 #SendW : interfaced method to send wolvercoin from address to address
 @internal
@@ -40,6 +42,7 @@ def sendW(_sender : address, _receiver : address, _val : uint256):
 def bid():
     assert block.timestamp >= self.auctionStart
     assert block.timestamp < self.auctionEnd
+    assert msg.value > minValue
     assert msg.value > self.highestBid
     self.pendingReturns[self.highestBidder] += self.highestBid
     self.highestBidder = msg.sender
