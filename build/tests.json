@@ -7,6 +7,7 @@
     "Crash": "f70b9b0d41a190af7c7d6afcf9996053d271a53c",
     "DutchAuction": "9dda35720515ffbcb0488c7a0c03cf69780b937a",
     "Exclusivity": "6533451a8f3d5f08a7bf93204e60c327a7e3777b",
+    "Lottery": "cfb05865bee101527a221497d9127cca0df1dbcd",
     "PublicGoods": "bdb612404da27dfddadec5f42456ff79b8a7f310",
     "Reimbursement": "846b1d910193c44201d3fc3c764fc2ddd1cdd33f",
     "Stake": "728dad133912d131887a24488add7913bacb2823",
@@ -14,7 +15,7 @@
     "VotingAndRep": "fda86f072d9c8fca5b29eae53a4a483ff4d6355a",
     "Wolvercoin": "58ab07b8059e89fd44939db5aa391ce861dfabe0",
     "codeGambling": "48e5c8ad9d89d291f540574edfe3531f1480eb89",
-    "socialAdnDonations": "dd384e9377999c71781118a3e255e18a15cb7a8b"
+    "socialAdnDonations": "d7783080face3aa8185b9dbb903cf372e00b393e"
   },
   "tests": {
     "tests/test_Exclusivity.py": {
@@ -66,6 +67,13 @@
       "sha1": "0b9484928faa36243bcbdc62130afff8859f670d",
       "txhash": []
     },
+    "tests/test_lottery.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": "FFF",
+      "sha1": "0c1102674fb575c4399fb6686585247e7a35083c",
+      "txhash": []
+    },
     "tests/test_public_goods.py": {
       "coverage": false,
       "isolated": false,
@@ -79,9 +87,16 @@
       "results": ".......",
       "sha1": "27f3d2b0fa5e87d232ec32406a457eae7ec43173",
       "txhash": [
-        "b17ea4d0e0c8396978d2b21685a0c5bcef121e43",
-        "b50649e03dc23407d3276296475d2b4631727eaa"
+        "7766ae118c27fde515edb5e14c53dd7614f19e24",
+        "7a6d230c54d3e3bfee91adab548585d538e610ad"
       ]
+    },
+    "tests/test_socialAndDonations.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": ".",
+      "sha1": "d3d99bbd527ad12b2412a56a2f3e126e4d4044ac",
+      "txhash": []
     },
     "tests/test_voting.py": {
       "coverage": false,
@@ -89,8 +104,8 @@
       "results": ".......",
       "sha1": "9d19e464acaabb1741fd0d0e6a5df1fe70a513a3",
       "txhash": [
-        "b851d6ad10f3c685b2aa5e894d13bc1a0d0b33b6",
-        "ee02c411713f84b067a763e6c878ee546cdf5410"
+        "4e996e8d5bd6ee440113eb6d8efa58682f6bfe94",
+        "f6fe5055e20029866308c687df79b675ddce8db2"
       ]
     }
   },
@@ -135,21 +150,25 @@
         ]
       }
     },
-    "97b3492c5c414488b78e72c94f23cefa5c39f942": {
-      "Stake": {
+    "4e996e8d5bd6ee440113eb6d8efa58682f6bfe94": {
+      "VotingAndRep": {
         "0": [
           [
-            5,
-            6
+            0,
+            2,
+            4
           ],
-          [],
           [
-            7
+            5
+          ],
+          [
+            1,
+            3
           ]
         ]
       }
     },
-    "b17ea4d0e0c8396978d2b21685a0c5bcef121e43": {
+    "7766ae118c27fde515edb5e14c53dd7614f19e24": {
       "Reimbursement": {
         "0": [
           [
@@ -163,7 +182,7 @@
         ]
       }
     },
-    "b50649e03dc23407d3276296475d2b4631727eaa": {
+    "7a6d230c54d3e3bfee91adab548585d538e610ad": {
       "ActiveUser": {
         "0": [
           [
@@ -188,20 +207,16 @@
         ]
       }
     },
-    "b851d6ad10f3c685b2aa5e894d13bc1a0d0b33b6": {
-      "VotingAndRep": {
+    "97b3492c5c414488b78e72c94f23cefa5c39f942": {
+      "Stake": {
         "0": [
           [
-            0,
-            2,
-            4
+            5,
+            6
           ],
+          [],
           [
-            5
-          ],
-          [
-            1,
-            3
+            7
           ]
         ]
       }
@@ -241,7 +256,7 @@
         ]
       }
     },
-    "ee02c411713f84b067a763e6c878ee546cdf5410": {
+    "f6fe5055e20029866308c687df79b675ddce8db2": {
       "VotingAndRep": {
         "0": [
           [
