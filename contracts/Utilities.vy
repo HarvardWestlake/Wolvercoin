@@ -1,9 +1,14 @@
 # @version 0.3.7
 
-#write variable names
-#hashmap public instance var right here
-#in vyper example there is an example of this
-#erc20token is the struct name
+#Dependent: None 
+#Dependent on me: None
+
+struct Erc20Token:
+    addr: address
+    decimals: uint256
+    symbol: String[16]
+    hashImag: String[100]
+
 
 num: uint256 
 struct Erc20Token:
