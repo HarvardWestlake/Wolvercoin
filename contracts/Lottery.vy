@@ -1,7 +1,6 @@
 # @version ^0.3.7
 
-interface RandomNumber:
-    def getRandomNumber(random:uint256) -> uint256: view
+
 
 # vyper.interfaces.ERC20 does not include the mint and burn functions so we make our own interface
 interface Token:
