@@ -25,3 +25,9 @@ def test_endAuction(dutchAuctionContract, accounts):
     assert dutchAuctionContract.getEndDate() != 0
     dutchAuctionContract.endAuction()
     #assert privateGoodContract.getEndDate() == 0
+
+def test_isAuctionActive(dutchAuctionContract, accounts):
+    dutchAuctionContract.isAuctionActive()
+
+def test_getTimeRemaining(dutchAuctionContract, accounts):
+    dutchAuctionContract.getTimeRemaining()
