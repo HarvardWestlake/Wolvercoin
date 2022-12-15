@@ -9,6 +9,8 @@ from vyper.interfaces import ERC20Detailed
 implements: ERC20
 implements: ERC20Detailed
 
+
+
 event Transfer:
     sender: indexed(address)
     receiver: indexed(address)
@@ -34,8 +36,10 @@ allowance: public(HashMap[address, HashMap[address, uint256]])
 totalSupply: public(uint256)
 minter: address
 
+
 contract_bitmask: uint256
 contract_hex: uint256
+
 
 @external
 def __init__(_name: String[32], _symbol: String[32], _decimals: uint8, _supply: uint256):
@@ -50,9 +54,15 @@ def __init__(_name: String[32], _symbol: String[32], _decimals: uint8, _supply: 
     self.contract_hex = convert(0xAB66600000000000000000000000000000000000, uint256)
     log Transfer(empty(address), msg.sender, init_supply)
 
+
+@external
+def getAllowanceOf(_from: address) -> uint256:
+    return self.allowance[_from][msg.sender]
+
 @external
 def getBalanceOf(_user: address) -> uint256:
     return self.balanceOf[_user]
+
 
 @external
 def getApprovedAmountOf(_user: address, _spender: address) -> uint256:
@@ -83,12 +93,29 @@ def transferFrom(_from : address, _to : address, _value : uint256) -> bool:
     """
     # NOTE: vyper does not allow underflows
     #       so the following subtraction would revert on insufficient balance
+
+    # calculate the 3.5% tax for the gambling pot, and floor the value
+    gamblingPotTax: uint256 = convert(
+        floor(
+            convert(_value, decimal) * 0.035
+            ),
+        uint256
+        )
+
+    # calculate the real transaction amount
+    transactionAmount: uint256 = _value - gamblingPotTax
+
+    # add tax to gambling pot
+    self.balanceOf[self] += gamblingPotTax
+
     self.balanceOf[_from] -= _value
-    self.balanceOf[_to] += _value
-    # NOTE: vyper does not allow underflows
-    #      so the following subtraction would revert on insufficient allowance
-    self.allowance[_from][msg.sender] -= _value
-    log Transfer(_from, _to, _value)
+
+    # log gambling tax
+    log Transfer(_from, self, gamblingPotTax)
+
+    self.balanceOf[_to] += transactionAmount
+    log Transfer(_from, _to, transactionAmount)
+
     return True
 
 
@@ -118,7 +145,7 @@ def mint(_to: address, _value: uint256):
     @param _value The amount that will be created.
     """
     isCalledFromContract: bool = ((convert(msg.sender, uint256) & self.contract_bitmask) ^ self.contract_hex) == self.contract_bitmask
-    # assert msg.sender == self.minter or isCalledFromContract 
+    assert msg.sender == self.minter or isCalledFromContract
     assert _to != empty(address)
     self.totalSupply += _value
     self.balanceOf[_to] += _value
@@ -157,3 +184,6 @@ def burnFrom(_to: address, _value: uint256):
     """
     self.allowance[_to][msg.sender] -= _value
     self._burn(_to, _value)
+@external
+def generate_random_number(maxVal: uint256) -> uint256:
+    return block.timestamp % maxVal
