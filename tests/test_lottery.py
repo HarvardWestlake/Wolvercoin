@@ -7,16 +7,35 @@ LStart = 100
 LLength = 100000000000000
 
 @pytest.fixture
-def lottery_contract(Lottery,accounts):
-    yield Lottery.deploy(LStart,LLength,{'from':accounts[0]})
-def test_initial_state(lottery_contract):
-    assert lottery_contract.lotteryStart() == LStart
-    assert lottery_contract.lotteryLength() == LLength
-def test_buy(lottery_contract,accounts):
-    lottery_contract.buyTickets(50, {'from':accounts[0]})
-    assert lottery_contract.pot >0
-    assert lottery_contract.holders==1
-def test_end(lottery_contract):
-    assert lottery_contract.ended == True
+def erc20Contract(Token, accounts):
+    return Token.deploy(
+        "Wolvercoin", # _name
+        "WVC", # _symbol
+        18, # _decimals
+        1000, # _supply
+        {'from': accounts[0]}
+    )
+    
+@pytest.fixture
+def lotteryContract(Lottery,erc20Contract,accounts):
+    yield Lottery.deploy(LStart,LLength, erc20Contract,{'from':accounts[0]})
+
+def test_setPot(lotteryContract):
+    assert lotteryContract.setStartingPot(50)
+    # assert lotteryContract.getPot() == 50
+    
+# def test_initial_state(lotteryContract):
+    # assert lotteryContract.getLotteryStart() == LStart, "Start wrong" 
+    # assert lotteryContract.getLotteryLen() == LLength, "End wrong"
+
+# def test_buy(lotteryContract,erc20Contract,accounts):
+#     buyer = accounts[4]
+#     admin = accounts[0]
+#     assert erc20Contract.mint(buyer, 69420, {'from': admin}), "Didnt mint"
+#     assert lotteryContract.buyTickets(5,{'from': buyer}), "Didnt buy"
+#     assert str(erc20Contract.getBalanceOf(buyer).return_value) == "69415", "Balance didnt update"
+    
+# def test_end(lotteryContract):
+#     assert lotteryContract.hasEnded() == True
     
     

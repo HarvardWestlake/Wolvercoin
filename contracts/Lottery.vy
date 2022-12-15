@@ -3,9 +3,14 @@
 interface RandomNumber:
     def getRandomNumber(random:uint256) -> uint256: view
 
+# vyper.interfaces.ERC20 does not include the mint and burn functions so we make our own interface
+interface Token:
+    def getBalanceOf(_address: address) -> uint256: nonpayable
+    def transferFrom(_from : address, _to : address, _value : uint256) -> bool: nonpayable
+    def approve(_spender : address, _value : uint256) -> bool: nonpayable
 
 #TODO:
-#figy out interface
+#figy out interface/randomness
 
 lotteryStart:public(uint256)
 lotteryEnd:public(uint256)
@@ -22,40 +27,65 @@ pot: public(uint256)
 
 ended:public(bool)
 
+erc20: Token # The main contract we need to interact with
+
 @external
-def __init__(_lottery_start:uint256, _lottery_length:uint256):
+def __init__(_lottery_start:uint256, _lottery_length:uint256,erc20address: address):
+    self.erc20 = Token(erc20address)
     self.lotteryStart = _lottery_start
     self.lotteryEnd = self.lotteryStart +_lottery_length
     assert block.timestamp < self.lotteryEnd, "Auction ended"
 
 @external
 @payable
-def buyTickets():
-    
+def buyTickets(amount:uint256):
+
     assert block.timestamp>=self.lotteryStart, "Lottery hasnt even begun..."
     assert block.timestamp<self.lotteryEnd, "Auction ended"
-    assert msg.value > 1000000000000000, "Not enough moolah to enter, current entry price set at 0.001 wc"
-    self.pot+=msg.value
-    self.spentArr[self.ticketTotal] = msg.value
+    assert amount > 0, "Not enough WC, current entry price set at 1 WC"
+    assert self.erc20.getBalanceOf(msg.sender) >= amount, "Not enough money in account"
+    assert self.erc20.transferFrom(msg.sender, self, amount), "Transfer failed"
+
+    self.pot+=amount
+    self.spentArr[self.ticketTotal] = amount
     self.ticketBuys[self.ticketTotal] = msg.sender
     self.ticketTotal = self.ticketTotal +1
 
-  
+@external
+def getLotteryStart()->uint256:
+    return self.lotteryStart
+
+@external
+def getLotteryLen()->uint256:
+    return self.lotteryEnd - self.lotteryStart
+
+@external
+def hasEnded()->bool:
+    return self.ended
+
+@external
+def setStartingPot(amount:uint256):
+    self.pot = amount
+
+@external
+def getPot()->uint256:
+    return self.pot
 
 @external
 def endLottery():
     assert block.timestamp>=self.lotteryEnd, "Auction not ended"
     assert not self.ended, "Auction already ended"
     self.ended = True
-    #Two important things for editor to keep in mind:
-    #1. This lottery is not truly random
-    #2. The pot doesnt work as originally intended, and needs to be integrated with 
-    #   the other groups using pots and the true random method
-    rand : uint256 = 3
+    rand : uint256 = 0
+    bol : bool = False
+    rand = block.timestamp*block.difficulty%self.pot
     #rand : uint256 = getRandomNumber(ticketTotal)
     for i in self.spentArr:
         rand = rand - self.spentArr[i]
-        if (rand <= 0):
-                send(self.ticketBuys[i],self.pot*2/3)
+        if (rand <= 0 and bol == False):
+            bol = True
+            assert self.erc20.transferFrom(self, self.ticketBuys[i], self.pot*2/3), "Transfer failed"
+            
+
 
 
