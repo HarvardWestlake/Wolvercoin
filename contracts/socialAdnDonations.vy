@@ -8,7 +8,7 @@ interface ActiveUser:
 
 activeStudents: public(HashMap[address, uint256])
 activeYear: public( uint256 )
-teachers: public(HashMap[address, bool]) 
+teachers: public(address[100]) 
 electedOfficials: public(address[3])
 votesLeaderBoard: public(uint256[3])
 alreadyVotedOfficials: public(HashMap [address, bool])
@@ -80,4 +80,22 @@ def voteOfficial( ballot : address ):
         elif self.votesForOfficials[ballot] >= self.votesLeaderBoard[2]:
             self.votesLeaderBoard[2]= value
             self.electedOfficials[2] = ballot
+
+@external
+def beginVoteOfficial(user: address):
+    isTeacher: bool = False
+    for i in self.teachers:
+        if (i == user):
+            isTeacher = True
+            assert self.officialVotingPeriod == True   
+        else:
+            isTeacher = False 
+    #for i in range (100):
+        #self.alreadyVotedOfficials.remove(i)
+        #self.votesForOfficials.remove(i)
+@external
+def getOfficalVotingPeriod() -> (bool):
+    return self.officialVotingPeriod
+
+
        
