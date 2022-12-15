@@ -5,7 +5,7 @@
     "CodeScoreCheck": "1534fc12b51fdbd638b66ee20cc185fe03971463",
     "CommunityPot": "7a81fe3737a59b212d92f2482d838ff564bd15e5",
     "Crash": "f70b9b0d41a190af7c7d6afcf9996053d271a53c",
-    "DutchAuction": "18ac22646ad1dc99640d1ea68a317ce1e7efe4b3",
+    "DutchAuction": "9dda35720515ffbcb0488c7a0c03cf69780b937a",
     "Exclusivity": "6533451a8f3d5f08a7bf93204e60c327a7e3777b",
     "Lottery": "cce8c21aebf8e75ec37234a0c57bacf9b3790cb2",
     "PublicGoods": "bdb612404da27dfddadec5f42456ff79b8a7f310",
@@ -14,9 +14,9 @@
     "Stake": "80ac8be1131e3e38512b6cb0cbbf0e5f54895833",
     "Token": "daa6c875d660a576bd46d31d0ca88d1147f7d34a",
     "VotingAndRep": "fda86f072d9c8fca5b29eae53a4a483ff4d6355a",
-    "codeGambling": "1bfa2dde2cbe3e69c0fc637b0118c5f119d3d0f2",
-    "socialAdnDonations": "d7783080face3aa8185b9dbb903cf372e00b393e",
-    "takeTenPercent": "3c10d8554866cf1725d2875bce46774f7e5cff33"
+    "Wolvercoin": "58ab07b8059e89fd44939db5aa391ce861dfabe0",
+    "codeGambling": "48e5c8ad9d89d291f540574edfe3531f1480eb89",
+    "socialAdnDonations": "dd384e9377999c71781118a3e255e18a15cb7a8b"
   },
   "tests": {
     "tests/test_CommunityPot.py": {
@@ -113,33 +113,19 @@
         "e6d281b675c4b0bae70ec6ea331040a7bd2d3683"
       ]
     },
-    "tests/test_simpleAuction.py": {
-      "coverage": false,
-      "isolated": false,
-      "results": ".",
-      "sha1": "186c75ebf3a9825294259972f5b8959b2b00f9e3",
-      "txhash": []
-    },
-    "tests/test_socialAndDonations.py": {
-      "coverage": false,
-      "isolated": false,
-      "results": ".",
-      "sha1": "d3d99bbd527ad12b2412a56a2f3e126e4d4044ac",
-      "txhash": []
-    },
     "tests/test_voting.py": {
       "coverage": false,
       "isolated": false,
       "results": ".......",
       "sha1": "9d19e464acaabb1741fd0d0e6a5df1fe70a513a3",
       "txhash": [
-        "1515bdc50f922d7b50ec47a8916cd9a3b6d93cfd",
-        "dd42b19646464387c9b05ecfd24852c05a815f50"
+        "b851d6ad10f3c685b2aa5e894d13bc1a0d0b33b6",
+        "ee02c411713f84b067a763e6c878ee546cdf5410"
       ]
     }
   },
   "tx": {
-    "149dc7f967338e491faec62d20fd61339eae9b0a": {
+    "21782992b73633dd7619348812dd40fd4e3fc677": {
       "Stake": {
         "0": [
           [
@@ -255,7 +241,7 @@
         ]
       }
     },
-    "dd42b19646464387c9b05ecfd24852c05a815f50": {
+    "b851d6ad10f3c685b2aa5e894d13bc1a0d0b33b6": {
       "VotingAndRep": {
         "0": [
           [
