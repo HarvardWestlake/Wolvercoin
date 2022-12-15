@@ -1,5 +1,6 @@
 import React from "react";
 import MetaMask from "../Web3/MetaMask";
+import Balance from "../Web3/Balance"
 import * as Constants from "./consts"
 import Nav from "./Nav"
 import {Web3Context} from "../Contexts/Web3Provider"
@@ -18,16 +19,21 @@ class Header extends React.Component {
       <div>
         <div className="container">
         <div className="content">
-        <div className="menu-container">
-          <div className="logo-container"><a className="logo-link" href="/#">Wolvercoin</a></div>
-          <Nav updateHashLocation={this.props.onChangeLocation} location={this.props.location}></Nav>
+          <div className="menu-container">
+            <div className="logo-container"><a className="logo-link" href="/#">Wolvercoin</a></div>
+              <Nav updateHashLocation={this.props.onChangeLocation} location={this.props.location}></Nav>
+              <Web3Context.Consumer>
+                {providerValueContext => { 
+                  return <MetaMask web3Context={providerValueContext}/>
+                }}
+              </Web3Context.Consumer>
+            </div>   
+          </div>
           <Web3Context.Consumer>
             {providerValueContext => { 
-              return <MetaMask web3Context={providerValueContext}/>
+              return <Balance web3Context={providerValueContext}/>
             }}
           </Web3Context.Consumer>
-         </div>   
-      </div>
         </div>
       </div>
       )
