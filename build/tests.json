@@ -5,7 +5,7 @@
     "CodeScoreCheck": "1534fc12b51fdbd638b66ee20cc185fe03971463",
     "CommunityPot": "117ed5d48018c22bf7edf775bf1f897697726b38",
     "Crash": "f70b9b0d41a190af7c7d6afcf9996053d271a53c",
-    "DutchAuction": "9dda35720515ffbcb0488c7a0c03cf69780b937a",
+    "DutchAuction": "45f96462f7f791460ad9e93b39ad54b6980f8604",
     "Exclusivity": "6533451a8f3d5f08a7bf93204e60c327a7e3777b",
     "PublicGoods": "bdb612404da27dfddadec5f42456ff79b8a7f310",
     "Reimbursement": "846b1d910193c44201d3fc3c764fc2ddd1cdd33f",
@@ -14,7 +14,7 @@
     "VotingAndRep": "fda86f072d9c8fca5b29eae53a4a483ff4d6355a",
     "Wolvercoin": "58ab07b8059e89fd44939db5aa391ce861dfabe0",
     "codeGambling": "48e5c8ad9d89d291f540574edfe3531f1480eb89",
-    "socialAdnDonations": "dd384e9377999c71781118a3e255e18a15cb7a8b"
+    "socialAdnDonations": "42dced17eee7458206b02644bc30dcf40f729b18"
   },
   "tests": {
     "tests/test_Exclusivity.py": {
@@ -83,14 +83,21 @@
         "b50649e03dc23407d3276296475d2b4631727eaa"
       ]
     },
+    "tests/test_socialAndDonations.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": ".F",
+      "sha1": "4da03ebf233736a07f2b1da8021612d5388a006c",
+      "txhash": []
+    },
     "tests/test_voting.py": {
       "coverage": false,
       "isolated": false,
       "results": ".......",
       "sha1": "9d19e464acaabb1741fd0d0e6a5df1fe70a513a3",
       "txhash": [
-        "b851d6ad10f3c685b2aa5e894d13bc1a0d0b33b6",
-        "ee02c411713f84b067a763e6c878ee546cdf5410"
+        "3169f039871549d951794f688f2dad53575c9460",
+        "673ddc3e8fda9a3bcb1bc0d38152c8bff3381f95"
       ]
     }
   },
@@ -105,6 +112,24 @@
           [],
           [
             7
+          ]
+        ]
+      }
+    },
+    "3169f039871549d951794f688f2dad53575c9460": {
+      "VotingAndRep": {
+        "0": [
+          [
+            0,
+            2,
+            4
+          ],
+          [
+            5
+          ],
+          [
+            1,
+            3
           ]
         ]
       }
@@ -132,6 +157,17 @@
           [
             20
           ]
+        ]
+      }
+    },
+    "673ddc3e8fda9a3bcb1bc0d38152c8bff3381f95": {
+      "VotingAndRep": {
+        "0": [
+          [
+            37
+          ],
+          [],
+          []
         ]
       }
     },
@@ -188,24 +224,6 @@
         ]
       }
     },
-    "b851d6ad10f3c685b2aa5e894d13bc1a0d0b33b6": {
-      "VotingAndRep": {
-        "0": [
-          [
-            0,
-            2,
-            4
-          ],
-          [
-            5
-          ],
-          [
-            1,
-            3
-          ]
-        ]
-      }
-    },
     "bddb26c86dd0512a52f7deb9cf8598253de64234": {
       "ActiveUser": {
         "0": [
@@ -235,17 +253,6 @@
           [
             6,
             7
-          ],
-          [],
-          []
-        ]
-      }
-    },
-    "ee02c411713f84b067a763e6c878ee546cdf5410": {
-      "VotingAndRep": {
-        "0": [
-          [
-            37
           ],
           [],
           []
