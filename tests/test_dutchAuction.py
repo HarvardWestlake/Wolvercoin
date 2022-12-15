@@ -9,9 +9,9 @@ chain = Chain()
 
 # . This runs before ALL tests
 @pytest.fixture
-def dutchAuctionContract(DutchAuction, ERC20, accounts):
-    ERC20Contract = ERC20.deploy("str", "string", 8, 12, {'from':accounts[0]})
-    NFTContract = ERC20.deploy("unused", "notused", 8, 12, {'from':accounts[0]})
+def dutchAuctionContract(DutchAuction, Token, accounts):
+    ERC20Contract = Token.deploy("str", "string", 8, 12, {'from':accounts[0]})
+    NFTContract = Token.deploy("unused", "notused", 8, 12, {'from':accounts[0]})
     return DutchAuction.deploy(100, 100, 200, NFTContract, ERC20Contract, {'from': accounts[0]})
 
 def _as_wei_value(base, conversion):
