@@ -1,11 +1,12 @@
 # @version ^0.3.7
-#Depends on ERC20 Wolvercoin contract, could interact with PublicGoods,DutchAuction in the future
+#Depends on ERC20 Wolvercoin contract
+#Could interact with ActiveUser, PublicGoods,DutchAuction depending on implementation
 
-interface Wolvercoin:
+interface Token:
     def sendW(receiver:address, val: uint256) -> bool: nonpayable
-    def transferW(sender:address, receiver:address, val:uint256) -> bool:nonpayable
+    def transferW(sender:address, receiver:address, val:uint256) -> bool: nonpayable
 
-wolvercoin: Wolvercoin
+wolvercoin: public(Token)
 #Simple Open Auction from VyperDocs
 #Auction Variables
 beneficiary: public(address)
@@ -23,7 +24,7 @@ event AuctionFinished:
 
 #Constructor
 @external
-def __init__(benef: address, start: uint256, time: uint256, _wolvC: Wolvercoin, minV: uint256):
+def __init__(benef: address, start: uint256, time: uint256, _wolvC: Token, minV: uint256):
     self.beneficiary = benef
     self.auctionStart = start
     self.auctionEnd = start + time
@@ -33,10 +34,12 @@ def __init__(benef: address, start: uint256, time: uint256, _wolvC: Wolvercoin, 
 
 #Wolvercoin methods
 #SendW : interfaced method to send wolvercoin to address
+@nonpayable
 @internal
 def sendW(_receiver : address, _val : uint256):
     return
 #TransferW : interfaced method to transfer wolvercoin from one address to another address 
+@nonpayable
 @internal
 def transferW(_sender:address, _receiver:address,_val:uint256):
     return
@@ -44,15 +47,15 @@ def transferW(_sender:address, _receiver:address,_val:uint256):
 #Methods
 #Bid: if the message value is the highest so far, set variables to match current sender and value to highest bidder and bid
 @external
-@payable
-def bid():
-    assert block.timestamp >= self.auctionStart
+@nonpayable
+def bid(bidAmount:uint256):
+    #assert block.timestamp >= self.auctionStart
     assert block.timestamp < self.auctionEnd
-    assert msg.value > self.minValue
-    assert msg.value > self.highestBid
+    assert bidAmount > self.minValue
+    assert bidAmount > self.highestBid
     self.pendingReturns[self.highestBidder] += self.highestBid
     self.highestBidder = msg.sender
-    self.highestBid = msg.value
+    self.highestBid = bidAmount
 
 #Withdraw: should be able to quickly return amount from hashmap
 @external

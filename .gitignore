@@ -8,3 +8,4 @@ tests/__pycache__
 /app/node_modules/
 build/*
 build/contracts/Token.json
+node_modules/
