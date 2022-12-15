@@ -17,6 +17,13 @@ wolvercoinContract: Wolvercoin
 newAmt: public(uint256)
 activeUserContract: ActiveUser
 
+@external
+def stake (user : address, amountStaked : uint256):
+    assert self.activeUserContract.getActiveUser (user)
+    self.stakeAmounts[user] = amountStaked
+    self.stakeDates[user] = block.timestamp
+    self.wolvercoinContract.transferFrom (user, self.bank, amountStaked)
+    
 @external 
 def __init__(_bankAddress: address, _wolvercoinContract: Wolvercoin, _activeUserContract: ActiveUser):
     self.bank = _bankAddress
@@ -35,6 +42,7 @@ def unstake (_userAddress: address, amtUnstaked: uint256):
         self.newAmt = 2* convert(oneThird,uint256)
         self.wolvercoinContract.transferFrom (self.bank, _userAddress, self.newAmt)
         self.wolvercoinContract.burnFrom (self.bank, convert (oneThird, uint256))
+        self.stakeAmounts[_userAddress] -= amtUnstaked
     else:
         days: uint256 = changeInTime/86400
         percent: decimal = (convert(101**days, decimal) / convert(100**days, decimal))
@@ -42,11 +50,4 @@ def unstake (_userAddress: address, amtUnstaked: uint256):
         self.wolvercoinContract.transferFrom (self.bank, _userAddress, self.newAmt)
         self.stakeAmounts[_userAddress] = 0
         self.stakeDates[_userAddress] = 0
-
-@external
-def stake (user : address, amountStaked : uint256):
-    assert self.activeUserContract.getActiveUser (user)
-    self.stakeAmounts[user] = amountStaked
-    self.stakeDates[user] = block.timestamp
-    self.wolvercoinContract.transferFrom (user, self.bank, amountStaked)
 
