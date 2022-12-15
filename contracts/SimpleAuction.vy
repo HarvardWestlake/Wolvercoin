@@ -31,9 +31,14 @@ def __init__(benef: address, start: uint256, time: uint256, _wolvC: Wolvercoin, 
     self.wolvercoin = _wolvC
     self.minValue = minV
 
-#SendW : interfaced method to send wolvercoin from address to address
+#Wolvercoin methods
+#SendW : interfaced method to send wolvercoin to address
 @internal
-def sendW(_sender : address, _receiver : address, _val : uint256):
+def sendW(_receiver : address, _val : uint256):
+    return
+#TransferW : interfaced method to transfer wolvercoin from one address to another address 
+@internal
+def transferW(_sender:address, _receiver:address,_val:uint256):
     return
 
 #Methods
