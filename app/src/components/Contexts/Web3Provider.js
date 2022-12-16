@@ -15,26 +15,31 @@ export const Web3Provider = (props) => {
   const [wolvercoinContract, setWolvercoinContract] = React.useState();
   
   const setInitialWolvercoinContract = async(provider) => {
+    const p = new ethers.providers.Web3Provider(window.ethereum, 'any');
     setWolvercoinContract(new ethers.Contract(
       Contracts.ACTIVE_CONTRACTS.wolvercoin.address, 
       Contracts.ACTIVE_CONTRACTS.wolvercoin.ABI.abi, 
-      provider.getSigner()
+      p.getSigner()
     ))
   }  
   const setInitialNftContract = async(provider) => {
+    const p = new ethers.providers.Web3Provider(window.ethereum, 'any');
+
     setNftContract(new ethers.Contract(
       Contracts.ACTIVE_CONTRACTS.nft.address, 
       Contracts.ACTIVE_CONTRACTS.nft.ABI.abi,
-      provider.getSigner()
+      p.getSigner()
     ))
   }
   const setInitialAccount = async(provider) => {
-    const accounts = await provider.listAccounts();
+    const p = new ethers.providers.Web3Provider(window.ethereum, 'any');
+    const accounts = await p.listAccounts();
     setConnectedAccount(accounts[0]);
   }
 
   const setInitialChainId = async(provider) => {
-    const network = await provider.getNetwork();
+    const p = new ethers.providers.Web3Provider(window.ethereum, 'any');
+    const network = await p.getNetwork();
     setChainId(network.chainId);
   };
   // passing-multiple-value-and-setter-pairs-to-context-provider-in-react

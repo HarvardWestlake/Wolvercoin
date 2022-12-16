@@ -11,3 +11,5 @@ build/contracts/Token.json
 node_modules/
 
 build/
+
+app/firebase-debug.log
