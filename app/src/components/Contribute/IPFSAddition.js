@@ -48,8 +48,8 @@ class IPFSAddition extends React.Component {
     /* Create an instance of the client */
     const client = create({
             host: 'ipfs.wolvercoin.com',
-            port: 80,
-            protocol: 'http',
+            port: 443,
+            protocol: 'https',
             headers: {
                 Authorization: auth
             }

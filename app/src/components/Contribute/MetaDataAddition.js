@@ -54,8 +54,8 @@ class MetaDataAddition extends React.Component {
     const auth = await(sha256(this.state.password));
     const client = create({
             host: 'ipfs.wolvercoin.com',
-            port: 80,
-            protocol: 'http',
+            port: 443,
+            protocol: 'https',
             headers: {
                 Authorization: auth
             }
