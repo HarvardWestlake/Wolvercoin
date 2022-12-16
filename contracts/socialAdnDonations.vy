@@ -11,7 +11,7 @@ interface ActiveUser:
 
 activeStudents: public(HashMap[address, uint256])
 activeYear: public( uint256 )
-teachers: public(HashMap[address, bool]) 
+teachers: public(address[100]) 
 electedOfficials: public(address[3])
 votesLeaderBoard: public(uint256[3])
 alreadyVotedOfficials: public(HashMap [address, bool])
@@ -27,6 +27,8 @@ activeUserContract: public(ActiveUser)
 def __init__ (activeUserAddress: address):
     self.activeYear = 2023
     self.activeUserContract = ActiveUser(activeUserAddress)
+    self.officialVotingPeriod = True
+    self.proposalVotes=[0,0,0]
 
 
 
@@ -51,7 +53,8 @@ def voteProposal(proposalNumber : uint256):
 def donate(pot: address, to: address, val: uint256):
     self.ERC20Contract.transferFrom(pot,to,val)
     
-
+def getProposalVotes (num : uint256) -> (uint256):
+    return self.proposalVotes[num]
 
 @external
 def voteOfficial(ballot : address):
@@ -76,4 +79,22 @@ def voteOfficial(ballot : address):
         elif self.votesForOfficials[ballot] >= self.votesLeaderBoard[2]:
             self.votesLeaderBoard[2]= value
             self.electedOfficials[2] = ballot
-        
+
+@external
+def beginVoteOfficial(user: address):
+    isTeacher: bool = False
+    for i in self.teachers:
+        if (i == user):
+            isTeacher = True
+            assert self.officialVotingPeriod == True   
+        else:
+            isTeacher = False 
+    #for i in range (100):
+        #self.alreadyVotedOfficials.remove(i)
+        #self.votesForOfficials.remove(i)
+@external
+def getOfficalVotingPeriod() -> (bool):
+    return self.officialVotingPeriod
+
+
+       
