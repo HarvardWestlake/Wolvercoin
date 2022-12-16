@@ -47,9 +47,28 @@ def test_contribute(publicGoodsContract, erc20Contract, accounts):
     assert str(returnVal) == "3", "getContributionTotal returned wrong value"
     assert str(erc20Contract.getBalanceOf(donator)) == str(69420 - 3)
 
-# def test_retract(publicGoodsContract, accounts):
-#     # TODO for @monkeymatt2023
-#     raise NotImplementedError
+def test_retract(publicGoodsContract, erc20Contract, accounts):
+    creatorOfGood = accounts[5]
+    donator = accounts[4]
+    admin = accounts[0]
+
+    assert publicGoodsContract.createGood("Monkey Party", 10, {'from': creatorOfGood}), "createGood failed"
+
+    assert publicGoodsContract.retract("Monkey Party", 1, {'from': donator}), "retract failed"
+
+    assert erc20Contract.mint(donator, 69420, {'from': admin}) # Supply the account with some token
+    assert str(erc20Contract.getBalanceOf(donator)) == "69420"
+
+    assert erc20Contract.approve(publicGoodsContract.address, 69420, {'from': donator}) # Approve expenditure
+    assert str(erc20Contract.getApprovedAmountOf(donator, publicGoodsContract.address).return_value) == "69420"
+
+    assert publicGoodsContract.contribute("Monkey Party", 3, {'from': donator}), "contribute failed"
+    assert publicGoodsContract.retract("Monkey Party", 1, {'from': donator}), "retract failed"
+
+    #retract doesn't subtract from donator amount or total contributions
+    assert str(erc20Contract.getBalanceOf(donator)) == str(69420 - 2)
+    returnVal = publicGoodsContract.getContributionTotal("Monkey Party", {'from': accounts[0]}).return_value
+    assert str(returnVal) == "2", "getContributionTotal returned wrong value"
 
 def test_complete_goal_achieved(publicGoodsContract, erc20Contract, accounts):
     creatorOfGood = accounts[6]
