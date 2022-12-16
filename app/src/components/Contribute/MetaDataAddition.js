@@ -16,7 +16,8 @@ class MetaDataAddition extends React.Component {
         ipfsImgUrl : this.props.ipfsImgUrl,
         password: this.props.password,
         name : "",
-        metaDataUrl : ""
+        metaDataUrl : "",
+        tier : ''
       };
       this.handleChange = this.handleChange.bind(this);
       this.uploadMetaDataToIPFS = this.uploadMetaDataToIPFS.bind(this);
@@ -39,6 +40,10 @@ class MetaDataAddition extends React.Component {
             {
                 "trait_type": "Year",
                 "value": 2023
+            },
+            {
+                "trait_type": "NFT Tier",
+                "value" : this.state.tier.substring(0,1)
             }
         ]
     };
@@ -82,16 +87,18 @@ class MetaDataAddition extends React.Component {
     
     let url = <div></div>
     if (this.state.ipfsImgUrl) {
-      url = (<div><a target="_blank" href={"http://ipfs.wolvercoin.com/ipfs/" + this.state.ipfsImgUrl} >MetaData on IPFS</a><p>{this.state.ipfsImgUrl}</p></div>)
+      url = (<div><a target="_blank" href={"http://ipfs.wolvercoin.com/ipfs/" + this.state.ipfsImgUrl} >Image on IPFS</a><p>{this.state.ipfsImgUrl}</p></div>)
     }
     return (
       <div className="readableContent">
+        <div className="ipfsImageUrl">
+            {url}
+        </div>
             <h4>2. Upload MetaData</h4>
-            <div className="ipfsImageUrl">
-                {url}
-            </div>
             <label htmlFor="name">Name:</label>
             <input name="name" onChange={this.handleChange} value={this.state.name} type="text"></input><br />
+            <label htmlFor="tier">Tier:</label>
+            <input name="tier" onChange={this.handleChange} value={this.state.tier} type="text"></input><br />
             <button disabled={uploadToIPFSDisabled} onClick={this.uploadMetaDataToIPFS}>Upload MetaData</button>
             <div>{this.state.metaDataUrl}</div>
       </div>

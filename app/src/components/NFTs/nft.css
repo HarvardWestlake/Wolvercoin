@@ -1,0 +1,26 @@
+.view-nft-collection {
+    width: 500px;
+    height: 200px;
+    font-size: large;
+    text-decoration: none;
+    margin: 0px auto;
+    padding: 20px;
+    background-color: rgb(42, 42, 42);
+    border: 2px solid black;
+    border-radius: 10px;
+    color: #ddd;
+    font-weight: bold;
+    box-shadow: 2px 2px 4px 4px #222;
+}
+.view-nft-collection:hover {
+    color: #eee;
+    background-color: rgb(62, 62, 62);
+}
+.view-nft-collection:active {
+    background-color: rgb(22, 22, 22);
+    color: #ccc;
+}
+.nfts {
+    width: 300px;
+    margin: 0px auto;
+}

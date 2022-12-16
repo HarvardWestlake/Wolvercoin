@@ -28,9 +28,9 @@ class NFTAddition extends React.Component {
 
     const connectedNft = this.props.web3Context.nftContract.connect(signer);
     let mintTxn = await connectedNft.mint(this.props.web3Context.connectedAccount, this.state.metaDataUrl);
-  
+    
     //let result = await this.props.web3Context.nftContract.mint(this.props.web3Context.connectedAccount, "NFT URI", signer);
-    console.log('mint nft', mintTxn);
+    console.log('mint nft', mintTxn); 
   }
 
   render() {
@@ -38,10 +38,11 @@ class NFTAddition extends React.Component {
     if (this.state.metaDataUrl) {
       url = (<div><a target="_blank" href={"http://ipfs.wolvercoin.com/ipfs/" + this.state.metaDataUrl} >MetaData on IPFS</a><p>{this.state.metaDataUrl}</p></div>)
     }
+    const disabledButton = this.state.metaDataUrl ? "" : "disabled";
     return (
       <div className="readableContent">
         <div>{url}</div>
-         <button onClick={this.mintNFT}>Mint NFT</button>
+         <button disabled={disabledButton} onClick={this.mintNFT}>Mint NFT</button>
       </div>
     );
   }
