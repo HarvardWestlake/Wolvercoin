@@ -25,7 +25,7 @@ export const ACTIVE_CONTRACTS = {
     },
     nft : {
         ABI : Nft,
-        address : "0x30B0aEC410B6dcc7C52173e23749eCAe7F37aBF2"
+        address : "0xe3D135Cc61E2f9391Fe3D678A14Cf8De6F6c9Abf"
     },
     regularAuction : {
         ABI : "",
