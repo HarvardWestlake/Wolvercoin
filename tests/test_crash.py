@@ -6,8 +6,9 @@ from web3.exceptions import ValidationError
 
 # . This runs before ALL tests
 @pytest.fixture
-def crashContract(Crash, accounts):
-    return Crash.deploy("0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", {'from': accounts[1]})
+def crashContract(Crash, Token, accounts):
+    tokenContract = Token.deploy("Wolvercoin", "WVC", 18, 1000, {'from': accounts[0]})
+    return Crash.deploy("0x0000000000000000000000000000000000000000", tokenContract, "0x0000000000000000000000000000000000000000", {'from': accounts[1]})
 
 def test_crashFromRandom(crashContract, accounts):
     assert False == crashContract.getCrashFromRandomNumber(100).return_value
