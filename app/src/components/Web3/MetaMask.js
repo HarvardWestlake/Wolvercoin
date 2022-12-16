@@ -11,9 +11,7 @@ import "./web3.css"
 class MetaMask extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      val1 : ''
-    };
+    this.state = {    };
   }
 
   getScanAddress(network) {
@@ -34,8 +32,8 @@ class MetaMask extends React.Component {
     const provider = new ethers.providers.Web3Provider(window.ethereum)
     const accounts = await provider.send("eth_requestAccounts", []);
     const wolvercoinContract = new ethers.Contract(
-      Contracts.CONTRACTS.wolvercoin.address, 
-      Contracts.CONTRACTS.wolvercoin.ABI.abi, 
+      Contracts.ACTIVE_CONTRACTS.wolvercoin.address, 
+      Contracts.ACTIVE_CONTRACTS.wolvercoin.ABI.abi, 
       provider
     );
     const chosenAccount = this.props.web3Context.connectedAccount;
