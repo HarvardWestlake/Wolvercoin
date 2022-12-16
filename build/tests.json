@@ -8,7 +8,7 @@
     "DutchAuction": "18ac22646ad1dc99640d1ea68a317ce1e7efe4b3",
     "Exclusivity": "6533451a8f3d5f08a7bf93204e60c327a7e3777b",
     "Lottery": "cce8c21aebf8e75ec37234a0c57bacf9b3790cb2",
-    "PublicGoods": "bdb612404da27dfddadec5f42456ff79b8a7f310",
+    "PublicGoods": "358cb3e99aba0d7053a43e1e55526aa3286dc0ba",
     "Reimbursement": "846b1d910193c44201d3fc3c764fc2ddd1cdd33f",
     "SimpleAuction": "d7db4de987a9573ededce3147cb02da67b88ac12",
     "Stake": "80ac8be1131e3e38512b6cb0cbbf0e5f54895833",
@@ -99,8 +99,8 @@
     "tests/test_public_goods.py": {
       "coverage": false,
       "isolated": false,
-      "results": "....",
-      "sha1": "5809721f8c0aae9de29cffdc30b3e6e9ca14d546",
+      "results": ".....",
+      "sha1": "55fcc4fbb9249c35e9fed0b077b84561ab5e6582",
       "txhash": []
     },
     "tests/test_reimbursement.py": {
@@ -109,8 +109,8 @@
       "results": ".......",
       "sha1": "27f3d2b0fa5e87d232ec32406a457eae7ec43173",
       "txhash": [
-        "aba1877a1817b53c1f6e0e87536bee01d7fda253",
-        "e6d281b675c4b0bae70ec6ea331040a7bd2d3683"
+        "a7eeda9930b3fe4eeecbbfb4935436fbdac6a487",
+        "f207f7eae8fbec2cfc38579936f9e7ed6ab52811"
       ]
     },
     "tests/test_simpleAuction.py": {
@@ -133,8 +133,8 @@
       "results": ".......",
       "sha1": "9d19e464acaabb1741fd0d0e6a5df1fe70a513a3",
       "txhash": [
-        "1515bdc50f922d7b50ec47a8916cd9a3b6d93cfd",
-        "dd42b19646464387c9b05ecfd24852c05a815f50"
+        "1c8cb396e7ec51d02b01cb876be019beff3f6ea7",
+        "b30e9965344ae027f63abf9314e1b16f8d5e6bff"
       ]
     }
   },
@@ -153,14 +153,21 @@
         ]
       }
     },
-    "1515bdc50f922d7b50ec47a8916cd9a3b6d93cfd": {
+    "1c8cb396e7ec51d02b01cb876be019beff3f6ea7": {
       "VotingAndRep": {
         "0": [
           [
-            37
+            0,
+            2,
+            4
           ],
-          [],
-          []
+          [
+            5
+          ],
+          [
+            1,
+            3
+          ]
         ]
       }
     },
@@ -228,7 +235,7 @@
         ]
       }
     },
-    "aba1877a1817b53c1f6e0e87536bee01d7fda253": {
+    "a7eeda9930b3fe4eeecbbfb4935436fbdac6a487": {
       "Reimbursement": {
         "0": [
           [
@@ -238,6 +245,17 @@
           [
             14
           ],
+          []
+        ]
+      }
+    },
+    "b30e9965344ae027f63abf9314e1b16f8d5e6bff": {
+      "VotingAndRep": {
+        "0": [
+          [
+            37
+          ],
+          [],
           []
         ]
       }
@@ -255,25 +273,7 @@
         ]
       }
     },
-    "dd42b19646464387c9b05ecfd24852c05a815f50": {
-      "VotingAndRep": {
-        "0": [
-          [
-            0,
-            2,
-            4
-          ],
-          [
-            5
-          ],
-          [
-            1,
-            3
-          ]
-        ]
-      }
-    },
-    "e6d281b675c4b0bae70ec6ea331040a7bd2d3683": {
+    "f207f7eae8fbec2cfc38579936f9e7ed6ab52811": {
       "ActiveUser": {
         "0": [
           [
