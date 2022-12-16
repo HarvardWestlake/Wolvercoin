@@ -36,7 +36,7 @@ class NFTAddition extends React.Component {
   render() {
     let url = <div></div>
     if (this.state.metaDataUrl) {
-      url = (<div><a target="_blank" href={"https://ipfs.wolvercoin.com/ipfs/" + this.state.metaDataUrl} >MetaData on IPFS</a><p>{this.state.metaDataUrl}</p></div>)
+      url = (<div><a target="_blank" rel="noreferrer"  href={"https://ipfs.wolvercoin.com/ipfs/" + this.state.metaDataUrl} >MetaData on IPFS</a><p>{this.state.metaDataUrl}</p></div>)
     }
     const disabledButton = this.state.metaDataUrl ? "" : "disabled";
     return (

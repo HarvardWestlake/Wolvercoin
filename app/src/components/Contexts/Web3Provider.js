@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { ethers } from "ethers";
 import * as Contracts from "./config.js"
 
@@ -6,26 +6,28 @@ import * as Contracts from "./config.js"
 // createContext matches the shape that the consumers expect!
 export const Web3Context = React.createContext();
 
-const getProvider = () => {
-  return new ethers.providers.Web3Provider(window.ethereum, 'any');
-}
-
 export const Web3Provider = (props) => {
-  const [provider, setProvider] = React.useState(getProvider());
+  const [provider, setProvider] = React.useState(props.provider);
   const [connectedAccount, setConnectedAccount] = React.useState("");
   const [chainId, setChainId] = React.useState(0);
   const [wolvercoinBalance, setWolvercoinBalance] = React.useState(0);
-  const [nftContract, setNftContract] = React.useState(new ethers.Contract(
-    Contracts.ACTIVE_CONTRACTS.nft.address, 
-    Contracts.ACTIVE_CONTRACTS.nft.ABI.abi,
-    provider.getSigner()
-  ))
-  const [wolvercoinContract, setWolvercoinContract] = React.useState(new ethers.Contract(
-    Contracts.ACTIVE_CONTRACTS.wolvercoin.address, 
-    Contracts.ACTIVE_CONTRACTS.wolvercoin.ABI.abi, 
-    provider.getSigner()
-  ))
+  const [nftContract, setNftContract] = React.useState();
+  const [wolvercoinContract, setWolvercoinContract] = React.useState();
   
+  const setInitialWolvercoinContract = async(provider) => {
+    setWolvercoinContract(new ethers.Contract(
+      Contracts.ACTIVE_CONTRACTS.wolvercoin.address, 
+      Contracts.ACTIVE_CONTRACTS.wolvercoin.ABI.abi, 
+      provider.getSigner()
+    ))
+  }  
+  const setInitialNftContract = async(provider) => {
+    setNftContract(new ethers.Contract(
+      Contracts.ACTIVE_CONTRACTS.nft.address, 
+      Contracts.ACTIVE_CONTRACTS.nft.ABI.abi,
+      provider.getSigner()
+    ))
+  }
   const setInitialAccount = async(provider) => {
     const accounts = await provider.listAccounts();
     setConnectedAccount(accounts[0]);
@@ -46,11 +48,13 @@ export const Web3Provider = (props) => {
     provider, setProvider,
     nftContract, setNftContract,
     wolvercoinContract, setWolvercoinContract
-  }), [connectedAccount, chainId, wolvercoinBalance, provider]);
+  }), [connectedAccount, chainId, wolvercoinBalance, provider, nftContract, wolvercoinContract]);
 
   // Set contexts
-  useEffect(() => { setInitialChainId(provider); }, []);
-  useEffect(() => { setInitialAccount(provider); }, []);
+  useEffect(() => { setInitialChainId(provider); }, [provider]);
+  useEffect(() => { setInitialAccount(provider); }, [provider]);
+  useEffect(() => { setInitialWolvercoinContract(provider); }, [provider]);
+  useEffect(() => { setInitialNftContract(provider); }, [provider]);
 
   return (
     <Web3Context.Provider value={providerValueContext}>

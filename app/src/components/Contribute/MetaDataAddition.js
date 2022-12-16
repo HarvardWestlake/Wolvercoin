@@ -87,7 +87,7 @@ class MetaDataAddition extends React.Component {
     
     let url = <div></div>
     if (this.state.ipfsImgUrl) {
-      url = (<div><a target="_blank" href={"https://ipfs.wolvercoin.com/ipfs/" + this.state.ipfsImgUrl} >Image on IPFS</a><p>{this.state.ipfsImgUrl}</p></div>)
+      url = (<div><a target="_blank" rel="noreferrer" href={"https://ipfs.wolvercoin.com/ipfs/" + this.state.ipfsImgUrl} >Image on IPFS</a><p>{this.state.ipfsImgUrl}</p></div>)
     }
     return (
       <div className="readableContent">

@@ -1,4 +1,4 @@
-import React, {lazy } from "react";
+import React from "react";
 import Header from "./Header"
 import * as Constants from "./consts"
 import Contribute from "../Contribute/Contribute.js";

@@ -94,6 +94,10 @@ body {
 }
 
 .menu-item {
+  border-top: none;
+  border-left:none;
+  border-right: none;
+  border-bottom: none;
   -webkit-text-size-adjust: 100%;
   font-family: "DM Sans", sans-serif;
   background-color: transparent;

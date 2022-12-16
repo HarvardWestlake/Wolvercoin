@@ -30,7 +30,6 @@ class MetaMask extends React.Component {
   async update() {
 
     const provider = new ethers.providers.Web3Provider(window.ethereum)
-    const accounts = await provider.send("eth_requestAccounts", []);
     const wolvercoinContract = new ethers.Contract(
       Contracts.ACTIVE_CONTRACTS.wolvercoin.address, 
       Contracts.ACTIVE_CONTRACTS.wolvercoin.ABI.abi, 

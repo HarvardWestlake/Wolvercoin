@@ -27,7 +27,7 @@ class Nav extends React.Component {
     let location = this.props.location ? this.props.location : Constants.NAV_DEFAULT_LOCATION;
     if (Object.keys(Constants.NAV_OPTIONS).length > 0) {
         navigationOptions = Object.keys(Constants.NAV_OPTIONS).map((key) => (
-            <a key={key}  id={Constants.NAV_OPTIONS[key]} className={location == Constants.NAV_OPTIONS[key] ? "menu-item active" : "menu-item"} name={Constants.NAV_OPTIONS[key]} onClick={this.getHashLocation}>{key}</a>
+            <button key={key}  id={Constants.NAV_OPTIONS[key]} className={location === Constants.NAV_OPTIONS[key] ? "menu-item active" : "menu-item"} name={Constants.NAV_OPTIONS[key]} onClick={this.getHashLocation}>{key}</button>
       ));
     }
     return navigationOptions;
