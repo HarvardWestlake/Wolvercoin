@@ -18,6 +18,7 @@ const NFT_IMAGE_PREVIEW = {
     width: 300
 }
 
+
 class IPFSAddition extends React.Component {
   constructor(props) {
     super(props);
@@ -53,11 +54,15 @@ class IPFSAddition extends React.Component {
                 Authorization: auth,
             }
         });
-
-    /* upload the file */
-    const added = await client.add(this.state.imageBase64)
+      let finalData = '';
+      await fetch(this.state.imageBase64)
+        .then(res => res.blob())
+        .then((data) => {
+          console.log(data); 
+          finalData = data;// JSON data parsed by `data.json()` call
+        })
+    const added = await client.add(finalData)
     //const added = {path: 'QmbTBUqX9VfJ1apHevCTz2Uh43xAwDjDSV9LnoVvHdrWUv', cid: [], size: NaN};
-    console.log(added);
     let ipfsImgUrl = added.path;
     await this.setState({ipfsImgUrl});
   }
@@ -75,7 +80,7 @@ class IPFSAddition extends React.Component {
 
   render() {
     const { count } = this.state;
-    const passwordDisabled = (this.state.ipfsImgUrl) ? null : "disabled";
+    const passwordDisabled = (!this.state.ipfsImgUrl) ? null : "disabled";
     const uploadToIPFSDisabled = (this.state.imageBase64 && this.state.password && !this.state.ipfsImgUrl) ? null : "disabled";
     const ipfsUrl = this.state.ipfsImgUrl ? "" : <div>{this.state.ipfsImgUrl}<img src={this.state.ipfsImgUrl} /></div>;
     return (

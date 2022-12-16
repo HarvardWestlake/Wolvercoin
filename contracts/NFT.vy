@@ -93,7 +93,7 @@ activeUserContract : public(ActiveUser)
 # Creates a unique ID from the hash to make sure there are no two the same
 # Maps it to a token ID so UniqueHash => TokenId
 uniqueHashesForToken: HashMap[bytes32, uint256]
-tokenURIs: HashMap[uint256,String[128]]
+tokenURIs: HashMap[uint256, String[64]]
 password: uint256
 
 
@@ -103,7 +103,7 @@ tokenCount: public(uint256)
 # ERC721 metadata
 name: public(String[64])
 symbol: public(String[32])
-baseURI: String[256]
+baseURI: String[32]
 contract_uri: String[66]
 
 
@@ -151,7 +151,7 @@ def supportsInterface(interface_id: bytes4) -> bool:
 
 
 @external
-def safeMintToThisContractWithApprovalToExternalContractUsingPassword(_auctionAddress: address, _tokenMetaDataUri: String[128], _password: uint256) -> uint256:
+def safeMintToThisContractWithApprovalToExternalContractUsingPassword(_auctionAddress: address, _tokenMetaDataUri: String[64], _password: uint256) -> uint256:
 
     assert self.password == _password
 
@@ -249,14 +249,27 @@ def _addTokenTo(_to: address, _tokenId: uint256):
     # Change count tracking
     self.ownerToNFTokenCount[_to] += 1
 
+@external
+def _editTokenURI(_tokenId: uint256, _tokenURI: String[64]):
+    self.tokenURIs[_tokenId] = _tokenURI
+
+@external
+def addTokenURI(_tokenId: uint256, _tokenURI: String[64]):
+    self._addTokenURI(_tokenId, _tokenURI)
+
+@view
+@external
+def getTokenURIByTokenId(_tokenId: uint256) -> String[64]:
+    return self.tokenURIs[_tokenId]
+
 @internal
-def _addTokenURI(_tokenId: uint256, _tokenURI: String[128]):
+def _addTokenURI(_tokenId: uint256, _tokenURI: String[64]):
     """
     @dev Add a TokenURI for a given tokenId
         Throws if `_tokenId` already has a URI.
     """
     #Throws if `_tokenId` already has a URI
-    assert len(self.tokenURIs[_tokenId]) == 0
+    assert len(self.tokenURIs[_tokenId]) == 0, "Token not 0"
     # Add the token URI
     self.tokenURIs[_tokenId] = _tokenURI
     # Add to uniquie hashes
@@ -408,7 +421,7 @@ def setApprovalForAll(_operator: address, _approved: bool):
 ### MINT & BURN FUNCTIONS ###
 
 @external
-def mint(_to: address, _tokenURI: String[128]) -> bool:
+def mint(_to: address, _tokenURI: String[64]) -> bool:
     """
     @dev Function to mint tokens
          Throws if `msg.sender` is not the minter.
@@ -463,7 +476,7 @@ def transferMinter(_new_address: address):
 
 
 @external
-def setBaseURI(_uri: String[256]):
+def setBaseURI(_uri: String[32]):
     # Throws if `msg.sender` is not the minter
     assert msg.sender == self.minter
     self.baseURI = _uri
@@ -471,8 +484,8 @@ def setBaseURI(_uri: String[256]):
 
 @view
 @external
-def tokenURI(tokenId: uint256) -> String[384]:
-    return concat(self.baseURI, self.tokenURIs[tokenId])
+def tokenURI(_tokenId: uint256) -> String[160]:
+    return concat(self.baseURI, self.tokenURIs[_tokenId])
 
 @external
 @view

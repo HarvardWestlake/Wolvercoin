@@ -61,7 +61,7 @@ class MetaDataAddition extends React.Component {
     this.setState({[event.target.name]: event.target.value});
   }
 
-    updateImage(imageBase64, file) {
+  updateImage(imageBase64, file) {
     this.setState({
         imageBase64 : imageBase64,
         file: file

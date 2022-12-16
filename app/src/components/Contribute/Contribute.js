@@ -8,8 +8,8 @@ class Contribute extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-        ipfsImgUrl : "QmdhvcpkeeUvA85RAiLCgYAq5QSeeWmTmyvF2U6zj88cbX",
-        metaDataUrl : "QmTp2edhAiUMXtaRqQiUvd3paXTDTspBytncBPehwN41S6",
+        ipfsImgUrl : "", // "QmdhvcpkeeUvA85RAiLCgYAq5QSeeWmTmyvF2U6zj88cbX"
+        metaDataUrl : "", // "QmTp2edhAiUMXtaRqQiUvd3paXTDTspBytncBPehwN41S6",
         password : "IPFS Password"
       }
     }
