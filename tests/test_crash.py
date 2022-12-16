@@ -30,3 +30,4 @@ def test_crashUpdating(crashContract, accounts):
     print (newMultiplier)
     print (multiplierInit)
     assert newMultiplier != multiplierInit
+    

@@ -127,3 +127,4 @@ def getCrashFromRandomNumber(useRandomNumber: uint256) -> bool:
 @external
 def getCrashGambleHelper(useRandomNumber: uint256):
     self.crashGambleHelper(useRandomNumber)
+    
