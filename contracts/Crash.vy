@@ -85,7 +85,9 @@ def resetCrash():
 @nonpayable
 @internal
 def crashGamble():
-    self.crashGambleHelper(self.tokenContract.generate_random_number(1000))
+    randomNum: uint256 = self.tokenContract.generate_random_number(1000)
+    #self.crashGambleHelper(randomNum)
+    return
 
 #does all the work for crashGamble()
 #did it this way so it could be tested easily
