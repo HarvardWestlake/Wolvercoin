@@ -29,8 +29,9 @@ with pytest.raises(Exception) as e_info:
      #       b = True
     def test_donate():
         b: bool = False
-        balance = accounts[1].balance()
-        socialAdnDonationsContract.donate(accounts[1].address, accounts[0].balance)
+        balance = accounts[0].balance()
+        socialAdnDonationsContract.donate(accounts[0].address,accounts[1].address,balance)
         if(accounts[0].balance == 0):
             b == True
         assert b == True
+    
