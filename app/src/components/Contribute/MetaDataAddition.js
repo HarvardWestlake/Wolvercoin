@@ -23,6 +23,13 @@ class MetaDataAddition extends React.Component {
       this.generateBasicMetaDataForUpload = this.generateBasicMetaDataForUpload.bind(this);
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.ipfsImgUrl !== this.props.ipfsImgUrl) {
+      this.setState({ipfsImgUrl : this.props.ipfsImgUrl});
+    }
+    
+  }
+
   generateBasicMetaDataForUpload() {
     // https://ikzttp.mypinata.cloud/ipfs/QmQFkLSQysj94s5GvTHPyzTxrawwtjgiiYS2TBLgrvw8CW/6190
     let basicMetaData = {
@@ -50,11 +57,13 @@ class MetaDataAddition extends React.Component {
         });
 
     /* upload the metadata */
+    console.log('need to check filesize');
     const fileData = JSON.stringify(this.generateBasicMetaDataForUpload());
     const blob = new Blob([fileData], {type: "text/json"});
     const added = await client.add(blob);
     let metaDataUrl = added.path;
     await this.setState({metaDataUrl});
+    this.props.onUpdateMetaDataUrl(metaDataUrl);
   }
 
   handleChange(event) {
@@ -71,11 +80,15 @@ class MetaDataAddition extends React.Component {
   render() {
     const uploadToIPFSDisabled = (this.state.metaDataUrl == "" && this.state.ipfsImgUrl != "") ? null : "disabled";
     
+    let url = <div></div>
+    if (this.state.ipfsImgUrl) {
+      url = (<div><a target="_blank" href={"http://ipfs.wolvercoin.com/ipfs/" + this.state.ipfsImgUrl} >MetaData on IPFS</a><p>{this.state.ipfsImgUrl}</p></div>)
+    }
     return (
       <div className="readableContent">
             <h4>2. Upload MetaData</h4>
             <div className="ipfsImageUrl">
-                {this.state.ipfsImgUrl}
+                {url}
             </div>
             <label htmlFor="name">Name:</label>
             <input name="name" onChange={this.handleChange} value={this.state.name} type="text"></input><br />

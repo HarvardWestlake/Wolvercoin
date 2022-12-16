@@ -51,7 +51,7 @@ class IPFSAddition extends React.Component {
             port: 80,
             protocol: 'http',
             headers: {
-                Authorization: auth,
+                Authorization: auth
             }
         });
       let finalData = '';
@@ -61,10 +61,10 @@ class IPFSAddition extends React.Component {
           console.log(data); 
           finalData = data;// JSON data parsed by `data.json()` call
         })
-    const added = await client.add(finalData)
-    //const added = {path: 'QmbTBUqX9VfJ1apHevCTz2Uh43xAwDjDSV9LnoVvHdrWUv', cid: [], size: NaN};
+    const added = await client.add(finalData);
     let ipfsImgUrl = added.path;
     await this.setState({ipfsImgUrl});
+    this.props.onUpdate(ipfsImgUrl);
   }
 
   handleChange(event) {

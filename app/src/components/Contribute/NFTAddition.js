@@ -5,14 +5,16 @@ class NFTAddition extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-        metaDataUrl : "QmTp2edhAiUMXtaRqQiUvd3paXTDTspBytncBPehwN41S6",
+        metaDataUrl : "",
         password: ""
       };
       this.mintNFT = this.mintNFT.bind(this);
   }
 
-  onComponentUpdate() {
-
+  componentDidUpdate(prevProps) {
+    if (prevProps.metaDataUrl !== this.props.metaDataUrl) {
+      this.setState({metaDataUrl : this.props.metaDataUrl});
+    }
   }
 
   handleChange(event) {
@@ -32,9 +34,13 @@ class NFTAddition extends React.Component {
   }
 
   render() {
+    let url = <div></div>
+    if (this.state.metaDataUrl) {
+      url = (<div><a target="_blank" href={"http://ipfs.wolvercoin.com/ipfs/" + this.state.metaDataUrl} >MetaData on IPFS</a><p>{this.state.metaDataUrl}</p></div>)
+    }
     return (
       <div className="readableContent">
-        <div>{this.state.metaDataUrl}</div>
+        <div>{url}</div>
          <button onClick={this.mintNFT}>Mint NFT</button>
       </div>
     );
