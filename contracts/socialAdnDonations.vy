@@ -52,7 +52,8 @@ def voteProposal(proposalNumber : uint256):
 @external
 def donate(pot: address, to: address, val: uint256):
     self.ERC20Contract.transferFrom(pot,to,val)
-    
+
+@external   
 def getProposalVotes (num : uint256) -> (uint256):
     return self.proposalVotes[num]
 
