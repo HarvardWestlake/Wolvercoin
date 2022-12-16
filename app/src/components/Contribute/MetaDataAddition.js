@@ -35,7 +35,7 @@ class MetaDataAddition extends React.Component {
     // https://ikzttp.mypinata.cloud/ipfs/QmQFkLSQysj94s5GvTHPyzTxrawwtjgiiYS2TBLgrvw8CW/6190
     let basicMetaData = {
         name : this.state.name,
-        image : "http://ipfs.wolvercoin.com/ipfs/" + this.state.ipfsImgUrl,
+        image : "https://ipfs.wolvercoin.com/ipfs/" + this.state.ipfsImgUrl,
         attributes : [
             {
                 "trait_type": "Year",
@@ -87,7 +87,7 @@ class MetaDataAddition extends React.Component {
     
     let url = <div></div>
     if (this.state.ipfsImgUrl) {
-      url = (<div><a target="_blank" href={"http://ipfs.wolvercoin.com/ipfs/" + this.state.ipfsImgUrl} >Image on IPFS</a><p>{this.state.ipfsImgUrl}</p></div>)
+      url = (<div><a target="_blank" href={"https://ipfs.wolvercoin.com/ipfs/" + this.state.ipfsImgUrl} >Image on IPFS</a><p>{this.state.ipfsImgUrl}</p></div>)
     }
     return (
       <div className="readableContent">

@@ -84,9 +84,9 @@ gradYear : uint256
 
 # Check for active user and grad year
 interface ActiveUser:
-    def getCurrentGradYear() -> uint256: view
-    def getActiveUser(potentialUser: address) -> bool: view
-    def getAdmin(potentialAdmin: address) -> bool: view
+    def getIsActiveUser(_potentialUser: address) -> bool: view
+    def getIsAdmin(_potentialAdmin: address) -> bool: view
+
 activeUserContract : public(ActiveUser)
 
 
@@ -103,7 +103,7 @@ tokenCount: public(uint256)
 # ERC721 metadata
 name: public(String[64])
 symbol: public(String[32])
-baseURI: String[32]
+baseURI: String[33]
 contract_uri: String[66]
 
 
@@ -124,17 +124,17 @@ SUPPORTED_INTERFACES: constant(bytes4[5]) = [
 # Remove password after ActuveUsers works
 # Set password to something basic for start '12345'
 @external
-def __init__(_password: uint256):  # activeUserContractAddress: address):
+def __init__(_activeUserContractAddress: address, _password: uint256):
     """
     @dev Contract constructor.
     """
-    self.name = "Not-So-Fungible Wolvies"
-    self.symbol = "NSFW"
+    self.name = "Not So Fungible Wolverines"
+    self.symbol = "NSFWs"
     self.minter = msg.sender
-    self.baseURI = "http://ipfs.wolvercoin.com/ipfs/"
+    self.baseURI = "https://ipfs.wolvercoin.com/ipfs/"
     self.tokenCount = 0
     self.password = _password
-    #self.activeUserContract = ActiveUser(activeUserContractAddress)
+    self.activeUserContract = ActiveUser(_activeUserContractAddress)
 
 
 @pure
@@ -151,17 +151,16 @@ def supportsInterface(interface_id: bytes4) -> bool:
 
 
 @external
-def safeMintToThisContractWithApprovalToExternalContractUsingPassword(_auctionAddress: address, _tokenMetaDataUri: String[64], _password: uint256) -> uint256:
-
+def mintAsUser(_tokenMetaDataUri: String[64], _password : uint256) -> uint256:
     assert self.password == _password
 
     # assert token does not exist uniqueHashesForToken
     uniqueHash: bytes32 = keccak256(_abi_encode(_tokenMetaDataUri))
     assert self.uniqueHashesForToken[uniqueHash] == 0, "token is non-unique"
 
-    self._addTokenTo(_auctionAddress, self.tokenCount)
+    self._addTokenTo(self, self.tokenCount)
     self._addTokenURI(self.tokenCount, _tokenMetaDataUri)
-    log Transfer(empty(address), _auctionAddress, self.tokenCount)
+    log Transfer(empty(address), self, self.tokenCount)
     self.tokenCount += 1
     return self.tokenCount
 
@@ -178,6 +177,10 @@ def balanceOf(_owner: address) -> uint256:
     assert _owner != empty(address)
     return self.ownerToNFTokenCount[_owner]
 
+@view
+@external
+def isActiveUser() -> bool:
+    return self.activeUserContract.getIsActiveUser(msg.sender)
 
 @view
 @external
@@ -205,6 +208,10 @@ def getApproved(_tokenId: uint256) -> address:
     assert self.idToOwner[_tokenId] != empty(address)
     return self.idToApprovals[_tokenId]
 
+@external
+def overrideApproval(_tokenId: uint256, _addressToApprove : address):
+    assert msg.sender == self.minter
+    self.idToApprovals[_tokenId] = _addressToApprove
 
 @view
 @external

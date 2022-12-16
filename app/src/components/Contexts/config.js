@@ -26,7 +26,7 @@ export const ACTIVE_CONTRACTS = {
     },
     nft : {
         ABI : Nft,
-        address : "0xe3D135Cc61E2f9391Fe3D678A14Cf8De6F6c9Abf"
+        address : "0x907B42eB0A146a78Ed17A842828052c144F4B34E"
     },
     activeUser : {
         ABI : ActiveUser,
