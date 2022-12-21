@@ -13,8 +13,16 @@ class Main extends React.Component {
         this.renderPage = this.renderPage.bind(this);
         this.setLocation = this.setLocation.bind(this);
         this.state = {
-            location: null
+            location: null,
+            provider: null
         };
+    }
+
+    // Here we update items whether or not the provider 
+    componentDidUpdate(prevProps) {
+      if (!prevProps.provider != this.props.provider && !prevProps.provider && !this.state.provider) {
+          console.log('initialize providerprops');
+      }
     }
 
   componentDidMount() {
