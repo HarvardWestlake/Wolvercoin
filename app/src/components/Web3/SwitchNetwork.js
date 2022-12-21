@@ -13,9 +13,8 @@ class SwitchNetwork extends React.Component {
     let network = Constants.ACTIVE_CONTRACTS.chainId;
     switch (network) {
         case 5:
-          //let chainId = await this.props.web3Context.provider.send("wallet_switchEthereumChain",[{chainId: "0x5"}]);
-          const network = await this.props.web3Context.provider.getNetwork();
-          this.props.web3Context.setChainId(network.chainId);
+          let chainId = await this.props.web3Context.provider.send("wallet_switchEthereumChain",[{chainId: "0x5"}]);
+          window.location.reload();
           break;
         default:
           this.props.web3Context.provider.send("wallet_addEthereumChain",[{

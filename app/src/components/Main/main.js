@@ -20,8 +20,9 @@ class Main extends React.Component {
 
     // Here we update items whether or not the provider 
     componentDidUpdate(prevProps) {
-      if (!prevProps.provider != this.props.provider && !prevProps.provider && !this.state.provider) {
-          console.log('initialize providerprops');
+      if (!prevProps.provider != this.props.provider && this.props.provider != null && !prevProps.provider && !this.state.provider) {
+        console.log('seeting app context once in Web3Provider.js');
+          this.props.web3Context.setAppContext(this.props.provider);
       }
     }
 

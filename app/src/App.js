@@ -4,7 +4,7 @@ import Main from './components/Main/main'
 import React from "react";
 import { Web3Provider } from './components/Contexts/Web3Provider';
 import {ethers} from "ethers";
-
+import {Web3Context} from "./components/Contexts/Web3Provider"
 
 
 const getProvider = async() =>{
@@ -29,7 +29,13 @@ class App extends React.Component {
     return (
       <div className="App">
         <Web3Provider>
-          <Main provider={this.state.provider}/>
+
+        <Web3Context.Consumer>
+            {providerValueContext => { 
+              return <Main provider={this.state.provider} web3Context={providerValueContext}/>
+            }}
+          </Web3Context.Consumer>
+          
         </Web3Provider>
       </div>
     );
