@@ -1,5 +1,8 @@
 import React from "react";
 import "./contribute.css";
+import { ethers } from "ethers";
+
+import * as Contracts from "../Contexts/config"
 
 class NFTAddition extends React.Component {
   constructor(props) {
@@ -26,7 +29,12 @@ class NFTAddition extends React.Component {
 
     const signer = provider.getSigner();
 
-    const connectedNft = this.props.web3Context.nftContract.connect(signer);
+    let nftContract = new ethers.Contract(
+      Contracts.ACTIVE_CONTRACTS.nft.address, 
+      Contracts.ACTIVE_CONTRACTS.nft.ABI.abi,
+      signer
+    );
+    const connectedNft = nftContract.connect(signer);
     let mintTxn = await connectedNft.mintAsUser(this.state.metaDataUrl, 238497239879);
     
     //let result = await this.props.web3Context.nftContract.mint(this.props.web3Context.connectedAccount, "NFT URI", signer);

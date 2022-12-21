@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { ethers } from "ethers";
 
 // Make sure the shape of the default value passed to
 // createContext matches the shape that the consumers expect!
@@ -21,7 +20,7 @@ export const Web3Provider = (props) => {
       setProvider(provider);
     }
   }
-  
+
   // passing-multiple-value-and-setter-pairs-to-context-provider-in-react
   //const updateContextState = useCallback((value: updateContextType) => {         setContextState((prevState) => ({ ...prevState, ...value }))     }, [])
   // To get around this in a functional component, you can use useMemo to memoise
