@@ -1,9 +1,11 @@
 # @version ^0.3.7
 # code is dependent on activeUser
-interface ERC20:
-    def transferFrom(_from : address, _to : address, _value : uint256) -> bool: view
-    def getBalanceOf(_user: address) -> uint256: view
-ERC20Contract: public(ERC20)
+interface ERC20WithAdminAccess:
+    def getBalanceOf(_address: address) -> uint256: nonpayable
+    def transferFrom(_from : address, _to : address, _value : uint256) -> bool: nonpayable
+    def approve(_spender : address, _value : uint256) -> bool: nonpayable
+
+erc20: ERC20WithAdminAccess # The main contract we need to interact with
 
 interface ActiveUser:
     def getActiveUser(potentialUser: address) -> bool: view
@@ -51,8 +53,9 @@ def voteProposal(proposalNumber : uint256):
 
 @external
 def donate(pot: address, to: address, val: uint256):
-    self.ERC20Contract.transferFrom(pot,to,val)
-
+    assert self.erc20.getBalanceOf(pot) >= val
+    self.erc20.approve(pot,val)
+    self.erc20.transferFrom(pot,to,val)   
 @external   
 def getProposalVotes (num : uint256) -> (uint256):
     return self.proposalVotes[num]
