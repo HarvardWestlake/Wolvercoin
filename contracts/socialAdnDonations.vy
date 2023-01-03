@@ -53,7 +53,6 @@ def voteProposal(proposalNumber : uint256):
 
 @external
 def donate(pot: address, to: address, val: uint256):
-    assert self.erc20.getBalanceOf(pot) >= val
     self.erc20.approve(pot,val)
     self.erc20.transferFrom(pot,to,val)   
 @external   
