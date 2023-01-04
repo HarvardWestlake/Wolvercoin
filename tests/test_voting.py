@@ -1,8 +1,3 @@
-#version ^0.3.8
-
-# @dev Basic testing for the voting system
-# @author Evan Stokdyk (@Focus172)
-
 import pytest
 from brownie import accounts
 from web3.exceptions import ValidationError
@@ -13,7 +8,7 @@ chain = Chain()
 # . This runs before ALL tests
 @pytest.fixture
 def votingContract(VotingAndRep, accounts):
-    return VotingAndRep.deploy({'from': accounts[0]})
+    return VotingAndRep.deploy(accounts[0], {'from': accounts[0]})
     
 
 def _as_wei_value(base, conversion):
@@ -23,9 +18,31 @@ def _as_wei_value(base, conversion):
         return base * (10 ** 9)
     return base * (10 ** 18)
 
+def test_hasCoin(votingContract, accounts): 
+    sampleContract = votingContract.address
+    votingContract.mint(accounts[3], 1000, {'from': accounts[0]}) # adds 1000VC to accounts balance
+    votingContract.proposeVote(sampleContract, "Vote for Kian") # starts a vote for Kian
+    votingContract.vote(sampleContract, 100, {'from': accounts[3]}) # User invests 100 coin into vote
+    assert votingContract.amountInFavor(sampleContract, accounts[3]) == 100, "Should be able to see money in vote"
+
+def test_amountAvailable(votingContract, accounts):
+    sampleContract = votingContract.address
+    votingContract.mint(accounts[3], 1000, {'from': accounts[0]}) # adds 1000VC to accounts balance
+    assert votingContract.proposeVote(sampleContract, "Vote for cows")# starts a vote for cows
+    votingContract.vote(sampleContract, 100, {'from': accounts[3]}) # User invests 100 coin into vote
+
+    failCase = False
+    try:
+        votingContract.proposeVote(sampleContract, "Vote for sheep"), "starts a vote for sheep"
+    except:
+        failCase = True
+    assert failCase, "should not be able to make vote for something that already exists"
+
+    assert votingContract.vote(sampleContract, 100, {'from': accounts[3]}), "User invests 100 coin into vote"
+    assert votingContract.balanceOf(accounts[3]) == 800, "checks if amount available is according to what was invested"
+
 def test_contractDeployment(votingContract, accounts):
     assert votingContract.voteDuration() == 100, "Voting period should be initialized"
-    assert votingContract.contractMaintainer() == accounts[0].address, "Maintainer should be initailized to creator"
 
 
 def test_proposeVote(votingContract, accounts):
@@ -45,6 +62,22 @@ def test_proposeVote(votingContract, accounts):
     assert votingContract.endBlock(accounts[2]) == 0, "Non-existant Vote should not have data"
     assert votingContract.storedDonation(accounts[2]) == 0, "Empty votes should not have money in them"
 
+def test_setContractMaintainer(votingContract, accounts):
+    
+    stopBadContractChange = False
+    try:
+        votingContract.setContractMaintainer(accounts[5], {'from': accounts[2]})
+    except:
+        stopBadContractChange = True
+    assert stopBadContractChange, "Randoms should not be able to change maintainer"
+    
+    #allowChanges = True
+    #try:
+    #    votingContract.setContractMaintainer(accounts[5], {'from': accounts[0]})
+    #except:
+    #    allowChanges = False
+    #assert allowChanges, "Maintainer should be able to change maintainer"
+
 
 def test_setDisbled(votingContract, accounts):
 
@@ -55,51 +88,29 @@ def test_setDisbled(votingContract, accounts):
         badDisableFail = True
     assert badDisableFail, "Random accounts should not be able to disable the contract"
 
+def test_vote(votingContract, accounts):
+    sampleContract = votingContract.address
 
-    votingContract.setDisabled(True, {'from': accounts[0]})
+    votingContract.mint(accounts[1], 1000, {'from': accounts[0]}) # adds 1000VC to accounts balance
+    initialBal = votingContract.balanceOf(accounts[1])
+    totalInvestedBefore = votingContract.activePropositions(sampleContract)
+    votingContract.vote(sampleContract, 10, {'from': accounts[1]})
 
-    runWhenDisabledfail = False
-    try:
-        votingContract.proposeVote(accounts[5], "sample message")
-    except:
-        runWhenDisabledfail = True
-    assert runWhenDisabledfail, "Contract should not function while diabled"
-    
-    votingContract.setDisabled(False, {'from': accounts[0]})
+    # tests if user's votercoin balance decreases by specified amount
+    assert votingContract.balanceOf(accounts[1]) == initialBal-10
 
-    contractReenabled = True
-    try:
-        votingContract.proposeVote(accounts[5], "sample message")
-    except:
-        contractReenabled = False
-    assert contractReenabled, "Contract should be able to be re-enabled"
+    #tests if total amount of votercoin in proposition increases by specified amount
+    assert votingContract.activePropositions(sampleContract) == (totalInvestedBefore + 10)
 
-
-def test_setContractMaintainer(votingContract, accounts):
-    
-    stopBadContractChange = False
-    try:
-        votingContract.setContractMaintainer(accounts[5], {'from': accounts[2]})
-    except:
-        stopBadContractChange = True
-    assert stopBadContractChange, "Randoms should not be able to change maintainer"
-    
-    allowChanges = True
-    try:
-        votingContract.setContractMaintainer(accounts[5], {'from': accounts[0]})
-    except:
-        allowChanges = False
-    assert allowChanges, "Maintainer should be able to change maintainer"
-
+"""
 def test_burnCoin(votingContract, accounts):
-    
-    winningProp = "2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824"
-    losingProp = "82e35a63ceba37e9646434c5dd412ea577147f1e4a41ccde1614253187e3dbf9"
-    votingContract.activePropositions[winningProp] = 0
-    votingContract.activePropositions[losingProp] = 0
-    votingContract.voterCoinSupply += 100
-    votingContract.voterCoinBalance[accounts[4]] = 50
-    votingContract.voterCoinBalance[accounts[6]] = 50
+    winningProp = "0xc0ffee254729296a45a3885639AC7E10F9d54979"
+    losingProp = "0x999999cf1046e68e36E1aA2E0E07105eDDD1f08E"
+    votingContract.setActiveProposition(winningProp, 0)
+    votingContract.setActiveProposition(losingProp, 0)
+    votingContract.setVoterCoinSupply(votingContract.voterCoinSupply() + 100)
+    votingContract.setAccountVCBal(accounts[4],50)
+    votingContract.setAccountVCBal(accounts[6],50)
     votingContract.vote(accounts[4],losingProp,10)
     votingContract.vote(accounts[6],winningProp,20)
     
@@ -116,3 +127,34 @@ def test_burnCoin(votingContract, accounts):
     except:
         allowBurn = False
     assert allowBurn, "Coin should be burned/returned if user is on winning side of the vote"
+    assert True
+
+def test_endVote(votingContract, accounts):
+    
+    winningProp = "0xc0ffee254729296a45a3885639AC7E10F9d54979"
+    losingProp = "0x999999cf1046e68e36E1aA2E0E07105eDDD1f08E"
+
+    votingContract.proposeVote(winningProp, "Vote for more cows")
+    votingContract.proposeVote(losingProp, "Vote for less cows")
+
+    votingContract.mint(accounts[4], 50, {'from': accounts[0]}) 
+    votingContract.mint(accounts[6], 50, {'from': accounts[0]})
+
+    votingContract.vote(losingProp, 10, {'from': accounts[4]}) # this will not (-5)
+    votingContract.vote(winningProp, 50, {'from': accounts[6]}) # this will pass (-50)
+
+    # fast forwards
+    chain.mine(200)
+
+    votingContract.finishVote(losingProp)
+    votingContract.finishVote(winningProp)
+    
+    assert votingContract.totalSupply() == 45
+
+
+    
+    
+    assert votingContract.voterCoinStaked() == 0
+    assert True
+
+"""

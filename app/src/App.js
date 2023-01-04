@@ -1,36 +1,36 @@
-import logo from './logo.svg';
+
 import './App.css';
-import React, { Suspense, lazy } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { UserAuthContextProvider } from "./components/Firebase/UserAuthContext.js";
-import Firestore from "./components/Firebase/Firestore.js";
-import { Web3Context, withWeb3 } from "./components/Web3"
-import Header from "./components/Common/Header"
-import Footer from "./components/Common/Footer"
+import Main from './components/Main/main'
+import React from "react";
+import { initializeApp } from 'firebase/app';
+import { Web3Provider } from './components/Contexts/Web3Provider';
 
+const firebaseConfig = {
+  apiKey: "AIzaSyB13Rzp7Ey2IFI3RTY9cD1VHFq9p8_uF4U",
+  authDomain: "wolvercoin-hw.firebaseapp.com",
+  projectId: "wolvercoin-hw",
+  storageBucket: "wolvercoin-hw.appspot.com",
+  messagingSenderId: "101117958130",
+  appId: "1:101117958130:web:49ad8f0613ef4eb66d3d6b",
+  measurementId: "G-PC4QR208EF"
+};
 
-const Home = lazy(() => import("./routes/Home.js"));
-const AboutRoute = lazy(() => import("./routes/About.js"));
-const MemberRoute = lazy(() => import("./routes/Member.js"));
-const NFTRoute = lazy(() => import("./routes/NFT.js"));
+const app = initializeApp(firebaseConfig);
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+    };
+  }
+  render() {
+    return (
+      <div className="App">
+        <Web3Provider>
+          <Main />
+        </Web3Provider>
+      </div>
+    );
+  }
+}
 
-
-const App = () => (
-    <Router>
-    <Web3Context.Consumer>
-      {web3ContextState =>  
-      <Suspense fallback={<Home />}>
-        <Header val={web3ContextState.user}/> 
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route exact path="/nft/:nftCollectionId/:nftId" element={<NFTRoute firestore={Firestore} />} />
-          <Route exact path="/membership" element={<MemberRoute firestore={Firestore} />} />
-          <Route exact path="/member/:memberId" element={<MemberRoute firestore={Firestore} />} />
-        </Routes>
-        <Footer />
-      </Suspense> } 
-      </Web3Context.Consumer>
-    </Router>
-  );
-
-  export default withWeb3(App);
+export default App;
