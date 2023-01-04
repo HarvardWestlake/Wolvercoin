@@ -1,5 +1,6 @@
 # @version ^0.3.7
 # code is dependent on activeUser
+from vyper.interfaces import ERC20
 interface ActiveUser:
     def getActiveUser(potentialUser: address) -> bool: view
     def getAdmin(potentialAdmin: address) -> bool: view
