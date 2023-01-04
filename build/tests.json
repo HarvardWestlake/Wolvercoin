@@ -14,7 +14,7 @@
     "VotingAndRep": "fda86f072d9c8fca5b29eae53a4a483ff4d6355a",
     "Wolvercoin": "58ab07b8059e89fd44939db5aa391ce861dfabe0",
     "codeGambling": "48e5c8ad9d89d291f540574edfe3531f1480eb89",
-    "socialAdnDonations": "9b9bcf3a973a7817fda037d7dea6f6b81a31e939"
+    "socialAndDonations": "9b9bcf3a973a7817fda037d7dea6f6b81a31e939"
   },
   "tests": {
     "tests/test_Exclusivity.py": {
@@ -87,7 +87,7 @@
       "coverage": false,
       "isolated": false,
       "results": "..",
-      "sha1": "67e10cc80efcc2199577e3ee9dbe8507ae1339ff",
+      "sha1": "13260304bdccdd862823cb783b6906352c8afe41",
       "txhash": []
     },
     "tests/test_voting.py": {
