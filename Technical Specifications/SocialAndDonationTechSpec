@@ -1,3 +1,123 @@
+Unknowns: a bit confused on what is being donated to the charity - NFTs, USD, or a wallet with wolvercoin in it? I decided to go for the latter
+
+
+
+
+A1: 5% tax on all transactions which is placed in the communal pot
+
+
+Variables:
+communalPot: address 
+
+
+Functions:
+transact (address)
+regular transact method but alter so extra 5% of coin is transacted to communalPot as well
+
+
+
+A2: 3 officials are elected after the cryptocurrency has been coded and annually on the same date thereafter by a public poll where students actively taking Honors Topics can choose three of their peers to elect to the board.
+
+
+Variables:
+activeStudents: Hashmap(studentWallet -> gradYear)
+activeYear: uint256 Store a list of honors topics wallet addresses
+teachers: DynArray[address, 10]
+creator: address
+electedOfficials: array of addresses, length 3
+alreadyVotedOfficials: DynArray [address, a very large number]
+votesForOfficials: HashMap (address —> uint256)
+officialVotingPeriod: boolean
+
+
+Function: 
+
+addStudent(address, uint256 gradYear)
+adds student address to 'activeStudents' if they don't exist
+only can be done by teacher
+
+addTeacher(address)
+adds a teacher
+caller must be teacher or contract creator/admin
+
+checkIfActive(address) returns:(bool)
+checks if student is active
+
+setVoterCount
+Set variable voter count to the length of the active student hashmap 
+
+beginVoteOfficial
+assert person calling the method is a teacher
+set officialVotingPeriod to True - can only be done by teacher
+clear alreadyVotedOfficials and votesForOfficials
+
+voteOfficial (address ballot)
+assert that address that is calling method is in activeStudents
+verify that officialVotingPeriod is true
+assert that voter (address that is calling the method) is not in alreadyVotedOfficials
+If ballot is not in votesForOfficials, add ballot to votesForOfficials 
+increase ballot value in votesForOfficials by the amount specified in voting design
+add voter to alreadyVotedOfficials
+
+endVoteOfficial
+assert person calling the method is a teacher
+electedOfficials who have top three highest value wins the election after the voting day is passed
+set the three addresses in electedOfficials to these addresses
+set officialVotingPeriod to False
+
+
+
+A3: These officials must each write a proposal for how to donate to community service (which charity, how we can be useful)
+
+Three proposals will be numbered 0-2 and shared with everyone
+set proposalVotingPeriod to True
+clear alreadyVotedProposal
+
+
+
+
+A4: People will vote on the proposals, and the one with the most votes gets the charity coin as directed by the official who proposed it
+The pot and the way proposals work is detailed in the voting section
+
+
+Variables:
+proposalVotes: array of uint256, length 3
+alreadyVotedProposal: DynArray [address, a very large number]
+
+
+Functions:
+
+voteProposal (uint256: proposalNumber)
+assert address calling method is not in alreadyVotedProposal
+assert proposalVotingPeriod
+increase the int in the proposalNumber index of proposalVotes by a number specified by the voting design
+put address in alreadyVotedProposal
+
+
+
+
+The official who wrote the winning proposal will receive a small wolvercoin payment when it wins
+
+Variables:
+
+electedOfficials: array of addresses, length 3
+proposalVotes: array of uint256, length 3
+
+Functions:
+
+endProposalVote
+set proposalVotingPeriod to false
+address corresponding to proposal that has highest  amount of votes given 1 wolvercoin from community pot
+
+
+
+
+
+The Board will create public wallets designated to the charities to control the coin
+
+
+donate (address)
+transfer portion of wolvercoin in communityPot to this address, give key to this address to the charity
 Class -> CommunityPot
 
 private instance variables:
