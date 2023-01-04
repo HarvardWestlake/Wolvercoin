@@ -26,7 +26,7 @@ def __init__ (activeUserAddress: address):
     self.officialVotingPeriod = True
     self.proposalVotes=[0,0,0]
 
-
+#NO TEST
 @external
 def endVoteOfficial():
     assert self.activeUserContract.getAdmin(block.coinbase)   
@@ -53,6 +53,8 @@ def getProposalVotes (num : uint256) -> (uint256):
     # Transfer the funds
     #self.balanceOf[msg.sender] -= value
     #self.balanceOf[to] += value
+
+#NO TEST
 @external
 def voteOfficial( ballot : address ):
     assert self.activeUserContract.getActiveUser(msg.sender) 
@@ -74,32 +76,23 @@ def voteOfficial( ballot : address ):
             self.electedOfficials[1]= ballot
         elif self.votesForOfficials[ballot] >= electedOfficials[2]:
             self.electedOfficials[2] = ballot
-        
+
+#NO TEST AND WRONG     
 #UNISWAP: constant(address) = 0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D
 #SUSD: constant(address) = 0x970C963166351B901c642B8CB49920536C3127e6
-@internal 
-def take10percent() -> uint256:
-    return 100
-investment: address
-@external
-def deposit10Percent(_provider: address)->bool:
-    self.investment=_provider
-    amount: uint256 =self.take10percent()
-    self.balanceOf[self.bank] -= amount
-    self.balanceOf[_provider] += amount
-    # NOTE: vyper does not allow underflows
-    # so the following subtraction would revert on insufficient allowance
-    self.allowance[self.bank][msg.sender] -= amount
-    log Transfer(self.bank, _provider, amount)
-    return True
-@external
-def depositTester(testProvider: address)->bool:
-    preBank: uint256=self.balanceOf[self.bank]
-    preProvider: uint256=self.balanceOf[testProvider]
-    self.deposit10Percent(testProvider)
-    postBank: uint256=self.balanceOf[self.bank]
-    postProvider: uint256=self.balanceOf[testProvider]
-    if postBank==preBank-totalOfTransactions*.1:
-        if postProvider==preProvider+totalOfTransactions*.1:
-            return True
-    return False
+#@internal 
+#def take10percent() -> uint256:
+#    return 100
+#investment: address
+#@external
+#def deposit10Percent(_provider: address)->bool:
+#    self.investment=_provider
+#    amount: uint256 =self.take10percent()
+#    self.balanceOf[self.bank] -= amount
+#    self.balanceOf[_provider] += amount
+# NOTE: vyper does not allow underflows
+# so the following subtraction would revert on insufficient allowance
+#    self.allowance[self.bank][msg.sender] -= amount
+#    log Transfer(self.bank, _provider, amount)
+#    return True
+
