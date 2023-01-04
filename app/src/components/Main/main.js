@@ -3,7 +3,7 @@ import Header from "./Header"
 import * as Constants from "./consts"
 import Contribute from "../Contribute/Contribute.js";
 import NFTs from "../NFTs/NFTs.js";
-import Balance from "../Balance/Balance.js";
+import Auction from "../Auction/Auction.js";
 import Footer from "./Footer"
 
 
@@ -23,8 +23,8 @@ class Main extends React.Component {
   renderPage() {
     let page = <div></div>
     switch (this.state.location) {
-        case Constants.NAV_OPTIONS.BALANCE:
-            page = <Balance></Balance>
+        case Constants.NAV_OPTIONS.AUCTION:
+            page = <Auction></Auction>
             break;
         case Constants.NAV_OPTIONS.NFTS:
             page = <NFTs></NFTs>
@@ -33,7 +33,7 @@ class Main extends React.Component {
             page = <Contribute></Contribute>
             break;
         default:
-            page = <Balance></Balance>
+            page = <Auction></Auction>
             break;
     }
     return page;
