@@ -42,10 +42,15 @@ def test_contribute(publicGoodsContract, erc20Contract, accounts):
     assert str(erc20Contract.getApprovedAmountOf(donator, publicGoodsContract.address).return_value) == "69420"
     
     assert publicGoodsContract.contribute("Pizza Party", 3, {'from': donator}), "contribute failed"
-    
     returnVal = publicGoodsContract.getContributionTotal("Pizza Party", {'from': accounts[0]}).return_value
     assert str(returnVal) == "3", "getContributionTotal returned wrong value"
     assert str(erc20Contract.getBalanceOf(donator)) == str(69420 - 3)
+
+    # 2nd contribution: make sure it adds, not creates a new entry
+    assert publicGoodsContract.contribute("Pizza Party", 5, {'from': donator}), "contribute failed"    
+    returnVal = publicGoodsContract.getContributionTotal("Pizza Party", {'from': accounts[0]}).return_value
+    assert str(returnVal) == "8", "getContributionTotal returned wrong value"
+    assert str(erc20Contract.getBalanceOf(donator)) == str(69420 - 8)
 
 def test_retract(publicGoodsContract, erc20Contract, accounts):
     creatorOfGood = accounts[5]

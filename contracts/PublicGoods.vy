@@ -56,6 +56,7 @@ def contribute(name: String[50], amount: uint256):
         if good.donations[i].donator == msg.sender:
             good.donations[i].amount += amount
             good.totalDonations += amount
+            self.goods[name] = good
             return
     
     good.donations[good.donationsLen] = Donation({
