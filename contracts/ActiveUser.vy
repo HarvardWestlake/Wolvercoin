@@ -66,6 +66,11 @@ def getAdmin(potentialAdmin: address) -> bool:
 def getActiveUser(potentialUser: address) -> bool:
     return self.userGraduationYear[potentialUser] == self.currentGradYear
 
+@view 
+@external
+def getCurrentGradYear() -> uint256:
+    return self.currentGradYear
+
 @external
 def isAlumni(potentialUser: address) -> bool:
     return True

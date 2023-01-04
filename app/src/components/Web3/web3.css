@@ -6,3 +6,15 @@
     height: 17px;
     width: 24px;
 }
+
+.switch-to-goerli {
+    background-color: pink;
+    padding: 5px 10px; 
+    margin: 0px auto;
+    width: 300px;
+}
+
+.switch-network-container {
+    max-width: 300px;
+    margin: 0px auto;
+}

@@ -1,4 +1,4 @@
-# @version ^0.3.3
+# @version ^0.3.7
 interface Token:
     def transferFrom(_from : address, _to : address, _value : uint256) -> bool: view
     def getBalanceOf(_user: address) -> uint256: view
