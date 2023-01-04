@@ -14,107 +14,680 @@
     "VotingAndRep": "fda86f072d9c8fca5b29eae53a4a483ff4d6355a",
     "Wolvercoin": "58ab07b8059e89fd44939db5aa391ce861dfabe0",
     "codeGambling": "48e5c8ad9d89d291f540574edfe3531f1480eb89",
-    "socialAdnDonations": "bfe83b03c64cf60da8529e04c06604a91b1fbd69"
+    "socialAdnDonations": "c5d23498729fee76e45cde098987425a99f0c356"
   },
   "tests": {
     "tests/test_Exclusivity.py": {
-      "coverage": false,
+      "coverage": true,
       "isolated": false,
       "results": "..",
       "sha1": "01c64833b19e721958e715e84bdb8427938b984c",
-      "txhash": []
+      "txhash": [
+        "0703e023e0723c51ed3deb33db76b27ffc740579",
+        "08a47497d09e626ebe9c9343450bcef8c33f3ce4",
+        "25e94a8287526813de45dd09c4567cd4df027a59",
+        "2b7563c7e4cb0579badd64f318c07a5f726de734",
+        "5302c7e57c548258b5e5aa26d36b1efef5ede1b9",
+        "620f82477ee33443f72b3aff48036980fabc6edc",
+        "71b4664a523c9dc98d8cb2e8636640d23b468a35",
+        "74debdfa75a5c6c135abe67e99fd96b699a02cf2",
+        "8e25545698038d4a35622ab5c2ccee558900187c",
+        "9540130a61cacc5483d2c98bffff71f64e87aae5",
+        "9cc587cb8c1cb6f75b92f4962846225881aed198",
+        "9fb8cdda46a763128b00c7b006c7cabf5d6fee09",
+        "ba3a67007f52e15a51937f456480543d5dc57327",
+        "ca3449c601ca689ce60f1c30e3f39e5924e739bc",
+        "cb6b72f02f64823031ccebfb1e785ca3b88f6719",
+        "e1b7add798d95c2115dc9aadfd8a085e0ae1616e",
+        "f8f00da46b020888250d803c4d0604ef0524e7ec"
+      ]
     },
     "tests/test_Stake.py": {
-      "coverage": false,
+      "coverage": true,
       "isolated": false,
       "results": ".....",
       "sha1": "aca9f628652b5f9617b6d4ff49ef2cbc01ac18ed",
       "txhash": [
+        "0125b716e6ff6bb318a346f6652cebb7ca5f008c",
+        "0d36534e63aac353e08abeb3297316b7ae6531dd",
+        "0f0e8328bb0854bba393fd737fddc4258488439b",
+        "1c9794e0e6281290400b81ddc3813cbcb6b04a6a",
+        "1fefd881298bc3bf307d8216173bf694bbc00dd7",
         "21782992b73633dd7619348812dd40fd4e3fc677",
+        "280d93330ccbc3072c1979145f37b184903b335e",
+        "29c04a3d8c56264bd09e620469ecec3b215a5075",
+        "29da5b4ff329627118fc2d06f7a1686d3b13fa8c",
+        "31c1f7823d611466896f6c1b5272ea9456f5847f",
+        "427ce3e607326a574d77c4eb2d99997e5b579ed9",
+        "443d18d6056039acf8cdf943c525eb6013b01a37",
+        "4bce6afa6638fe2d19d5e171b7ac16ba5abee483",
+        "526785664ca36a2ca5a004c4be3c887b62fc8edc",
+        "693f74a36c4d782863c07c27f967b4064fc79162",
+        "729b35ee17b19401fc944e769984032819c8df33",
+        "784c0cf8a728c5465e787589ad920f5bf8406598",
+        "7a41003e96b0038c6f6743ba73fc509a2c6db4f9",
+        "7b6560f776c136389c7e1932cc282b3cf6f8f05b",
+        "7f092c0f8950729387480305ae1d262f48c602c0",
         "97b3492c5c414488b78e72c94f23cefa5c39f942",
-        "bddb26c86dd0512a52f7deb9cf8598253de64234"
+        "9a524efe8646483bab8b6daefddb50641788164c",
+        "9c0cb335010ab6c37118bbcdf9ec77841340ff33",
+        "a40811c6ab6ff467255bf545bf619dc757fa6e19",
+        "b16e053882045cd98745700f0e1a1fe7d6c1d887",
+        "b864c6c582fab39894d4b567993459654659601e",
+        "b8e99fd459eeb79782e59f13ff0c24f9d132ef9b",
+        "bddb26c86dd0512a52f7deb9cf8598253de64234",
+        "c3ff1299e2438d52a2ec1834c061ccaba6f19f27",
+        "c97ae731ed6da14a5efd22f59ba8ed1dd3023da1",
+        "d13f05ae594a140491cbdf5ebd6d04f9012d0fdb",
+        "d1c596e287a13b49dac4d9c3ccd9d1e3ddcc57a9",
+        "dc7e55fa8fcf9c87ebb6c4b7bb6a6741e60e5b11",
+        "e9a2fdf9be8f6e1070899b1a2430e8694c013256",
+        "f1e4bf22fe0990839fbffdbfa177e06156136caa"
       ]
     },
     "tests/test_activeUser.py": {
-      "coverage": false,
+      "coverage": true,
       "isolated": false,
       "results": ".....",
       "sha1": "dd022c3c866a931f0afd6b43339fda604af10134",
       "txhash": [
+        "01ed7f196cf9da3648fe1d3ce4704123249237cf",
+        "0e88742020d0f53e9277b6bc349018eaaa2f0c27",
+        "3042b2a0b5a379a6d4bb25c128bfc3c7549061d0",
         "333b20df7988ba7bf34241f2a78de8255c9cfdbf",
-        "394f52db039c8713d0e838dff0e0e109651fa8b3"
+        "3490f235ce482071932b2f76f6cb5c8a1c3a213e",
+        "394f52db039c8713d0e838dff0e0e109651fa8b3",
+        "45006bd6f91df4b759e86a1ec8ff7423f87104da",
+        "50e459f37599d84853a80ba2ddbb8d4eb720c77e",
+        "55bc08c1297e9e2cb2075e1c51d565b680a3fe33",
+        "6442632423216449fee832f9f03603dfade0cb41",
+        "6928243ec76b46d331c93f392db4a16bb5b89e32",
+        "7eaf1a6cd1d2b3444c985f92f186c3095a991f2d",
+        "a2753312203fc69a179f26fef7264d52907aca6a",
+        "c2b45960755bc1e6f2a1ab235df934b70698dd80",
+        "ca6add99b4f66723d3b73e16ebaf0ff2f25422c5",
+        "ccb26a54be27f04718aa527de4325915aac5dc7b",
+        "d57ddde7fd0593d46b43689302551469237c4a73",
+        "df6c731f84242bc6b7ad78821128630da67e3be5",
+        "ebccd1cf23a8a157f7d5bdc3573bfbc484210272",
+        "fe65eeb4f542fcbd5a94e8ca8555af0512f44231"
       ]
     },
     "tests/test_crash.py": {
-      "coverage": false,
+      "coverage": true,
       "isolated": false,
       "results": ".",
       "sha1": "2d533f273701f75f680a8bbf2774473bca063d1a",
-      "txhash": []
+      "txhash": [
+        "4467751b1fd1020c2cab58b40f051b4615ba3310",
+        "641d88e8bcfc68b24eb60779c16ff87185f100ea",
+        "bc46641136c27683c40d6be4e272341645ec3ef3",
+        "cf6fb5015cdde9d02005365a74c01578852c3201"
+      ]
     },
     "tests/test_dutchAuction.py": {
-      "coverage": false,
+      "coverage": true,
       "isolated": false,
       "results": ".",
       "sha1": "ef9bc768182a18f48c8851471ace5a47ef25c8cd",
-      "txhash": []
+      "txhash": [
+        "114ad9e1bbe7223893ec471bac930c2908a9e3dc",
+        "11c9e56c6c2063bcb1e73c77b27da3d1b916b881",
+        "7b1fe36c61e2d59ed48b6eba67bee38de8621ae2",
+        "90263017bd2c5c12cbca2e54747a3fc614a9bf70",
+        "e82f3e9f04e0a39a064c19da5c10e2cd8587bfdd"
+      ]
     },
     "tests/test_gambling_pot_tax.py": {
-      "coverage": false,
+      "coverage": true,
       "isolated": false,
       "results": "..",
       "sha1": "0b9484928faa36243bcbdc62130afff8859f670d",
-      "txhash": []
+      "txhash": [
+        "278cd76cd7c7d02a716a45d760bdbf84501ac8be",
+        "2b9b305f6e7fd396d6aec99d6de11a4062a2d111",
+        "3d6110158c5c2a070bb2962e62c54d90dfff592b",
+        "4be734a7d80b12ba7eee0037efcebbf33741b12d",
+        "5f616def8ee98402161042b668d98cec2def7ca0",
+        "7571fdd0aae364eaac3ea5ef3a3889a7f0e3959f",
+        "946c952399c65f05ee9d87490216f1578ae4f52b",
+        "bee81f24dbb8bbd5493078c83431176bb93878ad",
+        "e78a6097d6c13bfb2ce6ff8fa8134f0c966f7a26",
+        "fa6082e626c3b73a687fc974d9a0c0e517cbd6a7"
+      ]
     },
     "tests/test_public_goods.py": {
-      "coverage": false,
+      "coverage": true,
       "isolated": false,
       "results": "....",
       "sha1": "5809721f8c0aae9de29cffdc30b3e6e9ca14d546",
-      "txhash": []
+      "txhash": [
+        "01def4ced68bba7c067b2e1fd1351f8e2c467507",
+        "0ce40952f2f3bb743595b137ea7cf7c940a38590",
+        "0fcc8eee58e55b2da321d9acc9651a4a7b20ab52",
+        "16d418a4b013243cea461fb95413a0619ed03228",
+        "16f18292e393618683b44ef73a67af3811462acb",
+        "224c0aa5fdaec8a200f40aeafd98aacddaac4106",
+        "2d2d068f3c2287377fa69659869d7fe6e2da809a",
+        "5ae684ad3802d99901e29659d28205170d937465",
+        "5c7bff51f2f415c030c7d8dbe5ba2d757ee5ba71",
+        "5deeece8f4cc2bb8ccd18c68f446ecfdc1415ee8",
+        "6573eb4d8164cf820607c7e303670abba5c321bc",
+        "665c438ba9ab5a256d471faaad10f85f87229fbf",
+        "66bf798fffaf2b629ee08ee2f04ef69ced69f394",
+        "7f82ec64a86d87df2bd6e812bf8234f500ac4994",
+        "8783f1a01e2f6862e4b1907bb15115304bdee519",
+        "8d846cbf2e6ec6d5a904681e9b3997e4146c77aa",
+        "935535efdbec4be3eef38461e7d1b7fa26709fd5",
+        "98a8fc2444c18ad8ffc7d7e2d976a0a8637104dc",
+        "998c5b150580c7994fa0f721bfba14690b10b35a",
+        "9b2e2ca89aed31d7a41272ba9269825f46e6450f",
+        "9fce7910bd443aac5e5370000e2b4b0cbad8ebb8",
+        "a1e0b37cc1e8bfef6505a86bcd273bc8b51cd984",
+        "a3fe1b1ec30d726dfc0fca6060e4a06f7f3313b3",
+        "a88c28f81512b1d220a268a243cbe1ade7b8f1b2",
+        "ae2a0123cccf6db5d3f33a3d8bed6f3d5ad10988",
+        "ae47def6813a03faafefa8c030bd0dea32be1d09",
+        "b5ba51a6c8df0d8deb389fc4e9f6743d23124ff7",
+        "b9f1c05effe4da96773a26948a6b2dbf26f6302d",
+        "ba18cc3a916fd519059db2310715ac86921a32a8",
+        "d6963c125b7601a598049d9b68ac930b11446d44",
+        "e034a80e4676b9de806edede7759a6a0dea37233",
+        "e5b01996d14642a042576de1885dc1db8432487d",
+        "ea7ff9055c49356a4ea68d26c3e2c199b5d8db06",
+        "ec5c4e7b6f3edcae9666b4686a362b3a137ba65c",
+        "f426c47423675bdec0f0228de7085fd888fab598",
+        "f5710ac57836b802d2681ead3a00c4644a1d851f",
+        "f831cb6fc134c25c67d41f1230fc3343734e3002",
+        "fc4bb42b0d475ae2d2b63bce83c6243dea984920",
+        "ff4892125a26ea7a0bb2368c7daf41f034a8f2d0"
+      ]
     },
     "tests/test_reimbursement.py": {
-      "coverage": false,
+      "coverage": true,
       "isolated": false,
       "results": ".......",
       "sha1": "27f3d2b0fa5e87d232ec32406a457eae7ec43173",
       "txhash": [
+        "0049e4539dbf1ce54b3d7961bf9cdc00f77b6579",
+        "00c6fa34f664fef046b8f7ce6ee9231afe505bc8",
+        "04f9f28c5c9a9cec6b1ccfbbdd8168393052c6a9",
+        "09a8e98680c5a76f554126850f04565647dc3821",
+        "0a6b4ec03bd5eed01bfcedc0cd469f4cb5ce4ff6",
+        "0faf53a3ad28a9e13a3e9e0e00d4606c6768ac3b",
+        "107237de14f9637ed19632e9a33e54d6aba8bc1a",
+        "113fb22e676c996bc28d565a3a574c9152947326",
+        "15e8a9924c50d28d68f5844089ccde3aeb07c8ac",
+        "193ed694e35e45321c830d7c8b6b6ec2fc764245",
+        "1b86c5e601987e5227ddb6abbbfae008def7e8dd",
+        "272a37171a3c3f6d718481add6711517472a9a64",
+        "2b0f215e396ccfa418334f2186c25ebbeb66bc13",
+        "2fc8e2c12c2a20c2044ba65ed899c4f54f7dc31a",
+        "36eca3d92708b8e4d50da26ec933666767e427da",
+        "3e577bc3ad8dcbebc93b8d3e948e09e6ac1178e7",
+        "45d1d9b324543b8f252d1ebcab4fa36d441aee30",
+        "47c6089a73c042deb340450a378b02931b333428",
+        "4a12c60ab58434aa71341032335c4873d4381a23",
+        "4d1faf2dd8d465f6216200f641f13bfa5c8d8ee4",
+        "4d969b682c93048017d30140fe4c3bb2fb263689",
+        "5361e9ce63eeee9ff247690ed64a83b9056fa3fc",
+        "54eaf5d5b156775008738884cd4e0d8c4ce1d534",
+        "580ed722463209de7ab78b393b3e01911ac419d3",
+        "5ad6c6d12915434c67777ead55475d0ce518cc63",
+        "5b859b729cf398bc3950c2ae61f49ce97096f15c",
+        "5bc82f8ba30ab638643d494129a176c683e4e03d",
+        "5e6472d3005930c5b8ec4693a22a0dafaed8be8a",
+        "681980aa3b2f18677b9472e8c819e89d5503a8ad",
+        "6a738fdae26d389330d85ae2ece81b04a5bf16cf",
+        "6b70bf2dabe960ef7cfa48986a46c6b6ea60eac3",
+        "6efca9eab58a29026ae97e0fb0dee5a9f923b79c",
+        "7b243b436364457242622f285afeb6f7bddf77bc",
+        "8c2f7d0d2d0d03c1732392a89c11fa020143b90d",
+        "8edc93d4311cc0f5f35368370ba0fd6f9ee3a1d8",
+        "903aef5d17a0058e2b74b7ea13ddc26d82c43185",
+        "907623ac74dcabaaa6b54f219fa546bf6c25b155",
+        "92cc29b891f7ffdb7e346ac1351d6e339481b7d8",
+        "99471d25bf48aca010226b657ae4e1313a45ab34",
+        "9ad4e4d60fa973df18bfab617f75b1d745c54792",
+        "9e6c920424c24e718b9fa0ed4ac8f2f848e5e477",
+        "a4ff1edcb4b0fb71fe0b04897aecb55963be4207",
+        "ad26456b0069eae738d42a613bb089048f52f9c8",
+        "afc05b0b6d7ae4e936b3e023bb5afbc816175a3f",
+        "afff5b6c293cb5375c9beff12229787376b725b0",
         "b17ea4d0e0c8396978d2b21685a0c5bcef121e43",
-        "b50649e03dc23407d3276296475d2b4631727eaa"
+        "b2a448d2788b9214cff22c80acbc0f1aaaaf84d9",
+        "b2df1e7c8622253ef9e797b8f31d6331037e0816",
+        "b50649e03dc23407d3276296475d2b4631727eaa",
+        "b8d946e2091e25fbc7d429b8bc9f7101e9522d44",
+        "b98b7c1119ea7bc027c5f193ee40c84d5ff46c17",
+        "bfc4e38cdfd1e8bfeb9ea8806cb3565f5ae029e7",
+        "c14287a56863ae1917c313c76b340bb9a1e129fb",
+        "c99fc1083a62d7fb1874ecb83d0ebb158475d7c8",
+        "cff1b6171df7022dd0cb002cb5b2242911897f59",
+        "d12a8830622e63a97a84f728594c51ca3f5cb4c6",
+        "d9116d631847cea9da6d19120baaaa54e2e058c2",
+        "de68b3e0940218b08c60287ae33cdadfd9dcd1d7",
+        "de696cb54f28005f95f88c1772a5bcc64cabdcb4",
+        "e1313178ac6e3a086fdd86e9f8f29b3ede703d41",
+        "e3f3a269e46f7a1809b8c8dc210c9b619a415a98",
+        "e4a51c905a93f1ac0826f0479046906701fc25f6",
+        "e4cbf3e320432910625e8b5d545d5e50b5140c12",
+        "e546a339b359d663e055d261182aea27444896f6",
+        "e5c97497e68bc106a1c7f459dbd7dd1c7214385a",
+        "ea1636ec876c95bd04a833252d388b9f5e0d6378",
+        "ea9bf887e62a60c676a45be2a7fd4e448df1bcb9",
+        "f1a6f35e378394ce6140a801c72faff7679014d9",
+        "f928de06bc8d526f61acbbc34d2066e9649c17fe",
+        "fbf568a74e85585f85033e29a30a9c11585f63dd",
+        "fc5184d66d7b2774721a58424315203eb0182895",
+        "fc7cef368091a3a3f777a965e4108a60cfa121c0"
       ]
     },
     "tests/test_socialAndDonations.py": {
-      "coverage": false,
+      "coverage": true,
       "isolated": false,
       "results": ".F",
-      "sha1": "f4dec868bf5c82eacc8f0fbb491556875c6e34a7",
+      "sha1": "4f95e96acbd87fbe7b02ca15d41be6eb04876148",
       "txhash": [
-        "60de38545c76b484e4a7661113bd75e29f93c154"
+        "220d30d9f14aecd80fc7a770d2b20e263bec824d",
+        "a2a1157999d177967d417ffa83cca012ac583c0f",
+        "a78b9e3c90d4fccea34036fdc9ff8c1026790270",
+        "a7a31827a84cd0ebd6d297f9f8a6a06cdbd3041a",
+        "d69143681c74cd3168d41c0cff479e49776bc1f0",
+        "eff3f7d35e73b424e87bddd2c8b806a79f8b6921"
       ]
     },
     "tests/test_voting.py": {
-      "coverage": false,
+      "coverage": true,
       "isolated": false,
       "results": ".......",
       "sha1": "9d19e464acaabb1741fd0d0e6a5df1fe70a513a3",
       "txhash": [
-        "1137dd3379c2d351af9c0c75bc81325fe1890f79",
-        "bb2811b104ad816b9657a2c7b77b6e1b1d3ab891"
+        "1194abb8f5265e30770e6c67f5c45a360913cde2",
+        "1aa9f39dac5e04f48d952eaef29b8b3e65c0a239",
+        "1fb8d4e1eee7cc67a22e148c6a2b198eb80b1533",
+        "2621b784a43c3937e042269498e670933ce7626f",
+        "3082285f6cda0b6149e2acea5815ed748620753a",
+        "30ef64ca4aa317a8de4da5602ce81a90d4cddffe",
+        "351b19a15a9e77e65630a3572f51d506365a9d10",
+        "370195ef747531083345b1bc490c39183f1b430e",
+        "44a74e6e2bfd8b30e8c976923362417e33bc897c",
+        "45f976ac7899d9e6deba60c26dc739978b0e28ed",
+        "4e1bcba11bae63ac60a362bd37f5d2e18dff4f34",
+        "4ef2efddad49b16df2eb4f1cc5322d4d59ddfccc",
+        "5996dd1d5c19d485fac8a3138d9009e45d9cf87b",
+        "5cca1d2fadf8fce4a1b9f66e52955db00dc0b940",
+        "6932a3bc654254dc8bbb4638268ff889b27b8a7f",
+        "7502d526306a2af1d86631439f7a38f652ee3c83",
+        "7ccf795b597e02145d89bd4769b73b22d933fd83",
+        "89189414306cb4a20ab2dad871c648883f9e9b62",
+        "984a2561edf78eafbb50e3126d1944d4d1d4874b",
+        "98c4afe6b301d1e608c582a426f202333e528489",
+        "99c8a0db32cbdfc309f64262f801f637d99f8c58",
+        "9a80c09bb3447808e0e84d43790ca879b6fd279a",
+        "9bf9dc7c3c62872bf6d10c8e6367c1fbf0256122",
+        "a66a356d71434b256d2934dc9a1c865d8522ffbb",
+        "acbf6d99cb50d933c6b711febfebfae861809761",
+        "b3662b2ed4b86240853631cbea95ae15a3657eda",
+        "be473a58a04710e04c9543492f96d38a7ace6fea",
+        "cad94c9eaa5aa2e638e53dabc0f1f882e3679c2d",
+        "d27e82b0398e10bc9330bce67a7f3ef46216c3fb",
+        "d2954cc973e8c6b50bfb6027a554d5fbcb19f64d",
+        "eb3db5864401534642b7c708884abe073885ca9f",
+        "fb97f93d074f2bc32a1feab8ca090be6ad72e351",
+        "fcb41df6003aa1ba923db28368fceeaead6689e1"
       ]
     }
   },
   "tx": {
-    "1137dd3379c2d351af9c0c75bc81325fe1890f79": {
-      "VotingAndRep": {
+    "0049e4539dbf1ce54b3d7961bf9cdc00f77b6579": {
+      "ActiveUser": {
         "0": [
           [
-            37
+            17
+          ],
+          [],
+          []
+        ]
+      },
+      "Reimbursement": {
+        "0": [
+          [
+            0,
+            13
+          ],
+          [
+            15
+          ],
+          [
+            14
+          ]
+        ]
+      }
+    },
+    "00c6fa34f664fef046b8f7ce6ee9231afe505bc8": {
+      "ActiveUser": {
+        "0": [
+          [
+            17
+          ],
+          [],
+          []
+        ]
+      },
+      "Reimbursement": {
+        "0": [
+          [
+            0,
+            13,
+            19,
+            20,
+            21
+          ],
+          [
+            18
+          ],
+          [
+            14,
+            15,
+            16
+          ]
+        ]
+      }
+    },
+    "0125b716e6ff6bb318a346f6652cebb7ca5f008c": {
+      "ActiveUser": {
+        "0": [
+          [
+            8,
+            10,
+            12,
+            14
+          ],
+          [],
+          [
+            9,
+            11,
+            13
+          ]
+        ]
+      }
+    },
+    "01def4ced68bba7c067b2e1fd1351f8e2c467507": {
+      "Token": {
+        "0": [
+          [
+            14,
+            15,
+            16
           ],
           [],
           []
         ]
       }
     },
+    "01ed7f196cf9da3648fe1d3ce4704123249237cf": {},
+    "04f9f28c5c9a9cec6b1ccfbbdd8168393052c6a9": {},
+    "0703e023e0723c51ed3deb33db76b27ffc740579": {
+      "Exclusivity": {
+        "0": [
+          [
+            14
+          ],
+          [
+            13
+          ],
+          []
+        ]
+      }
+    },
+    "08a47497d09e626ebe9c9343450bcef8c33f3ce4": {
+      "Exclusivity": {
+        "0": [
+          [],
+          [],
+          [
+            13
+          ]
+        ]
+      }
+    },
+    "09a8e98680c5a76f554126850f04565647dc3821": {
+      "ActiveUser": {
+        "0": [
+          [
+            8,
+            10,
+            12,
+            14
+          ],
+          [],
+          [
+            9,
+            11,
+            13
+          ]
+        ]
+      }
+    },
+    "0a6b4ec03bd5eed01bfcedc0cd469f4cb5ce4ff6": {},
+    "0ce40952f2f3bb743595b137ea7cf7c940a38590": {
+      "Token": {
+        "0": [
+          [
+            0
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "0d36534e63aac353e08abeb3297316b7ae6531dd": {},
+    "0e88742020d0f53e9277b6bc349018eaaa2f0c27": {
+      "ActiveUser": {
+        "0": [
+          [
+            16
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "0f0e8328bb0854bba393fd737fddc4258488439b": {},
+    "0faf53a3ad28a9e13a3e9e0e00d4606c6768ac3b": {
+      "ActiveUser": {
+        "0": [
+          [
+            17
+          ],
+          [],
+          []
+        ]
+      },
+      "Reimbursement": {
+        "0": [
+          [
+            0,
+            13,
+            19,
+            20,
+            21
+          ],
+          [
+            18
+          ],
+          [
+            14,
+            15,
+            16
+          ]
+        ]
+      }
+    },
+    "0fcc8eee58e55b2da321d9acc9651a4a7b20ab52": {
+      "Token": {
+        "0": [
+          [
+            1
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "107237de14f9637ed19632e9a33e54d6aba8bc1a": {
+      "Reimbursement": {
+        "0": [
+          [
+            12
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "113fb22e676c996bc28d565a3a574c9152947326": {
+      "Reimbursement": {
+        "0": [
+          [
+            12
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "114ad9e1bbe7223893ec471bac930c2908a9e3dc": {},
+    "1194abb8f5265e30770e6c67f5c45a360913cde2": {},
+    "11c9e56c6c2063bcb1e73c77b27da3d1b916b881": {},
+    "15e8a9924c50d28d68f5844089ccde3aeb07c8ac": {
+      "ActiveUser": {
+        "0": [
+          [
+            16
+          ],
+          [],
+          []
+        ]
+      },
+      "Reimbursement": {
+        "0": [
+          [
+            1,
+            3,
+            22,
+            23,
+            24
+          ],
+          [],
+          [
+            2
+          ]
+        ]
+      }
+    },
+    "16d418a4b013243cea461fb95413a0619ed03228": {
+      "Token": {
+        "0": [
+          [
+            17,
+            18,
+            20,
+            22,
+            23,
+            24
+          ],
+          [
+            19,
+            21
+          ],
+          []
+        ]
+      }
+    },
+    "16f18292e393618683b44ef73a67af3811462acb": {
+      "PublicGoods": {
+        "0": [
+          [
+            0,
+            2,
+            3,
+            5
+          ],
+          [
+            1,
+            4,
+            6
+          ],
+          []
+        ]
+      }
+    },
+    "193ed694e35e45321c830d7c8b6b6ec2fc764245": {
+      "ActiveUser": {
+        "0": [
+          [
+            22,
+            24,
+            26,
+            27
+          ],
+          [],
+          [
+            23,
+            25
+          ]
+        ]
+      }
+    },
+    "1aa9f39dac5e04f48d952eaef29b8b3e65c0a239": {},
+    "1b86c5e601987e5227ddb6abbbfae008def7e8dd": {
+      "ActiveUser": {
+        "0": [
+          [
+            16
+          ],
+          [],
+          []
+        ]
+      },
+      "Reimbursement": {
+        "0": [
+          [
+            1,
+            3,
+            22,
+            23,
+            24
+          ],
+          [],
+          [
+            2
+          ]
+        ]
+      }
+    },
+    "1c9794e0e6281290400b81ddc3813cbcb6b04a6a": {},
+    "1fb8d4e1eee7cc67a22e148c6a2b198eb80b1533": {
+      "VotingAndRep": {
+        "0": [
+          [
+            15,
+            17,
+            19,
+            20,
+            21
+          ],
+          [
+            16,
+            18
+          ],
+          []
+        ]
+      }
+    },
+    "1fefd881298bc3bf307d8216173bf694bbc00dd7": {},
     "21782992b73633dd7619348812dd40fd4e3fc677": {
       "Stake": {
         "0": [
@@ -129,6 +702,172 @@
         ]
       }
     },
+    "220d30d9f14aecd80fc7a770d2b20e263bec824d": {},
+    "224c0aa5fdaec8a200f40aeafd98aacddaac4106": {
+      "Token": {
+        "0": [
+          [
+            0
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "25e94a8287526813de45dd09c4567cd4df027a59": {
+      "Exclusivity": {
+        "0": [
+          [
+            24
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "2621b784a43c3937e042269498e670933ce7626f": {},
+    "272a37171a3c3f6d718481add6711517472a9a64": {
+      "Reimbursement": {
+        "0": [
+          [
+            11
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "278cd76cd7c7d02a716a45d760bdbf84501ac8be": {},
+    "280d93330ccbc3072c1979145f37b184903b335e": {},
+    "29c04a3d8c56264bd09e620469ecec3b215a5075": {
+      "Stake": {
+        "0": [
+          [
+            5,
+            6,
+            8,
+            9,
+            17,
+            18,
+            19,
+            20,
+            21
+          ],
+          [
+            7
+          ],
+          [
+            10
+          ]
+        ]
+      },
+      "Wolvercoin": {
+        "0": [
+          [
+            6,
+            7,
+            8,
+            9,
+            10,
+            25,
+            26,
+            27,
+            29,
+            30,
+            31
+          ],
+          [
+            28
+          ],
+          []
+        ]
+      }
+    },
+    "29da5b4ff329627118fc2d06f7a1686d3b13fa8c": {},
+    "2b0f215e396ccfa418334f2186c25ebbeb66bc13": {
+      "ActiveUser": {
+        "0": [
+          [
+            8,
+            10,
+            12,
+            14
+          ],
+          [],
+          [
+            9,
+            11,
+            13
+          ]
+        ]
+      }
+    },
+    "2b7563c7e4cb0579badd64f318c07a5f726de734": {
+      "Exclusivity": {
+        "0": [
+          [
+            28,
+            30,
+            31,
+            32
+          ],
+          [
+            29
+          ],
+          [
+            29
+          ]
+        ]
+      }
+    },
+    "2b9b305f6e7fd396d6aec99d6de11a4062a2d111": {},
+    "2d2d068f3c2287377fa69659869d7fe6e2da809a": {},
+    "2fc8e2c12c2a20c2044ba65ed899c4f54f7dc31a": {},
+    "3042b2a0b5a379a6d4bb25c128bfc3c7549061d0": {
+      "ActiveUser": {
+        "0": [
+          [
+            16
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "3082285f6cda0b6149e2acea5815ed748620753a": {
+      "VotingAndRep": {
+        "0": [
+          [
+            0,
+            2,
+            4
+          ],
+          [
+            5
+          ],
+          [
+            1,
+            3
+          ]
+        ]
+      }
+    },
+    "30ef64ca4aa317a8de4da5602ce81a90d4cddffe": {
+      "VotingAndRep": {
+        "0": [
+          [
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "31c1f7823d611466896f6c1b5272ea9456f5847f": {},
     "333b20df7988ba7bf34241f2a78de8255c9cfdbf": {
       "ActiveUser": {
         "0": [
@@ -142,6 +881,53 @@
         ]
       }
     },
+    "3490f235ce482071932b2f76f6cb5c8a1c3a213e": {
+      "ActiveUser": {
+        "0": [
+          [
+            19,
+            21
+          ],
+          [
+            20
+          ],
+          []
+        ]
+      }
+    },
+    "351b19a15a9e77e65630a3572f51d506365a9d10": {
+      "VotingAndRep": {
+        "0": [
+          [
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "36eca3d92708b8e4d50da26ec933666767e427da": {
+      "ActiveUser": {
+        "0": [
+          [
+            22,
+            24,
+            26,
+            27
+          ],
+          [],
+          [
+            23,
+            25
+          ]
+        ]
+      }
+    },
+    "370195ef747531083345b1bc490c39183f1b430e": {},
     "394f52db039c8713d0e838dff0e0e109651fa8b3": {
       "ActiveUser": {
         "0": [
@@ -155,10 +941,663 @@
         ]
       }
     },
-    "60de38545c76b484e4a7661113bd75e29f93c154": {
-      "socialAdnDonations": {
+    "3d6110158c5c2a070bb2962e62c54d90dfff592b": {},
+    "3e577bc3ad8dcbebc93b8d3e948e09e6ac1178e7": {
+      "ActiveUser": {
         "0": [
           [
+            22,
+            24,
+            26,
+            27
+          ],
+          [],
+          [
+            23,
+            25
+          ]
+        ]
+      }
+    },
+    "427ce3e607326a574d77c4eb2d99997e5b579ed9": {
+      "Wolvercoin": {
+        "0": [
+          [
+            14,
+            15,
+            16
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "443d18d6056039acf8cdf943c525eb6013b01a37": {},
+    "4467751b1fd1020c2cab58b40f051b4615ba3310": {
+      "Crash": {
+        "0": [
+          [
+            6,
+            9
+          ],
+          [
+            5
+          ],
+          []
+        ]
+      }
+    },
+    "44a74e6e2bfd8b30e8c976923362417e33bc897c": {},
+    "45006bd6f91df4b759e86a1ec8ff7423f87104da": {
+      "ActiveUser": {
+        "0": [
+          [
+            16
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "45d1d9b324543b8f252d1ebcab4fa36d441aee30": {
+      "ActiveUser": {
+        "0": [
+          [
+            22,
+            24,
+            26,
+            27
+          ],
+          [],
+          [
+            23,
+            25
+          ]
+        ]
+      }
+    },
+    "45f976ac7899d9e6deba60c26dc739978b0e28ed": {},
+    "47c6089a73c042deb340450a378b02931b333428": {
+      "ActiveUser": {
+        "0": [
+          [
+            22,
+            24,
+            26,
+            27
+          ],
+          [],
+          [
+            23,
+            25
+          ]
+        ]
+      }
+    },
+    "4a12c60ab58434aa71341032335c4873d4381a23": {},
+    "4bce6afa6638fe2d19d5e171b7ac16ba5abee483": {},
+    "4be734a7d80b12ba7eee0037efcebbf33741b12d": {},
+    "4d1faf2dd8d465f6216200f641f13bfa5c8d8ee4": {
+      "ActiveUser": {
+        "0": [
+          [
+            22,
+            24,
+            26,
+            27
+          ],
+          [],
+          [
+            23,
+            25
+          ]
+        ]
+      }
+    },
+    "4d969b682c93048017d30140fe4c3bb2fb263689": {},
+    "4e1bcba11bae63ac60a362bd37f5d2e18dff4f34": {
+      "VotingAndRep": {
+        "0": [
+          [
+            0,
+            2,
+            4,
+            6,
+            7,
+            8,
+            9
+          ],
+          [],
+          [
+            1,
+            3,
+            5
+          ]
+        ]
+      }
+    },
+    "4ef2efddad49b16df2eb4f1cc5322d4d59ddfccc": {},
+    "50e459f37599d84853a80ba2ddbb8d4eb720c77e": {},
+    "526785664ca36a2ca5a004c4be3c887b62fc8edc": {},
+    "5302c7e57c548258b5e5aa26d36b1efef5ede1b9": {
+      "Exclusivity": {
+        "0": [
+          [
+            25
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "5361e9ce63eeee9ff247690ed64a83b9056fa3fc": {
+      "ActiveUser": {
+        "0": [
+          [
+            22,
+            24,
+            26,
+            27
+          ],
+          [],
+          [
+            23,
+            25
+          ]
+        ]
+      }
+    },
+    "54eaf5d5b156775008738884cd4e0d8c4ce1d534": {},
+    "55bc08c1297e9e2cb2075e1c51d565b680a3fe33": {
+      "ActiveUser": {
+        "0": [
+          [
+            19,
+            21
+          ],
+          [
+            20
+          ],
+          []
+        ]
+      }
+    },
+    "580ed722463209de7ab78b393b3e01911ac419d3": {},
+    "5996dd1d5c19d485fac8a3138d9009e45d9cf87b": {},
+    "5ad6c6d12915434c67777ead55475d0ce518cc63": {
+      "ActiveUser": {
+        "0": [
+          [
+            22,
+            24,
+            26,
+            27
+          ],
+          [],
+          [
+            23,
+            25
+          ]
+        ]
+      }
+    },
+    "5ae684ad3802d99901e29659d28205170d937465": {
+      "PublicGoods": {
+        "0": [
+          [
+            7,
+            8,
+            10,
+            11,
+            13,
+            15,
+            20,
+            21,
+            22
+          ],
+          [
+            9,
+            12,
+            14
+          ],
+          []
+        ]
+      },
+      "Token": {
+        "0": [
+          [
+            0,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "5b859b729cf398bc3950c2ae61f49ce97096f15c": {},
+    "5bc82f8ba30ab638643d494129a176c683e4e03d": {
+      "ActiveUser": {
+        "0": [
+          [
+            17
+          ],
+          [],
+          []
+        ]
+      },
+      "Reimbursement": {
+        "0": [
+          [
+            0,
+            13,
+            19,
+            20,
+            21
+          ],
+          [
+            18
+          ],
+          [
+            14,
+            15,
+            16
+          ]
+        ]
+      }
+    },
+    "5c7bff51f2f415c030c7d8dbe5ba2d757ee5ba71": {
+      "Token": {
+        "0": [
+          [
+            0
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "5cca1d2fadf8fce4a1b9f66e52955db00dc0b940": {},
+    "5deeece8f4cc2bb8ccd18c68f446ecfdc1415ee8": {
+      "Token": {
+        "0": [
+          [
+            14,
+            15,
+            16
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "5e6472d3005930c5b8ec4693a22a0dafaed8be8a": {
+      "ActiveUser": {
+        "0": [
+          [
+            17
+          ],
+          [],
+          []
+        ]
+      },
+      "Reimbursement": {
+        "0": [
+          [
+            0,
+            13,
+            17
+          ],
+          [
+            16
+          ],
+          [
+            14,
+            15
+          ]
+        ]
+      }
+    },
+    "5f616def8ee98402161042b668d98cec2def7ca0": {},
+    "620f82477ee33443f72b3aff48036980fabc6edc": {
+      "Exclusivity": {
+        "0": [
+          [
+            25
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "641d88e8bcfc68b24eb60779c16ff87185f100ea": {},
+    "6442632423216449fee832f9f03603dfade0cb41": {
+      "ActiveUser": {
+        "0": [
+          [
+            16
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "6573eb4d8164cf820607c7e303670abba5c321bc": {},
+    "665c438ba9ab5a256d471faaad10f85f87229fbf": {
+      "Token": {
+        "0": [
+          [
+            17,
+            18,
+            20,
+            22,
+            23,
+            24
+          ],
+          [
+            19,
+            21
+          ],
+          []
+        ]
+      }
+    },
+    "66bf798fffaf2b629ee08ee2f04ef69ced69f394": {
+      "Token": {
+        "0": [
+          [
+            0
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "681980aa3b2f18677b9472e8c819e89d5503a8ad": {
+      "ActiveUser": {
+        "0": [
+          [
+            17
+          ],
+          [],
+          []
+        ]
+      },
+      "Reimbursement": {
+        "0": [
+          [
+            0,
+            13,
+            19,
+            20,
+            21
+          ],
+          [
+            18
+          ],
+          [
+            14,
+            15,
+            16
+          ]
+        ]
+      }
+    },
+    "6928243ec76b46d331c93f392db4a16bb5b89e32": {},
+    "6932a3bc654254dc8bbb4638268ff889b27b8a7f": {},
+    "693f74a36c4d782863c07c27f967b4064fc79162": {},
+    "6a738fdae26d389330d85ae2ece81b04a5bf16cf": {
+      "ActiveUser": {
+        "0": [
+          [
+            8,
+            10,
+            12,
+            14
+          ],
+          [],
+          [
+            9,
+            11,
+            13
+          ]
+        ]
+      }
+    },
+    "6b70bf2dabe960ef7cfa48986a46c6b6ea60eac3": {
+      "ActiveUser": {
+        "0": [
+          [
+            8,
+            10,
+            12,
+            14
+          ],
+          [],
+          [
+            9,
+            11,
+            13
+          ]
+        ]
+      }
+    },
+    "6efca9eab58a29026ae97e0fb0dee5a9f923b79c": {
+      "Reimbursement": {
+        "0": [
+          [
+            10
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "71b4664a523c9dc98d8cb2e8636640d23b468a35": {
+      "Exclusivity": {
+        "0": [
+          [],
+          [],
+          [
+            15
+          ]
+        ]
+      }
+    },
+    "729b35ee17b19401fc944e769984032819c8df33": {},
+    "74debdfa75a5c6c135abe67e99fd96b699a02cf2": {
+      "Exclusivity": {
+        "0": [
+          [
+            28,
+            30,
+            31,
+            32
+          ],
+          [
+            29
+          ],
+          [
+            29
+          ]
+        ]
+      }
+    },
+    "7502d526306a2af1d86631439f7a38f652ee3c83": {
+      "VotingAndRep": {
+        "0": [
+          [
+            37
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "7571fdd0aae364eaac3ea5ef3a3889a7f0e3959f": {
+      "Token": {
+        "0": [
+          [
+            28
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "784c0cf8a728c5465e787589ad920f5bf8406598": {
+      "ActiveUser": {
+        "0": [
+          [
+            17
+          ],
+          [],
+          []
+        ]
+      },
+      "Stake": {
+        "0": [
+          [
+            0,
+            2,
+            3,
+            4
+          ],
+          [
+            1
+          ],
+          []
+        ]
+      },
+      "Wolvercoin": {
+        "0": [
+          [
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "7a41003e96b0038c6f6743ba73fc509a2c6db4f9": {
+      "Wolvercoin": {
+        "0": [
+          [
+            14,
+            15,
+            16
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "7b1fe36c61e2d59ed48b6eba67bee38de8621ae2": {
+      "DutchAuction": {
+        "0": [
+          [
+            3
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "7b243b436364457242622f285afeb6f7bddf77bc": {
+      "ActiveUser": {
+        "0": [
+          [
+            16
+          ],
+          [],
+          []
+        ]
+      },
+      "Reimbursement": {
+        "0": [
+          [
+            1,
+            3,
+            22,
+            23,
+            24
+          ],
+          [],
+          [
+            2
+          ]
+        ]
+      }
+    },
+    "7b6560f776c136389c7e1932cc282b3cf6f8f05b": {
+      "ActiveUser": {
+        "0": [
+          [
+            8,
+            10,
+            12,
+            14
+          ],
+          [],
+          [
+            9,
+            11,
+            13
+          ]
+        ]
+      }
+    },
+    "7ccf795b597e02145d89bd4769b73b22d933fd83": {},
+    "7eaf1a6cd1d2b3444c985f92f186c3095a991f2d": {},
+    "7f092c0f8950729387480305ae1d262f48c602c0": {
+      "Wolvercoin": {
+        "0": [
+          [
+            14,
+            15,
+            16
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "7f82ec64a86d87df2bd6e812bf8234f500ac4994": {
+      "PublicGoods": {
+        "0": [
+          [
+            0,
+            2,
+            3,
+            5
+          ],
+          [
+            1,
+            4,
+            6
+          ],
+          []
+        ]
+      }
+    },
+    "8783f1a01e2f6862e4b1907bb15115304bdee519": {},
+    "89189414306cb4a20ab2dad871c648883f9e9b62": {
+      "VotingAndRep": {
+        "0": [
+          [
+            10,
+            11,
+            12,
             13,
             14
           ],
@@ -167,6 +1606,141 @@
         ]
       }
     },
+    "8c2f7d0d2d0d03c1732392a89c11fa020143b90d": {
+      "Reimbursement": {
+        "0": [
+          [
+            12
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "8d846cbf2e6ec6d5a904681e9b3997e4146c77aa": {},
+    "8e25545698038d4a35622ab5c2ccee558900187c": {
+      "Exclusivity": {
+        "0": [
+          [],
+          [],
+          [
+            15
+          ]
+        ]
+      }
+    },
+    "8edc93d4311cc0f5f35368370ba0fd6f9ee3a1d8": {
+      "Reimbursement": {
+        "0": [
+          [
+            12
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "90263017bd2c5c12cbca2e54747a3fc614a9bf70": {
+      "DutchAuction": {
+        "0": [
+          [
+            0
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "903aef5d17a0058e2b74b7ea13ddc26d82c43185": {
+      "ActiveUser": {
+        "0": [
+          [
+            22,
+            24,
+            26,
+            27
+          ],
+          [],
+          [
+            23,
+            25
+          ]
+        ]
+      }
+    },
+    "907623ac74dcabaaa6b54f219fa546bf6c25b155": {
+      "ActiveUser": {
+        "0": [
+          [
+            17
+          ],
+          [],
+          []
+        ]
+      },
+      "Reimbursement": {
+        "0": [
+          [
+            0,
+            13,
+            19,
+            20,
+            21
+          ],
+          [
+            18
+          ],
+          [
+            14,
+            15,
+            16
+          ]
+        ]
+      }
+    },
+    "92cc29b891f7ffdb7e346ac1351d6e339481b7d8": {},
+    "935535efdbec4be3eef38461e7d1b7fa26709fd5": {
+      "PublicGoods": {
+        "0": [
+          [
+            7,
+            8,
+            10,
+            11,
+            13,
+            15,
+            20,
+            21,
+            22
+          ],
+          [
+            9,
+            12,
+            14
+          ],
+          []
+        ]
+      },
+      "Token": {
+        "0": [
+          [
+            0,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "946c952399c65f05ee9d87490216f1578ae4f52b": {},
+    "9540130a61cacc5483d2c98bffff71f64e87aae5": {},
     "97b3492c5c414488b78e72c94f23cefa5c39f942": {
       "Stake": {
         "0": [
@@ -181,6 +1755,452 @@
         ]
       }
     },
+    "984a2561edf78eafbb50e3126d1944d4d1d4874b": {},
+    "98a8fc2444c18ad8ffc7d7e2d976a0a8637104dc": {},
+    "98c4afe6b301d1e608c582a426f202333e528489": {},
+    "99471d25bf48aca010226b657ae4e1313a45ab34": {
+      "ActiveUser": {
+        "0": [
+          [
+            22,
+            24,
+            26,
+            27
+          ],
+          [],
+          [
+            23,
+            25
+          ]
+        ]
+      }
+    },
+    "998c5b150580c7994fa0f721bfba14690b10b35a": {
+      "Token": {
+        "0": [
+          [
+            0
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "99c8a0db32cbdfc309f64262f801f637d99f8c58": {},
+    "9a524efe8646483bab8b6daefddb50641788164c": {},
+    "9a80c09bb3447808e0e84d43790ca879b6fd279a": {},
+    "9ad4e4d60fa973df18bfab617f75b1d745c54792": {
+      "ActiveUser": {
+        "0": [
+          [
+            16
+          ],
+          [],
+          []
+        ]
+      },
+      "Reimbursement": {
+        "0": [
+          [
+            4,
+            6,
+            8,
+            22,
+            23,
+            24
+          ],
+          [],
+          [
+            5,
+            7
+          ]
+        ]
+      }
+    },
+    "9b2e2ca89aed31d7a41272ba9269825f46e6450f": {
+      "PublicGoods": {
+        "0": [
+          [
+            35,
+            37,
+            38,
+            40,
+            44,
+            45,
+            46,
+            47,
+            48
+          ],
+          [
+            36,
+            39,
+            41,
+            42,
+            43
+          ],
+          [
+            43
+          ]
+        ]
+      },
+      "Token": {
+        "0": [
+          [
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "9bf9dc7c3c62872bf6d10c8e6367c1fbf0256122": {
+      "VotingAndRep": {
+        "0": [
+          [
+            0,
+            2,
+            4,
+            6,
+            7,
+            8,
+            9
+          ],
+          [],
+          [
+            1,
+            3,
+            5
+          ]
+        ]
+      }
+    },
+    "9c0cb335010ab6c37118bbcdf9ec77841340ff33": {
+      "ActiveUser": {
+        "0": [
+          [
+            8,
+            10,
+            12,
+            14
+          ],
+          [],
+          [
+            9,
+            11,
+            13
+          ]
+        ]
+      }
+    },
+    "9cc587cb8c1cb6f75b92f4962846225881aed198": {
+      "Exclusivity": {
+        "0": [
+          [
+            33,
+            35,
+            36,
+            37
+          ],
+          [
+            34
+          ],
+          [
+            34
+          ]
+        ]
+      }
+    },
+    "9e6c920424c24e718b9fa0ed4ac8f2f848e5e477": {
+      "ActiveUser": {
+        "0": [
+          [
+            17
+          ],
+          [],
+          []
+        ]
+      },
+      "Reimbursement": {
+        "0": [
+          [
+            0,
+            13,
+            19,
+            20,
+            21
+          ],
+          [
+            18
+          ],
+          [
+            14,
+            15,
+            16
+          ]
+        ]
+      }
+    },
+    "9fb8cdda46a763128b00c7b006c7cabf5d6fee09": {},
+    "9fce7910bd443aac5e5370000e2b4b0cbad8ebb8": {
+      "PublicGoods": {
+        "0": [
+          [
+            0,
+            2,
+            3,
+            5
+          ],
+          [
+            1,
+            4,
+            6
+          ],
+          []
+        ]
+      }
+    },
+    "a1e0b37cc1e8bfef6505a86bcd273bc8b51cd984": {
+      "Token": {
+        "0": [
+          [
+            14,
+            15,
+            16
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "a2753312203fc69a179f26fef7264d52907aca6a": {
+      "ActiveUser": {
+        "0": [
+          [
+            22,
+            24,
+            26,
+            27
+          ],
+          [],
+          [
+            23,
+            25
+          ]
+        ]
+      }
+    },
+    "a2a1157999d177967d417ffa83cca012ac583c0f": {
+      "Token": {
+        "0": [
+          [
+            0
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "a3fe1b1ec30d726dfc0fca6060e4a06f7f3313b3": {},
+    "a40811c6ab6ff467255bf545bf619dc757fa6e19": {
+      "ActiveUser": {
+        "0": [
+          [
+            8,
+            10,
+            12,
+            14
+          ],
+          [],
+          [
+            9,
+            11,
+            13
+          ]
+        ]
+      }
+    },
+    "a4ff1edcb4b0fb71fe0b04897aecb55963be4207": {
+      "ActiveUser": {
+        "0": [
+          [
+            16
+          ],
+          [],
+          []
+        ]
+      },
+      "Reimbursement": {
+        "0": [
+          [
+            1,
+            3,
+            22,
+            23,
+            24
+          ],
+          [],
+          [
+            2
+          ]
+        ]
+      }
+    },
+    "a66a356d71434b256d2934dc9a1c865d8522ffbb": {
+      "VotingAndRep": {
+        "0": [
+          [
+            15,
+            17,
+            19,
+            20,
+            21
+          ],
+          [
+            16,
+            18
+          ],
+          []
+        ]
+      }
+    },
+    "a78b9e3c90d4fccea34036fdc9ff8c1026790270": {},
+    "a7a31827a84cd0ebd6d297f9f8a6a06cdbd3041a": {
+      "Token": {
+        "0": [
+          [
+            17,
+            18,
+            20,
+            22,
+            23,
+            24
+          ],
+          [
+            19,
+            21
+          ],
+          []
+        ]
+      }
+    },
+    "a88c28f81512b1d220a268a243cbe1ade7b8f1b2": {
+      "Token": {
+        "0": [
+          [
+            1
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "acbf6d99cb50d933c6b711febfebfae861809761": {},
+    "ad26456b0069eae738d42a613bb089048f52f9c8": {
+      "ActiveUser": {
+        "0": [
+          [
+            8,
+            10,
+            12,
+            14
+          ],
+          [],
+          [
+            9,
+            11,
+            13
+          ]
+        ]
+      }
+    },
+    "ae2a0123cccf6db5d3f33a3d8bed6f3d5ad10988": {
+      "Token": {
+        "0": [
+          [
+            0
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "ae47def6813a03faafefa8c030bd0dea32be1d09": {
+      "Token": {
+        "0": [
+          [
+            1
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "afc05b0b6d7ae4e936b3e023bb5afbc816175a3f": {
+      "ActiveUser": {
+        "0": [
+          [
+            17
+          ],
+          [],
+          []
+        ]
+      },
+      "Reimbursement": {
+        "0": [
+          [
+            0,
+            13,
+            21
+          ],
+          [],
+          [
+            14,
+            15,
+            16,
+            18
+          ]
+        ]
+      }
+    },
+    "afff5b6c293cb5375c9beff12229787376b725b0": {
+      "ActiveUser": {
+        "0": [
+          [
+            16
+          ],
+          [],
+          []
+        ]
+      },
+      "Reimbursement": {
+        "0": [
+          [
+            4,
+            6,
+            8,
+            22,
+            23,
+            24
+          ],
+          [],
+          [
+            5,
+            7
+          ]
+        ]
+      }
+    },
+    "b16e053882045cd98745700f0e1a1fe7d6c1d887": {},
     "b17ea4d0e0c8396978d2b21685a0c5bcef121e43": {
       "Reimbursement": {
         "0": [
@@ -191,6 +2211,39 @@
           [
             14
           ],
+          []
+        ]
+      }
+    },
+    "b2a448d2788b9214cff22c80acbc0f1aaaaf84d9": {},
+    "b2df1e7c8622253ef9e797b8f31d6331037e0816": {
+      "ActiveUser": {
+        "0": [
+          [
+            22,
+            24,
+            26,
+            27
+          ],
+          [],
+          [
+            23,
+            25
+          ]
+        ]
+      }
+    },
+    "b3662b2ed4b86240853631cbea95ae15a3657eda": {
+      "VotingAndRep": {
+        "0": [
+          [
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          [],
           []
         ]
       }
@@ -220,21 +2273,103 @@
         ]
       }
     },
-    "bb2811b104ad816b9657a2c7b77b6e1b1d3ab891": {
-      "VotingAndRep": {
+    "b5ba51a6c8df0d8deb389fc4e9f6743d23124ff7": {
+      "PublicGoods": {
         "0": [
           [
-            0,
-            2,
-            4
+            23,
+            25,
+            26,
+            28
           ],
           [
-            5
+            24,
+            27
           ],
+          []
+        ]
+      }
+    },
+    "b864c6c582fab39894d4b567993459654659601e": {
+      "Wolvercoin": {
+        "0": [
           [
-            1,
-            3
+            14,
+            15,
+            16
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "b8d946e2091e25fbc7d429b8bc9f7101e9522d44": {
+      "ActiveUser": {
+        "0": [
+          [
+            8,
+            10,
+            12,
+            14
+          ],
+          [],
+          [
+            9,
+            11,
+            13
           ]
+        ]
+      }
+    },
+    "b8e99fd459eeb79782e59f13ff0c24f9d132ef9b": {},
+    "b98b7c1119ea7bc027c5f193ee40c84d5ff46c17": {},
+    "b9f1c05effe4da96773a26948a6b2dbf26f6302d": {
+      "PublicGoods": {
+        "0": [
+          [
+            23,
+            25,
+            26,
+            28
+          ],
+          [
+            24,
+            27
+          ],
+          []
+        ]
+      }
+    },
+    "ba18cc3a916fd519059db2310715ac86921a32a8": {
+      "Token": {
+        "0": [
+          [
+            0
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "ba3a67007f52e15a51937f456480543d5dc57327": {
+      "Exclusivity": {
+        "0": [
+          [
+            25
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "bc46641136c27683c40d6be4e272341645ec3ef3": {
+      "Crash": {
+        "0": [
+          [
+            8
+          ],
+          [],
+          []
         ]
       }
     },
@@ -269,6 +2404,803 @@
             7
           ],
           [],
+          []
+        ]
+      }
+    },
+    "be473a58a04710e04c9543492f96d38a7ace6fea": {
+      "VotingAndRep": {
+        "0": [
+          [
+            0,
+            2,
+            4,
+            6,
+            7,
+            8,
+            9
+          ],
+          [],
+          [
+            1,
+            3,
+            5
+          ]
+        ]
+      }
+    },
+    "bee81f24dbb8bbd5493078c83431176bb93878ad": {},
+    "bfc4e38cdfd1e8bfeb9ea8806cb3565f5ae029e7": {},
+    "c14287a56863ae1917c313c76b340bb9a1e129fb": {
+      "ActiveUser": {
+        "0": [
+          [
+            8,
+            10,
+            12,
+            14
+          ],
+          [],
+          [
+            9,
+            11,
+            13
+          ]
+        ]
+      }
+    },
+    "c2b45960755bc1e6f2a1ab235df934b70698dd80": {},
+    "c3ff1299e2438d52a2ec1834c061ccaba6f19f27": {
+      "ActiveUser": {
+        "0": [
+          [
+            17
+          ],
+          [],
+          []
+        ]
+      },
+      "Stake": {
+        "0": [
+          [
+            0,
+            2,
+            3,
+            4
+          ],
+          [
+            1
+          ],
+          []
+        ]
+      },
+      "Wolvercoin": {
+        "0": [
+          [
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "c97ae731ed6da14a5efd22f59ba8ed1dd3023da1": {},
+    "c99fc1083a62d7fb1874ecb83d0ebb158475d7c8": {
+      "ActiveUser": {
+        "0": [
+          [
+            22,
+            24,
+            26,
+            27
+          ],
+          [],
+          [
+            23,
+            25
+          ]
+        ]
+      }
+    },
+    "ca3449c601ca689ce60f1c30e3f39e5924e739bc": {
+      "Exclusivity": {
+        "0": [
+          [
+            26
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "ca6add99b4f66723d3b73e16ebaf0ff2f25422c5": {},
+    "cad94c9eaa5aa2e638e53dabc0f1f882e3679c2d": {
+      "VotingAndRep": {
+        "0": [
+          [
+            15,
+            17,
+            19,
+            20,
+            21
+          ],
+          [
+            16,
+            18
+          ],
+          []
+        ]
+      }
+    },
+    "cb6b72f02f64823031ccebfb1e785ca3b88f6719": {
+      "Exclusivity": {
+        "0": [
+          [
+            25
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "ccb26a54be27f04718aa527de4325915aac5dc7b": {
+      "ActiveUser": {
+        "0": [
+          [
+            15
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "cf6fb5015cdde9d02005365a74c01578852c3201": {
+      "Crash": {
+        "0": [
+          [
+            8
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "cff1b6171df7022dd0cb002cb5b2242911897f59": {
+      "Reimbursement": {
+        "0": [
+          [
+            10
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "d12a8830622e63a97a84f728594c51ca3f5cb4c6": {
+      "ActiveUser": {
+        "0": [
+          [
+            16
+          ],
+          [],
+          []
+        ]
+      },
+      "Reimbursement": {
+        "0": [
+          [
+            1,
+            3,
+            22,
+            23,
+            24
+          ],
+          [],
+          [
+            2
+          ]
+        ]
+      }
+    },
+    "d13f05ae594a140491cbdf5ebd6d04f9012d0fdb": {},
+    "d1c596e287a13b49dac4d9c3ccd9d1e3ddcc57a9": {
+      "ActiveUser": {
+        "0": [
+          [
+            8,
+            10,
+            12,
+            14
+          ],
+          [],
+          [
+            9,
+            11,
+            13
+          ]
+        ]
+      }
+    },
+    "d27e82b0398e10bc9330bce67a7f3ef46216c3fb": {},
+    "d2954cc973e8c6b50bfb6027a554d5fbcb19f64d": {},
+    "d57ddde7fd0593d46b43689302551469237c4a73": {
+      "ActiveUser": {
+        "0": [
+          [
+            16
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "d69143681c74cd3168d41c0cff479e49776bc1f0": {},
+    "d6963c125b7601a598049d9b68ac930b11446d44": {},
+    "d9116d631847cea9da6d19120baaaa54e2e058c2": {
+      "ActiveUser": {
+        "0": [
+          [
+            8,
+            10,
+            12,
+            14
+          ],
+          [],
+          [
+            9,
+            11,
+            13
+          ]
+        ]
+      }
+    },
+    "dc7e55fa8fcf9c87ebb6c4b7bb6a6741e60e5b11": {
+      "Wolvercoin": {
+        "0": [
+          [
+            14,
+            15,
+            16
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "de68b3e0940218b08c60287ae33cdadfd9dcd1d7": {
+      "ActiveUser": {
+        "0": [
+          [
+            8,
+            10,
+            12,
+            14
+          ],
+          [],
+          [
+            9,
+            11,
+            13
+          ]
+        ]
+      }
+    },
+    "de696cb54f28005f95f88c1772a5bcc64cabdcb4": {
+      "ActiveUser": {
+        "0": [
+          [
+            16
+          ],
+          [],
+          []
+        ]
+      },
+      "Reimbursement": {
+        "0": [
+          [
+            4,
+            6,
+            8,
+            22,
+            23,
+            24
+          ],
+          [],
+          [
+            5,
+            7
+          ]
+        ]
+      }
+    },
+    "df6c731f84242bc6b7ad78821128630da67e3be5": {
+      "ActiveUser": {
+        "0": [
+          [
+            8,
+            10,
+            12,
+            14
+          ],
+          [],
+          [
+            9,
+            11,
+            13
+          ]
+        ]
+      }
+    },
+    "e034a80e4676b9de806edede7759a6a0dea37233": {
+      "PublicGoods": {
+        "0": [
+          [
+            7,
+            8,
+            10,
+            11,
+            13,
+            15,
+            20,
+            21,
+            22
+          ],
+          [
+            9,
+            12,
+            14
+          ],
+          []
+        ]
+      },
+      "Token": {
+        "0": [
+          [
+            0,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "e1313178ac6e3a086fdd86e9f8f29b3ede703d41": {
+      "ActiveUser": {
+        "0": [
+          [
+            8,
+            10,
+            12,
+            14
+          ],
+          [],
+          [
+            9,
+            11,
+            13
+          ]
+        ]
+      }
+    },
+    "e1b7add798d95c2115dc9aadfd8a085e0ae1616e": {
+      "Exclusivity": {
+        "0": [
+          [
+            33,
+            37
+          ],
+          [],
+          [
+            34
+          ]
+        ]
+      }
+    },
+    "e3f3a269e46f7a1809b8c8dc210c9b619a415a98": {
+      "ActiveUser": {
+        "0": [
+          [
+            16
+          ],
+          [],
+          []
+        ]
+      },
+      "Reimbursement": {
+        "0": [
+          [
+            1,
+            3,
+            22,
+            23,
+            24
+          ],
+          [],
+          [
+            2
+          ]
+        ]
+      }
+    },
+    "e4a51c905a93f1ac0826f0479046906701fc25f6": {
+      "ActiveUser": {
+        "0": [
+          [
+            8,
+            10,
+            12,
+            14
+          ],
+          [],
+          [
+            9,
+            11,
+            13
+          ]
+        ]
+      }
+    },
+    "e4cbf3e320432910625e8b5d545d5e50b5140c12": {
+      "ActiveUser": {
+        "0": [
+          [
+            22,
+            24,
+            26,
+            27
+          ],
+          [],
+          [
+            23,
+            25
+          ]
+        ]
+      }
+    },
+    "e546a339b359d663e055d261182aea27444896f6": {
+      "ActiveUser": {
+        "0": [
+          [
+            8,
+            10,
+            12,
+            14
+          ],
+          [],
+          [
+            9,
+            11,
+            13
+          ]
+        ]
+      }
+    },
+    "e5b01996d14642a042576de1885dc1db8432487d": {
+      "PublicGoods": {
+        "0": [
+          [
+            35,
+            37,
+            38,
+            40,
+            48
+          ],
+          [
+            36,
+            39,
+            41
+          ],
+          [
+            42
+          ]
+        ]
+      }
+    },
+    "e5c97497e68bc106a1c7f459dbd7dd1c7214385a": {
+      "ActiveUser": {
+        "0": [
+          [
+            8,
+            10,
+            12,
+            14
+          ],
+          [],
+          [
+            9,
+            11,
+            13
+          ]
+        ]
+      }
+    },
+    "e78a6097d6c13bfb2ce6ff8fa8134f0c966f7a26": {},
+    "e82f3e9f04e0a39a064c19da5c10e2cd8587bfdd": {},
+    "e9a2fdf9be8f6e1070899b1a2430e8694c013256": {
+      "Wolvercoin": {
+        "0": [
+          [
+            14,
+            15,
+            16
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "ea1636ec876c95bd04a833252d388b9f5e0d6378": {
+      "ActiveUser": {
+        "0": [
+          [
+            8,
+            10,
+            12,
+            14
+          ],
+          [],
+          [
+            9,
+            11,
+            13
+          ]
+        ]
+      }
+    },
+    "ea7ff9055c49356a4ea68d26c3e2c199b5d8db06": {
+      "PublicGoods": {
+        "0": [
+          [
+            0,
+            2,
+            3,
+            5
+          ],
+          [
+            1,
+            4,
+            6
+          ],
+          []
+        ]
+      }
+    },
+    "ea9bf887e62a60c676a45be2a7fd4e448df1bcb9": {
+      "Reimbursement": {
+        "0": [
+          [
+            12
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "eb3db5864401534642b7c708884abe073885ca9f": {},
+    "ebccd1cf23a8a157f7d5bdc3573bfbc484210272": {
+      "ActiveUser": {
+        "0": [
+          [
+            0,
+            2,
+            4,
+            6,
+            7
+          ],
+          [],
+          [
+            1,
+            3,
+            5
+          ]
+        ]
+      }
+    },
+    "ec5c4e7b6f3edcae9666b4686a362b3a137ba65c": {},
+    "eff3f7d35e73b424e87bddd2c8b806a79f8b6921": {
+      "socialAdnDonations": {
+        "0": [
+          [
+            13,
+            14
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "f1a6f35e378394ce6140a801c72faff7679014d9": {},
+    "f1e4bf22fe0990839fbffdbfa177e06156136caa": {},
+    "f426c47423675bdec0f0228de7085fd888fab598": {
+      "PublicGoods": {
+        "0": [
+          [
+            29,
+            31,
+            32,
+            34
+          ],
+          [
+            30,
+            33
+          ],
+          []
+        ]
+      }
+    },
+    "f5710ac57836b802d2681ead3a00c4644a1d851f": {
+      "Token": {
+        "0": [
+          [
+            0
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "f831cb6fc134c25c67d41f1230fc3343734e3002": {
+      "PublicGoods": {
+        "0": [
+          [
+            23,
+            25,
+            26,
+            28
+          ],
+          [
+            24,
+            27
+          ],
+          []
+        ]
+      }
+    },
+    "f8f00da46b020888250d803c4d0604ef0524e7ec": {
+      "Exclusivity": {
+        "0": [
+          [
+            24
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "f928de06bc8d526f61acbbc34d2066e9649c17fe": {},
+    "fa6082e626c3b73a687fc974d9a0c0e517cbd6a7": {
+      "Token": {
+        "0": [
+          [
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "fb97f93d074f2bc32a1feab8ca090be6ad72e351": {
+      "VotingAndRep": {
+        "0": [
+          [
+            0,
+            2,
+            4,
+            6,
+            7,
+            8,
+            9
+          ],
+          [],
+          [
+            1,
+            3,
+            5
+          ]
+        ]
+      }
+    },
+    "fbf568a74e85585f85033e29a30a9c11585f63dd": {
+      "Reimbursement": {
+        "0": [
+          [
+            12
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "fc4bb42b0d475ae2d2b63bce83c6243dea984920": {
+      "Token": {
+        "0": [
+          [
+            0
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "fc5184d66d7b2774721a58424315203eb0182895": {
+      "Reimbursement": {
+        "0": [
+          [
+            10
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "fc7cef368091a3a3f777a965e4108a60cfa121c0": {
+      "ActiveUser": {
+        "0": [
+          [
+            22,
+            24,
+            26,
+            27
+          ],
+          [],
+          [
+            23,
+            25
+          ]
+        ]
+      }
+    },
+    "fcb41df6003aa1ba923db28368fceeaead6689e1": {},
+    "fe65eeb4f542fcbd5a94e8ca8555af0512f44231": {
+      "ActiveUser": {
+        "0": [
+          [
+            22,
+            24,
+            26,
+            27
+          ],
+          [],
+          [
+            23,
+            25
+          ]
+        ]
+      }
+    },
+    "ff4892125a26ea7a0bb2368c7daf41f034a8f2d0": {
+      "Token": {
+        "0": [
+          [
+            17,
+            18,
+            20,
+            22,
+            23,
+            24
+          ],
+          [
+            19,
+            21
+          ],
           []
         ]
       }

@@ -22,7 +22,7 @@ def erc20Contract(Token, accounts):
         "WVC", # _symbol
         18, # _decimals
         1000, # _supply
-        {'from': accounts[0]}
+        {'from': accounts[1]}
     )
 
 def test_voteOfficials (socialAdnDonationsContract):
@@ -35,7 +35,7 @@ def test_voteOfficials (socialAdnDonationsContract):
 def test_donate(socialAdnDonationsContract, erc20Contract):
     donator = accounts[4]
     reciever = accounts[5]
-    admin = accounts[0]
+    admin = accounts[1]
 
     assert erc20Contract.mint(donator, 420, {'from': admin}) # Supply the account with some token
     assert str(erc20Contract.getBalanceOf(donator).return_value) == "420"

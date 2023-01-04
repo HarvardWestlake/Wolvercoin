@@ -24,13 +24,15 @@ proposalVotes: public(DynArray[uint256, 3])
 activeUserContract: public(ActiveUser)
 
 
-
 @external
 def __init__ (activeUserAddress: address):
     self.activeYear = 2023
     self.activeUserContract = ActiveUser(activeUserAddress)
     self.officialVotingPeriod = True
     self.proposalVotes=[0,0,0]
+    self.erc20 = ERC20WithAdminAccess(activeUserAddress)
+    return
+
 
 
 
@@ -53,8 +55,9 @@ def voteProposal(proposalNumber : uint256):
 
 @external
 def donate(pot: address, to: address, val: uint256):
-    self.erc20.approve(pot,val)
+    assert self.erc20.getBalanceOf(pot) >= val
     self.erc20.transferFrom(pot,to,val)   
+
 @external   
 def getProposalVotes (num : uint256) -> (uint256):
     return self.proposalVotes[num]
