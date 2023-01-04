@@ -3,8 +3,8 @@
 # vyper.interfaces.ERC20 does not include the mint and burn functions so we make our own interface
 interface ERC20WithAdminAccess:
     def getBalanceOf(_address: address) -> uint256: nonpayable
-    def mint(_to: address, _value: uint256): nonpayable
-    def burnFrom(_to: address, _value: uint256): nonpayable
+    def transferFrom(_from : address, _to : address, _value : uint256) -> bool: nonpayable
+    def approve(_spender : address, _value : uint256) -> bool: nonpayable
 
 struct Donation:
     donator: address
@@ -48,7 +48,7 @@ def contribute(name: String[50], amount: uint256):
 
     # Fail the function if the user doesn't have enough money
     assert self.erc20.getBalanceOf(msg.sender) >= amount
-    self.erc20.burnFrom(msg.sender, amount)
+    self.erc20.transferFrom(msg.sender, self, amount)
 
     for i in range(50):
         if i >= good.donationsLen:
@@ -67,10 +67,22 @@ def contribute(name: String[50], amount: uint256):
     self.goods[name] = good
 
 @external
-def retract(name: String[50], amount: uint256):
-    # TODO for @monkeymatt2023
+def retract(name: String[50], amount1: uint256):
+    good: Good = self.goods[name]
+    assert good.name == name
 
-    # See comment above
+    for i in range(50):
+        if i >= good.donationsLen:
+            break
+        if (good.donations[i].donator == msg.sender):
+            if (amount1 <= good.donations[i].amount):
+                donation: Donation = good.donations[i]
+                self.erc20.approve(self, amount1)
+                self.erc20.transferFrom(self, donation.donator, amount1)
+                good.donations[i].amount -= amount1
+                good.totalDonations -= amount1
+                self.goods[name] = good
+                break
     return
 
 @external
@@ -98,6 +110,7 @@ def complete(name: String[50]):
             if i >= good.donationsLen:
                 break
             donation: Donation = good.donations[i]
-            self.erc20.mint(donation.donator, donation.amount) # Return the donator their money
+            self.erc20.approve(self, donation.amount)
+            self.erc20.transferFrom(self, donation.donator, donation.amount)
     self.goods[name] = empty(Good)
     return
