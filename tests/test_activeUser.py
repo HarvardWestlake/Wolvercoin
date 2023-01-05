@@ -20,6 +20,12 @@ def test_canAddAdmin(activeUserContract, accounts):
     activeUserContract.addAdmin(accounts[3],  {'from': accounts[0]})
     assert activeUserContract.getAdmin(accounts[3]) == True, "Contract constructor should add an single admin"
 
+def test_canRemoveAdmin(activeUserContract, accounts):  
+    activeUserContract.addAdmin(accounts[3],  {'from': accounts[0]}) 
+    assert activeUserContract.getAdmin(accounts[3]) == True, "User should be admin before test"
+    activeUserContract.removeAdmin(accounts[3],  {'from': accounts[0]})
+    assert activeUserContract.getAdmin(accounts[3]) == False, "Contract constructor should remove a single admin"
+
 def test_canSetGradYear(activeUserContract, accounts):
     txn1 = activeUserContract.setCurrentGradYear(2023)
     assert len(txn1.events) == 1, "Should log when grad year is set"

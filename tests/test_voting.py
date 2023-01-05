@@ -1,6 +1,5 @@
 import pytest
 from brownie import accounts
-from web3.exceptions import ValidationError
 from brownie.network.state import Chain
 
 chain = Chain()
@@ -8,8 +7,7 @@ chain = Chain()
 # . This runs before ALL tests
 @pytest.fixture
 def votingContract(VotingAndRep, accounts):
-    return VotingAndRep.deploy(accounts[0], {'from': accounts[0]})
-    
+    return VotingAndRep.deploy(accounts[0], 100, {'from': accounts[0]})
 
 def _as_wei_value(base, conversion):
     if conversion == "wei":
@@ -28,7 +26,7 @@ def test_hasCoin(votingContract, accounts):
 def test_amountAvailable(votingContract, accounts):
     sampleContract = votingContract.address
     votingContract.mint(accounts[3], 1000, {'from': accounts[0]}) # adds 1000VC to accounts balance
-    assert votingContract.proposeVote(sampleContract, "Vote for cows")# starts a vote for cows
+    votingContract.proposeVote(sampleContract, "Vote for cows")# starts a vote for cows
     votingContract.vote(sampleContract, 100, {'from': accounts[3]}) # User invests 100 coin into vote
 
     failCase = False
@@ -70,14 +68,6 @@ def test_setContractMaintainer(votingContract, accounts):
     except:
         stopBadContractChange = True
     assert stopBadContractChange, "Randoms should not be able to change maintainer"
-    
-    #allowChanges = True
-    #try:
-    #    votingContract.setContractMaintainer(accounts[5], {'from': accounts[0]})
-    #except:
-    #    allowChanges = False
-    #assert allowChanges, "Maintainer should be able to change maintainer"
-
 
 def test_setDisbled(votingContract, accounts):
 
@@ -102,59 +92,34 @@ def test_vote(votingContract, accounts):
     #tests if total amount of votercoin in proposition increases by specified amount
     assert votingContract.activePropositions(sampleContract) == (totalInvestedBefore + 10)
 
-"""
-def test_burnCoin(votingContract, accounts):
-    winningProp = "0xc0ffee254729296a45a3885639AC7E10F9d54979"
-    losingProp = "0x999999cf1046e68e36E1aA2E0E07105eDDD1f08E"
-    votingContract.setActiveProposition(winningProp, 0)
-    votingContract.setActiveProposition(losingProp, 0)
-    votingContract.setVoterCoinSupply(votingContract.voterCoinSupply() + 100)
-    votingContract.setAccountVCBal(accounts[4],50)
-    votingContract.setAccountVCBal(accounts[6],50)
-    votingContract.vote(accounts[4],losingProp,10)
-    votingContract.vote(accounts[6],winningProp,20)
-    
-    stopBadBurn = False
+
+def test_finishVote(votingContract, accounts):
+    winningProp = address("0xc0ffee254729296a45a3885639AC7E10F9d54979")
+    losingProp = address("0x999999cf1046e68e36E1aA2E0E07105eDDD1f08E")
+
+    votingContract.mint(accounts[1], 10000, {'from': accounts[0]}) # account 1 balance: 10_000
+
+    votingContract.proposeVote(winningProp, "you should vote for this thing", {'from': accounts[1]}, {'value': 1000})  # account 1 balance: 9_000
+
+    votingContract.vote(winningProp, 7000) # account 1 balance: 2_000
+
+    stopBadEndVote = False
     try:
-        votingContract.burnCoin(accounts[4])
+        votingContract.finishVote(winningProp)
     except:
-        stopBadBurn = True
-    assert stopBadBurn, "Coin should not be burned/returned if user is on losing side of the vote"
+        stopBadEndVote = True
+    assert stopBadEndVote, "Vote should not be ended before period"
 
-    allowBurn = True
-    try:
-        votingContract.burnCoin(accounts[6])
-    except:
-        allowBurn = False
-    assert allowBurn, "Coin should be burned/returned if user is on winning side of the vote"
-    assert True
+    chain.mine(200) # skiping to well past the end of the vote
 
-def test_endVote(votingContract, accounts):
-    
-    winningProp = "0xc0ffee254729296a45a3885639AC7E10F9d54979"
-    losingProp = "0x999999cf1046e68e36E1aA2E0E07105eDDD1f08E"
-
-    votingContract.proposeVote(winningProp, "Vote for more cows")
-    votingContract.proposeVote(losingProp, "Vote for less cows")
-
-    votingContract.mint(accounts[4], 50, {'from': accounts[0]}) 
-    votingContract.mint(accounts[6], 50, {'from': accounts[0]})
-
-    votingContract.vote(losingProp, 10, {'from': accounts[4]}) # this will not (-5)
-    votingContract.vote(winningProp, 50, {'from': accounts[6]}) # this will pass (-50)
-
-    # fast forwards
-    chain.mine(200)
-
-    votingContract.finishVote(losingProp)
-    votingContract.finishVote(winningProp)
-    
-    assert votingContract.totalSupply() == 45
-
-
-    
-    
+    # votingContract.finishVote(winningProp)
+    # as they won half of 7_000 should be returned
+    # this means they should get 3_500 back
+    # account 1 balance: 5_500
+    assert votingContract.votingContract.balanceOf(accounts[1]) == 5500
     assert votingContract.voterCoinStaked() == 0
-    assert True
 
-"""
+
+
+# need to test running code works and that you can pass something that isn't a contract
+

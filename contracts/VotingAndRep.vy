@@ -1,16 +1,19 @@
-# @version 0.3.7
-
-interface ActiveUser:
-    def getActiveUser(potentialUser: address) -> bool: view
-    def getAdmin(potentialAdmin: address) -> bool: view
-
-activeUserAddress: public(ActiveUser)
+# @version ^0.3.7
 
 from vyper.interfaces import ERC20
 from vyper.interfaces import ERC20Detailed
 
 implements: ERC20
 implements: ERC20Detailed
+
+interface ActiveUser:
+    def addAdmin(adminToAdd: address): nonpayable
+    def removeAdmin(adminToRemove: address): nonpayable
+    def getActiveUser(potentialUser: address) -> bool: view
+    def getAdmin(potentialAdmin: address) -> bool: view
+
+interface WVCvotableContract:
+    def finishVote(): payable
 
 event Transfer:
     sender: indexed(address)
@@ -22,6 +25,15 @@ event Approval:
     spender: indexed(address)
     value: uint256
 
+event VoteStarted:
+    subjectContract: indexed(address)
+    creator: address
+    amountSent: uint256
+
+event VoteEnded:
+    contract: indexed(address)
+
+activeUserAddress: public(ActiveUser)
 name: public(String[32])
 symbol: public(String[32])
 decimals: public(uint8)
@@ -43,7 +55,7 @@ affectsDao: public(HashMap[address, bool])
 # storage for each persons money in a proposition
 amountInFavor: public(HashMap[address, HashMap[address, uint256]]) # this maybe should not be public
 # list of people in each proposition (to improve efficency in money returns)
-peopleInvested: HashMap[address, DynArray[address, 1024]]
+peopleInvested: HashMap[address, DynArray[address, 64]]
 # the ending block for each proposition
 endBlock: public(HashMap[address, uint256])
 # the value sent to contract on sucsessful vote
@@ -51,26 +63,19 @@ storedDonation: public(HashMap[address, uint256])
 
 # list of variables that could be changed (via voting) 
 
-returnedWinner: address
+# returnedWinner
 # returnedLoser
 voteDuration: public(uint256)
-# percent needed
+# percent needed # would be a tuple to multiply by ie (2, 1) for 50% of (4, 3) for 75%
 # super percent needed
-# contractMaintainer: public(address)
 disabled: bool
 
-# temporary storage
 # a status temporaryly granted to the contract if the choose to affect the DAO
 allowedToAffectDao: address
 
-event VoteStarted:
-    subjectContract: address
-    creator: address
-    amountSent: uint256
-
 @external
-def __init__ (activeUserAddress: address):
-    self.voteDuration = 100
+def __init__ (activeUserAddress: address, voteDuration: uint256):
+    self.voteDuration = voteDuration
     self.disabled = False
     self.allowedToAffectDao = empty(address)
     self.activeUserAddress = ActiveUser(activeUserAddress)
@@ -82,23 +87,19 @@ def __init__ (activeUserAddress: address):
 
 @payable
 @external
-def proposeVote (contract: address, explaination: String[255]) -> (bool):
+def proposeVote (contract: address, explaination: String[255]):
     # there is no current (unhackable) way to check if an address is a contract 
     # https://stackoverflow.com/a/37670490 
     # as such there is no assert that can check the validity of the submitted contract
 
-    # checks that code is ok to run
     assert not self.disabled, "This contract is no longer active"
     assert contract != empty(address), "Cannot add the 0 address as vote subject"
-    # NOTE: the below code currently means the same charity cannot recive money twice, this should be fixed
     assert self.endBlock[contract] == 0, "A vote has already been created for that address"
 
-    # main body of the code
     self.endBlock[contract] = block.number + self.voteDuration
     self.storedDonation[contract] = msg.value
 
     log VoteStarted(contract, msg.sender, msg.value)
-    return True
 
 @external
 def vote(proposition: address, amount: uint256):
@@ -116,54 +117,68 @@ def mint(_to: address, _value: uint256):
     self.balanceOf[_to] += _value
     log Transfer(empty(address), _to, _value)
 
-# BEGIN NOT WORKING CODE
-
 @external
 def finishVote(contract: address): 
     assert not self.disabled, "This contract is no longer active"
-    assert endBlock[contract] != 0 and endBlock[contract] >= block.number, "this contract either doesn't exist or hasnt ended"
+    assert endBlock[contract] != 0 and block.number >= endBlock[contract], "this contract either doesn't exist or hasnt ended"
 
     amtStaked: uint256 = self.activePropositions[contract]
-    array: DynArray[address,1024] = self.peopleInvested[contract]
+    peopleInvested: DynArray[address,64] = self.peopleInvested[contract]
 
     # if the vote affects the dao and passes the threshold
     if (self.affectsDao[containing] and self.activePropositions[address] * 3 > totalSupply * 4) :
-        for voter in self.activePropositions[address]:
+        for voter in peopleInvested:
             burnCoinOnWin(voter, contract)
-        # allow to affect DAO
-        runCode(contract)
-        resetVotablity(contract)
+        self.affectsDao = contract
+        #runCode(contract)
+        self.affectsDao = empty(address)
     elif(self.activePropositions[address] * 2 > totalSupply):
-        for voter in self.activePropositions[address]:
+        for voter in peopleInvested:
             burnCoinOnWin(voter, contract)
-        runCode(contract)
-        resetVotablity(contract)
+        #runCode(contract)
     else:
-        for voter in self.activePropositions[address]:
+        for voter in peopleInvested:
             returnCoinOnLose(voter, contract)
-    
+
+    resetVotablity(contract)
+
+# will always run the code under the name "finishVote"
+# the code is expected to take no parameters, if you want to implement that functionality then you likely need null coalescing
+# this can be done is .sol but i dont want to add that as it would force everyone to get tools to compile it
+# and i dont want to have deal with that
 @internal
 def runCode(contract: address):
-    # code stuff
+    ActiveUser.addAdmin(contract)
+
+    # run the code (i love ACE so much)
+    votableContract = WVCvotableContract(contract)
+    votableContract.finishVote({'value': self.storedDonation[contract]}) # if this reverts i dont know if they stay an admin
+    self.storedDonation[contract] = 0
+
+    ActiveUser.removeAdmin(contract)
+    log VoteEnded(contract)
 
 @internal
 def resetVotablity(contract: address):
-    # code stuff
+    endBlock[contract] = 0
+    peopleInvested[contract] = DynArray[address, 64]
+    amountInFavor[contract] = HashMap[address, uint256]
+    affectsDao[contract] = false
+    activePropositions[contract] = 0
 
 # called by finish vote at the end of vote when proposition wins 
 @internal
 def burnCoinOnWin(voterAddress: address, finishedContract: address):
-    self.voterCoinBalance[voterAddress] += shift(self.amountInFavor[self.returnedWinner][voterAddress], -1)
-    self.voterCoinSupply -= shift(self.amountInFavor[self.returnedWinner][voterAddress], -1)
+    self.voterCoinBalance[voterAddress] += shift(self.amountInFavor[finishedContract][voterAddress], -1)
+    self.voterCoinSupply -= shift(self.amountInFavor[finishedContract][voterAddress], -1)
+    self.voterCoinStaked -= self.amountInFavor[finishedContract][voterAddress]
 
 # called by finish vote at end of vote when a proposition loses
 @internal
 def returnCoinOnLose(voterAddress: address, finishedContract: address):
-    self.voterCoinBalance[voterAddress] += self.amountInFavor[self.returnedWinner][voterAddress]
-    self.voterCoinSupply -= self.amountInFavor[self.returnedWinner][voterAddress]
-
-
-# END NOT WORKING CODE
+    self.voterCoinBalance[voterAddress] += self.amountInFavor[finishedContract][voterAddress]
+    self.voterCoinSupply -= self.amountInFavor[finishedContract][voterAddress]
+    self.voterCoinStaked -= self.amountInFavor[finishedContract][voterAddress]
 
 @external
 def burn(_value: uint256):
@@ -178,13 +193,6 @@ def _burn(_to: address, _value: uint256):
 
 @external
 def transfer(_to : address, _value : uint256) -> bool:
-    """
-    @dev Transfer token for a specified address
-    @param _to The address to transfer to.
-    @param _value The amount to be transferred.
-    """
-    # NOTE: vyper does not allow underflows
-    #       so the following subtraction would revert on insufficient balance
     self.balanceOf[msg.sender] -= _value
     self.balanceOf[_to] += _value
     log Transfer(msg.sender, _to, _value)
@@ -193,18 +201,8 @@ def transfer(_to : address, _value : uint256) -> bool:
 
 @external
 def transferFrom(_from : address, _to : address, _value : uint256) -> bool:
-    """
-     @dev Transfer tokens from one address to another.
-     @param _from address The address which you want to send tokens from
-     @param _to address The address which you want to transfer to
-     @param _value uint256 the amount of tokens to be transferred
-    """
-    # NOTE: vyper does not allow underflows
-    #       so the following subtraction would revert on insufficient balance
     self.balanceOf[_from] -= _value
     self.balanceOf[_to] += _value
-    # NOTE: vyper does not allow underflows
-    #      so the following subtraction would revert on insufficient allowance
     self.allowance[_from][msg.sender] -= _value
     log Transfer(_from, _to, _value)
     return True
@@ -227,3 +225,7 @@ def setDisabled(newState: bool):
     assert self.activeUserAddress.getAdmin(msg.sender) or msg.sender == self.allowedToAffectDao, "Only the maintainer or a contract allowed to affect the Dao can change the contract state"
 
     self.disabled = newState
+
+
+# all the setters for this class should assert that the sender is the affectsDao address
+
