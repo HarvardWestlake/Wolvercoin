@@ -22,11 +22,11 @@ def lotteryContract(Lottery,erc20Contract,accounts):
 
 def test_setPot(lotteryContract):
     assert lotteryContract.setStartingPot(50)
-    # assert lotteryContract.getPot() == 50
+    assert lotteryContract.pot() == 50
     
-# def test_initial_state(lotteryContract):
-    # assert lotteryContract.getLotteryStart() == LStart, "Start wrong" 
-    # assert lotteryContract.getLotteryLen() == LLength, "End wrong"
+def test_initial_state(lotteryContract):
+    assert lotteryContract.lotteryStart() == LStart, "Start wrong" 
+    assert lotteryContract.lotteryEnd() == LLength+LStart, "End wrong"
 
 # def test_buy(lotteryContract,erc20Contract,accounts):
 #     buyer = accounts[4]
