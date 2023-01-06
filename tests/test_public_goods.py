@@ -15,25 +15,46 @@ def erc20Contract(Token, accounts):
     )
 
 @pytest.fixture
-def publicGoodsContract(PublicGoods, erc20Contract, accounts):
+def erc721Contract(NFT, accounts):
+    return NFT.deploy(
+        12345, # password
+        {'from': accounts[0]}
+    )
+
+@pytest.fixture
+def publicGoodsContract(PublicGoods, erc20Contract, erc721Contract, accounts):
     return PublicGoods.deploy(
         erc20Contract,
+        erc721Contract,
         {'from': accounts[0]}
     )
 
 
-def test_createGood(publicGoodsContract, accounts):
-    assert publicGoodsContract.createGood("Ice Cream Party", 10, {'from': accounts[0]}), "createGood failed"
-    returnVal = publicGoodsContract.getGoal("Ice Cream Party", {'from': accounts[0]}).return_value
-    assert str(returnVal) == "10", "getGoal returned wrong value"
-
-def test_contribute(publicGoodsContract, erc20Contract, accounts):
+def test_createGood(publicGoodsContract, erc20Contract, erc721Contract, accounts):
     creatorOfGood = accounts[5]
     donator = accounts[4]
     admin = accounts[0]
 
+    mintResult = erc721Contract.mint(creatorOfGood, "https://example.com?ricepurity", {'from': admin})
+    mintedTokenId = mintResult.events["Transfer"]["tokenId"]
+    assert erc721Contract.approve(publicGoodsContract, mintedTokenId, {'from': creatorOfGood})
+
+    assert publicGoodsContract.createGood("Ice Cream Party", 10, mintedTokenId, {'from': creatorOfGood}), "createGood failed"
+    assert erc721Contract.ownerOf(mintedTokenId) == publicGoodsContract
+    returnVal = publicGoodsContract.getGoal("Ice Cream Party", {'from': creatorOfGood}).return_value
+    assert str(returnVal) == "10", "getGoal returned wrong value"
+
+def test_contribute(publicGoodsContract, erc20Contract, erc721Contract, accounts):
+    creatorOfGood = accounts[5]
+    donator = accounts[4]
+    admin = accounts[0]
+
+    mintResult = erc721Contract.mint(creatorOfGood, "https://example.com?ricepurity", {'from': admin})
+    mintedTokenId = mintResult.events["Transfer"]["tokenId"]
+    assert erc721Contract.approve(publicGoodsContract, mintedTokenId, {'from': creatorOfGood})
+
     # User starts with lots of eth in their account so no need to mint
-    assert publicGoodsContract.createGood("Pizza Party", 10, {'from': creatorOfGood}), "createGood failed"
+    assert publicGoodsContract.createGood("Pizza Party", 10, mintedTokenId, {'from': creatorOfGood}), "createGood failed"
 
     assert erc20Contract.mint(donator, 69420, {'from': admin}) # Supply the account with some token
     assert str(erc20Contract.getBalanceOf(donator)) == "69420"
@@ -52,12 +73,16 @@ def test_contribute(publicGoodsContract, erc20Contract, accounts):
     assert str(returnVal) == "8", "getContributionTotal returned wrong value"
     assert str(erc20Contract.getBalanceOf(donator)) == str(69420 - 8)
 
-def test_retract(publicGoodsContract, erc20Contract, accounts):
+def test_retract(publicGoodsContract, erc20Contract, erc721Contract, accounts):
     creatorOfGood = accounts[5]
     donator = accounts[4]
     admin = accounts[0]
 
-    assert publicGoodsContract.createGood("Monkey Party", 10, {'from': creatorOfGood}), "createGood failed"
+    mintResult = erc721Contract.mint(creatorOfGood, "https://example.com?ricepurity", {'from': admin})
+    mintedTokenId = mintResult.events["Transfer"]["tokenId"]
+    assert erc721Contract.approve(publicGoodsContract, mintedTokenId, {'from': creatorOfGood})
+
+    assert publicGoodsContract.createGood("Monkey Party", 10, mintedTokenId, {'from': creatorOfGood}), "createGood failed"
 
     assert publicGoodsContract.retract("Monkey Party", 1, {'from': donator}), "retract failed"
 
@@ -75,12 +100,16 @@ def test_retract(publicGoodsContract, erc20Contract, accounts):
     returnVal = publicGoodsContract.getContributionTotal("Monkey Party", {'from': accounts[0]}).return_value
     assert str(returnVal) == "2", "getContributionTotal returned wrong value"
 
-def test_complete_goal_achieved(publicGoodsContract, erc20Contract, accounts):
+def test_complete_goal_achieved(publicGoodsContract, erc20Contract, erc721Contract, accounts):
     creatorOfGood = accounts[6]
     donator = accounts[7]
     admin = accounts[0]
 
-    assert publicGoodsContract.createGood("French Toast Party", 10, {'from': creatorOfGood}), "createGood failed"
+    mintResult = erc721Contract.mint(creatorOfGood, "https://example.com?ricepurity", {'from': admin})
+    mintedTokenId = mintResult.events["Transfer"]["tokenId"]
+    assert erc721Contract.approve(publicGoodsContract, mintedTokenId, {'from': creatorOfGood})
+
+    assert publicGoodsContract.createGood("French Toast Party", 10, mintedTokenId, {'from': creatorOfGood}), "createGood failed"
 
     assert erc20Contract.mint(donator, 69420, {'from': admin})
     assert str(erc20Contract.getBalanceOf(donator)) == "69420"
@@ -97,12 +126,16 @@ def test_complete_goal_achieved(publicGoodsContract, erc20Contract, accounts):
     assert publicGoodsContract.complete("French Toast Party", {'from': creatorOfGood})
     assert str(erc20Contract.getBalanceOf(donator)) == str(69420 - 10)
 
-def test_complete_goal_not_achieved(publicGoodsContract, erc20Contract, accounts):
+def test_complete_goal_not_achieved(publicGoodsContract, erc20Contract, erc721Contract, accounts):
     creatorOfGood = accounts[6]
     donator = accounts[7]
     admin = accounts[0]
 
-    assert publicGoodsContract.createGood("French Toast Party", 10, {'from': creatorOfGood}), "createGood failed"
+    mintResult = erc721Contract.mint(creatorOfGood, "https://example.com?ricepurity", {'from': admin})
+    mintedTokenId = mintResult.events["Transfer"]["tokenId"]
+    assert erc721Contract.approve(publicGoodsContract, mintedTokenId, {'from': creatorOfGood})
+
+    assert publicGoodsContract.createGood("French Toast Party", 10, mintedTokenId, {'from': creatorOfGood}), "createGood failed"
 
     assert erc20Contract.mint(donator, 69420, {'from': admin})
     assert str(erc20Contract.getBalanceOf(donator)) == "69420"
@@ -119,12 +152,18 @@ def test_complete_goal_not_achieved(publicGoodsContract, erc20Contract, accounts
 
     assert publicGoodsContract.complete("French Toast Party", {'from': creatorOfGood})
     assert str(erc20Contract.getBalanceOf(donator)) == "69420" # Make sure user got their money back
+    assert erc721Contract.ownerOf(mintedTokenId) == creatorOfGood # Make sure creator got their NFT back
 
-def test_getters(publicGoodsContract, erc20Contract, accounts):
+def test_getters(publicGoodsContract, erc20Contract, erc721Contract, accounts):
     creatorOfGood = accounts[6]
     donator = accounts[7]
     admin = accounts[0]
-    assert publicGoodsContract.createGood("Waffles Party", 10, {'from': creatorOfGood}), "createGood failed"
+
+    mintResult = erc721Contract.mint(creatorOfGood, "https://example.com?ricepurity", {'from': admin})
+    mintedTokenId = mintResult.events["Transfer"]["tokenId"]
+    assert erc721Contract.approve(publicGoodsContract, mintedTokenId, {'from': creatorOfGood})
+
+    assert publicGoodsContract.createGood("Waffles Party", 10, mintedTokenId, {'from': creatorOfGood}), "createGood failed"
 
     returnVal = publicGoodsContract.getActiveGoods({'from': accounts[0]}).return_value
     assert returnVal == ["Waffles Party"], "getActiveGoods returned wrong value"
