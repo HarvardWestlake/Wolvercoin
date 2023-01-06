@@ -17,7 +17,7 @@ officialVotingPeriod: public(bool)
 alreadyVotedProposal: public(DynArray [address,100])
 proposalVotes: public(DynArray[uint256, 3])
 activeUserContract: public(ActiveUser)
-balanceOf: public(HashMap[address, uint256])
+
 
 
 
@@ -27,7 +27,6 @@ def __init__ (activeUserAddress: address):
     self.activeUserContract = ActiveUser(activeUserAddress)
     self.officialVotingPeriod = True
     self.proposalVotes=[0,0,0
-    self.balanceOf[msg.sender] = init_supply
 
 
 
@@ -89,4 +88,3 @@ def voteOfficial( ballot : address ):
         elif self.votesForOfficials[ballot] >= self.votesLeaderBoard[2]:
             self.votesLeaderBoard[2]= value
             self.electedOfficials[2] = ballot
-       
