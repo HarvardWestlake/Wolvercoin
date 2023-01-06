@@ -25,12 +25,12 @@ def _as_wei_value(base, conversion):
     return base * (10 ** 18)
 
 def test___init__(newDutchAuctionContract, accounts):
-    assert newDutchAuctionContract.getDURATION() == 100
-    assert newDutchAuctionContract.getSeller() == accounts[0]
-    assert newDutchAuctionContract.getStartingPrice() == 2000
-    assert newDutchAuctionContract.getDiscountRate() == 10
-    assert newDutchAuctionContract.getStartAt() == time
-    assert newDutchAuctionContract.getExpiresAt() == time + 100
+    assert str(newDutchAuctionContract.getDURATION()) == "100"
+    assert str(newDutchAuctionContract.getSeller()) == accounts[0]
+    assert str(newDutchAuctionContract.getStartingPrice()) == "2000"
+    assert str(newDutchAuctionContract.getDiscountRate()) == "10"
+    assert str(newDutchAuctionContract.getStartAt()) == str(time)
+    assert str(newDutchAuctionContract.getExpiresAt()) == str(time + 100)
 
 def test_getPrice(newDutchAuctionContract, accounts):
     elapsed = chain.time() - time
