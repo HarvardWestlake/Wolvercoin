@@ -16,7 +16,7 @@ def testVote(Exclusivity,accounts):
     exclusivity.topicsAddress.append(0xf34b09E22f5115af490eeb7460304aB80c90399E)
     exclusivity.vote(0xf34b09E22f5115af490eeb7460304aB80c90399E)
     valueChanged: bool=False
-    if balance(0xf34b09E22f5115af490eeb7460304aB80c90399E)>=1:
+    if balance(0xf34b09E22f5115af490eeb7460304aB80c90399E)>=1:#balance thing may be source of error
             valueChanged = True
     assert valueChanged
     valueChanged = False
