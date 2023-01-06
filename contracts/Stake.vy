@@ -3,8 +3,9 @@
 ## anything that requires staking will interface with this class
 
 interface Wolvercoin:
-    def transferFrom(_from : address, _to : address, _value : uint256) -> bool: payable
-    def burnFrom(_to: address, _value: uint256): payable
+    def transferFrom(_from : address, _to : address, _value : uint256) -> bool: nonpayable
+    def burnFrom(_to: address, _value: uint256): nonpayable
+    def getBalanceOf(_user: address) -> uint256: nonpayable
 
 interface ActiveUser:
     def getActiveUser(potentialUser: address) -> bool: view
@@ -20,6 +21,7 @@ activeUserContract: ActiveUser
 @external
 def stake (user : address, amountStaked : uint256):
     assert self.activeUserContract.getActiveUser (user)
+    assert amountStaked < self.wolvercoinContract.getBalanceOf (user)
     self.stakeAmounts[user] = amountStaked
     self.stakeDates[user] = block.timestamp
     self.wolvercoinContract.transferFrom (user, self.bank, amountStaked)
