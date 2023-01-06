@@ -1,4 +1,4 @@
-# @version 0.3.7
+ # @version ^0.3.7
 
 interface ActiveUser:
     def getActiveUser(potentialUser: address) -> bool: view

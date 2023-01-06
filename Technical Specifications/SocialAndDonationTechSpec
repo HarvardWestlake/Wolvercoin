@@ -118,3 +118,15 @@ The Board will create public wallets designated to the charities to control the 
 
 donate (address)
 transfer portion of wolvercoin in communityPot to this address, give key to this address to the charity
+Class -> CommunityPot
+
+private instance variables:
+admin -> dynArray
+moneyStored -> unit256
+address -> address
+
+Methods:
+Transact(unit256 amount, address) - moves money WITHOUT TAX
+AddMoney(unit256 amount) - adds to moneyStored
+VerifyAdmin(address) -> boolean of whether or not in admin array
+SetAdmin(dynArray of new elected officials) - it's a setter...
