@@ -1,36 +1,56 @@
 # @version ^0.3.7
-
-interface ERC20:
+interface Token:
     def transferFrom(_from : address, _to : address, _value : uint256) -> bool: view
     def getBalanceOf(_user: address) -> uint256: view
-ERC20Contract: public(ERC20)
+TokenContract: public(Token)
 
-interface ActiveUser:
-    def getAdmin(potentialAdmin: address) -> bool: view
 
-ActiveUserContract: public(ActiveUser)
-
-#variables not related to interface
+electedOfficials: public(DynArray [address, 3])
+moneyStored: public(uint256)
 PotAddress: public(address)
 
 @external
-def __init__(thePotAddress: address, ERC20address: address, ActiveUserContractAddress: address):
+def __init__(thePotAddress: address, ERC20address: address):
+    self.moneyStored = 0
+    self.electedOfficials = []
     self.PotAddress=thePotAddress
-    self.ERC20Contract=ERC20(ERC20address)
-    self.ActiveUserContract=ActiveUser(ActiveUserContractAddress)
+    self.TokenContract=Token(ERC20address)
 
-#moves money without tax from pot to an address
+
+@external
+def addMoney (amount: uint256):
+    self.moneyStored = self.moneyStored + amount
+
+@internal
+def _removeMoney (amount: uint256):
+    self.moneyStored = self.moneyStored - amount
+
+@external
+def setElectedOfficials (newEleectedOfficials: DynArray [address,3]):
+    self.electedOfficials = newEleectedOfficials
+
+@view
+@external
+def getMoney() -> uint256: 
+    return self.moneyStored
+
+@view
+@external
+def getElectedOfficials() -> DynArray[address, 3]:
+    return self.electedOfficials
+
 @external
 def Transact(amount: uint256, destAddress: address):
-    assert self.ERC20Contract.getBalanceOf(self.PotAddress) >= amount
-    self.ERC20Contract.transferFrom(self.PotAddress, destAddress, amount)
+    assert self.TokenContract.getBalanceOf(self.PotAddress) >= amount
+    self.TokenContract.transferFrom(self.PotAddress, destAddress, amount)
+    self._removeMoney(amount)
 
 #whether or not an address is in admin array
+@view
 @external
-def VerifyAdmin(wolvAddress: address) -> bool:
-    return self.ActiveUserContract.getAdmin(wolvAddress)
-    
-
-
-
+def VerifyElectedOfficial(wolvAddress: address) -> bool:
+    for item in self.electedOfficials:
+        if item==wolvAddress:
+            return True
+    return False
 
