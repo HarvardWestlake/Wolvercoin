@@ -49,13 +49,16 @@ def voteProposal(proposalNumber : uint256):
 def getProposalVotes (num : uint256) -> (uint256):
     return self.proposalVotes[num]
 
-#def donate(to: Address, value: uint256):
+@internal
+def transferFrom(_from : address, _to : address, _value : uint256):
+    return
+
+@external
+def donate(to: address, value: uint256):
     # Check if the caller has sufficient balance
-   # assert self.balanceOf[msg.sender] >= value, "Insufficient balance"
- 
-    # Transfer the funds
-    #self.balanceOf[msg.sender] -= value
-    #self.balanceOf[to] += value
+    #assert self.balanceOf[msg.sender] >= value, "Insufficient balance"
+    self.transferFrom(msg.sender, to, value)
+
 
 @external
 def voteOfficial( ballot : address ):
