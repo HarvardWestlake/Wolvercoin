@@ -25,23 +25,23 @@ def _as_wei_value(base, conversion):
     return base * (10 ** 18)
 
 def test___init__(newDutchAuctionContract, accounts):
-    assert str(newDutchAuctionContract.getDURATION()) == "100"
-    assert str(newDutchAuctionContract.getSeller()) == accounts[0]
-    assert str(newDutchAuctionContract.getStartingPrice()) == "2000"
-    assert str(newDutchAuctionContract.getDiscountRate()) == "10"
-    assert str(newDutchAuctionContract.getStartAt()) == str(time)
-    assert str(newDutchAuctionContract.getExpiresAt()) == str(time + 100)
+    assert str(newDutchAuctionContract.getDURATION(accounts[0])) == "100"
+    assert str(newDutchAuctionContract.getSeller(accounts[0])) == accounts[0]
+    assert str(newDutchAuctionContract.getStartingPrice(accounts[0])) == "2000"
+    assert str(newDutchAuctionContract.getDiscountRate(accounts[0])) == "10"
+    assert str(newDutchAuctionContract.getStartAt(accounts[0])) == str(time)
+    assert str(newDutchAuctionContract.getExpiresAt(accounts[0])) == str(time + 100)
 
 def test_getPrice(newDutchAuctionContract, accounts):
     elapsed = chain.time() - time
-    price = newDutchAuctionContract.getStartingPrice() - (newDutchAuctionContract.getDiscountRate() * elapsed)
-    assert newDutchAuctionContract.getPrice() == price
+    price = newDutchAuctionContract.getStartingPrice(accounts[0]) - (newDutchAuctionContract.getDiscountRate(accounts[0]) * elapsed)
+    assert newDutchAuctionContract.getPrice(accounts[0]) == price
     chain.sleep(10)
     elapsed = elapsed + 10
-    price = newDutchAuctionContract.getStartingPrice() - (newDutchAuctionContract.getDiscountRate() * elapsed)
-    assert newDutchAuctionContract.getPrice() == price
+    price = newDutchAuctionContract.getStartingPrice(accounts[0]) - (newDutchAuctionContract.getDiscountRate(accounts[0]) * elapsed)
+    assert newDutchAuctionContract.getPrice(accounts[0]) == price
 
 def test_buy(newDutchAuctionContract, accounts):
     accounts.transferFrom(accounts[0], accounts[1], 5000)
-    accounts[1].newDutchAuctionContract.buy()
+    accounts[1].newDutchAuctionContract.buy(accounts[0])
     assert NFTContract.ownerOf(12345) == accounts[1]
