@@ -25,7 +25,11 @@ def _as_wei_value(base, conversion):
     return base * (10 ** 18)
 
 def test___init__(newDutchAuctionContract, accounts):
-
+    assert newDutchAuctionContract.DURATION == 100
+    assert newDutchAuctionContract.startingPrice == 2000
+    assert newDutchAuctionContract.discountRate == 10
+    assert newDutchAuctionContract.startAt == time
+    assert newDutchAuctionContract.expiresAt == time + 100
 
 def test_getPrice(newDutchAuctionContract, accounts):
     elapsed = chain.time() - time
@@ -37,4 +41,6 @@ def test_getPrice(newDutchAuctionContract, accounts):
     assert newDutchAuctionContract.getPrice() == price
 
 def test_buy(newDutchAuctionContract, accounts):
-    newDutchAuctionContract.buy()
+    accounts.transferFrom(accounts[0], accounts[1], 5000)
+    accounts[1].newDutchAuctionContract.buy()
+    assert NFTContract.ownerOf(12345) == accounts[1]
