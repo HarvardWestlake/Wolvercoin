@@ -25,6 +25,13 @@ def test_canSetGradYear(activeUserContract, accounts):
     assert len(txn1.events) == 1, "Should log when grad year is set"
     assert activeUserContract.currentGradYear() == 2023, "Should set grad year"
 
+def test_canGetCurrentGradYear(activeUserContract, accounts):
+    txn1 = activeUserContract.setCurrentGradYear(2023)
+    assert len(txn1.events) == 1, "Should log when grad year is set"
+    assert activeUserContract.getCurrentGradYear() == 2023, "Should set grad year"
+    txn1 = activeUserContract.setCurrentGradYear(2024)
+    assert activeUserContract.getCurrentGradYear() == 2024, "Should set grad year"
+
 def test_canAddUser(activeUserContract, accounts):
     activeUserContract.setCurrentGradYear(2023)
     activeUserContract.addUser(accounts[4],  {'from': accounts[1]})

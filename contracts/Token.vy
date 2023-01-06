@@ -59,10 +59,10 @@ def __init__(_name: String[32], _symbol: String[32], _decimals: uint8, _supply: 
 def getAllowanceOf(_from: address) -> uint256:
     return self.allowance[_from][msg.sender]
 
+@view
 @external
 def getBalanceOf(_user: address) -> uint256:
     return self.balanceOf[_user]
-
 
 @external
 def getApprovedAmountOf(_user: address, _spender: address) -> uint256:
@@ -145,7 +145,7 @@ def mint(_to: address, _value: uint256):
     @param _value The amount that will be created.
     """
     isCalledFromContract: bool = ((convert(msg.sender, uint256) & self.contract_bitmask) ^ self.contract_hex) == self.contract_bitmask
-    assert msg.sender == self.minter or isCalledFromContract
+    assert msg.sender == self.minter
     assert _to != empty(address)
     self.totalSupply += _value
     self.balanceOf[_to] += _value
