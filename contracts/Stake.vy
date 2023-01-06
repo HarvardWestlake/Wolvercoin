@@ -11,45 +11,41 @@ interface ActiveUser:
     def getActiveUser(potentialUser: address) -> bool: view
     def getAdmin(potentialAdmin: address) -> bool: view
 
-bank: address
 stakeAmounts: public(HashMap [address, uint256])
 stakeDates: HashMap [address, uint256]
-wolvercoinContract: Wolvercoin
-newAmt: public(uint256)
+wolvercoinContract: Token
 activeUserContract: ActiveUser
 
 @external
-def stake (user : address, amountStaked : uint256):
+def stake (user: address, amountStaked: uint256):
     assert self.activeUserContract.getActiveUser (user)
     assert amountStaked < self.wolvercoinContract.getBalanceOf (user)
     self.stakeAmounts[user] = amountStaked
     self.stakeDates[user] = block.timestamp
-    self.wolvercoinContract.transferFrom (user, self.bank, amountStaked)
-    
+    self.wolvercoinContract.transferFrom (user, self, amountStaked)
+
 @external 
-def __init__(_bankAddress: address, _wolvercoinContract: Wolvercoin, _activeUserContract: ActiveUser):
-    self.bank = _bankAddress
+def __init__(_wolvercoinContract: Token, _activeUserContract: ActiveUser):
     self.wolvercoinContract = _wolvercoinContract
     self.activeUserContract = _activeUserContract
 
 @external
 def unstake (_userAddress: address, amtUnstaked: uint256):
-    #the type conversions are really janky -- if anyone knows a better way of doing this, pls fix it!
-    assert amtUnstaked<self.stakeAmounts[_userAddress]
-    self.newAmt = 0
+    assert amtUnstaked < self.stakeAmounts[_userAddress]
+
     changeInTime: uint256 = block.timestamp - self.stakeDates[_userAddress]
     if changeInTime < 1210000:
-        decimalAmt:decimal = convert (amtUnstaked, decimal)
-        oneThird:decimal = decimalAmt/3.0
-        self.newAmt = 2* convert(oneThird,uint256)
-        self.wolvercoinContract.transferFrom (self.bank, _userAddress, self.newAmt)
-        self.wolvercoinContract.burnFrom (self.bank, convert (oneThird, uint256))
+        decimalAmt: decimal = convert (amtUnstaked, decimal)
+        oneThird: decimal = decimalAmt / 3.0
+        newAmt: uint256 = 2 * convert(oneThird, uint256)
+        self.wolvercoinContract.transferFrom (self, _userAddress, newAmt)
+        self.wolvercoinContract.burnFrom (self, convert (oneThird, uint256))
         self.stakeAmounts[_userAddress] -= amtUnstaked
     else:
         days: uint256 = changeInTime/86400
         percent: decimal = (convert(101**days, decimal) / convert(100**days, decimal))
-        self.newAmt = amtUnstaked * (convert((percent),uint256))
-        self.wolvercoinContract.transferFrom (self.bank, _userAddress, self.newAmt)
+        newAmt: uint256 = amtUnstaked * (convert((percent),uint256))
+        self.wolvercoinContract.transferFrom (self, _userAddress, newAmt)
         self.stakeAmounts[_userAddress] = 0
         self.stakeDates[_userAddress] = 0
 
