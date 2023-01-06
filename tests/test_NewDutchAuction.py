@@ -25,19 +25,20 @@ def _as_wei_value(base, conversion):
     return base * (10 ** 18)
 
 def test___init__(newDutchAuctionContract, accounts):
-    assert newDutchAuctionContract.DURATION == 100
-    assert newDutchAuctionContract.startingPrice == 2000
-    assert newDutchAuctionContract.discountRate == 10
-    assert newDutchAuctionContract.startAt == time
-    assert newDutchAuctionContract.expiresAt == time + 100
+    assert newDutchAuctionContract.getDURATION() == 100
+    assert newDutchAuctionContract.getSeller() == accounts[0]
+    assert newDutchAuctionContract.getStartingPrice() == 2000
+    assert newDutchAuctionContract.getDiscountRate() == 10
+    assert newDutchAuctionContract.getStartAt() == time
+    assert newDutchAuctionContract.getExpiresAt() == time + 100
 
 def test_getPrice(newDutchAuctionContract, accounts):
     elapsed = chain.time() - time
-    price = newDutchAuctionContract.startingPrice - (newDutchAuctionContract.discountRate * elapsed)
+    price = newDutchAuctionContract.getStartingPrice() - (newDutchAuctionContract.getDiscountRate() * elapsed)
     assert newDutchAuctionContract.getPrice() == price
     chain.sleep(10)
     elapsed = elapsed + 10
-    price = newDutchAuctionContract.startingPrice - (newDutchAuctionContract.discountRate * elapsed)
+    price = newDutchAuctionContract.getStartingPrice() - (newDutchAuctionContract.getDiscountRate() * elapsed)
     assert newDutchAuctionContract.getPrice() == price
 
 def test_buy(newDutchAuctionContract, accounts):

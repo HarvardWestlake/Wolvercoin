@@ -32,6 +32,36 @@ def __init__(_startingPrice: uint256, _discountRate: uint256, _nft: address, _nf
     self.nftId = _nftId
 
 
+@external
+def getDURATION() -> (uint256):
+    return self.DURATION
+
+
+@external
+def getSeller() -> (address):
+    return self.seller
+
+
+@external
+def getStartingPrice() -> (uint256):
+    return self.startingPrice
+
+
+@external
+def getExpiresAt() -> (uint256):
+    return self.expiresAt
+
+
+@external
+def getDiscountRate() -> (uint256):
+    return self.discountRate
+
+
+@external
+def getNftId() -> (uint256):
+    return self.nftId
+
+
 @internal
 def _getPrice() -> (uint256):
     timeElapsed: uint256 = block.timestamp - self.startAt
