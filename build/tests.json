@@ -1,17 +1,31 @@
 {
   "contracts": {
     "ActiveUser": "1c86845ce3ca8a184ba0ab3aa70b31b67f57e289",
-    "Bookstore": "8df1a13fcf8a6a79e9d2f1a756d757a8d45cda9c",
     "BookstoreNFT": "8df1a13fcf8a6a79e9d2f1a756d757a8d45cda9c",
-    "ERC20": "ed18f7176799ef070baeb860f08e3c37f557ffd3",
+    "CodeScoreCheck": "1534fc12b51fdbd638b66ee20cc185fe03971463",
+    "CommunityPot": "117ed5d48018c22bf7edf775bf1f897697726b38",
+    "Crash": "f70b9b0d41a190af7c7d6afcf9996053d271a53c",
+    "DutchAuction": "45f96462f7f791460ad9e93b39ad54b6980f8604",
+    "Exclusivity": "6533451a8f3d5f08a7bf93204e60c327a7e3777b",
+    "PublicGoods": "bdb612404da27dfddadec5f42456ff79b8a7f310",
     "Reimbursement": "846b1d910193c44201d3fc3c764fc2ddd1cdd33f",
-    "Stake": "d4f4587ea9960e2b28f6e2213370070cac95d060",
-    "Utilities": "bcb458d81a8a9f90ab1c1dd180186c32da9813d5",
-    "VotingAndRep": "2b6d9c2ba5b719a2c43ba0e10beb0e921147fa8f",
-    "Wolvercoin": "ed18f7176799ef070baeb860f08e3c37f557ffd3"
+    "Stake": "728dad133912d131887a24488add7913bacb2823",
+    "Token": "6344dae64dbfaf688a21a7ddcb15474692775297",
+    "Utilities": "c2666b4685c1b173deb272be3abf7335539d742e",
+    "VotingAndRep": "dc367130fe30fe2be700d78f0e4ca6dff6fbd126",
+    "Wolvercoin": "58ab07b8059e89fd44939db5aa391ce861dfabe0",
+    "codeGambling": "48e5c8ad9d89d291f540574edfe3531f1480eb89",
+    "socialAdnDonations": "dd384e9377999c71781118a3e255e18a15cb7a8b"
   },
   "tests": {
-    "tests/test_bookstore.py": {
+    "tests/test_Utilities.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": ".",
+      "sha1": "2caf5062cc6e4210ee4937cd1ac0b31b6557948f",
+      "txhash": []
+    },
+    "tests/test_bookstoreNFT.py": {
       "coverage": false,
       "isolated": false,
       "results": ".",

@@ -9,9 +9,6 @@ struct Erc20Token:
     symbol: String[16]
     hashImag: String[100]
 
-
-
-
 hashie : public (HashMap[uint256,Erc20Token])
 
 @external
