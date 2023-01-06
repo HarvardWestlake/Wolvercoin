@@ -37,6 +37,9 @@ def test_canAddUser(activeUserContract, accounts):
     activeUserContract.addUser(accounts[4],  {'from': accounts[1]})
     assert activeUserContract.getUserGradYear(accounts[4]) == 2023, "Should set user grad year"
 
+def test_isAlumni(activeUserContract, accounts):
+    assert activeUserContract.isAlumni(accounts[4], {'from': accounts[1]}), "Always returns true"
+
 def test_canDisable(activeUserContract, accounts):
     ownerAccount = accounts[0]
     adminAccount = accounts[1]
