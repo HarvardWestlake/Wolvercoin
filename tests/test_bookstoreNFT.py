@@ -10,3 +10,10 @@ def BookstorenNFTContract (Bookstore, accounts):
 def add_HashMap():
     createBoundNFT(account[1],"pooopie")
     assert hashie.addr == account[1]
+
+@pytest.fixture
+def utilitiesContract (Utilities, accounts): #accounts is bc someone needs to pay for contract
+    return Utilities.deploy ({'from':accounts[0]})
+
+def test_redeemProduct(utilitiesContract, accounts):
+    assert utilitiesContract.redeemProduct(2).return_value == False, "Should be a null address"
