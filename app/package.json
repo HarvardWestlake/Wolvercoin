@@ -9,7 +9,10 @@
     "crypto-hash": "^2.0.1",
     "ethers": "^5.7.2",
     "firebase": "^9.15.0",
+    "fs": "^0.0.1-security",
     "ipfs-http-client": "^59.0.0",
+    "nft.storage": "^7.0.0",
+    "path": "^0.12.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
@@ -38,5 +41,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  }, 
+  "browser": {
+    "fs": false,
+    "os": false,
+    "path": false
   }
 }
