@@ -21,11 +21,25 @@ with pytest.raises(Exception) as e_info:
     socialAndDonationsContract.endVoteOfficials()
 
 def test_voteProposal (socialAndDonationsContract):
+   #makes sure the person can't vote for a proposal that isn't 0, 1, or 2
+   with pytest.raises(Exception) as e_info:
+    socialAndDonationsContract.voteProposal(3)
+    socialAndDonationsContract.voteProposal(-1)
+
+   one : uint256
    one = socialAndDonationsContract.getProposalVotes(2)
    socialAndDonationsContract.voteProposal(2)
+   two : uint256
    two = socialAndDonationsContract.getProposalVotes(2)
-   assert one != two
+   assert one == 0
+   assert two == 1
+   #Makes sure the same person can't vote again
+   with pytest.raises(Exception) as e_info:
+    socialAndDonationsContract.voteProposal(2)
+   
+   
     
+
 
 #def test_donate():
     #b: bool = False

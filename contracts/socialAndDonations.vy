@@ -46,6 +46,7 @@ def voteProposal(proposalNumber : uint256):
     self.alreadyVotedProposal.append(self)
 
 @external
+@view
 def getProposalVotes (num : uint256) -> (uint256):
     return self.proposalVotes[num]
 
@@ -96,6 +97,7 @@ def beginVoteOfficial(user: address):
 @external
 def getOfficalVotingPeriod() -> (bool):
     return self.officialVotingPeriod
+
 
 
        
