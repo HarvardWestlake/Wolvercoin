@@ -38,7 +38,6 @@ def test_create_auction_item(dutchAuctionContract, erc20Contract, erc721Contract
     mintedTokenId = mintResult.events["Transfer"]["tokenId"]
     assert erc721Contract.approve(dutchAuctionContract, mintedTokenId, {'from': creator})
     assert dutchAuctionContract.createAuctionItem(
-        "Double Date with Theiss and Sassie", # Name
         25, # Start price
         5, # End price
         chain.time() + 10000, # Start time
@@ -55,7 +54,6 @@ def test_create_auction_item(dutchAuctionContract, erc20Contract, erc721Contract
     mintedTokenId = mintResult.events["Transfer"]["tokenId"]
     assert erc721Contract.approve(dutchAuctionContract, mintedTokenId, {'from': creator})
     assert dutchAuctionContract.createAuctionItem(
-        "Double Date with Theiss and Sassie", # Name
         25, # Start price
         5, # End price
         chain.time() + 10000, # Start time
@@ -74,7 +72,6 @@ def test_getters(dutchAuctionContract, erc20Contract, erc721Contract, accounts):
     startTime = chain.time() + 10000
     endTime = chain.time() + 20000
     assert dutchAuctionContract.createAuctionItem(
-        "Field Trip to Bora Bora", # Name
         25, # Start price
         5, # End price
         startTime, # Start time
@@ -82,13 +79,12 @@ def test_getters(dutchAuctionContract, erc20Contract, erc721Contract, accounts):
         mintedTokenId, # Token ID
         {'from': creator}
     )
-    assert dutchAuctionContract.getActiveAuctionItems({'from': creator}).return_value == ["Field Trip to Bora Bora"]
-    assert dutchAuctionContract.getSeller("Field Trip to Bora Bora", {'from': creator}).return_value == creator
-    assert dutchAuctionContract.getStartDate("Field Trip to Bora Bora", {'from': creator}).return_value == startTime
-    assert dutchAuctionContract.getEndDate("Field Trip to Bora Bora", {'from': creator}).return_value == endTime
-    assert dutchAuctionContract.getStartPrice("Field Trip to Bora Bora", {'from': creator}).return_value == 25
-    assert dutchAuctionContract.getEndPrice("Field Trip to Bora Bora", {'from': creator}).return_value == 5
-    assert dutchAuctionContract.getNFT("Field Trip to Bora Bora", {'from': creator}).return_value == mintedTokenId
+    assert dutchAuctionContract.getActiveAuctionItems({'from': creator}).return_value == [mintedTokenId]
+    assert dutchAuctionContract.getSeller(mintedTokenId, {'from': creator}).return_value == creator
+    assert dutchAuctionContract.getStartDate(mintedTokenId, {'from': creator}).return_value == startTime
+    assert dutchAuctionContract.getEndDate(mintedTokenId, {'from': creator}).return_value == endTime
+    assert dutchAuctionContract.getStartPrice(mintedTokenId, {'from': creator}).return_value == 25
+    assert dutchAuctionContract.getEndPrice(mintedTokenId, {'from': creator}).return_value == 5
 
 def test_get_price(dutchAuctionContract, erc20Contract, erc721Contract, accounts):
     admin = accounts[0]
@@ -98,7 +94,6 @@ def test_get_price(dutchAuctionContract, erc20Contract, erc721Contract, accounts
     mintedTokenId = mintResult.events["Transfer"]["tokenId"]
     assert erc721Contract.approve(dutchAuctionContract, mintedTokenId, {'from': creator})
     assert dutchAuctionContract.createAuctionItem(
-        "Chocolate Tasting", # Name
         420, # Start price
         220, # End price
         chain.time() + 10000, # Start time
@@ -107,11 +102,11 @@ def test_get_price(dutchAuctionContract, erc20Contract, erc721Contract, accounts
         {'from': creator}
     )
     chain.sleep(10000)
-    assert abs(dutchAuctionContract.getPrice("Chocolate Tasting").return_value - 420) < 2 # Get difference and ABS to account for slow code
+    assert abs(dutchAuctionContract.getPrice(mintedTokenId).return_value - 420) < 2 # Get difference and ABS to account for slow code
     chain.sleep(5000)
-    assert abs(dutchAuctionContract.getPrice("Chocolate Tasting").return_value - 320) < 2
+    assert abs(dutchAuctionContract.getPrice(mintedTokenId).return_value - 320) < 2
     chain.sleep(5000)
-    assert abs(dutchAuctionContract.getPrice("Chocolate Tasting").return_value - 220) < 2
+    assert abs(dutchAuctionContract.getPrice(mintedTokenId).return_value - 220) < 2
 
 def test_buy(dutchAuctionContract, erc20Contract, erc721Contract, accounts):
     admin = accounts[0]
@@ -122,7 +117,6 @@ def test_buy(dutchAuctionContract, erc20Contract, erc721Contract, accounts):
     mintedTokenId = mintResult.events["Transfer"]["tokenId"]
     assert erc721Contract.approve(dutchAuctionContract, mintedTokenId, {'from': creator})
     assert dutchAuctionContract.createAuctionItem(
-        "Smoke Sesh with Top T", # Name
         420, # Start price
         220, # End price
         chain.time() + 10000, # Start time
@@ -131,14 +125,14 @@ def test_buy(dutchAuctionContract, erc20Contract, erc721Contract, accounts):
         {'from': creator}
     )
     chain.sleep(15000)
-    price = dutchAuctionContract.getPrice("Smoke Sesh with Top T").return_value
+    price = dutchAuctionContract.getPrice(mintedTokenId).return_value
 
     assert erc20Contract.mint(donator, 69420, {'from': admin}) # Supply the account with some token
     assert str(erc20Contract.getBalanceOf(donator)) == "69420"
     assert erc20Contract.approve(dutchAuctionContract.address, 69420, {'from': donator}) # Approve expenditure
     assert str(erc20Contract.getApprovedAmountOf(donator, dutchAuctionContract.address).return_value) == "69420"
 
-    assert dutchAuctionContract.buy("Smoke Sesh with Top T", {'from': donator})
+    assert dutchAuctionContract.buy(mintedTokenId, {'from': donator})
 
     newBalance = int(erc20Contract.getBalanceOf(donator))
     assert abs(69420 - newBalance - price) < 2
