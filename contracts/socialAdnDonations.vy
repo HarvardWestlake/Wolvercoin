@@ -54,10 +54,10 @@ def transferFrom(_from : address, _to : address, _value : uint256):
     return
 
 @external
-def donate(to: address, value: uint256):
+def donate(to: address, numToSend: uint256):
     # Check if the caller has sufficient balance
     #assert self.balanceOf[msg.sender] >= value, "Insufficient balance"
-    self.transferFrom(msg.sender, to, value)
+    self.transferFrom(msg.sender, to, numToSend)
 
 
 @external
