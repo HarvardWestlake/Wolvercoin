@@ -4,10 +4,12 @@ from brownie.network.state import Chain
 
 chain = Chain()
 
-# . This runs before ALL tests
 @pytest.fixture
-def votingContract(VotingAndRep, accounts):
-    return VotingAndRep.deploy(accounts[0], 100, {'from': accounts[0]})
+def votingContract(VotingAndRep, ActiveUser, accounts):
+    activeUserContract = ActiveUser.deploy(accounts[1], {'from': accounts[0]})
+    returnedContract = VotingAndRep.deploy(activeUserContract.address, 100, {'from': accounts[0]})
+    activeUserContract.addAdmin(returnedContract.address, {'from': accounts[0]})
+    return returnedContract
 
 def _as_wei_value(base, conversion):
     if conversion == "wei":
@@ -94,14 +96,19 @@ def test_vote(votingContract, accounts):
 
 
 def test_finishVote(votingContract, accounts):
-    winningProp = address("0xc0ffee254729296a45a3885639AC7E10F9d54979")
-    losingProp = address("0x999999cf1046e68e36E1aA2E0E07105eDDD1f08E")
+    winningProp = "0xc0ffee254729296a45a3885639AC7E10F9d54979"
+    losingProp = "0x999999cf1046e68e36E1aA2E0E07105eDDD1f08E"
 
     votingContract.mint(accounts[1], 10000, {'from': accounts[0]}) # account 1 balance: 10_000
 
-    votingContract.proposeVote(winningProp, "you should vote for this thing", {'from': accounts[1]}, {'value': 1000})  # account 1 balance: 9_000
+    votingContract.proposeVote(winningProp, "you should vote for this thing", {'from': accounts[1], 'value': 1000})
 
-    votingContract.vote(winningProp, 7000) # account 1 balance: 2_000
+    votingContract.vote(winningProp, 7000, {'from': accounts[1]}) # account 1 balance: 3_000
+
+    assert votingContract.activePropositions(winningProp) == 7000
+    assert votingContract.totalSupply() == 10000
+    assert votingContract.amountInFavor(winningProp, accounts[1]) == 7000
+    assert votingContract.peopleInvested(winningProp, 0) == accounts[1]
 
     stopBadEndVote = False
     try:
@@ -111,12 +118,13 @@ def test_finishVote(votingContract, accounts):
     assert stopBadEndVote, "Vote should not be ended before period"
 
     chain.mine(200) # skiping to well past the end of the vote
+    votingContract.finishVote(winningProp)
 
     # votingContract.finishVote(winningProp)
     # as they won half of 7_000 should be returned
     # this means they should get 3_500 back
-    # account 1 balance: 5_500
-    assert votingContract.votingContract.balanceOf(accounts[1]) == 5500
+    # account 1 balance: 6_500
+    assert votingContract.balanceOf(accounts[1]) == 6500, "money should be partially returned on vote succsess"
     assert votingContract.voterCoinStaked() == 0
 
 

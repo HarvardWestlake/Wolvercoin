@@ -6,15 +6,6 @@ from vyper.interfaces import ERC20Detailed
 implements: ERC20
 implements: ERC20Detailed
 
-interface ActiveUser:
-    def addAdmin(adminToAdd: address): nonpayable
-    def removeAdmin(adminToRemove: address): nonpayable
-    def getActiveUser(potentialUser: address) -> bool: view
-    def getAdmin(potentialAdmin: address) -> bool: view
-
-interface WVCvotableContract:
-    def finishVote(): payable
-
 event Transfer:
     sender: indexed(address)
     receiver: indexed(address)
@@ -25,6 +16,15 @@ event Approval:
     spender: indexed(address)
     value: uint256
 
+interface ActiveUser:
+    def addAdmin(adminToAdd: address): nonpayable
+    def removeAdmin(adminToRemove: address): nonpayable
+    def getActiveUser(potentialUser: address) -> bool: view
+    def getAdmin(potentialAdmin: address) -> bool: view
+
+interface WVCvoteableContract:
+    def finishVote(): payable
+
 event VoteStarted:
     subjectContract: indexed(address)
     creator: address
@@ -32,6 +32,7 @@ event VoteStarted:
 
 event VoteEnded:
     contract: indexed(address)
+
 
 activeUserAddress: public(ActiveUser)
 name: public(String[32])
@@ -55,7 +56,7 @@ affectsDao: public(HashMap[address, bool])
 # storage for each persons money in a proposition
 amountInFavor: public(HashMap[address, HashMap[address, uint256]]) # this maybe should not be public
 # list of people in each proposition (to improve efficency in money returns)
-peopleInvested: HashMap[address, DynArray[address, 64]]
+peopleInvested: public(HashMap[address, DynArray[address, 64]])
 # the ending block for each proposition
 endBlock: public(HashMap[address, uint256])
 # the value sent to contract on sucsessful vote
@@ -103,7 +104,7 @@ def proposeVote (contract: address, explaination: String[255]):
 
 @external
 def vote(proposition: address, amount: uint256):
-    self.balanceOf[msg.sender] -= amount
+    self.balanceOf[msg.sender] -= amount # this stops the whole code on underflow
     self.voterCoinStaked += amount
     self.activePropositions[proposition] += amount
     self.peopleInvested[proposition].append(msg.sender) # this should not add a new entry for each time someone votes
@@ -120,27 +121,26 @@ def mint(_to: address, _value: uint256):
 @external
 def finishVote(contract: address): 
     assert not self.disabled, "This contract is no longer active"
-    assert endBlock[contract] != 0 and block.number >= endBlock[contract], "this contract either doesn't exist or hasnt ended"
+    assert self.endBlock[contract] != 0 and block.number >= self.endBlock[contract], "this contract either doesn't exist or hasnt ended"
 
-    amtStaked: uint256 = self.activePropositions[contract]
     peopleInvested: DynArray[address,64] = self.peopleInvested[contract]
 
     # if the vote affects the dao and passes the threshold
-    if (self.affectsDao[containing] and self.activePropositions[address] * 3 > totalSupply * 4) :
+    if (self.affectsDao[contract] and self.activePropositions[contract] * 3 > self.totalSupply * 4) :
         for voter in peopleInvested:
-            burnCoinOnWin(voter, contract)
-        self.affectsDao = contract
-        #runCode(contract)
-        self.affectsDao = empty(address)
-    elif(self.activePropositions[address] * 2 > totalSupply):
+            self.burnCoinOnWin(voter, contract)
+        self.allowedToAffectDao = contract
+        self.runCode(contract)
+        self.allowedToAffectDao = empty(address)
+    elif(self.activePropositions[contract] * 2 > self.totalSupply):
         for voter in peopleInvested:
-            burnCoinOnWin(voter, contract)
-        #runCode(contract)
+            self.burnCoinOnWin(voter, contract)
+        self.runCode(contract)
     else:
         for voter in peopleInvested:
-            returnCoinOnLose(voter, contract)
+            self.returnCoinOnLose(voter, contract)
 
-    resetVotablity(contract)
+    self.resetVotablity(contract)
 
 # will always run the code under the name "finishVote"
 # the code is expected to take no parameters, if you want to implement that functionality then you likely need null coalescing
@@ -148,37 +148,40 @@ def finishVote(contract: address):
 # and i dont want to have deal with that
 @internal
 def runCode(contract: address):
-    ActiveUser.addAdmin(contract)
+    self.activeUserAddress.addAdmin(contract)
 
     # run the code (i love ACE so much)
-    votableContract = WVCvotableContract(contract)
-    votableContract.finishVote({'value': self.storedDonation[contract]}) # if this reverts i dont know if they stay an admin
+    votableContract: WVCvoteableContract = WVCvoteableContract(contract)
+    # votableContract.finishVote(value=self.storedDonation[contract]) # if this reverts i dont know if they stay an admin
     self.storedDonation[contract] = 0
 
-    ActiveUser.removeAdmin(contract)
+    self.activeUserAddress.removeAdmin(contract)
     log VoteEnded(contract)
+
 
 @internal
 def resetVotablity(contract: address):
-    endBlock[contract] = 0
-    peopleInvested[contract] = DynArray[address, 64]
-    amountInFavor[contract] = HashMap[address, uint256]
-    affectsDao[contract] = false
-    activePropositions[contract] = 0
+    self.endBlock[contract] = 0
+    self.peopleInvested[contract] = []
+    self.affectsDao[contract] = False
+    self.activePropositions[contract] = 0
 
 # called by finish vote at the end of vote when proposition wins 
 @internal
 def burnCoinOnWin(voterAddress: address, finishedContract: address):
-    self.voterCoinBalance[voterAddress] += shift(self.amountInFavor[finishedContract][voterAddress], -1)
-    self.voterCoinSupply -= shift(self.amountInFavor[finishedContract][voterAddress], -1)
+    # using bit shifts for efficency
+    self.balanceOf[voterAddress] += shift(self.amountInFavor[finishedContract][voterAddress], -1)
+    self.totalSupply -= shift(self.amountInFavor[finishedContract][voterAddress], -1)
     self.voterCoinStaked -= self.amountInFavor[finishedContract][voterAddress]
+    self.amountInFavor[finishedContract][voterAddress] = 0
 
 # called by finish vote at end of vote when a proposition loses
 @internal
 def returnCoinOnLose(voterAddress: address, finishedContract: address):
-    self.voterCoinBalance[voterAddress] += self.amountInFavor[finishedContract][voterAddress]
-    self.voterCoinSupply -= self.amountInFavor[finishedContract][voterAddress]
+    self.balanceOf[voterAddress] += self.amountInFavor[finishedContract][voterAddress]
+    self.totalSupply -= self.amountInFavor[finishedContract][voterAddress]
     self.voterCoinStaked -= self.amountInFavor[finishedContract][voterAddress]
+
 
 @external
 def burn(_value: uint256):
@@ -228,4 +231,8 @@ def setDisabled(newState: bool):
 
 
 # all the setters for this class should assert that the sender is the affectsDao address
-
+@external
+def setActiveUserAddress(newAddress: address):
+    assert not self.disabled
+    assert msg.sender == self.allowedToAffectDao
+    self.activeUserAddress = ActiveUser(newAddress)

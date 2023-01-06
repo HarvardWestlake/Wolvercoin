@@ -1,6 +1,6 @@
 {
   "contracts": {
-    "ActiveUser": "1c86845ce3ca8a184ba0ab3aa70b31b67f57e289",
+    "ActiveUser": "84ad8f8b0aafd497362a0c0aa62b29f9456450e9",
     "BookstoreNFT": "ab84f703741cd0242cdab2a9e87ce20048eaeb4d",
     "CodeScoreCheck": "1534fc12b51fdbd638b66ee20cc185fe03971463",
     "CommunityPot": "117ed5d48018c22bf7edf775bf1f897697726b38",
@@ -11,7 +11,7 @@
     "Reimbursement": "846b1d910193c44201d3fc3c764fc2ddd1cdd33f",
     "Stake": "728dad133912d131887a24488add7913bacb2823",
     "Token": "6344dae64dbfaf688a21a7ddcb15474692775297",
-    "VotingAndRep": "fda86f072d9c8fca5b29eae53a4a483ff4d6355a",
+    "VotingAndRep": "60008e92d913990547e090554d2bd663dc8978fc",
     "Wolvercoin": "58ab07b8059e89fd44939db5aa391ce861dfabe0",
     "codeGambling": "48e5c8ad9d89d291f540574edfe3531f1480eb89",
     "socialAdnDonations": "dd384e9377999c71781118a3e255e18a15cb7a8b"
@@ -32,17 +32,17 @@
       "txhash": [
         "21782992b73633dd7619348812dd40fd4e3fc677",
         "97b3492c5c414488b78e72c94f23cefa5c39f942",
-        "bddb26c86dd0512a52f7deb9cf8598253de64234"
+        "e0cb867dfc33686adbb69365762ec175ef916efa"
       ]
     },
     "tests/test_activeUser.py": {
       "coverage": false,
       "isolated": false,
-      "results": ".....",
-      "sha1": "dd022c3c866a931f0afd6b43339fda604af10134",
+      "results": "......",
+      "sha1": "39b5420f3d0c1bfafbd22ed8395c39b082a3ba55",
       "txhash": [
-        "333b20df7988ba7bf34241f2a78de8255c9cfdbf",
-        "394f52db039c8713d0e838dff0e0e109651fa8b3"
+        "3656ba00cedbf98ce5cac7cb3b7141cee65465e9",
+        "3ee60088dd521f017e7e10720e04a39615f99559"
       ]
     },
     "tests/test_crash.py": {
@@ -79,22 +79,45 @@
       "results": ".......",
       "sha1": "27f3d2b0fa5e87d232ec32406a457eae7ec43173",
       "txhash": [
-        "b17ea4d0e0c8396978d2b21685a0c5bcef121e43",
-        "b50649e03dc23407d3276296475d2b4631727eaa"
+        "7766ae118c27fde515edb5e14c53dd7614f19e24",
+        "a9bd7fa3c017ad0dbced1146a60c0c69eec5fb6f"
       ]
     },
     "tests/test_voting.py": {
       "coverage": false,
       "isolated": false,
-      "results": ".......",
-      "sha1": "9d19e464acaabb1741fd0d0e6a5df1fe70a513a3",
+      "results": "........",
+      "sha1": "eb83b593f6abe7d8b66ddee07d6b976b6e6fb9fa",
       "txhash": [
-        "b851d6ad10f3c685b2aa5e894d13bc1a0d0b33b6",
-        "ee02c411713f84b067a763e6c878ee546cdf5410"
+        "15a6f23131886856744a3d046b36b442e03de9e3",
+        "513dd915fa5ca37b852635fad31dfc2172e125e6",
+        "dc3b71ad31dcdac23a66694ebe4814c5dd667173"
       ]
     }
   },
   "tx": {
+    "15a6f23131886856744a3d046b36b442e03de9e3": {
+      "ActiveUser": {
+        "0": [
+          [
+            22
+          ],
+          [],
+          []
+        ]
+      },
+      "VotingAndRep": {
+        "0": [
+          [
+            51
+          ],
+          [
+            52
+          ],
+          []
+        ]
+      }
+    },
     "21782992b73633dd7619348812dd40fd4e3fc677": {
       "Stake": {
         "0": [
@@ -109,29 +132,61 @@
         ]
       }
     },
-    "333b20df7988ba7bf34241f2a78de8255c9cfdbf": {
+    "3656ba00cedbf98ce5cac7cb3b7141cee65465e9": {
       "ActiveUser": {
         "0": [
           [
-            19
+            25
           ],
           [],
           [
-            20
+            26
           ]
         ]
       }
     },
-    "394f52db039c8713d0e838dff0e0e109651fa8b3": {
+    "3ee60088dd521f017e7e10720e04a39615f99559": {
       "ActiveUser": {
         "0": [
           [
-            19
+            25
           ],
           [],
           [
-            20
+            26
           ]
+        ]
+      }
+    },
+    "513dd915fa5ca37b852635fad31dfc2172e125e6": {
+      "VotingAndRep": {
+        "0": [
+          [
+            0,
+            2,
+            4
+          ],
+          [
+            5
+          ],
+          [
+            1,
+            3
+          ]
+        ]
+      }
+    },
+    "7766ae118c27fde515edb5e14c53dd7614f19e24": {
+      "Reimbursement": {
+        "0": [
+          [
+            0,
+            13
+          ],
+          [
+            14
+          ],
+          []
         ]
       }
     },
@@ -149,25 +204,11 @@
         ]
       }
     },
-    "b17ea4d0e0c8396978d2b21685a0c5bcef121e43": {
-      "Reimbursement": {
-        "0": [
-          [
-            0,
-            13
-          ],
-          [
-            14
-          ],
-          []
-        ]
-      }
-    },
-    "b50649e03dc23407d3276296475d2b4631727eaa": {
+    "a9bd7fa3c017ad0dbced1146a60c0c69eec5fb6f": {
       "ActiveUser": {
         "0": [
           [
-            16
+            22
           ],
           [],
           []
@@ -188,29 +229,27 @@
         ]
       }
     },
-    "b851d6ad10f3c685b2aa5e894d13bc1a0d0b33b6": {
+    "dc3b71ad31dcdac23a66694ebe4814c5dd667173": {
       "VotingAndRep": {
         "0": [
           [
-            0,
-            2,
-            4
+            21,
+            23
           ],
           [
-            5
+            24
           ],
           [
-            1,
-            3
+            22
           ]
         ]
       }
     },
-    "bddb26c86dd0512a52f7deb9cf8598253de64234": {
+    "e0cb867dfc33686adbb69365762ec175ef916efa": {
       "ActiveUser": {
         "0": [
           [
-            17
+            23
           ],
           [],
           []
@@ -235,17 +274,6 @@
           [
             6,
             7
-          ],
-          [],
-          []
-        ]
-      }
-    },
-    "ee02c411713f84b067a763e6c878ee546cdf5410": {
-      "VotingAndRep": {
-        "0": [
-          [
-            37
           ],
           [],
           []
