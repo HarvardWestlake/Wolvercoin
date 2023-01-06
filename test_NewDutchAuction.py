@@ -6,12 +6,16 @@ from web3.exceptions import ValidationError
 from brownie.network.state import Chain
 
 chain = Chain()
+time = 0
+#chain.sleep(uint256)
+#chain.time()
 
 # . This runs before ALL tests
 @pytest.fixture
 def newDutchAuctionContract(NewDutchAuction, Token, accounts):
     NFTContract = Token.deploy("unused", "notused", 8, 12, {'from':accounts[0]})
-    return NewDutchAuction.deploy(200, 10, NFTContract, 12345, 1000, {'from': accounts[0]})
+    time = chain.time()
+    return NewDutchAuction.deploy(2000, 10, NFTContract, 12345, 100, {'from': accounts[0]})
 
 def _as_wei_value(base, conversion):
     if conversion == "wei":
@@ -20,8 +24,17 @@ def _as_wei_value(base, conversion):
         return base * (10 ** 9)
     return base * (10 ** 18)
 
+def test___init__(newDutchAuctionContract, accounts):
+
+
 def test_getPrice(newDutchAuctionContract, accounts):
-    assert newDutchAuctionContract
+    elapsed = chain.time() - time
+    price = newDutchAuctionContract.startingPrice - (newDutchAuctionContract.discountRate * elapsed)
+    assert newDutchAuctionContract.getPrice() == price
+    chain.sleep(10)
+    elapsed = elapsed + 10
+    price = newDutchAuctionContract.startingPrice - (newDutchAuctionContract.discountRate * elapsed)
+    assert newDutchAuctionContract.getPrice() == price
 
 def test_buy(newDutchAuctionContract, accounts):
-    assert
+    newDutchAuctionContract.buy()

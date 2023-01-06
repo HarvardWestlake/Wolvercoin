@@ -33,26 +33,23 @@ def __init__(_startingPrice: uint256, _discountRate: uint256, _nft: address, _nf
 
 
 @internal
-def getPrice() -> (uint256):
+def _getPrice() -> (uint256):
     timeElapsed: uint256 = block.timestamp - self.startAt
     discount: uint256 = self.discountRate * timeElapsed
     return self.startingPrice - discount
 
 
 @external
-def getPriceTest() -> (uint256):
-    timeElapsed: uint256 = block.timestamp - self.startAt
-    discount: uint256 = self.discountRate * timeElapsed
-    return self.startingPrice - discount
+def getPrice() -> (uint256):
+    return self._getPrice()
 
 
 @external
 @payable
 def buy():
-    if (block.timestamp > self.expiresAt):
-        selfdestruct(self.seller)
+    assert block.timestamp < self.expiresAt
 
-    price: uint256 = self.getPrice()
+    price: uint256 = self._getPrice()
     assert msg.value >= price
 
     self.nft.transferFrom(self.seller, msg.sender, self.nftId)
