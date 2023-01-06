@@ -1,11 +1,11 @@
 # @version ^0.3.7
 
-interface ERC20:
+interface Token:
     def transferFrom(asdf: address, sdlf:address, askdf: uint256) -> bool: view
     def transfer(add: address, val: uint256) -> bool: view
 
 
-nft: public(ERC20)
+nft: public(Token)
 nftId: public(uint256)
 
 seller: public(address)
@@ -28,7 +28,7 @@ def __init__(_startingPrice: uint256, _discountRate: uint256, _nft: address, _nf
 
     assert _startingPrice >= _discountRate * self.DURATION
 
-    self.nft = ERC20(_nft)
+    self.nft = Token(_nft)
     self.nftId = _nftId
 
 
@@ -40,9 +40,17 @@ def getPrice() -> (uint256):
 
 
 @external
+def getPriceTest() -> (uint256):
+    timeElapsed: uint256 = block.timestamp - self.startAt
+    discount: uint256 = self.discountRate * timeElapsed
+    return self.startingPrice - discount
+
+
+@external
 @payable
 def buy():
-    assert block.timestamp < self.expiresAt
+    if (block.timestamp > self.expiresAt):
+        selfdestruct(self.seller)
 
     price: uint256 = self.getPrice()
     assert msg.value >= price
