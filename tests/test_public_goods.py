@@ -119,3 +119,17 @@ def test_complete_goal_not_achieved(publicGoodsContract, erc20Contract, accounts
 
     assert publicGoodsContract.complete("French Toast Party", {'from': creatorOfGood})
     assert str(erc20Contract.getBalanceOf(donator)) == "69420" # Make sure user got their money back
+
+def test_getters(publicGoodsContract, erc20Contract, accounts):
+    creatorOfGood = accounts[6]
+    donator = accounts[7]
+    admin = accounts[0]
+    assert publicGoodsContract.createGood("Waffles Party", 10, {'from': creatorOfGood}), "createGood failed"
+
+    returnVal = publicGoodsContract.getActiveGoods({'from': accounts[0]}).return_value
+    assert returnVal == ["Waffles Party"], "getActiveGoods returned wrong value"
+
+    assert publicGoodsContract.getContributionTotal("Waffles Party", {'from': accounts[0]}).return_value == 0, "getContributionTotal returned wrong value"
+    assert publicGoodsContract.getGoal("Waffles Party", {'from': accounts[0]}).return_value == 10, "getContributionTotal returned wrong value"
+    assert publicGoodsContract.getNumDonators("Waffles Party", {'from': accounts[0]}).return_value == 0, "getContributionTotal returned wrong value"
+    assert publicGoodsContract.getCreator("Waffles Party", {'from': accounts[0]}).return_value == creatorOfGood, "getContributionTotal returned wrong value"

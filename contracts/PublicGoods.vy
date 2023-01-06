@@ -14,18 +14,26 @@ struct Good:
     name: String[50]
     goal: uint256
     donations: Donation[50] # Up to 50 people can donate to a good
-    donationsLen: int8
+    donationsLen: uint8
     totalDonations: uint256
     creator: address
 
 goods: public(HashMap[String[50], Good]) # There can be up to 50 goods collecting donations
 erc20: ERC20WithAdminAccess # The main contract we need to interact with
-lastIndex: uint256
+
+goodsArr: public(DynArray[String[50], 100]) # A list of the names of all the goods currently active
 
 @external
 def __init__(erc20address: address):
     self.erc20 = ERC20WithAdminAccess(erc20address)
     return
+
+@internal
+def findIndexOfGoodInGoodsArr(name: String[50]) -> int256:
+    for i in range(100):
+        if self.goodsArr[i] == name:
+            return i
+    return -1
 
 @external
 def createGood(name: String[50], goal: uint256):
@@ -40,6 +48,7 @@ def createGood(name: String[50], goal: uint256):
         totalDonations: 0,
         creator: msg.sender
     })
+    self.goodsArr.append(name)
 
 @external
 def contribute(name: String[50], amount: uint256):
@@ -87,6 +96,32 @@ def retract(name: String[50], amount1: uint256):
     return
 
 @external
+def complete(name: String[50]):
+    assert name != ""
+    good: Good = self.goods[name]
+    assert msg.sender == good.creator
+    assert good.name == name # Essentially a test to see if good exists
+    if good.totalDonations < good.goal:
+        for i in range(50):
+            if i >= good.donationsLen:
+                break
+            donation: Donation = good.donations[i]
+            self.erc20.approve(self, donation.amount)
+            self.erc20.transferFrom(self, donation.donator, donation.amount)
+    self.goods[name] = empty(Good)
+    
+    # remove the index 
+    i: int256 = self.findIndexOfGoodInGoodsArr(name)
+    if i != -1:
+        self.goodsArr[i] = self.goodsArr[len(self.goodsArr) - 1] # Make the last element take the one you want to remove's place...
+        self.goodsArr.pop() # ...and then remove the last element
+
+@external
+def getActiveGoods() -> DynArray[String[50], 100]:
+    return self.goodsArr
+
+#region Trivial getters
+@external
 def getContributionTotal(name: String[50]) -> uint256:
     assert name != ""
     good: Good = self.goods[name]
@@ -101,17 +136,16 @@ def getGoal(name: String[50]) -> uint256:
     return good.goal
 
 @external
-def complete(name: String[50]):
+def getNumDonators(name: String[50]) -> uint8:
     assert name != ""
     good: Good = self.goods[name]
-    assert msg.sender == good.creator
-    assert good.name == name # Essentially a test to see if good exists
-    if good.totalDonations < good.goal:
-        for i in range(50):
-            if i >= good.donationsLen:
-                break
-            donation: Donation = good.donations[i]
-            self.erc20.approve(self, donation.amount)
-            self.erc20.transferFrom(self, donation.donator, donation.amount)
-    self.goods[name] = empty(Good)
-    return
+    assert good.name == name
+    return good.donationsLen
+
+@external
+def getCreator(name: String[50]) -> address:
+    assert name != ""
+    good: Good = self.goods[name]
+    assert good.name == name
+    return good.creator
+#endregion
