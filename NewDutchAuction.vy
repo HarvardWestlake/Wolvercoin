@@ -4,6 +4,7 @@ interface ERC20:
     def transferFrom(asdf: address, sdlf:address, askdf: uint256) -> bool: view
     def transfer(add: address, val: uint256) -> bool: view
 
+
 nft: public(ERC20)
 nftId: public(uint256)
 
@@ -13,6 +14,7 @@ startAt: public(uint256)
 expiresAt: public(uint256)
 discountRate: public(uint256)
 DURATION: public(uint256)
+
 
 @external
 @payable
@@ -29,15 +31,13 @@ def __init__(_startingPrice: uint256, _discountRate: uint256, _nft: address, _nf
     self.nft = ERC20(_nft)
     self.nftId = _nftId
 
+
 @internal
 def getPrice() -> (uint256):
     timeElapsed: uint256 = block.timestamp - self.startAt
     discount: uint256 = self.discountRate * timeElapsed
     return self.startingPrice - discount
 
-@internal
-def kill(ad: address):
-    selfdestruct(ad)
 
 @external
 @payable
@@ -52,4 +52,4 @@ def buy():
     if (refund > 0):
         buyer: address = msg.sender
         self.nft.transfer(buyer, refund)
-    self.kill(self.seller)
+    selfdestruct(self.seller)
