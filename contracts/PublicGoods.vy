@@ -6,6 +6,10 @@ interface ERC20WithAdminAccess:
     def transferFrom(_from : address, _to : address, _value : uint256) -> bool: nonpayable
     def approve(_spender : address, _value : uint256) -> bool: nonpayable
 
+interface ERC721WithAdminAccess:
+    def ownerOf(_tokenId: uint256) -> address: nonpayable
+    def transferFrom(_from: address, _to: address, _tokenId: uint256): nonpayable
+
 struct Donation:
     donator: address
     amount: uint256
@@ -17,15 +21,18 @@ struct Good:
     donationsLen: uint8
     totalDonations: uint256
     creator: address
+    nftTokenId: uint256
 
 goods: public(HashMap[String[50], Good]) # There can be up to 50 goods collecting donations
-erc20: ERC20WithAdminAccess # The main contract we need to interact with
+erc20: ERC20WithAdminAccess
+erc721: ERC721WithAdminAccess
 
 goodsArr: public(DynArray[String[50], 100]) # A list of the names of all the goods currently active
 
 @external
-def __init__(erc20address: address):
+def __init__(erc20address: address, erc721address: address):
     self.erc20 = ERC20WithAdminAccess(erc20address)
+    self.erc721 = ERC721WithAdminAccess(erc721address)
     return
 
 @internal
@@ -36,17 +43,23 @@ def findIndexOfGoodInGoodsArr(name: String[50]) -> int256:
     return -1
 
 @external
-def createGood(name: String[50], goal: uint256):
+def createGood(name: String[50], goal: uint256, nftTokenId: uint256):
     assert name != ""
     assert goal > 0
     assert self.goods[name].name != name # Make sure good with same name doesn't already exist
+    assert self.erc721.ownerOf(nftTokenId) == msg.sender
+
+    # Move the NFT to the property of this contract for safekeeping
+    self.erc721.transferFrom(msg.sender, self, nftTokenId)
+
     self.goods[name] = Good({
         name: name,
         goal: goal,
         donations: empty(Donation[50]),
         donationsLen: 0,
         totalDonations: 0,
-        creator: msg.sender
+        creator: msg.sender,
+        nftTokenId: nftTokenId
     })
     self.goodsArr.append(name)
 
@@ -102,6 +115,8 @@ def complete(name: String[50]):
     assert msg.sender == good.creator
     assert good.name == name # Essentially a test to see if good exists
     if good.totalDonations < good.goal:
+        # Refund all the donations and transfer the NFT back
+        self.erc721.transferFrom(self, good.creator, good.nftTokenId)
         for i in range(50):
             if i >= good.donationsLen:
                 break
@@ -148,4 +163,5 @@ def getCreator(name: String[50]) -> address:
     good: Good = self.goods[name]
     assert good.name == name
     return good.creator
+
 #endregion
