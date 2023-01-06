@@ -17,6 +17,7 @@ officialVotingPeriod: public(bool)
 alreadyVotedProposal: public(DynArray [address,100])
 proposalVotes: public(DynArray[uint256, 3])
 activeUserContract: public(ActiveUser)
+balanceOf: public(HashMap[address, uint256])
 
 
 
@@ -25,7 +26,8 @@ def __init__ (activeUserAddress: address):
     self.activeYear = 2023
     self.activeUserContract = ActiveUser(activeUserAddress)
     self.officialVotingPeriod = True
-    self.proposalVotes=[0,0,0]
+    self.proposalVotes=[0,0,0
+    self.balanceOf[msg.sender] = init_supply
 
 
 
@@ -53,10 +55,14 @@ def getProposalVotes (num : uint256) -> (uint256):
 def transferFrom(_from : address, _to : address, _value : uint256):
     return
 
+@internal
+def getBalanceOf(_user: address) -> uint256:
+    return self.balanceOf[_user]
+
 @external
 def donate(to: address, numToSend: uint256):
     # Check if the caller has sufficient balance
-    #assert self.balanceOf[msg.sender] >= value, "Insufficient balance"
+    assert self.getBalanceOf(msg.sender) >= numToSend, "Insufficient balance"
     self.transferFrom(msg.sender, to, numToSend)
 
 
