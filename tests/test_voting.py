@@ -128,6 +128,19 @@ def test_finishVote(votingContract, accounts):
     assert votingContract.voterCoinStaked() == 0
 
 
+    votingContract.proposeVote(losingProp, "you should not vote for this thing", {'from': accounts[1], 'value': 1000})
+    votingContract.vote(losingProp, 1000, {'from': accounts[1]}) # account 1 balance: 5_500
+    assert votingContract.balanceOf(accounts[1]) == 5500
 
-# need to test running code works and that you can pass something that isn't a contract
+    chain.mine(200)
+
+    votingContract.finishVote(losingProp)
+    assert votingContract.balanceOf(accounts[1]) == 6500
+
+
+def test_burn(votingContract, accounts):
+    votingContract.mint(accounts[1], 10000, {'from': accounts[0]}) # account 1 balance: 10_000
+    # assert votingContract.balanceOf(accounts[1]) == 10000
+    votingContract.burn(9000, {'from': accounts[1]})
+    assert votingContract.balanceOf(accounts[1]) == 1000, "should be able to burn money"
 

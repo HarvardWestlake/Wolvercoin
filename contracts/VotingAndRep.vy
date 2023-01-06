@@ -231,8 +231,8 @@ def setDisabled(newState: bool):
 
 
 # all the setters for this class should assert that the sender is the affectsDao address
-@external
-def setActiveUserAddress(newAddress: address):
-    assert not self.disabled
-    assert msg.sender == self.allowedToAffectDao
-    self.activeUserAddress = ActiveUser(newAddress)
+# external
+# def setActiveUserAddress(newAddress: address):
+#     assert not self.disabled
+#     assert msg.sender == self.allowedToAffectDao
+#     self.activeUserAddress = ActiveUser(newAddress)
