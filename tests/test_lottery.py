@@ -28,12 +28,13 @@ def test_initial_state(lotteryContract):
     assert lotteryContract.lotteryStart() == LStart, "Start wrong" 
     assert lotteryContract.lotteryEnd() == LLength+LStart, "End wrong"
 
-# def test_buy(lotteryContract,erc20Contract,accounts):
-#     buyer = accounts[4]
-#     admin = accounts[0]
-#     assert erc20Contract.mint(buyer, 69420, {'from': admin}), "Didnt mint"
-#     assert lotteryContract.buyTickets(5,{'from': buyer}), "Didnt buy"
-#     assert str(erc20Contract.getBalanceOf(buyer).return_value) == "69415", "Balance didnt update"
+def test_buy(lotteryContract,erc20Contract,accounts):
+    buyer = accounts[4]
+    admin = accounts[0]
+    assert erc20Contract.mint(buyer, 69420, {'from': admin}), "Didnt mint"
+    assert erc20Contract.getBalanceOf(buyer) == 69420
+    assert lotteryContract.buyTickets(5, {'from': buyer}), "Didnt buy"
+    assert str(erc20Contract.getBalanceOf(buyer)) == "69415", "Balance didnt update"
     
 # def test_end(lotteryContract):
 #     assert lotteryContract.hasEnded() == True

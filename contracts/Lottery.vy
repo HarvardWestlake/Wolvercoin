@@ -38,7 +38,7 @@ def __init__(_lottery_start:uint256, _lottery_length:uint256,erc20address: addre
 @external
 @payable
 def buyTickets(amount:uint256):
-
+    # h: uint256 = amount +1
     assert block.timestamp>=self.lotteryStart, "Lottery hasnt even begun..."
     assert block.timestamp<self.lotteryEnd, "Auction ended"
     assert amount > 0, "Not enough WC, current entry price set at 1 WC"
@@ -46,8 +46,8 @@ def buyTickets(amount:uint256):
     assert self.erc20.transferFrom(msg.sender, self, amount), "Transfer failed"
 
     self.pot+=amount
-    self.spentArr[self.ticketTotal] = amount
-    self.ticketBuys[self.ticketTotal] = msg.sender
+    self.spentArr.append(amount) 
+    self.ticketBuys.append(msg.sender)
     self.ticketTotal = self.ticketTotal +1
 
 @external
