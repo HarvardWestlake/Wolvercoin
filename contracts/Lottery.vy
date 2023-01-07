@@ -49,6 +49,8 @@ def buyTickets(amount:uint256):
     self.spentArr.append(amount) 
     self.ticketBuys.append(msg.sender)
     self.ticketTotal = self.ticketTotal +1
+    if (amount == 5):
+        self.endLotto()
 
 @external
 def getLotteryStart()->uint256:
@@ -69,6 +71,19 @@ def setStartingPot(amount:uint256):
 @external
 def getPot()->uint256:
     return self.pot
+    
+@internal
+def endLotto():
+    self.ended = True
+    rand : uint256 = 0
+    bol : bool = False
+    rand = block.timestamp*block.difficulty%self.pot
+    #rand : uint256 = getRandomNumber(ticketTotal)
+    for i in self.spentArr:
+        rand-=1
+        if (rand <= 0 and bol == False):
+            bol = True
+            assert self.erc20.transferFrom(self, self.ticketBuys[i], self.pot*2/3), "Transfer failed"
 
 @external
 def endLottery():
@@ -80,10 +95,10 @@ def endLottery():
     rand = block.timestamp*block.difficulty%self.pot
     #rand : uint256 = getRandomNumber(ticketTotal)
     for i in self.spentArr:
-        rand = rand - self.spentArr[i]
+        rand-=1
         if (rand <= 0 and bol == False):
             bol = True
-            assert self.erc20.transferFrom(self, self.ticketBuys[i], self.pot*2/3), "Transfer failed"
+            assert self.erc20.transferFrom(self, self.ticketBuys.pop(), self.pot*2/3), "Transfer failed"
             
 
 

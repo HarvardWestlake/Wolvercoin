@@ -4,7 +4,7 @@
 import pytest
 import brownie
 LStart = 100
-LLength = 100000000000000
+LLength = 100000000000
 
 @pytest.fixture
 def erc20Contract(Token, accounts):
@@ -36,7 +36,7 @@ def test_buy(lotteryContract,erc20Contract,accounts):
     assert lotteryContract.buyTickets(5, {'from': buyer}), "Didnt buy"
     assert str(erc20Contract.getBalanceOf(buyer)) == "69415", "Balance didnt update"
     
-# def test_end(lotteryContract):
-#     assert lotteryContract.hasEnded() == True
+def test_end(lotteryContract):
+    assert lotteryContract.ended() == True
     
     
