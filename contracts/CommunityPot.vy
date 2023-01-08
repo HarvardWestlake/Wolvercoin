@@ -45,6 +45,10 @@ def Transact(amount: uint256, destAddress: address):
     self.TokenContract.transferFrom(self.PotAddress, destAddress, amount)
     self._removeMoney(amount)
 
+@external
+def getPotAddress() -> address:
+    return self.PotAddress
+
 #whether or not an address is in admin array
 @view
 @external
