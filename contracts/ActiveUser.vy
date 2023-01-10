@@ -43,6 +43,17 @@ def addAdmin(adminToAdd: address):
     self.admins[adminToAdd] = True
     log AdminAdded(adminToAdd, "add admin")
 
+@external
+def removeAdmin(adminToRemove: address):
+    """
+        @notice removeAdmin function removes a new admin
+        @param adminToRemove is the admin to remove
+        can only be called by existing admin / owner
+    """
+    assert not self.disabled, "This contract is no longer active"
+    assert self.admins[msg.sender] == True, "You need to be a teacher to remove a teacher."
+    self.admins[adminToRemove] = False
+    log AdminAdded(adminToRemove, "rmv admin")
 
 @external
 def addUser(userToAdd: address):
