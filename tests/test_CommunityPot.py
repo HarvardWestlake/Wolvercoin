@@ -39,8 +39,14 @@ def test_setElectedOfficials (communityPotContract, accounts):
     assert  newElectedOfficials==communityPotContract.getElectedOfficials()
 
 def test_VerifyElectedOfficial(communityPotContract, accounts):
-     assert communityPotContract.VerifyElectedOfficial(accounts[2])==True
-     assert communityPotContract.VerifyElectedOfficial(accounts[5])==False #edited
+    newElectedOfficials =  [accounts[0],accounts[1],accounts[2]] #so apparently you need these 3 lines first?? idk
+    communityPotContract.setElectedOfficials (newElectedOfficials)
+    assert  newElectedOfficials==communityPotContract.getElectedOfficials()
+
+    assert communityPotContract.VerifyElectedOfficial(accounts[0])==True
+    assert communityPotContract.VerifyElectedOfficial(accounts[1])==True
+    assert communityPotContract.VerifyElectedOfficial(accounts[2])==True
+    assert communityPotContract.VerifyElectedOfficial(accounts[5])==False #edited
 
 def test_WorkingTransact(communityPotContract, erc20Contract, accounts):
     erc20Contract.transfer(communityPotContract.getPotAddress(), 50) #idk if it is correct address 
