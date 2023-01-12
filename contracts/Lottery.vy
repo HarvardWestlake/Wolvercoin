@@ -45,15 +45,13 @@ def buyTickets(amount:uint256):
     assert amount > 0, "Not enough WC, current entry price set at 1 WC"
     assert self.erc20.getBalanceOf(msg.sender) >= amount, "Not enough money in account"
     assert self.erc20.transferFrom(msg.sender, self, amount), "Transfer failed"
-
+    assert self.ticketTotal<=1024
 
     self.pot+=amount
-    self.spentArr.append(amount) 
+    self.spentArr.append(amount)
     self.ticketBuys.append(msg.sender)
     self.ticketTotal = self.ticketTotal +1
-    if (amount == 5):
-        self.endLotto()
-    
+ 
 
 @external
 def getLotteryStart()->uint256:
@@ -74,7 +72,12 @@ def setStartingPot(amount:uint256):
 @external
 def getPot()->uint256:
     return self.pot
+
+@external
+def getTicketTotal()->uint256:
+    return self.ticketTotal
     
+# for testing purposes
 @internal
 def endLotto():
     self.ended = True
@@ -100,11 +103,13 @@ def endLottery():
     rand = block.timestamp*block.difficulty%self.pot
     #rand : uint256 = getRandomNumber(ticketTotal)
     for i in self.spentArr:
-        rand -= i
-        if (rand <= 0 and foundWinner == False):
+        if (rand < i and foundWinner == False):
             foundWinner = True
             assert self.erc20.transferFrom(self, self.ticketBuys.pop(), self.pot*2/3), "Transfer failed"
-        self.ticketBuys.pop()
+            self.pot = self.pot/3
+        if(foundWinner==False):
+            rand-=i
+            self.ticketBuys.pop()
 
 
 

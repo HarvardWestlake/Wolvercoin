@@ -1,8 +1,10 @@
-
 # @dev Basic testing for the lotto system
 # @author Simon W
+from brownie.network.state import Chain
 import pytest
 import brownie
+chain = Chain()
+
 LStart = 100
 LLength = 1000000000000000
 
@@ -19,6 +21,11 @@ def erc20Contract(Token, accounts):
 @pytest.fixture
 def lotteryContract(Lottery,erc20Contract,accounts):
     yield Lottery.deploy(LStart,LLength, erc20Contract,{'from':accounts[0]})
+
+def test_advanceTimeExample(erc20Contract, accounts):
+    currentChainTime = chain.time()
+    chain.sleep(10000)
+    assert chain.time() == (currentChainTime + 10000)
 
 def test_setPot(lotteryContract):
     assert lotteryContract.setStartingPot(50)
@@ -62,8 +69,12 @@ def test_lotteryFuncs(lotteryContract,erc20Contract,accounts):
     assert lotteryContract.buyTickets(6, {'from': b4}), "Didnt buy"
     assert lotteryContract.buyTickets(6, {'from': b3}), "Didnt buy"
     assert lotteryContract.buyTickets(5, {'from': buyer}), "Didnt buy"
-    
-    
+    assert lotteryContract.pot()==41
+    assert lotteryContract.ticketTotal()==7
+    chain.sleep(5000000000000000)
+    assert lotteryContract.endLottery(),"Didnt end"
+
+
     # End of Lotto
 
     # assert str(erc20Contract.getBalanceOf(buyer)) == "69415", "Balance didnt update"
@@ -74,7 +85,10 @@ def test_lotteryEnd(lotteryContract,erc20Contract,accounts):
     admin = accounts[0]
     assert erc20Contract.mint(buyer, 5, {'from': admin}), "Didnt mint"
     assert erc20Contract.getBalanceOf(buyer) == 5
-    assert lotteryContract.buyTickets(5, {'from': buyer}), "Didnt buy"    
+    assert lotteryContract.buyTickets(5, {'from': buyer}), "Didnt buy" 
+    assert erc20Contract.getBalanceOf(buyer)==0
+    chain.sleep(5000000000000000)
+    assert lotteryContract.endLottery(),"Didnt end"
     assert lotteryContract.ended() == True,"end didnt work"
     assert erc20Contract.getBalanceOf(buyer) == 3
 
