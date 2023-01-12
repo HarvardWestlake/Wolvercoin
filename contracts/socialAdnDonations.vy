@@ -56,7 +56,7 @@ def transferFrom(_from : address, _to : address, _value : uint256):
 
 @internal
 def getBalanceOf(_user: address) -> uint256:
-    return self.balanceOf[_user]
+    return self.balance
 
 @external
 def donate(to: address, numToSend: uint256):
