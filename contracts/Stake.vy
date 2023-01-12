@@ -39,9 +39,10 @@ def unstake (_userAddress: address, amtUnstaked: uint256):
         self.stakeAmounts[_userAddress] -= amtUnstaked
     else:
         days: uint256 = changeInTime/86400
-        percent: uint256 = 3800 / 365
+        # the percent value is calculated based on a 1% daily interest rate -- can be changed
+        percent: uint256 = 3800 / 365 
         assert percent == 10
-        newAmt: uint256 = amtUnstaked * days / percent
+        newAmt: uint256 = amtUnstaked * days * percent / 100
         self.wolvercoinContract.transferFrom (self, _userAddress, newAmt)
         self.stakeAmounts[_userAddress] -= amtUnstaked
 

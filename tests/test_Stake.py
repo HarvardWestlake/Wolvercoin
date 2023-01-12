@@ -74,7 +74,7 @@ def test_waitExactlyTwoWeeks (stakeContract, wolvercoinContract, accounts):
     assert chain.time() == (currentChainTime + 1210000)
     stakeContract.unstake (accounts[0], 9)
     assert stakeContract.stakeAmounts(accounts[0]) == 3, "Account should have 3 coins left"
-    assert int(wolvercoinContract.balanceOf(accounts [0])) == int(originalAmountInAccount), "Account should get back 12 coins (9*14/10))"
+    assert int(wolvercoinContract.balanceOf(accounts [0])) == int(originalAmountInAccount), "Account should get back 12 coins (9*14*10/100))"
 
 def test_waitMoreThanTwoWeeks (stakeContract, wolvercoinContract, accounts):
     wolvercoinContract.approve (stakeContract, 1000, {'from': stakeContract})
@@ -86,4 +86,4 @@ def test_waitMoreThanTwoWeeks (stakeContract, wolvercoinContract, accounts):
     chain.sleep(1814400)
     assert chain.time() == (currentChainTime + 1814400)
     stakeContract.unstake (accounts[0], 12)
-    assert int(wolvercoinContract.balanceOf(accounts [0])) == int(originalAmountInAccount + 13), "Account should get back 14 coins (12*21/10))"
+    assert int(wolvercoinContract.balanceOf(accounts [0])) == int(originalAmountInAccount + 13), "Account should get back 25 coins (12*21*10/100))"
