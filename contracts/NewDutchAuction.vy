@@ -1,11 +1,13 @@
 # @version ^0.3.7
 
+interface IERC721:
+    def transferFrom(_from: address, _to: address, _NFTID: uint256) -> bool: view
+    
 interface Token:
-    def transferFrom(asdf: address, sdlf:address, askdf: uint256) -> bool: view
     def transfer(add: address, val: uint256) -> bool: view
 
 
-nft: public(Token)
+nft: public(IERC721)
 nftId: public(uint256)
 
 seller: public(address)
@@ -28,7 +30,7 @@ def __init__(_startingPrice: uint256, _discountRate: uint256, _nft: address, _nf
 
     assert _startingPrice >= _discountRate * self.DURATION
 
-    self.nft = Token(_nft)
+    self.nft = IERC721(_nft)
     self.nftId = _nftId
 
 
@@ -62,6 +64,11 @@ def getNftId() -> (uint256):
     return self.nftId
 
 
+@external
+def getNft() -> (Token):
+    return self.nft
+
+
 @internal
 def _getPrice() -> (uint256):
     timeElapsed: uint256 = block.timestamp - self.startAt
@@ -86,5 +93,5 @@ def buy():
     refund: uint256 = msg.value - price
     if (refund > 0):
         buyer: address = msg.sender
-        self.nft.transfer(buyer, refund)
+        Token(msg.sender).transfer(buyer, refund)
     selfdestruct(self.seller)
