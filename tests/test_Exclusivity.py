@@ -16,7 +16,7 @@ def testVote(Exclusivity,accounts):
     exclusivity.topicsAddress.append(0xf34b09E22f5115af490eeb7460304aB80c90399E)
     exclusivity.vote(0xf34b09E22f5115af490eeb7460304aB80c90399E)
     valueChanged: bool=False
-    if balance(0xf34b09E22f5115af490eeb7460304aB80c90399E)>=1:#balance thing may be source of error
+    if balance(0xf34b09E22f5115af490eeb7460304aB80c90399E)>=1:#balance thing may be source of error, needs to be a
             valueChanged = True
     assert valueChanged
     valueChanged = False
@@ -71,3 +71,6 @@ def testRemoveTopics(ExclusivityContract,accounts):
     ExclusivityContract.setPercentage(100)
     ExclusivityContract.removeNonTopics(accounts[1])
     assert ExclusivityContract.isInTopicsList(accounts[1]), "should not remove if percentage is less than 1"
+
+
+
