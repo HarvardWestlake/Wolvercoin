@@ -13,7 +13,7 @@ interface ERC721WithAdminAccess:
 
 interface ActiveUser:
     def getIsActiveUser(potentialUser: address) -> bool: view
-    def getIsAdmin(potentialAdmin: address) -> bool: view
+    def getIsAdmin(_potentialAdmin: address) -> bool: view
 
 AUA: public(ActiveUser)
 
@@ -37,8 +37,8 @@ erc721: ERC721WithAdminAccess
 goodsArr: public(DynArray[uint256, 100]) # A list of the nftTokenIds of all the goods currently active
 
 @external
-def __init__(erc20address: address, erc721address: address):
-    self.activeUserAddress = ActiveUser(activeUserAddress)
+def __init__(erc20address: address, erc721address: address, AUA: address):
+    self.AUA = ActiveUser(AUA)
     self.erc20 = ERC20WithAdminAccess(erc20address)
     self.erc721 = ERC721WithAdminAccess(erc721address)
     return
