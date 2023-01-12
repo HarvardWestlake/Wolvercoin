@@ -17,7 +17,7 @@ officialVotingPeriod: public(bool)
 alreadyVotedProposal: public(DynArray [address,100])
 proposalVotes: public(DynArray[uint256, 3])
 activeUserContract: public(ActiveUser)
-
+    
 
 
 @external
@@ -44,6 +44,7 @@ def voteProposal(proposalNumber : uint256):
     assert self.officialVotingPeriod == True
     self.proposalVotes [proposalNumber] = self.proposalVotes [proposalNumber] + 1 
     self.alreadyVotedProposal.append(self)
+    
 
 @external
 @view
