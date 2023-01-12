@@ -15,7 +15,7 @@ time = 0
 def newDutchAuctionContract(NewDutchAuction, Token, accounts):
     NFTContract = Token.deploy("unused", "notused", 8, 100000, {'from':accounts[0]})
     NFTContract.transferFrom(accounts[0], accounts[1], 5000, {'from':accounts[0]})
-    time = time + chain.time()
+    time = chain.time()
     return NewDutchAuction.deploy(2000, 10, NFTContract, 12345, 100, {'from': accounts[0]})
 
 def _as_wei_value(base, conversion):
