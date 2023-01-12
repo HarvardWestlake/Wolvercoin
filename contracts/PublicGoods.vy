@@ -172,6 +172,6 @@ def checkIfAdminAndUser() -> bool:
     isAdmin: bool = self.activeUserAddress.getIsAdmin(msg.sender)
     isActive: bool = self.activeUserAddress.getIsActiveUser(msg.sender)
     if isActive and isAdmin: 
-        return true
-    return false
+        return True
+    return False
 #endregion
