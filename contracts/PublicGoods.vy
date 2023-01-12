@@ -168,7 +168,7 @@ def getCreator(nftTokenId: uint256) -> address:
     return good.creator
 
 @internal
-def checkIfAdminAndUser() -> bool:
+def checkIfAdminAndUser(sender: address) -> bool:
     isAdmin: bool = self.activeUserAddress.getIsAdmin(msg.sender)
     isActive: bool = self.activeUserAddress.getIsActiveUser(msg.sender)
     if isActive and isAdmin: 
