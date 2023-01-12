@@ -50,6 +50,11 @@ def getStartingPrice() -> (uint256):
 
 
 @external
+def getStartAt() -> (uint256):
+    return self.startAt
+
+
+@external
 def getExpiresAt() -> (uint256):
     return self.expiresAt
 
