@@ -16,9 +16,9 @@ wolvercoinContract: Token
 activeUserContract: ActiveUser
 
 @external 
-def __init__(_wolvercoinContract: Token, _activeUserContract: ActiveUser):
-    self.wolvercoinContract = _wolvercoinContract
-    self.activeUserContract = _activeUserContract
+def __init__(_wolvercoinContract: address, _activeUserContract: address):
+    self.wolvercoinContract = Token(_wolvercoinContract)
+    self.activeUserContract = ActiveUser(_activeUserContract)
 
 @external
 def stake (user: address, amountStaked: uint256):
