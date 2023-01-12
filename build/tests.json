@@ -9,12 +9,12 @@
     "Exclusivity": "6533451a8f3d5f08a7bf93204e60c327a7e3777b",
     "PublicGoods": "bdb612404da27dfddadec5f42456ff79b8a7f310",
     "Reimbursement": "846b1d910193c44201d3fc3c764fc2ddd1cdd33f",
+    "SocialAndDonations": "88d7f507595c4c380506420aa146e5581d2375fc",
     "Stake": "728dad133912d131887a24488add7913bacb2823",
     "Token": "6344dae64dbfaf688a21a7ddcb15474692775297",
     "VotingAndRep": "fda86f072d9c8fca5b29eae53a4a483ff4d6355a",
     "Wolvercoin": "58ab07b8059e89fd44939db5aa391ce861dfabe0",
-    "codeGambling": "48e5c8ad9d89d291f540574edfe3531f1480eb89",
-    "socialAndDonations": "88d7f507595c4c380506420aa146e5581d2375fc"
+    "codeGambling": "48e5c8ad9d89d291f540574edfe3531f1480eb89"
   },
   "tests": {
     "tests/test_Exclusivity.py": {
@@ -287,7 +287,7 @@
       "coverage": true,
       "isolated": false,
       "results": "..",
-      "sha1": "976e4a1752b5187adb22cecfb01ceda4ba0f9042",
+      "sha1": "b3d72ab060f2a4f0d3210017bb5fde229efee15d",
       "txhash": [
         "0a065486f564e520998c2451545563211000e6b3",
         "0ca1ba02f03cc728e56debb855b5e662fd167882",
@@ -497,7 +497,7 @@
       }
     },
     "0a065486f564e520998c2451545563211000e6b3": {
-      "socialAndDonations": {
+      "SocialAndDonations": {
         "0": [
           [
             3,
@@ -518,7 +518,7 @@
     "0a6b4ec03bd5eed01bfcedc0cd469f4cb5ce4ff6": {},
     "0c5a52e3332a6a25ad8873abce02407f67133074": {},
     "0ca1ba02f03cc728e56debb855b5e662fd167882": {
-      "socialAndDonations": {
+      "SocialAndDonations": {
         "0": [
           [
             3,
@@ -791,7 +791,7 @@
       }
     },
     "26494168a7a04d553f18d8df66b7081a345d8afb": {
-      "socialAndDonations": {
+      "SocialAndDonations": {
         "0": [
           [
             14
@@ -986,7 +986,7 @@
       }
     },
     "3955d44cfc973bf1be43e64439d4d14c3c5734b7": {
-      "socialAndDonations": {
+      "SocialAndDonations": {
         "0": [
           [
             3,
@@ -1113,7 +1113,7 @@
     },
     "4d969b682c93048017d30140fe4c3bb2fb263689": {},
     "50ba41c918d294231c9bf8a383932681cbbf90d4": {
-      "socialAndDonations": {
+      "SocialAndDonations": {
         "0": [
           [
             38,
@@ -1173,7 +1173,7 @@
     },
     "580ed722463209de7ab78b393b3e01911ac419d3": {},
     "5a002b4fdc5c1952627999a53f505fbe4f84c424": {
-      "socialAndDonations": {
+      "SocialAndDonations": {
         "0": [
           [
             13
@@ -1346,7 +1346,7 @@
     "5f616def8ee98402161042b668d98cec2def7ca0": {},
     "600404358678f80e6d017c6335769cd42bca0206": {},
     "620e45050ad921e013a40bf479fb66b5b7b74434": {
-      "socialAndDonations": {
+      "SocialAndDonations": {
         "0": [
           [
             13
@@ -1519,7 +1519,7 @@
       }
     },
     "74006f97631b8e6a5f684e616be31116c09292c2": {
-      "socialAndDonations": {
+      "SocialAndDonations": {
         "0": [
           [
             3,
@@ -1693,7 +1693,7 @@
       }
     },
     "7c78398333c6df461153ee64889b16284dae6aed": {
-      "socialAndDonations": {
+      "SocialAndDonations": {
         "0": [
           [
             14

@@ -11,37 +11,37 @@ chain = Chain()
 
 #test for socialAndDonatios
 @pytest.fixture
-def socialAndDonationsContract(socialAndDonations, accounts):
-    return socialAndDonations.deploy("0x0000000000000000000000000000000000000000" , {'from': accounts[0]})
+def SocialAndDonationsContract(SocialAndDonations, accounts):
+    return SocialAndDonations.deploy("0x0000000000000000000000000000000000000000" , {'from': accounts[0]})
 
 with pytest.raises(Exception) as e_info:
-    socialAndDonationsContract.voteOfficials()
+    SocialAndDonationsContract.voteOfficials()
 
 with pytest.raises(Exception) as e_info:
-    socialAndDonationsContract.endVoteOfficials()
+    SocialAndDonationsContract.endVoteOfficials()
 
-def test_voteProposal (socialAndDonationsContract):
+def test_voteProposal (SocialAndDonationsContract):
    #makes sure the person can't vote for a proposal that isn't 0, 1, or 2
    with pytest.raises(Exception) as e_info:
-     socialAndDonationsContract.voteProposal(3)
-     socialAndDonationsContract.voteProposal(-1)
+     SocialAndDonationsContract.voteProposal(3)
+     SocialAndDonationsContract.voteProposal(-1)
    #makes sure the person can't vote when the voting period is false
-   socialAndDonationsContract.setOfficalVotingPeriod (False)
+   SocialAndDonationsContract.setOfficalVotingPeriod (False)
    with pytest.raises(Exception) as e_info:
-     socialAndDonationsContract.voteProposal(1)
+     SocialAndDonationsContract.voteProposal(1)
     
-   socialAndDonationsContract.setOfficalVotingPeriod (True)
+   SocialAndDonationsContract.setOfficalVotingPeriod (True)
 
    one : uint256
-   one = socialAndDonationsContract.getProposalVotes(2)
-   socialAndDonationsContract.voteProposal(2)
+   one = SocialAndDonationsContract.getProposalVotes(2)
+   SocialAndDonationsContract.voteProposal(2)
    two : uint256
-   two = socialAndDonationsContract.getProposalVotes(2)
+   two = SocialAndDonationsContract.getProposalVotes(2)
    assert one == 0
    assert two == 1
    #Makes sure the same person can't vote again
    with pytest.raises(Exception) as e_info:
-    socialAndDonationsContract.voteProposal(2)
+    SocialAndDonationsContract.voteProposal(2)
    
 
    
@@ -59,6 +59,6 @@ def test_voteProposal (socialAndDonationsContract):
     #assert b == True 
    # """
 
-def test_beginVoteOfficial(socialAndDonationsContract):
-    socialAndDonationsContract.beginVoteOfficial(accounts[0])
-    assert socialAndDonationsContract.getOfficalVotingPeriod
+def test_beginVoteOfficial(SocialAndDonationsContract):
+    SocialAndDonationsContract.beginVoteOfficial(accounts[0])
+    assert SocialAndDonationsContract.getOfficalVotingPeriod
