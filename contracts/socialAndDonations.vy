@@ -17,7 +17,7 @@ officialVotingPeriod: public(bool)
 alreadyVotedProposal: public(DynArray [address,100])
 proposalVotes: public(DynArray[uint256, 3])
 activeUserContract: public(ActiveUser)
-
+    
 
 
 @external
@@ -44,11 +44,17 @@ def voteProposal(proposalNumber : uint256):
     assert self.officialVotingPeriod == True
     self.proposalVotes [proposalNumber] = self.proposalVotes [proposalNumber] + 1 
     self.alreadyVotedProposal.append(self)
+    
 
 @external
+@view
 def getProposalVotes (num : uint256) -> (uint256):
     return self.proposalVotes[num]
+@external 
+def setOfficalVotingPeriod(b: bool):
+    self.officialVotingPeriod = b
 
+    
 #def donate(to: Address, value: uint256):
     # Check if the caller has sufficient balance
    # assert self.balanceOf[msg.sender] >= value, "Insufficient balance"
@@ -96,6 +102,10 @@ def beginVoteOfficial(user: address):
 @external
 def getOfficalVotingPeriod() -> (bool):
     return self.officialVotingPeriod
+
+
+
+
 
 
        

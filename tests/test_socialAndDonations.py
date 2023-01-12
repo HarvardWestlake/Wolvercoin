@@ -11,32 +11,54 @@ chain = Chain()
 
 #test for socialAndDonatios
 @pytest.fixture
-def socialAdnDonationsContract(socialAdnDonations, accounts):
-    return socialAdnDonations.deploy("0x0000000000000000000000000000000000000000" , {'from': accounts[0]})
+def SocialAndDonationsContract(SocialAndDonations, accounts):
+    return SocialAndDonations.deploy("0x0000000000000000000000000000000000000000" , {'from': accounts[0]})
 
 with pytest.raises(Exception) as e_info:
-    socialAdnDonationsContract.voteOfficials()
+    SocialAndDonationsContract.voteOfficials()
 
 with pytest.raises(Exception) as e_info:
-    socialAdnDonationsContract.endVoteOfficials()
+    SocialAndDonationsContract.endVoteOfficials()
 
-def test_voteProposal (socialAdnDonationsContract):
-   one = socialAdnDonationsContract.getProposalVotes(2)
-   socialAdnDonationsContract.voteProposal(2)
-   two = socialAdnDonationsContract.getProposalVotes(2)
-   assert one != two
+def test_voteProposal (SocialAndDonationsContract):
+   #makes sure the person can't vote for a proposal that isn't 0, 1, or 2
+   with pytest.raises(Exception) as e_info:
+     SocialAndDonationsContract.voteProposal(3)
+     SocialAndDonationsContract.voteProposal(-1)
+   #makes sure the person can't vote when the voting period is false
+   SocialAndDonationsContract.setOfficalVotingPeriod (False)
+   with pytest.raises(Exception) as e_info:
+     SocialAndDonationsContract.voteProposal(1)
     
+   SocialAndDonationsContract.setOfficalVotingPeriod (True)
+
+   one : uint256
+   one = SocialAndDonationsContract.getProposalVotes(2)
+   SocialAndDonationsContract.voteProposal(2)
+   two : uint256
+   two = SocialAndDonationsContract.getProposalVotes(2)
+   assert one == 0
+   assert two == 1
+   #Makes sure the same person can't vote again
+   with pytest.raises(Exception) as e_info:
+    SocialAndDonationsContract.voteProposal(2)
+   
+
+   
+   
+    
+
 
 #def test_donate():
     #b: bool = False
     #balance = accounts[1].balance()
-    #socialAdnDonationsContract.donate(accounts[1].address, accounts[0].balance)
+    #socialAndDonationsContract.donate(accounts[1].address, accounts[0].balance)
    # 'accounts[0].transfer(accounts[1], "10 ether", gas_price=0)'
     #if(accounts[0].balance == 0):
        # b == True
     #assert b == True 
    # """
 
-def test_beginVoteOfficial(socialAdnDonationsContract):
-    socialAdnDonationsContract.beginVoteOfficial(accounts[0])
-    assert socialAdnDonationsContract.getOfficalVotingPeriod
+def test_beginVoteOfficial(SocialAndDonationsContract):
+    SocialAndDonationsContract.beginVoteOfficial(accounts[0])
+    assert SocialAndDonationsContract.getOfficalVotingPeriod
