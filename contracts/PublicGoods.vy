@@ -10,6 +10,9 @@ interface ERC721WithAdminAccess:
     def ownerOf(_tokenId: uint256) -> address: nonpayable
     def transferFrom(_from: address, _to: address, _tokenId: uint256): nonpayable
 
+interface ActiveUser:
+    def getIsAdmin(_potentialAdmin: address) -> bool
+
 struct Donation:
     donator: address
     amount: uint256
