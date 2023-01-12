@@ -1,11 +1,7 @@
 # @version ^0.3.7
 # code is dependent on activeUser
-interface ERC20WithAdminAccess:
-    def getBalanceOf(_address: address) -> uint256: nonpayable
-    def transferFrom(_from : address, _to : address, _value : uint256) -> bool: nonpayable
-    def approve(_spender : address, _value : uint256) -> bool: nonpayable
-
-erc20: ERC20WithAdminAccess # The main contract we need to interact with
+interface Wolvercoin:
+    def transferFrom(_from : address, _to : address, _value : uint256) -> bool: payable
 
 interface ActiveUser:
     def getActiveUser(potentialUser: address) -> bool: view
@@ -22,6 +18,7 @@ officialVotingPeriod: public(bool)
 alreadyVotedProposal: public(DynArray [address,100])
 proposalVotes: public(DynArray[uint256, 3])
 activeUserContract: public(ActiveUser)
+wolvercoinContract: public(Wolvercoin)
 
 
 @external
@@ -30,7 +27,8 @@ def __init__ (activeUserAddress: address):
     self.activeUserContract = ActiveUser(activeUserAddress)
     self.officialVotingPeriod = True
     self.proposalVotes=[0,0,0]
-    self.erc20 = ERC20WithAdminAccess(activeUserAddress)
+    self.wolvercoinContract = Wolvercoin(activeUserAddress)
+
     return
 
 
@@ -54,9 +52,7 @@ def voteProposal(proposalNumber : uint256):
 
 
 @external
-def donate(pot: address, to: address, val: uint256):
-    assert self.erc20.getBalanceOf(pot) >= val
-    self.erc20.transferFrom(pot,to,val)   
+def donate(current: address, to: address, val: uint256):
 
 @external   
 def getProposalVotes (num : uint256) -> (uint256):
@@ -101,6 +97,3 @@ def beginVoteOfficial(user: address):
 @external
 def getOfficalVotingPeriod() -> (bool):
     return self.officialVotingPeriod
-
-
-       
