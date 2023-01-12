@@ -52,7 +52,7 @@ def findIndexOfGoodInGoodsArr(nftTokenId: uint256) -> int256:
 
 @external
 def createGood(goal: uint256, nftTokenId: uint256):
-    if (getIsAdmin(msg.sender)):
+    if (checkIfAdminAndUser(msg.sender)):
         assert goal > 0
         assert self.erc721.ownerOf(nftTokenId) == msg.sender
 
