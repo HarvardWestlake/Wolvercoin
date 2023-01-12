@@ -5,6 +5,7 @@
 interface Token:
     def transferFrom(_from : address, _to : address, _value : uint256) -> bool: nonpayable
     def burnFrom(_to: address, _value: uint256): nonpayable
+    def getBalanceOf (_user: address) -> uint256: nonpayable
 
 interface ActiveUser:
     def getActiveUser(potentialUser: address) -> bool: view

@@ -56,11 +56,12 @@ def test_unstakeMoreThanStaked (stakeContract, wolvercoinContract, accounts):
         badAccountFail = True
     assert badAccountFail, "Account cannot unstake more than they have staked"
 
-def test_validStake (stakeContract, accounts)
+def test_validStake (stakeContract, wolvercoinContract, accounts):
     wolvercoinContract.approve (accounts[0], 1000, {'from': stakeContract})
-    stakeContract.stake (accounts[0], 1000)
-    assert stakeContract.stakeAmounts[accounts[0]] == 1000
-    assert int(wolvercoinContract.balanceOf(accounts[0]) == int (0)
+    originalAmountInAccount = int(wolvercoinContract.balanceOf(accounts[0]))
+    stakeContract.stake (accounts[0], 10)
+    assert stakeContract.stakeAmounts(accounts[0]) == 10
+    assert int(wolvercoinContract.balanceOf(accounts[0])) == int(originalAmountInAccount - 10)
 
 def test_validUnstake (stakeContract, wolvercoinContract, accounts):
     wolvercoinContract.approve (stakeContract, 1000, {'from': stakeContract})
