@@ -19,7 +19,7 @@ activeUserContract: ActiveUser
 @external
 def stake (user: address, amountStaked: uint256):
     assert self.activeUserContract.getActiveUser (user)
-    assert amountStaked < self.wolvercoinContract.getBalanceOf (user)
+    assert amountStaked <= self.wolvercoinContract.getBalanceOf (user)
     self.stakeAmounts[user] = amountStaked
     self.stakeDates[user] = block.timestamp
     self.wolvercoinContract.transferFrom (user, self, amountStaked)
