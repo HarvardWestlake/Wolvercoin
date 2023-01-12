@@ -28,3 +28,8 @@ def test_endAuction(privateGoodContract, accounts):
     assert privateGoodContract.getEndDate() != 0
     privateGoodContract.endAuction()
     #assert privateGoodContract.getEndDate() == 0
+
+def test_countdown(privateGoodContract):
+    assert privateGoodContract.getEndDate() != 0
+    return privateGoodContract._countdown
+    
