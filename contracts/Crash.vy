@@ -6,8 +6,8 @@ pot: public(address)
 currentBettors: public(DynArray[address, 1024])
 
 interface ActiveUser:
-    def getActiveUser(potentialUser: address) -> bool: view
-    def getAdmin(potentialAdmin: address) -> bool: view
+    def getIsActiveUser(potentialUser: address) -> bool: view
+    def getIsAdmin(potentialAdmin: address) -> bool: view
 
 interface Token:
     def generate_random_number(maxVal: uint256) -> uint256: view
@@ -49,7 +49,7 @@ def __init__(activeUserAddress: address, tokenContractAddress: address, wolverco
 @external
 def withdrawBet(gambler: address):
     #verifies that gambler has placed a bet
-    assert self.activeUserContract.getActiveUser(gambler) == True
+    assert self.activeUserContract.getIsActiveUser(gambler) == True
     found: bool = False
     for bettor in self.currentBettors:
         if (bettor == gambler):

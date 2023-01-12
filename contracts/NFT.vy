@@ -85,8 +85,8 @@ gradYear : uint256
 # Check for active user and grad year
 interface ActiveUser:
     def getCurrentGradYear() -> uint256: view
-    def getActiveUser(potentialUser: address) -> bool: view
-    def getAdmin(potentialAdmin: address) -> bool: view
+    def getIsActiveUser(potentialUser: address) -> bool: view
+    def getIsAdmin(potentialAdmin: address) -> bool: view
 activeUserContract : public(ActiveUser)
 
 
