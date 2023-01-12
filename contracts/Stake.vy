@@ -7,8 +7,8 @@ interface Token:
     def burnFrom(_to: address, _value: uint256): nonpayable
 
 interface ActiveUser:
-    def getActiveUser(potentialUser: address) -> bool: view
-    def getAdmin(potentialAdmin: address) -> bool: view
+    def getIsActiveUser(potentialUser: address) -> bool: view
+    def getIsAdmin(potentialAdmin: address) -> bool: view
 
 stakeAmounts: public(HashMap [address, uint256])
 stakeDates: HashMap [address, uint256]
@@ -22,7 +22,7 @@ def __init__(_wolvercoinContract: address, _activeUserContract: address):
 
 @external
 def stake (user: address, amountStaked: uint256):
-    assert self.activeUserContract.getActiveUser (user)
+    assert self.activeUserContract.getIsActiveUser(user)
     self.stakeAmounts[user] += amountStaked
     self.stakeDates[user] = block.timestamp
     self.wolvercoinContract.transferFrom (user, self, amountStaked)
