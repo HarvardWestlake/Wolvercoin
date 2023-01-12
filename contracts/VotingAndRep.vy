@@ -132,7 +132,7 @@ def finishVote(contract: address):
         self.allowedToAffectDao = contract
         self.runCode(contract)
         self.allowedToAffectDao = empty(address)
-    elif(self.activePropositions[contract] * 2 > self.totalSupply):
+    elif(self.activePropositions[contract] * 2 > self.totalSupply and not self.affectsDao[contract]):
         for voter in peopleInvested:
             self.burnCoinOnWin(voter, contract)
         self.runCode(contract)
