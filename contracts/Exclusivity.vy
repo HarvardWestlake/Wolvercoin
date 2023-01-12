@@ -19,7 +19,7 @@ def vote(voter: address):
                 isIn = True
                 break
     if isIn == True:
-        self.internalRemoveNonTopics(voter)
+        self._removeNonTopics(voter)
         send(voter,1)
     if self.admin[voter]:
      
@@ -29,7 +29,7 @@ def vote(voter: address):
      
 def tallyVotes(voter: address)-> bool:
     if self.percentage >= 50:
-        self.internalRemoveNonTopics(voter)
+        self._removeNonTopics(voter)
         return True
     return False
 
@@ -56,7 +56,7 @@ def removeNonTopics(candidate: address):
 
 #intern verison
 @internal
-def internalRemoveNonTopics(candidate: address):
+def _removeNonTopics(candidate: address):
     #self.vote() #after or within vote is made to remove/add person
     if self.percentage>=100:#assuming percentage doesnt change immediately after vote method is called
         count: int256=0
