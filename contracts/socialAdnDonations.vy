@@ -26,7 +26,7 @@ def __init__ (activeUserAddress: address):
     self.activeYear = 2023
     self.activeUserContract = ActiveUser(activeUserAddress)
     self.officialVotingPeriod = True
-    self.proposalVotes=[0,0,0
+    self.proposalVotes=[0,0,0]
 
 
 
@@ -88,3 +88,4 @@ def voteOfficial( ballot : address ):
         elif self.votesForOfficials[ballot] >= self.votesLeaderBoard[2]:
             self.votesLeaderBoard[2]= value
             self.electedOfficials[2] = ballot
+
