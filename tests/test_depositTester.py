@@ -6,9 +6,10 @@ from web3.exceptions import ValidationError
 from brownie.network.state import Chain
 
 chain = Chain()
+
+@pytest.fixture
 #def test_take10Percent()
 def test_deposit10Percent(tester,testProvider):
-    
     preBank=tester.balanceOf[tester.bank]
     preProvider=tester.balanceOf[testProvider]
     tester.deposit10Percent(testProvider)    
