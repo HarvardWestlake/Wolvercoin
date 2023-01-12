@@ -23,8 +23,14 @@ with pytest.raises(Exception) as e_info:
 def test_voteProposal (socialAndDonationsContract):
    #makes sure the person can't vote for a proposal that isn't 0, 1, or 2
    with pytest.raises(Exception) as e_info:
-    socialAndDonationsContract.voteProposal(3)
-    socialAndDonationsContract.voteProposal(-1)
+     socialAndDonationsContract.voteProposal(3)
+     socialAndDonationsContract.voteProposal(-1)
+   #makes sure the person can't vote when the voting period is false
+   socialAndDonationsContract.setOfficalVotingPeriod (False)
+   with pytest.raises(Exception) as e_info:
+     socialAndDonationsContract.voteProposal(1)
+    
+   socialAndDonationsContract.setOfficalVotingPeriod (True)
 
    one : uint256
    one = socialAndDonationsContract.getProposalVotes(2)
@@ -36,6 +42,8 @@ def test_voteProposal (socialAndDonationsContract):
    #Makes sure the same person can't vote again
    with pytest.raises(Exception) as e_info:
     socialAndDonationsContract.voteProposal(2)
+   
+
    
    
     
