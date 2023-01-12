@@ -1,5 +1,4 @@
-# @version ^0.3.7
-
+# @version ^0.3.3
 
 interface Wolvercoin:
     def transfer(_to : address, _value : uint256) -> bool: view
