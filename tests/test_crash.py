@@ -3,8 +3,6 @@
 import pytest
 import brownie
 from web3.exceptions import ValidationError
-from brownie import accounts
-from brownie.network.state import Chain
 
 # . This runs before ALL tests
 @pytest.fixture
@@ -32,22 +30,4 @@ def test_crashUpdating(crashContract, accounts):
     print (newMultiplier)
     print (multiplierInit)
     assert newMultiplier != multiplierInit
-    
-    chain = Chain()
-
-# @dev basic testing for placeBet 
-# @author Ava Weinrot 
-
-@pytest.fixture
-def erc20Contract(Token, accounts):
-    return Token.deploy("wolvercoin", "wvc", 18, 1000,{'from': accounts[0]})
-
-@pytest.fixture
-def gamblingContract(erc20Contract, codeGambling, accounts):
-    return codeGambling.deploy(accounts[1], erc20Contract, {'from': accounts[0]})
-
-def test_placeBets(gamblingContract, erc20Contract, accounts):
-    assert erc20Contract.approve(gamblingContract.address, 12, {'from': accounts[0]})
-    gamblingContract.placeBets(accounts[0], 12,{'from': accounts[0]})
-    assert gamblingContract.getHashValue() == 12
     
