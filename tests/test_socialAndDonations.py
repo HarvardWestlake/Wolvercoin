@@ -39,4 +39,11 @@ def test_voteProposal (socialAdnDonationsContract):
 
 def test_beginVoteOfficial(socialAdnDonationsContract):
     socialAdnDonationsContract.beginVoteOfficial(accounts[0])
-    assert socialAdnDonationsContract.getOfficalVotingPeriod
+    with pytest.raises(Exception) as e_info:
+        teacher = socialAdnDonationsContract.getTeachers()
+        official = socialAdnDonationsContract.getElectedOfficial()
+        socialAdnDonationsContract.beginVoteOfficial(teacher)
+        socialAdnDonationsContract.beginVoteOfficlal(official)  
+    assert socialAdnDonationsContract.getOfficalVotingPeriod()
+
+    

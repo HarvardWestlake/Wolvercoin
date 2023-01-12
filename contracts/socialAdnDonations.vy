@@ -90,12 +90,16 @@ def beginVoteOfficial(user: address):
             assert self.officialVotingPeriod == True   
         else:
             isTeacher = False 
-    #for i in range (100):
-        #self.alreadyVotedOfficials.remove(i)
-        #self.votesForOfficials.remove(i)
+
 @external
 def getOfficalVotingPeriod() -> (bool):
     return self.officialVotingPeriod
+@external
+def getTeachers() -> (address):
+    return self.teachers[0]
+@external 
+def getElectedOffical() -> (address):
+    return self.electedOfficials[0]
 
 
        
