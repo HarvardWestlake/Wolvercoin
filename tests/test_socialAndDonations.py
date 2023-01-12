@@ -12,18 +12,11 @@ chain = Chain()
 
 #test for socialAndDonatios
 @pytest.fixture
-def socialAdnDonationsContract(socialAdnDonations, accounts): 
-    return socialAdnDonations.deploy("0x0000000000000000000000000000000000000000" , {'from': accounts[0]})
+def socialAdnDonationsContract(socialAdnDonations, accounts,): 
+    return socialAdnDonations.deploy(wolvercoinContract, {'from': accounts[0]})
 
-@pytest.fixture
-def erc20Contract(Token, accounts):
-    return Token.deploy(
-        "Wolvercoin", # _name
-        "WVC", # _symbol
-        18, # _decimals
-        1000, # _supply
-        {'from': accounts[1]}
-    )
+def wolvercoinContract(Wolvercoin, accounts):
+    return Wolvercoin.deploy("Wolvercoin", "WVC", 10, 1000000000000000000, {'from': accounts[0]})
 
 def test_voteOfficials (socialAdnDonationsContract):
     with pytest.raises(Exception) as e_info:
@@ -32,25 +25,13 @@ def test_voteOfficials (socialAdnDonationsContract):
     with pytest.raises(Exception) as e_info:
         socialAdnDonationsContract.endVoteOfficials()
 
-def test_donate(socialAdnDonationsContract, erc20Contract):
+def test_donate(socialAdnDonationsContract, wolvercoinContract):
     donator = accounts[4]
     reciever = accounts[5]
     admin = accounts[1]
-
-    assert erc20Contract.mint(donator, 420, {'from': admin}) # Supply the account with some token
-    assert str(erc20Contract.getBalanceOf(donator).return_value) == "420"
+    assert wolvercoinContract.mint(donator, 420, {'from': admin}) # Supply the account with some token
+    assert wolvercoinContract.mint(reciever, 420, {'from': admin}) # Supply the account with some token
+    assert str(wolvercoinContract.getBalanceOf(donator).return_value) == "420"
+    assert str(wolvercoinContract.getBalanceOf(reciever).return_value) == "420"
     socialAdnDonationsContract.donate(donator,reciever,69)
-    assert str(erc20Contract.getBalanceOf(reciever).return_value) == "69"
 
-    
-
-
-
-
-"""
-def test_voteProposal (socialAdnDonationsContract):
-   one = socialAdnDonationsContract.getProposalVotes(2)
-   socialAdnDonationsContract.voteProposal(2)
-   two = socialAdnDonationsContract.getProposalVotes(2)
-   assert one != two
-"""
