@@ -6,7 +6,6 @@ from web3.exceptions import ValidationError
 from brownie.network.state import Chain
 
 chain = Chain()
-time = 0
 #chain.sleep(uint)
 #chain.time()
 
@@ -25,7 +24,7 @@ def _as_wei_value(base, conversion):
     return base * (10 ** 18)
 
 def test___init__(newDutchAuctionContract, accounts):
-    time = chain.time() - 1
+    time = chain.time()-1
     assert newDutchAuctionContract.getDURATION({'from': accounts[0]}).return_value == 100
     assert newDutchAuctionContract.getSeller({'from': accounts[0]}).return_value == accounts[0]
     assert newDutchAuctionContract.getStartingPrice({'from': accounts[0]}).return_value == 2000
@@ -34,7 +33,7 @@ def test___init__(newDutchAuctionContract, accounts):
     assert newDutchAuctionContract.getExpiresAt({'from': accounts[0]}).return_value == time + 100
 
 def test_getPrice(newDutchAuctionContract, accounts):
-    time = chain.time() - 1
+    time = chain.time()-1
     elapsed = chain.time() - time
     price = newDutchAuctionContract.getStartingPrice({'from': accounts[0]}).return_value - (newDutchAuctionContract.getDiscountRate({'from': accounts[0]}).return_value * elapsed)
     assert newDutchAuctionContract.getPrice({'from': accounts[0]}).return_value == price
