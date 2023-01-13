@@ -1,4 +1,4 @@
-# @version 0.3.7
+# @version ^0.3.7
 #Dependent: None 
 #Dependent on me: Idalis Mczeal 
 num: uint256 

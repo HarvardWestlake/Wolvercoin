@@ -1,15 +1,15 @@
 import pytest
 from brownie import accounts
-from web3.exceptions import ValidationError
 from brownie.network.state import Chain
 
 chain = Chain()
 
-# . This runs before ALL tests
 @pytest.fixture
-def votingContract(VotingAndRep, accounts):
-    return VotingAndRep.deploy(accounts[0], {'from': accounts[0]})
-    
+def votingContract(VotingAndRep, ActiveUser, accounts):
+    activeUserContract = ActiveUser.deploy(accounts[1], {'from': accounts[0]})
+    returnedContract = VotingAndRep.deploy(activeUserContract.address, 100, {'from': accounts[0]})
+    activeUserContract.addAdmin(returnedContract.address, {'from': accounts[0]})
+    return returnedContract
 
 def _as_wei_value(base, conversion):
     if conversion == "wei":
@@ -17,6 +17,29 @@ def _as_wei_value(base, conversion):
     if conversion == "gwei":
         return base * (10 ** 9)
     return base * (10 ** 18)
+
+def test_hasCoin(votingContract, accounts): 
+    sampleContract = votingContract.address
+    votingContract.mint(accounts[3], 1000, {'from': accounts[0]}) # adds 1000VC to accounts balance
+    votingContract.proposeVote(sampleContract, "Vote for Kian") # starts a vote for Kian
+    votingContract.vote(sampleContract, 100, {'from': accounts[3]}) # User invests 100 coin into vote
+    assert votingContract.amountInFavor(sampleContract, accounts[3]) == 100, "Should be able to see money in vote"
+
+def test_amountAvailable(votingContract, accounts):
+    sampleContract = votingContract.address
+    votingContract.mint(accounts[3], 1000, {'from': accounts[0]}) # adds 1000VC to accounts balance
+    votingContract.proposeVote(sampleContract, "Vote for cows")# starts a vote for cows
+    votingContract.vote(sampleContract, 100, {'from': accounts[3]}) # User invests 100 coin into vote
+
+    failCase = False
+    try:
+        votingContract.proposeVote(sampleContract, "Vote for sheep"), "starts a vote for sheep"
+    except:
+        failCase = True
+    assert failCase, "should not be able to make vote for something that already exists"
+
+    assert votingContract.vote(sampleContract, 100, {'from': accounts[3]}), "User invests 100 coin into vote"
+    assert votingContract.balanceOf(accounts[3]) == 800, "checks if amount available is according to what was invested"
 
 def test_contractDeployment(votingContract, accounts):
     assert votingContract.voteDuration() == 100, "Voting period should be initialized"
@@ -39,6 +62,14 @@ def test_proposeVote(votingContract, accounts):
     assert votingContract.endBlock(accounts[2]) == 0, "Non-existant Vote should not have data"
     assert votingContract.storedDonation(accounts[2]) == 0, "Empty votes should not have money in them"
 
+def test_setContractMaintainer(votingContract, accounts):
+    
+    stopBadContractChange = False
+    try:
+        votingContract.setContractMaintainer(accounts[5], {'from': accounts[2]})
+    except:
+        stopBadContractChange = True
+    assert stopBadContractChange, "Randoms should not be able to change maintainer"
 
 def test_setDisbled(votingContract, accounts):
 
@@ -49,24 +80,67 @@ def test_setDisbled(votingContract, accounts):
         badDisableFail = True
     assert badDisableFail, "Random accounts should not be able to disable the contract"
 
+def test_vote(votingContract, accounts):
+    sampleContract = votingContract.address
 
-    # This code relies on adding admins which is not a problem I want to solve but has been tested independently
-    """
-    votingContract.setDisabled(True, {'from': accounts[0]})
+    votingContract.mint(accounts[1], 1000, {'from': accounts[0]}) # adds 1000VC to accounts balance
+    initialBal = votingContract.balanceOf(accounts[1])
+    totalInvestedBefore = votingContract.activePropositions(sampleContract)
+    votingContract.vote(sampleContract, 10, {'from': accounts[1]})
 
-    runWhenDisabledfail = False
+    # tests if user's votercoin balance decreases by specified amount
+    assert votingContract.balanceOf(accounts[1]) == initialBal-10
+
+    #tests if total amount of votercoin in proposition increases by specified amount
+    assert votingContract.activePropositions(sampleContract) == (totalInvestedBefore + 10)
+
+
+def test_finishVote(votingContract, accounts):
+    winningProp = "0xc0ffee254729296a45a3885639AC7E10F9d54979"
+    losingProp = "0x999999cf1046e68e36E1aA2E0E07105eDDD1f08E"
+
+    votingContract.mint(accounts[1], 10000, {'from': accounts[0]}) # account 1 balance: 10_000
+
+    votingContract.proposeVote(winningProp, "you should vote for this thing", {'from': accounts[1], 'value': 1000})
+
+    votingContract.vote(winningProp, 7000, {'from': accounts[1]}) # account 1 balance: 3_000
+
+    assert votingContract.activePropositions(winningProp) == 7000
+    assert votingContract.totalSupply() == 10000
+    assert votingContract.amountInFavor(winningProp, accounts[1]) == 7000
+    assert votingContract.peopleInvested(winningProp, 0) == accounts[1]
+
+    stopBadEndVote = False
     try:
-        votingContract.proposeVote(accounts[5], "sample message")
+        votingContract.finishVote(winningProp)
     except:
-        runWhenDisabledfail = True
-    assert runWhenDisabledfail, "Contract should not function while diabled"
-    
-    votingContract.setDisabled(False, {'from': accounts[0]})
+        stopBadEndVote = True
+    assert stopBadEndVote, "Vote should not be ended before period"
 
-    contractReenabled = True
-    try:
-        votingContract.proposeVote(accounts[5], "sample message")
-    except:
-        contractReenabled = False
-    assert contractReenabled, "Contract should be able to be re-enabled"
-    """
+    chain.mine(200) # skiping to well past the end of the vote
+    votingContract.finishVote(winningProp)
+
+    # votingContract.finishVote(winningProp)
+    # as they won half of 7_000 should be returned
+    # this means they should get 3_500 back
+    # account 1 balance: 6_500
+    assert votingContract.balanceOf(accounts[1]) == 6500, "money should be partially returned on vote succsess"
+    assert votingContract.voterCoinStaked() == 0
+
+
+    votingContract.proposeVote(losingProp, "you should not vote for this thing", {'from': accounts[1], 'value': 1000})
+    votingContract.vote(losingProp, 1000, {'from': accounts[1]}) # account 1 balance: 5_500
+    assert votingContract.balanceOf(accounts[1]) == 5500
+
+    chain.mine(200)
+
+    votingContract.finishVote(losingProp)
+    assert votingContract.balanceOf(accounts[1]) == 6500
+
+
+def test_burn(votingContract, accounts):
+    votingContract.mint(accounts[1], 10000, {'from': accounts[0]}) # account 1 balance: 10_000
+    # assert votingContract.balanceOf(accounts[1]) == 10000
+    votingContract.burn(9000, {'from': accounts[1]})
+    assert votingContract.balanceOf(accounts[1]) == 1000, "should be able to burn money"
+
