@@ -10,7 +10,7 @@ Use Wolvercoin to help wolverines in real life
 If you burn to 0x000 50% chance of burning, 50% chance of returning it double
 Lottery system with a wheel (text based- GUI)
 Mint NFTs (Wolverines which can breed)
-    Have traits
+    Have traits 
 Staking for x amount of time and earn interest
 Don't allow people who havent completed honors topics to not withdraw $$$
 Have a DAO to vote on proposals
