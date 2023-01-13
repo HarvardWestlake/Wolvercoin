@@ -1,22 +1,35 @@
 {
   "contracts": {
-    "ActiveUser": "1c86845ce3ca8a184ba0ab3aa70b31b67f57e289",
-    "BookstoreNFT": "ab84f703741cd0242cdab2a9e87ce20048eaeb4d",
+    "ActiveUser": "f4fa5979f8c75489c17666459e0014e3031af15d",
+    "BookstoreNFT": "8df1a13fcf8a6a79e9d2f1a756d757a8d45cda9c",
     "CodeScoreCheck": "1534fc12b51fdbd638b66ee20cc185fe03971463",
-    "CommunityPot": "117ed5d48018c22bf7edf775bf1f897697726b38",
-    "Crash": "f70b9b0d41a190af7c7d6afcf9996053d271a53c",
-    "DutchAuction": "9dda35720515ffbcb0488c7a0c03cf69780b937a",
+    "CommunityPot": "5776458a0a5ad6e93416a9b7ad14a9a7807ca11b",
+    "Crash": "75786cd0d13ef79ce6fd643857dab7f0783aee60",
+    "DutchAuction": "42fdb9669bd9c85046acecfe4a9e2c74d72ab505",
     "Exclusivity": "6533451a8f3d5f08a7bf93204e60c327a7e3777b",
-    "PublicGoods": "bdb612404da27dfddadec5f42456ff79b8a7f310",
-    "Reimbursement": "846b1d910193c44201d3fc3c764fc2ddd1cdd33f",
-    "Stake": "728dad133912d131887a24488add7913bacb2823",
-    "Token": "6344dae64dbfaf688a21a7ddcb15474692775297",
-    "VotingAndRep": "fda86f072d9c8fca5b29eae53a4a483ff4d6355a",
-    "Wolvercoin": "58ab07b8059e89fd44939db5aa391ce861dfabe0",
-    "codeGambling": "48e5c8ad9d89d291f540574edfe3531f1480eb89",
-    "socialAdnDonations": "9fc5bccb4a926e71c09f9bc7b82c0ed9a56da2dc"
+    "Lottery": "cce8c21aebf8e75ec37234a0c57bacf9b3790cb2",
+    "NFT": "cef8e44b382cd92acce7fb631d97a4231be975e0",
+    "PublicGoods": "e87fd2056285f5ab39c8a6315084ca9cf4814471",
+    "Reimbursement": "c661b3b4f870c77a69135cc2536422e70219ade3",
+    "SimpleAuction": "d7db4de987a9573ededce3147cb02da67b88ac12",
+    "SocialAndDonations": "2225ccc4028ea89f767c1f287150452c19480f43",
+    "Stake": "1224ca00a8017ef1255f4b19cb850b1f314dc011",
+    "Token": "f98e550d203a3240c9efa7b3baca25cc3791f318",
+    "VotingAndRep": "d6545ceef7d74369d895fc81ed54a49669974d8a",
+    "codeGambling": "1bfa2dde2cbe3e69c0fc637b0118c5f119d3d0f2",
+    "socialAdnDonations": "9fc5bccb4a926e71c09f9bc7b82c0ed9a56da2dc",
+    "takeTenPercent": "3c10d8554866cf1725d2875bce46774f7e5cff33"
   },
   "tests": {
+    "tests/test_CommunityPot.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": "....",
+      "sha1": "a068a37700a7f8462f9a95b2a7992ea1f3b3415d",
+      "txhash": [
+        "c1d9d8e5ac024e87d67fc22abcec9137c1de41b8"
+      ]
+    },
     "tests/test_Exclusivity.py": {
       "coverage": false,
       "isolated": false,
@@ -24,39 +37,53 @@
       "sha1": "01c64833b19e721958e715e84bdb8427938b984c",
       "txhash": []
     },
+    "tests/test_SocialAndDonations.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": "E",
+      "sha1": "38e32898ba04de7a206e813578105d6606e7eee7",
+      "txhash": []
+    },
     "tests/test_Stake.py": {
       "coverage": false,
       "isolated": false,
-      "results": ".....",
-      "sha1": "aca9f628652b5f9617b6d4ff49ef2cbc01ac18ed",
+      "results": ".......",
+      "sha1": "d41bc94354c77c0146cd2af35e9c6b97856daa16",
       "txhash": [
-        "21782992b73633dd7619348812dd40fd4e3fc677",
-        "97b3492c5c414488b78e72c94f23cefa5c39f942",
-        "bddb26c86dd0512a52f7deb9cf8598253de64234"
+        "001d8928808d2eb15a6d0ab9497b413a6cda9aae",
+        "899a758950c3b0eb5f0ac5b0381ed2ef64cbd43a",
+        "a177b01e95b98fb574e27a873b4fd7c3539bb240"
       ]
+    },
+    "tests/test_Token.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": "..",
+      "sha1": "1c9450f044f9e687f236d5f0a41a363d0013180c",
+      "txhash": []
     },
     "tests/test_activeUser.py": {
       "coverage": false,
       "isolated": false,
-      "results": ".....",
-      "sha1": "dd022c3c866a931f0afd6b43339fda604af10134",
+      "results": "........",
+      "sha1": "3547239f5e2d107cebca9cc6f7c36c479443d7bd",
       "txhash": [
-        "333b20df7988ba7bf34241f2a78de8255c9cfdbf",
-        "394f52db039c8713d0e838dff0e0e109651fa8b3"
+        "3a37c62ba1b40aac89c279ccf01fcaaa6892a144",
+        "de86f4da46bcac0debe881b97ec645aac42867f0"
       ]
     },
     "tests/test_crash.py": {
       "coverage": false,
       "isolated": false,
-      "results": ".",
-      "sha1": "2d533f273701f75f680a8bbf2774473bca063d1a",
+      "results": "....",
+      "sha1": "bc22a70f308cd03dd86715abf741f1a2cec19983",
       "txhash": []
     },
     "tests/test_dutchAuction.py": {
       "coverage": false,
       "isolated": false,
-      "results": ".",
-      "sha1": "ef9bc768182a18f48c8851471ace5a47ef25c8cd",
+      "results": "....",
+      "sha1": "f011e47a4d1e3b4f641ec613b39fcfa0ccb5bfb6",
       "txhash": []
     },
     "tests/test_gambling_pot_tax.py": {
@@ -66,11 +93,25 @@
       "sha1": "0b9484928faa36243bcbdc62130afff8859f670d",
       "txhash": []
     },
+    "tests/test_lottery.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": ".",
+      "sha1": "84d92b6573c5c04b2ff38fd95e5983e2f3a3319c",
+      "txhash": []
+    },
+    "tests/test_place_bet.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": ".",
+      "sha1": "6a254c5497a39f9f56a87eb052b26385901ac8c8",
+      "txhash": []
+    },
     "tests/test_public_goods.py": {
       "coverage": false,
       "isolated": false,
-      "results": "....",
-      "sha1": "5809721f8c0aae9de29cffdc30b3e6e9ca14d546",
+      "results": "......",
+      "sha1": "7c809af60288cc4e39b704c5bfc0a98cdc791cfd",
       "txhash": []
     },
     "tests/test_reimbursement.py": {
@@ -79,30 +120,38 @@
       "results": ".......",
       "sha1": "27f3d2b0fa5e87d232ec32406a457eae7ec43173",
       "txhash": [
-        "b17ea4d0e0c8396978d2b21685a0c5bcef121e43",
-        "b50649e03dc23407d3276296475d2b4631727eaa"
+        "7a11f873b8b40f30c506cd647a9141ff8b64b586",
+        "94fc26a1e65d15ed3d7d7a5ff56c4dadb01a6ae1"
       ]
     },
-    "tests/test_socialAndDonations.py": {
+    "tests/test_scores.py": {
       "coverage": false,
       "isolated": false,
-      "results": "EE",
-      "sha1": "159c1f3ad7043f68e3bf1bf63f5ea4dd8fe9d987",
+      "results": ".",
+      "sha1": "0a9451e34af65b365fc7236792fa9cd3c8ed710c",
+      "txhash": []
+    },
+    "tests/test_simpleAuction.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": ".",
+      "sha1": "186c75ebf3a9825294259972f5b8959b2b00f9e3",
       "txhash": []
     },
     "tests/test_voting.py": {
       "coverage": false,
       "isolated": false,
-      "results": ".......",
-      "sha1": "9d19e464acaabb1741fd0d0e6a5df1fe70a513a3",
+      "results": ".........",
+      "sha1": "ea1fa80fea846e4c62cf581263087976bf9c999f",
       "txhash": [
-        "b851d6ad10f3c685b2aa5e894d13bc1a0d0b33b6",
-        "ee02c411713f84b067a763e6c878ee546cdf5410"
+        "2ab508074e3280e46df907de7fbc87cbc245551e",
+        "83cefe1ff35a237aca0bc9a356debcc7273fa2bf",
+        "f46b9fcc56597eb80914ddf85087f98f25348162"
       ]
     }
   },
   "tx": {
-    "21782992b73633dd7619348812dd40fd4e3fc677": {
+    "001d8928808d2eb15a6d0ab9497b413a6cda9aae": {
       "Stake": {
         "0": [
           [
@@ -116,47 +165,43 @@
         ]
       }
     },
-    "333b20df7988ba7bf34241f2a78de8255c9cfdbf": {
+    "2ab508074e3280e46df907de7fbc87cbc245551e": {
       "ActiveUser": {
         "0": [
           [
-            19
+            26,
+            42
           ],
           [],
+          []
+        ]
+      },
+      "VotingAndRep": {
+        "0": [
           [
-            20
-          ]
+            51
+          ],
+          [
+            52
+          ],
+          []
         ]
       }
     },
-    "394f52db039c8713d0e838dff0e0e109651fa8b3": {
+    "3a37c62ba1b40aac89c279ccf01fcaaa6892a144": {
       "ActiveUser": {
         "0": [
           [
-            19
+            30
           ],
           [],
           [
-            20
+            31
           ]
         ]
       }
     },
-    "97b3492c5c414488b78e72c94f23cefa5c39f942": {
-      "Stake": {
-        "0": [
-          [
-            5,
-            6
-          ],
-          [],
-          [
-            7
-          ]
-        ]
-      }
-    },
-    "b17ea4d0e0c8396978d2b21685a0c5bcef121e43": {
+    "7a11f873b8b40f30c506cd647a9141ff8b64b586": {
       "Reimbursement": {
         "0": [
           [
@@ -170,11 +215,44 @@
         ]
       }
     },
-    "b50649e03dc23407d3276296475d2b4631727eaa": {
+    "83cefe1ff35a237aca0bc9a356debcc7273fa2bf": {
+      "VotingAndRep": {
+        "0": [
+          [
+            0,
+            2,
+            4
+          ],
+          [
+            5
+          ],
+          [
+            1,
+            3
+          ]
+        ]
+      }
+    },
+    "899a758950c3b0eb5f0ac5b0381ed2ef64cbd43a": {
+      "Stake": {
+        "0": [
+          [
+            5,
+            6
+          ],
+          [],
+          [
+            7
+          ]
+        ]
+      }
+    },
+    "94fc26a1e65d15ed3d7d7a5ff56c4dadb01a6ae1": {
       "ActiveUser": {
         "0": [
           [
-            16
+            26,
+            42
           ],
           [],
           []
@@ -195,29 +273,11 @@
         ]
       }
     },
-    "b851d6ad10f3c685b2aa5e894d13bc1a0d0b33b6": {
-      "VotingAndRep": {
-        "0": [
-          [
-            0,
-            2,
-            4
-          ],
-          [
-            5
-          ],
-          [
-            1,
-            3
-          ]
-        ]
-      }
-    },
-    "bddb26c86dd0512a52f7deb9cf8598253de64234": {
+    "a177b01e95b98fb574e27a873b4fd7c3539bb240": {
       "ActiveUser": {
         "0": [
           [
-            17
+            27
           ],
           [],
           []
@@ -237,25 +297,57 @@
           []
         ]
       },
-      "Wolvercoin": {
+      "Token": {
         "0": [
           [
-            6,
-            7
+            7,
+            8,
+            9,
+            10
           ],
           [],
           []
         ]
       }
     },
-    "ee02c411713f84b067a763e6c878ee546cdf5410": {
-      "VotingAndRep": {
+    "c1d9d8e5ac024e87d67fc22abcec9137c1de41b8": {
+      "CommunityPot": {
         "0": [
           [
-            37
+            4,
+            5
           ],
           [],
           []
+        ]
+      }
+    },
+    "de86f4da46bcac0debe881b97ec645aac42867f0": {
+      "ActiveUser": {
+        "0": [
+          [
+            30
+          ],
+          [],
+          [
+            31
+          ]
+        ]
+      }
+    },
+    "f46b9fcc56597eb80914ddf85087f98f25348162": {
+      "VotingAndRep": {
+        "0": [
+          [
+            21,
+            23
+          ],
+          [
+            24
+          ],
+          [
+            22
+          ]
         ]
       }
     }

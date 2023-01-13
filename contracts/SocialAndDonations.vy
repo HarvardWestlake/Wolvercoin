@@ -1,5 +1,7 @@
 # @version 0.3.7
-
+interface Token:
+    def transferFrom(_from : address, _to : address, _value : uint256) -> bool: nonpayable
+    def burnFrom(_to: address, _value: uint256): nonpayable
 # Tech Spec Variables:
 # Community Pot -> Address
 # Active Students -> HashMap(wallet -> grade year) ## by "wallet" does the spec mean "address"? I assume so...
@@ -37,12 +39,20 @@ votesForOfficials: public(HashMap[address, uint256])
 officialVotingPeriod: public(bool)
 # number of students
 numStudents: public(uint256)
+#this is how we will use token in our methods
+wolvercoinContract: Token
+
 
 @external
-def __init__():
+def __init__(_wolvercoinContract: address):
+    self.wolvercoinContract = Token(_wolvercoinContract)
     self.officialVotingPeriod = True
     self.potentialElectedOfficials = []
     self.electedOfficials = []
+
+@external
+def donate(to: address, val: uint256):
+    self.wolvercoinContract.transferFrom(self,to,val)
 
 @external
 def getVotes(account : address) -> uint256:
