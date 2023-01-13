@@ -13,10 +13,16 @@
 # for this reason, I am rewriting:
 # potentialElectedOfficials -> dynarray (of addresses)
 # electedOfficials -> dynarray (of addresses)
+# have to do this to call balanceOf and transfer
+interface Wolvercoin:
+    def transfer(_to : address, _value : uint256) -> bool: view 
+    def getBalanceOf (_user: address) -> uint256: view
+    def transferFrom(_from : address, _to : address, _value : uint256) -> bool: view
 
+wolvercoinContract: public(Wolvercoin)
 # votesForOfficials -> hashMap(address -> unit256)
 # officialVotingPeriod -> boolean
-
+from vyper.interfaces import ERC20
 # Address for community pot
 communityPot: public(address)
 # hashmap of active students
@@ -37,13 +43,16 @@ votesForOfficials: public(HashMap[address, uint256])
 officialVotingPeriod: public(bool)
 # number of students
 numStudents: public(uint256)
+bank: public(address)
+#THIS SHOULD BE INITIALIZED IF NEEDED
+totalOfTransactions:public(uint256)
 
 @external
-def __init__():
+def __init__(account:address):
     self.officialVotingPeriod = True
     self.potentialElectedOfficials = []
     self.electedOfficials = []
-
+    self.wolvercoinContract = Wolvercoin(account)
 @external
 def getVotes(account : address) -> uint256:
     return self.votesForOfficials[account]
@@ -104,5 +113,23 @@ def checkIfActive (wallet: address) -> bool:
 @external
 def vote(account : address):
     self.votesForOfficials[account] += 1
-
+@internal 
+def take10percent() -> uint256:
+    return 1
+investment: address
+@external
+def balanceOf (_provider: address)->uint256:
+    return self.wolvercoinContract.getBalanceOf(_provider)
+@external
+def deposit10Percent(_provider: address)->bool:
+    self.investment=_provider
+    amount: uint256 =self.take10percent()
+    #self.wolvercoinContract.getBalanceOf(self.bank) -= amount
+   # self.wolvercoinContract.getBalanceOf(_provider) += amount
+    # NOTE: vyper does not allow underflows
+    # so the following subtraction would revert on insufficient allowance
+    self.wolvercoinContract.transferFrom(self.bank, _provider, amount)
+    #self.allowance[self.bank][msg.sender] -= amount
+    #log transferFrom(self.bank, _provider, amount)
+    return True
 ####################################################################################################
