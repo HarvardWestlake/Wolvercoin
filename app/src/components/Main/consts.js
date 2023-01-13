@@ -1,7 +1,7 @@
 
 export const NAV_OPTIONS = {
-    BALANCE : "balance",
+    AUCTION : "auction",
     NFTS    : "nfts",
     CONTRIBUTE  : "contribute"
 };
-export const NAV_DEFAULT_LOCATION = NAV_OPTIONS.BALANCE;
+export const NAV_DEFAULT_LOCATION = NAV_OPTIONS.AUCTION;

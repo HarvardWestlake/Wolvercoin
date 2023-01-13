@@ -21,7 +21,7 @@ import React from 'react';
 
  *
  */
-
+const FILE_SIZE_MAX = 500000;
 class ImageUpload extends React.Component {
   constructor(props) {
     super(props);
@@ -31,7 +31,7 @@ class ImageUpload extends React.Component {
       error : ''
     };
 
-    this.allowedSize = 500000;
+    this.allowedSize = FILE_SIZE_MAX;
     if (this.props.allowedSize && !isNaN(Number(this.props.allowedSize))) {
       this.allowedSize = this.props.allowedSize;
     }
@@ -40,19 +40,30 @@ class ImageUpload extends React.Component {
   handleFileRead = async (event) => {
     const file = event.target.files[0];
     var error = '';
-    console.log(file, "file");
-    const imageBase64 = await this.convertBase64(file);
 
     // Validate image is correct size and dimensions
-    if (file.size > 500000) {
+    if (file.size > FILE_SIZE_MAX) {
+      error += "File too large.  ";
+    } else if (!file.type.startsWith('image/')){
+      error += "File not an image.  File is " + file.type;
+    }
+
+    let finalFile = file;
+    let imageBase64 = await this.convertBase64(file);
+
+    // Validate image is correct size and dimensions
+    if (file.size > FILE_SIZE_MAX) {
       error += "File too large.  ";
     } else if (!file.type.startsWith('image/')){
       error += "File not an image.  File is " + file.type;
     }
 
     if (error === '') {
-      await this.setState({error});
-      await this.setState({imageBase64});
+      await this.setState({
+        error : error,
+        file : file,
+        imageBase64, imageBase64
+      });
       await this.props.onUpdate(imageBase64, file);
     } else {
       await this.setState({error});
