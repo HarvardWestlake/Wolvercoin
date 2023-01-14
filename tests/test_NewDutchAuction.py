@@ -35,12 +35,10 @@ def test___init__(newDutchAuctionContract, accounts):
 def test_getPrice(newDutchAuctionContract, accounts):
     time = chain.time()
     elapsed = chain.time() - time
-    price = newDutchAuctionContract.getStartingPrice({'from': accounts[0]}).return_value - (newDutchAuctionContract.getDiscountRate({'from': accounts[0]}).return_value * elapsed)
-    assert newDutchAuctionContract.getPrice({'from': accounts[0]}).return_value == price
+    assert newDutchAuctionContract.getPrice({'from': accounts[0]}).return_value == (newDutchAuctionContract.getStartingPrice({'from': accounts[0]}).return_value - (newDutchAuctionContract.getDiscountRate({'from': accounts[0]}).return_value * elapsed))
     chain.sleep(10)
-    elapsed = elapsed + 10
-    price = newDutchAuctionContract.getStartingPrice({'from': accounts[0]}).return_value - (newDutchAuctionContract.getDiscountRate({'from': accounts[0]}).return_value * elapsed)
-    assert newDutchAuctionContract.getPrice({'from': accounts[0]}).return_value == price
+    elapsed = chain.time() - time
+    assert newDutchAuctionContract.getPrice({'from': accounts[0]}).return_value == (newDutchAuctionContract.getStartingPrice({'from': accounts[0]}).return_value - (newDutchAuctionContract.getDiscountRate({'from': accounts[0]}).return_value * elapsed))
 
 def test_buy(newDutchAuctionContract, accounts):
     nft = newDutchAuctionContract.getNft({'from': accounts[1]}).return_value
