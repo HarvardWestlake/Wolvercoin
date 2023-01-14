@@ -89,7 +89,7 @@ def getPrice() -> (uint256):
 @external
 @payable
 def buy():
-    assert block.timestamp < self.expiresAt
+    assert block.timestamp <= self.expiresAt
 
     price: uint256 = self._getPrice()
     assert msg.value >= price
