@@ -43,13 +43,12 @@ def addNonTopics(candidate: address):
 def removeNonTopics(candidate: address):
     self._removeNonTopics(candidate)
 
-
 #intern verison
 @internal
 def _removeNonTopics(candidate: address):
     #self.vote() #after or within vote is made to remove/add person
     if self.percentage>=100:#assuming percentage doesnt change immediately after vote method is called
-        count: int256=0
+        count: int256=-1
         found: bool=False
         for studentAddress in self.topicsAddress: #find index of address of candidate in topics addresses
             count=count+1
@@ -57,12 +56,9 @@ def _removeNonTopics(candidate: address):
                 found=True
                 break
         
-        #if found: #from google, allegedly removes thing at index
-        #    self.topicsAddress[count] = self.topicsAddress[len(self.topicsAddress) - 1]
-        #    self.topicsAddress.pop()
-
-
-
+        if found: #from google, allegedly removes thing at index
+            self.topicsAddress[count] = self.topicsAddress[len(self.topicsAddress) - 1]
+            self.topicsAddress.pop()
 
 
 @external
@@ -72,6 +68,7 @@ def setPercentage(perc: uint256):
 @external
 def addToTopicsList(addend: address):
     self.topicsAddress.append(addend)
+
 @external
 def popTopicList():
     self.topicsAddress.pop()
