@@ -52,7 +52,7 @@ def buyTickets(amount:uint256):
     self.ticketBuys.append(msg.sender)
     self.ticketTotal = self.ticketTotal +1
  
-
+    
 @external
 def getLotteryStart()->uint256:
     return self.lotteryStart
@@ -78,20 +78,19 @@ def getTicketTotal()->uint256:
     return self.ticketTotal
     
 # for testing purposes
-@internal
-def endLotto():
-    self.ended = True
-    rand : uint256 = 0
-    foundWinner : bool = False
-    rand = block.timestamp*block.difficulty%self.pot
-    #rand : uint256 = getRandomNumber(ticketTotal)
-    for i in self.spentArr:
-        if (rand < i and foundWinner == False):
-            foundWinner = True
-            assert self.erc20.transferFrom(self, self.ticketBuys.pop(), self.pot*2/3), "Transfer failed"
-        if(foundWinner==False):
-            rand-=i
-            self.ticketBuys.pop()
+# @internal
+# def endLotto():
+#     self.ended = True
+#     rand : uint256 = 0
+#     foundWinner : bool = False
+#     rand = block.timestamp%self.pot
+#     for i in self.spentArr:
+#         if (rand < i and foundWinner == False):
+#             foundWinner = True
+#             assert self.erc20.transferFrom(self, self.ticketBuys.pop(), self.pot*2/3), "Transfer failed"
+#         if(foundWinner==False):
+#             rand-=i
+#             self.ticketBuys.pop()
 
 @external
 def endLottery():
@@ -100,8 +99,7 @@ def endLottery():
     self.ended = True
     rand : uint256 = 0
     foundWinner : bool = False
-    rand = block.timestamp*block.difficulty%self.pot
-    #rand : uint256 = getRandomNumber(ticketTotal)
+    rand = block.timestamp%self.pot
     for i in self.spentArr:
         if (rand < i and foundWinner == False):
             foundWinner = True
