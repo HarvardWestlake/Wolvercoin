@@ -15,7 +15,7 @@ chain = Chain()
 @pytest.fixture
 def newDutchAuctionContract(NewDutchAuction, Token, accounts):
     NFTContract = Token.deploy("unused", "notused", 8, 100000, {'from':accounts[0]})
-    NFTContract.transferFrom(accounts[0], accounts[1], 5000, {'from':accounts[0]})
+    NFTContract.transferFrom(accounts[0], accounts[1], 50000, {'from':accounts[0]})
     return NewDutchAuction.deploy(2000, 10, NFTContract, 12345, 100, {'from': accounts[0]})
 
 def _as_wei_value(base, conversion):
@@ -56,7 +56,6 @@ def test_buy(newDutchAuctionContract, accounts):
     assert accounts[1].balance().return_value == 5000 - price - gas
 
 def test_fail_buy(newDutchAuctionContract, accounts):
-    nft = newDutchAuctionContract.getNft({'from': accounts[1]}).return_value
     #not enough money sent with the transaction
     with brownie.reverts("Not enough money"):
         newDutchAuctionContract.buy({'from': accounts[1]})
