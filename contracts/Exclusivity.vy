@@ -2,8 +2,8 @@
 # this relies on functional ActiveUser contract/class
 # no other contract is interfacing with this code as of 12/12 at 9:00AM
 interface ActiveUser:
-    def getActiveUser(potentialUser: address) -> bool: view
-    def getAdmin(potentialAdmin: address) -> bool: view
+    def getIsActiveUser(potentialUser: address) -> bool: view
+    def getIsAdmin(potentialAdmin: address) -> bool: view
     
 activeUserContract: public(ActiveUser)
 
