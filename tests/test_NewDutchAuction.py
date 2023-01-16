@@ -5,6 +5,8 @@ from brownie import accounts
 from web3.exceptions import ValidationError
 from brownie.network.state import Chain
 
+import brownie
+
 chain = Chain()
 #chain.sleep(uint)
 #chain.time()
@@ -24,6 +26,7 @@ def _as_wei_value(base, conversion):
     return base * (10 ** 18)
 
 def test___init__(newDutchAuctionContract, accounts):
+    #make sure that constructor performs as expected
     time = chain.time()
     assert newDutchAuctionContract.getDURATION({'from': accounts[0]}).return_value == 100
     assert newDutchAuctionContract.getSeller({'from': accounts[0]}).return_value == accounts[0]
@@ -33,6 +36,7 @@ def test___init__(newDutchAuctionContract, accounts):
     assert newDutchAuctionContract.getExpiresAt({'from': accounts[0]}).return_value == time + 100
 
 def test_getPrice(newDutchAuctionContract, accounts):
+    #test price change with change in time
     time = chain.time()
     elapsed = chain.time() - time
     assert newDutchAuctionContract.getPrice({'from': accounts[0]}).return_value == (newDutchAuctionContract.getStartingPrice({'from': accounts[0]}).return_value - (newDutchAuctionContract.getDiscountRate({'from': accounts[0]}).return_value * elapsed))
@@ -42,5 +46,22 @@ def test_getPrice(newDutchAuctionContract, accounts):
 
 def test_buy(newDutchAuctionContract, accounts):
     nft = newDutchAuctionContract.getNft({'from': accounts[1]}).return_value
+    price = newDutchAuctionContract.getPrice({'from': accounts[0]}).return_value
     newDutchAuctionContract.buy({'from': accounts[1]})
+    #test correct transfer to new owner
     assert nft.ownerOf(12345).return_value == accounts[1]
+
+    #test correct sum of money is in the buyer's account
+    gas = accounts[1].gas_used
+    assert accounts[1].balance().return_value == 5000 - price - gas
+
+def test_fail_buy(newDutchAuctionContract, accounts):
+    nft = newDutchAuctionContract.getNft({'from': accounts[1]}).return_value
+    #not enough money sent with the transaction
+    with brownie.reverts("Not enough money"):
+        newDutchAuctionContract.buy({'from': accounts[1]})
+
+    #too late because over the duration
+    chain.sleep(101)
+    with brownie.reverts("Too late"):
+        newDutchAuctionContract.buy({'from': accounts[1]})

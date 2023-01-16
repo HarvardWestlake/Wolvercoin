@@ -28,7 +28,7 @@ def __init__(_startingPrice: uint256, _discountRate: uint256, _nft: address, _nf
     self.expiresAt = block.timestamp + self.DURATION
     self.discountRate = _discountRate
 
-    assert _startingPrice >= _discountRate * self.DURATION
+    assert _startingPrice >= _discountRate * self.DURATION, "?"
 
     self.nft = IERC721(_nft)
     self.nftId = _nftId
@@ -89,10 +89,10 @@ def getPrice() -> (uint256):
 @external
 @payable
 def buy():
-    assert block.timestamp <= self.expiresAt
+    assert block.timestamp <= self.expiresAt, "Too late"
 
     price: uint256 = self._getPrice()
-    assert msg.value >= price
+    assert msg.value >= price, "Not enough money"
 
     self.nft.transferFrom(self.seller, msg.sender, self.nftId)
     refund: uint256 = msg.value - price
