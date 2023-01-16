@@ -46,7 +46,6 @@ def removeNonTopics(candidate: address):
 #intern verison
 @internal
 def _removeNonTopics(candidate: address):
-    #self.vote() #after or within vote is made to remove/add person
     if self.percentage>=100:#assuming percentage doesnt change immediately after vote method is called
         count: int256=-1
         found: bool=False
@@ -55,7 +54,7 @@ def _removeNonTopics(candidate: address):
             if studentAddress==candidate:
                 found=True
                 break
-        
+
         if found: #from google, allegedly removes thing at index
             self.topicsAddress[count] = self.topicsAddress[len(self.topicsAddress) - 1]
             self.topicsAddress.pop()
@@ -86,14 +85,6 @@ def isInTopicsList(searching:address)->bool:
             break
     return added
 
-@external
-def isNotinTopicsList(searching:address)->bool:
-    added: bool=True
-    for studentAddress in self.topicsAddress:
-        if studentAddress==searching:
-            added=False
-            break
-    return added
 
 
 

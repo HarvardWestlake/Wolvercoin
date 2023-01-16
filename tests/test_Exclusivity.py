@@ -58,22 +58,25 @@ def testAddNonTopics(ExclusivityContract, accounts):
     ExclusivityContract.setPercentage(20)
     ExclusivityContract.addNonTopics(accounts[1])
     
-    #assert  ExclusivityContract.isNotinTopicsList(accounts[1]),"should not add if percentage is lower than 100"
+    assert not ExclusivityContract.isInTopicsList(accounts[1]).return_value,"should not add if percentage is lower than 100"
 
 
 def testRemoveTopics(ExclusivityContract,accounts):
 
     ExclusivityContract.addToTopicsList(accounts[2])
     ExclusivityContract.addToTopicsList(accounts[1])
+    ExclusivityContract.addToTopicsList(accounts[3])
+    ExclusivityContract.addToTopicsList(accounts[4])
+
     ExclusivityContract.setPercentage(100)
     ExclusivityContract.removeNonTopics(accounts[1])
     
-    assert ExclusivityContract.isNotinTopicsList(accounts[1]), "should remove if percentage is greater than or equal to 100"
+    assert not ExclusivityContract.isInTopicsList(accounts[1]).return_value, "should remove if percentage is greater than or equal to 100"
     ExclusivityContract.addToTopicsList(accounts[1])
 
     ExclusivityContract.setPercentage(2)
     ExclusivityContract.removeNonTopics(accounts[1])
-    assert ExclusivityContract.isInTopicsList(accounts[1]), "should not remove if percentage is less than 100"
+    assert ExclusivityContract.isInTopicsList(accounts[1]).return_value, "should not remove if percentage is less than 100"
 
 
 
