@@ -4,7 +4,7 @@ import pytest
 import brownie
 from web3.exceptions import ValidationError
 
-@pytest.fixture 
+@pytest.fixture #also there's this exclusivity contract used by a set of methods and another similar thing a bit below written for another set of methods, just to avoid confusion
 def exclusivityContract(Exclusivity, accounts):
     return Exclusivity.deploy("0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", {'from': accounts[1]})
 
@@ -16,7 +16,8 @@ def testVote(Exclusivity,accounts):
     exclusivity.topicsAddress.append(0xf34b09E22f5115af490eeb7460304aB80c90399E)
     exclusivity.vote(0xf34b09E22f5115af490eeb7460304aB80c90399E)
     valueChanged: bool=False
-    if balance(0xf34b09E22f5115af490eeb7460304aB80c90399E)>=1:#balance thing may be source of error, needs to be a
+    if balance(0xf34b09E22f5115af490eeb7460304aB80c90399E)>=1:
+        #balance thing may be source of error, needs to be address.balance thing or whatever it said on the vyper doc for address methods
             valueChanged = True
     assert valueChanged
     valueChanged = False
