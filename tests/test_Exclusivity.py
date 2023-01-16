@@ -4,11 +4,11 @@ import pytest
 import brownie
 from web3.exceptions import ValidationError
 
-@pytest.fixture
+@pytest.fixture 
 def exclusivityContract(Exclusivity, accounts):
     return Exclusivity.deploy("0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", {'from': accounts[1]})
 
-@pytest.fixture
+@pytest.fixture #this line needs to be removed for test to actually run, also this test doesn't compile when the @pytest.fixture thing is removed
 def testVote(Exclusivity,accounts):
     Exclusivity.deploy("0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", {'from': accounts[1]})
     exclusivity: Exclusivity=Exclusivity()
