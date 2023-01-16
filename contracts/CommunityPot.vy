@@ -2,6 +2,7 @@
 interface Token:
     def transferFrom(_from : address, _to : address, _value : uint256) -> bool: view
     def getBalanceOf(_user: address) -> uint256: view
+    def approve(_spender : address, _value : uint256) -> bool: nonpayable
 TokenContract: public(Token)
 
 
@@ -45,6 +46,8 @@ def Transact(amount: uint256, destAddress: address):
     self.TokenContract.transferFrom(self.PotAddress, destAddress, amount)
     self._removeMoney(amount)
 
+#new method
+@view
 @external
 def getPotAddress() -> address:
     return self.PotAddress

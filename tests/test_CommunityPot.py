@@ -49,9 +49,15 @@ def test_VerifyElectedOfficial(communityPotContract, accounts):
     assert communityPotContract.VerifyElectedOfficial(accounts[5])==False #edited
 
 def test_WorkingTransact(communityPotContract, erc20Contract, accounts):
-    erc20Contract.transfer(communityPotContract.getPotAddress(), 50) #idk if it is correct address 
+    erc20Contract.transfer(communityPotContract.getPotAddress(), 50, {'from': accounts[0]}) #idk if it is correct address 
     communityPotContract.addMoney(50) #fairly certain addMoney isn't doing what it should
-    communityPotContract.Transact(25, accounts[2])
+    assert str(erc20Contract.getBalanceOf(communityPotContract.getPotAddress())) == "50"
+
+    #idk idk idk
+    #senderAccount=communityPotContract.getPotAddress()
+    #erc20Contract.approve(accounts[2], 25, {"from": senderAccount})
+    #communityPotContract.Transact(25, accounts[2])
+
     assert communityPotContract.getMoney()==25
     assert str(erc20Contract.getBalanceOf(accounts[2])) == "25" #this assumes each account starts w/ 0 money
     
