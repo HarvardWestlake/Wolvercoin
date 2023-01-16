@@ -125,36 +125,45 @@
     },
     "CommunityPot": {
       "branches": {
+        "CommunityPot.AddMoney": [
+          0,
+          1,
+          1
+        ],
         "CommunityPot.Transact": [
           0,
           0,
           1
         ],
         "CommunityPot.VerifyElectedOfficial": [
-          0,
-          0,
+          1,
+          1,
           1
         ]
       },
       "statements": {
+        "CommunityPot.AddMoney": [
+          2,
+          2
+        ],
         "CommunityPot.Transact": [
           2,
           3
         ],
         "CommunityPot.VerifyElectedOfficial": [
-          1,
+          2,
           2
         ]
       },
       "totals": {
         "branches": [
-          0,
-          0,
-          2
+          1,
+          2,
+          3
         ],
         "statements": [
-          3,
-          5
+          6,
+          7
         ]
       }
     },
@@ -1111,15 +1120,21 @@
       "CommunityPot": {
         "0": [
           [
-            1072,
-            1137,
+            562,
+            577,
+            "orange",
+            ""
+          ],
+          [
+            1095,
+            1160,
             "red",
             ""
           ],
           [
-            1410,
-            1427,
-            "red",
+            1433,
+            1450,
+            "green",
             ""
           ]
         ]
@@ -2219,62 +2234,68 @@
       "CommunityPot": {
         "0": [
           [
+            582,
+            626,
+            "green",
+            ""
+          ],
+          [
             562,
-            606,
+            577,
             "green",
             ""
           ],
           [
-            785,
-            829,
+            804,
+            847,
             "green",
             ""
           ],
           [
-            879,
+            1239,
+            1263,
+            "green",
+            ""
+          ],
+          [
+            1095,
+            1160,
+            "green",
+            ""
+          ],
+          [
+            1165,
+            1234,
+            "red",
+            ""
+          ],
+          [
+            1464,
+            1475,
+            "green",
+            ""
+          ],
+          [
+            1480,
+            1492,
+            "green",
+            ""
+          ],
+          [
+            998,
+            1026,
+            "green",
+            ""
+          ],
+          [
             902,
+            925,
             "green",
             ""
           ],
           [
-            975,
-            1003,
-            "green",
-            ""
-          ],
-          [
-            1216,
-            1240,
-            "green",
-            ""
-          ],
-          [
-            1072,
-            1137,
-            "green",
-            ""
-          ],
-          [
-            1142,
-            1211,
-            "red",
-            ""
-          ],
-          [
-            1441,
-            1452,
-            "red",
-            ""
-          ],
-          [
-            1457,
-            1469,
-            "green",
-            ""
-          ],
-          [
-            656,
-            700,
+            676,
+            720,
             "red",
             ""
           ]
