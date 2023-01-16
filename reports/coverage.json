@@ -12,6 +12,11 @@
           0,
           3
         ],
+        "ActiveUser.removeAdmin": [
+          4,
+          0,
+          4
+        ],
         "ActiveUser.setCurrentGradYear": [
           2,
           0,
@@ -20,6 +25,11 @@
         "ActiveUser.setDisableContract": [
           1,
           1,
+          1
+        ],
+        "ActiveUser.setOwner": [
+          0,
+          0,
           1
         ]
       },
@@ -32,6 +42,10 @@
           4,
           4
         ],
+        "ActiveUser.removeAdmin": [
+          6,
+          6
+        ],
         "ActiveUser.setCurrentGradYear": [
           4,
           4
@@ -39,17 +53,678 @@
         "ActiveUser.setDisableContract": [
           2,
           2
+        ],
+        "ActiveUser.setOwner": [
+          0,
+          2
         ]
       },
       "totals": {
         "branches": [
-          9,
+          13,
           1,
+          14
+        ],
+        "statements": [
+          21,
+          23
+        ]
+      }
+    },
+    "BookstoreNFT": {
+      "branches": {
+        "BookstoreNFT.redeemProduct": [
+          1,
+          0,
+          1
+        ]
+      },
+      "statements": {
+        "BookstoreNFT.redeemProduct": [
+          1,
+          2
+        ]
+      },
+      "totals": {
+        "branches": [
+          1,
+          0,
+          1
+        ],
+        "statements": [
+          1,
+          2
+        ]
+      }
+    },
+    "CodeScoreCheck": {
+      "branches": {
+        "CodeScoreCheck.compareHighScores": [
+          0,
+          0,
+          2
+        ]
+      },
+      "statements": {
+        "CodeScoreCheck.compareHighScores": [
+          0,
+          4
+        ]
+      },
+      "totals": {
+        "branches": [
+          0,
+          0,
+          2
+        ],
+        "statements": [
+          0,
+          4
+        ]
+      }
+    },
+    "CommunityPot": {
+      "branches": {
+        "CommunityPot.AddMoney": [
+          0,
+          1,
+          1
+        ],
+        "CommunityPot.Transact": [
+          0,
+          0,
+          1
+        ],
+        "CommunityPot.VerifyElectedOfficial": [
+          1,
+          1,
+          1
+        ]
+      },
+      "statements": {
+        "CommunityPot.AddMoney": [
+          2,
+          2
+        ],
+        "CommunityPot.Transact": [
+          2,
+          3
+        ],
+        "CommunityPot.VerifyElectedOfficial": [
+          2,
+          2
+        ]
+      },
+      "totals": {
+        "branches": [
+          1,
+          2,
+          3
+        ],
+        "statements": [
+          6,
+          7
+        ]
+      }
+    },
+    "Crash": {
+      "branches": {
+        "Crash.crashFromRandomNumber": [
+          1,
+          1,
+          1
+        ],
+        "Crash.crashGambleHelper": [
+          1,
+          0,
+          1
+        ],
+        "Crash.placeBets": [
+          0,
+          0,
+          3
+        ],
+        "Crash.updateCrash": [
+          0,
+          1,
+          1
+        ],
+        "Crash.withdrawBet": [
+          0,
+          0,
+          3
+        ]
+      },
+      "statements": {
+        "Crash.crashFromRandomNumber": [
+          2,
+          2
+        ],
+        "Crash.crashGambleHelper": [
+          3,
+          4
+        ],
+        "Crash.placeBets": [
+          0,
+          4
+        ],
+        "Crash.updateCrash": [
+          1,
+          2
+        ],
+        "Crash.withdrawBet": [
+          0,
+          7
+        ]
+      },
+      "totals": {
+        "branches": [
+          2,
+          2,
           9
         ],
         "statements": [
-          15,
-          15
+          6,
+          19
+        ]
+      }
+    },
+    "DutchAuction": {
+      "branches": {
+        "DutchAuction._getPrice": [
+          1,
+          3,
+          3
+        ],
+        "DutchAuction.buy": [
+          0,
+          4,
+          4
+        ],
+        "DutchAuction.createAuctionItem": [
+          0,
+          5,
+          5
+        ],
+        "DutchAuction.findIndexOfItemInItemsArr": [
+          0,
+          1,
+          1
+        ],
+        "DutchAuction.getEndDate": [
+          0,
+          1,
+          1
+        ],
+        "DutchAuction.getEndPrice": [
+          0,
+          1,
+          1
+        ],
+        "DutchAuction.getSeller": [
+          0,
+          1,
+          1
+        ],
+        "DutchAuction.getStartDate": [
+          0,
+          1,
+          1
+        ],
+        "DutchAuction.getStartPrice": [
+          0,
+          1,
+          1
+        ]
+      },
+      "statements": {
+        "DutchAuction._getPrice": [
+          9,
+          9
+        ],
+        "DutchAuction.buy": [
+          11,
+          11
+        ],
+        "DutchAuction.createAuctionItem": [
+          8,
+          8
+        ],
+        "DutchAuction.findIndexOfItemInItemsArr": [
+          1,
+          2
+        ],
+        "DutchAuction.getEndDate": [
+          3,
+          3
+        ],
+        "DutchAuction.getEndPrice": [
+          3,
+          3
+        ],
+        "DutchAuction.getSeller": [
+          3,
+          3
+        ],
+        "DutchAuction.getStartDate": [
+          3,
+          3
+        ],
+        "DutchAuction.getStartPrice": [
+          3,
+          3
+        ]
+      },
+      "totals": {
+        "branches": [
+          1,
+          18,
+          18
+        ],
+        "statements": [
+          44,
+          45
+        ]
+      }
+    },
+    "Exclusivity": {
+      "branches": {
+        "Exclusivity.addNonTopics": [
+          1,
+          1,
+          1
+        ],
+        "Exclusivity.internalRemoveNonTopics": [
+          0,
+          0,
+          3
+        ],
+        "Exclusivity.isInTopicsList": [
+          1,
+          1,
+          1
+        ],
+        "Exclusivity.isNotinTopicsList": [
+          1,
+          1,
+          1
+        ],
+        "Exclusivity.removeNonTopics": [
+          1,
+          0,
+          3
+        ],
+        "Exclusivity.tallyVotes": [
+          0,
+          0,
+          1
+        ],
+        "Exclusivity.vote": [
+          0,
+          0,
+          3
+        ]
+      },
+      "statements": {
+        "Exclusivity.addNonTopics": [
+          1,
+          1
+        ],
+        "Exclusivity.internalRemoveNonTopics": [
+          0,
+          6
+        ],
+        "Exclusivity.isInTopicsList": [
+          4,
+          4
+        ],
+        "Exclusivity.isNotinTopicsList": [
+          4,
+          4
+        ],
+        "Exclusivity.removeNonTopics": [
+          0,
+          6
+        ],
+        "Exclusivity.tallyVotes": [
+          0,
+          3
+        ],
+        "Exclusivity.vote": [
+          0,
+          6
+        ]
+      },
+      "totals": {
+        "branches": [
+          4,
+          3,
+          13
+        ],
+        "statements": [
+          9,
+          30
+        ]
+      }
+    },
+    "Lottery": {
+      "branches": {
+        "Lottery.buyTickets": [
+          0,
+          0,
+          5
+        ],
+        "Lottery.endLottery": [
+          0,
+          0,
+          4
+        ]
+      },
+      "statements": {
+        "Lottery.buyTickets": [
+          0,
+          9
+        ],
+        "Lottery.endLottery": [
+          0,
+          8
+        ]
+      },
+      "totals": {
+        "branches": [
+          0,
+          0,
+          9
+        ],
+        "statements": [
+          0,
+          17
+        ]
+      }
+    },
+    "NFT": {
+      "branches": {
+        "NFT._addTokenTo": [
+          0,
+          1,
+          1
+        ],
+        "NFT._addTokenURI": [
+          1,
+          0,
+          1
+        ],
+        "NFT._clearApproval": [
+          1,
+          2,
+          2
+        ],
+        "NFT._removeTokenFrom": [
+          0,
+          1,
+          1
+        ],
+        "NFT._transferFrom": [
+          0,
+          2,
+          2
+        ],
+        "NFT.admin_withdraw_erc20": [
+          0,
+          0,
+          1
+        ],
+        "NFT.approve": [
+          0,
+          3,
+          3
+        ],
+        "NFT.balanceOf": [
+          0,
+          0,
+          1
+        ],
+        "NFT.burn": [
+          0,
+          0,
+          2
+        ],
+        "NFT.getApproved": [
+          0,
+          0,
+          1
+        ],
+        "NFT.mint": [
+          1,
+          2,
+          3
+        ],
+        "NFT.ownerOf": [
+          0,
+          1,
+          1
+        ],
+        "NFT.safeMintToThisContractWithApprovalToExternalContractUsingPassword": [
+          0,
+          0,
+          2
+        ],
+        "NFT.safeTransferFrom": [
+          0,
+          0,
+          2
+        ],
+        "NFT.setApprovalForAll": [
+          0,
+          0,
+          1
+        ],
+        "NFT.setBaseURI": [
+          0,
+          0,
+          1
+        ],
+        "NFT.set_contract_uri": [
+          0,
+          0,
+          1
+        ],
+        "NFT.tokenOfOwnerByIndex": [
+          0,
+          0,
+          1
+        ],
+        "NFT.transferMinter": [
+          0,
+          0,
+          1
+        ]
+      },
+      "statements": {
+        "NFT._addTokenTo": [
+          3,
+          3
+        ],
+        "NFT._addTokenURI": [
+          4,
+          4
+        ],
+        "NFT._clearApproval": [
+          2,
+          2
+        ],
+        "NFT._removeTokenFrom": [
+          3,
+          3
+        ],
+        "NFT._transferFrom": [
+          6,
+          6
+        ],
+        "NFT.admin_withdraw_erc20": [
+          0,
+          2
+        ],
+        "NFT.approve": [
+          8,
+          8
+        ],
+        "NFT.balanceOf": [
+          0,
+          2
+        ],
+        "NFT.burn": [
+          0,
+          6
+        ],
+        "NFT.getApproved": [
+          0,
+          2
+        ],
+        "NFT.mint": [
+          9,
+          9
+        ],
+        "NFT.ownerOf": [
+          3,
+          3
+        ],
+        "NFT.safeMintToThisContractWithApprovalToExternalContractUsingPassword": [
+          0,
+          8
+        ],
+        "NFT.safeTransferFrom": [
+          0,
+          3
+        ],
+        "NFT.setApprovalForAll": [
+          0,
+          3
+        ],
+        "NFT.setBaseURI": [
+          0,
+          2
+        ],
+        "NFT.set_contract_uri": [
+          0,
+          2
+        ],
+        "NFT.tokenOfOwnerByIndex": [
+          0,
+          2
+        ],
+        "NFT.transferMinter": [
+          0,
+          2
+        ]
+      },
+      "totals": {
+        "branches": [
+          3,
+          12,
+          28
+        ],
+        "statements": [
+          38,
+          72
+        ]
+      }
+    },
+    "PublicGoods": {
+      "branches": {
+        "PublicGoods.complete": [
+          2,
+          5,
+          5
+        ],
+        "PublicGoods.contribute": [
+          1,
+          4,
+          4
+        ],
+        "PublicGoods.createGood": [
+          0,
+          2,
+          2
+        ],
+        "PublicGoods.findIndexOfGoodInGoodsArr": [
+          0,
+          1,
+          1
+        ],
+        "PublicGoods.getContributionTotal": [
+          0,
+          1,
+          1
+        ],
+        "PublicGoods.getCreator": [
+          0,
+          1,
+          1
+        ],
+        "PublicGoods.getGoal": [
+          0,
+          1,
+          1
+        ],
+        "PublicGoods.getNumDonators": [
+          0,
+          1,
+          1
+        ],
+        "PublicGoods.retract": [
+          1,
+          4,
+          4
+        ]
+      },
+      "statements": {
+        "PublicGoods.complete": [
+          12,
+          12
+        ],
+        "PublicGoods.contribute": [
+          13,
+          13
+        ],
+        "PublicGoods.createGood": [
+          5,
+          5
+        ],
+        "PublicGoods.findIndexOfGoodInGoodsArr": [
+          1,
+          2
+        ],
+        "PublicGoods.getContributionTotal": [
+          3,
+          3
+        ],
+        "PublicGoods.getCreator": [
+          3,
+          3
+        ],
+        "PublicGoods.getGoal": [
+          3,
+          3
+        ],
+        "PublicGoods.getNumDonators": [
+          3,
+          3
+        ],
+        "PublicGoods.retract": [
+          10,
+          10
+        ]
+      },
+      "totals": {
+        "branches": [
+          4,
+          20,
+          20
+        ],
+        "statements": [
+          53,
+          54
         ]
       }
     },
@@ -97,73 +772,231 @@
         ]
       }
     },
-    "Stake": {
+    "SimpleAuction": {
       "branches": {
-        "Stake.unstake": [
-          1,
+        "SimpleAuction.bid": [
+          0,
+          3,
+          3
+        ],
+        "SimpleAuction.endAuction": [
+          0,
           0,
           2
+        ],
+        "SimpleAuction.withdraw": [
+          0,
+          0,
+          1
         ]
       },
       "statements": {
-        "Stake.unstake": [
-          3,
-          12
+        "SimpleAuction.bid": [
+          6,
+          6
+        ],
+        "SimpleAuction.endAuction": [
+          0,
+          4
+        ],
+        "SimpleAuction.withdraw": [
+          0,
+          4
         ]
       },
       "totals": {
         "branches": [
-          1,
           0,
+          3,
+          6
+        ],
+        "statements": [
+          6,
+          14
+        ]
+      }
+    },
+    "SocialAndDonations": {
+      "branches": {
+        "SocialAndDonations.determineResult": [
+          0,
+          2,
+          2
+        ]
+      },
+      "statements": {
+        "SocialAndDonations.determineResult": [
+          10,
+          10
+        ]
+      },
+      "totals": {
+        "branches": [
+          0,
+          2,
           2
         ],
         "statements": [
+          10,
+          10
+        ]
+      }
+    },
+    "Stake": {
+      "branches": {
+        "Stake.stake": [
+          0,
+          1,
+          1
+        ],
+        "Stake.unstake": [
+          2,
           3,
-          12
+          3
+        ]
+      },
+      "statements": {
+        "Stake.stake": [
+          4,
+          4
+        ],
+        "Stake.unstake": [
+          13,
+          13
+        ]
+      },
+      "totals": {
+        "branches": [
+          2,
+          4,
+          4
+        ],
+        "statements": [
+          17,
+          17
+        ]
+      }
+    },
+    "Token": {
+      "branches": {
+        "Token._burn": [
+          0,
+          0,
+          1
+        ],
+        "Token.mint": [
+          0,
+          2,
+          2
+        ]
+      },
+      "statements": {
+        "Token._burn": [
+          0,
+          4
+        ],
+        "Token.mint": [
+          6,
+          6
+        ]
+      },
+      "totals": {
+        "branches": [
+          0,
+          2,
+          3
+        ],
+        "statements": [
+          6,
+          10
         ]
       }
     },
     "VotingAndRep": {
       "branches": {
+        "VotingAndRep._burn": [
+          0,
+          1,
+          1
+        ],
+        "VotingAndRep.finishVote": [
+          3,
+          3,
+          4
+        ],
+        "VotingAndRep.mint": [
+          0,
+          2,
+          2
+        ],
         "VotingAndRep.proposeVote": [
           3,
           1,
           3
         ],
-        "VotingAndRep.setContractMaintainer": [
-          2,
-          1,
-          2
-        ],
         "VotingAndRep.setDisabled": [
-          1,
+          0,
           1,
           1
         ]
       },
       "statements": {
+        "VotingAndRep._burn": [
+          4,
+          4
+        ],
+        "VotingAndRep.finishVote": [
+          7,
+          11
+        ],
+        "VotingAndRep.mint": [
+          5,
+          5
+        ],
         "VotingAndRep.proposeVote": [
           6,
           6
         ],
-        "VotingAndRep.setContractMaintainer": [
-          3,
-          3
-        ],
         "VotingAndRep.setDisabled": [
-          2,
+          1,
           2
         ]
       },
       "totals": {
         "branches": [
           6,
-          3,
-          6
+          8,
+          11
         ],
         "statements": [
-          11,
-          11
+          23,
+          28
+        ]
+      }
+    },
+    "codeGambling": {
+      "branches": {
+        "codeGambling.placeBets": [
+          0,
+          3,
+          3
+        ]
+      },
+      "statements": {
+        "codeGambling.placeBets": [
+          4,
+          4
+        ]
+      },
+      "totals": {
+        "branches": [
+          0,
+          3,
+          3
+        ],
+        "statements": [
+          4,
+          4
         ]
       }
     }
@@ -173,57 +1006,741 @@
       "ActiveUser": {
         "0": [
           [
-            951,
-            1012,
+            1020,
+            1081,
             "yellow",
             ""
           ],
           [
-            1017,
-            1089,
+            1086,
+            1159,
             "yellow",
             ""
           ],
           [
-            1094,
-            1178,
+            1164,
+            1248,
             "yellow",
             ""
           ],
           [
-            1307,
-            1378,
+            1379,
+            1450,
             "yellow",
             ""
           ],
           [
-            1383,
             1455,
+            1528,
             "yellow",
+            ""
+          ],
+          [
+            1533,
+            1607,
+            "yellow",
+            ""
+          ],
+          [
+            1905,
+            1966,
+            "yellow",
+            ""
+          ],
+          [
+            1971,
+            2047,
+            "yellow",
+            ""
+          ],
+          [
+            2052,
+            2144,
+            "yellow",
+            ""
+          ],
+          [
+            2149,
+            2229,
+            "yellow",
+            ""
+          ],
+          [
+            3269,
+            3340,
+            "yellow",
+            ""
+          ],
+          [
+            3345,
+            3423,
+            "yellow",
+            ""
+          ],
+          [
+            3153,
+            3184,
+            "green",
+            ""
+          ],
+          [
+            3544,
+            3575,
+            "red",
+            ""
+          ]
+        ]
+      },
+      "BookstoreNFT": {
+        "0": [
+          [
+            666,
+            703,
+            "orange",
+            ""
+          ]
+        ]
+      },
+      "CodeScoreCheck": {
+        "0": [
+          [
+            520,
+            541,
+            "red",
+            ""
+          ],
+          [
+            554,
+            582,
+            "red",
+            ""
+          ]
+        ]
+      },
+      "CommunityPot": {
+        "0": [
+          [
+            562,
+            577,
+            "orange",
+            ""
+          ],
+          [
+            1095,
+            1160,
+            "red",
+            ""
+          ],
+          [
+            1433,
+            1450,
+            "green",
+            ""
+          ]
+        ]
+      },
+      "Crash": {
+        "0": [
+          [
+            3159,
+            3177,
+            "green",
+            ""
+          ],
+          [
+            2773,
+            2788,
+            "orange",
+            ""
+          ],
+          [
+            3673,
+            3701,
+            "red",
+            ""
+          ],
+          [
+            3706,
+            3738,
+            "red",
+            ""
+          ],
+          [
+            3743,
+            3807,
+            "red",
+            ""
+          ],
+          [
+            2075,
+            2091,
+            "yellow",
+            ""
+          ],
+          [
+            1547,
+            1610,
+            "red",
+            ""
+          ],
+          [
+            1686,
+            1703,
+            "red",
+            ""
+          ],
+          [
+            1735,
+            1757,
+            "red",
+            ""
+          ]
+        ]
+      },
+      "DutchAuction": {
+        "0": [
+          [
+            2248,
+            2291,
+            "orange",
+            ""
+          ],
+          [
+            2296,
+            2343,
+            "orange",
+            ""
+          ],
+          [
+            2356,
+            2394,
+            "green",
+            ""
+          ],
+          [
+            3168,
+            3211,
+            "orange",
+            ""
+          ],
+          [
+            3217,
+            3263,
+            "orange",
+            ""
+          ],
+          [
+            3316,
+            3367,
+            "orange",
+            ""
+          ],
+          [
+            3629,
+            3636,
+            "yellow",
+            ""
+          ],
+          [
+            1535,
+            1554,
+            "orange",
+            ""
+          ],
+          [
+            1559,
+            1587,
+            "orange",
+            ""
+          ],
+          [
+            1592,
+            1627,
+            "orange",
+            ""
+          ],
+          [
+            1632,
+            1658,
+            "orange",
+            ""
+          ],
+          [
+            1663,
+            1715,
+            "orange",
+            ""
+          ],
+          [
+            1261,
+            1298,
+            "yellow",
+            ""
+          ],
+          [
+            4508,
+            4551,
+            "orange",
+            ""
+          ],
+          [
+            4911,
+            4954,
+            "orange",
+            ""
+          ],
+          [
+            4109,
+            4152,
+            "orange",
+            ""
+          ],
+          [
+            4308,
+            4351,
+            "orange",
+            ""
+          ],
+          [
+            4709,
+            4752,
+            "orange",
+            ""
+          ]
+        ]
+      },
+      "Exclusivity": {
+        "0": [
+          [
+            1146,
+            1166,
+            "green",
+            ""
+          ],
+          [
+            2124,
+            2144,
+            "red",
+            ""
+          ],
+          [
+            2417,
+            2442,
+            "red",
+            ""
+          ],
+          [
+            2504,
+            2509,
+            "red",
+            ""
+          ],
+          [
+            3121,
+            3146,
+            "green",
+            ""
+          ],
+          [
+            3343,
+            3368,
+            "green",
+            ""
+          ],
+          [
+            1414,
+            1434,
+            "orange",
+            ""
+          ],
+          [
+            1707,
+            1732,
+            "red",
+            ""
+          ],
+          [
+            1794,
+            1799,
+            "red",
+            ""
+          ],
+          [
+            918,
+            939,
+            "red",
+            ""
+          ],
+          [
+            615,
+            636,
+            "red",
+            ""
+          ],
+          [
+            699,
+            711,
+            "red",
+            ""
+          ],
+          [
+            786,
+            803,
+            "red",
+            ""
+          ]
+        ]
+      },
+      "Lottery": {
+        "0": [
+          [
+            1163,
+            1235,
+            "red",
+            ""
+          ],
+          [
+            1240,
+            1295,
+            "red",
+            ""
+          ],
+          [
+            1300,
+            1367,
+            "red",
+            ""
+          ],
+          [
+            1372,
+            1455,
+            "red",
             ""
           ],
           [
             1460,
-            1534,
+            1535,
+            "red",
+            ""
+          ],
+          [
+            2068,
+            2128,
+            "red",
+            ""
+          ],
+          [
+            2133,
+            2179,
+            "red",
+            ""
+          ],
+          [
+            2431,
+            2457,
+            "red",
+            ""
+          ],
+          [
+            2495,
+            2584,
+            "red",
+            ""
+          ]
+        ]
+      },
+      "NFT": {
+        "0": [
+          [
+            8429,
+            8478,
+            "orange",
+            ""
+          ],
+          [
+            9169,
+            9225,
             "yellow",
             ""
           ],
           [
-            2196,
-            2267,
-            "yellow",
+            10083,
+            10124,
+            "orange",
             ""
           ],
           [
-            2272,
-            2349,
-            "yellow",
-            ""
-          ],
-          [
-            2081,
-            2112,
+            10132,
+            10178,
             "green",
+            ""
+          ],
+          [
+            9666,
+            9706,
+            "orange",
+            ""
+          ],
+          [
+            10788,
+            10837,
+            "orange",
+            ""
+          ],
+          [
+            10884,
+            10912,
+            "orange",
+            ""
+          ],
+          [
+            18188,
+            18220,
+            "red",
+            ""
+          ],
+          [
+            14017,
+            14047,
+            "orange",
+            ""
+          ],
+          [
+            14101,
+            14126,
+            "orange",
+            ""
+          ],
+          [
+            14299,
+            14347,
+            "orange",
+            ""
+          ],
+          [
+            6258,
+            6289,
+            "red",
+            ""
+          ],
+          [
+            16739,
+            16791,
+            "red",
+            ""
+          ],
+          [
+            16888,
+            16918,
+            "red",
+            ""
+          ],
+          [
+            6999,
+            7048,
+            "red",
+            ""
+          ],
+          [
+            15758,
+            15790,
+            "orange",
+            ""
+          ],
+          [
+            15833,
+            15861,
+            "orange",
+            ""
+          ],
+          [
+            16037,
+            16109,
+            "yellow",
+            ""
+          ],
+          [
+            6658,
+            6688,
+            "orange",
+            ""
+          ],
+          [
+            5467,
+            5500,
+            "red",
+            ""
+          ],
+          [
+            5629,
+            5701,
+            "red",
+            ""
+          ],
+          [
+            12945,
+            12960,
+            "red",
+            ""
+          ],
+          [
+            13211,
+            13313,
+            "red",
+            ""
+          ],
+          [
+            15075,
+            15105,
+            "red",
+            ""
+          ],
+          [
+            17274,
+            17306,
+            "red",
+            ""
+          ],
+          [
+            17863,
+            17895,
+            "red",
+            ""
+          ],
+          [
+            19309,
+            19339,
+            "red",
+            ""
+          ],
+          [
+            17113,
+            17145,
+            "red",
+            ""
+          ]
+        ]
+      },
+      "PublicGoods": {
+        "0": [
+          [
+            3532,
+            3565,
+            "orange",
+            ""
+          ],
+          [
+            3570,
+            3606,
+            "orange",
+            ""
+          ],
+          [
+            3658,
+            3689,
+            "green",
+            ""
+          ],
+          [
+            3865,
+            3887,
+            "green",
+            ""
+          ],
+          [
+            4229,
+            4236,
+            "yellow",
+            ""
+          ],
+          [
+            2055,
+            2091,
+            "orange",
+            ""
+          ],
+          [
+            2159,
+            2211,
+            "orange",
+            ""
+          ],
+          [
+            2302,
+            2324,
+            "green",
+            ""
+          ],
+          [
+            2355,
+            2394,
+            "yellow",
+            ""
+          ],
+          [
+            1492,
+            1507,
+            "orange",
+            ""
+          ],
+          [
+            1512,
+            1564,
+            "orange",
+            ""
+          ],
+          [
+            1358,
+            1388,
+            "yellow",
+            ""
+          ],
+          [
+            4657,
+            4693,
+            "orange",
+            ""
+          ],
+          [
+            5157,
+            5193,
+            "orange",
+            ""
+          ],
+          [
+            4825,
+            4861,
+            "orange",
+            ""
+          ],
+          [
+            4988,
+            5024,
+            "orange",
+            ""
+          ],
+          [
+            2863,
+            2899,
+            "orange",
+            ""
+          ],
+          [
+            2936,
+            2958,
+            "green",
+            ""
+          ],
+          [
+            2990,
+            3029,
+            "yellow",
+            ""
+          ],
+          [
+            3048,
+            3083,
+            "yellow",
             ""
           ]
         ]
@@ -231,44 +1748,100 @@
       "Reimbursement": {
         "0": [
           [
-            1868,
-            1939,
+            1872,
+            1943,
             "green",
             ""
           ],
           [
-            1986,
-            2037,
+            1990,
+            2043,
             "green",
             ""
           ],
           [
-            2066,
-            2116,
+            2072,
+            2122,
             "green",
             ""
           ],
           [
-            2189,
-            2275,
+            2195,
+            2281,
             "green",
             ""
           ],
           [
-            2674,
-            2759,
+            2680,
+            2765,
             "green",
             ""
           ],
           [
-            3043,
-            3114,
+            3051,
+            3122,
             "yellow",
             ""
           ],
           [
-            3119,
-            3204,
+            3127,
+            3212,
+            "yellow",
+            ""
+          ]
+        ]
+      },
+      "SimpleAuction": {
+        "0": [
+          [
+            1601,
+            1641,
+            "orange",
+            ""
+          ],
+          [
+            1646,
+            1678,
+            "orange",
+            ""
+          ],
+          [
+            1683,
+            1717,
+            "orange",
+            ""
+          ],
+          [
+            2330,
+            2371,
+            "red",
+            ""
+          ],
+          [
+            2376,
+            2397,
+            "red",
+            ""
+          ],
+          [
+            1944,
+            1991,
+            "red",
+            ""
+          ]
+        ]
+      },
+      "SocialAndDonations": {
+        "0": [
+          [
+            1795,
+            1834,
+            "yellow",
+            ""
+          ],
+          [
+            2128,
+            2144,
             "yellow",
             ""
           ]
@@ -277,15 +1850,49 @@
       "Stake": {
         "0": [
           [
-            555,
-            605,
-            "yellow",
+            854,
+            906,
+            "orange",
             ""
           ],
           [
-            713,
-            735,
+            1137,
+            1190,
+            "green",
+            ""
+          ],
+          [
+            1274,
+            1296,
+            "green",
+            ""
+          ],
+          [
+            1784,
+            1804,
+            "orange",
+            ""
+          ]
+        ]
+      },
+      "Token": {
+        "0": [
+          [
+            5531,
+            5559,
             "red",
+            ""
+          ],
+          [
+            5089,
+            5121,
+            "orange",
+            ""
+          ],
+          [
+            5126,
+            5154,
+            "orange",
             ""
           ]
         ]
@@ -293,39 +1900,91 @@
       "VotingAndRep": {
         "0": [
           [
-            2080,
-            2141,
-            "green",
+            7290,
+            7318,
+            "orange",
             ""
           ],
           [
-            2146,
-            2223,
+            4297,
+            4358,
             "yellow",
             ""
           ],
           [
-            2336,
-            2423,
-            "yellow",
-            ""
-          ],
-          [
-            2982,
-            3082,
+            4363,
+            4495,
             "green",
             ""
           ],
           [
-            3087,
-            3160,
+            4638,
+            4728,
             "yellow",
             ""
           ],
           [
-            2787,
-            2884,
+            4949,
+            5039,
             "green",
+            ""
+          ],
+          [
+            4069,
+            4101,
+            "orange",
+            ""
+          ],
+          [
+            4106,
+            4134,
+            "orange",
+            ""
+          ],
+          [
+            3209,
+            3270,
+            "yellow",
+            ""
+          ],
+          [
+            3275,
+            3352,
+            "yellow",
+            ""
+          ],
+          [
+            3357,
+            3444,
+            "green",
+            ""
+          ],
+          [
+            8334,
+            8520,
+            "orange",
+            ""
+          ]
+        ]
+      },
+      "codeGambling": {
+        "0": [
+          [
+            643,
+            671,
+            "orange",
+            ""
+          ],
+          [
+            676,
+            708,
+            "orange",
+            ""
+          ],
+          [
+            713,
+            777,
+            "orange",
             ""
           ]
         ]
@@ -335,116 +1994,1976 @@
       "ActiveUser": {
         "0": [
           [
-            951,
-            1012,
+            2391,
+            2445,
             "green",
             ""
           ],
           [
-            1017,
-            1089,
+            1020,
+            1081,
             "green",
             ""
           ],
           [
-            1094,
-            1178,
+            1086,
+            1159,
             "green",
             ""
           ],
           [
-            1183,
-            1213,
+            1164,
+            1248,
             "green",
             ""
           ],
           [
-            1218,
-            1257,
+            1253,
+            1284,
             "green",
             ""
           ],
           [
-            1307,
-            1378,
+            1289,
+            1329,
             "green",
             ""
           ],
           [
-            1383,
+            1379,
+            1450,
+            "green",
+            ""
+          ],
+          [
             1455,
+            1528,
             "green",
             ""
           ],
           [
-            1460,
-            1534,
+            1533,
+            1607,
             "green",
             ""
           ],
           [
-            1539,
-            1596,
+            1612,
+            1670,
             "green",
             ""
           ],
           [
-            1883,
-            1952,
+            2880,
+            2907,
             "green",
             ""
           ],
           [
-            1776,
-            1810,
+            2750,
+            2820,
             "green",
             ""
           ],
           [
-            1668,
-            1707,
+            2630,
+            2674,
             "green",
             ""
           ],
           [
-            2014,
-            2025,
+            2979,
+            3097,
+            "green",
+            ""
+          ],
+          [
+            2518,
+            2558,
+            "green",
+            ""
+          ],
+          [
+            1905,
+            1966,
+            "green",
+            ""
+          ],
+          [
+            1971,
+            2047,
+            "green",
+            ""
+          ],
+          [
+            2052,
+            2144,
+            "green",
+            ""
+          ],
+          [
+            2149,
+            2229,
+            "green",
+            ""
+          ],
+          [
+            2234,
+            2269,
+            "green",
+            ""
+          ],
+          [
+            2274,
+            2320,
+            "green",
+            ""
+          ],
+          [
+            3269,
+            3340,
+            "green",
+            ""
+          ],
+          [
+            3345,
+            3423,
+            "green",
+            ""
+          ],
+          [
+            3461,
+            3495,
+            "green",
+            ""
+          ],
+          [
+            3428,
+            3456,
+            "green",
+            ""
+          ],
+          [
+            3153,
+            3184,
+            "green",
+            ""
+          ],
+          [
+            3189,
+            3213,
+            "green",
+            ""
+          ],
+          [
+            3544,
+            3575,
             "red",
             ""
           ],
           [
-            2196,
-            2267,
+            3580,
+            3599,
+            "red",
+            ""
+          ]
+        ]
+      },
+      "BookstoreNFT": {
+        "0": [
+          [
+            442,
+            584,
+            "red",
+            ""
+          ],
+          [
+            589,
+            602,
+            "red",
+            ""
+          ],
+          [
+            714,
+            725,
+            "red",
+            ""
+          ],
+          [
+            744,
+            756,
+            "green",
+            ""
+          ]
+        ]
+      },
+      "CodeScoreCheck": {
+        "0": [
+          [
+            777,
+            814,
+            "red",
+            ""
+          ],
+          [
+            596,
+            688,
+            "red",
+            ""
+          ],
+          [
+            702,
+            750,
+            "red",
+            ""
+          ],
+          [
+            833,
+            884,
+            "red",
+            ""
+          ],
+          [
+            931,
+            958,
+            "green",
+            ""
+          ]
+        ]
+      },
+      "CommunityPot": {
+        "0": [
+          [
+            582,
+            626,
             "green",
             ""
           ],
           [
-            2272,
-            2349,
+            562,
+            577,
             "green",
             ""
           ],
           [
-            2386,
-            2419,
+            804,
+            847,
             "green",
             ""
           ],
           [
-            2354,
-            2381,
+            1239,
+            1263,
             "green",
             ""
           ],
           [
-            2081,
-            2112,
+            1095,
+            1160,
             "green",
             ""
           ],
           [
-            2117,
-            2141,
+            1165,
+            1234,
+            "red",
+            ""
+          ],
+          [
+            1464,
+            1475,
+            "green",
+            ""
+          ],
+          [
+            1480,
+            1492,
+            "green",
+            ""
+          ],
+          [
+            998,
+            1026,
+            "green",
+            ""
+          ],
+          [
+            902,
+            925,
+            "green",
+            ""
+          ],
+          [
+            676,
+            720,
+            "red",
+            ""
+          ]
+        ]
+      },
+      "Crash": {
+        "0": [
+          [
+            3218,
+            3230,
+            "green",
+            ""
+          ],
+          [
+            3188,
+            3199,
+            "green",
+            ""
+          ],
+          [
+            2445,
+            2513,
+            "green",
+            ""
+          ],
+          [
+            2714,
+            2764,
+            "green",
+            ""
+          ],
+          [
+            2799,
+            2822,
+            "red",
+            ""
+          ],
+          [
+            2841,
+            2878,
+            "green",
+            ""
+          ],
+          [
+            2884,
+            2935,
+            "green",
+            ""
+          ],
+          [
+            3449,
+            3499,
+            "green",
+            ""
+          ],
+          [
+            3567,
+            3606,
+            "green",
+            ""
+          ],
+          [
+            3964,
+            3997,
+            "red",
+            ""
+          ],
+          [
+            3346,
+            3369,
+            "red",
+            ""
+          ],
+          [
+            3278,
+            3300,
+            "green",
+            ""
+          ],
+          [
+            3673,
+            3701,
+            "red",
+            ""
+          ],
+          [
+            3706,
+            3738,
+            "red",
+            ""
+          ],
+          [
+            3812,
+            3844,
+            "red",
+            ""
+          ],
+          [
+            3743,
+            3807,
+            "red",
+            ""
+          ],
+          [
+            2190,
+            2214,
+            "red",
+            ""
+          ],
+          [
+            2219,
+            2245,
+            "red",
+            ""
+          ],
+          [
+            2250,
+            2269,
+            "red",
+            ""
+          ],
+          [
+            2376,
+            2397,
+            "red",
+            ""
+          ],
+          [
+            2138,
+            2156,
+            "green",
+            ""
+          ],
+          [
+            2102,
+            2119,
+            "red",
+            ""
+          ],
+          [
+            1547,
+            1610,
+            "red",
+            ""
+          ],
+          [
+            1615,
+            1634,
+            "red",
+            ""
+          ],
+          [
+            1718,
+            1730,
+            "red",
+            ""
+          ],
+          [
+            1735,
+            1757,
+            "red",
+            ""
+          ],
+          [
+            1796,
+            1862,
+            "red",
+            ""
+          ],
+          [
+            1920,
+            1982,
+            "red",
+            ""
+          ],
+          [
+            1988,
+            2036,
+            "red",
+            ""
+          ]
+        ]
+      },
+      "DutchAuction": {
+        "0": [
+          [
+            2187,
+            2243,
+            "green",
+            ""
+          ],
+          [
+            2248,
+            2291,
+            "green",
+            ""
+          ],
+          [
+            2296,
+            2343,
+            "green",
+            ""
+          ],
+          [
+            2404,
+            2431,
+            "green",
+            ""
+          ],
+          [
+            2482,
+            2547,
+            "green",
+            ""
+          ],
+          [
+            2552,
+            2620,
+            "green",
+            ""
+          ],
+          [
+            2625,
+            2692,
+            "green",
+            ""
+          ],
+          [
+            2697,
+            2783,
+            "green",
+            ""
+          ],
+          [
+            2788,
+            2895,
+            "green",
+            ""
+          ],
+          [
+            3107,
+            3163,
+            "green",
+            ""
+          ],
+          [
+            3567,
+            3621,
+            "green",
+            ""
+          ],
+          [
+            3168,
+            3211,
+            "green",
+            ""
+          ],
+          [
+            3217,
+            3263,
+            "green",
+            ""
+          ],
+          [
+            3268,
+            3311,
+            "green",
+            ""
+          ],
+          [
+            3316,
+            3367,
+            "green",
+            ""
+          ],
+          [
+            3373,
+            3435,
+            "green",
+            ""
+          ],
+          [
+            3440,
+            3506,
+            "green",
+            ""
+          ],
+          [
+            3512,
+            3562,
+            "green",
+            ""
+          ],
+          [
+            3646,
+            3723,
+            "green",
+            ""
+          ],
+          [
+            3799,
+            3825,
+            "green",
+            ""
+          ],
+          [
+            1853,
+            2080,
+            "green",
+            ""
+          ],
+          [
+            1535,
+            1554,
+            "green",
+            ""
+          ],
+          [
+            1559,
+            1587,
+            "green",
+            ""
+          ],
+          [
+            1592,
+            1627,
+            "green",
+            ""
+          ],
+          [
+            1632,
+            1658,
+            "green",
+            ""
+          ],
+          [
+            1663,
+            1715,
+            "green",
+            ""
+          ],
+          [
+            2085,
+            2124,
+            "green",
+            ""
+          ],
+          [
+            1789,
+            1843,
+            "green",
+            ""
+          ],
+          [
+            1312,
+            1320,
+            "green",
+            ""
+          ],
+          [
+            1325,
+            1334,
+            "red",
+            ""
+          ],
+          [
+            3934,
+            3961,
+            "green",
+            ""
+          ],
+          [
+            4447,
+            4503,
+            "green",
+            ""
+          ],
+          [
+            4508,
+            4551,
+            "green",
+            ""
+          ],
+          [
+            4556,
+            4582,
+            "green",
+            ""
+          ],
+          [
+            4850,
+            4906,
+            "green",
+            ""
+          ],
+          [
+            4911,
+            4954,
+            "green",
+            ""
+          ],
+          [
+            4959,
+            4986,
+            "green",
+            ""
+          ],
+          [
+            2957,
+            2990,
+            "green",
+            ""
+          ],
+          [
+            4048,
+            4104,
+            "green",
+            ""
+          ],
+          [
+            4109,
+            4152,
+            "green",
+            ""
+          ],
+          [
+            4157,
+            4182,
+            "green",
+            ""
+          ],
+          [
+            4247,
+            4303,
+            "green",
+            ""
+          ],
+          [
+            4308,
+            4351,
+            "green",
+            ""
+          ],
+          [
+            4356,
+            4384,
+            "green",
+            ""
+          ],
+          [
+            4648,
+            4704,
+            "green",
+            ""
+          ],
+          [
+            4709,
+            4752,
+            "green",
+            ""
+          ],
+          [
+            4757,
+            4786,
+            "green",
+            ""
+          ]
+        ]
+      },
+      "Exclusivity": {
+        "0": [
+          [
+            1250,
+            1286,
+            "green",
+            ""
+          ],
+          [
+            2806,
+            2839,
+            "green",
+            ""
+          ],
+          [
+            2959,
+            2984,
+            "red",
+            ""
+          ],
+          [
+            2228,
+            2243,
+            "red",
+            ""
+          ],
+          [
+            2388,
+            2401,
+            "red",
+            ""
+          ],
+          [
+            2460,
+            2470,
+            "red",
+            ""
+          ],
+          [
+            2487,
+            2492,
+            "red",
+            ""
+          ],
+          [
+            2570,
+            2645,
+            "red",
+            ""
+          ],
+          [
+            2658,
+            2682,
+            "red",
+            ""
+          ],
+          [
+            3046,
+            3063,
+            "green",
+            ""
+          ],
+          [
+            3160,
+            3170,
+            "green",
+            ""
+          ],
+          [
+            3183,
+            3188,
+            "green",
+            ""
+          ],
+          [
+            3193,
+            3205,
+            "green",
+            ""
+          ],
+          [
+            3269,
+            3285,
+            "green",
+            ""
+          ],
+          [
+            3382,
+            3393,
+            "green",
+            ""
+          ],
+          [
+            3406,
+            3411,
+            "green",
+            ""
+          ],
+          [
+            3416,
+            3428,
+            "green",
+            ""
+          ],
+          [
+            2874,
+            2898,
+            "green",
+            ""
+          ],
+          [
+            1518,
+            1533,
+            "red",
+            ""
+          ],
+          [
+            1678,
+            1691,
+            "red",
+            ""
+          ],
+          [
+            1750,
+            1760,
+            "red",
+            ""
+          ],
+          [
+            1777,
+            1782,
+            "red",
+            ""
+          ],
+          [
+            1860,
+            1935,
+            "red",
+            ""
+          ],
+          [
+            1948,
+            1972,
+            "red",
+            ""
+          ],
+          [
+            2732,
+            2752,
+            "green",
+            ""
+          ],
+          [
+            949,
+            984,
+            "red",
+            ""
+          ],
+          [
+            993,
+            1004,
+            "red",
+            ""
+          ],
+          [
+            1009,
+            1021,
+            "red",
+            ""
+          ],
+          [
+            479,
+            497,
+            "red",
+            ""
+          ],
+          [
+            658,
+            669,
+            "red",
+            ""
+          ],
+          [
+            686,
+            691,
+            "red",
+            ""
+          ],
+          [
+            721,
+            756,
+            "red",
+            ""
+          ],
+          [
+            765,
+            778,
+            "red",
+            ""
+          ],
+          [
+            819,
+            854,
+            "red",
+            ""
+          ]
+        ]
+      },
+      "Lottery": {
+        "0": [
+          [
+            1163,
+            1235,
+            "red",
+            ""
+          ],
+          [
+            1240,
+            1295,
+            "red",
+            ""
+          ],
+          [
+            1562,
+            1602,
+            "red",
+            ""
+          ],
+          [
+            1300,
+            1367,
+            "red",
+            ""
+          ],
+          [
+            1372,
+            1455,
+            "red",
+            ""
+          ],
+          [
+            1460,
+            1535,
+            "red",
+            ""
+          ],
+          [
+            1541,
+            1557,
+            "red",
+            ""
+          ],
+          [
+            1607,
+            1653,
+            "red",
+            ""
+          ],
+          [
+            1658,
+            1696,
+            "red",
+            ""
+          ],
+          [
+            2068,
+            2128,
+            "red",
+            ""
+          ],
+          [
+            2133,
+            2179,
+            "red",
+            ""
+          ],
+          [
+            2184,
+            2201,
+            "red",
+            ""
+          ],
+          [
+            2206,
+            2224,
+            "red",
+            ""
+          ],
+          [
+            2252,
+            2300,
+            "red",
+            ""
+          ],
+          [
+            2388,
+            2418,
+            "red",
+            ""
+          ],
+          [
+            2472,
+            2482,
+            "red",
+            ""
+          ],
+          [
+            2495,
+            2584,
+            "red",
+            ""
+          ],
+          [
+            1814,
+            1856,
+            "red",
+            ""
+          ],
+          [
+            1744,
+            1768,
+            "red",
+            ""
+          ],
+          [
+            2019,
+            2034,
+            "red",
+            ""
+          ],
+          [
+            1894,
+            1911,
+            "red",
+            ""
+          ],
+          [
+            1963,
+            1980,
+            "green",
+            ""
+          ]
+        ]
+      },
+      "NFT": {
+        "0": [
+          [
+            8429,
+            8478,
+            "green",
+            ""
+          ],
+          [
+            8506,
+            8536,
+            "green",
+            ""
+          ],
+          [
+            8569,
+            8603,
+            "green",
+            ""
+          ],
+          [
+            9169,
+            9225,
+            "green",
+            ""
+          ],
+          [
+            9254,
+            9290,
+            "green",
+            ""
+          ],
+          [
+            9323,
+            9378,
+            "green",
+            ""
+          ],
+          [
+            9383,
+            9431,
+            "green",
+            ""
+          ],
+          [
+            10083,
+            10124,
+            "green",
+            ""
+          ],
+          [
+            10214,
+            10259,
+            "green",
+            ""
+          ],
+          [
+            8680,
+            8716,
+            "red",
+            ""
+          ],
+          [
+            7900,
+            7941,
+            "green",
+            ""
+          ],
+          [
+            7946,
+            7986,
+            "green",
+            ""
+          ],
+          [
+            7991,
+            8057,
+            "green",
+            ""
+          ],
+          [
+            8062,
+            8134,
+            "green",
+            ""
+          ],
+          [
+            8139,
+            8210,
+            "green",
+            ""
+          ],
+          [
+            9666,
+            9706,
+            "green",
+            ""
+          ],
+          [
+            9734,
+            9775,
+            "green",
+            ""
+          ],
+          [
+            9808,
+            9844,
+            "green",
+            ""
+          ],
+          [
+            10788,
+            10837,
+            "green",
+            ""
+          ],
+          [
+            10884,
+            10912,
+            "green",
+            ""
+          ],
+          [
+            10982,
+            11018,
+            "green",
+            ""
+          ],
+          [
+            11081,
+            11119,
+            "green",
+            ""
+          ],
+          [
+            11138,
+            11169,
+            "green",
+            ""
+          ],
+          [
+            11197,
+            11231,
+            "green",
+            ""
+          ],
+          [
+            8791,
+            8829,
+            "red",
+            ""
+          ],
+          [
+            18188,
+            18220,
+            "red",
+            ""
+          ],
+          [
+            18246,
+            18282,
+            "red",
+            ""
+          ],
+          [
+            13925,
+            13966,
+            "green",
+            ""
+          ],
+          [
+            14420,
+            14460,
+            "green",
+            ""
+          ],
+          [
+            14017,
+            14047,
+            "green",
+            ""
+          ],
+          [
+            14101,
+            14126,
+            "green",
+            ""
+          ],
+          [
+            14156,
+            14216,
+            "green",
+            ""
+          ],
+          [
+            14221,
+            14294,
+            "green",
+            ""
+          ],
+          [
+            14299,
+            14347,
+            "green",
+            ""
+          ],
+          [
+            14375,
+            14415,
+            "green",
+            ""
+          ],
+          [
+            6258,
+            6289,
+            "red",
+            ""
+          ],
+          [
+            6294,
+            6333,
+            "red",
+            ""
+          ],
+          [
+            16739,
+            16791,
+            "red",
+            ""
+          ],
+          [
+            17007,
+            17052,
+            "red",
+            ""
+          ],
+          [
+            16796,
+            16837,
+            "red",
+            ""
+          ],
+          [
+            16888,
+            16918,
+            "red",
+            ""
+          ],
+          [
+            16923,
+            16959,
+            "red",
+            ""
+          ],
+          [
+            16964,
+            17002,
+            "red",
+            ""
+          ],
+          [
+            17595,
+            17619,
+            "red",
+            ""
+          ],
+          [
+            6999,
+            7048,
+            "red",
+            ""
+          ],
+          [
+            7053,
+            7088,
+            "red",
+            ""
+          ],
+          [
+            8910,
+            8941,
+            "red",
+            ""
+          ],
+          [
+            7380,
+            7429,
+            "red",
+            ""
+          ],
+          [
+            15758,
+            15790,
+            "green",
+            ""
+          ],
+          [
+            15833,
+            15861,
+            "green",
+            ""
+          ],
+          [
+            15977,
+            16032,
+            "green",
+            ""
+          ],
+          [
+            16037,
+            16109,
+            "green",
+            ""
+          ],
+          [
+            16115,
+            16153,
+            "green",
+            ""
+          ],
+          [
+            16200,
+            16245,
+            "green",
+            ""
+          ],
+          [
+            16250,
+            16300,
+            "green",
+            ""
+          ],
+          [
+            16332,
+            16352,
+            "green",
+            ""
+          ],
+          [
+            16357,
+            16368,
+            "green",
+            ""
+          ],
+          [
+            6566,
+            6607,
+            "green",
+            ""
+          ],
+          [
+            6658,
+            6688,
+            "green",
+            ""
+          ],
+          [
+            6693,
+            6705,
+            "green",
+            ""
+          ],
+          [
+            5467,
+            5500,
+            "red",
+            ""
+          ],
+          [
+            5561,
+            5624,
+            "red",
+            ""
+          ],
+          [
+            5629,
+            5701,
+            "red",
+            ""
+          ],
+          [
+            5707,
+            5757,
+            "red",
+            ""
+          ],
+          [
+            5762,
+            5815,
+            "red",
+            ""
+          ],
+          [
+            5820,
+            5882,
+            "red",
+            ""
+          ],
+          [
+            5887,
+            5907,
+            "red",
+            ""
+          ],
+          [
+            5912,
+            5934,
+            "red",
+            ""
+          ],
+          [
+            12885,
+            12937,
+            "red",
+            ""
+          ],
+          [
+            13009,
+            13103,
+            "red",
+            ""
+          ],
+          [
+            13211,
+            13313,
+            "red",
+            ""
+          ],
+          [
+            15075,
+            15105,
+            "red",
+            ""
+          ],
+          [
+            15110,
+            15166,
+            "red",
+            ""
+          ],
+          [
+            15171,
+            15223,
+            "red",
+            ""
+          ],
+          [
+            17274,
+            17306,
+            "red",
+            ""
+          ],
+          [
+            17311,
+            17330,
+            "red",
+            ""
+          ],
+          [
+            17863,
+            17895,
+            "red",
+            ""
+          ],
+          [
+            17900,
+            17927,
+            "red",
+            ""
+          ],
+          [
+            5247,
+            5290,
+            "red",
+            ""
+          ],
+          [
+            18797,
+            18810,
+            "red",
+            ""
+          ],
+          [
+            19309,
+            19339,
+            "red",
+            ""
+          ],
+          [
+            19344,
+            19382,
+            "red",
+            ""
+          ],
+          [
+            17401,
+            17454,
+            "red",
+            ""
+          ],
+          [
+            18489,
+            18511,
+            "red",
+            ""
+          ],
+          [
+            11905,
+            11957,
+            "green",
+            ""
+          ],
+          [
+            17113,
+            17145,
+            "red",
+            ""
+          ],
+          [
+            17150,
+            17176,
+            "red",
+            ""
+          ]
+        ]
+      },
+      "PublicGoods": {
+        "0": [
+          [
+            3492,
+            3527,
+            "green",
+            ""
+          ],
+          [
+            4167,
+            4221,
+            "green",
+            ""
+          ],
+          [
+            3532,
+            3565,
+            "green",
+            ""
+          ],
+          [
+            3570,
+            3606,
+            "green",
+            ""
+          ],
+          [
+            3760,
+            3821,
+            "green",
+            ""
+          ],
+          [
+            3905,
+            3910,
+            "green",
+            ""
+          ],
+          [
+            3923,
+            3961,
+            "green",
+            ""
+          ],
+          [
+            3974,
+            4015,
+            "green",
+            ""
+          ],
+          [
+            4028,
+            4092,
+            "green",
+            ""
+          ],
+          [
+            4097,
+            4133,
+            "green",
+            ""
+          ],
+          [
+            4246,
+            4302,
+            "green",
+            ""
+          ],
+          [
+            4378,
+            4397,
+            "green",
+            ""
+          ],
+          [
+            2015,
+            2050,
+            "green",
+            ""
+          ],
+          [
+            2726,
+            2755,
+            "green",
+            ""
+          ],
+          [
+            2055,
+            2091,
+            "green",
+            ""
+          ],
+          [
+            2692,
+            2721,
+            "green",
+            ""
+          ],
+          [
+            2159,
+            2211,
+            "green",
+            ""
+          ],
+          [
+            2216,
+            2265,
+            "green",
+            ""
+          ],
+          [
+            2338,
+            2343,
+            "green",
+            ""
+          ],
+          [
+            2408,
+            2442,
+            "green",
+            ""
+          ],
+          [
+            2455,
+            2484,
+            "green",
+            ""
+          ],
+          [
+            2497,
+            2526,
+            "green",
+            ""
+          ],
+          [
+            2539,
+            2545,
+            "green",
+            ""
+          ],
+          [
+            2555,
+            2660,
+            "green",
+            ""
+          ],
+          [
+            2665,
+            2687,
+            "green",
+            ""
+          ],
+          [
+            1698,
+            1908,
+            "green",
+            ""
+          ],
+          [
+            1492,
+            1507,
+            "green",
+            ""
+          ],
+          [
+            1512,
+            1564,
+            "green",
+            ""
+          ],
+          [
+            1913,
+            1945,
+            "green",
+            ""
+          ],
+          [
+            1638,
+            1692,
+            "green",
+            ""
+          ],
+          [
+            1402,
+            1410,
+            "green",
+            ""
+          ],
+          [
+            1415,
+            1424,
+            "red",
+            ""
+          ],
+          [
+            4499,
+            4519,
+            "green",
+            ""
+          ],
+          [
+            4617,
+            4652,
+            "green",
+            ""
+          ],
+          [
+            4657,
+            4693,
+            "green",
+            ""
+          ],
+          [
+            4698,
+            4724,
+            "green",
+            ""
+          ],
+          [
+            5117,
+            5152,
+            "green",
+            ""
+          ],
+          [
+            5157,
+            5193,
+            "green",
+            ""
+          ],
+          [
+            5198,
+            5217,
+            "green",
+            ""
+          ],
+          [
+            4785,
+            4820,
+            "green",
+            ""
+          ],
+          [
+            4825,
+            4861,
+            "green",
+            ""
+          ],
+          [
+            4866,
+            4882,
+            "green",
+            ""
+          ],
+          [
+            4948,
+            4983,
+            "green",
+            ""
+          ],
+          [
+            4988,
+            5024,
+            "green",
+            ""
+          ],
+          [
+            5029,
+            5053,
+            "green",
+            ""
+          ],
+          [
+            2823,
+            2858,
+            "green",
+            ""
+          ],
+          [
+            3379,
+            3408,
+            "green",
+            ""
+          ],
+          [
+            2863,
+            2899,
+            "green",
+            ""
+          ],
+          [
+            2972,
+            2977,
+            "green",
+            ""
+          ],
+          [
+            3332,
+            3362,
+            "green",
+            ""
+          ],
+          [
+            3102,
+            3140,
+            "green",
+            ""
+          ],
+          [
+            3157,
+            3190,
+            "green",
+            ""
+          ],
+          [
+            3207,
+            3263,
+            "green",
+            ""
+          ],
+          [
+            3280,
+            3315,
+            "green",
+            ""
+          ],
+          [
+            3425,
+            3430,
             "green",
             ""
           ]
@@ -453,110 +3972,322 @@
       "Reimbursement": {
         "0": [
           [
-            1424,
-            1472,
+            1428,
+            1476,
             "green",
             ""
           ],
           [
-            2835,
-            2877,
+            2841,
+            2883,
             "green",
             ""
           ],
           [
-            2882,
-            2941,
+            2888,
+            2949,
             "green",
             ""
           ],
           [
-            2946,
-            2971,
+            2954,
+            2979,
             "green",
             ""
           ],
           [
-            1868,
-            1939,
+            1872,
+            1943,
             "green",
             ""
           ],
           [
-            2126,
-            2165,
+            2132,
+            2171,
             "green",
             ""
           ],
           [
-            2285,
-            2328,
+            2291,
+            2334,
             "green",
             ""
           ],
           [
-            2337,
-            2360,
+            2343,
+            2366,
             "green",
             ""
           ],
           [
-            2370,
-            2520,
+            2376,
+            2526,
             "green",
             ""
           ],
           [
-            3535,
-            3552,
+            3543,
+            3560,
             "green",
             ""
           ],
           [
-            3440,
-            3485,
+            3448,
+            3493,
             "green",
             ""
           ],
           [
-            3321,
-            3362,
+            3329,
+            3370,
             "red",
             ""
           ],
           [
-            2575,
-            2617,
+            2581,
+            2623,
             "green",
             ""
           ],
           [
-            2674,
-            2759,
+            2680,
+            2765,
             "green",
             ""
           ],
           [
-            2764,
-            2788,
+            2770,
+            2794,
             "green",
             ""
           ],
           [
-            3043,
-            3114,
+            3051,
+            3122,
             "green",
             ""
           ],
           [
-            3119,
-            3204,
+            3127,
+            3212,
             "green",
             ""
           ],
           [
-            3209,
-            3253,
+            3217,
+            3261,
+            "green",
+            ""
+          ]
+        ]
+      },
+      "SimpleAuction": {
+        "0": [
+          [
+            1601,
+            1641,
+            "green",
+            ""
+          ],
+          [
+            1646,
+            1678,
+            "green",
+            ""
+          ],
+          [
+            1821,
+            1848,
+            "green",
+            ""
+          ],
+          [
+            1683,
+            1717,
+            "green",
+            ""
+          ],
+          [
+            1722,
+            1780,
+            "green",
+            ""
+          ],
+          [
+            1785,
+            1816,
+            "green",
+            ""
+          ],
+          [
+            2330,
+            2371,
+            "red",
+            ""
+          ],
+          [
+            2376,
+            2397,
+            "red",
+            ""
+          ],
+          [
+            2402,
+            2419,
+            "red",
+            ""
+          ],
+          [
+            2424,
+            2492,
+            "red",
+            ""
+          ],
+          [
+            1944,
+            1991,
+            "red",
+            ""
+          ],
+          [
+            1997,
+            2054,
+            "red",
+            ""
+          ],
+          [
+            2059,
+            2092,
+            "red",
+            ""
+          ],
+          [
+            2097,
+            2134,
+            "red",
+            ""
+          ]
+        ]
+      },
+      "SocialAndDonations": {
+        "0": [
+          [
+            2672,
+            2718,
+            "green",
+            ""
+          ],
+          [
+            2723,
+            2758,
+            "green",
+            ""
+          ],
+          [
+            2826,
+            2864,
+            "green",
+            ""
+          ],
+          [
+            2869,
+            2908,
+            "green",
+            ""
+          ],
+          [
+            3046,
+            3087,
+            "green",
+            ""
+          ],
+          [
+            1600,
+            1621,
+            "green",
+            ""
+          ],
+          [
+            1743,
+            1786,
+            "green",
+            ""
+          ],
+          [
+            1844,
+            1911,
+            "green",
+            ""
+          ],
+          [
+            1920,
+            1969,
+            "green",
+            ""
+          ],
+          [
+            2032,
+            2083,
+            "green",
+            ""
+          ],
+          [
+            2092,
+            2116,
+            "green",
+            ""
+          ],
+          [
+            2158,
+            2173,
+            "green",
+            ""
+          ],
+          [
+            2186,
+            2211,
+            "green",
+            ""
+          ],
+          [
+            2217,
+            2260,
+            "green",
+            ""
+          ],
+          [
+            2265,
+            2285,
+            "green",
+            ""
+          ],
+          [
+            2486,
+            2514,
+            "red",
+            ""
+          ],
+          [
+            2569,
+            2611,
+            "green",
+            ""
+          ],
+          [
+            2962,
+            2985,
+            "green",
+            ""
+          ],
+          [
+            1511,
+            1549,
+            "green",
+            ""
+          ],
+          [
+            3132,
+            3168,
             "green",
             ""
           ]
@@ -565,75 +4296,301 @@
       "Stake": {
         "0": [
           [
-            505,
-            550,
+            854,
+            906,
             "green",
             ""
           ],
           [
-            555,
-            605,
+            911,
+            950,
             "green",
             ""
           ],
           [
-            857,
-            920,
+            999,
+            1062,
             "green",
             ""
           ],
           [
-            610,
-            629,
+            955,
+            994,
+            "green",
+            ""
+          ],
+          [
+            1137,
+            1190,
+            "green",
+            ""
+          ],
+          [
+            1543,
+            1589,
+            "green",
+            ""
+          ],
+          [
+            1195,
+            1266,
+            "green",
+            ""
+          ],
+          [
+            1608,
+            1642,
+            "green",
+            ""
+          ],
+          [
+            1745,
+            1774,
+            "green",
+            ""
+          ],
+          [
+            1784,
+            1804,
+            "green",
+            ""
+          ],
+          [
+            1813,
+            1865,
+            "green",
+            ""
+          ],
+          [
+            1874,
+            1939,
+            "green",
+            ""
+          ],
+          [
+            1948,
+            1994,
+            "green",
+            ""
+          ],
+          [
+            1306,
+            1358,
+            "green",
+            ""
+          ],
+          [
+            1367,
+            1403,
+            "green",
+            ""
+          ],
+          [
+            1412,
+            1460,
+            "green",
+            ""
+          ],
+          [
+            1469,
+            1534,
+            "green",
+            ""
+          ]
+        ]
+      },
+      "Token": {
+        "0": [
+          [
+            5531,
+            5559,
             "red",
             ""
           ],
           [
-            634,
-            705,
+            5564,
+            5590,
             "red",
             ""
           ],
           [
-            939,
-            973,
+            5595,
+            5624,
             "red",
             ""
           ],
           [
-            982,
-            1020,
+            5629,
+            5670,
             "red",
             ""
           ],
           [
-            1029,
-            1099,
+            4533,
+            4575,
+            "green",
+            ""
+          ],
+          [
+            4483,
+            4528,
+            "green",
+            ""
+          ],
+          [
+            4580,
+            4591,
+            "green",
+            ""
+          ],
+          [
+            5843,
+            5873,
             "red",
             ""
           ],
           [
-            1108,
-            1143,
+            6115,
+            6156,
             "red",
             ""
           ],
           [
-            1152,
-            1185,
+            6161,
+            6184,
             "red",
             ""
           ],
           [
-            745,
-            769,
+            6255,
+            6286,
+            "green",
+            ""
+          ],
+          [
+            1948,
+            1988,
             "red",
             ""
           ],
           [
-            778,
-            848,
+            2170,
+            2208,
+            "green",
+            ""
+          ],
+          [
+            2055,
+            2083,
+            "green",
+            ""
+          ],
+          [
+            4954,
+            5084,
+            "green",
+            ""
+          ],
+          [
+            5089,
+            5121,
+            "green",
+            ""
+          ],
+          [
+            5126,
+            5154,
+            "green",
+            ""
+          ],
+          [
+            5159,
+            5185,
+            "green",
+            ""
+          ],
+          [
+            5224,
+            5265,
+            "green",
+            ""
+          ],
+          [
+            5190,
+            5219,
+            "green",
+            ""
+          ],
+          [
+            2556,
+            2592,
             "red",
+            ""
+          ],
+          [
+            2631,
+            2668,
+            "red",
+            ""
+          ],
+          [
+            2597,
+            2626,
+            "red",
+            ""
+          ],
+          [
+            2673,
+            2684,
+            "red",
+            ""
+          ],
+          [
+            3564,
+            3595,
+            "green",
+            ""
+          ],
+          [
+            3247,
+            3382,
+            "green",
+            ""
+          ],
+          [
+            3432,
+            3484,
+            "green",
+            ""
+          ],
+          [
+            3520,
+            3558,
+            "green",
+            ""
+          ],
+          [
+            3624,
+            3665,
+            "green",
+            ""
+          ],
+          [
+            3671,
+            3711,
+            "green",
+            ""
+          ],
+          [
+            3716,
+            3759,
+            "green",
+            ""
+          ],
+          [
+            3765,
+            3776,
+            "green",
             ""
           ]
         ]
@@ -641,68 +4598,420 @@
       "VotingAndRep": {
         "0": [
           [
-            2080,
-            2141,
+            7290,
+            7318,
             "green",
             ""
           ],
           [
-            2146,
-            2223,
+            7323,
+            7349,
             "green",
             ""
           ],
           [
-            2336,
-            2423,
+            7354,
+            7383,
             "green",
             ""
           ],
           [
-            2579,
-            2637,
+            7388,
+            7429,
             "green",
             ""
           ],
           [
-            2642,
-            2683,
+            8054,
+            8096,
+            "red",
+            ""
+          ],
+          [
+            8004,
+            8049,
+            "red",
+            ""
+          ],
+          [
+            8101,
+            8112,
+            "red",
+            ""
+          ],
+          [
+            7202,
+            7232,
             "green",
             ""
           ],
           [
-            2689,
-            2737,
+            6453,
+            6546,
             "green",
             ""
           ],
           [
-            2982,
-            3082,
+            6551,
+            6632,
             "green",
             ""
           ],
           [
-            3087,
-            3160,
+            6637,
+            6711,
             "green",
             ""
           ],
           [
-            3166,
-            3205,
+            6716,
+            6770,
             "green",
             ""
           ],
           [
-            2787,
-            2884,
+            8216,
+            8257,
+            "red",
+            ""
+          ],
+          [
+            8262,
+            8285,
+            "red",
+            ""
+          ],
+          [
+            4297,
+            4358,
             "green",
             ""
           ],
           [
-            2890,
-            2914,
+            4363,
+            4495,
+            "green",
+            ""
+          ],
+          [
+            4501,
+            4569,
+            "green",
+            ""
+          ],
+          [
+            5217,
+            5255,
+            "green",
+            ""
+          ],
+          [
+            5091,
+            5126,
+            "green",
+            ""
+          ],
+          [
+            5135,
+            5157,
+            "green",
+            ""
+          ],
+          [
+            4781,
+            4816,
+            "red",
+            ""
+          ],
+          [
+            4825,
+            4859,
+            "red",
+            ""
+          ],
+          [
+            4868,
+            4890,
+            "red",
+            ""
+          ],
+          [
+            4899,
+            4939,
+            "red",
+            ""
+          ],
+          [
+            5261,
+            5290,
+            "green",
+            ""
+          ],
+          [
+            4069,
+            4101,
+            "green",
+            ""
+          ],
+          [
+            4106,
+            4134,
+            "green",
+            ""
+          ],
+          [
+            4139,
+            4165,
+            "green",
+            ""
+          ],
+          [
+            4204,
+            4245,
+            "green",
+            ""
+          ],
+          [
+            4170,
+            4199,
+            "green",
+            ""
+          ],
+          [
+            3209,
+            3270,
+            "green",
+            ""
+          ],
+          [
+            3275,
+            3352,
+            "green",
+            ""
+          ],
+          [
+            3357,
+            3444,
+            "green",
+            ""
+          ],
+          [
+            3450,
+            3508,
+            "green",
+            ""
+          ],
+          [
+            3513,
+            3554,
+            "green",
+            ""
+          ],
+          [
+            3560,
+            3608,
+            "green",
+            ""
+          ],
+          [
+            6119,
+            6146,
+            "green",
+            ""
+          ],
+          [
+            6151,
+            6185,
+            "green",
+            ""
+          ],
+          [
+            6190,
+            6223,
+            "green",
+            ""
+          ],
+          [
+            6228,
+            6265,
+            "green",
+            ""
+          ],
+          [
+            6922,
+            7004,
+            "green",
+            ""
+          ],
+          [
+            7009,
+            7079,
+            "green",
+            ""
+          ],
+          [
+            7084,
+            7158,
+            "green",
+            ""
+          ],
+          [
+            5670,
+            5711,
+            "green",
+            ""
+          ],
+          [
+            5757,
+            5825,
+            "green",
+            ""
+          ],
+          [
+            5952,
+            5985,
+            "green",
+            ""
+          ],
+          [
+            5991,
+            6035,
+            "green",
+            ""
+          ],
+          [
+            6040,
+            6063,
+            "green",
+            ""
+          ],
+          [
+            8334,
+            8520,
+            "green",
+            ""
+          ],
+          [
+            8526,
+            8550,
+            "red",
+            ""
+          ],
+          [
+            7500,
+            7536,
+            "red",
+            ""
+          ],
+          [
+            7575,
+            7612,
+            "red",
+            ""
+          ],
+          [
+            7541,
+            7570,
+            "red",
+            ""
+          ],
+          [
+            7617,
+            7628,
+            "red",
+            ""
+          ],
+          [
+            7721,
+            7752,
+            "red",
+            ""
+          ],
+          [
+            7839,
+            7871,
+            "red",
+            ""
+          ],
+          [
+            7757,
+            7786,
+            "red",
+            ""
+          ],
+          [
+            7791,
+            7834,
+            "red",
+            ""
+          ],
+          [
+            7876,
+            7887,
+            "red",
+            ""
+          ],
+          [
+            3673,
+            3709,
+            "green",
+            ""
+          ],
+          [
+            3959,
+            4012,
+            "green",
+            ""
+          ],
+          [
+            3755,
+            3785,
+            "green",
+            ""
+          ],
+          [
+            3790,
+            3836,
+            "green",
+            ""
+          ],
+          [
+            3841,
+            3892,
+            "green",
+            ""
+          ]
+        ]
+      },
+      "codeGambling": {
+        "0": [
+          [
+            934,
+            967,
+            "green",
+            ""
+          ],
+          [
+            643,
+            671,
+            "green",
+            ""
+          ],
+          [
+            676,
+            708,
+            "green",
+            ""
+          ],
+          [
+            782,
+            814,
+            "green",
+            ""
+          ],
+          [
+            713,
+            777,
             "green",
             ""
           ]
