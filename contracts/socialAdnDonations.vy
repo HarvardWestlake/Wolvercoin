@@ -82,16 +82,16 @@ def voteOfficial( ballot : address ):
             self.electedOfficials[2] = ballot
 
 @external
-def beginVoteOfficial(user: address):
+def beginVoteOfficial(user: address) -> (bool):
     isTeacher: bool = False
     for i in self.teachers:
         if (i == user):
             isTeacher = True
-            assert self.officialVotingPeriod == True   
+            assert self.officialVotingPeriod == True  
         else:
-            isTeacher = False 
+            isTeacher = False
+    return isTeacher
             
-
 @external
 def getOfficalVotingPeriod() -> (bool):
     return self.officialVotingPeriod

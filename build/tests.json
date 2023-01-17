@@ -14,7 +14,7 @@
     "VotingAndRep": "fda86f072d9c8fca5b29eae53a4a483ff4d6355a",
     "Wolvercoin": "58ab07b8059e89fd44939db5aa391ce861dfabe0",
     "codeGambling": "48e5c8ad9d89d291f540574edfe3531f1480eb89",
-    "socialAdnDonations": "d6c006ef0e90a23de0f72e0842e8baae420272e5"
+    "socialAdnDonations": "91a7a78a01db8e21de405a651cc99ef7ec741d35"
   },
   "tests": {
     "tests/test_Exclusivity.py": {
@@ -287,16 +287,17 @@
       "coverage": true,
       "isolated": false,
       "results": "..",
-      "sha1": "ef51de0880d7d586a73a8d069dc421abf2d7a6e8",
+      "sha1": "ecd80c4bda476d57950d0b80491974b68dc87fb1",
       "txhash": [
+        "0269b8d0d473bc8dc0d21938a237640197257b77",
         "0a5ba223e84b9c7ead754cdfb23217c9161187fa",
-        "1d4afe437eb28af620a4f87cd7ecf89c21e03508",
-        "5581b08cd013162a10ee9285f2d4104b7e1eab7b",
+        "4777d263ae8ac0bf1ffb8664de67f1b24be7aed0",
         "636f48944658dbb90c840b7ecb11e71189a5f9f9",
-        "7b2c5adedf1e464029d88ac69e729eefa8f064c5",
+        "9d1322da5c76919249c181093a37d8250ee2016c",
         "b662528d584fcf6ff347281595f53790658500b6",
-        "f822be771bbd07852727c36114db7c8750d6efce",
-        "fac716be2dedc02a0c6627c583415c16c0cd6ae8"
+        "b7eb31e4e01c135f3a921baa410c9a4ee8026677",
+        "c5a1d555d3060bf60983bfdbb0bf696881ae2293",
+        "f822be771bbd07852727c36114db7c8750d6efce"
       ]
     },
     "tests/test_voting.py": {
@@ -305,39 +306,39 @@
       "results": ".......",
       "sha1": "9d19e464acaabb1741fd0d0e6a5df1fe70a513a3",
       "txhash": [
-        "04826d95d655c7e22319f9cf5ce48dfb586fcc5d",
-        "0ee9bb9a4bc6e697dc13f90bda12fd48669614fd",
-        "0f98504e1aa11162b044d57173aafea5726c39de",
-        "156f69ab899cd9757b58d4e53c3eb3991160f171",
-        "2678a4b5b2f6d69d1d72addec1e1eb511b7ae560",
-        "30c36918311a2907d49fd6efe047dddfd05716e0",
-        "4fcdb1c2d8cae131ab78d7a45b9a99c439606d12",
-        "533f41c30ecca579d31f2f9624f32fcceb5a9ae6",
-        "5e0e55e7155da906c32f5e4d69c7901c59aea601",
+        "07b8584e0b57456f45d127a160bc9547d87b6f81",
+        "0c5a52e3332a6a25ad8873abce02407f67133074",
+        "0f1e7d9aaae14f916bf41e1a37c0d357bfb1c259",
+        "1a18eb01d104dad4f5cc385b704c865dbcdf093c",
+        "310ac22e1a35fba1ee145c1b9d53284fd8667efc",
+        "34b3038eb061c0f60c2de3944f4c92fc713309db",
+        "36a6bfb0fc7bc1e830ae29f7f8aafb93bfe7b5ca",
+        "3fe88fd349a07166df47465af6b1b393334ae1aa",
+        "5c1aa5695755271367987d9afab3e755068b5120",
         "600404358678f80e6d017c6335769cd42bca0206",
-        "69feee00e73a850fa22daf1fb9ccf8e1e31a5640",
-        "6a8cba6adbfc14095c63b2eba671e792c457defc",
-        "7944d8904a681d36aa785426d597a5ae56585be8",
-        "7c38e1fed6f4e16d22d97e5843361b0ee4701ebb",
-        "823a64224753ac7e16bf1d30a35ba48e89ff0fe1",
-        "82bf8c58926809dd577ecfaaffd0daefc26cc410",
-        "845031f04cd83d15b82d788496ffc877dc1bb541",
-        "8aa04b211cabf48c414f028d1ff889144028856d",
-        "8e4a3a3cda9edd0fbcba6e000a071b74abf4c097",
-        "932c5eb380d60756e47a8af464041c0a4f508424",
-        "9e55ddb9d0c1a5f50078842c5e8d38cfdbf528b3",
-        "b2e5f1c70a1c69e886ee78ae19fdf7ba69467d2b",
-        "b58ea3cda64e3e4802727dc04160d81b41d28d54",
-        "bb766389818c70398da2228d3351e5b07bc9cc1d",
-        "be077e9fdbb5e205d8ec8d3dad9c8eac210626dd",
+        "6e3cfb43023f1c08f162f0a02b31895e33147b5a",
+        "71ebf364f6cd6e66632fecc9a0d9035ae7d8bfd3",
+        "73b032fd558752179b5f43037646972523353411",
+        "78a244596b5258cd1aa744ec1d04d194ee29a179",
+        "79b791eedf0970cf560c3af75235a0c5b30f82d7",
+        "7d96be2f1c873d6446200b59fae78bfd83550271",
+        "803611d89fbe6120ebe93a054ede458515ef640a",
+        "838de4b5d94e5009ab5ffb3274522914404db675",
+        "947a6b5aa04239e427fd5d46f318fcb31fd021eb",
+        "949a599fce20492f9d86ce45f23768e0c5545f69",
+        "a5a00bc771ae8456918a384da651b5b76f2dc856",
+        "ba2d5c019773a19c01fe47afd482b5996d3905f2",
+        "be9d8ebc4238f4f41e550ac4d5d5b616a1d3bb4a",
         "bfe2bb38ad34c2d1d6ccf7504c73e624af5369a4",
-        "c485792d6c668217d1098e5c559f33a0f1c7e650",
-        "db6c1ddd116c62b023b7ad02d70d3da531ed4c82",
-        "efdb7924581b7cbd59b094c5f8f16c705f71d815",
-        "f15430ccfdb2f0a0ae50dbe8df7c782a3ddcf849",
-        "fb5b7a65d70a0e65f2b88c452d8b5e34fb4b2860",
-        "fc7896bff477ce7af43a886ad40ece2adcddcf76",
-        "fd7170e1e05501feb48637032d07262c0babf080"
+        "c1b4a32f90f4aefe448d22780f6d0203a45af584",
+        "c5cfbf9ab37aae21687a6ecfb6b8e5689a6bbb93",
+        "c6c4e9b9040c39c3ecb2bbf4e5541f3758408338",
+        "d72c3358fcc8b91148c3c69e87de9c6fe3edd9b7",
+        "d918e09bc75caa3dfcd55b1be7aba2b441a22a06",
+        "e90d867ec4de50dac3c8253e958b45daff8c8e1d",
+        "f18878c3bb975b996f6470fe72080800c1cb84f7",
+        "fe35690a5016721b829a55fc1b799662150135f6",
+        "ff43dc4fe04d37f910392e6175113a61b989ae16"
       ]
     }
   },
@@ -429,15 +430,11 @@
       }
     },
     "01ed7f196cf9da3648fe1d3ce4704123249237cf": {},
-    "04826d95d655c7e22319f9cf5ce48dfb586fcc5d": {
-      "VotingAndRep": {
+    "0269b8d0d473bc8dc0d21938a237640197257b77": {
+      "socialAdnDonations": {
         "0": [
           [
-            10,
-            11,
-            12,
-            13,
-            14
+            46
           ],
           [],
           []
@@ -455,6 +452,27 @@
             13
           ],
           []
+        ]
+      }
+    },
+    "07b8584e0b57456f45d127a160bc9547d87b6f81": {
+      "VotingAndRep": {
+        "0": [
+          [
+            0,
+            2,
+            4,
+            6,
+            7,
+            8,
+            9
+          ],
+          [],
+          [
+            1,
+            3,
+            5
+          ]
         ]
       }
     },
@@ -491,7 +509,7 @@
       "socialAdnDonations": {
         "0": [
           [
-            44
+            45
           ],
           [],
           []
@@ -499,6 +517,7 @@
       }
     },
     "0a6b4ec03bd5eed01bfcedc0cd469f4cb5ce4ff6": {},
+    "0c5a52e3332a6a25ad8873abce02407f67133074": {},
     "0ce40952f2f3bb743595b137ea7cf7c940a38590": {
       "Token": {
         "0": [
@@ -522,29 +541,8 @@
         ]
       }
     },
-    "0ee9bb9a4bc6e697dc13f90bda12fd48669614fd": {},
     "0f0e8328bb0854bba393fd737fddc4258488439b": {},
-    "0f98504e1aa11162b044d57173aafea5726c39de": {
-      "VotingAndRep": {
-        "0": [
-          [
-            0,
-            2,
-            4,
-            6,
-            7,
-            8,
-            9
-          ],
-          [],
-          [
-            1,
-            3,
-            5
-          ]
-        ]
-      }
-    },
+    "0f1e7d9aaae14f916bf41e1a37c0d357bfb1c259": {},
     "0faf53a3ad28a9e13a3e9e0e00d4606c6768ac3b": {
       "ActiveUser": {
         "0": [
@@ -609,7 +607,6 @@
       }
     },
     "114ad9e1bbe7223893ec471bac930c2908a9e3dc": {},
-    "156f69ab899cd9757b58d4e53c3eb3991160f171": {},
     "15e8a9924c50d28d68f5844089ccde3aeb07c8ac": {
       "ActiveUser": {
         "0": [
@@ -690,6 +687,27 @@
         ]
       }
     },
+    "1a18eb01d104dad4f5cc385b704c865dbcdf093c": {
+      "VotingAndRep": {
+        "0": [
+          [
+            0,
+            2,
+            4,
+            6,
+            7,
+            8,
+            9
+          ],
+          [],
+          [
+            1,
+            3,
+            5
+          ]
+        ]
+      }
+    },
     "1b86c5e601987e5227ddb6abbbfae008def7e8dd": {
       "ActiveUser": {
         "0": [
@@ -717,7 +735,6 @@
       }
     },
     "1c9794e0e6281290400b81ddc3813cbcb6b04a6a": {},
-    "1d4afe437eb28af620a4f87cd7ecf89c21e03508": {},
     "1fefd881298bc3bf307d8216173bf694bbc00dd7": {},
     "21782992b73633dd7619348812dd40fd4e3fc677": {
       "Stake": {
@@ -749,21 +766,6 @@
         "0": [
           [
             24
-          ],
-          [],
-          []
-        ]
-      }
-    },
-    "2678a4b5b2f6d69d1d72addec1e1eb511b7ae560": {
-      "VotingAndRep": {
-        "0": [
-          [
-            10,
-            11,
-            12,
-            13,
-            14
           ],
           [],
           []
@@ -879,7 +881,21 @@
         ]
       }
     },
-    "30c36918311a2907d49fd6efe047dddfd05716e0": {},
+    "310ac22e1a35fba1ee145c1b9d53284fd8667efc": {
+      "VotingAndRep": {
+        "0": [
+          [
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          [],
+          []
+        ]
+      }
+    },
     "31c1f7823d611466896f6c1b5272ea9456f5847f": {},
     "333b20df7988ba7bf34241f2a78de8255c9cfdbf": {
       "ActiveUser": {
@@ -908,6 +924,8 @@
         ]
       }
     },
+    "34b3038eb061c0f60c2de3944f4c92fc713309db": {},
+    "36a6bfb0fc7bc1e830ae29f7f8aafb93bfe7b5ca": {},
     "36eca3d92708b8e4d50da26ec933666767e427da": {
       "ActiveUser": {
         "0": [
@@ -956,6 +974,7 @@
         ]
       }
     },
+    "3fe88fd349a07166df47465af6b1b393334ae1aa": {},
     "427ce3e607326a574d77c4eb2d99997e5b579ed9": {
       "Wolvercoin": {
         "0": [
@@ -1012,6 +1031,7 @@
         ]
       }
     },
+    "4777d263ae8ac0bf1ffb8664de67f1b24be7aed0": {},
     "47c6089a73c042deb340450a378b02931b333428": {
       "ActiveUser": {
         "0": [
@@ -1050,7 +1070,6 @@
       }
     },
     "4d969b682c93048017d30140fe4c3bb2fb263689": {},
-    "4fcdb1c2d8cae131ab78d7a45b9a99c439606d12": {},
     "50e459f37599d84853a80ba2ddbb8d4eb720c77e": {},
     "526785664ca36a2ca5a004c4be3c887b62fc8edc": {},
     "5302c7e57c548258b5e5aa26d36b1efef5ede1b9": {
@@ -1064,7 +1083,6 @@
         ]
       }
     },
-    "533f41c30ecca579d31f2f9624f32fcceb5a9ae6": {},
     "5361e9ce63eeee9ff247690ed64a83b9056fa3fc": {
       "ActiveUser": {
         "0": [
@@ -1083,7 +1101,6 @@
       }
     },
     "54eaf5d5b156775008738884cd4e0d8c4ce1d534": {},
-    "5581b08cd013162a10ee9285f2d4104b7e1eab7b": {},
     "55bc08c1297e9e2cb2075e1c51d565b680a3fe33": {
       "ActiveUser": {
         "0": [
@@ -1187,6 +1204,27 @@
         ]
       }
     },
+    "5c1aa5695755271367987d9afab3e755068b5120": {
+      "VotingAndRep": {
+        "0": [
+          [
+            0,
+            2,
+            4,
+            6,
+            7,
+            8,
+            9
+          ],
+          [],
+          [
+            1,
+            3,
+            5
+          ]
+        ]
+      }
+    },
     "5c7bff51f2f415c030c7d8dbe5ba2d757ee5ba71": {
       "Token": {
         "0": [
@@ -1211,7 +1249,6 @@
         ]
       }
     },
-    "5e0e55e7155da906c32f5e4d69c7901c59aea601": {},
     "5e6472d3005930c5b8ec4693a22a0dafaed8be8a": {
       "ActiveUser": {
         "0": [
@@ -1338,7 +1375,6 @@
     },
     "6928243ec76b46d331c93f392db4a16bb5b89e32": {},
     "693f74a36c4d782863c07c27f967b4064fc79162": {},
-    "69feee00e73a850fa22daf1fb9ccf8e1e31a5640": {},
     "6a738fdae26d389330d85ae2ece81b04a5bf16cf": {
       "ActiveUser": {
         "0": [
@@ -1354,24 +1390,6 @@
             11,
             13
           ]
-        ]
-      }
-    },
-    "6a8cba6adbfc14095c63b2eba671e792c457defc": {
-      "VotingAndRep": {
-        "0": [
-          [
-            15,
-            17,
-            19,
-            20,
-            21
-          ],
-          [
-            16,
-            18
-          ],
-          []
         ]
       }
     },
@@ -1393,6 +1411,7 @@
         ]
       }
     },
+    "6e3cfb43023f1c08f162f0a02b31895e33147b5a": {},
     "6efca9eab58a29026ae97e0fb0dee5a9f923b79c": {
       "Reimbursement": {
         "0": [
@@ -1415,7 +1434,23 @@
         ]
       }
     },
+    "71ebf364f6cd6e66632fecc9a0d9035ae7d8bfd3": {},
     "729b35ee17b19401fc944e769984032819c8df33": {},
+    "73b032fd558752179b5f43037646972523353411": {
+      "VotingAndRep": {
+        "0": [
+          [
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          [],
+          []
+        ]
+      }
+    },
     "74debdfa75a5c6c135abe67e99fd96b699a02cf2": {
       "Exclusivity": {
         "0": [
@@ -1483,27 +1518,25 @@
         ]
       }
     },
-    "7944d8904a681d36aa785426d597a5ae56585be8": {
+    "78a244596b5258cd1aa744ec1d04d194ee29a179": {
       "VotingAndRep": {
         "0": [
           [
-            0,
-            2,
-            4,
-            6,
-            7,
-            8,
-            9
+            15,
+            17,
+            19,
+            20,
+            21
           ],
-          [],
           [
-            1,
-            3,
-            5
-          ]
+            16,
+            18
+          ],
+          []
         ]
       }
     },
+    "79b791eedf0970cf560c3af75235a0c5b30f82d7": {},
     "7a41003e96b0038c6f6743ba73fc509a2c6db4f9": {
       "Wolvercoin": {
         "0": [
@@ -1554,17 +1587,6 @@
         ]
       }
     },
-    "7b2c5adedf1e464029d88ac69e729eefa8f064c5": {
-      "socialAdnDonations": {
-        "0": [
-          [
-            43
-          ],
-          [],
-          []
-        ]
-      }
-    },
     "7b6560f776c136389c7e1932cc282b3cf6f8f05b": {
       "ActiveUser": {
         "0": [
@@ -1583,24 +1605,7 @@
         ]
       }
     },
-    "7c38e1fed6f4e16d22d97e5843361b0ee4701ebb": {
-      "VotingAndRep": {
-        "0": [
-          [
-            15,
-            17,
-            19,
-            20,
-            21
-          ],
-          [
-            16,
-            18
-          ],
-          []
-        ]
-      }
-    },
+    "7d96be2f1c873d6446200b59fae78bfd83550271": {},
     "7eaf1a6cd1d2b3444c985f92f186c3095a991f2d": {},
     "7f092c0f8950729387480305ae1d262f48c602c0": {
       "Wolvercoin": {
@@ -1633,8 +1638,7 @@
         ]
       }
     },
-    "823a64224753ac7e16bf1d30a35ba48e89ff0fe1": {},
-    "82bf8c58926809dd577ecfaaffd0daefc26cc410": {
+    "803611d89fbe6120ebe93a054ede458515ef640a": {
       "VotingAndRep": {
         "0": [
           [
@@ -1649,9 +1653,22 @@
         ]
       }
     },
-    "845031f04cd83d15b82d788496ffc877dc1bb541": {},
+    "838de4b5d94e5009ab5ffb3274522914404db675": {
+      "VotingAndRep": {
+        "0": [
+          [
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          [],
+          []
+        ]
+      }
+    },
     "8783f1a01e2f6862e4b1907bb15115304bdee519": {},
-    "8aa04b211cabf48c414f028d1ff889144028856d": {},
     "8c2f7d0d2d0d03c1732392a89c11fa020143b90d": {
       "Reimbursement": {
         "0": [
@@ -1675,7 +1692,6 @@
         ]
       }
     },
-    "8e4a3a3cda9edd0fbcba6e000a071b74abf4c097": {},
     "8edc93d4311cc0f5f35368370ba0fd6f9ee3a1d8": {
       "Reimbursement": {
         "0": [
@@ -1746,7 +1762,6 @@
       }
     },
     "92cc29b891f7ffdb7e346ac1351d6e339481b7d8": {},
-    "932c5eb380d60756e47a8af464041c0a4f508424": {},
     "935535efdbec4be3eef38461e7d1b7fa26709fd5": {
       "PublicGoods": {
         "0": [
@@ -1788,6 +1803,25 @@
       }
     },
     "946c952399c65f05ee9d87490216f1578ae4f52b": {},
+    "947a6b5aa04239e427fd5d46f318fcb31fd021eb": {
+      "VotingAndRep": {
+        "0": [
+          [
+            0,
+            2,
+            4
+          ],
+          [
+            5
+          ],
+          [
+            1,
+            3
+          ]
+        ]
+      }
+    },
+    "949a599fce20492f9d86ce45f23768e0c5545f69": {},
     "9540130a61cacc5483d2c98bffff71f64e87aae5": {},
     "97b3492c5c414488b78e72c94f23cefa5c39f942": {
       "Stake": {
@@ -1943,7 +1977,7 @@
         ]
       }
     },
-    "9e55ddb9d0c1a5f50078842c5e8d38cfdbf528b3": {},
+    "9d1322da5c76919249c181093a37d8250ee2016c": {},
     "9e6c920424c24e718b9fa0ed4ac8f2f848e5e477": {
       "ActiveUser": {
         "0": [
@@ -2068,6 +2102,7 @@
         ]
       }
     },
+    "a5a00bc771ae8456918a384da651b5b76f2dc856": {},
     "a88c28f81512b1d220a268a243cbe1ade7b8f1b2": {
       "Token": {
         "0": [
@@ -2207,7 +2242,6 @@
         ]
       }
     },
-    "b2e5f1c70a1c69e886ee78ae19fdf7ba69467d2b": {},
     "b50649e03dc23407d3276296475d2b4631727eaa": {
       "ActiveUser": {
         "0": [
@@ -2233,7 +2267,6 @@
         ]
       }
     },
-    "b58ea3cda64e3e4802727dc04160d81b41d28d54": {},
     "b5ba51a6c8df0d8deb389fc4e9f6743d23124ff7": {
       "PublicGoods": {
         "0": [
@@ -2256,6 +2289,17 @@
         "0": [
           [
             13
+          ],
+          [],
+          []
+        ]
+      }
+    },
+    "b7eb31e4e01c135f3a921baa410c9a4ee8026677": {
+      "socialAdnDonations": {
+        "0": [
+          [
+            44
           ],
           [],
           []
@@ -2323,6 +2367,7 @@
         ]
       }
     },
+    "ba2d5c019773a19c01fe47afd482b5996d3905f2": {},
     "ba3a67007f52e15a51937f456480543d5dc57327": {
       "Exclusivity": {
         "0": [
@@ -2334,7 +2379,6 @@
         ]
       }
     },
-    "bb766389818c70398da2228d3351e5b07bc9cc1d": {},
     "bc46641136c27683c40d6be4e272341645ec3ef3": {
       "Crash": {
         "0": [
@@ -2381,27 +2425,7 @@
         ]
       }
     },
-    "be077e9fdbb5e205d8ec8d3dad9c8eac210626dd": {
-      "VotingAndRep": {
-        "0": [
-          [
-            0,
-            2,
-            4,
-            6,
-            7,
-            8,
-            9
-          ],
-          [],
-          [
-            1,
-            3,
-            5
-          ]
-        ]
-      }
-    },
+    "be9d8ebc4238f4f41e550ac4d5d5b616a1d3bb4a": {},
     "bee81f24dbb8bbd5493078c83431176bb93878ad": {},
     "bfc4e38cdfd1e8bfeb9ea8806cb3565f5ae029e7": {},
     "bfe2bb38ad34c2d1d6ccf7504c73e624af5369a4": {},
@@ -2423,6 +2447,7 @@
         ]
       }
     },
+    "c1b4a32f90f4aefe448d22780f6d0203a45af584": {},
     "c2b45960755bc1e6f2a1ab235df934b70698dd80": {},
     "c3ff1299e2438d52a2ec1834c061ccaba6f19f27": {
       "ActiveUser": {
@@ -2462,7 +2487,40 @@
         ]
       }
     },
-    "c485792d6c668217d1098e5c559f33a0f1c7e650": {},
+    "c5a1d555d3060bf60983bfdbb0bf696881ae2293": {
+      "socialAdnDonations": {
+        "0": [
+          [
+            37,
+            42,
+            43
+          ],
+          [],
+          [
+            38
+          ]
+        ]
+      }
+    },
+    "c5cfbf9ab37aae21687a6ecfb6b8e5689a6bbb93": {},
+    "c6c4e9b9040c39c3ecb2bbf4e5541f3758408338": {
+      "VotingAndRep": {
+        "0": [
+          [
+            15,
+            17,
+            19,
+            20,
+            21
+          ],
+          [
+            16,
+            18
+          ],
+          []
+        ]
+      }
+    },
     "c97ae731ed6da14a5efd22f59ba8ed1dd3023da1": {},
     "c99fc1083a62d7fb1874ecb83d0ebb158475d7c8": {
       "ActiveUser": {
@@ -2594,6 +2652,24 @@
       }
     },
     "d6963c125b7601a598049d9b68ac930b11446d44": {},
+    "d72c3358fcc8b91148c3c69e87de9c6fe3edd9b7": {
+      "VotingAndRep": {
+        "0": [
+          [
+            15,
+            17,
+            19,
+            20,
+            21
+          ],
+          [
+            16,
+            18
+          ],
+          []
+        ]
+      }
+    },
     "d9116d631847cea9da6d19120baaaa54e2e058c2": {
       "ActiveUser": {
         "0": [
@@ -2612,24 +2688,7 @@
         ]
       }
     },
-    "db6c1ddd116c62b023b7ad02d70d3da531ed4c82": {
-      "VotingAndRep": {
-        "0": [
-          [
-            0,
-            2,
-            4
-          ],
-          [
-            5
-          ],
-          [
-            1,
-            3
-          ]
-        ]
-      }
-    },
+    "d918e09bc75caa3dfcd55b1be7aba2b441a22a06": {},
     "dc7e55fa8fcf9c87ebb6c4b7bb6a6741e60e5b11": {
       "Wolvercoin": {
         "0": [
@@ -2899,6 +2958,7 @@
     },
     "e78a6097d6c13bfb2ce6ff8fa8134f0c966f7a26": {},
     "e82f3e9f04e0a39a064c19da5c10e2cd8587bfdd": {},
+    "e90d867ec4de50dac3c8253e958b45daff8c8e1d": {},
     "e9a2fdf9be8f6e1070899b1a2430e8694c013256": {
       "Wolvercoin": {
         "0": [
@@ -2979,16 +3039,11 @@
       }
     },
     "ec5c4e7b6f3edcae9666b4686a362b3a137ba65c": {},
-    "efdb7924581b7cbd59b094c5f8f16c705f71d815": {},
-    "f15430ccfdb2f0a0ae50dbe8df7c782a3ddcf849": {
+    "f18878c3bb975b996f6470fe72080800c1cb84f7": {
       "VotingAndRep": {
         "0": [
           [
-            10,
-            11,
-            12,
-            13,
-            14
+            37
           ],
           [],
           []
@@ -3091,41 +3146,6 @@
         ]
       }
     },
-    "fac716be2dedc02a0c6627c583415c16c0cd6ae8": {
-      "socialAdnDonations": {
-        "0": [
-          [
-            37,
-            42
-          ],
-          [],
-          [
-            38
-          ]
-        ]
-      }
-    },
-    "fb5b7a65d70a0e65f2b88c452d8b5e34fb4b2860": {
-      "VotingAndRep": {
-        "0": [
-          [
-            0,
-            2,
-            4,
-            6,
-            7,
-            8,
-            9
-          ],
-          [],
-          [
-            1,
-            3,
-            5
-          ]
-        ]
-      }
-    },
     "fbf568a74e85585f85033e29a30a9c11585f63dd": {
       "Reimbursement": {
         "0": [
@@ -3159,17 +3179,6 @@
         ]
       }
     },
-    "fc7896bff477ce7af43a886ad40ece2adcddcf76": {
-      "VotingAndRep": {
-        "0": [
-          [
-            37
-          ],
-          [],
-          []
-        ]
-      }
-    },
     "fc7cef368091a3a3f777a965e4108a60cfa121c0": {
       "ActiveUser": {
         "0": [
@@ -3187,24 +3196,7 @@
         ]
       }
     },
-    "fd7170e1e05501feb48637032d07262c0babf080": {
-      "VotingAndRep": {
-        "0": [
-          [
-            15,
-            17,
-            19,
-            20,
-            21
-          ],
-          [
-            16,
-            18
-          ],
-          []
-        ]
-      }
-    },
+    "fe35690a5016721b829a55fc1b799662150135f6": {},
     "fe65eeb4f542fcbd5a94e8ca8555af0512f44231": {
       "ActiveUser": {
         "0": [
@@ -3218,6 +3210,27 @@
           [
             23,
             25
+          ]
+        ]
+      }
+    },
+    "ff43dc4fe04d37f910392e6175113a61b989ae16": {
+      "VotingAndRep": {
+        "0": [
+          [
+            0,
+            2,
+            4,
+            6,
+            7,
+            8,
+            9
+          ],
+          [],
+          [
+            1,
+            3,
+            5
           ]
         ]
       }
