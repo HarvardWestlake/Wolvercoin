@@ -96,11 +96,12 @@ def proposeVote (contract: address, explaination: String[255]):
     assert not self.disabled, "This contract is no longer active"
     assert contract != empty(address), "Cannot add the 0 address as vote subject"
     assert self.endBlock[contract] == 0, "A vote has already been created for that address"
-
+    
     self.endBlock[contract] = block.number + self.voteDuration
     self.storedDonation[contract] = msg.value
 
     log VoteStarted(contract, msg.sender, msg.value)
+
 
 @external
 def vote(proposition: address, amount: uint256):
