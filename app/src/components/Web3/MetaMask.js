@@ -1,6 +1,6 @@
 import React from "react";
 import { ethers } from "ethers";
-import * as Contracts from "./config.js"
+import * as Contracts from "../Contexts/config.js"
 import "./web3.css"
 
 // Linked to built contracts 
@@ -11,10 +11,7 @@ import "./web3.css"
 class MetaMask extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      val1 : ''
-    };
-    console.log(this.props);
+    this.state = {    };
   }
 
   getScanAddress(network) {
@@ -30,22 +27,16 @@ class MetaMask extends React.Component {
     return scanAddress;
   }
 
-  async disconnectFromMetamask() {
+  async update() {
 
-  }
-
-  async connectToMetamask() {
-    //this.props.web3.connectAccount();
     const provider = new ethers.providers.Web3Provider(window.ethereum)
     const accounts = await provider.send("eth_requestAccounts", []);
-
-
     const wolvercoinContract = new ethers.Contract(
-      Contracts.CONTRACTS.wolvercoin.address, 
-      Contracts.CONTRACTS.wolvercoin.ABI.abi, 
+      Contracts.ACTIVE_CONTRACTS.wolvercoin.address, 
+      Contracts.ACTIVE_CONTRACTS.wolvercoin.ABI.abi, 
       provider
     );
-    const chosenAccount = accounts[0];
+    const chosenAccount = this.props.web3Context.connectedAccount;
     const tokenName = await wolvercoinContract.name();
     const tokenBalance = await wolvercoinContract.balanceOf(chosenAccount);
     const tokenUnits = await wolvercoinContract.decimals();
@@ -55,8 +46,20 @@ class MetaMask extends React.Component {
     this.setState({ selectedAddress: chosenAccount, tokenName, tokenBalanceInEther, abreviatedWallet, scanAddress })
  
   }
+
+  async disconnectFromMetamask() {
+
+  }
+
+  async connectToMetamask() {
+    const provider = new ethers.providers.Web3Provider(window.ethereum)
+    const accounts = await provider.send("eth_requestAccounts", []);
+    await this.props.web3Context.setConnectedAccount(accounts[0]);
+    this.props.web3Context.connectedAccount = accounts[0];
+    this.setState({accounts : accounts[0]});
+  }
   renderMetamask() {
-    if (!this.state.selectedAddress) {
+    if (!this.props.web3Context.connectedAccount) {
       return (
         <div className="gas-station-container">
         <span>

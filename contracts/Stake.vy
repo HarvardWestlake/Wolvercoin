@@ -2,51 +2,51 @@
 ## interfaces w/ ActiveUser and Wolvercoin
 ## anything that requires staking will interface with this class
 
-interface Wolvercoin:
-    def transferFrom(_from : address, _to : address, _value : uint256) -> bool: payable
-    def burnFrom(_to: address, _value: uint256): payable
+interface Token:
+    def transferFrom(_from : address, _to : address, _value : uint256) -> bool: nonpayable
+    def burnFrom(_to: address, _value: uint256): nonpayable
+    def getBalanceOf (_user: address) -> uint256: nonpayable
 
 interface ActiveUser:
-    def getActiveUser(potentialUser: address) -> bool: view
-    def getAdmin(potentialAdmin: address) -> bool: view
+    def getIsActiveUser(potentialUser: address) -> bool: view
+    def getIsAdmin(potentialAdmin: address) -> bool: view
 
-bank: address
 stakeAmounts: public(HashMap [address, uint256])
 stakeDates: HashMap [address, uint256]
-wolvercoinContract: Wolvercoin
-newAmt: public(uint256)
+wolvercoinContract: Token
 activeUserContract: ActiveUser
 
 @external 
-def __init__(_bankAddress: address, _wolvercoinContract: Wolvercoin, _activeUserContract: ActiveUser):
-    self.bank = _bankAddress
-    self.wolvercoinContract = _wolvercoinContract
-    self.activeUserContract = _activeUserContract
+def __init__(_wolvercoinContract: address, _activeUserContract: address):
+    self.wolvercoinContract = Token(_wolvercoinContract)
+    self.activeUserContract = ActiveUser(_activeUserContract)
+
+@external
+def stake (user: address, amountStaked: uint256):
+    assert self.activeUserContract.getIsActiveUser (user)
+    assert amountStaked <= self.wolvercoinContract.getBalanceOf (user)
+    self.stakeAmounts[user] += amountStaked
+    self.stakeDates[user] = block.timestamp
+    self.wolvercoinContract.transferFrom (user, self, amountStaked)
 
 @external
 def unstake (_userAddress: address, amtUnstaked: uint256):
-    #the type conversions are really janky -- if anyone knows a better way of doing this, pls fix it!
-    assert amtUnstaked<self.stakeAmounts[_userAddress]
-    self.newAmt = 0
+    assert amtUnstaked <= self.stakeAmounts[_userAddress]
     changeInTime: uint256 = block.timestamp - self.stakeDates[_userAddress]
     if changeInTime < 1210000:
-        decimalAmt:decimal = convert (amtUnstaked, decimal)
-        oneThird:decimal = decimalAmt/3.0
-        self.newAmt = 2* convert(oneThird,uint256)
-        self.wolvercoinContract.transferFrom (self.bank, _userAddress, self.newAmt)
-        self.wolvercoinContract.burnFrom (self.bank, convert (oneThird, uint256))
+        decimalAmt: decimal = convert (amtUnstaked, decimal)
+        oneThird: decimal = decimalAmt / 3.0
+        newAmt: uint256 = 2 * convert(oneThird, uint256)
+        self.wolvercoinContract.transferFrom (self, _userAddress, newAmt)
+        self.stakeAmounts[_userAddress] -= amtUnstaked
     else:
         days: uint256 = changeInTime/86400
-        percent: decimal = (convert(101**days, decimal) / convert(100**days, decimal))
-        self.newAmt = amtUnstaked * (convert((percent),uint256))
-        self.wolvercoinContract.transferFrom (self.bank, _userAddress, self.newAmt)
-        self.stakeAmounts[_userAddress] = 0
-        self.stakeDates[_userAddress] = 0
+        # the percent value is calculated based on a 1% daily interest rate -- can be changed
+        percent: uint256 = 3800 / 365 
+        assert percent == 10
+        newAmt: uint256 = amtUnstaked * days * percent / 100
+        self.wolvercoinContract.transferFrom (self, _userAddress, newAmt)
+        self.stakeAmounts[_userAddress] -= amtUnstaked
 
-@external
-def stake (user : address, amountStaked : uint256):
-    assert self.activeUserContract.getActiveUser (user)
-    self.stakeAmounts[user] = amountStaked
-    self.stakeDates[user] = block.timestamp
-    self.wolvercoinContract.transferFrom (user, self.bank, amountStaked)
+
 
