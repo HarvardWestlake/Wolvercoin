@@ -49,5 +49,6 @@ def gamblingContract(erc20Contract, codeGambling, accounts):
 def test_placeBets(gamblingContract, erc20Contract, accounts):
     assert erc20Contract.approve(gamblingContract.address, 12, {'from': accounts[0]})
     gamblingContract.placeBets(accounts[0], 12,{'from': accounts[0]})
+    assert erc20Contract.getBalanceOf(accounts[1]) == 12
     assert gamblingContract.getHashValue() == 12
     

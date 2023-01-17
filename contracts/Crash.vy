@@ -11,13 +11,15 @@ interface ActiveUser:
 
 interface Token:
     def generate_random_number(maxVal: uint256) -> uint256: view
-
-interface Wolvercoin:
-    def transferFrom(_from : address, _to : address, _value : uint256) -> bool: payable
     def getBalanceOf (_user: address) -> uint256: view
+    def transferFrom(_from : address, _to : address, _value : uint256) -> bool: payable
+
+#interface Wolvercoin:
+    #def transferFrom(_from : address, _to : address, _value : uint256) -> bool: payable
+    #def getBalanceOf (_user: address) -> uint256: view
 
 tokenContract: public(Token)
-wolvercoinContract: public(Wolvercoin)
+#wolvercoinContract: public(Wolvercoin)
 activeUserContract: public(ActiveUser)
 
 event CrashStart:
@@ -43,7 +45,7 @@ def __init__(activeUserAddress: address, tokenContractAddress: address, wolverco
     log CrashStart(block.timestamp, block.number)
     self.activeUserContract = ActiveUser(activeUserAddress)
     self.tokenContract = Token(tokenContractAddress)
-    self.wolvercoinContract = Wolvercoin(wolvercoinContractAddress)
+    #self.wolvercoinContract = Wolvercoin(wolvercoinContractAddress)
     self.crashGamble()
     self.crashBets[msg.sender] = 0
     self.multiplier = 0
@@ -64,7 +66,7 @@ def withdrawBet(gambler: address):
     paid: uint256 = (self.crashBets[gambler] * (self.multiplier / 10))
 
     #transfers return from pot to gambler's address
-    self.wolvercoinContract.transferFrom (self.pot, gambler, paid)
+    self.tokenContract.transferFrom (self.pot, gambler, paid)
 
     log BetWithdrawn(self.multiplier, paid, gambler)
 
@@ -136,9 +138,9 @@ def getCrashGambleHelper(useRandomNumber: uint256):
 def placeBets(gambler: address, amount: uint256):
     assert msg.sender == gambler
     assert self.justCrashed != False
-    assert self.wolvercoinContract.getBalanceOf(msg.sender) > amount
+    assert self.tokenContract.getBalanceOf(msg.sender) > amount
     self.crashBets[gambler] = amount
-    #self.wolvercoinContract.transferFrom(gambler, self, amount)
+    self.tokenContract.transferFrom(gambler, self, amount)
 
 @view
 @external 
