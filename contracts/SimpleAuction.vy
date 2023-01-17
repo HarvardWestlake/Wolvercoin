@@ -73,5 +73,3 @@ def endAuction():
     assert not self.ended
     self.ended = True
     self.transferW(self.highestBidder,self.beneficiary, self.highestBid)
-
-

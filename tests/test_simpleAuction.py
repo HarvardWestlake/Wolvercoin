@@ -40,5 +40,3 @@ def test_bid(simpleAuctionContract):
 
 def endAuction():
     assert simpleAuctionContract.endAuction()
-
-    
