@@ -138,3 +138,7 @@ def test_buy(dutchAuctionContract, erc20Contract, erc721Contract, accounts):
     assert abs(69420 - newBalance - price) < 2
 
     assert erc721Contract.ownerOf(mintedTokenId) == donator
+
+def test_countdown(dutchAuctionContract, accounts):
+    assert dutchAuctionContract._countdown() != 0
+    

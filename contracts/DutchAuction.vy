@@ -99,6 +99,20 @@ def buy(nftTokenId: uint256):
 @external
 def getActiveAuctionItems() -> DynArray[uint256, 100]:
     return self.auctionItemsArr
+def _countdown() -> (uint256):
+    if self.startDate <= block.timestamp:
+        if block.timestamp <= self.endDate:
+            return self.endDate-block.timestamp
+        else:
+            return 0
+    else:
+        return 0
+    
+    
+
+@external
+def endAuction():
+    self.endDate = 0
 
 #region Trivial getters
 @external
