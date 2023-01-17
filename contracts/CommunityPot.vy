@@ -18,16 +18,18 @@ def __init__(thePotAddress: address, ERC20address: address):
 
 
 @external
-def addMoney (amount: uint256):
+def AddMoney(amount: uint256):
+    assert amount>0
     self.moneyStored = self.moneyStored + amount
 
 @internal
-def _removeMoney (amount: uint256):
+def removeMoney(amount: uint256):
     self.moneyStored = self.moneyStored - amount
 
 @external
-def setElectedOfficials (newEleectedOfficials: DynArray [address,3]):
-    self.electedOfficials = newEleectedOfficials
+def SetElectedOfficials(newElectedOfficials: DynArray [address,3]):
+    self.electedOfficials = newElectedOfficials
+    
 
 @view
 @external
@@ -43,7 +45,7 @@ def getElectedOfficials() -> DynArray[address, 3]:
 def Transact(amount: uint256, destAddress: address):
     assert self.TokenContract.getBalanceOf(self.PotAddress) >= amount
     self.TokenContract.transferFrom(self.PotAddress, destAddress, amount)
-    self._removeMoney(amount)
+    self.removeMoney(amount)
 
 #whether or not an address is in admin array
 @view
