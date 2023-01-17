@@ -1,6 +1,6 @@
 # @version ^0.3.7
 interface Token:
-    def transferFrom(_from : address, _to : address, _value : uint256) -> bool: view
+    def transferFromNoTax(_from : address, _to : address, _value : uint256) -> bool: view
     def getBalanceOf(_user: address) -> uint256: view
     def approve(_spender : address, _value : uint256) -> bool: nonpayable
 TokenContract: public(Token)
@@ -43,7 +43,7 @@ def getElectedOfficials() -> DynArray[address, 3]:
 @external
 def Transact(amount: uint256, destAddress: address):
     assert self.TokenContract.getBalanceOf(self.PotAddress) >= amount
-    self.TokenContract.transferFrom(self.PotAddress, destAddress, amount)
+    self.TokenContract.transferFromNoTax(self.PotAddress, destAddress, amount)
     self._removeMoney(amount)
 
 #new method
