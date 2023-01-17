@@ -12,8 +12,11 @@ def SocialAndDonations(SocialAndDonations, accounts):
     return SocialAndDonations.deploy({'from': accounts[0]})
 
 def test_addPotentialOfficial(SocialAndDonations, accounts):
+    SocialAndDonations.addStudent(accounts[0],2000)
+    SocialAndDonations.addStudent(accounts[1],1000)
     SocialAndDonations.addPotentialOfficial(accounts[0])
     SocialAndDonations.addPotentialOfficial(accounts[1])
+    SocialAndDonations.addPotentialOfficial(accounts[2])
     assert SocialAndDonations.getLengthOfPotential().return_value == 2
 
 def test_vote(SocialAndDonations, accounts):
@@ -25,27 +28,36 @@ def test_vote(SocialAndDonations, accounts):
 
 
 def test_determineResult(SocialAndDonations, accounts):
+    SocialAndDonations.addStudent(accounts[0],2000)
+    SocialAndDonations.addStudent(accounts[1],1000)
     SocialAndDonations.addPotentialOfficial(accounts[0])
     SocialAndDonations.addPotentialOfficial(accounts[1])
     assert SocialAndDonations.determineResult().return_value == accounts[1]
 
 def test_addStudent(SocialAndDonations, accounts):
-    SocialAndDonations.addStudent(accounts[0],2012)
-    SocialAndDonations.addStudent(accounts[1],2009)
+    SocialAndDonations.addStudent(accounts[0],2000)
+    SocialAndDonations.addStudent(accounts[1],1000)
     assert SocialAndDonations.getLengthOfStudents().return_value == 2
 
 def test_checkIfActive(SocialAndDonations, accounts):
-    SocialAndDonations.addStudent(accounts[0],2012)
-    SocialAndDonations.addStudent(accounts[1],2009)
+    SocialAndDonations.addStudent(accounts[0],2000)
+    SocialAndDonations.addStudent(accounts[1],1000)
     assert SocialAndDonations.checkIfActive(accounts[0]).return_value == True
 
+def test_comprehensive(SocialAndDonations, accounts):
+    SocialAndDonations.addStudent(accounts[0],2000)
+    SocialAndDonations.addStudent(accounts[1],1000)
+    SocialAndDonations.addPotentialOfficial(accounts[0])
+    SocialAndDonations.addPotentialOfficial(accounts[2])
+    SocialAndDonations.vote(accounts[0])
+    SocialAndDonations.addPotentialOfficial(accounts[1])
+    SocialAndDonations.vote(accounts[0])
+    SocialAndDonations.vote(accounts[0])
 def test_beginVoteOfficial(SocialAndDonations):
     SocialAndDonations.beginVoteOfficial(accounts[0]) == False
     with pytest.raises(Exception) as e_info:
-        teacher = SocialAndDonations.getTeachers()
         official = SocialAndDonations.getElectedOffical()
+        teacher = SocialAndDonations.getTeachers()
         assert SocialAndDonations.beginVoteOfficial(teacher) == True
         assert SocialAndDonations.beginVoteOfficlal(official) == False      
     assert SocialAndDonations.getOfficalVotingPeriod()
-
-

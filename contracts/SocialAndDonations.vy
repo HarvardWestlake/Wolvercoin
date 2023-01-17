@@ -85,8 +85,9 @@ def getLengthOfPotential() -> uint256:
 
 @external
 def addPotentialOfficial(account : address):
-    self.potentialElectedOfficials.append(account)
-    self.votesForOfficials[account] = 0
+    if(self.activeStudents[account] != 0):
+        self.potentialElectedOfficials.append(account)
+        self.votesForOfficials[account] = 0
 
 @external
 def addStudent(wallet: address, gradYear: uint256):
