@@ -19,8 +19,8 @@ event Approval:
 interface ActiveUser:
     def addAdmin(adminToAdd: address): nonpayable
     def removeAdmin(adminToRemove: address): nonpayable
-    def getActiveUser(potentialUser: address) -> bool: view
-    def getAdmin(potentialAdmin: address) -> bool: view
+    def getIsActiveUser(potentialUser: address) -> bool: view
+    def getIsAdmin(potentialAdmin: address) -> bool: view
 
 interface WVCvoteableContract:
     def finishVote(): payable
@@ -153,7 +153,7 @@ def finishVote(contract: address):
         self.allowedToAffectDao = contract
         self.runCode(contract)
         self.allowedToAffectDao = empty(address)
-    elif(self.activePropositions[contract] * 2 > self.totalSupply):
+    elif(self.activePropositions[contract] * 2 > self.totalSupply and not self.affectsDao[contract]):
         for voter in peopleInvested:
             self.burnCoinOnWin(voter, contract)
         self.runCode(contract)
@@ -255,7 +255,7 @@ def burnFrom(_to: address, _value: uint256):
 
 @external
 def setDisabled(newState: bool):
-    assert self.activeUserAddress.getAdmin(msg.sender) or msg.sender == self.allowedToAffectDao, "Only the maintainer or a contract allowed to affect the Dao can change the contract state"
+    assert self.activeUserAddress.getIsAdmin(msg.sender) or msg.sender == self.allowedToAffectDao, "Only the maintainer or a contract allowed to affect the Dao can change the contract state"
 
     self.disabled = newState
 
