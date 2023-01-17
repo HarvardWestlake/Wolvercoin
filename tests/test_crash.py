@@ -47,8 +47,8 @@ def gamblingContract(erc20Contract, codeGambling, accounts):
     return codeGambling.deploy(accounts[1], erc20Contract, {'from': accounts[0]})
 
 def test_placeBets(gamblingContract, erc20Contract, accounts):
-    assert erc20Contract.approve(gamblingContract.address, 12, {'from': accounts[0]})
-    gamblingContract.placeBets(accounts[0], 12,{'from': accounts[0]})
+    assert erc20Contract.approve(gamblingContract.address, 12, {'from': accounts[2]})
+    gamblingContract.placeBets(accounts[2], 12,{'from': accounts[2]})
     assert erc20Contract.getBalanceOf(accounts[1]) == 12
     assert gamblingContract.getHashValue() == 12
     
