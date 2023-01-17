@@ -7,8 +7,8 @@ disabled: bool
 owner: address
 
 interface ActiveUser:
-    def getActiveUser(potentialUser: address) -> bool: view
-    def getAdmin(potentialAdmin: address) -> bool: view
+    def getIsActiveUser(potentialUser: address) -> bool: view
+    def getIsAdmin(potentialAdmin: address) -> bool: view
 
 activeUserAddress: public(ActiveUser)
 
@@ -62,7 +62,7 @@ def _reimburseGas(recipient: address, amount: uint256):
     assert not self.disabled, "This contract and its features are disabled"
 
     # Will not reimburse graduates...
-    if not self.activeUserAddress.getActiveUser(recipient):
+    if not self.activeUserAddress.getIsActiveUser(recipient):
         return
     
     if self.balance < (WEI_REIMBURSEMENT_BUFFER + amount):
@@ -94,7 +94,7 @@ def setDisableContract(disabled: bool):
 @internal
 def _isOwnerOrAdmin() -> bool:
     isOwner: bool = (self.owner == msg.sender)
-    isAdmin: bool = self.activeUserAddress.getAdmin(msg.sender)
+    isAdmin: bool = self.activeUserAddress.getIsAdmin(msg.sender)
     return isOwner or isAdmin
 
 @external

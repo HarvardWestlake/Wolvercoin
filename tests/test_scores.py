@@ -3,8 +3,8 @@ import pytest
 import brownie
 
 @pytest.fixture
-def compareContract(CodeScoreCheck, accounts):
-    return CodeScoreCheck.deploy(2700, accounts[0], {'from': accounts[1]})
+def CodeScoreCheck(CodeScoreCheck, accounts):
+    return CodeScoreCheck.deploy(accounts[0], {'from': accounts[1]})
 
-def returnScore(compareContract, accounts):
-    assert compareContract.getHighScore()
+def test_returnScore(CodeScoreCheck):
+    assert CodeScoreCheck.getHighScore().return_value == 72
