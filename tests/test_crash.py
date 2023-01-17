@@ -12,6 +12,14 @@ def crashContract(Crash, Token, accounts):
     tokenContract = Token.deploy("Wolvercoin", "WVC", 18, 1000, {'from': accounts[0]})
     return Crash.deploy("0x0000000000000000000000000000000000000000", tokenContract, "0x0000000000000000000000000000000000000000", {'from': accounts[1]})
 
+@pytest.fixture
+def erc20Contract(Token, accounts):
+    return Token.deploy("Wolvercoin", "WVC", 18, 1000,{'from': accounts[0]})
+
+# @pytest.fixture
+# def spendingContract(erc20Contract, codeGambling, accounts):
+#     return codeGambling.deploy(accounts[1], erc20Contract, {'from': accounts[0]})
+
 def test_crashFromRandom(crashContract, accounts):
     assert False == crashContract.getCrashFromRandomNumber(100).return_value
     assert False == crashContract.getCrashFromRandomNumber(900).return_value
@@ -36,22 +44,16 @@ def test_crashUpdating(crashContract, accounts):
     chain = Chain()
 
 # @dev basic testing for placeBet 
-# @author Ava Weinrot 
-
-@pytest.fixture
-def erc20Contract(Token, accounts):
-    return Token.deploy("wolvercoin", "wvc", 18, 1000,{'from': accounts[0]})
-
-@pytest.fixture
-def spendingContract(erc20Contract, codeGambling, accounts):
-    return codeGambling.deploy(accounts[1], erc20Contract, {'from': accounts[0]})
+# @author Ava Weinrot
+# seems like a big confusion because the pot account address = the placer of bets
 
 def test_placeBets(spendingContract, erc20Contract, accounts):
-    assert erc20Contract.approve(spendingContract.address, 12, {'from': accounts[0]})
-    spendingContract.placeBets(accounts[0], 12,{'from': accounts[0]})
-    assert spendingContract.getHashValue() == 12
+    assert erc20Contract.approve(crashContract.address, 12, {'from': accounts[0]})
+    crashContract.placeBets(accounts[0], 12,{'from': accounts[0]})
+    assert crashContract.getHashValue() == 12
 
-def test_withdrawBet(spendingContract, erc20Contract, accounts)
-    assert erc20Contract.approve(spendingContract.address, {'gambler': accounts[0]})
-    spendingContract.withdrawBet(accounts[0], {'gambler': accounts[0]})
-    assert spendingContract.getHashValue() == 0
+def test_withdrawBet(crashContract, erc20Contract, accounts)
+    #this needs to approve money from the pot to the gambler. need pot address
+    assert erc20Contract.approve(crashContract.address, {'from': accounts[0]})
+    crashContract.withdrawBet(accounts[0], {'from': accounts[0]})
+    assert crashContract.getHashValue() == 0
