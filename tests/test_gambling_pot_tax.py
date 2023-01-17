@@ -14,9 +14,11 @@ def token(Token, accounts):
     return Token.deploy("Test Token", "TST", 18, 1e21, {'from': accounts[0]})
 
 def test_gambling_pot_tax(accounts, token):
+    token.setGamblingPot(accounts[2])
+
     sender_balance = token.balanceOf(accounts[0])
     receiver_balance = token.balanceOf(accounts[1])
-    gambling_pot_balance = token.balanceOf(token.address)
+    gambling_pot_balance = token.balanceOf(token.gambling_pot())
 
     amount = math.floor(sender_balance / 4)
 
@@ -34,7 +36,7 @@ def test_gambling_pot_tax(accounts, token):
     assert close_enough(token.balanceOf(accounts[1]), receiver_balance + amountAfterTax)
 
     # check gambling pot balance
-    assert close_enough(token.balanceOf(token.address), gambling_pot_balance + gamblingTax)
+    assert close_enough(token.balanceOf(token.gambling_pot()), gambling_pot_balance + gamblingTax)
 
 # NOTE: integer values in python and vyper are different ... 
 #   asserting equality is janky esp with floored decimal values
@@ -47,3 +49,14 @@ def testRandom(accounts, token):
 
     result = token.generate_random_number(20).return_value
     assert result >= 0 and result <= 20 - 1
+
+# test setGamblingPot
+def testSetGamblingPot(accounts, token):
+    #instantiate address variable
+    pot: address = accounts[6]
+
+    #set gambling pot address
+    token.setGamblingPot(pot)
+
+    #assert values are equal
+    assert token.gambling_pot() == pot
