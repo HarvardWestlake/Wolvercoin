@@ -1,4 +1,4 @@
-# @version 0.3.7
+# @version ^0.3.7
 #Dependent: None 
 #Dependent on me: Idalis Mczeal 
 num: uint256 
@@ -7,7 +7,9 @@ struct Erc20Token:
     decimals: uint256
     symbol: String[16]
     hashImag: String[100]
+
 hashie: public (HashMap[uint256, Erc20Token])
+
 @external
 def __init__():
     return 
@@ -23,6 +25,13 @@ def createBoundNFT(productOwner: address, uRL: String[100]):
         hashImag: uRL
         })
     self.num += 1
+
+@external
+def redeemProduct(NFTid : uint256) -> bool:
+    if (msg.sender == self.hashie[NFTid].addr):
+        return True
+    else:
+        return False
 
 
 
