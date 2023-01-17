@@ -90,6 +90,7 @@ def beginVoteOfficial(user: address):
             assert self.officialVotingPeriod == True   
         else:
             isTeacher = False 
+            
 
 @external
 def getOfficalVotingPeriod() -> (bool):
