@@ -10,6 +10,10 @@ interface ERC721WithAdminAccess:
     def ownerOf(_tokenId: uint256) -> address: nonpayable
     def transferFrom(_from: address, _to: address, _tokenId: uint256): nonpayable
 
+interface ActiveUser:
+    def getIsActiveUser(potentialUser: address) -> bool: view
+    def getIsAdmin(potentialAdmin: address) -> bool: view
+
 struct AuctionItem:
     nftTokenId: uint256
     seller: address
@@ -22,11 +26,13 @@ auctionItems: public(HashMap[uint256, AuctionItem]) # A map of nftTokenId to Auc
 auctionItemsArr: public(DynArray[uint256, 100]) # A list of the nftTokenIds of all the auction items currently active
 erc20: ERC20WithAdminAccess
 erc721: ERC721WithAdminAccess
+activeUser: ActiveUser
 
 @external
-def __init__(erc20address: address, erc721address: address):
+def __init__(erc20address: address, erc721address: address, activeUserAddress: address):
     self.erc20 = ERC20WithAdminAccess(erc20address)
     self.erc721 = ERC721WithAdminAccess(erc721address)
+    self.activeUser = ActiveUser(activeUserAddress)
 
 @internal
 def findIndexOfItemInItemsArr(nftTokenId: uint256) -> int256:

@@ -15,16 +15,17 @@ def erc20Contract(Token, accounts):
     )
 
 @pytest.fixture
-def erc721Contract(NFT, accounts):
-    return NFT.deploy(
-        12345, # password
+def activeUserContract(ActiveUser, accounts):
+    return ActiveUser.deploy(
+        accounts[0], # admin
         {'from': accounts[0]}
     )
 
 @pytest.fixture
-def activeUserContract(ActiveUser, accounts):
-    return ActiveUser.deploy(
-        accounts[0], # admin
+def erc721Contract(NFT, activeUserContract, accounts):
+    return NFT.deploy(
+        activeUserContract,
+        12345, # password
         {'from': accounts[0]}
     )
 
@@ -41,6 +42,8 @@ def test_createGood(publicGoodsContract, erc20Contract, erc721Contract, activeUs
     creatorOfGood = accounts[5]
     donator = accounts[4]
     admin = accounts[0]
+
+    activeUserContract.whitelistContract(publicGoodsContract, {'from': admin})
 
     mintResult = erc721Contract.mint(creatorOfGood, "https://example.com?ricepurity", {'from': admin})
     mintedTokenId = mintResult.events["Transfer"]["tokenId"]

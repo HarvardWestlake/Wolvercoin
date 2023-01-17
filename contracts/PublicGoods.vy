@@ -10,7 +10,6 @@ interface ERC721WithAdminAccess:
     def ownerOf(_tokenId: uint256) -> address: nonpayable
     def transferFrom(_from: address, _to: address, _tokenId: uint256): nonpayable
 
-
 interface ActiveUser:
     def getIsActiveUser(potentialUser: address) -> bool: view
     def getIsAdmin(potentialAdmin: address) -> bool: view
@@ -50,23 +49,22 @@ def findIndexOfGoodInGoodsArr(nftTokenId: uint256) -> int256:
 
 @external
 def createGood(goal: uint256, nftTokenId: uint256):
-    if (self.checkIfAdminAndUser(msg.sender)):
-        assert goal > 0
-        assert self.erc721.ownerOf(nftTokenId) == msg.sender
+    assert self.checkIfAdminAndUser(msg.sender)
+    assert goal > 0
+    assert self.erc721.ownerOf(nftTokenId) == self.erc721.address
 
-        # Move the NFT to the property of this contract for safekeeping
-        self.erc721.transferFrom(msg.sender, self, nftTokenId)
+    # Move the NFT to the property of this contract for safekeeping
+    self.erc721.transferFrom(self.erc721.address, self, nftTokenId)
 
-        self.goods[nftTokenId] = Good({
-            goal: goal,
-            donations: empty(Donation[50]),
-            donationsLen: 0,
-            totalDonations: 0,
-            creator: msg.sender,
-            nftTokenId: nftTokenId
-        })
-        self.goodsArr.append(nftTokenId)
-    
+    self.goods[nftTokenId] = Good({
+        goal: goal,
+        donations: empty(Donation[50]),
+        donationsLen: 0,
+        totalDonations: 0,
+        creator: msg.sender,
+        nftTokenId: nftTokenId
+    })
+    self.goodsArr.append(nftTokenId)
 
 @external
 def contribute(nftTokenId: uint256, amount: uint256):

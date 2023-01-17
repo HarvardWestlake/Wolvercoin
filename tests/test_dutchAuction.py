@@ -16,17 +16,26 @@ def erc20Contract(Token, accounts):
     )
 
 @pytest.fixture
-def erc721Contract(NFT, accounts):
+def activeUserContract(ActiveUser, accounts):
+    return ActiveUser.deploy(
+        accounts[0], # admin
+        {'from': accounts[0]}
+    )
+
+@pytest.fixture
+def erc721Contract(NFT, activeUserContract, accounts):
     return NFT.deploy(
+        activeUserContract,
         12345, # password
         {'from': accounts[0]}
     )
 
 @pytest.fixture
-def dutchAuctionContract(DutchAuction, erc20Contract, erc721Contract, accounts):
+def dutchAuctionContract(DutchAuction, erc20Contract, erc721Contract, activeUserContract, accounts):
     return DutchAuction.deploy(
         erc20Contract,
         erc721Contract,
+        activeUserContract,
         {'from': accounts[0]}
     )
 
