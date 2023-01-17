@@ -26,6 +26,7 @@ def publicGoodsContract(PublicGoods, erc20Contract, erc721Contract, accounts):
     return PublicGoods.deploy(
         erc20Contract,
         erc721Contract,
+        accounts[1]
         {'from': accounts[0]}
     )
 

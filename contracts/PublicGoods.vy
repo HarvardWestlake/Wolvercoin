@@ -37,9 +37,9 @@ erc721: ERC721WithAdminAccess
 goodsArr: public(DynArray[uint256, 100]) # A list of the nftTokenIds of all the goods currently active
 
 @external
-def __init__(erc20address: address, erc721address: address):
+def __init__(erc20address: address, erc721address: address, activeUserAddress: address):
     
-    self.activeUserAddress = ActiveUser(self.activeUserAddress)
+    self.activeUserAddress = ActiveUser(activeUserAddress)
     self.erc20 = ERC20WithAdminAccess(erc20address)
     self.erc721 = ERC721WithAdminAccess(erc721address)
     return
