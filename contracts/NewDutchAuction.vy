@@ -4,7 +4,7 @@ interface IERC721:
     def transferFrom(_from: address, _to: address, _NFTID: uint256) -> bool: view
     
 interface Token:
-    def transfer(add: address, val: uint256) -> bool: view
+    def transferFrom(_from: address, _to: address, val: uint256) -> bool: view
 
 
 nft: public(IERC721)
@@ -92,11 +92,8 @@ def buy():
     assert block.timestamp <= self.expiresAt, "Too late"
 
     price: uint256 = self._getPrice()
-    assert msg.value >= price, "Not enough money"
+    assert msg.sender.balance >= price, "Not enough money"
+    Token(msg.sender).transferFrom(msg.sender, self.seller, price)
 
     self.nft.transferFrom(self.seller, msg.sender, self.nftId)
-    refund: uint256 = msg.value - price
-    if (refund > 0):
-        buyer: address = msg.sender
-        Token(msg.sender).transfer(buyer, refund)
     selfdestruct(self.seller)
