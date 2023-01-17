@@ -8,7 +8,7 @@ from web3.exceptions import ValidationError
 def exclusivityContract(Exclusivity, accounts):
     return Exclusivity.deploy("0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", {'from': accounts[1]})
 
-@pytest.fixture
+
 def testVote(Exclusivity,accounts):
     Exclusivity.deploy("0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", {'from': accounts[1]})
     exclusivity: Exclusivity=Exclusivity()
@@ -27,15 +27,15 @@ def testVote(Exclusivity,accounts):
             valueChanged = True
     assert valueChanged
     
-@pytest.fixture
+
 def testTally(Exclusivity,accounts):
     Exclusivity.deploy("0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", {'from': accounts[1]})
-    exclusivity: Exclusivity=Exclusivity()
-    exclusivity.percentage = 0.51
-    exclusivity.tallyVotes(0xf34b09E22f5115af490eeb7460304aB80c90399E)
+    #Exclusivity: Exclusivity=Exclusivity()
+    Exclusivity.percentage = 0.51
+    Exclusivity.tallyVotes(0xf34b09E22f5115af490eeb7460304aB80c90399E)
     
     removed: bool=True
-    for studentAddress in exclusivity.topicsAddress:
+    for studentAddress in Exclusivity.topicsAddress:
         if studentAddress==0xf34b09E22f5115af490eeb7460304aB80c90399E:
             removed = False
             break
