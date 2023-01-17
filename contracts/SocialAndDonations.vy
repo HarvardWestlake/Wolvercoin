@@ -17,6 +17,11 @@
 # votesForOfficials -> hashMap(address -> unit256)
 # officialVotingPeriod -> boolean
 
+interface Token:
+    def transferFrom(_from : address, _to : address, _value : uint256) -> bool: view
+    def getBalanceOf(_user: address) -> uint256: view
+TokenContract: public(Token)
+
 # Address for community pot
 communityPot: public(address)
 # hashmap of active students
@@ -105,4 +110,9 @@ def checkIfActive (wallet: address) -> bool:
 def vote(account : address):
     self.votesForOfficials[account] += 1
 
+@external
+def donate(to: address, numToSend: uint256):
+    # Check if the caller has sufficient balance
+    assert self.TokenContract.getBalanceOf(msg.sender) >= numToSend, "Insufficient balance"
+    self.TokenContract.transferFrom(msg.sender, to, numToSend)
 ####################################################################################################
