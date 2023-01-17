@@ -48,10 +48,10 @@ def createAuctionItem(startPrice: uint256, endPrice: uint256, startDate: uint256
     assert startPrice > endPrice
     assert startDate >= block.timestamp
     assert endDate > startDate
-    assert self.erc721.ownerOf(nftTokenId) == msg.sender
+    assert self.erc721.ownerOf(nftTokenId) == self.erc721.address
 
     # Move the NFT to the property of this contract for safekeeping
-    self.erc721.transferFrom(msg.sender, self, nftTokenId)
+    self.erc721.transferFrom(self.erc721.address, self, nftTokenId)
     
     self.auctionItems[nftTokenId] = AuctionItem({
         nftTokenId: nftTokenId,
