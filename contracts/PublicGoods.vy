@@ -119,7 +119,7 @@ def complete(nftTokenId: uint256):
 
     if good.totalDonations < good.goal:
         # Refund all the donations and transfer the NFT back
-        self.erc721.transferFrom(self, good.creator, good.nftTokenId)
+        self.erc721.transferFrom(self, self.erc721.address, good.nftTokenId)
         for i in range(50):
             if i >= good.donationsLen:
                 break
