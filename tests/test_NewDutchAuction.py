@@ -53,7 +53,7 @@ def test_buy(newDutchAuctionContract, accounts):
 
     #test correct sum of money is in the buyer's account
     gas = accounts[1].gas_used
-    assert accounts[1].balance().return_value == 5000 - price - gas
+    assert accounts[1].balance().return_value == 50000 - price - gas
 
 def test_fail_buy(newDutchAuctionContract, accounts):
     #not enough money sent with the transaction
