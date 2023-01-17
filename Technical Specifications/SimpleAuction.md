@@ -7,6 +7,7 @@ Technical Specifications for Simple Open Auction
 - uint256 : auctionEnd
 - address : highestBidder
 - uint256 : highestBid
+- uint256 : minValue (minimum value of an item set by beneficiary)
 - bool : ended (true at end of auction, no more changes)
 - pendingReturns: HashMap[address,uint256] (keep track of refunded bids)
 
@@ -15,6 +16,7 @@ Technical Specifications for Simple Open Auction
   - address : beneficiary 
   - uint256 : auctionStart
   - uint256 : biddingTime
+  - uint256 : minValue
 > Functionality
 - Set variables to matching inputs, set end time to start + bidding time
 - Make sure auctionEnd is in the future
@@ -22,7 +24,7 @@ Technical Specifications for Simple Open Auction
 ### Methods: 
 - Bid() - payable
   - Checks if auction has started and has not ended
-  - If value > highest bid, set highest bidder as sender and highest bid as msg value
+  - If value > minValue and highest bid, set highest bidder as sender and highest bid as msg value
 - Withdraw()
   - Find amount they withdraw from pendingReturns HashMap, send them that amount
   - Set their pending return to 0
