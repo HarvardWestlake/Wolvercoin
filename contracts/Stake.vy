@@ -23,7 +23,7 @@ def __init__(_wolvercoinContract: address, _activeUserContract: address):
 
 @external
 def stake (user: address, amountStaked: uint256):
-    assert self.activeUserContract.getActiveUser (user)
+    assert self.activeUserContract.getIsActiveUser (user)
     assert amountStaked <= self.wolvercoinContract.getBalanceOf (user)
     self.stakeAmounts[user] += amountStaked
     self.stakeDates[user] = block.timestamp
