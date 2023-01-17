@@ -7,6 +7,7 @@ interface Token:
     def transferFrom(_from: address, _to: address, val: uint256) -> bool: view
 
 
+token: public(Token)
 nft: public(IERC721)
 nftId: public(uint256)
 
@@ -20,7 +21,7 @@ DURATION: public(uint256)
 
 @external
 @payable
-def __init__(_startingPrice: uint256, _discountRate: uint256, _nft: address, _nftId: uint256, _duration: uint256):
+def __init__(_startingPrice: uint256, _discountRate: uint256, _nft: address, _nftId: uint256, _duration: uint256, _token: address):
     self.DURATION = _duration
     self.seller = msg.sender
     self.startingPrice = _startingPrice
@@ -30,6 +31,7 @@ def __init__(_startingPrice: uint256, _discountRate: uint256, _nft: address, _nf
 
     assert _startingPrice >= _discountRate * self.DURATION, "?"
 
+    self.token = Token(_token)
     self.nft = IERC721(_nft)
     self.nftId = _nftId
 
@@ -93,7 +95,7 @@ def buy():
 
     price: uint256 = self._getPrice()
     assert msg.sender.balance >= price, "Not enough money"
-    Token(msg.sender).transferFrom(msg.sender, self.seller, price)
+    self.token.transferFrom(msg.sender, self.seller, price)
 
     self.nft.transferFrom(self.seller, msg.sender, self.nftId)
     selfdestruct(self.seller)

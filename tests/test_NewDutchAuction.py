@@ -14,10 +14,11 @@ chain = Chain()
 # . This runs before ALL tests
 @pytest.fixture
 def newDutchAuctionContract(NewDutchAuction, Token, accounts):
-    NFTContract = Token.deploy("unused", "notused", 8, 100000, {'from':accounts[0]})
-    NFTContract.transferFrom(accounts[0], accounts[1], 50000, {'from':accounts[0]})
-    NFTContract.transferFrom(accounts[0], accounts[2], 900, {'from':accounts[0]})
-    return NewDutchAuction.deploy(2000, 10, NFTContract, 12345, 100, {'from': accounts[0]})
+    TokenContract = Token.deploy("Wolvercoin", "WOLV", 8, 100000, {'from':accounts[0]})
+    TokenContract.mint(accounts[1], 50000, {'from':accounts[0]})
+    TokenContract.mint(accounts[2], 900, {'from':accounts[0]})
+    NFTContract = Token.deploy("notused", "idk", 1, 1, {'from':accounts[0]})
+    return NewDutchAuction.deploy(2000, 10, NFTContract, 12345, 100, TokenContract, {'from': accounts[0]})
 
 def _as_wei_value(base, conversion):
     if conversion == "wei":
