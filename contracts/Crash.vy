@@ -136,11 +136,10 @@ def getCrashGambleHelper(useRandomNumber: uint256):
 
 @external 
 def placeBets(gambler: address, amount: uint256):
-    assert msg.sender == gambler
     assert self.justCrashed != False
     assert self.wolvercoinContract.getBalanceOf(msg.sender) > amount
     self.crashBets[gambler] = amount
-    #self.wolvercoinContract.transferFrom(gambler, self, amount)
+    self.wolvercoinContract.transfer(self, amount)
 
 @view
 @external 
