@@ -40,6 +40,8 @@ minter: address
 contract_bitmask: uint256
 contract_hex: uint256
 
+gambling_pot: public(address)
+
 
 @external
 def __init__(_name: String[32], _symbol: String[32], _decimals: uint8, _supply: uint256):
@@ -187,3 +189,7 @@ def burnFrom(_to: address, _value: uint256):
 @external
 def generate_random_number(maxVal: uint256) -> uint256:
     return block.timestamp % maxVal
+
+@external
+def setGamblingPot(gp: address):
+    gambling_pot = gp
