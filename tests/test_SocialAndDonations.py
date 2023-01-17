@@ -38,3 +38,14 @@ def test_checkIfActive(SocialAndDonations, accounts):
     SocialAndDonations.addStudent(accounts[0],2012)
     SocialAndDonations.addStudent(accounts[1],2009)
     assert SocialAndDonations.checkIfActive(accounts[0]).return_value == True
+
+def test_beginVoteOfficial(SocialAndDonations):
+    SocialAndDonations.beginVoteOfficial(accounts[0]) == False
+    with pytest.raises(Exception) as e_info:
+        teacher = SocialAndDonations.getTeachers()
+        official = SocialAndDonations.getElectedOffical()
+        assert SocialAndDonations.beginVoteOfficial(teacher) == True
+        assert SocialAndDonations.beginVoteOfficlal(official) == False      
+    assert SocialAndDonations.getOfficalVotingPeriod()
+
+
