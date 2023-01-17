@@ -139,8 +139,10 @@ def test_finishVote(votingContract, accounts):
 
 
 def test_burn(votingContract, accounts):
+    testSupply = votingContract.totalSupply()
     votingContract.mint(accounts[1], 10000, {'from': accounts[0]}) # account 1 balance: 10_000
+    assert votingContract.totalSupply() == testSupply+10000
     # assert votingContract.balanceOf(accounts[1]) == 10000
     votingContract.burn(9000, {'from': accounts[1]})
     assert votingContract.balanceOf(accounts[1]) == 1000, "should be able to burn money"
-
+    assert votingContract.totalSupply() == testSupply+1000
