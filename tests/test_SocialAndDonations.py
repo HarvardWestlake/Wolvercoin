@@ -38,3 +38,7 @@ def test_checkIfActive(SocialAndDonations, accounts):
     SocialAndDonations.addStudent(accounts[0],2012)
     SocialAndDonations.addStudent(accounts[1],2009)
     assert SocialAndDonations.checkIfActive(accounts[0]).return_value == True
+
+def test_donate(SocialAndDonations, accounts):
+    SocialAndDonations.donate(accounts[0], 10)
+    assert SocialAndDonations.TokenContract.getBalanceOf(accounts[0]) == 10
