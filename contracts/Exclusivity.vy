@@ -7,30 +7,42 @@ interface ActiveUser:
     
 activeUserContract: public(ActiveUser)
 
-admin: HashMap[address, bool]
+theissAddress: address
 topicsAddress: DynArray[address, 1000]
 percentage: uint256
 classSize: uint256
+
+notVotedTopicsAddress: DynArray[address, 1000]
+sum: uint256
+
 @external
 def vote(voter: address):
     isIn: bool = False
-    for studentAddress in self.topicsAddress: #find index of address of candidate in topics addresses
-            if studentAddress==voter:    
-                isIn = True
-                break
+    count: int256=-1
+    for studentAddress in self.notVotedTopicsAddress: #find index of address of candidate in topics addresses
+        count=count+1
+        if studentAddress==voter:    
+            isIn = True
+            break
     if isIn == True:
-        self._removeNonTopics(voter)
+        self.notVotedTopicsAddress[count] = self.notVotedTopicsAddress[len(self.topicsAddress) - 1]
+        self.notVotedTopicsAddress.pop()
         send(voter,1)
-    if self.admin[voter]:
-     
+        self.sum=self.sum+1
+    if voter==self.theissAddress:
         send(voter,(15/100)*self.classSize)
+    
 
 @external
-def tallyVotes(voter: address)-> bool:
-    if self.percentage >= 50:
-        self._removeNonTopics(voter)
+def tallyVotes()-> bool:
+    self.percentage=100*self.sum/self.classSize
+    for studentAddress in self.topicsAddress: #find index of address of candidate in topics addresses
+        self.notVotedTopicsAddress.append(studentAddress)
+    
+    if self.percentage>50:
         return True
-    return False
+    else:
+        return False
 
 @external
 def addNonTopics(candidate: address):
@@ -83,7 +95,5 @@ def isInTopicsList(searching:address)->bool:
             added=True
             break
     return added
-
-
 
 
