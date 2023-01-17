@@ -47,3 +47,14 @@ def testRandom(accounts, token):
 
     result = token.generate_random_number(20).return_value
     assert result >= 0 and result <= 20 - 1
+
+# test setGamblingPot
+def testSetGamblingPot(accounts, token):
+    #instantiate address variable
+    pot: address = accounts[6]
+
+    #set gambling pot address
+    token.setGamblingPot(pot)
+
+    #assert values are equal
+    assert token.gambling_pot() == pot

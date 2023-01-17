@@ -192,4 +192,8 @@ def generate_random_number(maxVal: uint256) -> uint256:
 
 @external
 def setGamblingPot(gp: address):
-    gambling_pot = gp
+    self.gambling_pot = gp
+
+@external
+def getGamblingPot() -> address:
+    return self.gambling_pot
