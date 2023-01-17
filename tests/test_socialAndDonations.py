@@ -17,16 +17,11 @@ def wolvercoinContract(Token, accounts):
     return Token.deploy("Wolvercoin", "WVC", 10, 1000000000000000000, {'from': accounts[0]})
 
 @pytest.fixture
-def SocialAndDonationsContract(SocialAndDonations, accounts): 
-    SocialAndDonations.deploy(wolvercoinContract, {'from': accounts[0]})
+def SocialAndDonationsContract(SocialAndDonations, wolvercoinContract, accounts): 
+    SocialAndDonationsContract = SocialAndDonations.deploy(wolvercoinContract, {'from': accounts[0]})
+    wolvercoinContract.mint(SocialAndDonationsContract, 1000)
     return SocialAndDonationsContract
 
-def test_donate(socialAdnDonationsContract, wolvercoinContract):
-    donator = accounts[4]
-    reciever = accounts[5]
-    admin = accounts[1]
-    assert wolvercoinContract.mint(donator, 420, {'from': admin}) # Supply the account with some token
-    assert wolvercoinContract.mint(reciever, 420, {'from': admin}) # Supply the account with some token
-    assert str(wolvercoinContract.getBalanceOf(donator).return_value) == "420"
-    assert str(wolvercoinContract.getBalanceOf(reciever).return_value) == "420"
-    SocialAndDonationsContract.donate(donator,reciever,69)
+def test_donate(SocialAndDonationsContract, wolvercoinContract, accounts):
+    SocialAndDonationsContract.donate(accounts[1], 69, {'from': SocialAndDonationsContract})
+    assert wolvercoinContract.getBalanceOf(accounts[1]) == 67

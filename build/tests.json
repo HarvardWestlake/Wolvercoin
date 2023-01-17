@@ -40,8 +40,8 @@
     "tests/test_SocialAndDonations.py": {
       "coverage": false,
       "isolated": false,
-      "results": "E",
-      "sha1": "38e32898ba04de7a206e813578105d6606e7eee7",
+      "results": ".",
+      "sha1": "4d2a83837a9307dc0a24ae4c251d761c346199a6",
       "txhash": []
     },
     "tests/test_Stake.py": {
