@@ -65,6 +65,8 @@ def withdrawBet(gambler: address):
 
     #transfers return from pot to gambler's address
     self.wolvercoinContract.transferFrom (self.pot, gambler, paid)
+    
+    self.crashBets[gambler] == 0
 
     log BetWithdrawn(self.multiplier, paid, gambler)
 
