@@ -1,111 +1,134 @@
-# @version ^0.3.7
-# code is dependent on activeUser
-from vyper.interfaces import ERC20
+# @version 0.3.7
 
-interface ActiveUser:
-    def getActiveUser(potentialUser: address) -> bool: view
-    def getAdmin(potentialAdmin: address) -> bool: view
+# Tech Spec Variables:
+# Community Pot -> Address
+# Active Students -> HashMap(wallet -> grade year) ## by "wallet" does the spec mean "address"? I assume so...
+# activeYear -> uint256
+# teachers -> dynarray (of addresses? not specified but I assume...)
+# creator -> address
 
+# electedOfficials -> dynarray (of addresses)
+# alreadyVotedOfficials -> dynarray (of addresses)
+# ARE THESE TWO NOT THE SAME!?
+# for this reason, I am rewriting:
+# potentialElectedOfficials -> dynarray (of addresses)
+# electedOfficials -> dynarray (of addresses)
+
+# votesForOfficials -> hashMap(address -> unit256)
+# officialVotingPeriod -> boolean
+
+# Address for community pot
+communityPot: public(address)
+# hashmap of active students
 activeStudents: public(HashMap[address, uint256])
-activeYear: public( uint256 )
-teachers: public(address[100]) 
-electedOfficials: public(address[3])
-votesLeaderBoard: public(uint256[3])
-alreadyVotedOfficials: public(HashMap [address, bool])
-votesForOfficials: public(HashMap [address, uint256])
+# year of current students
+activeYear: public(uint256)
+# list of teachers
+teachers: public(DynArray[address, 1024])
+# creator address
+creator: public(address)
+# list of candidates
+potentialElectedOfficials: public(DynArray[address, 1024])
+# list of admin
+electedOfficials: public(DynArray[address, 1024])
+# hash map keeping track of vote tally
+votesForOfficials: public(HashMap[address, uint256])
+# boolean for whether or not it is the voting period
 officialVotingPeriod: public(bool)
-alreadyVotedProposal: public(DynArray [address,100])
+# number of students
+numStudents: public(uint256)
+#array for proposal votes
 proposalVotes: public(DynArray[uint256, 3])
-activeUserContract: public(ActiveUser)
-    
+#address array for people who already voted
+alreadyVotedProposal: public(DynArray [address,100])
 
 
 @external
-def __init__ (activeUserAddress: address):
-    self.activeYear = 2023
-    self.activeUserContract = ActiveUser(activeUserAddress)
+def __init__():
     self.officialVotingPeriod = True
+    self.potentialElectedOfficials = []
+    self.electedOfficials = []
     self.proposalVotes=[0,0,0]
 
-
+@external
+def getVotes(account : address) -> uint256:
+    return self.votesForOfficials[account]
 
 @external
-def endVoteOfficial():
-    assert self.activeUserContract.getAdmin(block.coinbase)   
-    self.officialVotingPeriod = False
+def determineResult() -> address:
 
+    largest : uint256 = 0
+
+    voteCounts : DynArray[uint256, 10] = []
+
+    # NOTE: community pot should NEVER win. this is just a placeholder
+    bestCandidate : address = self.communityPot
+
+    if len(self.potentialElectedOfficials) > 0:
+        largest = self.votesForOfficials[self.potentialElectedOfficials[0]]
+        bestCandidate = self.potentialElectedOfficials[0]
+
+    for candidate in self.potentialElectedOfficials:
+        votes : uint256 = self.votesForOfficials[candidate]
+        voteCounts.append(votes)
+        if votes >= largest:
+            largest = votes
+            bestCandidate = candidate
+
+    self.electedOfficials.append(bestCandidate)
+    return bestCandidate
 
 @external
 def voteProposal(proposalNumber : uint256):
-    assert proposalNumber <= 2  
-    assert proposalNumber >= 0
-    for i in self.alreadyVotedProposal:
-        assert i != self
-    assert self.officialVotingPeriod == True
-    self.proposalVotes [proposalNumber] = self.proposalVotes [proposalNumber] + 1 
-    self.alreadyVotedProposal.append(self)
-    
+   assert proposalNumber <= 2 
+   assert proposalNumber >= 0
+   for i in self.alreadyVotedProposal:
+       assert i != self
+   assert self.officialVotingPeriod == True
+   self.proposalVotes [proposalNumber] = self.proposalVotes [proposalNumber] + 1
+   self.alreadyVotedProposal.append(self)
 
+
+
+## BEYOND THIS POINT, ALL METHODS ARE SOLELY FOR TESTING PURPOSES AND ARE NOT THE OFFICIAL METHODS
+## AGAIN, THESE ARE PROTOTYPES
+
+@external
+def getElectedOfficials() -> DynArray[address, 1024]:
+    return self.electedOfficials
+
+@external
+def getLengthOfPotential() -> uint256:
+    return len(self.potentialElectedOfficials)
+
+@external
+def addPotentialOfficial(account : address):
+    self.potentialElectedOfficials.append(account)
+    self.votesForOfficials[account] = 0
+
+@external
+def addStudent(wallet: address, gradYear: uint256):
+    self.activeStudents[wallet] = gradYear
+    self.numStudents = self.numStudents + 1
+
+@external
+def getLengthOfStudents() -> uint256:
+    return self.numStudents
+
+@external
+def checkIfActive (wallet: address) -> bool:
+    return (self.activeStudents[wallet] != 0)
+
+@external
+def vote(account : address):
+    self.votesForOfficials[account] += 1
+  
 @external
 @view
 def getProposalVotes (num : uint256) -> (uint256):
-    return self.proposalVotes[num]
-@external 
+   return self.proposalVotes[num]
+@external
 def setOfficalVotingPeriod(b: bool):
-    self.officialVotingPeriod = b
+   self.officialVotingPeriod = b
 
-    
-#def donate(to: Address, value: uint256):
-    # Check if the caller has sufficient balance
-   # assert self.balanceOf[msg.sender] >= value, "Insufficient balance"
- 
-    # Transfer the funds
-    #self.balanceOf[msg.sender] -= value
-    #self.balanceOf[to] += value
-
-@external
-def voteOfficial( ballot : address ):
-    assert self.activeUserContract.getActiveUser(msg.sender) 
-    if (self.officialVotingPeriod):
-        assert not self.alreadyVotedOfficials[msg.sender] == True
-        value : uint256 =  self.votesForOfficials[ballot] + 1 
-        self.votesForOfficials[ballot]=value
-        self.alreadyVotedOfficials[msg.sender]= True
-        if self.votesForOfficials[ballot] >= self.votesLeaderBoard[0]:
-            self.votesLeaderBoard[2]= self.votesLeaderBoard[1]
-            self.votesLeaderBoard[1]= self.votesLeaderBoard[0]
-            self.votesLeaderBoard[0]= value
-            self.electedOfficials[2]= self.electedOfficials[1] 
-            self.electedOfficials[1]= self.electedOfficials[0]
-            self.electedOfficials[0] = ballot
-        elif self.votesForOfficials[ballot] >= self.votesLeaderBoard[1]:
-            self.votesLeaderBoard[2]= self.votesLeaderBoard[1]
-            self.votesLeaderBoard[1]= value
-            self.electedOfficials[2]= self.electedOfficials[1]
-            self.electedOfficials[1]= ballot
-        elif self.votesForOfficials[ballot] >= self.votesLeaderBoard[2]:
-            self.votesLeaderBoard[2]= value
-            self.electedOfficials[2] = ballot
-
-@external
-def beginVoteOfficial(user: address):
-    isTeacher: bool = False
-    for i in self.teachers:
-        if (i == user):
-            isTeacher = True
-            assert self.officialVotingPeriod == True   
-        else:
-            isTeacher = False 
-    #for i in range (100):
-        #self.alreadyVotedOfficials.remove(i)
-        #self.votesForOfficials.remove(i)
-@external
-def getOfficalVotingPeriod() -> (bool):
-    return self.officialVotingPeriod
-
-
-
-
-
-
-       
+####################################################################################################
