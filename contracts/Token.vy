@@ -108,12 +108,12 @@ def transferFrom(_from : address, _to : address, _value : uint256) -> bool:
     transactionAmount: uint256 = _value - gamblingPotTax
 
     # add tax to gambling pot
-    self.balanceOf[self] += gamblingPotTax
+    self.balanceOf[self.gambling_pot] += gamblingPotTax
 
     self.balanceOf[_from] -= _value
 
     # log gambling tax
-    log Transfer(_from, self, gamblingPotTax)
+    log Transfer(_from, self.gambling_pot, gamblingPotTax)
 
     self.balanceOf[_to] += transactionAmount
     log Transfer(_from, _to, transactionAmount)
@@ -193,7 +193,3 @@ def generate_random_number(maxVal: uint256) -> uint256:
 @external
 def setGamblingPot(gp: address):
     self.gambling_pot = gp
-
-@external
-def getGamblingPot() -> address:
-    return self.gambling_pot
