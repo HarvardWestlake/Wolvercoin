@@ -6,5 +6,7 @@
 tests/__pycache__
 /app/.firebase/
 /app/node_modules/
+build/*
+node_modules/
 build/
-build/contracts/Token.json
+reports/
