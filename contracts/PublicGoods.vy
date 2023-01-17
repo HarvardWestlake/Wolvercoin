@@ -15,9 +15,6 @@ interface ActiveUser:
     def getIsActiveUser(potentialUser: address) -> bool: view
     def getIsAdmin(potentialAdmin: address) -> bool: view
 
-activeUserAddress: public(ActiveUser)
-
-
 struct Donation:
     donator: address
     amount: uint256
@@ -31,14 +28,15 @@ struct Good:
     nftTokenId: uint256
 
 goods: public(HashMap[uint256, Good]) # There can be up to 50 goods collecting donations
-erc20: ERC20WithAdminAccess
-erc721: ERC721WithAdminAccess
-
 goodsArr: public(DynArray[uint256, 100]) # A list of the nftTokenIds of all the goods currently active
 
+erc20: ERC20WithAdminAccess
+erc721: ERC721WithAdminAccess
+activeUser: ActiveUser
+
 @external
-def __init__(erc20address: address, erc721address: address):
-    
+def __init__(erc20address: address, erc721address: address, activeUserAddress: address):
+    self.activeUser = ActiveUser(activeUserAddress)
     self.erc20 = ERC20WithAdminAccess(erc20address)
     self.erc721 = ERC721WithAdminAccess(erc721address)
     return
@@ -169,8 +167,8 @@ def getCreator(nftTokenId: uint256) -> address:
 
 @internal
 def checkIfAdminAndUser(sender: address) -> bool:
-    isActive: bool = self.activeUserAddress.getIsActiveUser(msg.sender)
-    isAdmin: bool = self.activeUserAddress.getIsAdmin(msg.sender)
+    isActive: bool = self.activeUser.getIsActiveUser(msg.sender)
+    isAdmin: bool = self.activeUser.getIsAdmin(msg.sender)
     return isActive and isAdmin
 #endregion
 
