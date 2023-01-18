@@ -1,14 +1,14 @@
 # @version ^0.3.7
 
-interface IERC721:
+interface NFT:
     def transferFrom(_from: address, _to: address, _NFTID: uint256) -> bool: view
     
 interface Token:
-    def transferFrom(_from: address, _to: address, val: uint256) -> bool: view
+    def transfer(_to: address, val: uint256) -> bool: view
 
 
 token: public(Token)
-nft: public(IERC721)
+nft: public(NFT)
 nftId: public(uint256)
 
 seller: public(address)
@@ -32,7 +32,7 @@ def __init__(_startingPrice: uint256, _discountRate: uint256, _nft: address, _nf
     assert _startingPrice >= _discountRate * self.DURATION, "?"
 
     self.token = Token(_token)
-    self.nft = IERC721(_nft)
+    self.nft = NFT(_nft)
     self.nftId = _nftId
 
 
@@ -72,7 +72,7 @@ def getNftId() -> (uint256):
 
 
 @external
-def getNft() -> (Token):
+def getNft() -> (NFT):
     return self.nft
 
 
@@ -95,7 +95,7 @@ def buy():
 
     price: uint256 = self._getPrice()
     assert msg.sender.balance >= price, "Not enough money"
-    self.token.transferFrom(msg.sender, self.seller, price)
+    self.token.transfer(self.seller, price)
 
-    self.nft.transferFrom(self.seller, msg.sender, self.nftId)
+    self.nft.transferFrom(self.seller, msg.sender, self.nftId, )
     selfdestruct(self.seller)
