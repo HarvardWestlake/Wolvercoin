@@ -4,10 +4,17 @@ from web3.exceptions import ValidationError
 
 DEFAULT_GAS = 100000
 
+@pytest.fixture
+def activeUserContract(ActiveUser, accounts):
+    return ActiveUser.deploy(
+        accounts[0], # admin
+        {'from': accounts[0]}
+    )
 
 @pytest.fixture
-def erc721Contract(NFT, accounts):
+def erc721Contract(NFT, activeUserContract, accounts):
     return NFT.deploy(
+        activeUserContract,
         12345, # password
         {'from': accounts[3]}
     )
