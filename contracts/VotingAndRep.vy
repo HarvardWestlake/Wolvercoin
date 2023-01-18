@@ -261,8 +261,8 @@ def setDisabled(newState: bool):
 
 # checks if a given contract actually affects the DAO
 @internal
-def checkAffectsDao(toCheck: contract) -> bool:
-    return False
+def checkAffectsDao(toCheck: contract):
+    
 
 
 # all the setters for this class should assert that the sender is the affectsDao address
