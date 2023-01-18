@@ -10,6 +10,7 @@ interface ActiveUser:
     def getIsAdmin(potentialAdmin: address) -> bool: view
 
 interface Token:
+    def approve(_spender : address, _value : uint256) -> bool: nonpayable
     def generate_random_number(maxVal: uint256) -> uint256: view
     def getBalanceOf (_user: address) -> uint256: view
     def transferFrom(_from : address, _to : address, _value : uint256) -> bool: payable
@@ -39,7 +40,7 @@ event Crash:
     multiple: uint256
 
 @external
-def __init__(activeUserAddress: address, tokenContractAddress: address, wolvercoinContractAddress: address):
+def __init__(activeUserAddress: address, tokenContractAddress: address):
     self.pot = msg.sender
     self.justCrashed = False
     log CrashStart(block.timestamp, block.number)
@@ -137,8 +138,11 @@ def getCrashGambleHelper(useRandomNumber: uint256):
 @external 
 def placeBets(gambler: address, amount: uint256):
     assert msg.sender == gambler
-    assert self.justCrashed != False
-    assert self.tokenContract.getBalanceOf(msg.sender) > amount
+    assert self.justCrashed == False
+    
+    self.tokenContract.approve(gambler, amount)
+    
+    assert self.tokenContract.getBalanceOf(gambler) >= amount
     self.crashBets[gambler] = amount
     self.tokenContract.transferFrom(gambler, self, amount)
 

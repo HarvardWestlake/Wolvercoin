@@ -8,9 +8,17 @@ from brownie.network.state import Chain
 
 # . This runs before ALL tests
 @pytest.fixture
-def crashContract(Crash, Token, accounts):
-    tokenContract = Token.deploy("Wolvercoin", "WVC", 18, 1000, {'from': accounts[0]})
-    return Crash.deploy("0x0000000000000000000000000000000000000000", tokenContract, "0x0000000000000000000000000000000000000000", {'from': accounts[1]})
+def activeUserContract(ActiveUser, accounts):
+    return ActiveUser.deploy(accounts[0], {'from': accounts[0]})
+
+@pytest.fixture
+def erc20Contract(Token, accounts):
+    return Token.deploy("Wolvercoin", "WVC", 18, 1000,{'from': accounts[0]})
+
+@pytest.fixture
+def crashContract(Crash, activeUserContract, erc20Contract, accounts):
+    return Crash.deploy(activeUserContract, erc20Contract, {'from': accounts[1]})
+
 
 def test_crashFromRandom(crashContract, accounts):
     assert False == crashContract.getCrashFromRandomNumber(100).return_value
@@ -38,17 +46,18 @@ def test_crashUpdating(crashContract, accounts):
 # @dev basic testing for placeBet 
 # @author Ava Weinrot 
 
-@pytest.fixture
-def erc20Contract(Token, accounts):
-    return Token.deploy("wolvercoin", "wvc", 18, 1000,{'from': accounts[0]})
 
-@pytest.fixture
-def gamblingContract(erc20Contract, codeGambling, accounts):
-    return codeGambling.deploy(accounts[1], erc20Contract, {'from': accounts[0]})
 
-def test_placeBets(gamblingContract, erc20Contract, accounts):
-    assert erc20Contract.approve(gamblingContract.address, 12, {'from': accounts[2]})
-    gamblingContract.placeBets(accounts[2], 12,{'from': accounts[2]})
-    assert erc20Contract.getBalanceOf(accounts[1]) == 12
-    assert gamblingContract.getHashValue() == 12
+def test_placeBets(crashContract, erc20Contract, accounts):
+    #pot is accounts[1]
+    #gambler is accounts[2]
+    
+    #assert erc20Contract.approve(accounts[2], 12, {'from': accounts[2]})
+    
+    potBefore = erc20Contract.getBalanceOf(accounts[1])
+    crashContract.placeBets(accounts[2], 12,{'from': accounts[2]})
+    potAfter = erc20Contract.getBalanceOf(accounts[1])
+    
+    assert potAfter - potBefore == 12
+    assert crashContract.getHashValue() == 12
     
