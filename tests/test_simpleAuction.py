@@ -21,42 +21,61 @@ def tokenContract(Token, accounts):
         {'from': accounts[0]}
     )
 
-#@pytest.fixture
-#def activeUserContract(ActiveUser, accounts):
-#    return ActiveUser.deploy(
-#        accounts[0], # admin
-#        {'from': accounts[0]}
-#    )
+@pytest.fixture
+def activeUserContract(ActiveUser, accounts):
+    return ActiveUser.deploy(
+        accounts[0], # admin
+        {'from': accounts[0]}
+    )
 
 @pytest.fixture
-def NFTContract(NFT, accounts):
+def NFTContract(NFT, activeUserContract, accounts):
     return NFT.deploy(
+        activeUserContract,
         12345, # password
         {'from': accounts[0]}
     )
 
 @pytest.fixture
-def simpleAuctionContract(SimpleAuction, tokenContract, NFTContract, accounts):
+def simpleAuctionContract(SimpleAuction, tokenContract, NFTContract, activeUserContract, accounts):
     return SimpleAuction.deploy(
         tokenContract,
         NFTContract,
+        activeUserContract,
         {'from': accounts[0]}
     )    
+#
+#def test_create_auction_item(simpleAuctionContract, tokenContract, NFTContract, activeUserContract, accounts):
+#    admin = accounts[0]
+#    creator = accounts[1]
+#    ben = accounts[2] #beneficiary
+#
+#    activeUserContract.addAdmin(creator, {'from': admin})
+#    activeUserContract.whitelistContract(simpleAuctionContract, {'from':admin})
+#
+#    mintResult = NFTContract.mint(NFTContract, "https://example.com?doubledate", {'from': admin})
+#    mintedTokenId = mintResult.events["Transfer"]["tokenId"]
+#    assert simpleAuctionContract.createAuctionItem(
+#        mintedTokenId, # Token ID
+#        ben,
+#        chain.time() + 10000, # Start time
+#        chain.time() + 20000, # End time
+#        5,#minVal
+#        {'from': creator}
+#    )
 
-
-def test_auctionSimulation(simpleAuctionContract,tokenContract,NFTContract,accounts):
+def test_bid(simpleAuctionContract,tokenContract,NFTContract,activeUserContract,accounts):
     admin = accounts[0]
     creator = accounts[1]
     ben = accounts[2] #beneficiary
     bidder = accounts[3]
     bidder2 = accounts[4]
 
-    #activeUserContract.addAdmin(creator, {'from': admin})
-    #activeUserContract.whitelistContract(simpleAuctionContract, {'from':admin})
+    activeUserContract.addAdmin(creator, {'from': admin})
+    activeUserContract.whitelistContract(simpleAuctionContract, {'from':admin})
 
-    mintResult = NFTContract.mint(creator, "https://example.com?doubledate", {'from': admin})
+    mintResult = NFTContract.mint(NFTContract, "https://example.com?doubledate", {'from': admin})
     mintedTokenId = mintResult.events["Transfer"]["tokenId"]
-    assert NFTContract.approve(simpleAuctionContract,mintedTokenId, {'from': creator})
     assert simpleAuctionContract.createAuctionItem(
         mintedTokenId, # Token ID
         ben,
