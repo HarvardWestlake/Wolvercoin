@@ -57,6 +57,18 @@ def test_auctionSimulation(simpleAuctionContract,tokenContract,NFTContract,accou
     mintResult = NFTContract.mint(creator, "https://example.com?doubledate", {'from': admin})
     mintedTokenId = mintResult.events["Transfer"]["tokenId"]
     assert NFTContract.approve(simpleAuctionContract,mintedTokenId, {'from': creator})
+    # So this next assertion fails
+    '''
+    assert simpleAuctionContract.createAuctionItem(
+        mintedTokenId, # Token ID
+        ben,
+        chain.time() + 10000, # Start time
+        chain.time() + 20000, # End time
+        5,#minVal
+        {'from': creator}
+    )
+    '''
+    #During the Auction: 
     chain.sleep(15000)
 
     #Give accounts money; 30 and 40 
@@ -74,6 +86,7 @@ def test_auctionSimulation(simpleAuctionContract,tokenContract,NFTContract,accou
     assert str(tokenContract.getApprovedAmountOf(bidder2, simpleAuctionContract.address).return_value) =="40"
 
     #Bid #1
+    # And then this one also fails
     assert simpleAuctionContract.bid(30, mintedTokenId, {'from': bidder})
 
     chain.sleep(1000)
