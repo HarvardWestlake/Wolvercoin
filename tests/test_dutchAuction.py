@@ -16,27 +16,38 @@ def erc20Contract(Token, accounts):
     )
 
 @pytest.fixture
-def erc721Contract(NFT, accounts):
+def activeUserContract(ActiveUser, accounts):
+    return ActiveUser.deploy(
+        accounts[0], # admin
+        {'from': accounts[0]}
+    )
+
+@pytest.fixture
+def erc721Contract(NFT, activeUserContract, accounts):
     return NFT.deploy(
+        activeUserContract,
         12345, # password
         {'from': accounts[0]}
     )
 
 @pytest.fixture
-def dutchAuctionContract(DutchAuction, erc20Contract, erc721Contract, accounts):
+def dutchAuctionContract(DutchAuction, erc20Contract, erc721Contract, activeUserContract, accounts):
     return DutchAuction.deploy(
         erc20Contract,
         erc721Contract,
+        activeUserContract,
         {'from': accounts[0]}
     )
 
-def test_create_auction_item(dutchAuctionContract, erc20Contract, erc721Contract, accounts):
+def test_create_auction_item(dutchAuctionContract, erc20Contract, erc721Contract, activeUserContract, accounts):
     admin = accounts[0]
     creator = accounts[1]
 
-    mintResult = erc721Contract.mint(creator, "https://example.com?doubledate", {'from': admin})
+    activeUserContract.addAdmin(creator, {'from': admin})
+    activeUserContract.whitelistContract(dutchAuctionContract, {'from': admin})
+
+    mintResult = erc721Contract.mint(erc721Contract, "https://example.com?doubledate", {'from': admin})
     mintedTokenId = mintResult.events["Transfer"]["tokenId"]
-    assert erc721Contract.approve(dutchAuctionContract, mintedTokenId, {'from': creator})
     assert dutchAuctionContract.createAuctionItem(
         25, # Start price
         5, # End price
@@ -46,13 +57,15 @@ def test_create_auction_item(dutchAuctionContract, erc20Contract, erc721Contract
         {'from': creator}
     )
 
-def test_create_auction_item(dutchAuctionContract, erc20Contract, erc721Contract, accounts):
+def test_create_auction_item(dutchAuctionContract, erc20Contract, erc721Contract, activeUserContract, accounts):
     admin = accounts[0]
     creator = accounts[1]
 
-    mintResult = erc721Contract.mint(creator, "https://example.com?doubledate", {'from': admin})
+    activeUserContract.addAdmin(creator, {'from': admin})
+    activeUserContract.whitelistContract(dutchAuctionContract, {'from': admin})
+
+    mintResult = erc721Contract.mint(erc721Contract, "https://example.com?doubledate", {'from': admin})
     mintedTokenId = mintResult.events["Transfer"]["tokenId"]
-    assert erc721Contract.approve(dutchAuctionContract, mintedTokenId, {'from': creator})
     assert dutchAuctionContract.createAuctionItem(
         25, # Start price
         5, # End price
@@ -62,13 +75,15 @@ def test_create_auction_item(dutchAuctionContract, erc20Contract, erc721Contract
         {'from': creator}
     )
 
-def test_getters(dutchAuctionContract, erc20Contract, erc721Contract, accounts):
+def test_getters(dutchAuctionContract, erc20Contract, erc721Contract, activeUserContract, accounts):
     admin = accounts[0]
     creator = accounts[1]
 
-    mintResult = erc721Contract.mint(creator, "https://example.com?fieldtrip", {'from': admin})
+    activeUserContract.addAdmin(creator, {'from': admin})
+    activeUserContract.whitelistContract(dutchAuctionContract, {'from': admin})
+
+    mintResult = erc721Contract.mint(erc721Contract, "https://example.com?fieldtrip", {'from': admin})
     mintedTokenId = mintResult.events["Transfer"]["tokenId"]
-    assert erc721Contract.approve(dutchAuctionContract, mintedTokenId, {'from': creator})
     startTime = chain.time() + 10000
     endTime = chain.time() + 20000
     assert dutchAuctionContract.createAuctionItem(
@@ -86,13 +101,15 @@ def test_getters(dutchAuctionContract, erc20Contract, erc721Contract, accounts):
     assert dutchAuctionContract.getStartPrice(mintedTokenId, {'from': creator}).return_value == 25
     assert dutchAuctionContract.getEndPrice(mintedTokenId, {'from': creator}).return_value == 5
 
-def test_get_price(dutchAuctionContract, erc20Contract, erc721Contract, accounts):
+def test_get_price(dutchAuctionContract, erc20Contract, erc721Contract, activeUserContract, accounts):
     admin = accounts[0]
     creator = accounts[1]
 
-    mintResult = erc721Contract.mint(creator, "https://example.com?chocolate", {'from': admin})
+    activeUserContract.addAdmin(creator, {'from': admin})
+    activeUserContract.whitelistContract(dutchAuctionContract, {'from': admin})
+
+    mintResult = erc721Contract.mint(erc721Contract, "https://example.com?chocolate", {'from': admin})
     mintedTokenId = mintResult.events["Transfer"]["tokenId"]
-    assert erc721Contract.approve(dutchAuctionContract, mintedTokenId, {'from': creator})
     assert dutchAuctionContract.createAuctionItem(
         420, # Start price
         220, # End price
@@ -108,14 +125,16 @@ def test_get_price(dutchAuctionContract, erc20Contract, erc721Contract, accounts
     chain.sleep(5000)
     assert abs(dutchAuctionContract.getPrice(mintedTokenId).return_value - 220) < 2
 
-def test_buy(dutchAuctionContract, erc20Contract, erc721Contract, accounts):
+def test_buy(dutchAuctionContract, erc20Contract, erc721Contract, activeUserContract, accounts):
     admin = accounts[0]
     creator = accounts[1]
     donator = accounts[2]
 
-    mintResult = erc721Contract.mint(creator, "https://example.com?smokesesh", {'from': admin})
+    activeUserContract.addAdmin(creator, {'from': admin})
+    activeUserContract.whitelistContract(dutchAuctionContract, {'from': admin})
+
+    mintResult = erc721Contract.mint(erc721Contract, "https://example.com?smokesesh", {'from': admin})
     mintedTokenId = mintResult.events["Transfer"]["tokenId"]
-    assert erc721Contract.approve(dutchAuctionContract, mintedTokenId, {'from': creator})
     assert dutchAuctionContract.createAuctionItem(
         420, # Start price
         220, # End price
