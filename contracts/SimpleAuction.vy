@@ -13,9 +13,9 @@ interface NFT:
     def ownerOf(tokenID: uint256) -> address: nonpayable
     def transferFrom(_from: address, _to: address, tokenID: uint256): nonpayable
 
-#interface ActiveUser:
-#    def getIsActiveUser(potentialUser: address) -> bool: view
-#    def getIsAdmin(potentialAdmin: address) -> bool: view
+interface ActiveUser:
+    def getIsActiveUser(potentialUser: address) -> bool: view
+    def getIsAdmin(potentialAdmin: address) -> bool: view
 
 
 
@@ -39,7 +39,7 @@ pendingReturns: public(HashMap[address,uint256]) #map of people who have bid but
 pendingPeople: public(DynArray[address,300]) #List of people who are owed returns 
 wolvercoin: Token
 auctionNFT: NFT
-#activeUser: ActiveUser
+activeUser: ActiveUser
 
 event AuctionFinished:
     highestBidder: address
@@ -47,10 +47,10 @@ event AuctionFinished:
 
 #Constructor
 @external
-def __init__(wolvercoinAddress: address, nftAddress: address):#activeUserAddress: address
+def __init__(wolvercoinAddress: address, nftAddress: address, activeUserAddress: address):
     self.wolvercoin = Token(wolvercoinAddress)
     self.auctionNFT = NFT(nftAddress)
-    #self.activeUser = ActiveUser(activeUserAddress)
+    self.activeUser = ActiveUser(activeUserAddress)
 
 #Auction methods
 @external
@@ -59,7 +59,7 @@ def createAuctionItem(tokenID: uint256, benef:address, start: uint256, end: uint
     assert start >= block.timestamp
     assert block.timestamp < end
     assert self.auctionNFT.ownerOf(tokenID) == self.auctionNFT.address
-    #assert self.activeUser.getIsAdmin(msg.sender)
+    assert self.activeUser.getIsAdmin(msg.sender)
 
     self.auctionNFT.transferFrom(self.auctionNFT.address,self,tokenID)#During auction NFT is owned by auction contract
 
