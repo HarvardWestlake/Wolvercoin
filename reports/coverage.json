@@ -57,24 +57,24 @@
       "branches": {
         "CodeScoreCheck.compareHighScores": [
           0,
-          0,
+          2,
           2
         ]
       },
       "statements": {
         "CodeScoreCheck.compareHighScores": [
-          0,
+          1,
           4
         ]
       },
       "totals": {
         "branches": [
           0,
-          0,
+          2,
           2
         ],
         "statements": [
-          0,
+          1,
           4
         ]
       }
@@ -726,13 +726,13 @@
           [
             520,
             541,
-            "red",
+            "yellow",
             ""
           ],
           [
             554,
             582,
-            "red",
+            "yellow",
             ""
           ]
         ]
@@ -1430,7 +1430,7 @@
           [
             777,
             814,
-            "red",
+            "green",
             ""
           ],
           [
