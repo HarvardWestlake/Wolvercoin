@@ -5,6 +5,7 @@
 interface Token:
     def transferFrom(_from : address, _to : address, _value : uint256) -> bool: nonpayable
     def burnFrom(_to: address, _value: uint256): nonpayable
+    def getBalanceOf (_user: address) -> uint256: nonpayable
 
 interface ActiveUser:
     def getIsActiveUser(potentialUser: address) -> bool: view
@@ -22,7 +23,8 @@ def __init__(_wolvercoinContract: address, _activeUserContract: address):
 
 @external
 def stake (user: address, amountStaked: uint256):
-    assert self.activeUserContract.getIsActiveUser(user)
+    assert self.activeUserContract.getIsActiveUser (user)
+    assert amountStaked <= self.wolvercoinContract.getBalanceOf (user)
     self.stakeAmounts[user] += amountStaked
     self.stakeDates[user] = block.timestamp
     self.wolvercoinContract.transferFrom (user, self, amountStaked)
