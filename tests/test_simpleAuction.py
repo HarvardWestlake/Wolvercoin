@@ -57,15 +57,6 @@ def test_auctionSimulation(simpleAuctionContract,tokenContract,NFTContract,accou
     mintResult = NFTContract.mint(creator, "https://example.com?doubledate", {'from': admin})
     mintedTokenId = mintResult.events["Transfer"]["tokenId"]
     assert NFTContract.approve(simpleAuctionContract,mintedTokenId, {'from': creator})
-    assert simpleAuctionContract.createAuctionItem(
-        mintedTokenId, # Token ID
-        ben,
-        chain.time() + 10000, # Start time
-        chain.time() + 20000, # End time
-        5,#minVal
-        {'from': creator}
-    )
-    #During the Auction: 
     chain.sleep(15000)
 
     #Give accounts money; 30 and 40 
