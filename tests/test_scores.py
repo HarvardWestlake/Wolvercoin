@@ -4,7 +4,6 @@ import brownie
 
 @pytest.fixture
 def CodeScoreCheck(CodeScoreCheck, accounts):
-    CodeScoreCheck.__init__(accounts[0])
     return CodeScoreCheck.deploy(accounts[0], {'from': accounts[1]})
 
 def test_returnScore(CodeScoreCheck):
