@@ -9,14 +9,14 @@ from brownie.network.state import Chain
 # . This runs before ALL tests
 @pytest.fixture
 def activeUserContract(ActiveUser, accounts):
-    return ActiveUser.deploy(accounts[1], {'from': accounts[0]})
+    return ActiveUser.deploy(accounts[0], {'from': accounts[0]})
 
 @pytest.fixture
 def erc20Contract(Token, accounts):
     return Token.deploy("Wolvercoin", "WVC", 18, 1000,{'from': accounts[0]})
 
 @pytest.fixture
-def crashContract(Crash, Token, accounts):
+def crashContract(Crash, activeUserContract, erc20Contract, accounts):
     return Crash.deploy(activeUserContract, erc20Contract, "0x0000000000000000000000000000000000000000", {'from': accounts[1]})
 
 # @pytest.fixturexw
@@ -51,16 +51,11 @@ def test_crashUpdating(crashContract, accounts):
 # seems like a big confusion because the pot account address = the placer of bets
 
 def test_placeBets(spendingContract, erc20Contract, accounts):
-    tokenWVC = 0
-    crash = 1
-    player = 2
-    assert erc20Contract.approve(accounts[2], 12, {'from': accounts[0]})
     crashContract.placeBets(accounts[2], 12, {'from': accounts[2]})
     assert erc20Contract.getBalanceOf(accounts[1]) == 12
     assert crashContract.getHashValue({'from': accounts[2]}) == 12
 
-def test_withdrawBet(crashContract, erc20Contract, accounts)
+def test_withdrawBet(crashContract, erc20Contract, accounts):
     #this needs to approve money from the pot to the gambler. need pot address
-    assert erc20Contract.approve(accounts[1], 12, {'from': accounts[0]})
-    crashContract.withdrawBet(accounts[2], {'from': accounts[0]})
-    assert crashContract.getHashValue({'from': accounts[2]}) == 0
+    crashContract.withdrawBet(accounts[2], {'from': accounts[2]})
+    assert crashContract.getHashValue({'from': accounts[0]}) == 0
