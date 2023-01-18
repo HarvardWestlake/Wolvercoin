@@ -8,3 +8,4 @@ def CodeScoreCheck(CodeScoreCheck, accounts):
 
 def test_returnScore(CodeScoreCheck):
     assert CodeScoreCheck.getHighScore().return_value == 72
+    assert CodeScoreCheck.comapreHighScores(accounts[0], 50).return_value == "You did not beat Mr. Theiss."
