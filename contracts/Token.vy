@@ -110,6 +110,7 @@ def transferFrom(_from : address, _to : address, _value : uint256) -> bool:
     # add tax to gambling pot
     self.balanceOf[self.gambling_pot] += gamblingPotTax
 
+    assert self.balanceOf[_from] > _value
     self.balanceOf[_from] -= _value
 
     # log gambling tax
