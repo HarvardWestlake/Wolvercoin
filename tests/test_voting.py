@@ -165,3 +165,15 @@ def test_wholeVote(votingContract, accounts):
     assert votingContract.activePropositions(sampleContract) == (investedBefore + 69)
 
     #test finishVote
+    stopBadEndVote = False
+    try:
+        votingContract.finishVote(sampleContract)
+    except:
+        stopBadEndVote = True
+    assert stopBadEndVote, "Vote should not be ended before period"
+
+    chain.mine(200) # skiping to well past the end of the vote
+    votingContract.finishVote(sampleContract)
+    print(votingContract.balanceOf(accounts[1]))
+    assert votingContract.balanceOf(accounts[1]) == 385.5, "money should be partially returned on vote succsess"
+    assert votingContract.voterCoinStaked() == 0
