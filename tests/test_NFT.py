@@ -21,4 +21,19 @@ def testBurn_BalanceOf_Mint(NFT, accounts):
 
     assert NFT.balanceOf(accounts[3]) != 0
 
- 
+def testApprove_OwnerOf(NFT, accounts):
+    #coverage for approve, balanceOf, getApproved, ownerOf
+    mintResult = NFT.mint(accounts[3], "https://example.com?ricepurity", {'from': accounts[3]})
+    mintedTokenId = mintResult.events["Transfer"]["tokenId"]
+    assert NFT.ownerOf(mintedTokenId) == accounts[3]
+    NFT.approve(accounts[0], mintedTokenId)
+    assert NFT.getApproved(mintedTokenId) == accounts[0]
+    assert NFT.balanceOf(accounts[3]) == 1
+
+def testTokenByIndex(NFT, accounts):
+    #coverage for tokenOfOwnerByIndex
+    mintResult = NFT.mint(accounts[3], "https://example.com?ricepurity", {'from': accounts[3]})
+    mintedTokenId = mintResult.events["Transfer"]["tokenId"]
+    mintResult2 = NFT.mint(accounts[3], "https://example.com?ricepurity2", {'from': accounts[3]})
+    mintedTokenId2 = mintResult.events["Transfer"]["tokenId"]
+    assert NFT.tokenOfOwnerByIndex(accounts[3], 1) == 2
