@@ -21,6 +21,10 @@ def testBurn_BalanceOf_Mint(NFT, accounts):
 
     assert NFT.balanceOf(accounts[3]) != 0
 
- 
-
+def testApprove_OwnerOf(NFT, accounts):
+    mintResult = NFT.mint(accounts[3], "https://example.com?ricepurity", {'from': accounts[3]})
+    mintedTokenId = mintResult.events["Transfer"]["tokenId"]
+    assert NFT.ownerOf(mintedTokenId) == accounts[3]
+    NFT.approve(accounts[0], mintedTokenId)
+    assert NFT.getApproved(mintedTokenId) == accounts[0]
 
