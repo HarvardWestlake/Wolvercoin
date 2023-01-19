@@ -103,8 +103,9 @@ def getLengthOfPotential() -> uint256:
 
 @external
 def addPotentialOfficial(account : address):
-    self.potentialElectedOfficials.append(account)
-    self.votesForOfficials[account] = 0
+    if(self.activeStudents[account] != 0):
+        self.potentialElectedOfficials.append(account)
+        self.votesForOfficials[account] = 0
 
 @external
 def addStudent(wallet: address, gradYear: uint256):
@@ -122,6 +123,29 @@ def checkIfActive (wallet: address) -> bool:
 @external
 def vote(account : address):
     self.votesForOfficials[account] += 1
+
+@external
+def beginVoteOfficial(user: address) -> (bool):
+    isTeacher: bool = False
+    for i in self.teachers:
+        if (i == user):
+            isTeacher = True
+            assert self.officialVotingPeriod == True  
+        else:
+            isTeacher = False
+    return isTeacher
+            
+@external
+def getOfficalVotingPeriod() -> (bool):
+    return self.officialVotingPeriod
+@external
+def getTeachers() -> (address):
+    return self.teachers[0]
+@external 
+def getElectedOffical() -> (address):
+    return self.electedOfficials[0]
+
+
 
 @external
 @view

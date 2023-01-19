@@ -10,6 +10,10 @@ interface ERC721WithAdminAccess:
     def ownerOf(_tokenId: uint256) -> address: nonpayable
     def transferFrom(_from: address, _to: address, _tokenId: uint256): nonpayable
 
+interface ActiveUser:
+    def getIsActiveUser(potentialUser: address) -> bool: view
+    def getIsAdmin(potentialAdmin: address) -> bool: view
+
 struct Donation:
     donator: address
     amount: uint256
@@ -23,13 +27,15 @@ struct Good:
     nftTokenId: uint256
 
 goods: public(HashMap[uint256, Good]) # There can be up to 50 goods collecting donations
-erc20: ERC20WithAdminAccess
-erc721: ERC721WithAdminAccess
-
 goodsArr: public(DynArray[uint256, 100]) # A list of the nftTokenIds of all the goods currently active
 
+erc20: ERC20WithAdminAccess
+erc721: ERC721WithAdminAccess
+activeUser: ActiveUser
+
 @external
-def __init__(erc20address: address, erc721address: address):
+def __init__(erc20address: address, erc721address: address, activeUserAddress: address):
+    self.activeUser = ActiveUser(activeUserAddress)
     self.erc20 = ERC20WithAdminAccess(erc20address)
     self.erc721 = ERC721WithAdminAccess(erc721address)
     return
@@ -43,11 +49,12 @@ def findIndexOfGoodInGoodsArr(nftTokenId: uint256) -> int256:
 
 @external
 def createGood(goal: uint256, nftTokenId: uint256):
+    assert self.checkIfAdminAndUser(msg.sender)
     assert goal > 0
-    assert self.erc721.ownerOf(nftTokenId) == msg.sender
+    assert self.erc721.ownerOf(nftTokenId) == self.erc721.address
 
     # Move the NFT to the property of this contract for safekeeping
-    self.erc721.transferFrom(msg.sender, self, nftTokenId)
+    self.erc721.transferFrom(self.erc721.address, self, nftTokenId)
 
     self.goods[nftTokenId] = Good({
         goal: goal,
@@ -112,7 +119,7 @@ def complete(nftTokenId: uint256):
 
     if good.totalDonations < good.goal:
         # Refund all the donations and transfer the NFT back
-        self.erc721.transferFrom(self, good.creator, good.nftTokenId)
+        self.erc721.transferFrom(self, self.erc721.address, good.nftTokenId)
         for i in range(50):
             if i >= good.donationsLen:
                 break
@@ -156,4 +163,10 @@ def getCreator(nftTokenId: uint256) -> address:
     assert good.nftTokenId == nftTokenId
     return good.creator
 
+@internal
+def checkIfAdminAndUser(sender: address) -> bool:
+    isActive: bool = self.activeUser.getIsActiveUser(msg.sender)
+    isAdmin: bool = self.activeUser.getIsAdmin(msg.sender)
+    return isActive and isAdmin
 #endregion
+
