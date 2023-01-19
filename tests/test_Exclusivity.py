@@ -4,40 +4,35 @@ import pytest
 import brownie
 from web3.exceptions import ValidationError
 
-@pytest.fixture #also there's this exclusivity contract used by a set of methods and another similar thing a bit below written for another set of methods, just to avoid confusion
-def exclusivityContract(Exclusivity, accounts):
-    return Exclusivity.deploy("0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", {'from': accounts[1]})
 
-@pytest.fixture #this line needs to be removed for test to actually run, also this test doesn't compile when the @pytest.fixture thing is removed
-def testVote(Exclusivity,accounts):
-    Exclusivity.deploy("0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", {'from': accounts[1]})
-    exclusivity: Exclusivity=Exclusivity()
-    Exclusivity.classSize = 100
-    exclusivity.topicsAddress.append(0xf34b09E22f5115af490eeb7460304aB80c90399E)
-    exclusivity.vote(0xf34b09E22f5115af490eeb7460304aB80c90399E)
+
+@pytest.fixture
+def testVote(ExclusivityContract,accounts):
+    #Exclusivity.deploy("0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", {'from': accounts[1]})
+    #exclusivity: Exclusivity=Exclusivity()
+    ExclusivityContract.classSize = 100
+    ExclusivityContract.topicsAddress.append(accounts[0])
+    ExclusivityContract.vote(accounts[0])
     valueChanged: bool=False
-    if balance(0xf34b09E22f5115af490eeb7460304aB80c90399E)>=1:
-        #balance thing may be source of error, needs to be address.balance thing or whatever it said on the vyper doc for address methods
+    if ExclusivityContract.balance(accounts[0])>=1:#balance thing may be source of error, needs to be a
             valueChanged = True
     assert valueChanged
     valueChanged = False
     
-    exclusivity.admin[0xf34b09E22f5115af490eeb7460304aB80c90399E] = True
-    exclusivity.vote(0xf34b09E22f5115af490eeb7460304aB80c90399E)
-    if balance(0xf34b09E22f5115af490eeb7460304aB80c90399E)>=16:
+    ExclusivityContract.admin[accounts[0]] = True
+    ExclusivityContract.vote(accounts[0])
+    if ExclusivityContract.balance(accounts[0])>=16:
             valueChanged = True
     assert valueChanged
     
-@pytest.fixture
-def testTally(Exclusivity,accounts):
-    Exclusivity.deploy("0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", {'from': accounts[1]})
-    exclusivity: Exclusivity=Exclusivity()
-    exclusivity.percentage = 0.51
-    exclusivity.tallyVotes(0xf34b09E22f5115af490eeb7460304aB80c90399E)
+
+def testTally(ExclusivityContract,accounts):
+    ExclusivityContract.percentage = 0.51
+    ExclusivityContract.tallyVotes(accounts[0])
     
     removed: bool=True
-    for studentAddress in exclusivity.topicsAddress:
-        if studentAddress==0xf34b09E22f5115af490eeb7460304aB80c90399E:
+    for studentAddress in ExclusivityContract.getTopicsList().return_value:
+        if studentAddress==accounts[0]:
             removed = False
             break
     assert removed
