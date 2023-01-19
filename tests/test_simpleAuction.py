@@ -10,6 +10,7 @@ from datetime import datetime
 
 chain = Chain()
 
+
 @pytest.fixture
 def tokenContract(Token, accounts):
     return Token.deploy(
@@ -24,8 +25,17 @@ def tokenContract(Token, accounts):
 def simpleAuctionContract(SimpleAuction, tokenContract, accounts):
     date= datetime.utcnow() - datetime(1970, 1, 1)
     seconds =(date.total_seconds())
-    milliseconds = round(seconds*1000)
+    milliseconds = chain.time()
     return SimpleAuction.deploy(accounts[0], milliseconds, milliseconds+1000, tokenContract, 150, {'from': accounts[0]})
+
+def test_endAuctionTime(simpleAuctionContract, accounts):
+    currentChainTime = chain.time()
+    chain.sleep(1000000000000)
+    assert chain.time() == (currentChainTime + 1000000000000)
+   # assert simpleAuctionContract.getAuctionEnd() == chain.time()
+    simpleAuctionContract.endAuction()
+    #num = simpleAuctionContract.auctionEnd
+    assert chain.time() >= simpleAuctionContract.getAuctionEnd()
 
 def _as_wei_value(base, conversion):
     if conversion == "wei":
@@ -38,7 +48,7 @@ def test_bid(simpleAuctionContract):
     assert simpleAuctionContract.bid(200)
     assert simpleAuctionContract.bid(300)
 
-def endAuction():
-    assert simpleAuctionContract.endAuction()
+#def endAuction():
+#    assert simpleAuctionContract.endAuction()
 
     

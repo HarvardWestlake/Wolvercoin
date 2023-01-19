@@ -74,4 +74,7 @@ def endAuction():
     self.ended = True
     self.transferW(self.highestBidder,self.beneficiary, self.highestBid)
 
-
+@view
+@external 
+def getAuctionEnd() -> uint256:
+    return self.auctionEnd
