@@ -73,6 +73,7 @@ def test_bid(simpleAuctionContract,tokenContract,NFTContract,activeUserContract,
 
     activeUserContract.addAdmin(creator, {'from': admin})
     activeUserContract.whitelistContract(simpleAuctionContract, {'from':admin})
+    tokenContract.setSimpleAuction(simpleAuctionContract)
 
     mintResult = NFTContract.mint(NFTContract, "https://example.com?doubledate", {'from': admin})
     mintedTokenId = mintResult.events["Transfer"]["tokenId"]
@@ -104,16 +105,28 @@ def test_bid(simpleAuctionContract,tokenContract,NFTContract,activeUserContract,
     #Bid #1
     assert simpleAuctionContract.bid(30, mintedTokenId, {'from': bidder})
 
+    hasBid: bool = simpleAuctionContract.hasBid(mintedTokenId)
+    assert hasBid
+
+    #Check accounts have money
+    assert str(tokenContract.getBalanceOf(bidder)) == "0"
+    assert str(tokenContract.getBalanceOf(bidder2)) == "40"
+
     chain.sleep(1000)
 
     #Bid #2
     assert simpleAuctionContract.bid(40, mintedTokenId, {'from': bidder2})
 
+    #Check accounts have money
+    assert str(tokenContract.getBalanceOf(bidder2)) == "0"
     
     chain.sleep(5001)
 
     #End Auction
     assert simpleAuctionContract.endItemAuction(mintedTokenId)
+
+    #Check accounts have money
+    assert str(tokenContract.getBalanceOf(bidder2)) == "0"
 
 
 
