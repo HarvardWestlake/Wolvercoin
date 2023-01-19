@@ -118,6 +118,7 @@ def test_bid(simpleAuctionContract,tokenContract,NFTContract,activeUserContract,
     assert simpleAuctionContract.bid(40, mintedTokenId, {'from': bidder2})
 
     #Check accounts have money
+    assert str(tokenContract.getBalanceOf(bidder)) == "0"
     assert str(tokenContract.getBalanceOf(bidder2)) == "0"
     
     chain.sleep(5001)
@@ -126,6 +127,7 @@ def test_bid(simpleAuctionContract,tokenContract,NFTContract,activeUserContract,
     assert simpleAuctionContract.endItemAuction(mintedTokenId)
 
     #Check accounts have money
+    assert str(tokenContract.getBalanceOf(bidder)) == "30"
     assert str(tokenContract.getBalanceOf(bidder2)) == "0"
 
 

@@ -93,9 +93,8 @@ def bid(bidAmount:uint256, tokenID: uint256):
     assert self.wolvercoin.getBalanceOf(msg.sender)>=bidAmount
 
     #Managing wolvercoin: return to previous highest, receive *new* highest
-    self.wolvercoin.transferFromTaxFree(msg.sender,self,bidAmount)
-    if (auctionItem.highestBid != 0):
-        self.wolvercoin.transferFromTaxFree(self,auctionItem.highestBidder,auctionItem.highestBid)
+    assert self.wolvercoin.transferFromTaxFree(msg.sender,self,bidAmount)
+    assert self.wolvercoin.transferFromTaxFree(self,auctionItem.highestBidder,auctionItem.highestBid)
 
     #Assign highestBidder and highestBid to new 
     auctionItem.highestBidder = msg.sender
@@ -119,4 +118,13 @@ def endItemAuction(tokenID: uint256):
 @external
 def hasBid(tokenID: uint256) -> bool:
     return self.auctionItems[tokenID].hasBid
+
+#@external
+#def highestBid(tokenID: uint256, comparison: uint256) -> bool:
+#    if (self.auctionItems[tokenID].highestBid == comparison):
+#        return True
+#    else:
+#        return False
+
+
 
