@@ -4,6 +4,9 @@ import pytest
 import brownie
 from web3.exceptions import ValidationError
 
+
+
+@pytest.fixture
 def testVote(ExclusivityContract,accounts):
     #Exclusivity.deploy("0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", {'from': accounts[1]})
     #exclusivity: Exclusivity=Exclusivity()
@@ -28,7 +31,7 @@ def testTally(ExclusivityContract,accounts):
     ExclusivityContract.tallyVotes(accounts[0])
     
     removed: bool=True
-    for studentAddress in ExclusivityContract.getTopicsList():
+    for studentAddress in ExclusivityContract.getTopicsList().return_value:
         if studentAddress==accounts[0]:
             removed = False
             break

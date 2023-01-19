@@ -4,12 +4,11 @@
 interface ActiveUser:
     def getActiveUser(potentialUser: address) -> bool: view
     def getAdmin(potentialAdmin: address) -> bool: view
-    def getTopicsList()->DynArray[address,1000]: view
     
 activeUserContract: public(ActiveUser)
 
 admin: HashMap[address, bool]
-topicsAddress: DynArray[address, 1000]
+topicsAddress: public(DynArray[address, 1000])
 percentage: uint256
 classSize: uint256
 @external
