@@ -11,6 +11,7 @@ DEFAULT_GAS = 100000
 
 chain = Chain()
 
+
 @pytest.fixture
 def tokenContract(Token, accounts):
     return Token.deploy(
@@ -27,6 +28,11 @@ def activeUserContract(ActiveUser, accounts):
         accounts[0], # admin
         {'from': accounts[0]}
     )
+def simpleAuctionContract(SimpleAuction, tokenContract, accounts):
+    date = datetime.utcnow() - datetime(1970, 1, 1)
+    seconds =(date.total_seconds())
+    milliseconds = chain.time()
+    return SimpleAuction.deploy(accounts[0], milliseconds, milliseconds+1000, tokenContract, 150, {'from': accounts[0]})
 
 @pytest.fixture
 def NFTContract(NFT, activeUserContract, accounts):
@@ -35,6 +41,37 @@ def NFTContract(NFT, activeUserContract, accounts):
         12345, # password
         {'from': accounts[0]}
     )
+def test_endAuctionTime(activeUserContract, simpleAuctionContract, accounts, NFTContract):
+    admin = accounts[0]
+    creator = accounts[1]
+    ben = accounts[2] #beneficiary
+    bidder = accounts[3]
+    bidder2 = accounts[4]
+    activeUserContract.addAdmin(creator, {'from': admin})
+    activeUserContract.whitelistContract(simpleAuctionContract, {'from':admin})
+
+    mintResult = NFTContract.mint(NFTContract, "https://example.com?doubledate", {'from': admin})
+    mintedTokenId = mintResult.events["Transfer"]["tokenId"]
+    assert simpleAuctionContract.createAuctionItem(
+        mintedTokenId, # Token ID
+        ben,
+        chain.time() + 10000, # Start time
+        chain.time() + 20000, # End time
+        5,#minVal
+        {'from': creator}
+    )
+    currentChainTime = chain.time()
+    chain.sleep(1000000000000)
+    assert chain.time() == (currentChainTime + 1000000000000)
+    simpleAuctionContract.endItemAuction(mintedTokenId)
+    assert chain.time() >= simpleAuctionContract.getAuctionEnd(mintedTokenId)
+
+def _as_wei_value(base, conversion):
+    if conversion == "wei":
+        return base
+    if conversion == "gwei":
+        return base * (10 ** 9)
+    return base * (10 ** 18)
 
 @pytest.fixture
 def simpleAuctionContract(SimpleAuction, tokenContract, NFTContract, activeUserContract, accounts):
@@ -64,7 +101,8 @@ def simpleAuctionContract(SimpleAuction, tokenContract, NFTContract, activeUserC
 #        {'from': creator}
 #    )
 
-def test_bid(simpleAuctionContract,tokenContract,NFTContract,activeUserContract,accounts):
+def endAuction():
+    assert simpleAuctionContract.endAuction()
     admin = accounts[0]
     creator = accounts[1]
     ben = accounts[2] #beneficiary
