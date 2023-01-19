@@ -56,26 +56,26 @@
     "CodeScoreCheck": {
       "branches": {
         "CodeScoreCheck.compareHighScores": [
-          1,
+          2,
           2,
           2
         ]
       },
       "statements": {
         "CodeScoreCheck.compareHighScores": [
-          2,
-          3
+          4,
+          4
         ]
       },
       "totals": {
         "branches": [
-          1,
+          2,
           2,
           2
         ],
         "statements": [
-          2,
-          3
+          4,
+          4
         ]
       }
     },
@@ -726,7 +726,7 @@
           [
             520,
             541,
-            "yellow",
+            "green",
             ""
           ],
           [
@@ -1428,26 +1428,32 @@
       "CodeScoreCheck": {
         "0": [
           [
-            777,
-            814,
+            811,
+            848,
             "green",
             ""
           ],
           [
             702,
-            750,
+            723,
             "green",
             ""
           ],
           [
-            833,
-            884,
-            "red",
+            736,
+            784,
+            "green",
             ""
           ],
           [
-            931,
-            958,
+            867,
+            918,
+            "green",
+            ""
+          ],
+          [
+            965,
+            992,
             "green",
             ""
           ]
