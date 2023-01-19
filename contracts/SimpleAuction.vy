@@ -6,6 +6,7 @@
 interface Token:
     def getBalanceOf(_address:address) -> uint256: nonpayable
     def transferFrom(sender:address, receiver:address, val:uint256) -> bool: nonpayable
+    def transferFromTaxFree(sender:address, receiver:address, val:uint256) -> bool: nonpayable
     def approve(_spender : address, _value : uint256) -> bool: nonpayable
 
 
@@ -16,6 +17,7 @@ interface NFT:
 interface ActiveUser:
     def getIsActiveUser(potentialUser: address) -> bool: view
     def getIsAdmin(potentialAdmin: address) -> bool: view
+    def setSimpleAuction(simpleAuctionAddress: address) -> bool: view
 
 
 
@@ -69,7 +71,7 @@ def createAuctionItem(tokenID: uint256, benef:address, start: uint256, end: uint
         auctionStart: start,
         auctionEnd: end,
         highestBidder: msg.sender,
-        highestBid:minVal,
+        highestBid: 0,
         minValue: minVal,
         ended: False,
         hasBid: False,
@@ -82,6 +84,7 @@ def createAuctionItem(tokenID: uint256, benef:address, start: uint256, end: uint
 @nonpayable
 def bid(bidAmount:uint256, tokenID: uint256):
     auctionItem: AuctionItem = self.auctionItems[tokenID]
+    
     #Conditions
     assert block.timestamp >= auctionItem.auctionStart
     assert block.timestamp < auctionItem.auctionEnd
@@ -90,9 +93,8 @@ def bid(bidAmount:uint256, tokenID: uint256):
     assert self.wolvercoin.getBalanceOf(msg.sender)>=bidAmount
 
     #Managing wolvercoin: return to previous highest, receive *new* highest
-    self.wolvercoin.transferFrom(msg.sender,self,bidAmount)
-    if auctionItem.hasBid:
-        self.wolvercoin.transferFrom(self,auctionItem.highestBidder,auctionItem.highestBid)
+    assert self.wolvercoin.transferFromTaxFree(msg.sender,self,bidAmount)
+    assert self.wolvercoin.transferFromTaxFree(self,auctionItem.highestBidder,auctionItem.highestBid)
 
     #Assign highestBidder and highestBid to new 
     auctionItem.highestBidder = msg.sender
@@ -112,4 +114,17 @@ def endItemAuction(tokenID: uint256):
     #Transfer NFT ownership from contract to highest bidder
     self.auctionNFT.transferFrom(self,auctionItem.highestBidder,tokenID)
     self.auctionItems[tokenID] = empty(AuctionItem)
+
+@external
+def hasBid(tokenID: uint256) -> bool:
+    return self.auctionItems[tokenID].hasBid
+
+#@external
+#def highestBid(tokenID: uint256, comparison: uint256) -> bool:
+#    if (self.auctionItems[tokenID].highestBid == comparison):
+#        return True
+#    else:
+#        return False
+
+
 

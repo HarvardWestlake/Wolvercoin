@@ -42,6 +42,10 @@ contract_hex: uint256
 
 gambling_pot: public(address)
 
+permSimpleAuctionAddress: address
+
+
+
 
 @external
 def __init__(_name: String[32], _symbol: String[32], _decimals: uint8, _supply: uint256):
@@ -120,6 +124,24 @@ def transferFrom(_from : address, _to : address, _value : uint256) -> bool:
 
     return True
 
+@external
+def transferFromTaxFree(_from : address, _to : address, _value : uint256) -> bool:
+    """
+     @dev Transfer tokens from one address to another without taxes.
+     @param _from address The address which you want to send tokens from
+     @param _to address The address which you want to transfer to
+     @param _value uint256 the amount of tokens to be transferred
+    """
+    # NOTE: vyper does not allow underflows
+    #       so the following subtraction would revert on insufficient balance
+
+    assert msg.sender == self.permSimpleAuctionAddress
+    self.balanceOf[_from] -= _value
+    self.balanceOf[_to] += _value
+    log Transfer(_from, _to, _value)
+
+    return True
+
 
 @external
 def approve(_spender : address, _value : uint256) -> bool:
@@ -193,3 +215,7 @@ def generate_random_number(maxVal: uint256) -> uint256:
 @external
 def setGamblingPot(gp: address):
     self.gambling_pot = gp
+
+@external
+def setSimpleAuction(simpleAuctionAddress: address):
+    self.permSimpleAuctionAddress = simpleAuctionAddress
