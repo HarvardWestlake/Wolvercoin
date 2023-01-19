@@ -15,7 +15,7 @@ def token(Token, accounts):
 
 def test_gambling_pot_tax(accounts, token):
     token.setGamblingPot(accounts[2])
-
+    
     sender_balance = token.balanceOf(accounts[0])
     receiver_balance = token.balanceOf(accounts[1])
     gambling_pot_balance = token.balanceOf(token.gambling_pot())
