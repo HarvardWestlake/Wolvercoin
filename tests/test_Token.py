@@ -14,16 +14,15 @@ def erc20Contract(Token, accounts):
     )
 
 def test_mint(erc20Contract, accounts):
-    initBalance: uint256 = erc20Contract.balanceOf(accounts[1])
-    erc20Contract.mint(accounts[1], 100)
-    assert erc20Contract.balanceOf(accounts[0]) == initBalance + 100
+    initBalance: uint256 = erc20Contract.balanceOf(accounts[1], {'from': accounts[0]})
+    erc20Contract.mint(accounts[1], 100, {'from': accounts[0]})
+    assert erc20Contract.balanceOf(accounts[1], {'from': accounts[0]}) == initBalance + 100
 
 def test_burn(accounts, erc20Contract):
-    initBalance: uint256 = erc20Contract.balanceOf(accounts[2])
-    erc20Contract.mint(accounts[2], 100)
-    senderAccount = accounts[2]
-    erc20Contract.burn(50)
-    assert erc20Contract.balanceOf(accounts[2]) == initBalance + 50
+    initBalance: uint256 = erc20Contract.balanceOf(accounts[2], {'from': accounts[0]})
+    erc20Contract.mint(accounts[2], 100, {'from': accounts[0]})
+    erc20Contract.burn(50, {'from': accounts[2]})
+    assert erc20Contract.balanceOf(accounts[2], {'from': accounts[0]}) == initBalance + 50
 
 # def test_takeTenPercentNoTransfers(erc20Contract):
 #     #assert erc20Contract.takeTenPercent().return_value == 0
