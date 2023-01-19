@@ -35,6 +35,8 @@ electedOfficials: public(DynArray[address, 1024])
 votesForOfficials: public(HashMap[address, uint256])
 # boolean for whether or not it is the voting period
 officialVotingPeriod: public(bool)
+# number of students
+numStudents: public(uint256)
 
 @external
 def __init__():
@@ -83,8 +85,22 @@ def getLengthOfPotential() -> uint256:
 
 @external
 def addPotentialOfficial(account : address):
-    self.potentialElectedOfficials.append(account)
-    self.votesForOfficials[account] = 0
+    if(self.activeStudents[account] != 0):
+        self.potentialElectedOfficials.append(account)
+        self.votesForOfficials[account] = 0
+
+@external
+def addStudent(wallet: address, gradYear: uint256):
+    self.activeStudents[wallet] = gradYear
+    self.numStudents = self.numStudents + 1
+
+@external
+def getLengthOfStudents() -> uint256:
+    return self.numStudents
+
+@external
+def checkIfActive (wallet: address) -> bool:
+    return (self.activeStudents[wallet] != 0)
 
 @external
 def vote(account : address):

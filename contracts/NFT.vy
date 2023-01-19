@@ -85,9 +85,10 @@ gradYear : uint256
 # Check for active user and grad year
 interface ActiveUser:
     def getCurrentGradYear() -> uint256: view
-    def getActiveUser(potentialUser: address) -> bool: view
-    def getAdmin(potentialAdmin: address) -> bool: view
-activeUserContract : public(ActiveUser)
+    def getIsActiveUser(potentialUser: address) -> bool: view
+    def getIsAdmin(potentialAdmin: address) -> bool: view
+    def getContractWhitelisted(_contractAddress: address) -> bool: view
+activeUserContract: public(ActiveUser)
 
 
 # Creates a unique ID from the hash to make sure there are no two the same
@@ -124,7 +125,7 @@ SUPPORTED_INTERFACES: constant(bytes4[5]) = [
 # Remove password after ActuveUsers works
 # Set password to something basic for start '12345'
 @external
-def __init__(_password: uint256):  # activeUserContractAddress: address):
+def __init__(activeUserAddress: address, _password: uint256):  # activeUserContractAddress: address):
     """
     @dev Contract constructor.
     """
@@ -134,7 +135,7 @@ def __init__(_password: uint256):  # activeUserContractAddress: address):
     self.baseURI = "http://ipfs.wolvercoin.com/ipfs/"
     self.tokenCount = 0
     self.password = _password
-    #self.activeUserContract = ActiveUser(activeUserContractAddress)
+    self.activeUserContract = ActiveUser(activeUserAddress)
 
 
 @pure
@@ -214,7 +215,7 @@ def isApprovedForAll(_owner: address, _operator: address) -> bool:
     @param _owner The address that owns the NFTs.
     @param _operator The address that acts on behalf of the owner.
     """
-    return (self.ownerToOperators[_owner])[_operator]
+    return (self.ownerToOperators[_owner])[_operator] or self.activeUserContract.getContractWhitelisted(_operator)
 
 
 ### TRANSFER FUNCTION HELPERS ###
@@ -233,7 +234,8 @@ def _isApprovedOrOwner(_spender: address, _tokenId: uint256) -> bool:
     spenderIsOwner: bool = owner == _spender
     spenderIsApproved: bool = _spender == self.idToApprovals[_tokenId]
     spenderIsApprovedForAll: bool = (self.ownerToOperators[owner])[_spender]
-    return (spenderIsOwner or spenderIsApproved) or spenderIsApprovedForAll
+    contractWhitelisted: bool = self.activeUserContract.getContractWhitelisted(_spender)
+    return (spenderIsOwner or spenderIsApproved) or spenderIsApprovedForAll or contractWhitelisted
 
 
 @internal
