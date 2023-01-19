@@ -18,8 +18,7 @@ def __init__(wolvercoinAddress: address):
 def compareHighScores (name: address, score: uint256) -> String[100]:
     if self.users[name] == 0:
         if score > self.theissHighScore:
-            self.wolvercoinContract.transfer(name, 2*(self.wolvercoinContract.getBalanceOf(msg.sender)))
-
+            # self.wolvercoinContract.transfer(name, 2*(self.wolvercoinContract.getBalanceOf(msg.sender)))
             return "You beat Mr. Theiss! Epic Gamer Moment!"
         else:
             return "You did not beat Mr. Theiss."
