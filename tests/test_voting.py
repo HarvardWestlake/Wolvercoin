@@ -146,3 +146,23 @@ def test_burn(votingContract, accounts):
     votingContract.burn(9000, {'from': accounts[1]})
     assert votingContract.balanceOf(accounts[1]) == 1000, "should be able to burn money"
     assert votingContract.totalSupply() == testSupply+1000
+
+def test_wholeVote(votingContract, accounts):
+    #tests if proposeVote, vote, and finishVote works in one test
+    sampleContract = votingContract.address
+
+    #test proposeVote first
+    votingContract.proposeVote(sampleContract, "Vote for Kian", {'value': 420})
+    assert votingContract.endBlock(sampleContract) == chain[-1]['number'] + 100, "Vote should be able to be proposed"
+    assert votingContract.storedDonation(sampleContract) == 420, "No money should be saved if none is paid"
+
+    #test vote
+    voteForKian = votingContract.activePropositionsList[0]
+    votingContract.mint(accounts[1], 420, {'from': accounts[0]}) # adds 1000VC to accounts balance
+    balanceBeforeInvesting = votingContract.balanceOf(accounts[1])
+    investedBefore = votingContract.activePropositions(voteForKian)
+    votingContract.vote(voteForKian, 69, {'from': accounts[1]})
+    assert votingContract.balanceOf(accounts[1]) == balanceBeforeInvesting-69
+    assert votingContract.activePropositions(voteForKian) == (investedBefore + 69)
+
+    #test finishVote
