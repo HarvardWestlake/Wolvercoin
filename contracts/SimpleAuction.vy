@@ -68,7 +68,7 @@ def createAuctionItem(tokenID: uint256, benef:address, start: uint256, end: uint
         beneficiary: benef,
         auctionStart: start,
         auctionEnd: end,
-        highestBidder: msg.sender,
+        highestBidder: self.auctionNFT.address,
         highestBid:minVal,
         minValue: minVal,
         ended: False,
@@ -108,8 +108,15 @@ def endItemAuction(tokenID: uint256):
     assert block.timestamp >= auctionItem.auctionEnd
     assert auctionItem.ended == False
     auctionItem.ended = True
-    self.wolvercoin.transferFrom(self,auctionItem.beneficiary, auctionItem.highestBid)
+    if(self.auctionNFT.address != auctionItem.highestBidder):
+        self.wolvercoin.transferFrom(self,auctionItem.beneficiary, auctionItem.highestBid)
     #Transfer NFT ownership from contract to highest bidder
     self.auctionNFT.transferFrom(self,auctionItem.highestBidder,tokenID)
     self.auctionItems[tokenID] = empty(AuctionItem)
+
+@view
+@external 
+def getAuctionEnd(tokenID: uint256) -> uint256:
+   auctionItem: AuctionItem = self.auctionItems[tokenID]
+   return auctionItem.auctionEnd
 
