@@ -157,12 +157,11 @@ def test_wholeVote(votingContract, accounts):
     assert votingContract.storedDonation(sampleContract) == 420, "No money should be saved if none is paid"
 
     #test vote
-    voteForKian = votingContract.activePropositionsList[0]
     votingContract.mint(accounts[1], 420, {'from': accounts[0]}) # adds 1000VC to accounts balance
     balanceBeforeInvesting = votingContract.balanceOf(accounts[1])
-    investedBefore = votingContract.activePropositions(voteForKian)
-    votingContract.vote(voteForKian, 69, {'from': accounts[1]})
+    investedBefore = votingContract.activePropositions(votingContract.activePropositionsList[0])
+    votingContract.vote(votingContract.activePropositionsList[0], 69, {'from': accounts[1]})
     assert votingContract.balanceOf(accounts[1]) == balanceBeforeInvesting-69
-    assert votingContract.activePropositions(voteForKian) == (investedBefore + 69)
+    assert votingContract.activePropositions(votingContract.activePropositionsList[0]) == (investedBefore + 69)
 
     #test finishVote
