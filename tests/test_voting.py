@@ -152,9 +152,9 @@ def test_wholeVote(votingContract, accounts):
     sampleContract = votingContract.address
 
     #test proposeVote first
-    votingContract.proposeVote(sampleContract, "Vote for Kian", {'value': 420})
+    votingContract.proposeVote(sampleContract, "Vote for Kian", {'value': 69})
     assert votingContract.endBlock(sampleContract) == chain[-1]['number'] + 100, "Vote should be able to be proposed"
-    assert votingContract.storedDonation(sampleContract) == 420, "No money should be saved if none is paid"
+    assert votingContract.storedDonation(sampleContract) == 69, "No money should be saved if none is paid"
 
     #test vote
     votingContract.mint(accounts[1], 420, {'from': accounts[0]}) # adds 1000VC to accounts balance
