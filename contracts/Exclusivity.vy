@@ -8,7 +8,7 @@ interface ActiveUser:
 activeUserContract: public(ActiveUser)
 
 admin: HashMap[address, bool]
-topicsAddress: DynArray[address, 1000]
+topicsAddress: public(DynArray[address, 1000])
 percentage: uint256
 classSize: uint256
 @external
@@ -26,6 +26,7 @@ def vote(voter: address):
         send(voter,(15/100)*self.classSize)
 
 @external
+
 def tallyVotes(voter: address)-> bool:
     if self.percentage >= 50:
         self._removeNonTopics(voter)
