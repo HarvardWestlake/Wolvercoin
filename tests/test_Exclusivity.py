@@ -4,39 +4,32 @@ import pytest
 import brownie
 from web3.exceptions import ValidationError
 
-@pytest.fixture
-def exclusivityContract(Exclusivity, accounts):
-    return Exclusivity.deploy("0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", {'from': accounts[1]})
-
-
-def testVote(Exclusivity,accounts):
-    Exclusivity.deploy("0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", {'from': accounts[1]})
-    exclusivity: Exclusivity=Exclusivity()
-    Exclusivity.classSize = 100
-    exclusivity.topicsAddress.append(0xf34b09E22f5115af490eeb7460304aB80c90399E)
-    exclusivity.vote(0xf34b09E22f5115af490eeb7460304aB80c90399E)
+def testVote(ExclusivityContract,accounts):
+    #Exclusivity.deploy("0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", {'from': accounts[1]})
+    #exclusivity: Exclusivity=Exclusivity()
+    ExclusivityContract.classSize = 100
+    ExclusivityContract.topicsAddress.append(accounts[0])
+    ExclusivityContract.vote(accounts[0])
     valueChanged: bool=False
-    if balance(0xf34b09E22f5115af490eeb7460304aB80c90399E)>=1:#balance thing may be source of error, needs to be a
+    if ExclusivityContract.balance(accounts[0])>=1:#balance thing may be source of error, needs to be a
             valueChanged = True
     assert valueChanged
     valueChanged = False
     
-    exclusivity.admin[0xf34b09E22f5115af490eeb7460304aB80c90399E] = True
-    exclusivity.vote(0xf34b09E22f5115af490eeb7460304aB80c90399E)
-    if balance(0xf34b09E22f5115af490eeb7460304aB80c90399E)>=16:
+    ExclusivityContract.admin[accounts[0]] = True
+    ExclusivityContract.vote(accounts[0])
+    if ExclusivityContract.balance(accounts[0])>=16:
             valueChanged = True
     assert valueChanged
     
 
-def testTally(Exclusivity,accounts):
-    Exclusivity.deploy("0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", {'from': accounts[1]})
-    #Exclusivity: Exclusivity=Exclusivity()
-    Exclusivity.percentage = 0.51
-    Exclusivity.tallyVotes(0xf34b09E22f5115af490eeb7460304aB80c90399E)
+def testTally(ExclusivityContract,accounts):
+    ExclusivityContract.percentage = 0.51
+    ExclusivityContract.tallyVotes(accounts[0])
     
     removed: bool=True
-    for studentAddress in Exclusivity.topicsAddress:
-        if studentAddress==0xf34b09E22f5115af490eeb7460304aB80c90399E:
+    for studentAddress in ExclusivityContract.getTopicsList():
+        if studentAddress==accounts[0]:
             removed = False
             break
     assert removed

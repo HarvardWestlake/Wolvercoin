@@ -4,6 +4,7 @@
 interface ActiveUser:
     def getActiveUser(potentialUser: address) -> bool: view
     def getAdmin(potentialAdmin: address) -> bool: view
+    def getTopicsList()->DynArray[address,1000]: view
     
 activeUserContract: public(ActiveUser)
 
@@ -26,7 +27,7 @@ def vote(voter: address):
         send(voter,(15/100)*self.classSize)
 
 @external
-     
+
 def tallyVotes(voter: address)-> bool:
     if self.percentage >= 50:
         self._removeNonTopics(voter)
