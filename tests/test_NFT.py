@@ -22,5 +22,3 @@ def testBurn_BalanceOf_Mint(NFT, accounts):
     assert NFT.balanceOf(accounts[3]) != 0
 
  
-
-
