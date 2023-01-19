@@ -9,7 +9,6 @@ chain = Chain()
 @pytest.fixture
 def votingContract(VotingAndRep, accounts):
     return VotingAndRep.deploy(accounts[0], {'from': accounts[0]})
-    
 
 def _as_wei_value(base, conversion):
     if conversion == "wei":
@@ -17,6 +16,12 @@ def _as_wei_value(base, conversion):
     if conversion == "gwei":
         return base * (10 ** 9)
     return base * (10 ** 18)
+
+def test_burn(votingContract,accounts):
+    testContract = votingContract.address
+    votingContract.mint(accounts[3], 1000, {'from': accounts[0]})
+    votingContract._burn(accounts[3], 1000, {'from': accounts[0]})
+    assert votingContract.balanceOf(accounts[3]) == 0, "Should be empty"
 
 def test_hasCoin(votingContract, accounts): 
     sampleContract = votingContract.address
