@@ -16,8 +16,9 @@ event HaikuSubmitted:
     submittedHaiku: String[170]
 
 @external
-def __init__ (activeUserAddress: address):
+def __init__(activeUserAddress: address):
     self.activeUserAddress = ActiveUser (activeUserAddress)
+
 
 # submits haiku to allHaikus
 @external
