@@ -4,39 +4,35 @@ import pytest
 import brownie
 from web3.exceptions import ValidationError
 
-@pytest.fixture
-def exclusivityContract(Exclusivity, accounts):
-    return Exclusivity.deploy("0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", {'from': accounts[1]})
+
 
 @pytest.fixture
-def testVote(Exclusivity,accounts):
-    Exclusivity.deploy("0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", {'from': accounts[1]})
-    exclusivity: Exclusivity=Exclusivity()
-    Exclusivity.classSize = 100
-    exclusivity.topicsAddress.append(0xf34b09E22f5115af490eeb7460304aB80c90399E)
-    exclusivity.vote(0xf34b09E22f5115af490eeb7460304aB80c90399E)
+def testVote(ExclusivityContract,accounts):
+    #Exclusivity.deploy("0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", {'from': accounts[1]})
+    #exclusivity: Exclusivity=Exclusivity()
+    ExclusivityContract.classSize = 100
+    ExclusivityContract.topicsAddress.append(accounts[0])
+    ExclusivityContract.vote(accounts[0])
     valueChanged: bool=False
-    if balance(0xf34b09E22f5115af490eeb7460304aB80c90399E)>=1:#balance thing may be source of error
+    if ExclusivityContract.balance(accounts[0])>=1:#balance thing may be source of error, needs to be a
             valueChanged = True
     assert valueChanged
     valueChanged = False
     
-    exclusivity.admin[0xf34b09E22f5115af490eeb7460304aB80c90399E] = True
-    exclusivity.vote(0xf34b09E22f5115af490eeb7460304aB80c90399E)
-    if balance(0xf34b09E22f5115af490eeb7460304aB80c90399E)>=16:
+    ExclusivityContract.admin[accounts[0]] = True
+    ExclusivityContract.vote(accounts[0])
+    if ExclusivityContract.balance(accounts[0])>=16:
             valueChanged = True
     assert valueChanged
     
-@pytest.fixture
-def testTally(Exclusivity,accounts):
-    Exclusivity.deploy("0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000", {'from': accounts[1]})
-    exclusivity: Exclusivity=Exclusivity()
-    exclusivity.percentage = 0.51
-    exclusivity.tallyVotes(0xf34b09E22f5115af490eeb7460304aB80c90399E)
+
+def testTally(ExclusivityContract,accounts):
+    ExclusivityContract.percentage = 0.51
+    ExclusivityContract.tallyVotes(accounts[0])
     
     removed: bool=True
-    for studentAddress in exclusivity.topicsAddress:
-        if studentAddress==0xf34b09E22f5115af490eeb7460304aB80c90399E:
+    for studentAddress in ExclusivityContract.getTopicsList().return_value:
+        if studentAddress==accounts[0]:
             removed = False
             break
     assert removed
@@ -47,27 +43,36 @@ def ExclusivityContract(Exclusivity, accounts):
     return Exclusivity.deploy({'from': accounts[0]})
 
 def testAddNonTopics(ExclusivityContract, accounts):
+
     ExclusivityContract.addToTopicsList(accounts[2])
-    ExclusivityContract.setPercentage(100)
+    ExclusivityContract.setPercentage(100)#SET TO 20 FOR TEST TESTING, CHANGE TO 100 LATER
     ExclusivityContract.addNonTopics(accounts[1])
-    
-    assert ExclusivityContract.isInTopicsList(accounts[1]),"should add if percentage is 100 or greater"
+
+    assert ExclusivityContract.isInTopicsList(accounts[1]).return_value,"should add if percentage is 100 or greater"
 
     ExclusivityContract.popTopicList()
     ExclusivityContract.setPercentage(20)
     ExclusivityContract.addNonTopics(accounts[1])
     
-    assert  ExclusivityContract.isNotinTopicsList(accounts[1]),"should not add if percentage is lower than 100"
+    assert not ExclusivityContract.isInTopicsList(accounts[1]).return_value,"should not add if percentage is lower than 100"
+
 
 def testRemoveTopics(ExclusivityContract,accounts):
+
     ExclusivityContract.addToTopicsList(accounts[2])
     ExclusivityContract.addToTopicsList(accounts[1])
-    ExclusivityContract.percentage=100
+    ExclusivityContract.addToTopicsList(accounts[3])
+    ExclusivityContract.addToTopicsList(accounts[4])
+
+    ExclusivityContract.setPercentage(100)
     ExclusivityContract.removeNonTopics(accounts[1])
     
-    assert ExclusivityContract.isNotinTopicsList(accounts[1]), "should remove if percentage is greater than or equal to 1"
+    assert not ExclusivityContract.isInTopicsList(accounts[1]).return_value, "should remove if percentage is greater than or equal to 100"
     ExclusivityContract.addToTopicsList(accounts[1])
 
-    ExclusivityContract.percentage=20
+    ExclusivityContract.setPercentage(2)
     ExclusivityContract.removeNonTopics(accounts[1])
-    assert ExclusivityContract.isInTopicsList(accounts[1]), "should not remove if percentage is less than 1"
+    assert ExclusivityContract.isInTopicsList(accounts[1]).return_value, "should not remove if percentage is less than 100"
+
+
+
