@@ -152,17 +152,17 @@ def test_wholeVote(votingContract, accounts):
     sampleContract = votingContract.address
 
     #test proposeVote first
-    votingContract.proposeVote(sampleContract, "Vote for Kian", {'value': 69})
+    votingContract.proposeVote(sampleContract, "Vote for Kian", {'value': 1000})
     assert votingContract.endBlock(sampleContract) == chain[-1]['number'] + 100, "Vote should be able to be proposed"
-    assert votingContract.storedDonation(sampleContract) == 69, "No money should be saved if none is paid"
+    assert votingContract.storedDonation(sampleContract) == 1000, "No money should be saved if none is paid"
 
     #test vote
-    votingContract.mint(accounts[1], 420, {'from': accounts[0]}) # adds 1000VC to accounts balance
+    votingContract.mint(accounts[1], 10000, {'from': accounts[0]}) # adds 1000VC to accounts balance
     balanceBeforeInvesting = votingContract.balanceOf(accounts[1])
     investedBefore = votingContract.activePropositions(sampleContract)
-    votingContract.vote(sampleContract, 69, {'from': accounts[1]})
-    assert votingContract.balanceOf(accounts[1]) == balanceBeforeInvesting-69
-    assert votingContract.activePropositions(sampleContract) == (investedBefore + 69)
+    votingContract.vote(sampleContract, 7000, {'from': accounts[1]})
+    assert votingContract.balanceOf(accounts[1]) == balanceBeforeInvesting-7000
+    assert votingContract.activePropositions(sampleContract) == (investedBefore + 7000)
 
     #test finishVote
     stopBadEndVote = False
@@ -175,5 +175,5 @@ def test_wholeVote(votingContract, accounts):
     chain.mine(200) # skiping to well past the end of the vote
     votingContract.finishVote(sampleContract)
     print(votingContract.balanceOf(accounts[1]))
-    assert votingContract.balanceOf(accounts[1]) == 385.5, "money should be partially returned on vote succsess"
+    assert votingContract.balanceOf(accounts[1]) == 6500, "money should be partially returned on vote succsess"
     assert votingContract.voterCoinStaked() == 0
