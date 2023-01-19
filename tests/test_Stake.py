@@ -5,8 +5,6 @@ from web3.exceptions import ValidationError
 from brownie.network.state import Chain
 chain = Chain()
 
-DEFAULT_GAS = 100000
-
 # . This runs before ALL tests
 @pytest.fixture
 def wolvercoinContract(Token, accounts):
@@ -41,7 +39,7 @@ def test_nonexistentAccount (stakeContract, wolvercoinContract, activeUserContra
 def test_unstakeForNonexistentAccount (stakeContract, wolvercoinContract, activeUserContract, accounts):
     badAccountFail = False
     try:
-        stakeContract.unstake(accounts[0],2)
+        stakeContract.unstake(accounts[0],10)
     except:
         badAccountFail = True
     assert badAccountFail, "Accounts without money should not be able to unstake"
@@ -51,7 +49,7 @@ def test_unstakeMoreThanStaked (stakeContract, wolvercoinContract, accounts):
     stakeContract.stake(accounts[0], 1) 
     badAccountFail = False
     try:
-        stakeContract.unstake(accounts[0], 2)
+        stakeContract.unstake(accounts[0],11)
     except:
         badAccountFail = True
     assert badAccountFail, "Account cannot unstake more than they have staked"

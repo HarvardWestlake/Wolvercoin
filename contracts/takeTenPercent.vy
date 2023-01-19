@@ -17,6 +17,5 @@ def __init__(_wolvercoinContract: Wolvercoin):
 def takeTenPercent() -> uint256: 
     self.totalOfTransactions = self.wolvercoinContract.totalOfTransactions()
     temp:uint256 = self.totalOfTransactions/10
-    if self.totalOfTransactions != 0:
-        self.totalOfTransactions = self.totalOfTransactions - temp
+    self.totalOfTransactions = self.totalOfTransactions - temp
     return temp 
