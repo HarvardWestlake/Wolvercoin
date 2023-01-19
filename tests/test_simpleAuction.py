@@ -103,12 +103,14 @@ def test_bid(simpleAuctionContract,tokenContract,NFTContract,activeUserContract,
 
     #Bid #1
     assert simpleAuctionContract.bid(30, mintedTokenId, {'from': bidder})
+    assert str(tokenContract.getBalanceOf(bidder)) == "0"
 
     chain.sleep(1000)
 
     #Bid #2
     assert simpleAuctionContract.bid(40, mintedTokenId, {'from': bidder2})
 
+    assert str(tokenContract.getBalanceOf(bidder)) == "30"
     
     chain.sleep(5001)
 
