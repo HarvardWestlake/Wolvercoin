@@ -2,6 +2,7 @@
 currentGradYear: public(uint256)
 userGraduationYear: HashMap[address, uint256]
 admins: public(HashMap[address, bool])
+isContractWhitelisted: public(HashMap[address, bool])
 
 owner: address
 disabled: bool
@@ -17,6 +18,9 @@ event AdminAdded:
 event AdminRemoved:
     admin: address
     label: String[10]
+
+event ContractWhitelisted:
+    contract: address
 
 @external
 def __init__(_initialAdmin: address):
@@ -68,10 +72,23 @@ def removeAdmin(_adminToRemove: address):
     self.admins[_adminToRemove] = False
     log AdminRemoved(_adminToRemove, "remove adm")
 
+@external
+def whitelistContract(_contractAddress: address):
+    assert not self.disabled, "This contract is no longer active"
+    assert _contractAddress != empty(address), "Cannot add the 0 address as a contract"
+    assert self._isAdminOrOwner(msg.sender), "You need to be an admin or owner to add a contract."
+    self.isContractWhitelisted[_contractAddress] = True
+    log ContractWhitelisted(_contractAddress)
+
 @view
 @internal
 def _isAdminOrOwner(_address : address) -> bool:
     return self.admins[_address] or self.owner == _address
+
+@view
+@external
+def getContractWhitelisted(_contractAddress: address) -> bool:
+    return self.isContractWhitelisted[_contractAddress]
 
 @view
 @external
