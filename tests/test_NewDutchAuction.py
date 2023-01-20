@@ -14,7 +14,7 @@ chain = Chain()
 # . This runs before ALL tests
 @pytest.fixture
 def newNFT(NFT, accounts):
-    return NFT.deploy(12345, {'from':accounts[0]})
+    return NFT.deploy(accounts[0], 12345, {'from':accounts[0]})
 
 @pytest.fixture
 def newDutchAuctionContract(NewDutchAuction, Token, newNFT, accounts):
