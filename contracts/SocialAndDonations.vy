@@ -134,17 +134,16 @@ def donate(to: address, numToSend: uint256):
     # Check if the caller has sufficient balance
     assert self.TokenContract.getBalanceOf(msg.sender) >= numToSend, "Insufficient balance"
     self.TokenContract.transferFrom(msg.sender, to, numToSend)
-    
-@external
-def beginVoteOfficial(user: address) -> (bool):
-    isTeacher: bool = False
-    for i in self.teachers:
-        if (i == user):
-            isTeacher = True
-            assert self.officialVotingPeriod == True  
-        else:
-            isTeacher = False
-    return isTeacher
+
+#def beginVoteOfficial(user: address) -> (bool):
+    #isTeacher: bool = False
+    #for i in self.teachers:
+       #if (i == user):
+            #isTeacher = True
+            #assert self.officialVotingPeriod == True  
+       #else:
+            #isTeacher = False
+    #return isTeacher
             
 @external
 def getOfficalVotingPeriod() -> (bool):
