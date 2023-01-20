@@ -44,11 +44,10 @@ def test_checkIfActive(SocialAndDonations, accounts):
     SocialAndDonations.addStudent(accounts[1],1000)
     assert SocialAndDonations.checkIfActive(accounts[0]).return_value == True
 
-<<<<<<< HEAD
 def test_donate(SocialAndDonations, accounts):
     SocialAndDonations.donate(accounts[0], 10)
     assert SocialAndDonations.TokenContract.getBalanceOf(accounts[0]) == 10
-=======
+
 def test_voteProposal (SocialAndDonations):
   #makes sure the person can't vote for a proposal that isn't 0, 1, or 2
   with pytest.raises(Exception) as e_info:
@@ -77,4 +76,4 @@ def test_beginVoteOfficial(SocialAndDonations):
 
 
 
->>>>>>> main
+
