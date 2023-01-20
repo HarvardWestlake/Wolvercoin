@@ -63,3 +63,9 @@ def test_canDisable(activeUserContract, accounts):
 
     txn2 = activeUserContract.setDisableContract(True, {'from':ownerAccount})
     txn3 = activeUserContract.setDisableContract(False, {'from':ownerAccount})
+
+def test_whitelistContract(activeUserContract, accounts):
+    contract = accounts[6]
+    assert activeUserContract.isContractWhitelisted(contract) == False
+    activeUserContract.whitelistContract(contract, {'from': accounts[0]})
+    assert activeUserContract.isContractWhitelisted(contract) == True
