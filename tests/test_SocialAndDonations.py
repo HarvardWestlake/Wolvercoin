@@ -44,6 +44,23 @@ def test_checkIfActive(SocialAndDonations, accounts):
     SocialAndDonations.addStudent(accounts[1],1000)
     assert SocialAndDonations.checkIfActive(accounts[0]).return_value == True
 
+def test_voteProposal (SocialAndDonations):
+  #makes sure the person can't vote for a proposal that isn't 0, 1, or 2
+  with pytest.raises(Exception) as e_info:
+    SocialAndDonations.voteProposal(3)
+    SocialAndDonations.voteProposal(-1)
+  #makes sure the person can't vote when the voting period is false
+  SocialAndDonations.setOfficalVotingPeriod (False)
+  with pytest.raises(Exception) as e_info:
+    SocialAndDonations.voteProposal(1)
+  SocialAndDonations.setOfficalVotingPeriod (True)
+  assert SocialAndDonations.getProposalVotes(2) ==0
+  SocialAndDonations.voteProposal(2)
+  assert SocialAndDonations.getProposalVotes(2) == 1
+  #Makes sure the same person can't vote again
+  with pytest.raises(Exception) as e_info:
+   SocialAndDonations.voteProposal(2)
+
 def test_beginVoteOfficial(SocialAndDonations):
     SocialAndDonations.beginVoteOfficial(accounts[0]) == False
     with pytest.raises(Exception) as e_info:

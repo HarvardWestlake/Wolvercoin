@@ -37,12 +37,17 @@ votesForOfficials: public(HashMap[address, uint256])
 officialVotingPeriod: public(bool)
 # number of students
 numStudents: public(uint256)
+#array of addresses for people who have already voted
+alreadyVotedProposal: public(DynArray [address,100])
+#Array for proposal votes
+proposalVotes: public(DynArray[uint256, 3])
 
 @external
 def __init__():
     self.officialVotingPeriod = True
     self.potentialElectedOfficials = []
     self.electedOfficials = []
+    self.proposalVotes=[0,0,0]
 
 @external
 def getVotes(account : address) -> uint256:
@@ -71,6 +76,19 @@ def determineResult() -> address:
 
     self.electedOfficials.append(bestCandidate)
     return bestCandidate
+
+@external
+def voteProposal(proposalNumber : uint256):
+   assert proposalNumber <= 2 
+   assert proposalNumber >= 0
+   for i in self.alreadyVotedProposal:
+       assert i != self
+   assert self.officialVotingPeriod == True
+   self.proposalVotes [proposalNumber] = self.proposalVotes [proposalNumber] + 1
+   self.alreadyVotedProposal.append(self)
+  
+ 
+
 
 ## BEYOND THIS POINT, ALL METHODS ARE SOLELY FOR TESTING PURPOSES AND ARE NOT THE OFFICIAL METHODS
 ## AGAIN, THESE ARE PROTOTYPES
@@ -128,5 +146,14 @@ def getElectedOffical() -> (address):
     return self.electedOfficials[0]
 
 
+
+@external
+@view
+def getProposalVotes (num : uint256) -> (uint256):
+   return self.proposalVotes[num]
+
+@external
+def setOfficalVotingPeriod(b: bool):
+   self.officialVotingPeriod = b
 
 ####################################################################################################
