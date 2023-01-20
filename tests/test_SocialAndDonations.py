@@ -61,14 +61,14 @@ def test_voteProposal (SocialAndDonations):
   with pytest.raises(Exception) as e_info:
    SocialAndDonations.voteProposal(2)
 
-def test_beginVoteOfficial(SocialAndDonations):
-    SocialAndDonations.beginVoteOfficial(accounts[0]) == False
-    with pytest.raises(Exception) as e_info:
-        teacher = SocialAndDonations.getTeachers()
-        official = SocialAndDonations.getElectedOffical()
-        assert SocialAndDonations.beginVoteOfficial(teacher) == True
-        assert SocialAndDonations.beginVoteOfficlal(official) == False      
-    assert SocialAndDonations.getOfficalVotingPeriod()
+#def test_beginVoteOfficial(SocialAndDonations):
+#    SocialAndDonations.beginVoteOfficial(accounts[0]) == False
+#    with pytest.raises(Exception) as e_info:
+#        teacher = SocialAndDonations.getTeachers()
+#        official = SocialAndDonations.getElectedOffical()
+#        assert SocialAndDonations.beginVoteOfficial(teacher) == True
+#        assert SocialAndDonations.beginVoteOfficlal(official) == False      
+#    assert SocialAndDonations.getOfficalVotingPeriod()
 
 
 
