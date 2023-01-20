@@ -39,6 +39,11 @@ def test_checkIfActive(SocialAndDonations, accounts):
     SocialAndDonations.addStudent(accounts[1],2009)
     assert SocialAndDonations.checkIfActive(accounts[0]).return_value == True
 
+#def test_donate(SocialAndDonations, accounts):
+    #SocialAndDonations.donate(accounts[0], 10)
+    #assert SocialAndDonations.TokenContract.getBalanceOf(accounts[0]) == 10
+
 def test_donate(SocialAndDonations, accounts):
-    SocialAndDonations.donate(accounts[0], 10)
-    assert SocialAndDonations.TokenContract.getBalanceOf(accounts[0]) == 10
+    with pytest.raises(Exception) as e_info:
+        SocialAndDonations.donate(accounts[1],20)
+        assert SocialAndDonations.TokenContract.getBalanceOf(accounts[1]) == 20
