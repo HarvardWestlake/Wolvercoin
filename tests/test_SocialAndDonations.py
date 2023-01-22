@@ -33,6 +33,7 @@ def test_determineResult(SocialAndDonations, accounts):
     SocialAndDonations.addPotentialOfficial(accounts[0])
     SocialAndDonations.addPotentialOfficial(accounts[1])
     assert SocialAndDonations.determineResult().return_value == accounts[1]
+    assert accounts[1] in SocialAndDonations.getElectedOfficials().return_value
 
 def test_addStudent(SocialAndDonations, accounts):
     SocialAndDonations.addStudent(accounts[0],2000)
