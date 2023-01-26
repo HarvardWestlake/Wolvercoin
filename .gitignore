@@ -10,3 +10,6 @@ build/*
 node_modules/
 build/
 reports/
+__pycache__/
+
+.env
