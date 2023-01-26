@@ -1,6 +1,7 @@
 
 export const NAV_OPTIONS = {
     AUCTION : "auction",
+    PUBLIC_GOODS : "public",
     NFTS    : "nfts",
     CONTRIBUTE  : "contribute"
 };

@@ -94,12 +94,12 @@ def test_getters(dutchAuctionContract, erc20Contract, erc721Contract, activeUser
         mintedTokenId, # Token ID
         {'from': creator}
     )
-    assert dutchAuctionContract.getActiveAuctionItems({'from': creator}).return_value == [mintedTokenId]
-    assert dutchAuctionContract.getSeller(mintedTokenId, {'from': creator}).return_value == creator
-    assert dutchAuctionContract.getStartDate(mintedTokenId, {'from': creator}).return_value == startTime
-    assert dutchAuctionContract.getEndDate(mintedTokenId, {'from': creator}).return_value == endTime
-    assert dutchAuctionContract.getStartPrice(mintedTokenId, {'from': creator}).return_value == 25
-    assert dutchAuctionContract.getEndPrice(mintedTokenId, {'from': creator}).return_value == 5
+    assert dutchAuctionContract.getActiveAuctionItems({'from': creator}) == [mintedTokenId]
+    assert dutchAuctionContract.getSeller(mintedTokenId, {'from': creator}) == creator
+    assert dutchAuctionContract.getStartDate(mintedTokenId, {'from': creator}) == startTime
+    assert dutchAuctionContract.getEndDate(mintedTokenId, {'from': creator}) == endTime
+    assert dutchAuctionContract.getStartPrice(mintedTokenId, {'from': creator}) == 25
+    assert dutchAuctionContract.getEndPrice(mintedTokenId, {'from': creator}) == 5
 
 def test_get_price(dutchAuctionContract, erc20Contract, erc721Contract, activeUserContract, accounts):
     admin = accounts[0]

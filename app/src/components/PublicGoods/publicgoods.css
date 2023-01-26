@@ -1,0 +1,19 @@
+.public_goods {
+    color: antiquewhite;
+    text-align: center;
+}
+.public_goods ul {
+    display: inline-block;
+}
+
+#goods_list {
+    display: flex;
+    justify-content: center;
+}
+.good {
+    background-color: black;
+    color: white;
+    border-radius: 7px;
+    box-shadow: 0px 0px 0px 5px white;
+    padding: 10px;
+}

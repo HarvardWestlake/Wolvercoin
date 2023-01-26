@@ -4,6 +4,7 @@ import * as Constants from "./consts"
 import Contribute from "../Contribute/Contribute.js";
 import NFTs from "../NFTs/NFTs.js";
 import Auction from "../Auction/Auction.js";
+import PublicGoods from "../PublicGoods/PublicGoods.js";
 import Footer from "./Footer"
 
 
@@ -25,6 +26,9 @@ class Main extends React.Component {
     switch (this.state.location) {
         case Constants.NAV_OPTIONS.AUCTION:
             page = <Auction></Auction>
+            break;
+        case Constants.NAV_OPTIONS.PUBLIC_GOODS:
+            page = <PublicGoods></PublicGoods>
             break;
         case Constants.NAV_OPTIONS.NFTS:
             page = <NFTs></NFTs>

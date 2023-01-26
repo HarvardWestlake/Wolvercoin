@@ -96,6 +96,8 @@ def transferFrom(_from : address, _to : address, _value : uint256) -> bool:
     # NOTE: vyper does not allow underflows
     #       so the following subtraction would revert on insufficient balance
 
+    # TODO: WHOEVER WROTE GAMBLING POT TAX BROKE, LIKE, ALL THE TESTS THAT USED TOKEN.VY!!!!
+
     # calculate the 3.5% tax for the gambling pot, and floor the value
     gamblingPotTax: uint256 = convert(
         floor(

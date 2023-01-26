@@ -35,10 +35,10 @@ class Contribute extends React.Component {
         <MetaDataAddition password={this.state.password} ipfsImgUrl={this.state.ipfsImgUrl} onUpdateMetaDataUrl={this.uploadedMetaDataFile}></MetaDataAddition>
 
         <Web3Context.Consumer>
-            {providerValueContext => { 
-              return <NFTAddition  onUpdateNFT={this.updateNFT} web3Context={providerValueContext} metaDataUrl={this.state.metaDataUrl}></NFTAddition>
-            }}
-          </Web3Context.Consumer>
+          {providerValueContext => { 
+            return <NFTAddition  onUpdateNFT={this.updateNFT} web3Context={providerValueContext} metaDataUrl={this.state.metaDataUrl}></NFTAddition>
+          }}
+        </Web3Context.Consumer>
       </div>)
     }
 };

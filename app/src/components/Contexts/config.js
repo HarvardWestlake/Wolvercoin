@@ -23,33 +23,32 @@ export const NETWORKS = {
     }
 }
 
-// Contracts deployed by @ericyoondotcom with account 0xdCafA75DCAED81cba4155706E9d666112950E854 on 2023-01-25 via MyEtherWallet.
-// TODO: Add a script to automatically deploy all contracts
+// Contracts deployed by @ericyoondotcom with account 0xdCafA75DCAED81cba4155706E9d666112950E854 on 2023-01-25 via deploy script.
 export const ACTIVE_CONTRACTS = {
     wolvercoin : {
         BrownieOutput : Wolvercoin,
-        address : "0xAfa87B1A40AdC058aAf8D86Ce81A50ed24975E94"
+        address : "0xe9B196B3abdfA098030769794Eb20c9e0237567F"
     },
     nft : {
         BrownieOutput : Nft,
-        address : "0xaecCbC38Cb9137675e5b4Bd57FFdC0D939ac9735",
+        address : "0x1bC83699dABCc8fd745a0E6Df7B093d956D119Ac",
         password : "69420"
     },
     activeUser: {
         BrownieOutput : ActiveUser,
-        address : "0x9E64ffca8a35446E9b0C015844C8B8235ed51613"
+        address : "0xd8E6E0f5ef1c6620264Cae1E079F11E763D06e69"
     },
     simpleAuction : {
         BrownieOutput : SimpleAuction,
-        address : "0x528eE628E6d0c8BC17021b13b0F17AA1a7bD141D",
+        address : "",
     }, 
     dutchAuction : {
         BrownieOutput : DutchAuction,
-        address : "0xd1827780098337da3fb8Fe1793405510EFb1cB35"
+        address : ""
     },
     publicGoods : {
         BrownieOutput : PublicGoods,
-        address : "0x73259A179d49BA2661e172AF827CBb2751f45555"
+        address : "0x643443a8fa43f20Cf427594478Db2121238F6CE3"
     },
 
     chainId: 5,

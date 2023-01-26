@@ -103,31 +103,37 @@ def buy(nftTokenId: uint256):
         self.auctionItemsArr[i] = self.auctionItemsArr[len(self.auctionItemsArr) - 1] # Make the last element take the one you want to remove's place...
         self.auctionItemsArr.pop() # ...and then remove the last element
 
+@view
 @external
 def getActiveAuctionItems() -> DynArray[uint256, 100]:
     return self.auctionItemsArr
 
 #region Trivial getters
+@view
 @external
 def getSeller(nftTokenId: uint256) -> address:
     auctionItem: AuctionItem = self.auctionItems[nftTokenId]
     assert auctionItem.nftTokenId == nftTokenId
     return auctionItem.seller
+@view
 @external
 def getStartDate(nftTokenId: uint256) -> uint256:
     auctionItem: AuctionItem = self.auctionItems[nftTokenId]
     assert auctionItem.nftTokenId == nftTokenId
     return auctionItem.startDate
+@view
 @external
 def getEndDate(nftTokenId: uint256) -> uint256:
     auctionItem: AuctionItem = self.auctionItems[nftTokenId]
     assert auctionItem.nftTokenId == nftTokenId
     return auctionItem.endDate
+@view
 @external
 def getStartPrice(nftTokenId: uint256) -> uint256:
     auctionItem: AuctionItem = self.auctionItems[nftTokenId]
     assert auctionItem.nftTokenId == nftTokenId
     return auctionItem.startPrice
+@view
 @external
 def getEndPrice(nftTokenId: uint256) -> uint256:
     auctionItem: AuctionItem = self.auctionItems[nftTokenId]

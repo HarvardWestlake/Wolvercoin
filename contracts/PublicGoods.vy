@@ -134,29 +134,34 @@ def complete(nftTokenId: uint256):
         self.goodsArr[i] = self.goodsArr[len(self.goodsArr) - 1] # Make the last element take the one you want to remove's place...
         self.goodsArr.pop() # ...and then remove the last element
 
+@view
 @external
 def getActiveGoods() -> DynArray[uint256, 100]:
     return self.goodsArr
 
 #region Trivial getters
+@view
 @external
 def getContributionTotal(nftTokenId: uint256) -> uint256:
     good: Good = self.goods[nftTokenId]
     assert good.nftTokenId == nftTokenId
     return good.totalDonations
 
+@view
 @external
 def getGoal(nftTokenId: uint256) -> uint256:
     good: Good = self.goods[nftTokenId]
     assert good.nftTokenId == nftTokenId
     return good.goal
 
+@view
 @external
 def getNumDonators(nftTokenId: uint256) -> uint8:
     good: Good = self.goods[nftTokenId]
     assert good.nftTokenId == nftTokenId
     return good.donationsLen
 
+@view
 @external
 def getCreator(nftTokenId: uint256) -> address:
     good: Good = self.goods[nftTokenId]
