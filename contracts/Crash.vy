@@ -6,18 +6,22 @@ pot: public(address)
 currentBettors: public(DynArray[address, 1024])
 
 interface ActiveUser:
-    def getActiveUser(potentialUser: address) -> bool: view
-    def getAdmin(potentialAdmin: address) -> bool: view
+    def getIsActiveUser(potentialUser: address) -> bool: view
+    def getIsAdmin(potentialAdmin: address) -> bool: view
 
 interface Token:
     def generate_random_number(maxVal: uint256) -> uint256: view
-
-interface Wolvercoin:
     def transferFrom(_from : address, _to : address, _value : uint256) -> bool: payable
     def getBalanceOf (_user: address) -> uint256: view
+<<<<<<< HEAD
+=======
 
-tokenContract: public(Token)
-wolvercoinContract: public(Wolvercoin)
+#interface Wolvercoin:
+ #   def transferFrom(_from : address, _to : address, _value : uint256) -> bool: payable
+  #  def getBalanceOf (_user: address) -> uint256: view
+>>>>>>> code_Utilities
+
+wolvercoinContract: public(Token)
 activeUserContract: public(ActiveUser)
 
 event CrashStart:
@@ -37,23 +41,28 @@ event Crash:
     multiple: uint256
 
 @external
-def __init__(activeUserAddress: address, tokenContractAddress: address, wolvercoinContractAddress: address):
+def __init__(activeUserAddress: address, wolvercoinContractAddress: address):
     self.pot = msg.sender
     self.justCrashed = False
     log CrashStart(block.timestamp, block.number)
     self.activeUserContract = ActiveUser(activeUserAddress)
-    self.tokenContract = Token(tokenContractAddress)
-    self.wolvercoinContract = Wolvercoin(wolvercoinContractAddress)
+    self.wolvercoinContract = Token(wolvercoinContractAddress)
     self.crashGamble()
+<<<<<<< HEAD
     #init of codeGambling
     self.crashBets[msg.sender] = 0
     self.multiplier = 0
+=======
+    self.crashBets[msg.sender] = 0
+    self.multiplier = 0
+
+>>>>>>> code_Utilities
 
 @payable
 @external
 def withdrawBet(gambler: address):
     #verifies that gambler has placed a bet
-    assert self.activeUserContract.getActiveUser(gambler) == True
+    assert self.activeUserContract.getIsActiveUser(gambler) == True
     found: bool = False
     for bettor in self.currentBettors:
         if (bettor == gambler):
@@ -89,7 +98,7 @@ def resetCrash():
 @nonpayable
 @internal
 def crashGamble():
-    randomNum: uint256 = self.tokenContract.generate_random_number(1000)
+    randomNum: uint256 = self.wolvercoinContract.generate_random_number(1000)
     #self.crashGambleHelper(randomNum)
     return
 
@@ -131,6 +140,7 @@ def getCrashFromRandomNumber(useRandomNumber: uint256) -> bool:
 @external
 def getCrashGambleHelper(useRandomNumber: uint256):
     self.crashGambleHelper(useRandomNumber)
+<<<<<<< HEAD
     
 #methods from codeGambling.vy
 @external 
@@ -139,9 +149,22 @@ def placeBets(gambler: address, amount: uint256):
     assert self.justCrashed != False
     assert self.wolvercoinContract.getBalanceOf(msg.sender) > amount
     self.crashBets[gambler] = amount
+=======
+
+@external 
+def placeBets(amount: uint256):
+    #assert msg.sender == gambler #when would someone even be added in as a gambler? 
+    assert self.justCrashed != True #only let this method run if it is true
+    assert self.wolvercoinContract.getBalanceOf(msg.sender) > amount 
+    self.crashBets[msg.sender] = amount
+>>>>>>> code_Utilities
     #self.wolvercoinContract.transferFrom(gambler, self, amount)
 
 @view
 @external 
 def getHashValue() -> uint256: 
+<<<<<<< HEAD
     return self.crashBets[msg.sender] 
+=======
+    return self.crashBets[msg.sender]
+>>>>>>> code_Utilities

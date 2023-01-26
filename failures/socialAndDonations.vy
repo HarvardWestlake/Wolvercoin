@@ -1,8 +1,8 @@
 # @version ^0.3.7
 # code is dependent on activeUser
 interface ActiveUser:
-    def getActiveUser(potentialUser: address) -> bool: view
-    def getAdmin(potentialAdmin: address) -> bool: view
+    def getIsActiveUser(potentialUser: address) -> bool: view
+    def getIsAdmin(potentialAdmin: address) -> bool: view
 
 activeStudents: public(HashMap[address, uint256])
 activeYear: public( uint256 )
@@ -29,7 +29,7 @@ def __init__ (activeUserAddress: address):
 #NO TEST
 @external
 def endVoteOfficial():
-    assert self.activeUserContract.getAdmin(block.coinbase)   
+    assert self.activeUserContract.getIsAdmin(block.coinbase)   
     self.officialVotingPeriod = False
 
 
@@ -57,7 +57,7 @@ def getProposalVotes (num : uint256) -> (uint256):
 #NO TEST
 @external
 def voteOfficial( ballot : address ):
-    assert self.activeUserContract.getActiveUser(msg.sender) 
+    assert self.activeUserContract.getIsActiveUser(msg.sender) 
     if (self.officialVotingPeriod):
         assert not self.alreadyVotedOfficials[msg.sender] == True
         value : uint256 =  self.votesForOfficials[ballot] + 1 

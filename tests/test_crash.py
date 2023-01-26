@@ -3,12 +3,21 @@
 import pytest
 import brownie
 from web3.exceptions import ValidationError
+from brownie import accounts
+from brownie.network.state import Chain
 
 # . This runs before ALL tests
 @pytest.fixture
-def crashContract(Crash, Token, accounts):
-    tokenContract = Token.deploy("Wolvercoin", "WVC", 18, 1000, {'from': accounts[0]})
-    return Crash.deploy("0x0000000000000000000000000000000000000000", tokenContract, "0x0000000000000000000000000000000000000000", {'from': accounts[1]})
+def crashContract(Crash, activeUserContract, wolvercoinContract, accounts):
+    return Crash.deploy(activeUserContract, wolvercoinContract, {'from': accounts[1]})
+
+@pytest.fixture
+def activeUserContract(ActiveUser, accounts):
+    return ActiveUser.deploy(accounts[1], {'from': accounts[0]})
+
+@pytest.fixture
+def wolvercoinContract(Token, Crash, accounts):
+    return Token.deploy("wolvercoin", "wvc", 18, 1000,{'from': accounts[0]})
 
 def test_crashFromRandom(crashContract, accounts):
     assert False == crashContract.getCrashFromRandomNumber(100).return_value
@@ -30,4 +39,24 @@ def test_crashUpdating(crashContract, accounts):
     print (newMultiplier)
     print (multiplierInit)
     assert newMultiplier != multiplierInit
+    
+    chain = Chain()
+
+# @dev basic testing for placeBet 
+# @author Ava Weinrot 
+
+#@pytest.fixture
+#def gamblingContract(erc20Contract, Crash, accounts):
+ #   return codeGambling.deploy(accounts[1], erc20Contract, {'from': accounts[0]})
+
+def test_placeBets(crashContract, wolvercoinContract, accounts):
+    #account that deploys wolvercoin
+    #token.deploy will be from an account
+    #have to do minting from og account that created the wolvercoin -----> isnt this done in the creation of the contract?
+    assert wolvercoinContract.approve(crashContract, 12, {'from': accounts[0]})
+    crashContract.placeBets(12, {'from': accounts[0]}) #trying to place bet using money from accounts [1] which was transferred from accounts [0]
+    #!!!! I THINK this is throwing an error because accounts[1] isnt the address of the person calling this method?
+    assert crashContract.get_hash_value() == 12 
+    #sees if when you look at the hash value returns 12? what is the hash value
+    #hash value is amount of money in pot?
     
