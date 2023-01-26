@@ -11,13 +11,14 @@ interface ActiveUser:
 
 interface Token:
     def generate_random_number(maxVal: uint256) -> uint256: view
-
-interface Wolvercoin:
     def transferFrom(_from : address, _to : address, _value : uint256) -> bool: payable
     def getBalanceOf (_user: address) -> uint256: view
 
-tokenContract: public(Token)
-wolvercoinContract: public(Wolvercoin)
+#interface Wolvercoin:
+ #   def transferFrom(_from : address, _to : address, _value : uint256) -> bool: payable
+  #  def getBalanceOf (_user: address) -> uint256: view
+
+wolvercoinContract: public(Token)
 activeUserContract: public(ActiveUser)
 
 event CrashStart:
@@ -37,13 +38,12 @@ event Crash:
     multiple: uint256
 
 @external
-def __init__(activeUserAddress: address, tokenContractAddress: address, wolvercoinContractAddress: address):
+def __init__(activeUserAddress: address, wolvercoinContractAddress: address):
     self.pot = msg.sender
     self.justCrashed = False
     log CrashStart(block.timestamp, block.number)
     self.activeUserContract = ActiveUser(activeUserAddress)
-    self.tokenContract = Token(tokenContractAddress)
-    self.wolvercoinContract = Wolvercoin(wolvercoinContractAddress)
+    self.wolvercoinContract = Token(wolvercoinContractAddress)
     self.crashGamble()
     self.crashBets[msg.sender] = 0
     self.multiplier = 0
@@ -89,7 +89,7 @@ def resetCrash():
 @nonpayable
 @internal
 def crashGamble():
-    randomNum: uint256 = self.tokenContract.generate_random_number(1000)
+    randomNum: uint256 = self.wolvercoinContract.generate_random_number(1000)
     #self.crashGambleHelper(randomNum)
     return
 
@@ -133,11 +133,11 @@ def getCrashGambleHelper(useRandomNumber: uint256):
     self.crashGambleHelper(useRandomNumber)
 
 @external 
-def placeBets(gambler: address, amount: uint256):
-    assert msg.sender == gambler
-    assert self.justCrashed != False
-    assert self.wolvercoinContract.getBalanceOf(msg.sender) > amount
-    self.crashBets[gambler] = amount
+def placeBets(amount: uint256):
+    #assert msg.sender == gambler #when would someone even be added in as a gambler? 
+    assert self.justCrashed != True #only let this method run if it is true
+    assert self.wolvercoinContract.getBalanceOf(msg.sender) > amount 
+    self.crashBets[msg.sender] = amount
     #self.wolvercoinContract.transferFrom(gambler, self, amount)
 
 @view
