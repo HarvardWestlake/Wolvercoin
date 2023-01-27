@@ -61,6 +61,12 @@ peopleInvested: public(HashMap[address, DynArray[address, 64]])
 endBlock: public(HashMap[address, uint256])
 # the value sent to contract on sucsessful vote
 storedDonation: public(HashMap[address, uint256])
+#Currently active proposition with the highest amount invested
+highestProp: public(address)
+#Total amount invested in the active proposition with the highest amount invested
+highestPropAmount: public(uint256)
+#DynArray of Active propositions
+activePropositionsList: public(DynArray[address, 64])
 
 # list of variables that could be changed (via voting) 
 
@@ -81,6 +87,7 @@ def __init__ (activeUserAddress: address, voteDuration: uint256):
     self.allowedToAffectDao = empty(address)
     self.activeUserAddress = ActiveUser(activeUserAddress)
     self.minter = msg.sender
+    self.highestProp = empty(address)
    
 # @dev This creates a new proposition for people to vote on
 # @param contract address The contract that will be given ran with adminstrator on vote sucsess
@@ -97,18 +104,30 @@ def proposeVote (contract: address, explaination: String[255]):
     assert contract != empty(address), "Cannot add the 0 address as vote subject"
     assert self.endBlock[contract] == 0, "A vote has already been created for that address"
 
+    if(self.highestProp == empty(address)):
+        self.highestProp = contract
+        self.highestPropAmount = 0
     self.endBlock[contract] = block.number + self.voteDuration
     self.storedDonation[contract] = msg.value
 
     log VoteStarted(contract, msg.sender, msg.value)
+    
+    
 
 @external
 def vote(proposition: address, amount: uint256):
     self.balanceOf[msg.sender] -= amount # this stops the whole code on underflow
     self.voterCoinStaked += amount
+    if(self.activePropositions[proposition] == empty(uint256)):
+        self.activePropositionsList.append(proposition)
     self.activePropositions[proposition] += amount
     self.peopleInvested[proposition].append(msg.sender) # this should not add a new entry for each time someone votes
     self.amountInFavor[proposition][msg.sender] += amount
+    
+    if(self.activePropositions[proposition]>self.highestPropAmount):
+        self.highestProp = proposition
+        self.highestPropAmount = self.activePropositions[proposition]
+
 
 @external
 def mint(_to: address, _value: uint256):
@@ -126,7 +145,9 @@ def finishVote(contract: address):
     peopleInvested: DynArray[address,64] = self.peopleInvested[contract]
 
     # if the vote affects the dao and passes the threshold
-    if (self.affectsDao[contract] and self.activePropositions[contract] * 3 > self.totalSupply * 4) :
+    #if (self.affectsDao[contract] and self.activePropositions[contract] * 3 > self.totalSupply * 4) :
+    #Assuming these numbers were meant to be switched? otherwise delete changes
+    if (self.affectsDao[contract] and self.activePropositions[contract] * 4 > self.totalSupply * 3) : 
         for voter in peopleInvested:
             self.burnCoinOnWin(voter, contract)
         self.allowedToAffectDao = contract
@@ -137,6 +158,12 @@ def finishVote(contract: address):
             self.burnCoinOnWin(voter, contract)
         self.runCode(contract)
     else:
+        self.highestProp = empty(address)
+        self.highestPropAmount = 0
+        for prop in self.activePropositionsList:
+            if(self.activePropositions[prop] > self.highestPropAmount):
+                self.highestProp = prop
+                self.highestPropAmount = self.activePropositions[prop]
         for voter in peopleInvested:
             self.returnCoinOnLose(voter, contract)
 
@@ -165,6 +192,9 @@ def resetVotablity(contract: address):
     self.peopleInvested[contract] = []
     self.affectsDao[contract] = False
     self.activePropositions[contract] = 0
+    if(contract == self.highestProp):
+        self.highestProp = empty(address)
+        self.highestPropAmount = 0
 
 # called by finish vote at the end of vote when proposition wins 
 @internal

@@ -40,6 +40,8 @@ minter: address
 contract_bitmask: uint256
 contract_hex: uint256
 
+gambling_pot: public(address)
+
 
 @external
 def __init__(_name: String[32], _symbol: String[32], _decimals: uint8, _supply: uint256):
@@ -106,12 +108,13 @@ def transferFrom(_from : address, _to : address, _value : uint256) -> bool:
     transactionAmount: uint256 = _value - gamblingPotTax
 
     # add tax to gambling pot
-    self.balanceOf[self] += gamblingPotTax
+    self.balanceOf[self.gambling_pot] += gamblingPotTax
 
+    assert self.balanceOf[_from] > _value
     self.balanceOf[_from] -= _value
 
     # log gambling tax
-    log Transfer(_from, self, gamblingPotTax)
+    log Transfer(_from, self.gambling_pot, gamblingPotTax)
 
     self.balanceOf[_to] += transactionAmount
     log Transfer(_from, _to, transactionAmount)
@@ -187,3 +190,7 @@ def burnFrom(_to: address, _value: uint256):
 @external
 def generate_random_number(maxVal: uint256) -> uint256:
     return block.timestamp % maxVal
+
+@external
+def setGamblingPot(gp: address):
+    self.gambling_pot = gp
