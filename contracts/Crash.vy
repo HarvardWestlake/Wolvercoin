@@ -13,13 +13,10 @@ interface Token:
     def generate_random_number(maxVal: uint256) -> uint256: view
     def transferFrom(_from : address, _to : address, _value : uint256) -> bool: payable
     def getBalanceOf (_user: address) -> uint256: view
-<<<<<<< HEAD
-=======
 
 #interface Wolvercoin:
  #   def transferFrom(_from : address, _to : address, _value : uint256) -> bool: payable
   #  def getBalanceOf (_user: address) -> uint256: view
->>>>>>> code_Utilities
 
 wolvercoinContract: public(Token)
 activeUserContract: public(ActiveUser)
@@ -48,15 +45,9 @@ def __init__(activeUserAddress: address, wolvercoinContractAddress: address):
     self.activeUserContract = ActiveUser(activeUserAddress)
     self.wolvercoinContract = Token(wolvercoinContractAddress)
     self.crashGamble()
-<<<<<<< HEAD
-    #init of codeGambling
-    self.crashBets[msg.sender] = 0
-    self.multiplier = 0
-=======
     self.crashBets[msg.sender] = 0
     self.multiplier = 0
 
->>>>>>> code_Utilities
 
 @payable
 @external
@@ -140,31 +131,17 @@ def getCrashFromRandomNumber(useRandomNumber: uint256) -> bool:
 @external
 def getCrashGambleHelper(useRandomNumber: uint256):
     self.crashGambleHelper(useRandomNumber)
-<<<<<<< HEAD
-    
-#methods from codeGambling.vy
-@external 
-def placeBets(gambler: address, amount: uint256):
-    assert msg.sender == gambler
-    assert self.justCrashed != False
-    assert self.wolvercoinContract.getBalanceOf(msg.sender) > amount
-    self.crashBets[gambler] = amount
-=======
 
 @external 
 def placeBets(amount: uint256):
     #assert msg.sender == gambler #when would someone even be added in as a gambler? 
     assert self.justCrashed != True #only let this method run if it is true
-    assert self.wolvercoinContract.getBalanceOf(msg.sender) > amount 
+    assert self.wolvercoinContract.getBalanceOf(msg.sender) > amount
+    assert amount > 0
     self.crashBets[msg.sender] = amount
->>>>>>> code_Utilities
-    #self.wolvercoinContract.transferFrom(gambler, self, amount)
+    #line 140 is not being reached??
 
 @view
 @external 
-def getHashValue() -> uint256: 
-<<<<<<< HEAD
-    return self.crashBets[msg.sender] 
-=======
-    return self.crashBets[msg.sender]
->>>>>>> code_Utilities
+def getHashValue(msgg : address) -> uint256: 
+    return self.crashBets[msgg]

@@ -55,8 +55,5 @@ def test_placeBets(crashContract, wolvercoinContract, accounts):
     #have to do minting from og account that created the wolvercoin -----> isnt this done in the creation of the contract?
     assert wolvercoinContract.approve(crashContract, 12, {'from': accounts[0]})
     crashContract.placeBets(12, {'from': accounts[0]}) #trying to place bet using money from accounts [1] which was transferred from accounts [0]
-    #!!!! I THINK this is throwing an error because accounts[1] isnt the address of the person calling this method?
-    assert crashContract.get_hash_value() == 12 
-    #sees if when you look at the hash value returns 12? what is the hash value
-    #hash value is amount of money in pot?
+    assert crashContract.getHashValue(accounts[0]) == 12 
     
