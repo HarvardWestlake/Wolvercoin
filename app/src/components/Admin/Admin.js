@@ -2,6 +2,7 @@ import "./admin.css";
 import React from "react";
 import WhitelistContractForm from "./AddAdminForm";
 import AddPublicGoodForm from "./AddPublicGoodForm";
+import AddAuctionItemForm from "./AddAuctionItemForm";
 
 const Admin = () => {
     return (
@@ -16,6 +17,7 @@ const Admin = () => {
             </div>
             <div id="auction-management">
                 <h1>Auction Items</h1>
+                <AddAuctionItemForm />
             </div>
         </div>
     );

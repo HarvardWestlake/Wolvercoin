@@ -47,11 +47,6 @@ def main():
     print("DutchAuction has been whitelisted: " + str(activeUserContract.getContractWhitelisted(dutchAuctionContract, {'from': account})))
     print("PublicGoods has been whitelisted: " + str(activeUserContract.getContractWhitelisted(publicGoodsContract, {'from': account})))
 
-    # print("\n\nMint an NFT and add it as a public good (just for fun):")
-    # erc721Contract.mint(erc721Contract, "https://example.com", {'from': account})
-    # publicGoodsContract.createGood(69, 0, {'from': account})
-    # print("Public goods list of goods: " + str(publicGoodsContract.getActiveGoods({'from': account})))
-
     print("\n\n~~~~ CONTRACTS CREATED ~~~~")
     print("ActiveUser address: " + activeUserContract.address)
     print("ERC20 address: " + erc20Contract.address)

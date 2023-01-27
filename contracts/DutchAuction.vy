@@ -80,22 +80,23 @@ def _getPrice(nftTokenId: uint256) -> uint256:
     totalDuration: uint256 = auctionItem.endDate - auctionItem.startDate
     priceRange: uint256 = auctionItem.startPrice - auctionItem.endPrice
     progress: decimal = convert(timeSinceStart, decimal) / convert(totalDuration, decimal)
-    return convert(convert(auctionItem.startPrice, decimal) - convert(priceRange, decimal) * progress, uint256)
+    price: uint256 = convert(convert(auctionItem.startPrice, decimal) - convert(priceRange, decimal) * progress, uint256)
+    return price
 
 @external
 def getPrice(nftTokenId: uint256) -> uint256:
     return self._getPrice(nftTokenId)
 
-# To call this function, one must approve the monetary transfer via 20
 @external
 def buy(nftTokenId: uint256):
     auctionItem: AuctionItem = self.auctionItems[nftTokenId]
     assert auctionItem.nftTokenId == nftTokenId
 
     assert block.timestamp > auctionItem.startDate
-    price: uint256 = self._getPrice(nftTokenId)
-    assert self.erc20.getBalanceOf(msg.sender) >= price
 
+    price: uint256 = self._getPrice(nftTokenId)
+    assert self.erc20.getBalanceOf(msg.sender) >= price # This seems to be a problem line
+    
     self.erc20.transferFrom(msg.sender, auctionItem.seller, price)
     self.erc721.transferFrom(self, msg.sender, auctionItem.nftTokenId)
 

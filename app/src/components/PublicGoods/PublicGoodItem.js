@@ -5,7 +5,7 @@ export default function PublicGoodItem({goodNumber, good, connectedPublicGoods, 
     const [donationAmount, setDonationAmount] = React.useState(0);
     const [loading, setLoading] = React.useState(false);
 
-    const donateToGood = async (goodNumber) => {
+    const donateToGood = async () => {
         if(loading) return;
         setLoading(true);
         await connectedWolvercoin.approve(ACTIVE_CONTRACTS.publicGoods.address, donationAmount);
@@ -27,7 +27,7 @@ export default function PublicGoodItem({goodNumber, good, connectedPublicGoods, 
             <h2>GOAL:</h2>
             <h1>{good.total} out of {good.goal}</h1>
             <input type="number" value={donationAmount} onChange={changeDonationAmount} /><br />
-            <button disabled={loading} onClick={() => { donateToGood(goodNumber); }}>{loading ? "HANG TIGHT..." : "DONATE"}</button>
+            <button disabled={loading} onClick={donateToGood}>{loading ? "HANG TIGHT..." : "DONATE"}</button>
         </div>
     );
 }

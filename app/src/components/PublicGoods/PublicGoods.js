@@ -3,9 +3,8 @@ import { Web3Context } from "../Contexts/Web3Provider";
 import PublicGoodItem from "./PublicGoodItem";
 import "./publicgoods.css";
 
-const Auction = () => {
+const PublicGoods = () => {
     const web3Context = React.useContext(Web3Context);
-
     const provider = web3Context.provider;
     const signer = provider.getSigner();
     const connectedPublicGoods = web3Context.publicGoodsContract.connect(signer);
@@ -34,7 +33,6 @@ const Auction = () => {
     }
 
     React.useEffect(() => {
-        
         fetchData();
     }, [connectedPublicGoods]);
     
@@ -66,4 +64,4 @@ const Auction = () => {
     )
 }
 
-export default Auction;
+export default PublicGoods;

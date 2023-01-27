@@ -27,28 +27,28 @@ export const NETWORKS = {
 export const ACTIVE_CONTRACTS = {
     wolvercoin : {
         BrownieOutput : Wolvercoin,
-        address : "0x6ff6F41C9a3444BE991ffA8E73A8A001839c6f80"
+        address : "0x7047cEaE38984F8c9b1fDAD307CDE442ee59Ab3E"
     },
     nft : {
         BrownieOutput : Nft,
-        address : "0xCADe7Be2ED689Df4441452Ec2100D867AEA5EcC5",
+        address : "0x323827C16b9a8239A7cD766746985e0eDa2B8646",
         password : "69420"
     },
     activeUser: {
         BrownieOutput : ActiveUser,
-        address : "0xD68c70F271A776aaB3D270Fca544F50E6Aea91F8"
+        address : "0x58bE02b5629FF4B1E4968727C1f132d23A884647"
     },
     simpleAuction : {
         BrownieOutput : SimpleAuction,
-        address : "0xb64c719424EaDd901841DB09c6B4d929E644b868",
+        address : "0x722A39F16eBAd642c258A8BebE04B6ecfF0D1AD6",
     }, 
     dutchAuction : {
         BrownieOutput : DutchAuction,
-        address : "0xBC25F74c66eb523841BA1E148BE2912FaEea0cDD"
+        address : "0xfC9394426e0750237A7559e01dE0456eb2aC4c4F"
     },
     publicGoods : {
         BrownieOutput : PublicGoods,
-        address : "0xDEE68e188d3FE3f235C8f436a018CB7D4b7c2e6e"
+        address : "0x7e253Bdd2a0c18827830eF703c4478F54475fBf3"
     },
 
     chainId: 5,
