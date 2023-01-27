@@ -6,6 +6,7 @@ import NFTs from "../NFTs/NFTs.js";
 import Auction from "../Auction/Auction.js";
 import PublicGoods from "../PublicGoods/PublicGoods.js";
 import Footer from "./Footer"
+import Admin from "../Admin/Admin";
 
 
 class Main extends React.Component {
@@ -24,20 +25,23 @@ class Main extends React.Component {
   renderPage() {
     let page = <div></div>
     switch (this.state.location) {
+        case Constants.NAV_OPTIONS.ADMIN:
+            page = <Admin />
+            break;
         case Constants.NAV_OPTIONS.AUCTION:
-            page = <Auction></Auction>
+            page = <Auction />
             break;
         case Constants.NAV_OPTIONS.PUBLIC_GOODS:
-            page = <PublicGoods></PublicGoods>
+            page = <PublicGoods />
             break;
         case Constants.NAV_OPTIONS.NFTS:
-            page = <NFTs></NFTs>
+            page = <NFTs />
             break;
         case Constants.NAV_OPTIONS.CONTRIBUTE:
-            page = <Contribute></Contribute>
+            page = <Contribute />
             break;
         default:
-            page = <Auction></Auction>
+            page = <Auction />
             break;
     }
     return page;
