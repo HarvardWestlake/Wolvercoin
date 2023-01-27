@@ -1,6 +1,7 @@
 import "./admin.css";
 import React from "react";
 import WhitelistContractForm from "./AddAdminForm";
+import AddPublicGoodForm from "./AddPublicGoodForm";
 
 const Admin = () => {
     return (
@@ -8,6 +9,13 @@ const Admin = () => {
             <div id="active-users">
                 <h1>Active Users</h1>
                 <WhitelistContractForm />
+            </div>
+            <div id="public-goods-management">
+                <h1>Public Goods</h1>
+                <AddPublicGoodForm />
+            </div>
+            <div id="auction-management">
+                <h1>Auction Items</h1>
             </div>
         </div>
     );

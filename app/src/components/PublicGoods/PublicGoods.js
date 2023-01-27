@@ -1,5 +1,6 @@
 import React from "react";
 import { Web3Context } from "../Contexts/Web3Provider";
+import PublicGoodItem from "./PublicGoodItem";
 import "./publicgoods.css";
 
 const Auction = () => {
@@ -8,22 +9,32 @@ const Auction = () => {
     const provider = web3Context.provider;
     const signer = provider.getSigner();
     const connectedPublicGoods = web3Context.publicGoodsContract.connect(signer);
+    const connectedNft = web3Context.nftContract.connect(signer);
+    const connectedWolvercoin = web3Context.wolvercoinContract.connect(signer);
     
     const [publicGoods, setPublicGoods] = React.useState({});
 
+    async function fetchData() {
+        let activeGoods = await connectedPublicGoods.getActiveGoods();
+        await Promise.all(activeGoods.map(async goodNumber => {
+            const goal = await connectedPublicGoods.getGoal(goodNumber);
+            const total = await connectedPublicGoods.getContributionTotal(goodNumber);
+            const name = await connectedPublicGoods.getName(goodNumber);
+            const creator = await connectedPublicGoods.getCreator(goodNumber);
+            const newPublicGoods = {...publicGoods};
+            newPublicGoods[goodNumber] = {
+                goal: goal.toNumber(),
+                total: total.toNumber(),
+                name,
+                creator,
+                nftUrl: await connectedNft.tokenURI(goodNumber)
+            };
+            setPublicGoods(newPublicGoods);
+        }));
+    }
+
     React.useEffect(() => {
-        async function fetchData() {
-            let activeGoods = await connectedPublicGoods.getActiveGoods();
-            const res = await Promise.all(activeGoods.map(async goodNumber => {
-                const goal = await connectedPublicGoods.getGoal(goodNumber);
-                const newPublicGoods = {...publicGoods};
-                newPublicGoods[goodNumber] = {
-                    goal: goal.toNumber()
-                };
-                setPublicGoods(newPublicGoods);
-            }));
-            console.log(res)
-        }
+        
         fetchData();
     }, [connectedPublicGoods]);
     
@@ -40,10 +51,13 @@ const Auction = () => {
                     Object.keys(publicGoods).map(goodNumber => {
                         const good = publicGoods[goodNumber];
                         return (
-                            <div className="good">
-                                <h2>Public Good #{goodNumber}</h2>
-                                <p>Goal: {good.goal}</p>
-                            </div>
+                            <PublicGoodItem
+                                goodNumber={goodNumber}
+                                good={good}
+                                connectedPublicGoods={connectedPublicGoods}
+                                connectedWolvercoin={connectedWolvercoin}
+                                refresh={fetchData}
+                            />
                         )
                     })
                 }

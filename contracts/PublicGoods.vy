@@ -20,6 +20,7 @@ struct Donation:
 
 struct Good:
     goal: uint256
+    name: String[50]
     donations: Donation[50] # Up to 50 people can donate to a good
     donationsLen: uint8
     totalDonations: uint256
@@ -48,7 +49,7 @@ def findIndexOfGoodInGoodsArr(nftTokenId: uint256) -> int256:
     return -1
 
 @external
-def createGood(goal: uint256, nftTokenId: uint256):
+def createGood(goal: uint256, nftTokenId: uint256, name: String[50]):
     assert self.checkIfAdminAndUser(msg.sender)
     assert goal > 0
     assert self.erc721.ownerOf(nftTokenId) == self.erc721.address
@@ -58,6 +59,7 @@ def createGood(goal: uint256, nftTokenId: uint256):
 
     self.goods[nftTokenId] = Good({
         goal: goal,
+        name: name,
         donations: empty(Donation[50]),
         donationsLen: 0,
         totalDonations: 0,
@@ -153,6 +155,13 @@ def getGoal(nftTokenId: uint256) -> uint256:
     good: Good = self.goods[nftTokenId]
     assert good.nftTokenId == nftTokenId
     return good.goal
+
+@view
+@external
+def getName(nftTokenId: uint256) -> String[50]:
+    good: Good = self.goods[nftTokenId]
+    assert good.nftTokenId == nftTokenId
+    return good.name
 
 @view
 @external

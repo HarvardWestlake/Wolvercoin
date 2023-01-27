@@ -16,6 +16,7 @@ interface ActiveUser:
 
 struct AuctionItem:
     nftTokenId: uint256
+    name: String[50]
     seller: address
     startPrice: uint256
     endPrice: uint256
@@ -43,7 +44,7 @@ def findIndexOfItemInItemsArr(nftTokenId: uint256) -> int256:
 
 # To call this function, one must approve the transfer via 721
 @external
-def createAuctionItem(startPrice: uint256, endPrice: uint256, startDate: uint256, endDate: uint256, nftTokenId: uint256):
+def createAuctionItem(startPrice: uint256, endPrice: uint256, startDate: uint256, endDate: uint256, nftTokenId: uint256, name: String[50]):
     assert endPrice > 0
     assert startPrice > endPrice
     assert startDate >= block.timestamp
@@ -56,6 +57,7 @@ def createAuctionItem(startPrice: uint256, endPrice: uint256, startDate: uint256
     
     self.auctionItems[nftTokenId] = AuctionItem({
         nftTokenId: nftTokenId,
+        name: name,
         seller: msg.sender,
         startPrice: startPrice,
         endPrice: endPrice,
@@ -139,5 +141,11 @@ def getEndPrice(nftTokenId: uint256) -> uint256:
     auctionItem: AuctionItem = self.auctionItems[nftTokenId]
     assert auctionItem.nftTokenId == nftTokenId
     return auctionItem.endPrice
+@view
+@external
+def getName(nftTokenId: uint256) -> String[50]:
+    auctionItem: AuctionItem = self.auctionItems[nftTokenId]
+    assert auctionItem.nftTokenId == nftTokenId
+    return auctionItem.name
 
 #endregion

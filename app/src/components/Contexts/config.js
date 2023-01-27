@@ -23,32 +23,32 @@ export const NETWORKS = {
     }
 }
 
-// Contracts deployed by @ericyoondotcom with account 0xdCafA75DCAED81cba4155706E9d666112950E854 on 2023-01-25 via deploy script.
+// Contracts deployed by @ericyoondotcom with account 0xdCafA75DCAED81cba4155706E9d666112950E854 on 2023-01-26 via deploy script.
 export const ACTIVE_CONTRACTS = {
     wolvercoin : {
         BrownieOutput : Wolvercoin,
-        address : "0xe9B196B3abdfA098030769794Eb20c9e0237567F"
+        address : "0x6ff6F41C9a3444BE991ffA8E73A8A001839c6f80"
     },
     nft : {
         BrownieOutput : Nft,
-        address : "0x1bC83699dABCc8fd745a0E6Df7B093d956D119Ac",
+        address : "0xCADe7Be2ED689Df4441452Ec2100D867AEA5EcC5",
         password : "69420"
     },
     activeUser: {
         BrownieOutput : ActiveUser,
-        address : "0xd8E6E0f5ef1c6620264Cae1E079F11E763D06e69"
+        address : "0xD68c70F271A776aaB3D270Fca544F50E6Aea91F8"
     },
     simpleAuction : {
         BrownieOutput : SimpleAuction,
-        address : "",
+        address : "0xb64c719424EaDd901841DB09c6B4d929E644b868",
     }, 
     dutchAuction : {
         BrownieOutput : DutchAuction,
-        address : ""
+        address : "0xBC25F74c66eb523841BA1E148BE2912FaEea0cDD"
     },
     publicGoods : {
         BrownieOutput : PublicGoods,
-        address : "0x643443a8fa43f20Cf427594478Db2121238F6CE3"
+        address : "0xDEE68e188d3FE3f235C8f436a018CB7D4b7c2e6e"
     },
 
     chainId: 5,
