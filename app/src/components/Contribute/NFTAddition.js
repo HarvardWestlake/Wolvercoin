@@ -27,11 +27,9 @@ class NFTAddition extends React.Component {
   }
 
   async mintNFT() {
-    let provider = this.props.web3Context.provider;
-
-    const signer = provider.getSigner();
-
-    const connectedNft = this.props.web3Context.nftContract.connect(signer);
+    let provider = this.props.web3Context?.provider;
+    const signer = provider?.getSigner();
+    const connectedNft = this.props.web3Context?.nftContract.connect(signer);
     let mintTxn = await connectedNft.mint(ACTIVE_CONTRACTS.nft.address, this.state.metaDataUrl);
   
     //let result = await this.props.web3Context.nftContract.mint(this.props.web3Context.connectedAccount, "NFT URI", signer);

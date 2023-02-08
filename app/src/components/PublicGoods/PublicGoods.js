@@ -5,11 +5,11 @@ import "./publicgoods.css";
 
 const PublicGoods = () => {
     const web3Context = React.useContext(Web3Context);
-    const provider = web3Context.provider;
-    const signer = provider.getSigner();
-    const connectedPublicGoods = web3Context.publicGoodsContract.connect(signer);
-    const connectedNft = web3Context.nftContract.connect(signer);
-    const connectedWolvercoin = web3Context.wolvercoinContract.connect(signer);
+    const provider = web3Context?.provider;
+    const signer = provider?.getSigner();
+    const connectedPublicGoods = web3Context?.publicGoodsContract.connect(signer);
+    const connectedNft = web3Context?.nftContract.connect(signer);
+    const connectedWolvercoin = web3Context?.wolvercoinContract.connect(signer);
     
     const [publicGoods, setPublicGoods] = React.useState({});
 

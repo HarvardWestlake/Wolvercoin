@@ -10,10 +10,10 @@ export default function AddPublicGoodForm() {
     const [resultText, setResultText] = React.useState("");
 
     const web3Context = React.useContext(Web3Context);
-    const provider = web3Context.provider;
-    const signer = provider.getSigner();
-    const connectedNft = web3Context.nftContract.connect(signer);
-    const connectedPublicGoods = web3Context.publicGoodsContract.connect(signer);
+    const provider = web3Context?.provider;
+    const signer = provider?.getSigner();
+    const connectedNft = web3Context?.nftContract.connect(signer);
+    const connectedPublicGoods = web3Context?.publicGoodsContract.connect(signer);
 
     const changeNftId = async (e) => {
         const val = e.target.value;

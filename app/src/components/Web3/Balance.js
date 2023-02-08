@@ -12,7 +12,7 @@ class Balance extends React.Component {
 
   async init() {
 
-    let wolvercoinContract = this.props.web3Context.wolvercoinContract;
+    let wolvercoinContract = this.props.web3Context?.wolvercoinContract;
       const tokenName = await wolvercoinContract.name();
       console.log('Change this to getBalanceOf view after update');
       const tokenBalance = await wolvercoinContract.balanceOf(this.props.web3Context.connectedAccount);
