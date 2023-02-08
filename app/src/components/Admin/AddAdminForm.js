@@ -52,7 +52,7 @@ export default function AddAdminForm() {
             <button onClick={checkIfAdmin} disabled={!adminAddress}>Check if user is admin</button><br />
             <button onClick={addAdmin} disabled={!adminAddress}>Add user as admin</button><br />
             <button onClick={removeAdmin} disabled={!adminAddress}>Revoke admin from user</button><br />
-            <p class="result">{resultText}</p>
+            <p className="result">{resultText}</p>
         </div>
     );
 }

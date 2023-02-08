@@ -36,8 +36,8 @@ export default function AddPublicGoodForm() {
             Donation goal: <input placeholder="Goal" type="number" value={goal} onChange={e => setGoal(e.target.value)} /><br />
             NFT Token ID: <input placeholder="NFT Token ID" type="number" value={nftTokenId} onChange={changeNftId} /><br />
             <button onClick={submit}>Add to Public Goods listing</button><br />
-            <img class="preview-image" src={nftTokenURI || LoadingImage} alt="NFT Token" /><br />
-            <p class="result">{resultText}</p>
+            <img className="preview-image" src={nftTokenURI || LoadingImage} alt="NFT Token" /><br />
+            <p className="result">{resultText}</p>
         </div>
     );
 }

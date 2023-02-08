@@ -48,8 +48,8 @@ export default function AddAuctionItemForm() {
             End date: <input placeholder="End date" type="datetime-local" value={endDate} onChange={e => setEndDate(e.target.value)} /><br />
             NFT Token ID: <input placeholder="NFT Token ID" type="number" value={nftTokenId} onChange={changeNftId} /><br />
             <button onClick={submit}>Add to Dutch Auction listing</button><br />
-            <img class="preview-image" src={nftTokenURI || LoadingImage} alt="NFT Token" /><br />
-            <p class="result">{resultText}</p>
+            <img className="preview-image" src={nftTokenURI || LoadingImage} alt="NFT Token" /><br />
+            <p className="result">{resultText}</p>
         </div>
     );
 }

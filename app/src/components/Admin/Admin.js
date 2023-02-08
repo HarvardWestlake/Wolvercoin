@@ -6,7 +6,7 @@ import AddAuctionItemForm from "./AddAuctionItemForm";
 
 const Admin = () => {
     return (
-        <div class="admin">
+        <div className="admin">
             <div id="active-users">
                 <h1>Active Users</h1>
                 <WhitelistContractForm />
