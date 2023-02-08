@@ -6,4 +6,9 @@ export const NAV_OPTIONS = {
     NFTS    : "nfts",
     CONTRIBUTE  : "contribute"
 };
+
+export const ADMIN_ROUTES = [
+    "ADMIN",
+]
+
 export const NAV_DEFAULT_LOCATION = NAV_OPTIONS.AUCTION;
