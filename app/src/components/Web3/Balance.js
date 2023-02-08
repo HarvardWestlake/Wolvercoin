@@ -28,7 +28,7 @@ class Balance extends React.Component {
     <div className="header-row">
       <div className="header-item">
         <p className="title">Total Balance</p>
-        <p className="figure">{this.state.balance}</p>
+        <p className="figure">{parseFloat(this.state.balance).toFixed(2)}</p>
       </div>
       <div className="header-item">
         <p className="title">Total Deposits</p>

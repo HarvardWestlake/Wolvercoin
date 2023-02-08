@@ -16,7 +16,7 @@ const Nav = ({location, updateHashLocation}) => {
     })();
   }, [connectedActiveUsers, web3Context.connectedAccount]);
 
-  const getHashLocation = (e) => {
+  const onNavClick = (e) => {
     if (!e || !e.target || !e.target.name) {
       e = {target:{name:""}};
     }
@@ -36,7 +36,7 @@ const Nav = ({location, updateHashLocation}) => {
               id={NAV_OPTIONS[key]}
               className={loc === NAV_OPTIONS[key] ? "menu-item active" : "menu-item"}
               name={NAV_OPTIONS[key]}
-              onClick={getHashLocation}
+              onClick={onNavClick}
             >{key}</a>
           )
       ));

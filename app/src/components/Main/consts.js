@@ -1,10 +1,10 @@
 
 export const NAV_OPTIONS = {
-    ADMIN : "admin",
-    AUCTION : "auction",
-    PUBLIC_GOODS : "public",
-    NFTS    : "nfts",
-    CONTRIBUTE  : "contribute"
+    "Admin" : "admin",
+    "Auction" : "auction",
+    "Public Goods" : "public",
+    "NFTs"    : "nfts",
+    "Contribute"  : "contribute"
 };
 
 export const ADMIN_ROUTES = [
