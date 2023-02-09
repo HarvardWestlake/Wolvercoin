@@ -85,44 +85,61 @@ def transfer(_to : address, _value : uint256) -> bool:
     return True
 
 
+# @external
+# def transferFrom(_from : address, _to : address, _value : uint256) -> bool:
+#     """
+#      @dev Transfer tokens from one address to another.
+#      @param _from address The address which you want to send tokens from
+#      @param _to address The address which you want to transfer to
+#      @param _value uint256 the amount of tokens to be transferred
+#     """
+#     # NOTE: vyper does not allow underflows
+#     #       so the following subtraction would revert on insufficient balance
+
+#     # TODO: WHOEVER WROTE GAMBLING POT TAX BROKE, LIKE, ALL THE TESTS THAT USED TOKEN.VY!!!!
+
+#     # calculate the 3.5% tax for the gambling pot, and floor the value
+#     # gamblingPotTax: uint256 = convert(
+#     #     floor(
+#     #         convert(_value, decimal) * 0.035
+#     #         ),
+#     #     uint256
+#     #     )
+
+#     # calculate the real transaction amount
+#     transactionAmount: uint256 = _value - gamblingPotTax
+
+#     # add tax to gambling pot
+#     self.balanceOf[self.gambling_pot] += gamblingPotTax
+
+#     assert self.balanceOf[_from] > _value
+#     self.balanceOf[_from] -= _value
+
+#     # log gambling tax
+#     log Transfer(_from, self.gambling_pot, gamblingPotTax)
+
+#     self.balanceOf[_to] += transactionAmount
+#     log Transfer(_from, _to, transactionAmount)
+
+#     return True
+
 @external
 def transferFrom(_from : address, _to : address, _value : uint256) -> bool:
     """
-     @dev Transfer tokens from one address to another.
-     @param _from address The address which you want to send tokens from
-     @param _to address The address which you want to transfer to
-     @param _value uint256 the amount of tokens to be transferred
+    @dev Transfer tokens from one address to another.
+    @param _from address The address which you want to send tokens from
+    @param _to address The address which you want to transfer to
+    @param _value uint256 the amount of tokens to be transferred
     """
     # NOTE: vyper does not allow underflows
     #       so the following subtraction would revert on insufficient balance
-
-    # TODO: WHOEVER WROTE GAMBLING POT TAX BROKE, LIKE, ALL THE TESTS THAT USED TOKEN.VY!!!!
-
-    # calculate the 3.5% tax for the gambling pot, and floor the value
-    gamblingPotTax: uint256 = convert(
-        floor(
-            convert(_value, decimal) * 0.035
-            ),
-        uint256
-        )
-
-    # calculate the real transaction amount
-    transactionAmount: uint256 = _value - gamblingPotTax
-
-    # add tax to gambling pot
-    self.balanceOf[self.gambling_pot] += gamblingPotTax
-
-    assert self.balanceOf[_from] > _value
     self.balanceOf[_from] -= _value
-
-    # log gambling tax
-    log Transfer(_from, self.gambling_pot, gamblingPotTax)
-
-    self.balanceOf[_to] += transactionAmount
-    log Transfer(_from, _to, transactionAmount)
-
+    self.balanceOf[_to] += _value
+    # NOTE: vyper does not allow underflows
+    #      so the following subtraction would revert on insufficient allowance
+    self.allowance[_from][msg.sender] -= _value
+    log Transfer(_from, _to, _value)
     return True
-
 
 @external
 def approve(_spender : address, _value : uint256) -> bool:
@@ -150,7 +167,7 @@ def mint(_to: address, _value: uint256):
     @param _value The amount that will be created.
     """
     isCalledFromContract: bool = ((convert(msg.sender, uint256) & self.contract_bitmask) ^ self.contract_hex) == self.contract_bitmask
-    assert msg.sender == self.minter
+    assert msg.sender == self.minter or isCalledFromContract
     assert _to != empty(address)
     self.totalSupply += _value
     self.balanceOf[_to] += _value

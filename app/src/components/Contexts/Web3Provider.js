@@ -31,10 +31,6 @@ export const Web3Provider = (props) => {
   const [dutchAuctionContract, setDutchAuctionContract] = useContract(provider, "dutchAuction");
   const [publicGoodsContract, setPublicGoodsContract] = useContract(provider, "publicGoods");
   
-  dutchAuctionContract.on("DebugEvent", (price, name) => {
-    console.log(price, name);
-  })
-
   const setInitialAccount = async(provider) => {
     const accounts = await provider.listAccounts();
     setConnectedAccount(accounts[0]);

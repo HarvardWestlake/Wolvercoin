@@ -9,7 +9,7 @@ export default function AuctionItem({itemNumber, item, connectedDutchAuction, co
     const buyItem = async () => {
         if(loading) return;
         setLoading(true);
-
+        console.log(item.startPrice)
         await connectedWolvercoin.approve(ACTIVE_CONTRACTS.dutchAuction.address, item.startPrice);
         await connectedDutchAuction.buy(itemNumber);
         await refresh();

@@ -94,7 +94,7 @@ def buy(nftTokenId: uint256):
 
     assert block.timestamp > auctionItem.startDate
 
-    price: uint256 = self._getPrice(nftTokenId)
+    price: uint256 = 10 #self._getPrice(nftTokenId)
     assert self.erc20.getBalanceOf(msg.sender) >= price # This seems to be a problem line
     
     self.erc20.transferFrom(msg.sender, auctionItem.seller, price)
