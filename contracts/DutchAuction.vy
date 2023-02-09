@@ -101,7 +101,7 @@ def buy(nftTokenId: uint256):
     price: uint256 = 10 #self._getPrice(nftTokenId)
     
     log DebugEvent(price, "Price")
-    log DebugEvent(self.erc20.getBalanceOf(msg.sender), "Balance")
+    # log DebugEvent(self.erc20.getBalanceOf(msg.sender), "Balance")
 
     # assert self.erc20.getBalanceOf(msg.sender) >= price # This seems to be a problem line
     
