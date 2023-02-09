@@ -23,6 +23,10 @@ struct AuctionItem:
     startDate: uint256
     endDate: uint256
 
+event DebugEvent:
+    data: uint256
+    tag: String[30]
+
 auctionItems: public(HashMap[uint256, AuctionItem]) # A map of nftTokenId to AuctionItem
 auctionItemsArr: public(DynArray[uint256, 100]) # A list of the nftTokenIds of all the auction items currently active
 erc20: ERC20WithAdminAccess
@@ -95,16 +99,20 @@ def buy(nftTokenId: uint256):
     assert block.timestamp > auctionItem.startDate
 
     price: uint256 = 10 #self._getPrice(nftTokenId)
-    assert self.erc20.getBalanceOf(msg.sender) >= price # This seems to be a problem line
     
-    self.erc20.transferFrom(msg.sender, auctionItem.seller, price)
-    self.erc721.transferFrom(self, msg.sender, auctionItem.nftTokenId)
+    log DebugEvent(price, "Price")
+    log DebugEvent(self.erc20.getBalanceOf(msg.sender), "Balance")
 
-    self.auctionItems[nftTokenId] = empty(AuctionItem)
-    i: int256 = self.findIndexOfItemInItemsArr(nftTokenId)
-    if i != -1:
-        self.auctionItemsArr[i] = self.auctionItemsArr[len(self.auctionItemsArr) - 1] # Make the last element take the one you want to remove's place...
-        self.auctionItemsArr.pop() # ...and then remove the last element
+    # assert self.erc20.getBalanceOf(msg.sender) >= price # This seems to be a problem line
+    
+    # self.erc20.transferFrom(msg.sender, auctionItem.seller, price)
+    # self.erc721.transferFrom(self, msg.sender, auctionItem.nftTokenId)
+
+    # self.auctionItems[nftTokenId] = empty(AuctionItem)
+    # i: int256 = self.findIndexOfItemInItemsArr(nftTokenId)
+    # if i != -1:
+    #     self.auctionItemsArr[i] = self.auctionItemsArr[len(self.auctionItemsArr) - 1] # Make the last element take the one you want to remove's place...
+    #     self.auctionItemsArr.pop() # ...and then remove the last element
 
 @view
 @external
