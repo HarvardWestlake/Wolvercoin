@@ -4,23 +4,31 @@ import PublicGoodItem from "./PublicGoodItem";
 import "./publicgoods.css";
 
 const PublicGoods = () => {
-    const web3Context = React.useContext(Web3Context);
-    const provider = web3Context?.provider;
-    const signer = provider?.getSigner();
-    const connectedPublicGoods = web3Context?.publicGoodsContract.connect(signer);
-    const connectedNft = web3Context?.nftContract.connect(signer);
-    const connectedWolvercoin = web3Context?.wolvercoinContract.connect(signer);
     
     const [publicGoods, setPublicGoods] = React.useState({});
+    const [connectedPublicGoods, setConnectedPublicGoods] = React.useState(null);
+    const [connectedNft, setConnectedNft] = React.useState(null);
+    const [connectedWolvercoin, setConnectedWolvercoin] = React.useState(null);
 
-    async function fetchData() {
+    const web3Context = React.useContext(Web3Context);
+    
+    React.useEffect(() => {
+        const provider = web3Context?.provider;
+        const signer = provider?.getSigner();
+        setConnectedPublicGoods(web3Context?.publicGoodsContract.connect(signer));
+        setConnectedNft(web3Context?.nftContract.connect(signer));
+        setConnectedWolvercoin(web3Context?.wolvercoinContract.connect(signer));
+    }, [web3Context]);
+
+    const fetchData = React.useCallback(async () => {
+        if(!connectedPublicGoods) return;
         let activeGoods = await connectedPublicGoods.getActiveGoods();
+        const newPublicGoods = {};
         await Promise.all(activeGoods.map(async goodNumber => {
             const goal = await connectedPublicGoods.getGoal(goodNumber);
             const total = await connectedPublicGoods.getContributionTotal(goodNumber);
             const name = await connectedPublicGoods.getName(goodNumber);
             const creator = await connectedPublicGoods.getCreator(goodNumber);
-            const newPublicGoods = {...publicGoods};
             newPublicGoods[goodNumber] = {
                 goal: goal.toNumber(),
                 total: total.toNumber(),
@@ -28,13 +36,14 @@ const PublicGoods = () => {
                 creator,
                 nftUrl: await connectedNft.tokenURI(goodNumber)
             };
-            setPublicGoods(newPublicGoods);
         }));
-    }
+        setPublicGoods(newPublicGoods);
+    }, [connectedNft, connectedPublicGoods]);
 
     React.useEffect(() => {
+        console.log("Fetchdata")
         fetchData();
-    }, [connectedPublicGoods]);
+    }, [connectedPublicGoods, connectedNft, fetchData]);
     
     return (
         <div className="public_goods">
@@ -50,6 +59,7 @@ const PublicGoods = () => {
                         const good = publicGoods[goodNumber];
                         return (
                             <PublicGoodItem
+                                key={goodNumber}
                                 goodNumber={goodNumber}
                                 good={good}
                                 connectedPublicGoods={connectedPublicGoods}

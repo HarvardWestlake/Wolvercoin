@@ -48,7 +48,7 @@ export default function AuctionItem({itemNumber, item, connectedDutchAuction, co
                     <>
                         <h2>PRICE:</h2>
                         <h1>{price.toFixed(2)} WVC</h1>
-                        <button disabled={loading} onClick={buyItem}>{loading ? "COMPLETE TRANSACTION ON PINPAD" : "BUY NOW!"}</button>
+                        <button disabled={loading} onClick={buyItem}>{loading ? "HANG TIGHT..." : "BUY NOW!"}</button>
                     </>
                 )
             }

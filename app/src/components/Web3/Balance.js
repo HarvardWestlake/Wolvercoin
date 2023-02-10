@@ -18,8 +18,12 @@ class Balance extends React.Component {
       const tokenBalance = await wolvercoinContract.balanceOf(this.props.web3Context.connectedAccount);
       const tokenUnits = await wolvercoinContract.decimals();
       let balance = ethers.utils.formatUnits(tokenBalance, tokenUnits);
-      
-      this.setState({balance});
+      const parsed = parseFloat(balance);
+      if(isNaN(parsed)) {
+        this.setState({balance: "..."});
+        return;
+      }
+      this.setState({balance: parsed.toFixed(tokenUnits)});
       
   }
 
@@ -28,7 +32,7 @@ class Balance extends React.Component {
     <div className="header-row">
       <div className="header-item">
         <p className="title">Total Balance</p>
-        <p className="figure">{parseFloat(this.state.balance).toFixed(2)}</p>
+        <p className="figure">{this.state.balance}</p>
       </div>
       <div className="header-item">
         <p className="title">Total Deposits</p>

@@ -5,15 +5,25 @@ import "./auction.css";
 
 const Auction = () => {
 	const web3Context = React.useContext(Web3Context);
-    const provider = web3Context.provider;
-    const signer = provider.getSigner();
-    const connectedDutchAuction = web3Context.dutchAuctionContract.connect(signer);
-    const connectedNft = web3Context.nftContract.connect(signer);
-    const connectedWolvercoin = web3Context.wolvercoinContract.connect(signer);
+    
 	const [auctionItems, setAuctionItems] = React.useState({});
+    const [connectedDutchAuction, setConnectedDutchAuction] = React.useState(null);
+    const [connectedNft, setConnectedNft] = React.useState(null);
+    const [connectedWolvercoin, setConnectedWolvercoin] = React.useState(null);
 
-    async function fetchData() {
+    React.useEffect(() => {
+        const provider = web3Context.provider;
+        const signer = provider.getSigner();
+        setConnectedDutchAuction(web3Context.dutchAuctionContract.connect(signer));
+        setConnectedNft(web3Context.nftContract.connect(signer));
+        setConnectedWolvercoin(web3Context.wolvercoinContract.connect(signer));
+    }, [web3Context]);
+
+
+    const fetchData = React.useCallback(async () => {
+        if(!connectedDutchAuction) return;
         let activeItems = await connectedDutchAuction.getActiveAuctionItems();
+        const newAuctionItems = {};
         await Promise.all(activeItems.map(async itemNumber => {
 			const seller = await connectedDutchAuction.getSeller(itemNumber);
 			const startDate = await connectedDutchAuction.getStartDate(itemNumber);
@@ -22,7 +32,6 @@ const Auction = () => {
 			const endPrice = await connectedDutchAuction.getEndPrice(itemNumber);
 			const name = await connectedDutchAuction.getName(itemNumber);
 
-			const newAuctionItems = {...auctionItems};
             newAuctionItems[itemNumber] = {
                 seller,
 				startDate: new Date(startDate.toNumber() * 1000),
@@ -32,13 +41,13 @@ const Auction = () => {
 				name,
                 nftUrl: await connectedNft.tokenURI(itemNumber)
             };
-            setAuctionItems(newAuctionItems);
         }));
-    }
+        setAuctionItems(newAuctionItems);
+    }, [connectedDutchAuction, connectedNft]);
 
     React.useEffect(() => {
         fetchData();
-    }, [connectedDutchAuction]);
+    }, [connectedNft, connectedDutchAuction, fetchData]);
     
     return (
         <div className="auction">
@@ -54,6 +63,7 @@ const Auction = () => {
                         const item = auctionItems[itemNumber];
                         return (
                             <AuctionItem
+                                key={itemNumber}
                                 itemNumber={itemNumber}
                                 item={item}
                                 connectedDutchAuction={connectedDutchAuction}

@@ -39,6 +39,13 @@
     cursor: pointer;
 }
 
+.good button.negative {
+    background-color: #FF0000;
+}
+.good button.negative:hover {
+    background-color: #FF9999;
+}
+
 .good input {
     font-size: 20px;
     width: 70px;

@@ -4,6 +4,7 @@
 interface ERC20WithAdminAccess:
     def getBalanceOf(_address: address) -> uint256: nonpayable
     def transferFrom(_from : address, _to : address, _value : uint256) -> bool: nonpayable
+    def transfer(_to : address, _value : uint256) -> bool: nonpayable
     def approve(_spender : address, _value : uint256) -> bool: nonpayable
 
 interface ERC721WithAdminAccess:
@@ -126,8 +127,7 @@ def complete(nftTokenId: uint256):
             if i >= good.donationsLen:
                 break
             donation: Donation = good.donations[i]
-            self.erc20.approve(self, donation.amount)
-            self.erc20.transferFrom(self, donation.donator, donation.amount)
+            self.erc20.transfer(donation.donator, donation.amount)
     self.goods[nftTokenId] = empty(Good)
     
     # remove the index 
