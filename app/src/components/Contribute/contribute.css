@@ -1,8 +1,12 @@
+.contribute {
+    padding: 0 30%;
+}
+
 .readableContent {
+    border-radius: 10px;
     background-color:antiquewhite;
     padding: 5px;
     border: 1px solid black;
-    max-width: 500px;
     margin: 10px auto;
     text-align: center;
 }

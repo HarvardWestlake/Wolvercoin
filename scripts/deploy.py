@@ -26,7 +26,7 @@ def main():
     #     {'from': account}
     # );
     dutchAuctionContract = DutchAuction.deploy(
-        erc721Contract, #erc20Address
+        erc20Contract, #erc20Address
         erc721Contract, #erc721Address
         activeUserContract, #activeUserAddress
         {'from': account}
@@ -48,9 +48,9 @@ def main():
     print("PublicGoods has been whitelisted: " + str(activeUserContract.getContractWhitelisted(publicGoodsContract, {'from': account})))
 
     print("\n\n~~~~ CONTRACTS CREATED ~~~~")
-    print("ActiveUser address: " + activeUserContract.address)
     print("ERC20 address: " + erc20Contract.address)
     print("ERC721 address: " + erc721Contract.address)
+    print("ActiveUser address: " + activeUserContract.address)
     # print("SimpleAuction address: " + simpleAuctionContract.address)
     print("DutchAuction address: " + dutchAuctionContract.address)
     print("PublicGoods address: " + publicGoodsContract.address)

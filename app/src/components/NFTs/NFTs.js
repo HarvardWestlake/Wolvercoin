@@ -7,7 +7,7 @@ class NFTs extends React.Component {
 		return (
 			<div className="nfts">
 				<p>
-					<a href={`https://testnets.opensea.io/collections?search%5Bquery%5D=${ACTIVE_CONTRACTS.nft.address}`}>
+					<a target="_blank" rel="noopener noreferrer" href={`https://testnets.opensea.io/collections?search%5Bquery%5D=${ACTIVE_CONTRACTS.nft.address}`}>
 						View our collection of NFTs here!
 					</a>
 				</p>

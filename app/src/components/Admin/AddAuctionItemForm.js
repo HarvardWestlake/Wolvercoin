@@ -39,7 +39,7 @@ export default function AddAuctionItemForm() {
     }
 
     return (
-        <div>
+        <div id="add-auction-item-form">
             <h2>Create an Auction Item</h2>
             Name: <input placeholder="Name" value={name} onChange={e => setName(e.target.value)} /><br />
             Start price: <input placeholder="Start price" type="number" value={startPrice} onChange={e => setStartPrice(e.target.value)} /><br />

@@ -30,7 +30,7 @@ export default function AddPublicGoodForm() {
     }
 
     return (
-        <div>
+        <div id="add-public-good-form">
             <h2>Create a Public Good</h2>
             Name: <input placeholder="Name" value={name} onChange={e => setName(e.target.value)} /><br />
             Donation goal: <input placeholder="Goal" type="number" value={goal} onChange={e => setGoal(e.target.value)} /><br />
