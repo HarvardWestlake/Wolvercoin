@@ -7,9 +7,9 @@ export default function AddAuctionItemForm() {
     const [endPrice, setEndPrice] = React.useState(10);
     const [startDate, setStartDate] = React.useState("");
     const [endDate, setEndDate] = React.useState("");
-    const [nftTokenId, setNftTokenId] = React.useState(null);
+    const [nftTokenId, setNftTokenId] = React.useState(undefined);
     const [name, setName] = React.useState("");
-    const [nftTokenURI, setNftTokenURI] = React.useState(null);
+    const [nftTokenURI, setNftTokenURI] = React.useState(undefined);
     const [resultText, setResultText] = React.useState("");
 
     const web3Context = React.useContext(Web3Context);

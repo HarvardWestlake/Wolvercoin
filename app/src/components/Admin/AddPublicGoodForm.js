@@ -5,8 +5,8 @@ import { Web3Context } from "../Contexts/Web3Provider";
 export default function AddPublicGoodForm() {
     const [goal, setGoal] = React.useState(69);
     const [name, setName] = React.useState("");
-    const [nftTokenId, setNftTokenId] = React.useState(null);
-    const [nftTokenURI, setNftTokenURI] = React.useState(null);
+    const [nftTokenId, setNftTokenId] = React.useState(undefined);
+    const [nftTokenURI, setNftTokenURI] = React.useState(undefined);
     const [resultText, setResultText] = React.useState("");
 
     const web3Context = React.useContext(Web3Context);

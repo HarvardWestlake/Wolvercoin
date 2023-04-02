@@ -52,7 +52,7 @@ export default function PublicGoodItem({goodNumber, good, connectedPublicGoods, 
     return (
         <div className="good" style={{backgroundImage: `url(${good.nftUrl})`}}>
             <h3>{good.name}</h3>
-            <p><pre>Token ID #{goodNumber}</pre></p>
+            <p>Token ID #{goodNumber}</p>
             <h2>GOAL:</h2>
             <h1>{good.total} out of {good.goal}</h1>
             <input type="number" value={donationAmount} onChange={changeDonationAmount} /><br />

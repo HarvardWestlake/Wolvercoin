@@ -35,7 +35,7 @@ export default function AuctionItem({itemNumber, item, connectedDutchAuction, co
     return (
         <div className="item" style={{backgroundImage: `url(${item.nftUrl})`}}>
             <h3>{item.name}</h3>
-            <p><pre>Token ID #{itemNumber}</pre></p>
+            <p>Token ID #{itemNumber}</p>
             <p>Price range: {item.endPrice} to {item.startPrice}</p>
             <p>
                 Auction starts {moment(item.startDate).format("ddd, MMM Do, h:mm A")}<br />
