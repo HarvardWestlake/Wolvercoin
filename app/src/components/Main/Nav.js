@@ -10,8 +10,11 @@ const Nav = ({location, updateHashLocation}) => {
   const connectedActiveUsers = web3Context?.activeUserContract.connect(signer);
 
   React.useEffect(() => {
+
+    // Check if there's a valid account before connecting.  Otherwise getIsAdmin errors with '' being an invalid param
     (async () => {
-      const isAdmin = await connectedActiveUsers.getIsAdmin(web3Context.connectedAccount);
+      const isAccountConnected = web3Context.connectedAccount === '' ? false : true;
+      const isAdmin = isAccountConnected ? await connectedActiveUsers.getIsAdmin(web3Context.connectedAccount) : false;
       setIsAdmin(isAdmin);
     })();
   }, [connectedActiveUsers, web3Context.connectedAccount]);
