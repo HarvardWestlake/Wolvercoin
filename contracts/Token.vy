@@ -35,10 +35,6 @@ allowance: public(HashMap[address, HashMap[address, uint256]])
 totalSupply: public(uint256)
 minter: address
 
-
-contract_bitmask: uint256
-contract_hex: uint256
-
 # GamblingPot is a contract that holds the tax for the gambling pot
 interface GamblingPotContract:
     def getAmountToTax(preTaxAmount: uint256) -> uint256: nonpayable
@@ -54,8 +50,6 @@ def __init__(_name: String[32], _symbol: String[32], _decimals: uint8, _supply: 
     self.balanceOf[msg.sender] = init_supply
     self.totalSupply = init_supply
     self.minter = msg.sender
-    self.contract_bitmask = convert(0xFFFFF00000000000000000000000000000000000, uint256)
-    self.contract_hex = convert(0xAB66600000000000000000000000000000000000, uint256)
     log Transfer(empty(address), msg.sender, init_supply)
 
 
@@ -167,8 +161,7 @@ def mint(_to: address, _value: uint256):
     @param _to The account that will receive the created tokens.
     @param _value The amount that will be created.
     """
-    isCalledFromContract: bool = ((convert(msg.sender, uint256) & self.contract_bitmask) ^ self.contract_hex) == self.contract_bitmask
-    assert msg.sender == self.minter or isCalledFromContract
+    assert msg.sender == self.minter
     assert _to != empty(address)
     self.totalSupply += _value
     self.balanceOf[_to] += _value
