@@ -132,7 +132,7 @@ def __init__(activeUserAddress: address, _password: uint256):  # activeUserContr
     self.name = "Not-So-Fungible Wolvies"
     self.symbol = "NSFW"
     self.minter = msg.sender
-    self.baseURI = "http://ipfs.wolvercoin.com/ipfs/"
+    self.baseURI = ""
     self.tokenCount = 0
     self.password = _password
     self.activeUserContract = ActiveUser(activeUserAddress)

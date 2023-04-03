@@ -10,22 +10,27 @@ const getProvider = () => {
   return new ethers.providers.Web3Provider(window.ethereum, 'any');
 }
 
+const useContract = (provider, contractKey) => {
+  return React.useState(new ethers.Contract(
+    Contracts.ACTIVE_CONTRACTS[contractKey].address,
+    Contracts.ACTIVE_CONTRACTS[contractKey].BrownieOutput.abi,
+    provider.getSigner()
+  ));
+}
+
 export const Web3Provider = (props) => {
   const [provider, setProvider] = React.useState(getProvider());
   const [connectedAccount, setConnectedAccount] = React.useState("");
   const [chainId, setChainId] = React.useState(0);
   const [wolvercoinBalance, setWolvercoinBalance] = React.useState(0);
-  const [nftContract, setNftContract] = React.useState(new ethers.Contract(
-    Contracts.ACTIVE_CONTRACTS.nft.address, 
-    Contracts.ACTIVE_CONTRACTS.nft.ABI.abi,
-    provider.getSigner()
-  ))
-  const [wolvercoinContract, setWolvercoinContract] = React.useState(new ethers.Contract(
-    Contracts.ACTIVE_CONTRACTS.wolvercoin.address, 
-    Contracts.ACTIVE_CONTRACTS.wolvercoin.ABI.abi, 
-    provider.getSigner()
-  ))
-  
+
+  const [wolvercoinContract, setWolvercoinContract] = useContract(provider, "wolvercoin");
+  const [nftContract, setNftContract] = useContract(provider, "nft");
+  const [activeUserContract, setActiveUserContract] = useContract(provider, "activeUser");
+  const [simpleAuctionContract, setSimpleAuctionContract] = useContract(provider, "simpleAuction");
+  const [dutchAuctionContract, setDutchAuctionContract] = useContract(provider, "dutchAuction");
+  const [publicGoodsContract, setPublicGoodsContract] = useContract(provider, "publicGoods");
+
   const setInitialAccount = async(provider) => {
     const accounts = await provider.listAccounts();
     setConnectedAccount(accounts[0]);
@@ -45,8 +50,23 @@ export const Web3Provider = (props) => {
     wolvercoinBalance, setWolvercoinBalance, 
     provider, setProvider,
     nftContract, setNftContract,
-    wolvercoinContract, setWolvercoinContract
-  }), [connectedAccount, chainId, wolvercoinBalance, provider]);
+    wolvercoinContract, setWolvercoinContract,
+    activeUserContract, setActiveUserContract,
+    simpleAuctionContract, setSimpleAuctionContract,
+    dutchAuctionContract, setDutchAuctionContract,
+    publicGoodsContract, setPublicGoodsContract,
+  }), [
+    connectedAccount, setConnectedAccount,
+    chainId, setChainId,
+    wolvercoinBalance, setWolvercoinBalance,
+    provider, setProvider,
+    nftContract, setNftContract,
+    wolvercoinContract, setWolvercoinContract,
+    activeUserContract, setActiveUserContract,
+    simpleAuctionContract, setSimpleAuctionContract,
+    dutchAuctionContract, setDutchAuctionContract,
+    publicGoodsContract, setPublicGoodsContract,
+  ]);
 
   // Set contexts
   useEffect(() => { setInitialChainId(provider); }, []);

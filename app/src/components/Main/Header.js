@@ -7,11 +7,6 @@ import Nav from "./Nav"
 import {Web3Context} from "../Contexts/Web3Provider"
 
 class Header extends React.Component {
-  
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     // The MetaMask Componenet receives not only the connectedAccount
     // but also a onConnect function from the context

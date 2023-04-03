@@ -82,15 +82,9 @@ body {
 }
 
 .menu-items {
-  -webkit-text-size-adjust: 100%;
-  flex: 1 1 0px;
-  -webkit-box-align: center;
-  align-items: center;
-  -webkit-box-flex: 2;
-  flex-grow: 2;
   display: flex;
-  -webkit-box-pack: center;
   justify-content: center;
+  align-items: center;
 }
 
 .menu-item {
@@ -104,7 +98,6 @@ body {
   font-size: 16px;
   line-height: 25px;
   color: rgb(255, 255, 255);
-  text-transform: lowercase; 
 }
 .menu-item:first-letter {text-transform: uppercase}
 

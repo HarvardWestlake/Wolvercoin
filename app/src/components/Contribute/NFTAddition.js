@@ -1,4 +1,5 @@
 import React from "react";
+import { ACTIVE_CONTRACTS } from "../Contexts/config";
 import "./contribute.css";
 
 class NFTAddition extends React.Component {
@@ -13,7 +14,7 @@ class NFTAddition extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps.metaDataUrl !== this.props.metaDataUrl) {
-      this.setState({metaDataUrl : this.props.metaDataUrl});
+      this.setState({metaDataUrl : "http://ipfs.wolvercoin.com/ipfs/" + this.props.metaDataUrl});
     }
   }
 
@@ -21,13 +22,15 @@ class NFTAddition extends React.Component {
     this.setState({[event.target.name]: event.target.value});
   }
 
+  overrideUrl = (event) => {
+    this.setState({metaDataUrl : event.target.value});
+  }
+
   async mintNFT() {
-    let provider = this.props.web3Context.provider;
-
-    const signer = provider.getSigner();
-
-    const connectedNft = this.props.web3Context.nftContract.connect(signer);
-    let mintTxn = await connectedNft.mint(this.props.web3Context.connectedAccount, this.state.metaDataUrl);
+    let provider = this.props.web3Context?.provider;
+    const signer = provider?.getSigner();
+    const connectedNft = this.props.web3Context?.nftContract.connect(signer);
+    let mintTxn = await connectedNft.mint(ACTIVE_CONTRACTS.nft.address, this.state.metaDataUrl);
   
     //let result = await this.props.web3Context.nftContract.mint(this.props.web3Context.connectedAccount, "NFT URI", signer);
     console.log('mint nft', mintTxn);
@@ -36,12 +39,19 @@ class NFTAddition extends React.Component {
   render() {
     let url = <div></div>
     if (this.state.metaDataUrl) {
-      url = (<div><a target="_blank" href={"http://ipfs.wolvercoin.com/ipfs/" + this.state.metaDataUrl} >MetaData on IPFS</a><p>{this.state.metaDataUrl}</p></div>)
+      url = (<div><a target="_blank" href={this.state.metaDataUrl}>MetaData on IPFS</a><p>{this.state.metaDataUrl}</p></div>)
     }
     return (
       <div className="readableContent">
         <div>{url}</div>
-         <button onClick={this.mintNFT}>Mint NFT</button>
+        {
+          window.location.search.includes("debug") && (
+            <>
+              <input placeholder="URL of NFT image" value={this.state.metaDataUrl} onChange={this.overrideUrl} /><br />
+            </>
+          )
+        }
+        <button onClick={this.mintNFT}>Mint NFT</button>
       </div>
     );
   }
