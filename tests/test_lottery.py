@@ -61,51 +61,30 @@ def test_lotteryBuy(lotteryContract,erc20Contract,accounts):
 
 
     # Buy funcs
+    erc20Contract.approve(lotteryContract.address, 6, {'from': b1})
     assert lotteryContract.buyTickets(6, {'from': b1}), "Didnt buy"
+    erc20Contract.approve(lotteryContract.address, 6, {'from': b2})
     assert lotteryContract.buyTickets(6, {'from': b2}), "Didnt buy"
+    erc20Contract.approve(lotteryContract.address, 6, {'from': b6})
     assert lotteryContract.buyTickets(6, {'from': b6}), "Didnt buy"
+    erc20Contract.approve(lotteryContract.address, 6, {'from': b5})
     assert lotteryContract.buyTickets(6, {'from': b5}), "Didnt buy"
+    erc20Contract.approve(lotteryContract.address, 6, {'from': b4})
     assert lotteryContract.buyTickets(6, {'from': b4}), "Didnt buy"
+    erc20Contract.approve(lotteryContract.address, 6, {'from': b3})
     assert lotteryContract.buyTickets(6, {'from': b3}), "Didnt buy"
+    erc20Contract.approve(lotteryContract.address, 6, {'from': buyer})
     assert lotteryContract.buyTickets(6, {'from': buyer}), "Didnt buy"
     assert lotteryContract.pot()==42
     assert lotteryContract.ticketTotal()==7
 
-    chain.sleep(50000000000000000)
-    assert lotteryContract.endLottery(),"Didnt end"
-    assert lotteryContract.ended() == True,"end didnt work"
-    
-    # Would be great if this test worked, but it doesnt because sometimes the computer takes one moment and it screws everything up
-    # whoWon : uint256 = chain.time()%42
-    # whoWon = (42-whoWon)/7 
-    # if (whoWon ==1):
-    #     assert erc20Contract.getBalanceOf(b1) == 84/3
-    # elif (whoWon ==2):
-    #     assert erc20Contract.getBalanceOf(b2) == 84/3
-    # elif (whoWon ==3):
-    #     assert erc20Contract.getBalanceOf(b6) == 84/3
-    # elif (whoWon ==4):
-    #     assert erc20Contract.getBalanceOf(b5) == 84/3
-    # elif (whoWon ==5):
-    #     assert erc20Contract.getBalanceOf(b4) == 84/3
-    # elif (whoWon ==6):
-    #     assert erc20Contract.getBalanceOf(b3) == 84/3
-    # elif (whoWon ==7):
-    #     assert erc20Contract.getBalanceOf(buyer) == 84/3
-   
-
-
-
-    # End of Lotto
-
-    # assert str(erc20Contract.getBalanceOf(buyer)) == "69415", "Balance didnt update"
-    assert lotteryContract.ended() == True,"end didnt work"
     
 def test_lotteryEnd(lotteryContract,erc20Contract,accounts):
     buyer = accounts[8]
     admin = accounts[0]
     assert erc20Contract.mint(buyer, 5, {'from': admin}), "Didnt mint"
     assert erc20Contract.getBalanceOf(buyer) == 5
+    erc20Contract.approve(lotteryContract.address, 6, {'from': buyer})
     assert lotteryContract.buyTickets(5, {'from': buyer}), "Didnt buy" 
     assert erc20Contract.getBalanceOf(buyer)==0
     chain.sleep(50000000000000000)

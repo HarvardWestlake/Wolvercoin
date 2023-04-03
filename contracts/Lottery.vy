@@ -6,6 +6,7 @@
 interface Token:
     def getBalanceOf(_address: address) -> uint256: nonpayable
     def transferFrom(_from : address, _to : address, _value : uint256) -> bool: nonpayable
+    def transfer(_to : address, _value : uint256) -> bool: nonpayable
     def approve(_spender : address, _value : uint256) -> bool: nonpayable
 
 #TODO:
@@ -103,7 +104,7 @@ def endLottery():
     for i in self.spentArr:
         if (rand < i and foundWinner == False):
             foundWinner = True
-            assert self.erc20.transferFrom(self, self.ticketBuys.pop(), self.pot*2/3), "Transfer failed"
+            assert self.erc20.transfer(self.ticketBuys.pop(), self.pot*2/3), "Transfer failed"
             self.pot = self.pot/3
         if(foundWinner==False):
             rand-=i
