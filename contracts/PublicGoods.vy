@@ -14,6 +14,7 @@ interface ERC721WithAdminAccess:
 interface ActiveUser:
     def getIsActiveUser(potentialUser: address) -> bool: view
     def getIsAdmin(potentialAdmin: address) -> bool: view
+    def getIsAdminAndActiveUser(potentialAdminAndUser: address) -> bool: view
 
 struct Donation:
     donator: address
@@ -51,7 +52,7 @@ def findIndexOfGoodInGoodsArr(nftTokenId: uint256) -> int256:
 
 @external
 def createGood(goal: uint256, nftTokenId: uint256, name: String[50]):
-    assert self.checkIfAdminAndUser(msg.sender)
+    assert self.activeUser.getIsAdminAndActiveUser(msg.sender)
     assert goal > 0
     assert self.erc721.ownerOf(nftTokenId) == self.erc721.address
 
@@ -182,5 +183,4 @@ def checkIfAdminAndUser(sender: address) -> bool:
     isActive: bool = self.activeUser.getIsActiveUser(msg.sender)
     isAdmin: bool = self.activeUser.getIsAdmin(msg.sender)
     return isActive and isAdmin
-#endregion
 

@@ -86,6 +86,18 @@ def _isAdminOrOwner(_address : address) -> bool:
     return self.admins[_address] or self.owner == _address
 
 @view
+@internal
+def _getIsActiveUser(_potentialUser: address) -> bool:
+    return self.userGraduationYear[_potentialUser] == self.currentGradYear
+  
+@view
+@internal
+def _getIsAdminAndActiveUser(potentialAdminAndActiveUser: address) -> bool:
+    isActive: bool = self._getIsActiveUser(potentialAdminAndActiveUser)
+    isAdmin: bool = self._isAdminOrOwner(potentialAdminAndActiveUser)
+    return isActive and isAdmin
+    
+@view
 @external
 def getContractWhitelisted(_contractAddress: address) -> bool:
     return self.isContractWhitelisted[_contractAddress]
@@ -104,6 +116,13 @@ def getIsAdmin(_potentialAdmin: address) -> bool:
 @external
 def getIsActiveUser(_potentialUser: address) -> bool:
     return self.userGraduationYear[_potentialUser] == self.currentGradYear
+
+@view
+@external
+def getIsAdminAndActiveUser(potentialAdminAndActiveUser: address) -> bool:
+    isActive: bool = self._getIsActiveUser(potentialAdminAndActiveUser)
+    isAdmin: bool = self._isAdminOrOwner(potentialAdminAndActiveUser)
+    return isActive and isAdmin
 
 @view 
 @external

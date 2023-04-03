@@ -10,7 +10,7 @@ def main():
     erc20Contract = Token.deploy(
         "Wolvercoin", # name
         "WVC", # symbol
-        0, # decimals
+        18, # decimals
         42069420, # supply
         {'from': account}
     );
