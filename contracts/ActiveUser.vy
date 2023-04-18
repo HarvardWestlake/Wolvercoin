@@ -53,6 +53,10 @@ def addAdmin(_adminToAdd: address):
 
 @external
 def addUser(_userToAdd: address):
+    self._addUser(_userToAdd)
+
+@internal
+def _addUser(_userToAdd: address):
     assert not self.disabled, "This contract and its features are disabled"
     assert _userToAdd != empty(address), "Cannot add the 0 address as a user"
     assert self.admins[msg.sender] == True, "Only admins can add active users"
@@ -88,6 +92,8 @@ def _isAdminOrOwner(_address : address) -> bool:
 @view
 @internal
 def _getIsActiveUser(_potentialUser: address) -> bool:
+    if (self.userGraduationYear[_potentialUser] <= 0):
+        return False
     return self.userGraduationYear[_potentialUser] == self.currentGradYear
   
 @view
@@ -115,14 +121,12 @@ def getIsAdmin(_potentialAdmin: address) -> bool:
 @view
 @external
 def getIsActiveUser(_potentialUser: address) -> bool:
-    return self.userGraduationYear[_potentialUser] == self.currentGradYear
-
+    return self._getIsActiveUser(_potentialUser)
+    
 @view
 @external
 def getIsAdminAndActiveUser(potentialAdminAndActiveUser: address) -> bool:
-    isActive: bool = self._getIsActiveUser(potentialAdminAndActiveUser)
-    isAdmin: bool = self._isAdminOrOwner(potentialAdminAndActiveUser)
-    return isActive and isAdmin
+    return self._getIsAdminAndActiveUser(potentialAdminAndActiveUser)
 
 @view 
 @external
@@ -141,7 +145,7 @@ def setDisableContract(disabled: bool):
 
 @external
 def setCurrentGradYear(_year: uint256):
-    assert not self.disabled, "This contract and its features are disabled"
+    assert not self.disabled, "This contract and its features are currently disabled"
     assert self._isAdminOrOwner(msg.sender), "Only admins can add active students"
     self.currentGradYear = _year
     log SetGradYear(msg.sender, _year) 
@@ -150,3 +154,15 @@ def setCurrentGradYear(_year: uint256):
 def setOwner(_owner : address):
     assert msg.sender == self.owner
     self.owner = _owner
+
+@external
+def addBulkUsers(_usersToAdd: DynArray[address, 25]):
+    assert not self.disabled, "This contract and its features are currently disabled"
+    assert self._isAdminOrOwner(msg.sender), "Only admins can add active students"
+    for user in _usersToAdd:
+        self._addUser(user)
+
+@view
+@external
+def getOwner() -> address:
+    return self.owner
