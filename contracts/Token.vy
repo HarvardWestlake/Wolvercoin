@@ -40,6 +40,10 @@ interface GamblingPotContract:
     def getAmountToTax(preTaxAmount: uint256) -> uint256: nonpayable
 gambling_pot_contract: public(GamblingPotContract)
 
+interface ActiveUserContract:
+    def getIsAdmin(_potentialAdmin: address) -> bool: view
+active_user_contract: public(ActiveUserContract)
+
 
 @external
 def __init__(_name: String[32], _symbol: String[32], _decimals: uint8, _supply: uint256):
@@ -151,9 +155,12 @@ def approve(_spender : address, _value : uint256) -> bool:
     log Approval(msg.sender, _spender, _value)
     return True
 
-
 @external
 def mint(_to: address, _value: uint256):
+    self._mint(_to, _value)
+
+@internal
+def _mint(_to: address, _value: uint256):
     """
     @dev Mint an amount of the token and assigns it to an account.
          This encapsulates the modification of balances such that the
@@ -167,7 +174,6 @@ def mint(_to: address, _value: uint256):
     self.balanceOf[_to] += _value
     log Transfer(empty(address), _to, _value)
 
-
 @internal
 def _burn(_to: address, _value: uint256):
     """
@@ -180,8 +186,6 @@ def _burn(_to: address, _value: uint256):
     self.totalSupply -= _value
     self.balanceOf[_to] -= _value
     log Transfer(_to, empty(address), _value)
-    return
-
 
 @external
 def burn(_value: uint256):
@@ -200,6 +204,7 @@ def burnFrom(_to: address, _value: uint256):
     """
     self.allowance[_to][msg.sender] -= _value
     self._burn(_to, _value)
+
 @external
 def generate_random_number(maxVal: uint256) -> uint256:
     return block.timestamp % maxVal
@@ -208,3 +213,21 @@ def generate_random_number(maxVal: uint256) -> uint256:
 def setGamblingPotContract(_gamblingPotContract: address):
     assert msg.sender == self.minter
     self.gambling_pot_contract = GamblingPotContract(_gamblingPotContract)
+
+@external
+def setActiveUserContract(_activeUserContract: address):
+    assert msg.sender == self.minter
+    self.active_user_contract = ActiveUserContract(_activeUserContract)
+
+@external
+def bulkMintUniqueAmount(_to: DynArray[address,100], _value: DynArray[uint256,100]):
+    assert len(_to) == len(_value), "Array lengths must match"
+    assert self.active_user_contract.address != empty(address)
+    assert self.active_user_contract.getIsAdmin(msg.sender)
+    counter: uint256 = 0
+    value: uint256 = _value[counter]
+    for i in _to:
+        value = _value[counter]
+        counter += 1
+        self._mint(i, value)
+
