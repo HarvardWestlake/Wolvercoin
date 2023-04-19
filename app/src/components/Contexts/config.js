@@ -27,16 +27,16 @@ export const NETWORKS = {
 export const ACTIVE_CONTRACTS = {
     wolvercoin : {
         BrownieOutput : Wolvercoin,
-        address : "0x6D996fC1b1074A5E7F88a4fB789060335866B52e"
+        address : "0xd74cAe406dBcCEDAcF4700f8B9CB79f6b2593815"
     },
     nft : {
         BrownieOutput : Nft,
-        address : "0x7Ef07641Bb8Feb194555Fcb4E10a3C7eaa333b6B",
+        address : "0x0e52E9dbB8F1Fd540990C620671DF982958eb0D9",
         password : "69420"
     },
     activeUser: {
         BrownieOutput : ActiveUser,
-        address : "0x427567F07c7F32637e383eE57B0C3002bAFbA811"
+        address : "0x38901938590dD927192a51aEDD957AFa294d146c"
     },
     simpleAuction : {
         BrownieOutput : SimpleAuction,
@@ -44,11 +44,11 @@ export const ACTIVE_CONTRACTS = {
     }, 
     dutchAuction : {
         BrownieOutput : DutchAuction,
-        address : "0xc8F097071232171A1d937D4Ab51D5EAf404846e3"
+        address : "0xAF0Ba98bE3ae36c8919835e9eA9504E2344E0561"
     },
     publicGoods : {
         BrownieOutput : PublicGoods,
-        address : "0x381d896f0980f9516109C74F83B5D489242C60B7"
+        address : "0xcDe7aD355e6bb4571FEC5B4AC4BE7A4ea57376db"
     },
 
     chainId: 5,
