@@ -32,7 +32,7 @@ export const ACTIVE_CONTRACTS = {
     nft : {
         BrownieOutput : Nft,
         address : "0x0e52E9dbB8F1Fd540990C620671DF982958eb0D9",
-        password : "69420"
+        password : "54321"
     },
     activeUser: {
         BrownieOutput : ActiveUser,

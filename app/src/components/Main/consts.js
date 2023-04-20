@@ -8,7 +8,7 @@ export const NAV_OPTIONS = {
 };
 
 export const ADMIN_ROUTES = [
-    "ADMIN",
+    "Admin",
 ]
 
 export const NAV_DEFAULT_LOCATION = NAV_OPTIONS.AUCTION;

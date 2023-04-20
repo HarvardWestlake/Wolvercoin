@@ -16,7 +16,7 @@ def main():
     );
     erc721Contract = NFT.deploy(
         activeUserContract, #activeUser
-        12345, #password
+        12345, #password, should probably HASH this before submitting
         {'from': account}
     );
     # simpleAuctionContract = SimpleAuction.deploy(
