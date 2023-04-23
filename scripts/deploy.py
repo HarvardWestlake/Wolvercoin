@@ -42,11 +42,16 @@ def main():
     # activeUserContract.whitelistContract(simpleAuctionContract, {'from': account})
     activeUserContract.whitelistContract(dutchAuctionContract, {'from': account})
     activeUserContract.whitelistContract(publicGoodsContract, {'from': account})
+    
+    # Set active user contract in Token for Bulk operations
+    erc20Contract.setActiveUserContract(activeUserContract, {'from': account})
+    # erc20Contract.setGamblingPotContract(gamblingPotContract, {'from': account})
 
     # print("SimpleAuction has been whitelisted: " + str(activeUserContract.getContractWhitelisted(simpleAuctionContract, {'from': account})))
     print("DutchAuction has been whitelisted: " + str(activeUserContract.getContractWhitelisted(dutchAuctionContract, {'from': account})))
     print("PublicGoods has been whitelisted: " + str(activeUserContract.getContractWhitelisted(publicGoodsContract, {'from': account})))
 
+    print("Token has set it's Active User Contract for Bulk Operations: " + activeUserContract.address)
     print("\n\n~~~~ CONTRACTS CREATED ~~~~")
     print("ERC20 address: " + erc20Contract.address)
     print("ERC721 address: " + erc721Contract.address)

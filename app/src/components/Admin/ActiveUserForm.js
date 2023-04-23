@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Web3Context } from "../Contexts/Web3Provider";
 import { ethers } from "ethers";
 
@@ -9,13 +9,15 @@ export default function ActiveUserForm() {
     const [yearResultText, setYearResultText] = React.useState("");
     const [bulkResultText, setBulkResultText] = React.useState("");
     const [resultText, setResultText] = React.useState("");
+    const [mintAmount, setMintAmount] = React.useState("");
 
     
     const web3Context = React.useContext(Web3Context);
     const provider = web3Context?.provider;
     const signer = provider?.getSigner();
     const connectedActiveUsers = web3Context?.activeUserContract.connect(signer);
-    
+    const tokenContract = web3Context?.wolvercoinContract.connect(signer);
+
     const checkActiveUser = async () => {
         if(!adminAddress) return;
         const data = await connectedActiveUsers.getIsActiveUser(adminAddress);
@@ -63,8 +65,24 @@ export default function ActiveUserForm() {
         setYearResultText("Grad Year Set, please get grad year to confirm");
     }
 
+    const checkBalance = async () => {
+        const data = await tokenContract.balanceOf(adminAddress);
+        setResultText(String(ethers.utils.formatEther(data)));
+    }
+
     const bulkAddUsers = async () => {
         const data = await connectedActiveUsers.addBulkUsers(bulkAdminAddress);
+        setBulkResultText(String(data.hash));
+    }
+
+    const bulkMintToUsers = async () => {
+        const size = bulkAdminAddress.length;
+        let amounts = [];
+        const sigFigs = await tokenContract.decimals();
+        for(let i = 0; i < size; i++) {
+            amounts.push(ethers.utils.parseUnits(mintAmount, sigFigs));
+        }
+        const data = await tokenContract.bulkMintUniqueAmount(bulkAdminAddress, amounts);
         setBulkResultText(String(data.hash));
     }
     
@@ -80,8 +98,8 @@ export default function ActiveUserForm() {
             <button onClick={checkIfAdmin} disabled={!adminAddress}>Check if user is admin</button><br />
             <button onClick={addAdmin} disabled={!adminAddress}>Add user as admin</button><br />
             <button onClick={removeAdmin} disabled={!adminAddress}>Revoke admin from user</button><br />
+            <button onClick={checkBalance} disabled={!adminAddress}>Check WVC Balance</button><br />
             <p className="result">{resultText}</p>
-
 
             <br /><br />
             <h2>Bulk Admin management:</h2>
@@ -89,11 +107,16 @@ export default function ActiveUserForm() {
                 setBulkAdminAddress(e.target.value.split(','));
             }} /><br />
             <button onClick={bulkAddUsers} disabled={!bulkAdminAddress}>Add users as active users</button><br /><br />
+            <input placeholder="Mint Amount" type="number" className="mint_amount" value={mintAmount} onChange={(e) => {
+                setMintAmount(e.target.value);
+            }} />
+            <button onClick={bulkMintToUsers}>Bulk Mint to Users</button><br />
+            <br />
             <p className="result">{bulkResultText}</p>
 
             <h2>Grad Year management:</h2>
             <button onClick={setCurrentGradYear}>Set Grad Year</button><br />
-            <input placeholder="Set Grad Year Here" value={gradYear} onChange={(e) => {
+            <input placeholder="Grad Year" value={gradYear} onChange={(e) => {
                 setGradYear(e.target.value);
             }} /><br />            
             <button onClick={getGradYear}>Get Grad Year</button><br />
