@@ -16,10 +16,12 @@ def erc20Contract(Token, accounts):
 
 @pytest.fixture
 def activeUserContract(ActiveUser, accounts):
-    return ActiveUser.deploy(
+    activeUserContract = ActiveUser.deploy(
         accounts[0], # admin
         {'from': accounts[0]}
     )
+    activeUserContract.setCurrentGradYear(2021, {'from': accounts[0]})
+    return activeUserContract
 
 @pytest.fixture
 def erc721Contract(NFT, activeUserContract, accounts):
@@ -44,6 +46,7 @@ def test_createGood(publicGoodsContract, erc20Contract, erc721Contract, activeUs
     admin = accounts[0]
 
     activeUserContract.addAdmin(creatorOfGood, {'from': admin})
+    activeUserContract.addUser(creatorOfGood, {'from': admin})
     activeUserContract.whitelistContract(publicGoodsContract, {'from': admin})
 
     mintResult = erc721Contract.mint(erc721Contract, "https://example.com?ricepurity", {'from': admin})
@@ -60,6 +63,7 @@ def test_contribute(publicGoodsContract, erc20Contract, erc721Contract, activeUs
     admin = accounts[0]
 
     activeUserContract.addAdmin(creatorOfGood, {'from': admin})
+    activeUserContract.addUser(creatorOfGood, {'from': admin})
     activeUserContract.whitelistContract(publicGoodsContract, {'from': admin})
 
     mintResult = erc721Contract.mint(erc721Contract, "https://example.com?ricepurity", {'from': admin})
@@ -91,6 +95,7 @@ def test_retract(publicGoodsContract, erc20Contract, erc721Contract, activeUserC
     admin = accounts[0]
 
     activeUserContract.addAdmin(creatorOfGood, {'from': admin})
+    activeUserContract.addUser(creatorOfGood, {'from': admin})
     activeUserContract.whitelistContract(publicGoodsContract, {'from': admin})
 
     mintResult = erc721Contract.mint(erc721Contract, "https://example.com?ricepurity", {'from': admin})
@@ -120,6 +125,7 @@ def test_complete_goal_achieved(publicGoodsContract, erc20Contract, erc721Contra
     admin = accounts[0]
 
     activeUserContract.addAdmin(creatorOfGood, {'from': admin})
+    activeUserContract.addUser(creatorOfGood, {'from': admin})
     activeUserContract.whitelistContract(publicGoodsContract, {'from': admin})
 
     mintResult = erc721Contract.mint(erc721Contract, "https://example.com?ricepurity", {'from': admin})
@@ -148,6 +154,7 @@ def test_complete_goal_not_achieved(publicGoodsContract, erc20Contract, erc721Co
     admin = accounts[0]
 
     activeUserContract.addAdmin(creatorOfGood, {'from': admin})
+    activeUserContract.addUser(creatorOfGood, {'from': admin})
     activeUserContract.whitelistContract(publicGoodsContract, {'from': admin})
 
     mintResult = erc721Contract.mint(erc721Contract, "https://example.com?ricepurity", {'from': admin})
@@ -178,6 +185,7 @@ def test_getters(publicGoodsContract, erc20Contract, erc721Contract, activeUserC
     admin = accounts[0]
 
     activeUserContract.addAdmin(creatorOfGood, {'from': admin})
+    activeUserContract.addUser(creatorOfGood, {'from': admin})
     activeUserContract.whitelistContract(publicGoodsContract, {'from': admin})
 
     mintResult = erc721Contract.mint(erc721Contract, "https://example.com?ricepurity", {'from': admin})

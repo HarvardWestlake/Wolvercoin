@@ -177,10 +177,3 @@ def getCreator(nftTokenId: uint256) -> address:
     good: Good = self.goods[nftTokenId]
     assert good.nftTokenId == nftTokenId
     return good.creator
-
-@internal
-def checkIfAdminAndUser(sender: address) -> bool:
-    isActive: bool = self.activeUser.getIsActiveUser(msg.sender)
-    isAdmin: bool = self.activeUser.getIsAdmin(msg.sender)
-    return isActive and isAdmin
-

@@ -18,11 +18,12 @@ def wolvercoinContract(Token, accounts):
 
 @pytest.fixture
 def activeUserContract(ActiveUser, accounts):
-    activeUserContract = ActiveUser.deploy (accounts[0], {'from': accounts[0]})
-    activeUserContract.addUser (accounts[0], {'from': accounts[0]})
-    activeUserContract.addUser (accounts[1], {'from': accounts[0]})
-    activeUserContract.addUser (accounts[2], {'from': accounts[0]})
-    activeUserContract.addUser (accounts[3], {'from': accounts[0]})
+    activeUserContract = ActiveUser.deploy(accounts[0], {'from': accounts[0]})
+    activeUserContract.setCurrentGradYear(2021, {'from': accounts[0]})
+    activeUserContract.addUser(accounts[0], {'from': accounts[0]})
+    activeUserContract.addUser(accounts[1], {'from': accounts[0]})
+    activeUserContract.addUser(accounts[2], {'from': accounts[0]})
+    activeUserContract.addUser(accounts[3], {'from': accounts[0]})
     return activeUserContract
 
 @pytest.fixture
@@ -33,7 +34,7 @@ def stakeContract(Stake, activeUserContract, wolvercoinContract, accounts):
     wolvercoinContract.mint (stakeContract, 1000000)
     return stakeContract
 
-def test_checkActiveUser (stakeContract, wolvercoinContract, activeUserContract, accounts):
+def test_checkActiveUser(stakeContract, wolvercoinContract, activeUserContract, accounts):
     wolvercoinContract.approve (accounts [3], 1000, {'from': stakeContract})
     badAccountFail = False 
     try:
@@ -42,10 +43,10 @@ def test_checkActiveUser (stakeContract, wolvercoinContract, activeUserContract,
         badAccountFail = True
     assert badAccountFail, "Accounts that are not active users should not be able to stake"
 
-def test_nonexistentAccount (stakeContract, wolvercoinContract, activeUserContract, accounts):
+def test_nonexistentAccount(stakeContract, wolvercoinContract, activeUserContract, accounts):
     assert stakeContract.stakeAmounts(accounts[0]) == 0, "An account that has not staked should have a balance of 0"
 
-def test_unstakeForNonexistentAccount (stakeContract, wolvercoinContract, activeUserContract, accounts):
+def test_unstakeForNonexistentAccount(stakeContract, wolvercoinContract, activeUserContract, accounts):
     badAccountFail = False
     try:
         stakeContract.unstake(accounts[0],2)
@@ -54,8 +55,12 @@ def test_unstakeForNonexistentAccount (stakeContract, wolvercoinContract, active
     assert badAccountFail, "Accounts without money should not be able to unstake"
 
 def test_stake(stakeContract, wolvercoinContract, accounts):
+    # Setup
     wolvercoinContract.mint (accounts[1], 1000, {'from': accounts[0]})
     originalAmountInAccount = int(wolvercoinContract.balanceOf(accounts[1]))
+    assert originalAmountInAccount == 1000, "Account should have 1000 coins before test begins"
+
+    # Test (start by approving)
     wolvercoinContract.approve (stakeContract, 10, {'from': accounts[1]})
     stakeContract.stake(accounts[1], 10, {'from': accounts[1]}) 
     assert stakeContract.stakeAmounts(accounts[1]) == 10, "Account should have 1 coin staked"

@@ -1,15 +1,15 @@
 import "./admin.css";
 import React from "react";
-import WhitelistContractForm from "./AddAdminForm";
+import ActiveUserForm from "./ActiveUserForm";
 import AddPublicGoodForm from "./AddPublicGoodForm";
 import AddAuctionItemForm from "./AddAuctionItemForm";
 
-const Admin = () => {
+const Admin = (props) => {
     return (
         <div className="admin">
             <div id="active-users">
                 <h1>Active Users</h1>
-                <WhitelistContractForm />
+                <ActiveUserForm />
             </div>
             <div id="public-goods-management">
                 <h1>Public Goods</h1>

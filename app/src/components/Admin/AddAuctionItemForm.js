@@ -1,15 +1,16 @@
 import React from "react";
 import LoadingImage from "../../resources/loading.gif";
 import { Web3Context } from "../Contexts/Web3Provider";
+import { ACTIVE_CONTRACTS } from "../Contexts/config";
 
 export default function AddAuctionItemForm() {
     const [startPrice, setStartPrice] = React.useState(100);
     const [endPrice, setEndPrice] = React.useState(10);
     const [startDate, setStartDate] = React.useState("");
     const [endDate, setEndDate] = React.useState("");
-    const [nftTokenId, setNftTokenId] = React.useState(undefined);
+    const [nftTokenId, setNftTokenId] = React.useState("");
     const [name, setName] = React.useState("");
-    const [nftTokenURI, setNftTokenURI] = React.useState(undefined);
+    const [nftTokenURI, setNftTokenURI] = React.useState("");
     const [resultText, setResultText] = React.useState("");
 
     const web3Context = React.useContext(Web3Context);
@@ -22,16 +23,24 @@ export default function AddAuctionItemForm() {
         const val = e.target.value;
         setNftTokenId(val);
         if(val.length === 0) return;
-        setNftTokenURI(await connectedNft.tokenURI(val));
+        const tokenUri = await connectedNft.tokenURI(val);
+        const fullUri = ACTIVE_CONTRACTS.nft.uriBase + tokenUri;
+
+        // The full URI is a JSON object with a bunch of metadata.  We need to grab the image out of it to view it.
+        const response = await fetch(fullUri);
+        const json = await response.json();
+        setNftTokenURI( json.image);
     }
 
     const submit = async () => {
         const start = new Date(startDate);
         const end = new Date(endDate);
-        if(start < new Date()) return;
+        let yesterday = new Date();
+        yesterday.setDate(yesterday.getDate() - 1);
+        if(start < yesterday) return; // We should allow it to already be started...
         if(end < start) return;
-        if(startPrice < 0) return;
-        if(endPrice > startPrice || endPrice < 0) return;
+        if(Number(startPrice) < 0) return;
+        if(Number(endPrice) > Number(startPrice) || Number(endPrice) < 0) return;
         if(!nftTokenId) return;
         if(!name) return;
 
