@@ -2,6 +2,7 @@ import React from "react";
 import { Web3Context } from "../Contexts/Web3Provider";
 import AuctionItem from "./AuctionItem";
 import "./auction.css";
+import { ACTIVE_CONTRACTS } from "../Contexts/config";
 
 const Auction = () => {
 	const web3Context = React.useContext(Web3Context);
@@ -31,7 +32,10 @@ const Auction = () => {
 			const startPrice = await connectedDutchAuction.getStartPrice(itemNumber);
 			const endPrice = await connectedDutchAuction.getEndPrice(itemNumber);
 			const name = await connectedDutchAuction.getName(itemNumber);
-
+            const nftJsonUri = await connectedNft.tokenURI(itemNumber);
+            const fullUri = ACTIVE_CONTRACTS.nft.uriBase + nftJsonUri;
+            const response = await fetch(fullUri);
+            const json = await response.json();
             newAuctionItems[itemNumber] = {
                 seller,
 				startDate: new Date(startDate.toNumber() * 1000),
@@ -39,7 +43,7 @@ const Auction = () => {
 				startPrice: startPrice.toNumber(),
 				endPrice: endPrice.toNumber(),
 				name,
-                nftUrl: await connectedNft.tokenURI(itemNumber)
+                nftUrl: json.image
             };
         }));
         setAuctionItems(newAuctionItems);

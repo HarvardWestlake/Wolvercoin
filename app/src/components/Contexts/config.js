@@ -32,7 +32,8 @@ export const ACTIVE_CONTRACTS = {
     nft : {
         BrownieOutput : Nft,
         address : "0x0e52E9dbB8F1Fd540990C620671DF982958eb0D9",
-        password : "54321"
+        password : "54321",
+        uriBase : "https://ipfs.wolvercoin.com/ipfs/"
     },
     activeUser: {
         BrownieOutput : ActiveUser,
@@ -52,5 +53,5 @@ export const ACTIVE_CONTRACTS = {
     },
 
     chainId: 5,
-    network : NETWORKS.goerli
+    network : NETWORKS.goerli,
 };
