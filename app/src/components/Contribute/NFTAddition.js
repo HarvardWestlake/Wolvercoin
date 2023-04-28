@@ -14,7 +14,7 @@ class NFTAddition extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps.metaDataUrl !== this.props.metaDataUrl) {
-      this.setState({metaDataUrl : "http://ipfs.wolvercoin.com/ipfs/" + this.props.metaDataUrl});
+      this.setState({metaDataUrl : this.props.metaDataUrl});
     }
   }
 
@@ -31,7 +31,7 @@ class NFTAddition extends React.Component {
     const signer = provider?.getSigner();
     const connectedNft = this.props.web3Context?.nftContract.connect(signer);
     let mintTxn = await connectedNft.mint(ACTIVE_CONTRACTS.nft.address, this.state.metaDataUrl);
-  
+    //let mintTxn = await connectedNft.safeMintToThisContractWithApprovalToExternalContractUsingPassword(ACTIVE_CONTRACTS.nft.address, this.state.metaDataUrl, "54321");
     //let result = await this.props.web3Context.nftContract.mint(this.props.web3Context.connectedAccount, "NFT URI", signer);
     console.log('mint nft', mintTxn);
   }

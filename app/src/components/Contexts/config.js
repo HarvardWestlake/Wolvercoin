@@ -23,7 +23,7 @@ export const NETWORKS = {
     }
 }
 
-// Contracts deployed by @ericyoondotcom with account 0xdCafA75DCAED81cba4155706E9d666112950E854 on 2023-01-26 via deploy script.
+// Deployed by 0xc718b2fd6f5912511d558b1d6a04a9d2b9be25bb
 export const ACTIVE_CONTRACTS = {
     wolvercoin : {
         BrownieOutput : Wolvercoin,
