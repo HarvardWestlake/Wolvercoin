@@ -25,6 +25,9 @@ const Auction = () => {
         if(!connectedDutchAuction) return;
         let activeItems = await connectedDutchAuction.getActiveAuctionItems();
         const newAuctionItems = {};
+        const provider = web3Context.provider;
+        const signerAddress = await provider.getSigner().getAddress();
+        //const approvalAmount = await connectedWolvercoin.getAllowanceOf(connectedDutchAuction.address);
         await Promise.all(activeItems.map(async itemNumber => {
 			const seller = await connectedDutchAuction.getSeller(itemNumber);
 			const startDate = await connectedDutchAuction.getStartDate(itemNumber);
@@ -43,7 +46,8 @@ const Auction = () => {
 				startPrice: startPrice.toNumber(),
 				endPrice: endPrice.toNumber(),
 				name,
-                nftUrl: json.image
+                nftUrl: json.image,
+                approvalAmount : approvalAmount.toNumber()
             };
         }));
         setAuctionItems(newAuctionItems);

@@ -56,7 +56,7 @@ def __init__(_name: String[32], _symbol: String[32], _decimals: uint8, _supply: 
     self.minter = msg.sender
     log Transfer(empty(address), msg.sender, init_supply)
 
-
+@view
 @external
 def getAllowanceOf(_from: address) -> uint256:
     return self.allowance[_from][msg.sender]
@@ -66,6 +66,7 @@ def getAllowanceOf(_from: address) -> uint256:
 def getBalanceOf(_user: address) -> uint256:
     return self.balanceOf[_user]
 
+@view
 @external
 def getApprovedAmountOf(_user: address, _spender: address) -> uint256:
     return self.allowance[_user][_spender]
