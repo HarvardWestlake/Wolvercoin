@@ -13,3 +13,5 @@ reports/
 __pycache__/
 
 .env
+
+app/firebase-debug.log

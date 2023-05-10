@@ -27,17 +27,17 @@ export const NETWORKS = {
 export const ACTIVE_CONTRACTS = {
     wolvercoin : {
         BrownieOutput : Wolvercoin,
-        address : "0xd74cAe406dBcCEDAcF4700f8B9CB79f6b2593815"
+        address : "0xB7577161D22870375d604270aD6fE39f63cCCb1F"
     },
     nft : {
         BrownieOutput : Nft,
-        address : "0x0e52E9dbB8F1Fd540990C620671DF982958eb0D9",
+        address : "0xBB453Fbee1cdFF8740838E2072eC86B1321f44D4",
         password : "54321",
         uriBase : "https://ipfs.wolvercoin.com/ipfs/"
     },
     activeUser: {
         BrownieOutput : ActiveUser,
-        address : "0x38901938590dD927192a51aEDD957AFa294d146c"
+        address : "0x2F0941Ddd9505a703529c2f06B20CaF94Cd16C8a"
     },
     simpleAuction : {
         BrownieOutput : SimpleAuction,
@@ -45,13 +45,24 @@ export const ACTIVE_CONTRACTS = {
     }, 
     dutchAuction : {
         BrownieOutput : DutchAuction,
-        address : "0xAF0Ba98bE3ae36c8919835e9eA9504E2344E0561"
+        address : "0x404439f65Bc959efeA5050ff3ddB105Fd462854a"
     },
     publicGoods : {
         BrownieOutput : PublicGoods,
-        address : "0xcDe7aD355e6bb4571FEC5B4AC4BE7A4ea57376db"
+        address : "0x4F332EDCf2CD82f8A78443987ED0132133C0b197"
     },
 
     chainId: 5,
     network : NETWORKS.goerli,
 };
+
+
+/*
+
+~~~~ CONTRACTS CREATED ~~~~
+ERC20 address: 0xB7577161D22870375d604270aD6fE39f63cCCb1F
+ERC721 address: 0xBB453Fbee1cdFF8740838E2072eC86B1321f44D4
+ActiveUser address: 0x2F0941Ddd9505a703529c2f06B20CaF94Cd16C8a
+DutchAuction address: 0x404439f65Bc959efeA5050ff3ddB105Fd462854a
+PublicGoods address: 0x4F332EDCf2CD82f8A78443987ED0132133C0b197
+*/

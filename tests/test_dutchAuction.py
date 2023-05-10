@@ -155,7 +155,7 @@ def test_buy(dutchAuctionContract, erc20Contract, erc721Contract, activeUserCont
     assert erc20Contract.mint(donator, 69420, {'from': admin}) # Supply the account with some token
     assert str(erc20Contract.getBalanceOf(donator)) == "69420"
     assert erc20Contract.approve(dutchAuctionContract.address, 69420, {'from': donator}) # Approve expenditure
-    assert str(erc20Contract.getApprovedAmountOf(donator, dutchAuctionContract.address).return_value) == "69420"
+    assert str(erc20Contract.getApprovedAmountOf(donator, dutchAuctionContract.address)) == "69420"
 
     assert dutchAuctionContract.buy(mintedTokenId, {'from': donator})
 

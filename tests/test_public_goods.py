@@ -76,7 +76,7 @@ def test_contribute(publicGoodsContract, erc20Contract, erc721Contract, activeUs
     assert str(erc20Contract.getBalanceOf(donator)) == "69420"
     
     assert erc20Contract.approve(publicGoodsContract.address, 69420, {'from': donator}) # Approve expenditure
-    assert str(erc20Contract.getApprovedAmountOf(donator, publicGoodsContract.address).return_value) == "69420"
+    assert str(erc20Contract.getApprovedAmountOf(donator, publicGoodsContract.address)) == "69420"
     
     assert publicGoodsContract.contribute(mintedTokenId, 3, {'from': donator}), "contribute failed"
     returnVal = publicGoodsContract.getContributionTotal(mintedTokenId, {'from': accounts[0]})
@@ -109,7 +109,7 @@ def test_retract(publicGoodsContract, erc20Contract, erc721Contract, activeUserC
     assert str(erc20Contract.getBalanceOf(donator)) == "69420"
 
     assert erc20Contract.approve(publicGoodsContract.address, 69420, {'from': donator}) # Approve expenditure
-    assert str(erc20Contract.getApprovedAmountOf(donator, publicGoodsContract.address).return_value) == "69420"
+    assert str(erc20Contract.getApprovedAmountOf(donator, publicGoodsContract.address)) == "69420"
 
     assert publicGoodsContract.contribute(mintedTokenId, 3, {'from': donator}), "contribute failed"
     assert publicGoodsContract.retract(mintedTokenId, 1, {'from': donator}), "retract failed"
@@ -137,7 +137,7 @@ def test_complete_goal_achieved(publicGoodsContract, erc20Contract, erc721Contra
     assert str(erc20Contract.getBalanceOf(donator)) == "69420"
     
     assert erc20Contract.approve(publicGoodsContract.address, 69420, {'from': donator})
-    assert str(erc20Contract.getApprovedAmountOf(donator, publicGoodsContract.address).return_value) == "69420"
+    assert str(erc20Contract.getApprovedAmountOf(donator, publicGoodsContract.address)) == "69420"
     
     assert publicGoodsContract.contribute(mintedTokenId, 10, {'from': donator}), "contribute failed"
     
@@ -166,7 +166,7 @@ def test_complete_goal_not_achieved(publicGoodsContract, erc20Contract, erc721Co
     assert str(erc20Contract.getBalanceOf(donator)) == "69420"
     
     assert erc20Contract.approve(publicGoodsContract.address, 69420, {'from': donator})
-    assert str(erc20Contract.getApprovedAmountOf(donator, publicGoodsContract.address).return_value) == "69420"
+    assert str(erc20Contract.getApprovedAmountOf(donator, publicGoodsContract.address)) == "69420"
     
     assert publicGoodsContract.contribute(mintedTokenId, 3, {'from': donator}), "contribute failed"
     assert str(erc20Contract.getBalanceOf(donator)) == str(69420 - 3)

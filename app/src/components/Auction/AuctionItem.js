@@ -10,7 +10,6 @@ export default function AuctionItem({itemNumber, item, connectedDutchAuction, co
         if(loading) return;
         setLoading(true);
         console.log(item.startPrice)
-        await connectedWolvercoin.approve(ACTIVE_CONTRACTS.dutchAuction.address, item.startPrice);
         await connectedDutchAuction.buy(itemNumber);
         await refresh();
         setLoading(false);

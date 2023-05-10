@@ -58,6 +58,34 @@ class MetaMask extends React.Component {
     this.props.web3Context.connectedAccount = accounts[0];
     this.setState({accounts : accounts[0]});
   }
+
+  async addToken() {
+    const provider = new ethers.providers.Web3Provider(window.ethereum)
+    //const accounts = await provider.send("eth_requestAccounts", []);
+    // Add token to ethereum wallet in metamask
+
+    const params = {
+      type: 'ERC20',
+      options: {
+        address: Contracts.ACTIVE_CONTRACTS.wolvercoin.address,
+        symbol: 'WOLV',
+        decimals: 18,
+        image: 'https://wolvercoin.com/logo192.png'
+      }
+    };
+   // const assets = await ethers.providers.Web3Provider.request({ method: "wallet_watchAsset",params});
+   const asset = window.ethereum.request({ method: 'wallet_watchAsset', params }).then((result) => {
+    if (result) {
+      console.log('Thanks for your interest!');
+    } else {
+      console.log('Your loss!');
+    }
+  }).catch((error) => {
+    console.log(error);
+  });
+    console.log(asset);
+  }
+
   renderMetamask() {
     if (!this.props.web3Context.connectedAccount) {
       return (
@@ -76,7 +104,7 @@ class MetaMask extends React.Component {
           </svg>
           <span className="price">62</span>
         </span>
-            <span id="addCoinToMetamask" className="crypto-icon"></span>
+            <span id="addCoinToMetamask" onClick={() => this.addToken()} className="crypto-icon"></span>
             <span>
               <span className="connected-indicator"></span>
               <span className="address">
