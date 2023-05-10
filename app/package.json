@@ -47,5 +47,9 @@
     "fs": false,
     "os": false,
     "path": false
+  },
+  "devDependencies": {
+    "babel-plugin-jsx-control-statements": "^4.1.2",
+    "jsx-control-statements": "^3.2.8"
   }
 }

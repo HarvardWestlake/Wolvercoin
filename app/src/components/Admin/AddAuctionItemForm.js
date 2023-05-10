@@ -2,6 +2,7 @@ import React from "react";
 import LoadingImage from "../../resources/loading.gif";
 import { Web3Context } from "../Contexts/Web3Provider";
 import { ACTIVE_CONTRACTS } from "../Contexts/config";
+import {ethers} from "ethers";
 
 export default function AddAuctionItemForm() {
     const [startPrice, setStartPrice] = React.useState(100);
@@ -18,6 +19,7 @@ export default function AddAuctionItemForm() {
     const signer = provider.getSigner();
     const connectedNft = web3Context.nftContract.connect(signer);
     const connectedDutchAuction = web3Context.dutchAuctionContract.connect(signer);
+    const connectedWolvercoin = web3Context.wolvercoinContract.connect(signer);
 
     const changeNftId = async (e) => {
         const val = e.target.value;
@@ -44,7 +46,12 @@ export default function AddAuctionItemForm() {
         if(!nftTokenId) return;
         if(!name) return;
 
-        await connectedDutchAuction.createAuctionItem(startPrice, endPrice, start.getTime() / 1000, end.getTime() / 1000, nftTokenId, name);
+        const decimals = await connectedWolvercoin.decimals();
+
+        // convert prices to large number formats
+        let convertedStartPrice = ethers.utils.parseUnits(String(startPrice), decimals);
+        let convertedEndPrice = ethers.utils.parseEther(String(endPrice), decimals);
+        await connectedDutchAuction.createAuctionItem(convertedStartPrice, convertedEndPrice, start.getTime() / 1000, end.getTime() / 1000, nftTokenId, name);
     }
 
     return (

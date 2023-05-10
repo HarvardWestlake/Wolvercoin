@@ -7,16 +7,17 @@ def main():
         account, # admin
         {'from': account}
     );
+
     erc20Contract = Token.deploy(
         "Wolvercoin", # name
-        "WVC", # symbol
+        "WOLV", # symbol
         18, # decimals
-        42069420, # supply
+        42069, # supply
         {'from': account}
     );
     erc721Contract = NFT.deploy(
         activeUserContract, #activeUser
-        12345, #password, should probably HASH this before submitting
+        54321, #password, should probably HASH this before submitting
         {'from': account}
     );
     # simpleAuctionContract = SimpleAuction.deploy(
