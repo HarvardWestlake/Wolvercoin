@@ -6,15 +6,11 @@ import "./auction.css";
 const Approve = ({connectedWolvercoin, connectedDutchAuction, needsApproval}) => {
 	const web3Context = React.useContext(Web3Context);
 
-    const [approval, setApproval] = React.useState(null);
+    const [approval, setApproval] = React.useState("none");
     const [approvalAmount, setApprovalAmount] = React.useState(0);
     const [wolvercoinBalance, setWolvercoinBalance] = React.useState(0);
 
     
-    React.useEffect(() => async () => {
-        updateApproval();
-    }, [web3Context]);
-
     const updateApproval = async () => {
         const provider = web3Context.provider;
         const signer = provider.getSigner();
@@ -34,9 +30,8 @@ const Approve = ({connectedWolvercoin, connectedDutchAuction, needsApproval}) =>
         } else {
             setApproval(false);
         }
-    }
-
         
+    }   
 
     const approve = async () => {
         const provider = web3Context.provider;
@@ -48,9 +43,10 @@ const Approve = ({connectedWolvercoin, connectedDutchAuction, needsApproval}) =>
         updateApproval();
     }
 
-    if (needsApproval === true && approval === null) {
+    if (needsApproval === true && approval === "none") {
+        updateApproval();
         return <div>Checking approval for dutch auctions...</div>
-    } else if (needsApproval === false || approval === true || (approvalAmount > 0 && approvalAmount == wolvercoinBalance)) {
+    } else if (needsApproval === false || approval === true || (approvalAmount > 0 && approvalAmount === wolvercoinBalance)) {
         return <div className="approved-to-spend">Approved {approvalAmount} WVC on Dutch Auctions</div>
     } else if (approvalAmount > 0) {
         return (
