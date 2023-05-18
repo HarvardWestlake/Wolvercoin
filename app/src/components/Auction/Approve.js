@@ -9,6 +9,7 @@ const Approve = ({connectedWolvercoin, connectedDutchAuction, needsApproval}) =>
     const [approval, setApproval] = React.useState("none");
     const [approvalAmount, setApprovalAmount] = React.useState(0);
     const [wolvercoinBalance, setWolvercoinBalance] = React.useState(0);
+    const [bigNumberApprovalAmount, setBigNumberApprovalAmount] = React.useState(0);
 
     
     const updateApproval = async () => {
@@ -24,6 +25,7 @@ const Approve = ({connectedWolvercoin, connectedDutchAuction, needsApproval}) =>
         if(isNaN(parsed)) {
             return;
         }
+        setBigNumberApprovalAmount(approvalAmount);
         setApprovalAmount(Math.round(parsed.toFixed(tokenUnits)*100)/100);
         if (approvalAmount > 0) {
             setApproval(true);
@@ -46,7 +48,7 @@ const Approve = ({connectedWolvercoin, connectedDutchAuction, needsApproval}) =>
     if (needsApproval === true && approval === "none") {
         updateApproval();
         return <div>Checking approval for dutch auctions...</div>
-    } else if (needsApproval === false || approval === true || (approvalAmount > 0 && approvalAmount === wolvercoinBalance)) {
+    } else if ((needsApproval === false || approval === true || (approvalAmount > 0)) && (bigNumberApprovalAmount.toString() === wolvercoinBalance.toString())) {
         return <div className="approved-to-spend">Approved {approvalAmount} WVC on Dutch Auctions</div>
     } else if (approvalAmount > 0) {
         return (

@@ -31,6 +31,14 @@ export default function AuctionItem({itemNumber, item, connectedDutchAuction, co
         }, 1000);
     }, []);
 
+    const renderPrice = () => {
+        if(price === 0) {
+            return item.startPrice;
+        } else {
+            return Math.round(price * 100) / 100;
+        }
+    }
+    
     return (
         <div className="item" style={{backgroundImage: `url(${item.nftUrl})`}}>
             <h3>{item.name}</h3>
@@ -46,7 +54,7 @@ export default function AuctionItem({itemNumber, item, connectedDutchAuction, co
                 ) : (
                     <>
                         <h2>PRICE:</h2>
-                        <h1>{price.toFixed(2)} WVC</h1>
+                        <h1>{renderPrice()} WVC</h1>
                         <button disabled={loading} onClick={buyItem}>{loading ? "HANG TIGHT..." : "BUY NOW!"}</button>
                     </>
                 )
