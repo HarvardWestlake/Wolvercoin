@@ -10,3 +10,8 @@ build/*
 node_modules/
 build/
 reports/
+__pycache__/
+
+.env
+
+app/firebase-debug.log

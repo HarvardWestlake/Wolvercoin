@@ -20,3 +20,4 @@ def takeTenPercent() -> uint256:
     if self.totalOfTransactions != 0:
         self.totalOfTransactions = self.totalOfTransactions - temp
     return temp 
+    

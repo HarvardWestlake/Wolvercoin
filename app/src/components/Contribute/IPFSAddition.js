@@ -18,6 +18,9 @@ const NFT_IMAGE_PREVIEW = {
     width: 300
 }
 
+// It's actually 5MB but there's no reason having such huge file
+const IPFS_FILE_MAX = 1000000;
+
 
 class IPFSAddition extends React.Component {
   constructor(props) {
@@ -27,7 +30,8 @@ class IPFSAddition extends React.Component {
         password: "",
         imagePreview : null,
         imageBase64 : null,
-        ipfsImgUrl : null
+        ipfsImgUrl : null,
+        fileUploadError : ''
       };
     this.updateImage = this.updateImage.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -48,8 +52,8 @@ class IPFSAddition extends React.Component {
     /* Create an instance of the client */
     const client = create({
             host: 'ipfs.wolvercoin.com',
-            port: 80,
-            protocol: 'http',
+            port: 443,
+            protocol: 'https',
             headers: {
                 Authorization: auth
             }
@@ -71,7 +75,16 @@ class IPFSAddition extends React.Component {
     this.setState({[event.target.name]: event.target.value});
   }
 
-    updateImage(imageBase64, file) {
+  updateImage(imageBase64, file) {
+    if (file && file.size > IPFS_FILE_MAX) {
+       this.setState({
+          fileUploadError : "File size of " + file.size + " bytes is too large. Max upload size is " + IPFS_FILE_MAX/1000 + " MB.  Try going to https://compressjpeg.com/ to compress your image and make sure you choose PNG.",
+          uploadToIPFSDisabled : true
+        });
+    } else {
+      this.setState({uploadToIPFSDisabled : false, fileUploadError : ''});
+    }
+
     this.setState({
         imageBase64 : imageBase64,
         file: file
@@ -92,6 +105,7 @@ class IPFSAddition extends React.Component {
             <label htmlFor="password">IPFS Password:</label>
             <input type="password" name="password" disabled={passwordDisabled} value={this.state.password} onChange={this.handleChange} />
             <ImageUpload onUpdate={this.updateImage} image={this.state.imageBase64} />
+            <p className="error">{this.state.fileUploadError}</p>
             <button disabled={uploadToIPFSDisabled} onClick={this.uploadToIPFS}>Upload To IPFS</button>
       </div>
     );

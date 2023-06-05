@@ -3,6 +3,8 @@ import MetaDataAddition from "./MetaDataAddition"
 import IPFSAddition from "./IPFSAddition"
 import NFTAddition from "./NFTAddition"
 import {Web3Context} from "../Contexts/Web3Provider"
+import AddPublicGoodForm from "../Admin/AddPublicGoodForm";
+import AddAuctionItemForm from "../Admin/AddAuctionItemForm";
 
 class Contribute extends React.Component {
     constructor(props) {
@@ -30,15 +32,25 @@ class Contribute extends React.Component {
     }
     render() {
       return (
+        
       <div className="contribute">
+        
+        <div id="public-goods-management">
+                <h1>Public Goods</h1>
+                <AddPublicGoodForm />
+            </div>
+            <div id="auction-management">
+                <h1>Auction Items</h1>
+                <AddAuctionItemForm />
+            </div>
         <IPFSAddition onUpdate={this.uploadedIPFSFile} onUpdatePassword={this.updatePassword}></IPFSAddition>
         <MetaDataAddition password={this.state.password} ipfsImgUrl={this.state.ipfsImgUrl} onUpdateMetaDataUrl={this.uploadedMetaDataFile}></MetaDataAddition>
 
         <Web3Context.Consumer>
-            {providerValueContext => { 
-              return <NFTAddition  onUpdateNFT={this.updateNFT} web3Context={providerValueContext} metaDataUrl={this.state.metaDataUrl}></NFTAddition>
-            }}
-          </Web3Context.Consumer>
+          {providerValueContext => { 
+            return <NFTAddition  onUpdateNFT={this.updateNFT} web3Context={providerValueContext} metaDataUrl={this.state.metaDataUrl}></NFTAddition>
+          }}
+        </Web3Context.Consumer>
       </div>)
     }
 };

@@ -4,23 +4,31 @@ import { ethers } from "ethers";
 class Balance extends React.Component {
   constructor(props) {
     super(props);
-    this.init();
     this.state = {
       balance : "..."
      };
   }
 
-  async init() {
-
-    let wolvercoinContract = this.props.web3Context.wolvercoinContract;
+  async componentDidMount() {
+    let wolvercoinContract = this.props.web3Context?.wolvercoinContract;
       const tokenName = await wolvercoinContract.name();
       console.log('Change this to getBalanceOf view after update');
+      if (this.props.web3Context.connectedAccount === ''){
+        return;
+      }
       const tokenBalance = await wolvercoinContract.balanceOf(this.props.web3Context.connectedAccount);
       const tokenUnits = await wolvercoinContract.decimals();
       let balance = ethers.utils.formatUnits(tokenBalance, tokenUnits);
+      const parsed = parseFloat(balance);
+      if(isNaN(parsed)) {
+        return;
+      }
+      this.setState({balance: parsed.toFixed(tokenUnits)});
       
-      this.setState({balance});
-      
+}
+
+  async init() {
+
   }
 
   render() {
@@ -28,7 +36,7 @@ class Balance extends React.Component {
     <div className="header-row">
       <div className="header-item">
         <p className="title">Total Balance</p>
-        <p className="figure">{this.state.balance}</p>
+        <p className="figure">{isNaN(this.state.balance) ? "..." : Math.round(this.state.balance*100)/100}</p>
       </div>
       <div className="header-item">
         <p className="title">Total Deposits</p>

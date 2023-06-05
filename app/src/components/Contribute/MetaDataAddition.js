@@ -34,7 +34,7 @@ class MetaDataAddition extends React.Component {
     // https://ikzttp.mypinata.cloud/ipfs/QmQFkLSQysj94s5GvTHPyzTxrawwtjgiiYS2TBLgrvw8CW/6190
     let basicMetaData = {
         name : this.state.name,
-        image : "http://ipfs.wolvercoin.com/ipfs/" + this.state.ipfsImgUrl,
+        image : "https://ipfs.wolvercoin.com/ipfs/" + this.state.ipfsImgUrl,
         attributes : [
             {
                 "trait_type": "Year",
@@ -49,8 +49,8 @@ class MetaDataAddition extends React.Component {
     const auth = await(sha256(this.state.password));
     const client = create({
             host: 'ipfs.wolvercoin.com',
-            port: 80,
-            protocol: 'http',
+            port: 443,
+            protocol: 'https',
             headers: {
                 Authorization: auth
             }
@@ -82,7 +82,7 @@ class MetaDataAddition extends React.Component {
     
     let url = <div></div>
     if (this.state.ipfsImgUrl) {
-      url = (<div><a target="_blank" href={"http://ipfs.wolvercoin.com/ipfs/" + this.state.ipfsImgUrl} >MetaData on IPFS</a><p>{this.state.ipfsImgUrl}</p></div>)
+      url = (<div><a target="_blank" href={"https://ipfs.wolvercoin.com/ipfs/" + this.state.ipfsImgUrl} >MetaData on IPFS</a><p>{this.state.ipfsImgUrl}</p></div>)
     }
     return (
       <div className="readableContent">

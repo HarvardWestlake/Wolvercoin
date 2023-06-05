@@ -18,3 +18,13 @@
     max-width: 300px;
     margin: 0px auto;
 }
+
+/* override css for material ui */
+.crypto-icon {
+    margin: 0px 5px 0px 5px;
+    width: 20px !important;
+    height: 20px !important;
+    margin-right: 5px;
+    display: inline-block;
+    background-image: url("https://wolvercoin.com/logo192.png");
+}
