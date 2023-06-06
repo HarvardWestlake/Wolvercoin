@@ -17,6 +17,11 @@
 # votesForOfficials -> hashMap(address -> unit256)
 # officialVotingPeriod -> boolean
 
+interface Token:
+    def transferFrom(_from : address, _to : address, _value : uint256) -> bool: view
+    def getBalanceOf(_user: address) -> uint256: view
+TokenContract: public(Token)
+
 # Address for community pot
 communityPot: public(address)
 # hashmap of active students
@@ -125,15 +130,20 @@ def vote(account : address):
     self.votesForOfficials[account] += 1
 
 @external
-def beginVoteOfficial(user: address) -> (bool):
-    isTeacher: bool = False
-    for i in self.teachers:
-        if (i == user):
-            isTeacher = True
-            assert self.officialVotingPeriod == True  
-        else:
-            isTeacher = False
-    return isTeacher
+def donate(to: address, numToSend: uint256):
+    # Check if the caller has sufficient balance
+    assert self.TokenContract.getBalanceOf(msg.sender) >= numToSend, "Insufficient balance"
+    self.TokenContract.transferFrom(msg.sender, to, numToSend)
+
+#def beginVoteOfficial(user: address) -> (bool):
+    #isTeacher: bool = False
+    #for i in self.teachers:
+       #if (i == user):
+            #isTeacher = True
+            #assert self.officialVotingPeriod == True  
+       #else:
+            #isTeacher = False
+    #return isTeacher
             
 @external
 def getOfficalVotingPeriod() -> (bool):
