@@ -1,90 +1,137 @@
 # @version ^0.3.7
-# this relies on functional ActiveUser contract/class
-# no other contract is interfacing with this code as of 12/12 at 9:00AM
+# relies on only Lottery contract as of June 5 2023
+
 interface ActiveUser:
     def getIsActiveUser(potentialUser: address) -> bool: view
     def getIsAdmin(potentialAdmin: address) -> bool: view
-    
+
+interface Lottery:
+    def getPot() -> uint256: view
+    def setStartingPot(amount: uint256) : nonpayable
+
 activeUserContract: public(ActiveUser)
 
+lotteryContract: public(Lottery)
+
 admin: HashMap[address, bool]
+votingAddress: address
+rickyCWallet: address
 topicsAddress: public(DynArray[address, 1000])
-percentage: uint256
+percentage: uint256 
 classSize: uint256
+activeStudents: HashMap[address, uint256]
+
+@external
+def __init__(erc20address: address):
+    self.lotteryContract = Lottery(erc20address)
+    self._setRickyC()
+
+# Function 1: students can use Wolvercoin to vote for initiatives; Mr. Theiss's vote can be weighted up to 15% of the total vote:
+
 @external
 def vote(voter: address):
     isIn: bool = False
     for studentAddress in self.topicsAddress: #find index of address of candidate in topics addresses
-            if studentAddress==voter:    
-                isIn = True
-                break
+        if studentAddress == voter:    
+            isIn = True
+            break
     if isIn == True:
-        self._removeNonTopics(voter)
+        self._removeTopics(voter)
         send(voter,1)
-    if self.admin[voter]:
-     
-        send(voter,(15/100)*self.classSize)
+    if self.admin[voter] == True:
+        send(voter, (15/100)*self.classSize)
 
 @external
-
 def tallyVotes(voter: address)-> bool:
     if self.percentage >= 50:
-        self._removeNonTopics(voter)
+        self._removeTopics(voter)
         return True
     return False
+
+# Function 2: Only Honors topics students can have WolverCoin at full functionality
+
+# me when vyper doesnt allow storage variables to have an initial value
+@internal
+def _setRickyC():
+    self.rickyCWallet = 0xF7Edc8FA1eCc32967F827C9043FcAe6ba73afA5c # placeholder
+
+@internal
+def _getRickyC() -> address:
+    return self.rickyCWallet
+
+# uncertain if this belongs in this contract lol -- should eventually be integrated into Token
+@external
+def withdraw(amount: uint256, requester: address) -> (uint256, String[255]):
+    isStudent: bool = self._isInTopicsList(requester)
+
+    if (isStudent):
+        return (amount, "nice")
+    elif (requester == self.rickyCWallet):
+        self.lotteryContract.setStartingPot(self.lotteryContract.getPot() + amount*(19/20))
+        return ((1/20)*amount, "Enjoy your joyful pursuit of education!")
+    else:
+        pass # shhh 
+    self.lotteryContract.setStartingPot(self.lotteryContract.getPot() + amount*(1/2))
+    return ((1/2)*amount, "should've taken topics")
+
+# Function 3: Honors Topics Student can unanimously vote a non Honors Topics Student to be considered an honors topics student by Wolvercoin or excommunicate an Honors Topics Student from being considered one
 
 @external
 def addNonTopics(candidate: address):
     #self.vote() #after or within vote is made to remove/add person
-    if self.percentage>=100:#assuming percentage doesnt change immediately after vote method is called
+    if self.percentage >= 100: #assuming percentage doesnt change immediately after vote method is called
         self.topicsAddress.append(candidate)
 
 @external
-def removeNonTopics(candidate: address):
-    self._removeNonTopics(candidate)
+def removeTopics(candidate: address):
+    self._removeTopics(candidate)
 
 #intern verison
 @internal
-def _removeNonTopics(candidate: address):
-    if self.percentage>=100:#assuming percentage doesnt change immediately after vote method is called
-        count: int256=-1
-        found: bool=False
+def _removeTopics(candidate: address):
+    if self.percentage >= 100: #assuming percentage doesnt change immediately after vote method is called
+        count: int256 =- 1
+        found: bool = False
         for studentAddress in self.topicsAddress: #find index of address of candidate in topics addresses
-            count=count+1
-            if studentAddress==candidate:
-                found=True
+            count = count + 1
+            if studentAddress == candidate:
+                found = True
                 break
 
         if found: #from google, allegedly removes thing at index
             self.topicsAddress[count] = self.topicsAddress[len(self.topicsAddress) - 1]
             self.topicsAddress.pop()
 
-
 @external
 def setPercentage(perc: uint256):
-    self.percentage=perc
+    self.percentage = perc
 
 @external
-def addToTopicsList(addend: address):
+def addToTopicsList(addend: address) -> DynArray[address, 1000]:
     self.topicsAddress.append(addend)
+    return self.topicsAddress
 
 @external
 def popTopicList():
     self.topicsAddress.pop()
 
 @external
-def getTopicsList()->DynArray[address,1000]:
+def getTopicsList()->DynArray[address, 1000]:
     return self.topicsAddress
 
+@external
+def getVotingAddress()->address:
+    return self.votingAddress
+
 @external 
-def isInTopicsList(searching:address)->bool:
-    added: bool=False
+def isInTopicsList(searching: address) -> bool:
+    return self._isInTopicsList(searching)
+
+@internal
+def _isInTopicsList(searching: address) -> bool:
+    added: bool = False
     for studentAddress in self.topicsAddress:
-        if studentAddress==searching:
-            added=True
+        if studentAddress == searching:
+            added = True
             break
     return added
-
-
-
-

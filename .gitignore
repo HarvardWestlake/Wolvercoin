@@ -15,3 +15,4 @@ __pycache__/
 .env
 
 app/firebase-debug.log
+account_test.txt
