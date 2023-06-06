@@ -36,7 +36,7 @@ def vote(voter: address):
         send(voter, (15/100)*self.classSize)
 
 @external
-def tallyVotes(voter: address)-> bool:
+def tallyVotes(voter: address) -> bool:
     if self.percentage >= 50:
         self._removeTopics(voter)
         return True
