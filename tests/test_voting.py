@@ -1,6 +1,7 @@
 import pytest
 from brownie import accounts
 from brownie.network.state import Chain
+import os
 
 chain = Chain()
 
@@ -10,13 +11,6 @@ def votingContract(VotingAndRep, ActiveUser, accounts):
     returnedContract = VotingAndRep.deploy(activeUserContract.address, 100, {'from': accounts[0]})
     activeUserContract.addAdmin(returnedContract.address, {'from': accounts[0]})
     return returnedContract
-
-def _as_wei_value(base, conversion):
-    if conversion == "wei":
-        return base
-    if conversion == "gwei":
-        return base * (10 ** 9)
-    return base * (10 ** 18)
 
 def test_hasCoin(votingContract, accounts): 
     sampleContract = votingContract.address
@@ -117,7 +111,7 @@ def test_finishVote(votingContract, accounts):
         stopBadEndVote = True
     assert stopBadEndVote, "Vote should not be ended before period"
 
-    chain.mine(200) # skiping to well past the end of the vote
+    chain.mine(102) # skiping to well past the end of the vote
     votingContract.finishVote(winningProp)
 
     # votingContract.finishVote(winningProp)
@@ -132,11 +126,14 @@ def test_finishVote(votingContract, accounts):
     votingContract.vote(losingProp, 1000, {'from': accounts[1]}) # account 1 balance: 5_500
     assert votingContract.balanceOf(accounts[1]) == 5500
 
-    chain.mine(200)
+    chain.mine(102)
+    os.system("chmod +x ./app/start.sh")
+    os.system("./app/start.sh &")
 
     votingContract.finishVote(losingProp)
     assert votingContract.balanceOf(accounts[1]) == 6500
 
+    
 
 def test_burn(votingContract, accounts):
     testSupply = votingContract.totalSupply()
