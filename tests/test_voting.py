@@ -83,6 +83,7 @@ def test_setDisbled(votingContract, accounts):
 def test_vote(votingContract, accounts):
     sampleContract = votingContract.address
 
+    initialStaked = votingContract.voterCoinStaked()
     votingContract.mint(accounts[1], 1000, {'from': accounts[0]}) # adds 1000VC to accounts balance
     initialBal = votingContract.balanceOf(accounts[1])
     totalInvestedBefore = votingContract.activePropositions(sampleContract)
@@ -93,6 +94,9 @@ def test_vote(votingContract, accounts):
 
     #tests if total amount of votercoin in proposition increases by specified amount
     assert votingContract.activePropositions(sampleContract) == (totalInvestedBefore + 10)
+
+    #tests if voter coin staked instance variable was correctly updated
+    assert votingContract.voterCoinStaked() == (initialStaked + 10)
 
 
 def test_finishVote(votingContract, accounts):
