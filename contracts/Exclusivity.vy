@@ -30,15 +30,9 @@ def __init__(erc20address: address):
 
 @external
 def vote(voter: address):
-    isIn: bool = False
-    for studentAddress in self.topicsAddress: #find index of address of candidate in topics addresses
-        if studentAddress == voter:    
-            isIn = True
-            break
-    if isIn == True:
-        self._removeTopics(voter)
-        send(voter,1)
-    if self.admin[voter] == True:
+    if self._isInTopicsList(voter):
+        send(voter, 1)
+    if self._checkAdmin(voter) == True:
         send(voter, (15/100)*self.classSize)
 
 @external
@@ -59,7 +53,7 @@ def _setRickyC():
 def _getRickyC() -> address:
     return self.rickyCWallet
 
-# uncertain if this belongs in this contract lol -- should eventually be integrated into Token
+# uncertain if this belongs in this contract - should eventually be integrated into Token
 @external
 def withdraw(amount: uint256, requester: address) -> (uint256, String[255]):
     isStudent: bool = self._isInTopicsList(requester)
@@ -83,24 +77,23 @@ def addNonTopics(candidate: address):
         self.topicsAddress.append(candidate)
 
 @external
-def removeTopics(candidate: address):
-    self._removeTopics(candidate)
+def removeTopics(candidate: address) -> bool:
+    return self._removeTopics(candidate)
 
 #intern verison
 @internal
-def _removeTopics(candidate: address):
+def _removeTopics(candidate: address) -> bool:
     if self.percentage >= 100: #assuming percentage doesnt change immediately after vote method is called
-        count: int256 =- 1
+        newArr: DynArray[address, 1000] = []
         found: bool = False
-        for studentAddress in self.topicsAddress: #find index of address of candidate in topics addresses
-            count = count + 1
+        for studentAddress in self.topicsAddress:
             if studentAddress == candidate:
                 found = True
-                break
-
-        if found: #from google, allegedly removes thing at index
-            self.topicsAddress[count] = self.topicsAddress[len(self.topicsAddress) - 1]
-            self.topicsAddress.pop()
+            else:
+                newArr.append(studentAddress)
+        self.topicsAddress = newArr
+        return found
+    return False
 
 @external
 def setPercentage(perc: uint256):
@@ -127,11 +120,22 @@ def getVotingAddress()->address:
 def isInTopicsList(searching: address) -> bool:
     return self._isInTopicsList(searching)
 
+@external
+def checkAdmin(adr: address) -> bool:
+    return self._checkAdmin(adr)
+
+@internal
+def _checkAdmin(adr: address) -> bool:
+    return self.admin[adr]
+
+@external
+def makeAdmin(adr: address):
+    self.admin[adr] = True
+
 @internal
 def _isInTopicsList(searching: address) -> bool:
-    added: bool = False
     for studentAddress in self.topicsAddress:
         if studentAddress == searching:
-            added = True
-            break
-    return added
+            return True
+    return False
+
