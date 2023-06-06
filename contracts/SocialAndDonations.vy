@@ -13,10 +13,17 @@
 # for this reason, I am rewriting:
 # potentialElectedOfficials -> dynarray (of addresses)
 # electedOfficials -> dynarray (of addresses)
+# have to do this to call balanceOf and transfer
+interface Token:
+    def transfer(_to : address, _value : uint256) -> bool: view
+    def getBalanceOf (_user: address) -> uint256: view
+    def transferFrom(_from : address, _to : address, _value : uint256) -> bool: nonpayable
+    def approve(_spender : address, _value : uint256) -> bool: nonpayable
 
+wolvercoinContract: public(Token)
 # votesForOfficials -> hashMap(address -> unit256)
 # officialVotingPeriod -> boolean
-
+from vyper.interfaces import ERC20
 # Address for community pot
 communityPot: public(address)
 # hashmap of active students
@@ -41,13 +48,17 @@ numStudents: public(uint256)
 alreadyVotedProposal: public(DynArray [address,100])
 #Array for proposal votes
 proposalVotes: public(DynArray[uint256, 3])
+bank: public(address)
+totalOfTransactions:public(uint256)
 
 @external
-def __init__():
+def __init__(wolvercoinAddress:address,n:address):
     self.officialVotingPeriod = True
     self.potentialElectedOfficials = []
     self.electedOfficials = []
+    self.wolvercoinContract = Token(wolvercoinAddress)
     self.proposalVotes=[0,0,0]
+    self.bank=msg.sender
 
 @external
 def getVotes(account : address) -> uint256:
@@ -121,8 +132,9 @@ def checkIfActive (wallet: address) -> bool:
     return (self.activeStudents[wallet] != 0)
 
 @external
-def vote(account : address):
+def vote(account: address) -> bool:
     self.votesForOfficials[account] += 1
+    return True
 
 @external
 def beginVoteOfficial(user: address) -> (bool):
@@ -155,5 +167,26 @@ def getProposalVotes (num : uint256) -> (uint256):
 @external
 def setOfficalVotingPeriod(b: bool):
    self.officialVotingPeriod = b
+#@internal 
+#def take10percent() -> uint256:
+#    return 100
+investment: address
+@external
+def balanceOf (_provider: address)->uint256:
+    return self.wolvercoinContract.getBalanceOf(_provider)
 
+@external
+def deposit10Percent(_sender: address, _provider: address)->bool:
+    #amount: uint256 =self.take10percent()
+    amount: uint256=1
+    #self.wolvercoinContract.getBalanceOf(self.bank) -= amount
+   # self.wolvercoinContract.getBalanceOf(_provider) += amount
+    # NOTE: vyper does not allow underflows
+    # so the following subtraction would revert on insufficient allowance
+   #self.wolvercoinContract.approve(self.bank, amount)
+    self.wolvercoinContract.transferFrom(_sender, _provider, amount)
+    #erc20Contract.transferFrom(accounts[1], accounts[2], 5, {"from": senderAccount})
+    #self.allowance[self.bank][_sender] -= amount
+    #log transferFrom(self.bank, _provider, amount)
+    return True
 ####################################################################################################
